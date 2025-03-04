@@ -73,6 +73,7 @@ include::additional-details.adoc[leveloffset=+1]
 
 == Свойства2
 
+ [.custom-background]
 [align="right"]
 == Line Split Count
 ************************************************
