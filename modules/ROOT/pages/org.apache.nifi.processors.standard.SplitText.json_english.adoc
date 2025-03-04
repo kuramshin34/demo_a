@@ -274,14 +274,3 @@ include::additional-details.adoc[leveloffset=+1]
 |===
 
 
-
-
-
-
-
-=== Смотрите также
-
-
-* xref:components/org.apache.nifi.processors.standard.MergeContent[org.apache.nifi.processors.standard.MergeContent]
-
-
