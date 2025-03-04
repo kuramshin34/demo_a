@@ -73,8 +73,8 @@ include::additional-details.adoc[leveloffset=+1]
 
 == Свойства2
 
-
-.[align="left"]*Line Split Count*
+[align="right"]
+== Line Split Count
 ************************************************
 
 [horizontal]
