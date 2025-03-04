@@ -1,0 +1,6 @@
+.custom-background {
+    background-color: #D1F8D1; /* Цвет для березового фона */
+    /* background-color: #008000; Для зеленого фона */
+    color: #000; /* Цвет текста */
+    padding: 10px; /* Опционально, чтобы добавить отступы */
+}

@@ -8,3 +8,5 @@ asciidoc:
     table-caption: false
 nav:
 - modules/ROOT/nav.adoc
+assets:
+  - path: assets/stylesheets/custom.css
