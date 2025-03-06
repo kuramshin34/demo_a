@@ -1,6 +1,19 @@
+/* custom.css */
 .custom-background {
     background-color: #D1F8D1; /* Цвет для березового фона */
     /* background-color: #008000; Для зеленого фона */
     color: #000; /* Цвет текста */
     padding: 10px; /* Опционально, чтобы добавить отступы */
+}
+
+body {
+    background-color: #f0f0f0;  /* Светло-серый фон */
+}
+
+h1 {
+    color: #ff0000;  /* Красный цвет для заголовков h1 */
+}
+
+.sidebar {
+    background-color: #e0e0e0;  /* Серый фон для боковой панели */
 }
