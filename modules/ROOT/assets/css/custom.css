@@ -17,3 +17,12 @@ h1 {
 .sidebar {
     background-color: #e0e0e0;  /* Серый фон для боковой панели */
 }
+/* Стиль для выделенного текста */
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+}
+
+h2 {
+    color: #fa1322;  /* Красный цвет для заголовков h1 */
+}
