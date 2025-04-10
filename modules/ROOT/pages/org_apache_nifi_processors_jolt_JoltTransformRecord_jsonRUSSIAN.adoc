@@ -1,0 +1,211 @@
+= JoltTransformRecord 2.2.0
+
+Применяет спецификацию JOLT к каждой записи в содержимом FlowFile. Создается новый FlowFile с преобразованным содержимым, который направляется по отношению 'success'. Если преобразование не удается, исходный FlowFile направляется в отношение 'failure'.
+
+[horizontal,labelwidth=25,itemwidth=75]
+Tags (Ключевые слова):
+cardinality, chainr, defaultr, jolt, record, removr, shiftr, sort, transform
+Input Requirement (Требования к вводу данных):
+REQUIRED (Обязательно)
+Supports Sensitive Dynamic (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+False
+
+
+
+== Properties (Свойства)
+
+
+.*Jolt Transform*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Jolt Transform
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Указывает спецификацию JOLT, которая должна быть использована с предоставленной спецификацией.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Не поддерживается
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*:: false  (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимы значения):*::
+
+* *DISPLAY NAME* Сдвигает входной JSON/данные для создания выходного JSON. : *VALUE* jolt-transform-shift
+
+* *DISPLAY NAME* Выполняет список Jolt преобразований. : *VALUE* jolt-transform-chain
+
+* *DISPLAY NAME* Применяет значения по умолчанию к выходному JSON. : *VALUE* jolt-transform-default
+
+* *DISPLAY NAME* Удаляет значения из входного данных для создания выходного JSON. : *VALUE* jolt-transform-remove
+
+* *DISPLAY NAME* Изменяет кардинальность элементов ввода для создания выходного JSON. : *VALUE* jolt-transform-card
+
+* *DISPLAY NAME* Сортирует ключи значений JSON по алфавиту. Любая установленная спецификация игнорируется. : *VALUE* jolt-transform-sort
+
+* *DISPLAY NAME* Кастомное преобразование. Требуется полное имя класса кастомного преобразования : *VALUE* jolt-transform-custom
+
+* *DISPLAY NAME* Записывает, когда ключ отсутствует или значение равно null : *VALUE* jolt-transform-modify-default
+
+* *DISPLAY NAME* Всегда перезаписывает значение : *VALUE* jolt-transform-modify-overwrite
+
+* *DISPLAY NAME* Записывает, когда ключ отсутствует : *VALUE* jolt-transform-modify-define
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*:: true  (Да) 
+************************************************
+.Jolt Specification
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Jolt Specification
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Спецификация JOLT для преобразования JSON данных. Значение этого свойства может быть текстом спецификации JOLT или путем к файлу, содержащему спецификацию JOLT. 'Jolt Specification' должно быть установлено, или значение игнорируется, если выбран преобразователь JOLT Sort.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Переменные окружения и атрибуты FlowFile
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*:: false  (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*:: false  (Нет) 
+************************************************
+.Custom Transformation Class Name
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Custom Transformation Class Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Полное имя класса для кастомного преобразования
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Переменные окружения и атрибуты FlowFile
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*:: false  (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*:: false  (Нет) 
+************************************************
+.Custom Module Directory
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Custom Module Directory
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Список путей к файлам и/или директориям, содержащих модули с кастомными преобразованиями (которые не включены в classpath NiFi).
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Переменные окружения, определенные на уровне JVM и системные свойства
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*:: false  (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*:: false  (Нет) 
+************************************************
+.*Transform Cache Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Transform Cache Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Компиляция Jolt Transform может быть довольно дорогой. Идеально, это делается только один раз. Однако, если в преобразовании используется выражение языка, нам может понадобиться новое преобразование для каждого FlowFile. Это значение контролирует, сколько из этих преобразований мы кэшируем в памяти, чтобы избежать компиляции преобразования каждый раз.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Не поддерживается
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*:: false  (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*:: true  (Да) 
+************************************************
+.*jolt-record-record-reader*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера для парсинга входящих данных и определения схемы данных.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Не поддерживается
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*:: false  (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*:: true  (Да) 
+************************************************
+.*jolt-record-record-writer*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера для записи записей
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Не поддерживается
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*:: false  (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*:: true  (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Имя |Описание
+
+|`failure`
+|Если FlowFile не обрабатывается по какой-либо причине (например, записи FlowFile не могут быть проанализированы), они будут направлены в это отношение
+
+|`success`
+|FlowFile с преобразованным содержимым будет направлен в это отношение
+
+|`original`
+|Оригинальный FlowFile, который был преобразован. Если FlowFile не обрабатывается, ничего не будет отправлено в это отношение
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Имя |Описание
+
+|`record.count`
+|Количество записей в исходящем FlowFile
+
+|`mime.type`
+|MIME Тип, который указывает настроенный Record Writer
+
+|===
+
+
+
+
+
+
+
