@@ -5,5 +5,6 @@
 * Lists
 ** xref:lists/ordered-list.adoc[]
 ** xref:lists/unordered-list.adoc[]
-* xref:components/org.apache.nifi.processors.cipher.DecryptContentAge.adoc[org.apache.nifi.processors.cipher.DecryptContentAge]
-* xref:components/org.apache.nifi.processors.cipher.EncryptContentAge.adoc[org.apache.nifi.processors.cipher.EncryptContentAge]
+* processors
+** xref:components/org.apache.nifi.processors.cipher.DecryptContentAge.adoc[org.apache.nifi.processors.cipher.DecryptContentAge]
+** xref:components/org.apache.nifi.processors.cipher.EncryptContentAge.adoc[org.apache.nifi.processors.cipher.EncryptContentAge]
