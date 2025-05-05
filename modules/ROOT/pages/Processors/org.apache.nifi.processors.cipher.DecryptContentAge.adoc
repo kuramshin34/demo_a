@@ -113,6 +113,6 @@ REQUIRED (Обязательно)
 === Смотрите также
 
 
-* xref:components/org.apache.nifi.processors.cipher.EncryptContentAge.adoc[org.apache.nifi.processors.cipher.EncryptContentAge]
+* xref:Processors/org.apache.nifi.processors.cipher.EncryptContentAge.adoc[EncryptContentAge]
 
 
