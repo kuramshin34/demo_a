@@ -1,0 +1,208 @@
+= GetElasticsearch 2.2.0
+
+Elasticsearch get processor that uses the official Elastic REST client libraries to fetch a single document from Elasticsearch by _id. Note that the full body of the document will be read into memory before being written to a FlowFile for transfer.
+
+[horizontal]
+*Tags* (Ключевые слова):
+elasticsearch, elasticsearch5, elasticsearch6, elasticsearch7, elasticsearch8, index, json, put, record
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ALLOWED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Get-Es-Id*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Document Id
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The _id of the document to retrieve.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*El-Rest-Fetch-Index*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Index
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the index to use.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.El-Rest-Type
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Type
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The type of this document (used by Elasticsearch for indexing and searching).
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Get-Es-Destination*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Destination
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Indicates whether the retrieved document is written to the FlowFile content or a FlowFile attribute.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* FlowFile Content: Output the retrieved document as the FlowFile content. 
+
+* FlowFile Attribute: Output the retrieved document as a FlowFile attribute specified by the Attribute Name. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Get-Es-Attribute-Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Attribute Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the FlowFile attribute to use for the retrieved document output.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*El-Rest-Client-Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Client Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: An Elasticsearch client service to use for running queries.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`The name of a URL query parameter to add`
+|Adds the specified property name/value as a query parameter in the Elasticsearch URL used for processing.
+|`The value of the URL query parameter`
+|
+
+|===
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`retry`
+|All flowfiles that fail due to server/cluster availability go to this relationship.
+
+|`not_found`
+|A FlowFile is routed to this relationship if the specified document does not exist in the Elasticsearch cluster.
+
+|`document`
+|Fetched documents are routed to this relationship.
+
+|`failure`
+|All flowfiles that fail for reasons unrelated to server availability go to this relationship.
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`filename`
+|The filename attribute is set to the document identifier
+
+|`elasticsearch.index`
+|The Elasticsearch index containing the document
+
+|`elasticsearch.type`
+|The Elasticsearch document type
+
+|`elasticsearch.get.error`
+|The error message provided by Elasticsearch if there is an error fetching the document.
+
+|===
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/JsonQueryElasticsearch.adoc[JsonQueryElasticsearch]
+
+

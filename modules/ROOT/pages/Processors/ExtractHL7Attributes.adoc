@@ -1,0 +1,182 @@
+= ExtractHL7Attributes 2.2.0
+
+Extracts information from an HL7 (Health Level 7) formatted FlowFile and adds the information as FlowFile Attributes. The attributes are named as <Segment Name> <dot> <Field Index>. If the segment is repeating, the naming will be <Segment Name> <underscore> <Segment Index> <dot> <Field Index>. For example, we may have an attribute named "MHS.12" with a value of "2.1" and an attribute named "OBX_11.3" with a value of "93000^CPT4".
+
+[horizontal]
+*Tags* (Ключевые слова):
+HL7, attributes, extract, health level 7, healthcare
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Character Encoding*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Character Encoding
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Character Encoding that is used to encode the HL7 data
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Use-Segment-Names*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Use Segment Names
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Whether or not to use HL7 segment names in attributes
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Parse-Segment-Fields*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Parse Segment Fields
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Whether or not to parse HL7 segment fields into attributes
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Skip-Validation*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Skip Validation
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Whether or not to validate HL7 message values
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Hl7-Input-Version*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: HL7 Input Version
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The HL7 version to use for parsing and validation
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* autodetect
+
+* 2.2
+
+* 2.3
+
+* 2.3.1
+
+* 2.4
+
+* 2.5
+
+* 2.5.1
+
+* 2.6
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|A FlowFile is routed to this relationship if it is properly parsed as HL7 and its attributes extracted
+
+|`failure`
+|A FlowFile is routed to this relationship if it cannot be mapped to FlowFile Attributes. This would happen if the FlowFile does not contain valid HL7 data
+
+|===
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,277 @@
+= EmailRecordSink 2.2.0
+
+Provides a RecordSinkService that can be used to send records in email using the specified writer for formatting.
+
+[horizontal]
+*Tags* (Ключевые слова):
+email, record, send, sink, smtp, write
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*From*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: From
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Email address to use as the sender. Comma separated sequence of addresses following RFC822 syntax.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.To
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: To
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The recipients to include in the To-Line of the email. Comma separated sequence of addresses following RFC822 syntax.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Cc
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: CC
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The recipients to include in the CC-Line of the email. Comma separated sequence of addresses following RFC822 syntax.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Bcc
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: BCC
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The recipients to include in the BCC-Line of the email. Comma separated sequence of addresses following RFC822 syntax.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Subject*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Subject
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The email subject
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Smtp-Hostname*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SMTP Hostname
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The hostname of the SMTP Server that is used to send Email Notifications
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Smtp-Port*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SMTP Port
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Port used for SMTP communications
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Smtp-Auth*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SMTP Auth
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Flag indicating whether authentication should be used
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Smtp-Username
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SMTP Username
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Username for the SMTP account
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Smtp-Password
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SMTP Password
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Password for the SMTP account
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Smtp-Starttls*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SMTP STARTTLS
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Flag indicating whether STARTTLS should be enabled. If the server does not support STARTTLS, the connection continues without the use of TLS
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Smtp-Ssl*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SMTP SSL
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Flag indicating whether SSL should be enabled
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Smtp-Xmailer-Header*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SMTP X-Mailer Header
+
+[horizontal]
+*DESCRIPTION (Описание):*:: X-Mailer used in the header of the outgoing email
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Record-Sink-Record-Writer*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

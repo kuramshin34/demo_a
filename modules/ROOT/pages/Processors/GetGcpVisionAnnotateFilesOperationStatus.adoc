@@ -1,0 +1,110 @@
+= GetGcpVisionAnnotateFilesOperationStatus 2.2.0
+
+Retrieves the current status of an Google Vision operation.
+
+[horizontal]
+*Tags* (Ключевые слова):
+Cloud, Google, Machine Learning, Vision
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Gcp-Credentials-Provider-Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Controller Service used to obtain Google Cloud Platform credentials.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Operationkey*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: GCP Operation Key
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The unique identifier of the Vision operation.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`running`
+|The job is currently still being processed
+
+|`success`
+|FlowFiles are routed to success relationship
+
+|`failure`
+|FlowFiles are routed to failure relationship
+
+|`original`
+|Upon successful completion, the original FlowFile will be routed to this relationship.
+
+|===
+
+
+
+=== Читаемые атрибуты
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`operationKey`
+|A unique identifier of the operation designated by the Vision server.
+
+|===
+
+
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/StartGcpVisionAnnotateFilesOperation.adoc[StartGcpVisionAnnotateFilesOperation]
+
+

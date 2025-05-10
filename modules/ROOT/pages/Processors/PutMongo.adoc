@@ -1,0 +1,286 @@
+= PutMongo 2.2.0
+
+Writes the contents of a FlowFile to MongoDB
+
+[horizontal]
+*Tags* (Ключевые слова):
+insert, mongodb, put, update, write
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.Mongo-Client-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Client Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If configured, this property will use the assigned client service for connection pooling.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Mongo Database Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Mongo Database Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the database to use
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Mongo Collection Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Mongo Collection Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the collection to use
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Mode*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Mode
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Indicates whether the processor should insert or update content
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* insert
+
+* update
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Upsert*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Upsert
+
+[horizontal]
+*DESCRIPTION (Описание):*:: When true, inserts a document if no document matches the update query criteria; this property is valid only when using update mode, otherwise it is ignored
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Update Query Key
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Update Query Key
+
+[horizontal]
+*DESCRIPTION (Описание):*:: One or more comma-separated document key names used to build the update query criteria, such as _id
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Putmongo-Update-Query
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Update Query
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specify a full MongoDB query to be used for the lookup query to do an update/upsert. NOTE: this field is ignored if the 'Update Query Key' value is not empty.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Put-Mongo-Update-Mode*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Update Mode
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Choose an update mode. You can either supply a JSON document to use as a direct replacement or specify a document that contains update operators like $set, $unset, and $inc. When Operators mode is enabled, the flowfile content is expected to be the operator part for example: {$set:{"key": "value"},$inc:{"count":1234}} and the update query will come from the configured Update Query property.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* With whole document
+
+* With operators enabled
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Update Method
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Update Method
+
+[horizontal]
+*DESCRIPTION (Описание):*:: MongoDB method for running collection update operations, such as updateOne or updateMany
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Update One: Updates only the first document that matches the query. 
+
+* Update Many: Updates every document that matches the query. 
+
+* Use 'mongodb.update.mode' FlowFile attribute.: Use the value of the 'mongodb.update.mode' attribute of the incoming FlowFile. Acceptable values are 'one' and 'many'. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Character Set*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Character Set in which the data is encoded
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+=== Системные ресурсы
+
+[cols="1a,2a",options="header",]
+|===
+|Ресурс |Описание
+
+
+|MEMORY
+|An instance of this component can cause high usage of this system resource.  Multiple instances or high concurrency settings may result a degradation of performance.
+
+|===
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|All FlowFiles that are written to MongoDB are routed to this relationship
+
+|`failure`
+|All FlowFiles that cannot be written to MongoDB are routed to this relationship
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`mongo.put.update.match.count`
+|The match count from result if update/upsert is performed, otherwise not set.
+
+|`mongo.put.update.modify.count`
+|The modify count from result if update/upsert is performed, otherwise not set.
+
+|`mongo.put.upsert.id`
+|The '_id' hex value if upsert is performed, otherwise not set.
+
+|===
+
+
+
+
+
+
+

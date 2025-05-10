@@ -1,0 +1,100 @@
+= MonitorMemory 2.2.0
+
+Checks the amount of Java Heap available in the JVM for a particular JVM Memory Pool. If the amount of space used exceeds some configurable threshold, will warn (via a log message and System-Level Bulletin) that the memory pool is exceeding this threshold.
+
+[horizontal]
+*Tags* (Ключевые слова):
+garbage collection, gc, heap, jvm, memory, monitor, warning
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Memory Pool*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Memory Pool
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the JVM Memory Pool to monitor. The allowed values for Memory Pools are platform and JVM dependent and may vary for different versions of Java and from published documentation. This reporting task will become invalidated if configured to use a Memory Pool that is not available on the currently running host platform and JVM
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* G1 Eden Space
+
+* G1 Old Gen
+
+* G1 Survivor Space
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Usage Threshold*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Usage Threshold
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Indicates the threshold at which warnings should be generated. This can be a percentage or a Data Size
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Reporting Interval
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Reporting Interval
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Indicates how often this reporting task should report bulletins while the memory utilization exceeds the configured threshold
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

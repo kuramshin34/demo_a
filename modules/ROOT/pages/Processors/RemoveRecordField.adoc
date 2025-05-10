@@ -1,0 +1,156 @@
+= RemoveRecordField 2.2.0
+
+Modifies the contents of a FlowFile that contains Record-oriented data (i.e. data that can be read via a RecordReader and written by a RecordWriter) by removing selected fields. This Processor requires that at least one user-defined Property be added. The name of the property is ignored by the processor, but could be a meaningful identifier for the user. The value of the property should indicate a RecordPath that determines the field to be removed. The processor executes the removal in the order in which these properties are added to the processor. Set the "Record Writer" to "Inherit Record Schema" in order to use the updated Record Schema modified when removing Fields.
+
+[horizontal]
+*Tags* (Ключевые слова):
+avro, csv, delete, freeform, generic, json, record, remove, schema, text, update
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Record Reader*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for reading incoming data
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Record Writer*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`A description of the field to remove`
+|Any field that matches the RecordPath set as the value will be removed.
+|`A RecordPath to the field to be removed.`
+|
+
+|===
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|FlowFiles that are successfully transformed will be routed to this relationship
+
+|`failure`
+|If a FlowFile cannot be transformed from the configured input format to the configured output format, the unchanged FlowFile will be routed to this relationship
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`record.error.message`
+|This attribute provides on failure the error message encountered by the Reader or Writer.
+
+|===
+
+
+
+== Варианты использования
+:sectnums:
+
+
+
+=== Remove one or more fields from a Record, where the names of the fields to remove are known.
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+record
+field
+drop
+remove
+delete
+expunge
+recordpath
+
+
+
+.Конфигурация
+====
+Configure the Record Reader according to the incoming data format.
+Configure the Record Writer according to the desired output format.
+
+For each field that you want to remove, add a single new property to the Processor.
+The name of the property can be anything but it's recommended to use a brief description of the field.
+The value of the property is a RecordPath that matches the field to remove.
+
+For example, to remove the `name` and `email` fields, add two Properties:
+`name` = `/name`
+`email` = `/email`
+
+====
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/UpdateRecord.adoc[UpdateRecord]
+
+

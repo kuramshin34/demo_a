@@ -1,0 +1,67 @@
+= StandardFileResourceService 2.2.0
+
+Provides a file resource for other components. The file needs to be available locally by Nifi (e.g. local disk or mounted storage). NiFi needs to have read permission to the file.
+
+[horizontal]
+*Tags* (Ключевые слова):
+file, resource
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*File-Path*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: File Path
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Path to a file that can be accessed locally.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+=== Ограничения
+
+[cols="1a,2a",options="header",]
+|===
+|Требуемые права |Объяснение
+
+|
+|Provides operator the ability to read from any file that NiFi has access to.
+
+|===
+
+
+
+
+
+
+
+
+
+
+
+
+

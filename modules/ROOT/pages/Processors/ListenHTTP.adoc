@@ -1,0 +1,409 @@
+= ListenHTTP 2.2.0
+
+Starts an HTTP Server and listens on a given base path to transform incoming requests into FlowFiles. The default URI of the Service will be http://{hostname}:{port}/contentListener. Only HEAD and POST requests are supported. GET, PUT, DELETE, OPTIONS and TRACE will result in an error and the HTTP response status code 405; CONNECT will also result in an error and the HTTP response status code 400. GET is supported on <service_URI>/healthcheck. If the service is available, it returns "200 OK" with the content "OK". The health check functionality can be configured to be accessible via a different port. For details see the documentation of the "Listening Port for health check requests" property.A Record Reader and Record Writer property can be enabled on the processor to process incoming requests as records. Record processing is not allowed for multipart requests and request in FlowFileV3 format (minifi).
+
+[horizontal]
+*Tags* (Ключевые слова):
+http, https, ingest, listen, rest
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+FORBIDDEN (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Base Path*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Base Path
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Base path for incoming connections
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Listening Port*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Listening Port
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Port to listen on for incoming connections
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Health-Check-Port
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Listening Port for Health Check Requests
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The port to listen on for incoming health check requests. If set, it must be different from the Listening Port. Configure this port if the processor is set to use two-way SSL and a load balancer that does not support client authentication for health check requests is used. Only /<base_path>/healthcheck service is available via this port and only GET and HEAD requests are supported. If the processor is set not to use SSL, SSL will not be used on this port, either. If the processor is set to use one-way SSL, one-way SSL will be used on this port. If the processor is set to use two-way SSL, one-way SSL will be used on this port (client authentication not required).
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Max Data To Receive Per Second
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Max Data to Receive per Second
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum amount of data to receive per second; this allows the bandwidth to be throttled to a specified data rate; if not specified, the data rate is not throttled
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Ssl Context Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: SSL Context Service enables support for HTTPS
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Http Protocols*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: HTTP Protocols
+
+[horizontal]
+*DESCRIPTION (Описание):*:: HTTP Protocols supported for Application Layer Protocol Negotiation with TLS
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* http/1.1: HTTP/1.1 
+
+* h2 http/1.1: HTTP/2 and HTTP/1.1 negotiated based on requested protocols 
+
+* h2: HTTP/2 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Client-Authentication
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Client Authentication
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Client Authentication policy for TLS connections. Required when SSL Context Service configured.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* AUTO: Inferred based on SSL Context Service properties. The presence of Trust Store properties implies REQUIRED, otherwise NONE is configured. 
+
+* WANT: Requests the client certificate on handshake and validates if present but does not require it 
+
+* REQUIRED: Requests the client certificate on handshake and rejects the connection if it is not present and valid 
+
+* NONE: Does not request the client certificate on handshake 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Authorized Dn Pattern*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Authorized Subject DN Pattern
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A Regular Expression to apply against the Subject's Distinguished Name of incoming connections. If the Pattern does not match the Subject DN, the the processor will respond with a status of HTTP 403 Forbidden.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Authorized-Issuer-Dn-Pattern
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Authorized Issuer DN Pattern
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A Regular Expression to apply against the Issuer's Distinguished Name of incoming connections. If the Pattern does not match the Issuer DN, the processor will respond with a status of HTTP 403 Forbidden.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Max Unconfirmed Flowfile Time*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Max Unconfirmed Flowfile Time
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum amount of time to wait for a FlowFile to be confirmed before it is removed from the cache
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Http Headers To Receive As Attributes (Regex)
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: HTTP Headers to receive as Attributes (Regex)
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Regular Expression that determines the names of HTTP Headers that should be passed along as FlowFile attributes
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Request Header Maximum Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Request Header Maximum Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum supported size of HTTP headers in requests sent to this processor
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Return Code
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Return Code
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The HTTP return code returned after every HTTP call
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Multipart-Request-Max-Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Multipart Request Max Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The max size of the request. Only applies for requests with Content-Type: multipart/form-data, and is used to prevent denial of service type of attacks, to prevent filling up the heap or disk space
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Multipart-Read-Buffer-Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Multipart Read Buffer Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The threshold size, at which the contents of an incoming file would be written to disk. Only applies for requests with Content-Type: multipart/form-data. It is used to prevent denial of service type of attacks, to prevent filling up the heap or disk space.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Max-Thread-Pool-Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Thread Pool Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum number of threads to be used by the embedded Jetty server. The value can be set between 8 and 1000. The value of this property affects the performance of the flows and the operating system, therefore the default value should only be changed in justified cases. A value that is less than the default value may be suitable if only a small number of HTTP clients connect to the server. A greater value may be suitable if a large number of HTTP clients are expected to make requests to the server simultaneously.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Record-Reader
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Record Reader to use parsing the incoming FlowFile into Records
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Record-Writer*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Record Writer to use for serializing Records after they have been transformed
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|Relationship for successfully received FlowFiles
+
+|===
+
+
+
+
+
+
+
+== Варианты использования
+:sectnums:
+
+
+
+=== Unpack FlowFileV3 content received in a POST
+
+
+NOTE: POST requests with "Content-Type: application/flowfile-v3" will have their payload interpreted as FlowFileV3 format
+and will be automatically unpacked. This will output the original FlowFile(s) from within the FlowFileV3 format and
+will not require a separate UnpackContent processor.
+
+
+
+
+Ключевые слова::
+flowfile
+flowfilev3
+unpack
+
+
+
+.Конфигурация
+====
+This feature of ListenHTTP is always on, no configuration required.
+
+The MergeContent and PackageFlowFile processors can generate FlowFileV3 formatted data.
+
+====
+
+
+
+
+
+

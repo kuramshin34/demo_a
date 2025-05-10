@@ -1,0 +1,142 @@
+= DecryptContentPGP 2.2.0
+
+Decrypt contents of OpenPGP messages. Using the Packaged Decryption Strategy preserves OpenPGP encoding to support subsequent signature verification.
+
+[horizontal]
+*Tags* (Ключевые слова):
+Encryption, GPG, OpenPGP, PGP, RFC 4880
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Decryption-Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Decryption Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Strategy for writing files to success after decryption
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* DECRYPTED: Produce decrypted content read from literal data ignoring signatures 
+
+* PACKAGED: Produce decrypted content packaged as an OpenPGP message for additional processing 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Passphrase
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Passphrase
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Passphrase used for decrypting data encrypted with Password-Based Encryption
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Private-Key-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Private Key Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: PGP Private Key Service for decrypting data encrypted with Public Key Encryption
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|Decryption Succeeded
+
+|`failure`
+|Decryption Failed
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`pgp.literal.data.filename`
+|Filename from decrypted Literal Data
+
+|`pgp.literal.data.modified`
+|Modified Date from decrypted Literal Data
+
+|`pgp.symmetric.key.algorithm.block.cipher`
+|Symmetric-Key Algorithm Block Cipher
+
+|`pgp.symmetric.key.algorithm.id`
+|Symmetric-Key Algorithm Identifier
+
+|===
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/EncryptContentPGP.adoc[EncryptContentPGP]
+
+* xref:Processors/SignContentPGP.adoc[SignContentPGP]
+
+* xref:Processors/VerifyContentPGP.adoc[VerifyContentPGP]
+
+

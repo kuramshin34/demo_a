@@ -1,0 +1,471 @@
+= PutDynamoDBRecord 2.2.0
+
+Inserts items into DynamoDB based on record-oriented data. The record fields are mapped into DynamoDB item fields, including partition and sort keys if set. Depending on the number of records the processor might execute the insert in multiple chunks in order to overcome DynamoDB's limitation on batch writing. This might result partially processed FlowFiles in which case the FlowFile will be transferred to the "unprocessed" relationship with the necessary attribute to retry later without duplicating the already executed inserts.
+
+[horizontal]
+*Tags* (Ключевые слова):
+AWS, Amazon, DynamoDB, Insert, Put, Record
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Table Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Table Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The DynamoDB table name
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Region*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Region
+
+[horizontal]
+*DESCRIPTION (Описание):*:: 
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* AWS GovCloud (US-East): AWS Region Code : us-gov-east-1 
+
+* AWS GovCloud (US-West): AWS Region Code : us-gov-west-1 
+
+* Africa (Cape Town): AWS Region Code : af-south-1 
+
+* Asia Pacific (Hong Kong): AWS Region Code : ap-east-1 
+
+* Asia Pacific (Hyderabad): AWS Region Code : ap-south-2 
+
+* Asia Pacific (Jakarta): AWS Region Code : ap-southeast-3 
+
+* Asia Pacific (Malaysia): AWS Region Code : ap-southeast-5 
+
+* Asia Pacific (Melbourne): AWS Region Code : ap-southeast-4 
+
+* Asia Pacific (Mumbai): AWS Region Code : ap-south-1 
+
+* Asia Pacific (Osaka): AWS Region Code : ap-northeast-3 
+
+* Asia Pacific (Seoul): AWS Region Code : ap-northeast-2 
+
+* Asia Pacific (Singapore): AWS Region Code : ap-southeast-1 
+
+* Asia Pacific (Sydney): AWS Region Code : ap-southeast-2 
+
+* Asia Pacific (Thailand): AWS Region Code : ap-southeast-7 
+
+* Asia Pacific (Tokyo): AWS Region Code : ap-northeast-1 
+
+* Canada (Central): AWS Region Code : ca-central-1 
+
+* Canada West (Calgary): AWS Region Code : ca-west-1 
+
+* China (Beijing): AWS Region Code : cn-north-1 
+
+* China (Ningxia): AWS Region Code : cn-northwest-1 
+
+* EU ISOE West: AWS Region Code : eu-isoe-west-1 
+
+* Europe (Frankfurt): AWS Region Code : eu-central-1 
+
+* Europe (Ireland): AWS Region Code : eu-west-1 
+
+* Europe (London): AWS Region Code : eu-west-2 
+
+* Europe (Milan): AWS Region Code : eu-south-1 
+
+* Europe (Paris): AWS Region Code : eu-west-3 
+
+* Europe (Spain): AWS Region Code : eu-south-2 
+
+* Europe (Stockholm): AWS Region Code : eu-north-1 
+
+* Europe (Zurich): AWS Region Code : eu-central-2 
+
+* Israel (Tel Aviv): AWS Region Code : il-central-1 
+
+* Mexico (Central): AWS Region Code : mx-central-1 
+
+* Middle East (Bahrain): AWS Region Code : me-south-1 
+
+* Middle East (UAE): AWS Region Code : me-central-1 
+
+* South America (Sao Paulo): AWS Region Code : sa-east-1 
+
+* US East (N. Virginia): AWS Region Code : us-east-1 
+
+* US East (Ohio): AWS Region Code : us-east-2 
+
+* US ISO East: AWS Region Code : us-iso-east-1 
+
+* US ISO WEST: AWS Region Code : us-iso-west-1 
+
+* US ISOB East (Ohio): AWS Region Code : us-isob-east-1 
+
+* US West (N. California): AWS Region Code : us-west-1 
+
+* US West (Oregon): AWS Region Code : us-west-2 
+
+* aws-cn-global: AWS Region Code : aws-cn-global 
+
+* aws-global: AWS Region Code : aws-global 
+
+* aws-iso-b-global: AWS Region Code : aws-iso-b-global 
+
+* aws-iso-global: AWS Region Code : aws-iso-global 
+
+* aws-us-gov-global: AWS Region Code : aws-us-gov-global 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Aws Credentials Provider Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: AWS Credentials Provider Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Controller Service that is used to obtain AWS credentials provider
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Record-Reader*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for parsing incoming data and determining the data's schema.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Partition-Key-Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Partition Key Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Defines the strategy the processor uses to assign partition key value to the inserted Items.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Partition By Field: Uses the value of the Record field identified by the "Partition Key Field" property as partition key value. 
+
+* Partition By Attribute: Uses an incoming FlowFile attribute identified by "Partition Key Attribute" as the value of the partition key. The incoming Records must not contain field with the same name defined by the "Partition Key Field". 
+
+* Generated UUID: Uses a generated UUID as value for the partition key. The incoming Records must not contain field with the same name defined by the "Partition Key Field". 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Partition-Key-Field*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Partition Key Field
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Defines the name of the partition key field in the DynamoDB table. Partition key is also known as hash key. Depending on the "Partition Key Strategy" the field value might come from the incoming Record or a generated one.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Partition-Key-Attribute*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Partition Key Attribute
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the FlowFile attribute that will be used as the value of the partition key when using "Partition by attribute" partition key strategy.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Sort-Key-Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Sort Key Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Defines the strategy the processor uses to assign sort key to the inserted Items.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* None: The processor will not assign sort key to the inserted Items. 
+
+* Sort By Field: Uses the value of the Record field identified by the "Sort Key Field" property as sort key value. 
+
+* Generate Sequence: The processor will assign a number for every item based on the original record's position in the incoming FlowFile. This will be used as sort key value. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Sort-Key-Field*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Sort Key Field
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Defines the name of the sort key field in the DynamoDB table. Sort key is also known as range key.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Communications Timeout*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout
+
+[horizontal]
+*DESCRIPTION (Описание):*:: 
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Endpoint Override Url
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Endpoint Override URL
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Endpoint URL to use instead of the AWS default including scheme, host, port, and path. The AWS libraries select an endpoint URL based on the AWS region, but this property overrides the selected endpoint URL, allowing use with other S3-compatible endpoints.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Proxy-Configuration-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Ssl Context Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies an optional SSL Context Service that, if provided, will be used to create connections
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+=== Системные ресурсы
+
+[cols="1a,2a",options="header",]
+|===
+|Ресурс |Описание
+
+
+|MEMORY
+|An instance of this component can cause high usage of this system resource.  Multiple instances or high concurrency settings may result a degradation of performance.
+
+|NETWORK
+|An instance of this component can cause high usage of this system resource.  Multiple instances or high concurrency settings may result a degradation of performance.
+
+|===
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`failure`
+|FlowFiles are routed to failure relationship
+
+|`success`
+|FlowFiles are routed to success relationship
+
+|`unprocessed`
+|FlowFiles are routed to unprocessed relationship when DynamoDB is not able to process all the items in the request. Typical reasons are insufficient table throughput capacity and exceeding the maximum bytes per request. Unprocessed FlowFiles can be retried with a new request.
+
+|===
+
+
+
+=== Читаемые атрибуты
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`dynamodb.chunks.processed`
+|Number of chunks successfully inserted into DynamoDB. If not set, it is considered as 0
+
+|===
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`dynamodb.chunks.processed`
+|Number of chunks successfully inserted into DynamoDB. If not set, it is considered as 0
+
+|`dynamodb.key.error.unprocessed`
+|DynamoDB unprocessed keys
+
+|`dynmodb.range.key.value.error`
+|DynamoDB range key error
+
+|`dynamodb.key.error.not.found`
+|DynamoDB key not found
+
+|`dynamodb.error.exception.message`
+|DynamoDB exception message
+
+|`dynamodb.error.code`
+|DynamoDB error code
+
+|`dynamodb.error.message`
+|DynamoDB error message
+
+|`dynamodb.error.service`
+|DynamoDB error service
+
+|`dynamodb.error.retryable`
+|DynamoDB error is retryable
+
+|`dynamodb.error.request.id`
+|DynamoDB error request id
+
+|`dynamodb.error.status.code`
+|DynamoDB error status code
+
+|`dynamodb.item.io.error`
+|IO exception message on creating item
+
+|===
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/DeleteDynamoDB.adoc[DeleteDynamoDB]
+
+* xref:Processors/GetDynamoDB.adoc[GetDynamoDB]
+
+* xref:Processors/PutDynamoDB.adoc[PutDynamoDB]
+
+

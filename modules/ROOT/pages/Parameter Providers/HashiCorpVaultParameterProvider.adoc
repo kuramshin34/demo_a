@@ -1,0 +1,115 @@
+= HashiCorpVaultParameterProvider 2.2.0
+
+Provides parameters from HashiCorp Vault Key/Value Version 1 and Version 2 Secrets.  Each Secret represents a parameter group, which will map to a Parameter Context.  The keys and values in the Secret map to Parameters.
+
+[horizontal]
+*Tags* (Ключевые слова):
+hashicorp, secret, vault
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Vault-Client-Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: HashiCorp Vault Client Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The service used to interact with HashiCorp Vault
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Kv-Path*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Key/Value Path
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The HashiCorp Vault path to the Key/Value Secrets Engine
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Kv-Version*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Key/Value Version
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The version of the Key/Value Secrets Engine
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* KV_1: Key/Value Secret Engine Version 1. 
+
+* KV_2: Key/Value Secret Engine Version 2. If multiple versions of the secret exist, latest will be used. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Secret-Name-Pattern*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Secret Name Pattern
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A Regular Expression indicating which Secrets to include as parameter groups to map to Parameter Contexts by name.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

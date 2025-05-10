@@ -1,0 +1,101 @@
+= ExtractRecordSchema 2.2.0
+
+Extracts the record schema from the FlowFile using the supplied Record Reader and writes it to the `avro.schema` attribute.
+
+[horizontal]
+*Tags* (Ключевые слова):
+avro, csv, freeform, generic, json, record, schema, text, xml
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Record-Reader*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for reading incoming data
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Cache-Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Cache Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the number of schemas to cache. This value should reflect the expected number of different schemas that may be in the incoming FlowFiles. This ensures more efficient retrieval of the schemas and thus the processor performance.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|FlowFiles whose record schemas are successfully extracted will be routed to this relationship
+
+|`failure`
+|If a FlowFile's record schema cannot be extracted from the configured input format, the FlowFile will be routed to this relationship
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`record.error.message`
+|This attribute provides on failure the error message encountered by the Reader.
+
+|`avro.schema`
+|This attribute provides the schema extracted from the input FlowFile using the provided RecordReader.
+
+|===
+
+
+
+
+
+
+

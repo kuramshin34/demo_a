@@ -1,0 +1,107 @@
+= JsonConfigBasedBoxClientService 2.2.0
+
+Provides Box client objects through which Box API calls can be used.
+
+[horizontal]
+*Tags* (Ключевые слова):
+box, client, provider
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Box-Account-Id*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Account ID
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The ID of the Box account who owns the accessed resource. Same as 'User Id' under 'App Info' in the App 'General Settings'.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.App-Config-File
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: App Config File
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Full path of an App config JSON file. See Additional Details for more information.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.App-Config-Json
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: App Config JSON
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The raw JSON containing an App config. See Additional Details for more information.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Proxy-Configuration-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

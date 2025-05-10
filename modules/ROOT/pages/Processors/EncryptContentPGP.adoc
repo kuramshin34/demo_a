@@ -1,0 +1,195 @@
+= EncryptContentPGP 2.2.0
+
+Encrypt contents using OpenPGP. The processor reads input and detects OpenPGP messages to avoid unnecessary additional wrapping in Literal Data packets.
+
+[horizontal]
+*Tags* (Ключевые слова):
+Encryption, GPG, OpenPGP, PGP, RFC 4880
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Symmetric-Key-Algorithm*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Symmetric-Key Algorithm
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Symmetric-Key Algorithm for encryption
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* AES_128
+
+* AES_192
+
+* AES_256
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*File-Encoding*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: File Encoding
+
+[horizontal]
+*DESCRIPTION (Описание):*:: File Encoding for encryption
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* ASCII
+
+* BINARY
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Passphrase
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Passphrase
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Passphrase used for encrypting data with Password-Based Encryption
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Public-Key-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Public Key Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: PGP Public Key Service for encrypting data with Public Key Encryption
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Public-Key-Search
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Public Key Search
+
+[horizontal]
+*DESCRIPTION (Описание):*:: PGP Public Key Search will be used to match against the User ID or Key ID when formatted as uppercase hexadecimal string of 16 characters
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|Encryption Succeeded
+
+|`failure`
+|Encryption Failed
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`pgp.symmetric.key.algorithm`
+|Symmetric-Key Algorithm
+
+|`pgp.symmetric.key.algorithm.block.cipher`
+|Symmetric-Key Algorithm Block Cipher
+
+|`pgp.symmetric.key.algorithm.key.size`
+|Symmetric-Key Algorithm Key Size
+
+|`pgp.symmetric.key.algorithm.id`
+|Symmetric-Key Algorithm Identifier
+
+|`pgp.file.encoding`
+|File Encoding
+
+|`pgp.compression.algorithm`
+|Compression Algorithm
+
+|`pgp.compression.algorithm.id`
+|Compression Algorithm Identifier
+
+|===
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/DecryptContentPGP.adoc[DecryptContentPGP]
+
+* xref:Processors/SignContentPGP.adoc[SignContentPGP]
+
+* xref:Processors/VerifyContentPGP.adoc[VerifyContentPGP]
+
+

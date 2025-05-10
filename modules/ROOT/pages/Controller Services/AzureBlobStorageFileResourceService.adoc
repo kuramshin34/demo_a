@@ -1,0 +1,96 @@
+= AzureBlobStorageFileResourceService 2.2.0
+
+Provides an Azure Blob Storage file resource for other components.
+
+[horizontal]
+*Tags* (Ключевые слова):
+azure, blob, cloud, file, microsoft, resource, storage
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Storage-Credentials-Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Storage Credentials
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Controller Service used to obtain Azure Blob Storage Credentials.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Container-Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Container Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Name of the Azure storage container. In case of PutAzureBlobStorage processor, container can be created if it does not exist.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Blob-Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Blob Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The full name of the blob
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Controller Services/FetchAzureBlobStorage_v12.adoc[FetchAzureBlobStorage_v12]
+
+

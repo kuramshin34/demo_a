@@ -1,0 +1,146 @@
+= ConsumeWindowsEventLog 2.2.0
+
+Registers a Windows Event Log Subscribe Callback to receive FlowFiles from Events on Windows.  These can be filtered via channel and XPath.
+
+[horizontal]
+*Tags* (Ключевые слова):
+event, ingest, windows
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+FORBIDDEN (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Channel*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Channel
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Windows Event Log Channel to listen to.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Query*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: XPath Query
+
+[horizontal]
+*DESCRIPTION (Описание):*:: XPath Query to filter events. (See https://msdn.microsoft.com/en-us/library/windows/desktop/dd996910(v=vs.85).aspx for examples.)
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Maxbuffer*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Buffer Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The individual Event Log XMLs are rendered to a buffer.  This specifies the maximum size in bytes that the buffer will be allowed to grow to. (Limiting the maximum size of an individual Event XML.)
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Maxqueue*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum queue size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Events are received asynchronously and must be output as FlowFiles when the processor is triggered.  This specifies the maximum number of events to queue for transformation into FlowFiles.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Inactivedurationtoreconnect*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Inactive duration to reconnect
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If no new event logs are processed for the specified time period, this processor will try reconnecting to recover from a state where any further messages cannot be consumed. Such situation can happen if Windows Event Log service is restarted, or ERROR_EVT_QUERY_RESULT_STALE (15011) is returned. Setting no duration, e.g. '0 ms' disables auto-reconnection.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|Relationship for successfully consumed events.
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`mime.type`
+|Will set a MIME type value of application/xml.
+
+|===
+
+
+
+
+
+
+

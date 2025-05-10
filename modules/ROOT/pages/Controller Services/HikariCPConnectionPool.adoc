@@ -1,0 +1,250 @@
+= HikariCPConnectionPool 2.2.0
+
+Provides Database Connection Pooling Service based on HikariCP. Connections can be asked from pool and returned after usage.
+
+[horizontal]
+*Tags* (Ключевые слова):
+connection, database, dbcp, hikari, jdbc, pooling, store
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ True (Да) 
+
+
+
+== Properties (Свойства)
+
+
+.*Hikaricp-Connection-Url*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Database Connection URL
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A database connection URL used to connect to a database. May contain database system name, host, port, database name and some parameters. The exact syntax of a database connection URL is specified by your DBMS.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Hikaricp-Driver-Classname*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Database Driver Class Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The fully-qualified class name of the JDBC driver. Example: com.mysql.jdbc.Driver
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Hikaricp-Driver-Locations
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Database Driver Location(s)
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Comma-separated list of files/folders and/or URLs containing the driver JAR and its dependencies (if any). For example '/var/tmp/mariadb-java-client-1.1.7.jar'
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Hikaricp-Kerberos-User-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Kerberos User Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Kerberos User Controller Service that should be used for authenticating with Kerberos
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Hikaricp-Username
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Database User
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Database user name
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Hikaricp-Password
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Password
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The password for the database user
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Hikaricp-Max-Wait-Time*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Max Wait Time
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum amount of time that the pool will wait (when there are no available connections)  for a connection to be returned before failing, or 0 <time units> to wait indefinitely. 
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Hikaricp-Max-Total-Conns*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Max Total Connections
+
+[horizontal]
+*DESCRIPTION (Описание):*:: This property controls the maximum size that the pool is allowed to reach, including both idle and in-use connections. Basically this value will determine the maximum number of actual connections to the database backend. A reasonable value for this is best determined by your execution environment. When the pool reaches this size, and no idle connections are available, the service will block for up to connectionTimeout milliseconds before timing out.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Hikaricp-Validation-Query
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Validation Query
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Validation Query used to validate connections before returning them. When connection is invalid, it gets dropped and new valid connection will be returned. NOTE: Using validation might have some performance penalty.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Hikaricp-Min-Idle-Conns*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Minimum Idle Connections
+
+[horizontal]
+*DESCRIPTION (Описание):*:: This property controls the minimum number of idle connections that HikariCP tries to maintain in the pool. If the idle connections dip below this value and total connections in the pool are less than 'Max Total Connections', HikariCP will make a best effort to add additional connections quickly and efficiently. It is recommended that this property to be set equal to 'Max Total Connections'.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Hikaricp-Max-Conn-Lifetime
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Max Connection Lifetime
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum lifetime of a connection. After this time is exceeded the connection will fail the next activation, passivation or validation test. A value of zero or less means the connection has an infinite lifetime.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`JDBC property name`
+|Specifies a property name and value to be set on the JDBC connection(s). If Expression Language is used, evaluation will be performed upon the controller service being enabled. Note that no flow file input (attributes, e.g.) is available for use in Expression Language constructs for these properties.
+|`JDBC property value`
+|
+
+|===
+
+
+
+
+
+
+
+=== Ограничения
+
+[cols="1a,2a",options="header",]
+|===
+|Требуемые права |Объяснение
+
+|
+|Database Driver Location can reference resources over HTTP
+
+|===
+
+
+
+
+
+
+
+
+
+
+
+
+

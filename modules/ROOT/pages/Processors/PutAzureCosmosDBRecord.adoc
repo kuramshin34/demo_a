@@ -1,0 +1,257 @@
+= PutAzureCosmosDBRecord 2.2.0
+
+This processor is a record-aware processor for inserting data into Cosmos DB with Core SQL API. It uses a configured record reader and schema to read an incoming record set from the body of a Flowfile and then inserts those records into a configured Cosmos DB Container.
+
+[horizontal]
+*Tags* (Ключевые слова):
+azure, cosmos, insert, put, record
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.Azure-Cosmos-Db-Connection-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Cosmos DB Connection Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If configured, the controller service used to obtain the connection string and access key
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Azure-Cosmos-Db-Uri
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Cosmos DB URI
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Cosmos DB URI, typically in the form of https://{databaseaccount}.documents.azure.com:443/ Note this host URL is for Cosmos DB with Core SQL API from Azure Portal (Overview->URI)
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Azure-Cosmos-Db-Key
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Cosmos DB Access Key
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Cosmos DB Access Key from Azure Portal (Settings->Keys). Choose a read-write key to enable database or container creation at run time
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Azure-Cosmos-Db-Consistency-Level
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Cosmos DB Consistency Level
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Choose from five consistency levels on the consistency spectrum. Refer to Cosmos DB documentation for their differences
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* STRONG
+
+* BOUNDED_STALENESS
+
+* SESSION
+
+* CONSISTENT_PREFIX
+
+* EVENTUAL
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Azure-Cosmos-Db-Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Cosmos DB Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The database name or id. This is used as the namespace for document collections or containers
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Azure-Cosmos-Db-Container-Id*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Cosmos DB Container ID
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The unique identifier for the container
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Azure-Cosmos-Db-Partition-Key*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Cosmos DB Partition Key
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The partition key used to distribute data among servers
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Record-Reader*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for parsing incoming data and determining the data's schema
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Insert-Batch-Size
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Insert Batch Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The number of records to group together for one single insert operation against Cosmos DB
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Azure-Cosmos-Db-Conflict-Handling-Strategy
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Cosmos DB Conflict Handling Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Choose whether to ignore or upsert when conflict error occurs during insertion
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Ignore: Conflicting records will not be inserted, and FlowFile will not be routed to failure 
+
+* Upsert: Conflicting records will be upserted, and FlowFile will not be routed to failure 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+=== Системные ресурсы
+
+[cols="1a,2a",options="header",]
+|===
+|Ресурс |Описание
+
+
+|MEMORY
+|An instance of this component can cause high usage of this system resource.  Multiple instances or high concurrency settings may result a degradation of performance.
+
+|===
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|All FlowFiles that are written to Cosmos DB are routed to this relationship
+
+|`failure`
+|All FlowFiles that cannot be written to Cosmos DB are routed to this relationship
+
+|===
+
+
+
+
+
+
+
+
+
+
+

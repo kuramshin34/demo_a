@@ -1,0 +1,181 @@
+= ConsumeGCPubSub 2.2.0
+
+Consumes message from the configured Google Cloud PubSub subscription. If the 'Batch Size' is set, the configured number of messages will be pulled in a single request, else only one message will be pulled.
+
+[horizontal]
+*Tags* (Ключевые слова):
+consume, gcp, google, google-cloud, message, pubsub
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+FORBIDDEN (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Gcp Credentials Provider Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Controller Service used to obtain Google Cloud Platform credentials.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Gcp-Project-Id
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Project ID
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Google Cloud Project ID
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Gcp-Pubsub-Subscription*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Subscription
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Name of the Google Cloud Pub/Sub Subscription
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Gcp-Pubsub-Publish-Batch-Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Size Threshold
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Indicates the number of messages the cloud service should bundle together in a batch. If not set and left empty, only one message will be used in a batch
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Api-Endpoint*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: API Endpoint
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Override the gRPC endpoint in the form of [host:port]
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Proxy-Configuration-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|FlowFiles are routed to this relationship after a successful Google Cloud Pub/Sub operation.
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`gcp.pubsub.ackId`
+|Acknowledgement Id of the consumed Google Cloud PubSub message
+
+|`gcp.pubsub.messageSize`
+|Serialized size of the consumed Google Cloud PubSub message
+
+|`gcp.pubsub.attributesCount`
+|Number of attributes the consumed PubSub message has, if any
+
+|`gcp.pubsub.publishTime`
+|Timestamp value when the message was published
+
+|`Dynamic Attributes`
+|Other than the listed attributes, this processor may write zero or more attributes, if the original Google Cloud Publisher client added any attributes to the message while sending
+
+|===
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/PublishGCPubSub.adoc[PublishGCPubSub]
+
+

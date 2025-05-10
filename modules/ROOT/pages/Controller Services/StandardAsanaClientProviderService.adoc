@@ -1,0 +1,90 @@
+= StandardAsanaClientProviderService 2.2.0
+
+Common service to authenticate with Asana, and to work on a specified workspace.
+
+[horizontal]
+*Tags* (Ключевые слова):
+asana, authentication, service
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Asana-Api-Url*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: API URL
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Base URL of Asana API. Leave it as default, unless you have your own Asana instance serving on a different URL. (typical for on-premise installations)
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Asana-Personal-Access-Token*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Personal Access Token
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Similarly to entering your username/password into a website, when you access your Asana data via the API you need to authenticate. Personal Access Token (PAT) is an authentication mechanism for accessing the API. You can generate a PAT from the Asana developer console. Refer to Asana Authentication Quick Start for detailed instructions on getting started.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Asana-Workspace-Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Workspace
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specify which Asana workspace to use. Case sensitive. A workspace is the highest-level organizational unit in Asana. All projects and tasks have an associated workspace. An organization is a special kind of workspace that represents a company. In an organization, you can group your projects into teams.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

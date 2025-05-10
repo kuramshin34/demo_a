@@ -1,0 +1,302 @@
+= PutAzureDataExplorer 2.2.0
+
+Acts as an Azure Data Explorer sink which sends FlowFiles to the provided endpoint. Data can be sent through queued ingestion or streaming ingestion to the Azure Data Explorer cluster.
+
+[horizontal]
+*Tags* (Ключевые слова):
+ADX, Azure, Data, Explorer, Kusto
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Kusto Ingest Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Kusto Ingest Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Azure Data Explorer Kusto Ingest Service
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Database Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Database Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Azure Data Explorer Database Name for ingesting data
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Table Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Table Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Azure Data Explorer Table Name for ingesting data
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Ingest Mapping Name
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Ingest Mapping Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the mapping responsible for storing the data in the appropriate columns.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Data Format*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Data Format
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The format of the data that is sent to Azure Data Explorer. Supported formats include: avro, csv, json
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* avro: An Avro format with support for logical types and for the snappy compression codec 
+
+* apacheavro: An Avro format with support for logical types and for the snappy compression codec. 
+
+* csv: A text file with comma-separated values (,). For more information, see RFC 4180: Common Format and MIME Type for Comma-Separated Values (CSV) Files. 
+
+* json: A text file containing JSON objects separated by \n or \r\n. For more information, see JSON Lines (JSONL). 
+
+* multijson: A text file containing a JSON array of property containers (each representing a record) or any number of property containers separated by spaces, \n or \r\n. Each property container may be spread across multiple lines. This format is preferable to JSON unless the data is not property containers. 
+
+* orc: An ORC file. 
+
+* parquet: A parquet file. 
+
+* psv: A text file with values separated by vertical bars (|). 
+
+* scsv: A text file with values separated by semicolons (;). 
+
+* sohsv: A text file with SOH-separated values. (SOH is the ASCII code point 1. This format is used by Hive in HDInsight). 
+
+* tsv: A text file with tab delimited values (\t). 
+
+* tsve: A text file with tab-delimited values (\t). A backslash (\) is used as escape character. 
+
+* txt: A text file with lines separated by \n. Empty lines are skipped 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Partially Succeeded Routing Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Partially Succeeded Routing Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Defines where to route FlowFiles that resulted in a partially succeeded status.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* success
+
+* failure
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Streaming Enabled*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Streaming Enabled
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Whether to stream data to Azure Data Explorer.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Ingestion Ignore First Record*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Ingestion Ignore First Record
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Defines whether ignore first record while ingestion.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Poll For Ingest Status*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Poll for Ingest Status
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Determines whether to poll on ingestion status after an ingestion to Azure Data Explorer is completed
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Ingest Status Polling Timeout*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Ingest Status Polling Timeout
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Defines the total amount time to poll for ingestion status
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Ingest Status Polling Interval*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Ingest Status Polling Interval
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Defines the value of interval of time to poll for ingestion status
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|Ingest processing succeeded
+
+|`failure`
+|Ingest processing failed
+
+|===
+
+
+
+
+
+
+
+
+
+
+

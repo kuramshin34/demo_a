@@ -1,0 +1,155 @@
+= ReplaceTextWithMapping 2.2.0
+
+Updates the content of a FlowFile by evaluating a Regular Expression against it and replacing the section of the content that matches the Regular Expression with some alternate value provided in a mapping file.
+
+[horizontal]
+*Tags* (Ключевые слова):
+Change, Mapping, Modify, Regex, Regular Expression, Replace, Text, Update
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Regular Expression*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Regular Expression
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Regular Expression to search for in the FlowFile content
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Matching Group*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Matching Group
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The number of the matching group of the provided regex to replace with the corresponding value from the mapping file (if it exists).
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Mapping File*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Mapping File
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the file (including the full path) containing the Mappings.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Mapping File Refresh Interval*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Mapping File Refresh Interval
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The polling interval to check for updates to the mapping file. The default is 60s.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Character Set*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Character Set in which the file is encoded
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Maximum Buffer Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Buffer Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the maximum amount of data to buffer (per file) in order to apply the regular expressions. If a FlowFile is larger than this value, the FlowFile will be routed to 'failure'
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|FlowFiles that have been successfully updated are routed to this relationship, as well as FlowFiles whose content does not match the given Regular Expression
+
+|`failure`
+|FlowFiles that could not be updated are routed to this relationship
+
+|===
+
+
+
+
+
+
+
+
+
+
+

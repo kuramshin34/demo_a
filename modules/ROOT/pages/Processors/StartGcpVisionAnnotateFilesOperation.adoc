@@ -1,0 +1,138 @@
+= StartGcpVisionAnnotateFilesOperation 2.2.0
+
+Trigger a Vision operation on file input. It should be followed by GetGcpVisionAnnotateFilesOperationStatus processor in order to monitor operation status.
+
+[horizontal]
+*Tags* (Ключевые слова):
+Cloud, Google, Machine Learning, Vision
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.Json-Payload
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: JSON Payload
+
+[horizontal]
+*DESCRIPTION (Описание):*:: JSON request for AWS Machine Learning services. The Processor will use FlowFile content for the request when this property is not specified.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Gcp-Credentials-Provider-Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Controller Service used to obtain Google Cloud Platform credentials.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Output-Bucket
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Output Bucket
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Name of the GCS bucket where the output of the Vision job will be persisted. The value of this property applies when the JSON Payload property is configured. The JSON Payload property value can use Expression Language to reference the value of ${output-bucket}
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Vision-Feature-Type
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Vision Feature Type
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Type of GCP Vision Feature. The value of this property applies when the JSON Payload property is configured. The JSON Payload property value can use Expression Language to reference the value of ${vision-feature-type}
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|FlowFiles are routed to success relationship
+
+|`failure`
+|FlowFiles are routed to failure relationship
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`operationKey`
+|A unique identifier of the operation returned by the Vision server.
+
+|===
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/GetGcpVisionAnnotateFilesOperationStatus.adoc[GetGcpVisionAnnotateFilesOperationStatus]
+
+

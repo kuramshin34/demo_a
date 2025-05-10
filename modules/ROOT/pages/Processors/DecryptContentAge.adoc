@@ -1,0 +1,118 @@
+= DecryptContentAge 2.2.0
+
+Decrypt content using the age-encryption.org/v1 specification. Detects binary or ASCII armored content encoding using the initial file header bytes. The age standard uses ChaCha20-Poly1305 for authenticated encryption of the payload. The age-keygen command supports generating X25519 key pairs for encryption and decryption operations.
+
+[horizontal]
+*Tags* (Ключевые слова):
+ChaCha20-Poly1305, X25519, age, age-encryption.org, encryption
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Private Key Source*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Private Key Source
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Source of information determines the loading strategy for X25519 Private Key Identities
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* PROPERTIES: Load one or more keys from configured properties 
+
+* RESOURCES: Load one or more keys from files or URLs 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Private Key Identities*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Private Key Identities
+
+[horizontal]
+*DESCRIPTION (Описание):*:: One or more X25519 Private Key Identities, separated with newlines, encoded according to the age specification, starting with AGE-SECRET-KEY-1
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Private Key Identity Resources*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Private Key Identity Resources
+
+[horizontal]
+*DESCRIPTION (Описание):*:: One or more files or URLs containing X25519 Private Key Identities, separated with newlines, encoded according to the age specification, starting with AGE-SECRET-KEY-1
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|Decryption Completed
+
+|`failure`
+|Decryption Failed
+
+|===
+
+
+
+
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/EncryptContentAge.adoc[EncryptContentAge]
+
+

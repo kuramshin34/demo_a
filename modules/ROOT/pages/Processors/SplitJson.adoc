@@ -1,0 +1,147 @@
+= SplitJson 2.2.0
+
+Splits a JSON File into multiple, separate FlowFiles for an array element specified by a JsonPath expression. Each generated FlowFile is comprised of an element of the specified array and transferred to relationship 'split,' with the original file transferred to the 'original' relationship. If the specified JsonPath is not found or does not evaluate to an array element, the original file is routed to 'failure' and no files are generated.
+
+[horizontal]
+*Tags* (Ключевые слова):
+json, jsonpath, split
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Jsonpath Expression*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: JsonPath Expression
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A JsonPath expression that indicates the array element to split into JSON/scalar fragments.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Null Value Representation*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Null Value Representation
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Indicates the desired representation of JSON Path expressions resulting in a null value.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* the string 'null'
+
+* empty string
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Max String Length*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Max String Length
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum allowed length of a string value when parsing the JSON document
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+=== Системные ресурсы
+
+[cols="1a,2a",options="header",]
+|===
+|Ресурс |Описание
+
+
+|MEMORY
+|The entirety of the FlowFile's content (as a JsonNode object) is read into memory, in addition to all of the generated FlowFiles representing the split JSON. If many splits are generated due to the size of the JSON, or how the JSON is configured to be split, a two-phase approach may be necessary to avoid excessive use of memory.
+
+|===
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`failure`
+|If a FlowFile fails processing for any reason (for example, the FlowFile is not valid JSON or the specified path does not exist), it will be routed to this relationship
+
+|`original`
+|The original FlowFile that was split into segments. If the FlowFile fails processing, nothing will be sent to this relationship
+
+|`split`
+|All segments of the original FlowFile will be routed to this relationship
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`fragment.identifier`
+|All split FlowFiles produced from the same parent FlowFile will have the same randomly generated UUID added for this attribute
+
+|`fragment.index`
+|A one-up number that indicates the ordering of the split FlowFiles that were created from a single parent FlowFile
+
+|`fragment.count`
+|The number of split FlowFiles generated from the parent FlowFile
+
+|`segment.original.filename `
+|The filename of the parent FlowFile
+
+|===
+
+
+
+
+
+
+

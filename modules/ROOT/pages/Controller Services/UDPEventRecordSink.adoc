@@ -1,0 +1,107 @@
+= UDPEventRecordSink 2.2.0
+
+Format and send Records as UDP Datagram Packets to a configurable destination
+
+[horizontal]
+*Tags* (Ключевые слова):
+UDP, event, record, sink
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Hostname*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Hostname
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Destination hostname or IP address
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Port*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Port
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Destination port number
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Record-Sink-Record-Writer*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Sender-Threads*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Sender Threads
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Number of worker threads allocated for handling socket communication
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

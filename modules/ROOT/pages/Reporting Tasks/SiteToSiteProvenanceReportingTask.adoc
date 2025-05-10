@@ -1,0 +1,451 @@
+= SiteToSiteProvenanceReportingTask 2.2.0
+
+Publishes Provenance events using the Site To Site protocol.
+
+[horizontal]
+*Tags* (Ключевые слова):
+lineage, provenance, site, site to site, tracking
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Destination Url*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Destination URL
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The URL of the destination NiFi instance or, if clustered, a comma-separated list of address in the format of http(s)://host:port/nifi. This destination URL will only be used to initiate the Site-to-Site connection. The data sent by this reporting task will be load-balanced on all the nodes of the destination (if clustered).
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Input Port Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Input Port Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the Input Port to deliver data to.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Ssl Context Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The SSL Context Service to use when communicating with the destination. If not specified, communications will not be secure.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Instance Url*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Instance URL
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The URL of this instance to use in the Content URI of each event.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Compress Events*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Compress Events
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Indicates whether or not to compress the data being sent.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Communications Timeout*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how long to wait to a response from the destination before deciding that an error has occurred and canceling the transaction
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Batch Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how many records to send in a single batch, at most.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*S2s-Transport-Protocol*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Transport Protocol
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies which transport protocol to use for Site-to-Site communication.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* RAW
+
+* HTTP
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Proxy-Configuration-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Record-Writer
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Include-Null-Values*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Include Null Values
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Indicate if null values should be included in records. Default will be false
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Platform*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Platform
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The value to use for the platform field in each event.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.S2s-Prov-Task-Event-Filter
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Event Type to Include
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Comma-separated list of event types that will be used to filter the provenance events sent by the reporting task. Available event types are [CREATE, RECEIVE, FETCH, SEND, UPLOAD, REMOTE_INVOCATION, DOWNLOAD, DROP, EXPIRE, FORK, JOIN, CLONE, CONTENT_MODIFIED, ATTRIBUTES_MODIFIED, ROUTE, ADDINFO, REPLAY, UNKNOWN]. If no filter is set, all the events are sent. If multiple filters are set, the filters are cumulative.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.S2s-Prov-Task-Event-Filter-Exclude
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Event Type to Exclude
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Comma-separated list of event types that will be used to exclude the provenance events sent by the reporting task. Available event types are [CREATE, RECEIVE, FETCH, SEND, UPLOAD, REMOTE_INVOCATION, DOWNLOAD, DROP, EXPIRE, FORK, JOIN, CLONE, CONTENT_MODIFIED, ATTRIBUTES_MODIFIED, ROUTE, ADDINFO, REPLAY, UNKNOWN]. If no filter is set, all the events are sent. If multiple filters are set, the filters are cumulative. If an event type is included in Event Type to Include and excluded here, then the exclusion takes precedence and the event will not be sent.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.S2s-Prov-Task-Type-Filter
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Component Type to Include
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Regular expression to filter the provenance events based on the component type. Only the events matching the regular expression will be sent. If no filter is set, all the events are sent. If multiple filters are set, the filters are cumulative.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.S2s-Prov-Task-Type-Filter-Exclude
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Component Type to Exclude
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Regular expression to exclude the provenance events based on the component type. The events matching the regular expression will not be sent. If no filter is set, all the events are sent. If multiple filters are set, the filters are cumulative. If a component type is included in Component Type to Include and excluded here, then the exclusion takes precedence and the event will not be sent.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.S2s-Prov-Task-Id-Filter
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Component ID to Include
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Comma-separated list of component UUID that will be used to filter the provenance events sent by the reporting task. If no filter is set, all the events are sent. If multiple filters are set, the filters are cumulative.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.S2s-Prov-Task-Id-Filter-Exclude
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Component ID to Exclude
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Comma-separated list of component UUID that will be used to exclude the provenance events sent by the reporting task. If no filter is set, all the events are sent. If multiple filters are set, the filters are cumulative. If a component UUID is included in Component ID to Include and excluded here, then the exclusion takes precedence and the event will not be sent.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.S2s-Prov-Task-Name-Filter
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Component Name to Include
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Regular expression to filter the provenance events based on the component name. Only the events matching the regular expression will be sent. If no filter is set, all the events are sent. If multiple filters are set, the filters are cumulative.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.S2s-Prov-Task-Name-Filter-Exclude
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Component Name to Exclude
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Regular expression to exclude the provenance events based on the component name. The events matching the regular expression will not be sent. If no filter is set, all the events are sent. If multiple filters are set, the filters are cumulative. If a component name is included in Component Name to Include and excluded here, then the exclusion takes precedence and the event will not be sent.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Start-Position*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Start Position
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If the Reporting Task has never been run, or if its state has been reset by a user, specifies where in the stream of Provenance Events the Reporting Task should start
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Beginning of Stream: Start reading provenance Events from the beginning of the stream (the oldest event first) 
+
+* End of Stream: Start reading provenance Events from the end of the stream, ignoring old events 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+=== Управление состоянием
+
+[cols="1a,2a",options="header",]
+|===
+|Масштаб |Описание
+
+|
+LOCAL
+
+|Stores the Reporting Task's last event Id so that on restart the task knows where it left off.
+|===
+
+
+
+
+
+=== Ограничения
+
+[cols="1a,2a",options="header",]
+|===
+|Требуемые права |Объяснение
+
+|
+|Provides operator the ability to send sensitive details contained in Provenance events to any external system.
+
+|===
+
+
+
+
+
+
+
+
+
+
+
+
+

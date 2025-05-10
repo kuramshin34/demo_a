@@ -1,0 +1,170 @@
+= GenerateRecord 2.2.0
+
+This processor creates FlowFiles with records having random value for the specified fields. GenerateRecord is useful for testing, configuration, and simulation. It uses either user-defined properties to define a record schema or a provided schema and generates the specified number of records using random data for the fields in the schema.
+
+[horizontal]
+*Tags* (Ключевые слова):
+fake, generate, random, test
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+FORBIDDEN (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Record-Writer*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Number-Of-Records*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Number of Records
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how many records will be generated for each outgoing FlowFile.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Nullable-Fields*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Nullable Fields
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Whether the generated fields will be nullable. Note that this property is ignored if Schema Text is set. Also it only affects the schema of the generated data, not whether any values will be null. If this property is true, see 'Null Value Percentage' to set the probability that any generated field will be null.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Null-Percentage*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Null Value Percentage
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The percent probability (0-100%) that a generated value for any nullable field will be null. Set this property to zero to have no null values, or 100 to have all null values.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Schema-Text
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Text
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The text of an Avro-formatted Schema used to generate record data. If this property is set, any user-defined properties are ignored.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`Field name in generated record`
+|Custom properties define the generated record schema using configured field names and value data types in absence of the Schema Text property
+|`Faker category for generated record values`
+|
+
+|===
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|FlowFiles that are successfully created will be routed to this relationship
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`mime.type`
+|Sets the mime.type attribute to the MIME Type specified by the Record Writer
+
+|`record.count`
+|The number of records in the FlowFile
+
+|===
+
+
+
+
+
+
+

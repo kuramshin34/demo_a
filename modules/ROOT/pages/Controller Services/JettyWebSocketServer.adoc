@@ -1,0 +1,250 @@
+= JettyWebSocketServer 2.2.0
+
+Implementation of WebSocketServerService. This service uses Jetty WebSocket server module to provide WebSocket session management throughout the application.
+
+[horizontal]
+*Tags* (Ключевые слова):
+Jetty, WebSocket, server
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Input-Buffer-Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Input Buffer Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The size of the input (read from network layer) buffer size.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Max-Text-Message-Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Max Text Message Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum size of a text message during parsing/generating.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Max-Binary-Message-Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Max Binary Message Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum size of a binary message during parsing/generating.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Listen-Port*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Listen Port
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The port number on which this WebSocketServer listens to.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Ssl-Context-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The SSL Context Service to use in order to secure the server. If specified, the server will accept only WSS requests; otherwise, the server will accept only WS requests
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Client-Authentication*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Client Authentication
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies whether or not the Processor should authenticate client by its certificate. This value is ignored if the <SSL Context Service> Property is not specified or the SSL Context provided uses only a KeyStore and not a TrustStore.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* No Authentication: Processor will not authenticate clients. Anyone can communicate with this Processor anonymously 
+
+* Want Authentication: Processor will try to verify the client but if unable to verify will allow the client to communicate anonymously 
+
+* Need Authentication: Processor will reject communications from any client unless the client provides a certificate that is trusted by the TrustStore specified in the SSL Context Service 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Basic-Auth*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Enable Basic Authentication
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If enabled, client connection requests are authenticated with Basic authentication using the specified Login Provider.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Auth-Path-Spec
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Basic Authentication Path Spec
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specify a Path Spec to apply Basic Authentication.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Auth-Roles
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Basic Authentication Roles
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The authenticated user must have one of specified role. Multiple roles can be set as comma separated string. '*' represents any role and so does '**' any role including no role.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Login-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Login Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specify which Login Service to use for Basic Authentication.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* HashLoginService: See http://www.eclipse.org/jetty/javadoc/current/org/eclipse/jetty/security/HashLoginService.html for detail. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Users-Properties-File
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Users Properties File
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specify a property file containing users for Basic Authentication using HashLoginService. See http://www.eclipse.org/jetty/documentation/current/configuring-security.html for detail.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

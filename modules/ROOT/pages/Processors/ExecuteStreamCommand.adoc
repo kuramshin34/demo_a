@@ -1,0 +1,277 @@
+= ExecuteStreamCommand 2.2.0
+
+The ExecuteStreamCommand processor provides a flexible way to integrate external commands and scripts into NiFi data flows. ExecuteStreamCommand can pass the incoming FlowFile's content to the command that it executes similarly how piping works.
+
+[horizontal]
+*Tags* (Ключевые слова):
+command, command execution, execute, stream
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ True (Да) 
+
+
+
+== Properties (Свойства)
+
+
+.Working Directory
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Working Directory
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The directory to use as the current working directory when executing the command
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Command Path*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Command Path
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the command to be executed; if just the name of an executable is provided, it must be in the user's environment PATH.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Argumentsstrategy
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Command Arguments Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Strategy for configuring arguments to be supplied to the command.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Command Arguments Property: Arguments to be supplied to the executable are taken from the Command Arguments property 
+
+* Dynamic Property Arguments: Arguments to be supplied to the executable are taken from dynamic properties with pattern of 'command.argument.<commandIndex>' 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Command Arguments
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Command Arguments
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The arguments to supply to the executable delimited by the ';' character.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Argument Delimiter*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Argument Delimiter
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Delimiter to use to separate arguments for a command [default: ;]. Must be a single character
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Ignore Stdin
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Ignore STDIN
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If true, the contents of the incoming flowfile will not be passed to the executing command
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Output Destination Attribute
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Output Destination Attribute
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If set, the output of the stream command will be put into an attribute of the original FlowFile instead of a separate FlowFile. There will no longer be a relationship for 'output stream' or 'nonzero status'. The value of this property will be the key for the output attribute.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Max Attribute Length
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Max Attribute Length
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If routing the output of the stream command to an attribute, the number of characters put to the attribute value will be at most this amount. This is important because attributes are held in memory and large attributes will quickly cause out of memory issues. If the output goes longer than this value, it will truncated to fit. Consider making this smaller if able.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Output Mime Type
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Output MIME Type
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the value to set for the "mime.type" attribute. This property is ignored if 'Output Destination Attribute' is set.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`An environment variable name`
+|These environment variables are passed to the process spawned by this Processor
+|`An environment variable value`
+|
+
+|`command.argument.<commandIndex>`
+|These arguments are supplied to the process spawned by this Processor when using the Command Arguments Strategy : Dynamic Property Arguments. <commandIndex> is a number and it will determine the order.
+|`Argument to be supplied to the command`
+|
+
+|===
+
+
+
+
+
+
+
+=== Ограничения
+
+[cols="1a,2a",options="header",]
+|===
+|Требуемые права |Объяснение
+
+|
+|Provides operator the ability to execute arbitrary code assuming all permissions that NiFi has.
+
+|===
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`nonzero status`
+|The destination path for the flow file created from the command's output, if the returned status code is non-zero. All flow files routed to this relationship will be penalized.
+
+|`original`
+|The original FlowFile will be routed. It will have new attributes detailing the result of the script execution.
+
+|`output stream`
+|The destination path for the flow file created from the command's output, if the returned status code is zero.
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`execution.command`
+|The name of the command executed
+
+|`execution.command.args`
+|The semi-colon delimited list of arguments. Sensitive properties will be masked
+
+|`execution.status`
+|The exit status code returned from executing the command
+
+|`execution.error`
+|Any error messages returned from executing the command
+
+|`mime.type`
+|Sets the MIME type of the output if the 'Output MIME Type' property is set and 'Output Destination Attribute' is not set
+
+|===
+
+
+
+
+
+
+

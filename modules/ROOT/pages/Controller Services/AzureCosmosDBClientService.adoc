@@ -1,0 +1,104 @@
+= AzureCosmosDBClientService 2.2.0
+
+Provides a controller service that configures a connection to Cosmos DB (Core SQL API)  and provides access to that connection to other Cosmos DB-related components.
+
+[horizontal]
+*Tags* (Ключевые слова):
+azure, cosmos, document, service
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.Azure-Cosmos-Db-Uri
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Cosmos DB URI
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Cosmos DB URI, typically in the form of https://{databaseaccount}.documents.azure.com:443/ Note this host URL is for Cosmos DB with Core SQL API from Azure Portal (Overview->URI)
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Azure-Cosmos-Db-Key
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Cosmos DB Access Key
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Cosmos DB Access Key from Azure Portal (Settings->Keys). Choose a read-write key to enable database or container creation at run time
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Azure-Cosmos-Db-Consistency-Level
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Cosmos DB Consistency Level
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Choose from five consistency levels on the consistency spectrum. Refer to Cosmos DB documentation for their differences
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* STRONG
+
+* BOUNDED_STALENESS
+
+* SESSION
+
+* CONSISTENT_PREFIX
+
+* EVENTUAL
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

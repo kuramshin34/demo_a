@@ -1,0 +1,77 @@
+= AvroSchemaRegistry 2.2.0
+
+Provides a service for registering and accessing schemas. You can register a schema as a dynamic property where 'name' represents the schema name and 'value' represents the textual representation of the actual schema following the syntax and semantics of Avro's Schema format.
+
+[horizontal]
+*Tags* (Ключевые слова):
+avro, csv, json, registry, schema
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Avro-Reg-Validated-Field-Names*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Validate Field Names
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Whether or not to validate the field names in the Avro schema based on Avro naming rules. If set to true, all field names must be valid Avro names, which must begin with [A-Za-z_], and subsequently contain only [A-Za-z0-9_]. If set to false, no validation will be performed on the field names.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`Schema name`
+|Adds a named schema using the JSON string representation of an Avro schema
+|`Schema Content`
+|
+
+|===
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

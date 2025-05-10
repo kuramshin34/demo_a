@@ -1,0 +1,228 @@
+= GetHubSpot 2.2.0
+
+Retrieves JSON data from a private HubSpot application. This processor is intended to be run on the Primary Node only.
+
+[horizontal]
+*Tags* (Ключевые слова):
+hubspot
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+FORBIDDEN (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Object-Type*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Object Type
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The HubSpot Object Type requested
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Companies: In HubSpot, the companies object is a standard CRM object. Individual company records can be used to store information about businesses and organizations within company properties. 
+
+* Contacts: In HubSpot, contacts store information about individuals. From marketing automation to smart content, the lead-specific data found in contact records helps users leverage much of HubSpot's functionality. 
+
+* Deals: In HubSpot, a deal represents an ongoing transaction that a sales team is pursuing with a contact or company. It’s tracked through pipeline stages until won or lost. 
+
+* Line Items: In HubSpot, line items can be thought of as a subset of products. When a product is attached to a deal, it becomes a line item. Line items can be created that are unique to an individual quote, but they will not be added to the product library. 
+
+* Products: In HubSpot, products represent the goods or services to be sold. Building a product library allows the user to quickly add products to deals, generate quotes, and report on product performance. 
+
+* Tickets: In HubSpot, a ticket represents a customer request for help or support. 
+
+* Quotes: In HubSpot, quotes are used to share pricing information with potential buyers. 
+
+* Calls: Get calls on CRM records and on the calls index page. 
+
+* Emails: Get emails on CRM records. 
+
+* Meetings: Get meetings on CRM records. 
+
+* Notes: Get notes on CRM records. 
+
+* Tasks: Get tasks on CRM records. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Access-Token*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Access Token
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Access Token to authenticate requests
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Result-Limit
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Result Limit
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum number of results to request for each invocation of the Processor
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Is-Incremental*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Incremental Loading
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The processor can incrementally load the queried objects so that each object is queried exactly once. For each query, the processor queries objects within a time window where the objects were modified between the previous run time and the current time (optionally adjusted by the Incremental Delay property).
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Incremental-Delay*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Incremental Delay
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The ending timestamp of the time window will be adjusted earlier by the amount configured in this property. For example, with a property value of 10 seconds, an ending timestamp of 12:30:45 would be changed to 12:30:35. Set this property to avoid missing objects when the clock of your local machines and HubSpot servers' clock are not in sync and to protect against HubSpot's mechanism that changes last updated timestamps after object creation.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Incremental-Initial-Start-Time
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Incremental Initial Start Time
+
+[horizontal]
+*DESCRIPTION (Описание):*:: This property specifies the start time that the processor applies when running the first request. The expected format is a UTC date-time such as '2011-12-03T10:15:30Z'
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Web-Client-Service-Provider*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Web Client Service Provider
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Controller service for HTTP client operations
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+=== Управление состоянием
+
+[cols="1a,2a",options="header",]
+|===
+|Масштаб |Описание
+
+|
+CLUSTER
+
+|In case of incremental loading, the start and end timestamps of the last query time window are stored in the state. When the 'Result Limit' property is set, the paging cursor is saved after executing a request. Only the objects after the paging cursor will be retrieved. The maximum number of retrieved objects can be set in the 'Result Limit' property.
+|===
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|For FlowFiles created as a result of a successful HTTP request.
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`mime.type`
+|Sets the MIME type to application/json
+
+|===
+
+
+
+
+
+
+

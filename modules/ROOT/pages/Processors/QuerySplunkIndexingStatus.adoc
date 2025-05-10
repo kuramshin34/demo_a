@@ -1,0 +1,286 @@
+= QuerySplunkIndexingStatus 2.2.0
+
+Queries Splunk server in order to acquire the status of indexing acknowledgement.
+
+[horizontal]
+*Tags* (Ключевые слова):
+acknowledgement, http, logs, splunk
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Scheme*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Scheme
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The scheme for connecting to Splunk.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* https
+
+* http
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Hostname*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Hostname
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The ip address or hostname of the Splunk server.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Port*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: HTTP Event Collector Port
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The HTTP Event Collector HTTP Port Number.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Security Protocol
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Security Protocol
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The security protocol to use for communicating with Splunk.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* TLSv1_2
+
+* TLSv1_1
+
+* TLSv1
+
+* SSLv3
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Owner
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Owner
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The owner to pass to Splunk.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Token
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: HTTP Event Collector Token
+
+[horizontal]
+*DESCRIPTION (Описание):*:: HTTP Event Collector token starting with the string Splunk. For example 'Splunk 1234578-abcd-1234-abcd-1234abcd'
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Username
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Username
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The username to authenticate to Splunk.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Password
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Password
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The password to authenticate to Splunk.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Request-Channel*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Splunk Request Channel
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Identifier of the used request channel.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Ttl*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Waiting Time
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum time the processor tries to acquire acknowledgement confirmation for an index, from the point of registration. After the given amount of time, the processor considers the index as not acknowledged and transfers the FlowFile to the "unacknowledged" relationship.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Max-Query-Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Query Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum number of acknowledgement identifiers the outgoing query contains in one batch. It is recommended not to set it too low in order to reduce network communication.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`failure`
+|A FlowFile is transferred to this relationship when the acknowledgement was not successful due to errors during the communication. FlowFiles are timing out or unknown by the Splunk server will transferred to "undetermined" relationship.
+
+|`success`
+|A FlowFile is transferred to this relationship when the acknowledgement was successful.
+
+|`undetermined`
+|A FlowFile is transferred to this relationship when the acknowledgement state is not determined. FlowFiles transferred to this relationship might be penalized. This happens when Splunk returns with HTTP 200 but with false response for the acknowledgement id in the flow file attribute.
+
+|`unacknowledged`
+|A FlowFile is transferred to this relationship when the acknowledgement was not successful. This can happen when the acknowledgement did not happened within the time period set for Maximum Waiting Time. FlowFiles with acknowledgement id unknown for the Splunk server will be transferred to this relationship after the Maximum Waiting Time is reached.
+
+|===
+
+
+
+=== Читаемые атрибуты
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`splunk.acknowledgement.id`
+|The indexing acknowledgement id provided by Splunk.
+
+|`splunk.responded.at`
+|The time of the response of put request for Splunk.
+
+|===
+
+
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/PutSplunkHTTP.adoc[PutSplunkHTTP]
+
+

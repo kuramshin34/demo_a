@@ -1,0 +1,322 @@
+= PublishSlack 2.2.0
+
+Posts a message to the specified Slack channel. The content of the message can be either a user-defined message that makes use of Expression Language or
+the contents of the FlowFile can be sent as the message. If sending a user-defined message, the contents of the FlowFile may also be optionally uploaded as
+a file attachment.
+
+
+[horizontal]
+*Tags* (Ключевые слова):
+chat.postMessage, conversation, publish, send, slack, social media, team, text, unstructured, upload, write
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Access Token*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Access Token
+
+[horizontal]
+*DESCRIPTION (Описание):*:: OAuth Access Token used for authenticating/authorizing the Slack request sent by NiFi. This may be either a User Token or a Bot Token. The token must be granted the chat:write scope. Additionally, in order to upload FlowFile contents as an attachment, it must be granted files:write.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Channel*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Channel
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name or identifier of the channel to send the message to. If using a channel name, it must be prefixed with the # character. For example, #general. This is valid only for public channels. Otherwise, the unique identifier of the channel to publish to must be provided.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Publish Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Publish Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how the Processor will send the message or file to Slack.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Send FlowFile Content as Message: The contents of the FlowFile will be sent as the message text. 
+
+* Use 'Message Text' Property: The value of the Message Text Property will be sent as the message text. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Message Text*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Message Text
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The text of the message to send to Slack.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Character Set*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the name of the Character Set used to encode the FlowFile contents.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Include Flowfile Content As Attachment*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Include FlowFile Content as Attachment
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies whether or not the contents of the FlowFile should be uploaded as an attachment to the Slack message.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Max Flowfile Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Max FlowFile Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum size of a FlowFile that can be sent to Slack. If any FlowFile exceeds this size, it will be routed to failure. This plays an important role because the entire contents of the file must be loaded into NiFi's heap in order to send the data to Slack.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Thread Timestamp
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Thread Timestamp
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Timestamp identifier for the thread that this message is to be a part of. If not specified, the message will be a top-level message instead of being in a thread.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Methods Endpoint Url Prefix
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Methods Endpoint Url Prefix
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Customization of the Slack Client. Set the methodsEndpointUrlPrefix. If you need to set a different URL prefix for Slack API Methods calls, you can set the one. Default value: https://slack.com/api/
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`failure`
+|FlowFiles are routed to 'failure' if unable to be sent to Slack for any other reason
+
+|`success`
+|FlowFiles are routed to success after being successfully sent to Slack
+
+|`rate limited`
+|FlowFiles are routed to 'rate limited' if the Rate Limit has been exceeded
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`slack.channel.id`
+|The ID of the Slack Channel from which the messages were retrieved
+
+|`slack.ts`
+|The timestamp of the slack messages that was sent; this is used by Slack as a unique identifier
+
+|===
+
+
+
+== Варианты использования
+:sectnums:
+
+
+
+=== Send specific text as a message to Slack, optionally including the FlowFile's contents as an attached file.
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+
+
+
+.Конфигурация
+====
+Set "Access Token" to the value of your Slack OAuth Access Token.
+Set "Channel" to the ID of the channel or the name of the channel prefixed with the # symbol. For example, "C0123456789" or "#general".
+Set "Publish Strategy" to "Use 'Message Text' Property".
+Set "Message Text" to the text that you would like to send as the Slack message.
+Set "Include FlowFile Content as Attachment" to "true" if the FlowFile's contents should be attached as a file, or "false" to send just the message text without an attachment.
+
+====
+
+
+=== Send the contents of the FlowFile as a message to Slack.
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+
+
+
+.Конфигурация
+====
+Set "Access Token" to the value of your Slack OAuth Access Token.
+Set "Channel" to the ID of the channel or the name of the channel prefixed with the # symbol. For example, "C0123456789" or "#general".
+Set "Publish Strategy" to "Send FlowFile Content as Message".
+
+====
+
+
+
+
+== Варианты использования, включающие другие компоненты
+
+
+=== Respond to a Slack message in a thread.
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+
+slack
+
+respond
+
+reply
+
+thread
+
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/ConsumeSlack.adoc[ConsumeSlack]
+
+* xref:Processors/ListenSlack.adoc[ListenSlack]
+
+

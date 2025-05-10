@@ -1,0 +1,242 @@
+= DatabaseParameterProvider 2.2.0
+
+Fetches parameters from database tables
+
+[horizontal]
+*Tags* (Ключевые слова):
+database, dbcp, sql
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Db-Type*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Database Type
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Database Type for generating statements specific to a particular service or vendor.
+The Generic Type supports most cases but selecting a specific type enables optimal processing
+or additional features.
+
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Database Dialect Service: Requires configuring a Database Dialect Service for SQL statements 
+
+* Generic: Generates ANSI SQL 
+
+* Oracle: Generates Oracle compliant SQL 
+
+* Oracle 12+: Generates Oracle compliant SQL for version 12 or greater 
+
+* MS SQL 2012+: Generates MS SQL Compatible SQL, for version 2012 or greater 
+
+* MS SQL 2008: Generates MS SQL Compatible SQL for version 2008 
+
+* MySQL: Generates MySQL compatible SQL 
+
+* PostgreSQL: Generates PostgreSQL compatible SQL 
+
+* Phoenix: Generates Phoenix compliant SQL 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Database Dialect Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Database Dialect Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Database Dialect Service for generating statements specific to a particular service or vendor.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Dbcp-Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Database Connection Pooling Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Controller Service that is used to obtain a connection to the database.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Parameter-Grouping-Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Parameter Grouping Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The strategy used to group parameters.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Column: A single table is partitioned by the 'Parameter Group Name Column'.  All rows with the same value in this column will map to a group of the same name. 
+
+* Table Name: An entire table maps to a Parameter Group.  The group name will be the table name. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Table-Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Table Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the database table containing the parameters.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Table-Names*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Table Names
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A comma-separated list of names of the database tables containing the parameters.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Parameter-Name-Column*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Parameter Name Column
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of a column containing the parameter name.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Parameter-Value-Column*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Parameter Value Column
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of a column containing the parameter value.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Parameter-Group-Name-Column*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Parameter Group Name Column
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of a column containing the name of the parameter group into which the parameter should be mapped.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Sql-Where-Clause
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SQL WHERE clause
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A optional SQL query 'WHERE' clause by which to filter all results.  The 'WHERE' keyword should not be included.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,137 @@
+= ScriptedLookupService 2.2.0
+
+Allows the user to provide a scripted LookupService instance in order to enrich records from an incoming flow file.
+
+[horizontal]
+*Tags* (Ключевые слова):
+groovy, invoke, lookup, record, script
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Script Engine*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Script Engine
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Language Engine for executing scripts
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Groovy: Groovy 4.0.24 [Groovy Scripting Engine 2.0] 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Script File
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Script File
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Path to script file to execute. Only one of Script File or Script Body may be used
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Script Body
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Script Body
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Body of script to execute. Only one of Script File or Script Body may be used
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Module Directory
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Module Directory
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Comma-separated list of paths to files and/or directories which contain modules required by the script.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`Script Engine Binding property`
+|Updates a script engine property specified by the Dynamic Property's key with the value specified by the Dynamic Property's value
+|`Binding property value passed to Script Runner`
+|
+
+|===
+
+
+
+
+
+
+
+=== Ограничения
+
+[cols="1a,2a",options="header",]
+|===
+|Требуемые права |Объяснение
+
+|
+|Provides operator the ability to execute arbitrary code assuming all permissions that NiFi has.
+
+|===
+
+
+
+
+
+
+
+
+
+
+
+
+

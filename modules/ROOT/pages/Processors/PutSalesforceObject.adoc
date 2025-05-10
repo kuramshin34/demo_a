@@ -1,0 +1,166 @@
+= PutSalesforceObject 2.2.0
+
+Creates new records for the specified Salesforce sObject. The type of the Salesforce object must be set in the input flowfile's 'objectType' attribute. This processor cannot update existing records.
+
+[horizontal]
+*Tags* (Ключевые слова):
+put, salesforce, sobject
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Salesforce-Url*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Salesforce Instance URL
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The URL of the Salesforce instance including the domain without additional path information, such as https://MyDomainName.my.salesforce.com
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Salesforce-Api-Version*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: API Version
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The version number of the Salesforce REST API appended to the URL after the services/data path. See Salesforce documentation for supported versions
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Read-Timeout*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Read Timeout
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Maximum time allowed for reading a response from the Salesforce REST API
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Oauth2-Access-Token-Provider*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: OAuth2 Access Token Provider
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Service providing OAuth2 Access Tokens for authenticating using the HTTP Authorization Header
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Record-Reader*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for parsing incoming data and determining the data's schema
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|For FlowFiles created as a result of a successful execution.
+
+|`failure`
+|For FlowFiles created as a result of an execution error.
+
+|===
+
+
+
+=== Читаемые атрибуты
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`objectType`
+|The Salesforce object type to upload records to. E.g. Account, Contact, Campaign.
+
+|===
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`error.message`
+|The error message returned by Salesforce.
+
+|===
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/QuerySalesforceObject.adoc[QuerySalesforceObject]
+
+

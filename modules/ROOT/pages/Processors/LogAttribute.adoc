@@ -1,0 +1,258 @@
+= LogAttribute 2.2.0
+
+Emits attributes of the FlowFile at the specified log level
+
+[horizontal]
+*Tags* (Ключевые слова):
+attributes, logging
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Log Level*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Log Level
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Log Level to use when logging the Attributes
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* trace
+
+* debug
+
+* info
+
+* warn
+
+* error
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Log Payload*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Log Payload
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If true, the FlowFile's payload will be logged, in addition to its attributes; otherwise, just the Attributes will be logged.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Attributes To Log
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Attributes to Log
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A comma-separated list of Attributes to Log. If not specified, all attributes will be logged unless `Attributes to Log by Regular Expression` is modified. There's an AND relationship between the two properties.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Attributes-To-Log-Regex
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Attributes to Log by Regular Expression
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A regular expression indicating the Attributes to Log. If not specified, all attributes will be logged unless `Attributes to Log` is modified. There's an AND relationship between the two properties.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Attributes To Ignore
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Attributes to Ignore
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A comma-separated list of Attributes to ignore. If not specified, no attributes will be ignored unless `Attributes to Ignore by Regular Expression` is modified. There's an OR relationship between the two properties.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Attributes-To-Ignore-Regex
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Attributes to Ignore by Regular Expression
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A regular expression indicating the Attributes to Ignore. If not specified, no attributes will be ignored unless `Attributes to Ignore` is modified. There's an OR relationship between the two properties.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Log Flowfile Properties*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Log FlowFile Properties
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies whether or not to log FlowFile "properties", such as Entry Date, Lineage Start Date, and content size
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Output Format*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Output Format
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the format to use for logging FlowFile attributes
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Line per Attribute: Each FlowFile attribute will be logged using a single line for the attribute name and another line for the attribute value. This format is often most advantageous when looking at the attributes of a single FlowFile. 
+
+* Single Line: All FlowFile attribute names and values will be logged on a single line. This format is often most advantageous when comparing logs from multiple FlowFiles. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Log Prefix
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Log prefix
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Log prefix appended to the log lines. It helps to distinguish the output of multiple LogAttribute processors.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Character-Set*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the CharacterSet to use
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|All FlowFiles are routed to this relationship
+
+|===
+
+
+
+
+
+
+
+
+
+
+

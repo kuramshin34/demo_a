@@ -1,0 +1,151 @@
+= HandleHttpResponse 2.2.0
+
+Sends an HTTP Response to the Requestor that generated a FlowFile. This Processor is designed to be used in conjunction with the HandleHttpRequest in order to create a web service.
+
+[horizontal]
+*Tags* (Ключевые слова):
+egress, http, https, response, web service
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Http Status Code*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: HTTP Status Code
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The HTTP Status Code to use when responding to the HTTP Request. See Section 10 of RFC 2616 for more information.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Http Context Map*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: HTTP Context Map
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The HTTP Context Map Controller Service to use for caching the HTTP Request Information
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Attributes To Add To The Http Response (Regex)
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Attributes to add to the HTTP Response (Regex)
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Regular Expression that determines the names of FlowFile attributes that should be added to the HTTP response
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`An HTTP header name`
+|These HTTPHeaders are set in the HTTP Response
+|`An HTTP header value`
+|
+
+|===
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|FlowFiles will be routed to this Relationship after the response has been successfully sent to the requestor
+
+|`failure`
+|FlowFiles will be routed to this Relationship if the Processor is unable to respond to the requestor. This may happen, for instance, if the connection times out or if NiFi is restarted before responding to the HTTP Request.
+
+|===
+
+
+
+=== Читаемые атрибуты
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`http.context.identifier`
+|The value of this attribute is used to lookup the HTTP Response so that the proper message can be sent back to the requestor. If this attribute is missing, the FlowFile will be routed to 'failure.'
+
+|`http.request.uri`
+|Value of the URI requested by the client. Used for provenance event.
+
+|`http.remote.host`
+|IP address of the client. Used for provenance event.
+
+|`http.local.name`
+|IP address/hostname of the server. Used for provenance event.
+
+|`http.server.port`
+|Listening port of the server. Used for provenance event.
+
+|`http.subject.dn`
+|SSL distinguished name (if any). Used for provenance event.
+
+|===
+
+
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/StandardHttpContextMap.adoc[StandardHttpContextMap]
+
+* xref:Processors/HandleHttpRequest.adoc[HandleHttpRequest]
+
+

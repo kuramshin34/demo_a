@@ -1,0 +1,155 @@
+= ListenSlack 2.2.0
+
+Retrieves real-time messages or Slack commands from one or more Slack conversations. The messages are written out in JSON format. Note that this Processor should be used to obtain real-time messages and commands from Slack and does not provide a mechanism for obtaining historical messages. The ConsumeSlack Processor should be used for an initial load of messages from a channel. See Usage / Additional Details for more information about how to configure this Processor and enable it to retrieve messages and commands from Slack.
+
+[horizontal]
+*Tags* (Ключевые слова):
+command, event, listen, message, real-time, receive, slack, social media, team, text, unstructured
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+FORBIDDEN (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*App Token*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: App Token
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Application Token that is registered to your Slack application
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Bot Token*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Bot Token
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Bot Token that is registered to your Slack application
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Event Type To Receive*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Event Type to Receive
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the type of Event that the Processor should respond to
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Receive App Mention Events: The Processor is to receive only slack messages that mention the bot user (App Mention Events) 
+
+* Receive Message Events: The Processor is to receive Slack Message Events 
+
+* Receive Commands: The Processor is to receive Commands from Slack that are specific to your application. The Processor will not receive Message Events. 
+
+* Receive Joined Channel Events: The Processor is to receive only events when a member is joining a channel. The Processor will not receive Message Events. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Resolve User Details*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Resolve User Details
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies whether the Processor should lookup details about the Slack User who sent the received message. If true, the output JSON will contain an additional field named 'userDetails'. The 'user' field will still contain the ID of the user. In order to enable this capability, the Bot Token must be granted the 'users:read' and optionally the 'users.profile:read' Bot Token Scope. If the rate limit is exceeded when retrieving this information, the received message will be rejected and must be re-delivered.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|All FlowFiles that are created will be sent to this Relationship.
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`mime.type`
+|Set to application/json, as the output will always be in JSON format
+
+|===
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/ConsumeSlack.adoc[ConsumeSlack]
+
+

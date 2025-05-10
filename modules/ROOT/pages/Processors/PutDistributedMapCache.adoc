@@ -1,0 +1,150 @@
+= PutDistributedMapCache 2.2.0
+
+Gets the content of a FlowFile and puts it to a distributed map cache, using a cache key computed from FlowFile attributes. If the cache already contains the entry and the cache update strategy is 'keep original' the entry is not replaced.'
+
+[horizontal]
+*Tags* (Ключевые слова):
+cache, distributed, map, put
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Cache Entry Identifier*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Cache Entry Identifier
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A FlowFile attribute, or the results of an Attribute Expression Language statement, which will be evaluated against a FlowFile in order to determine the cache key
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Distributed Cache Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Distributed Cache Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Controller Service that is used to cache flow files
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Cache Update Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Cache update strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Determines how the cache is updated if the cache already contains the entry
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Replace if present: Adds the specified entry to the cache, replacing any value that is currently set. 
+
+* Keep original: Adds the specified entry to the cache, if the key does not exist. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Max Cache Entry Size
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Max cache entry size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum amount of data to put into cache
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|Any FlowFile that is successfully inserted into cache will be routed to this relationship
+
+|`failure`
+|Any FlowFile that cannot be inserted into the cache will be routed to this relationship
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`cached`
+|All FlowFiles will have an attribute 'cached'. The value of this attribute is true, is the FlowFile is cached, otherwise false.
+
+|===
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/DistributedMapCacheClientService.adoc[DistributedMapCacheClientService]
+
+* xref:Processors/DistributedMapCacheServer.adoc[DistributedMapCacheServer]
+
+* xref:Processors/FetchDistributedMapCache.adoc[FetchDistributedMapCache]
+
+

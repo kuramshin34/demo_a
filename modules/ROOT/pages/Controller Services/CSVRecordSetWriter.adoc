@@ -1,0 +1,565 @@
+= CSVRecordSetWriter 2.2.0
+
+Writes the contents of a RecordSet as CSV data. The first line written will be the column names (unless the 'Include Header Line' property is false). All subsequent lines will be the values corresponding to the record fields.
+
+[horizontal]
+*Tags* (Ключевые слова):
+csv, delimited, record, recordset, result, row, separated, serializer, set, tab, tsv, writer
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Schema Write Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Write Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how the schema for a Record should be added to the data.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Do Not Write Schema: Do not add any schema-related information to the FlowFile. 
+
+* Set 'schema.name' Attribute: The FlowFile will be given an attribute named 'schema.name' and this attribute will indicate the name of the schema in the Schema Registry. Note that ifthe schema for a record is not obtained from a Schema Registry, then no attribute will be added. 
+
+* Set 'avro.schema' Attribute: The FlowFile will be given an attribute named 'avro.schema' and this attribute will contain the Avro Schema that describes the records in the FlowFile. The contents of the FlowFile need not be Avro, but the text of the schema will be used. 
+
+* Schema Reference Writer: The schema reference information will be written through a configured Schema Reference Writer service implementation. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Schema-Cache
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Cache
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies a Schema Cache to add the Record Schema to so that Record Readers can quickly lookup the schema.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Schema Reference Writer*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Writer
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Service implementation responsible for writing FlowFile attributes or content header with Schema reference information
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Schema-Access-Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how to obtain the schema that is to be used for interpreting the data.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Inherit Record Schema: The schema used to write records will be the same schema that was given to the Record when the Record was created. 
+
+* Use 'Schema Name' Property: The name of the Schema to use is specified by the 'Schema Name' Property. The value of this property is used to lookup the Schema in the configured Schema Registry service. 
+
+* Use 'Schema Text' Property: The text of the Schema itself is specified by the 'Schema Text' Property. The value of this property must be a valid Avro Schema. If Expression Language is used, the value of the 'Schema Text' property must be valid after substituting the expressions. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Schema-Registry
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for the Schema Registry
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Schema-Name
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the name of the schema to lookup in the Schema Registry property
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Schema-Version
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Version
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the version of the schema to lookup in the Schema Registry. If not specified then the latest version of the schema will be retrieved.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Schema-Branch
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Branch
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the name of the branch to use when looking up the schema in the Schema Registry property. If the chosen Schema Registry does not support branching, this value will be ignored.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Schema-Text
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Text
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The text of an Avro-formatted Schema
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Schema-Reference-Reader*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Reader
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Service implementation responsible for reading FlowFile attributes or content to determine the Schema Reference Identifier
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Date Format
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Date Format
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the format to use when reading/writing Date fields. If not specified, Date fields will be assumed to be number of milliseconds since epoch (Midnight, Jan 1, 1970 GMT). If specified, the value must match the Java java.time.format.DateTimeFormatter format (for example, MM/dd/yyyy for a two-digit month, followed by a two-digit day, followed by a four-digit year, all separated by '/' characters, as in 01/01/2017).
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Time Format
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Time Format
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the format to use when reading/writing Time fields. If not specified, Time fields will be assumed to be number of milliseconds since epoch (Midnight, Jan 1, 1970 GMT). If specified, the value must match the Java java.time.format.DateTimeFormatter format (for example, HH:mm:ss for a two-digit hour in 24-hour format, followed by a two-digit minute, followed by a two-digit second, all separated by ':' characters, as in 18:04:15).
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Timestamp Format
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Timestamp Format
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the format to use when reading/writing Timestamp fields. If not specified, Timestamp fields will be assumed to be number of milliseconds since epoch (Midnight, Jan 1, 1970 GMT). If specified, the value must match the Java java.time.format.DateTimeFormatter format (for example, MM/dd/yyyy HH:mm:ss for a two-digit month, followed by a two-digit day, followed by a four-digit year, all separated by '/' characters; and then followed by a two-digit hour in 24-hour format, followed by a two-digit minute, followed by a two-digit second, all separated by ':' characters, as in 01/01/2017 18:04:15).
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Csv Format*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: CSV Format
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies which "format" the CSV data is in, or specifies if custom formatting should be used.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Custom Format: The format of the CSV is configured by using the properties of this Controller Service, such as Value Separator 
+
+* RFC 4180: CSV data follows the RFC 4180 Specification defined at https://tools.ietf.org/html/rfc4180 
+
+* Microsoft Excel: CSV data follows the format used by Microsoft Excel 
+
+* Tab-Delimited: CSV data is Tab-Delimited instead of Comma Delimited 
+
+* MySQL Format: CSV data follows the format used by MySQL 
+
+* Informix Unload: The format used by Informix when issuing the UNLOAD TO file_name command 
+
+* Informix Unload Escape Disabled: The format used by Informix when issuing the UNLOAD TO file_name command with escaping disabled 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Csv-Writer*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: CSV Writer
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies which writer implementation to use to write CSV records. NOTE: Different writers may support different subsets of functionality and may also exhibit different levels of performance.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Apache Commons CSV: The CSV writer implementation from the Apache Commons CSV library. 
+
+* FastCSV: The CSV writer implementation from the FastCSV library. NOTE: This writer only officially supports RFC-4180, so it recommended to set the 'CSV Format' property to 'RFC 4180'. It does handle some non-compliant CSV data, for that case set the 'CSV Format' property to 'CUSTOM' and the other custom format properties (such as 'Trim Fields', 'Trim double quote', etc.) as appropriate. Be aware that this may cause errors if FastCSV doesn't handle the property settings correctly (such as 'Quote Mode'), but otherwise may process the output as expected even if the data is not fully RFC-4180 compliant. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Value Separator*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Value Separator
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The character that is used to separate values/fields in a CSV Record. If the property has been specified via Expression Language but the expression gets evaluated to an invalid Value Separator at runtime, then it will be skipped and the default Value Separator will be used.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Include Header Line*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Include Header Line
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies whether or not the CSV column names should be written out as the first line.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Quote Character*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Quote Character
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The character that is used to quote values so that escape characters do not have to be used. If the property has been specified via Expression Language but the expression gets evaluated to an invalid Quote Character at runtime, then it will be skipped and the default Quote Character will be used.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Escape Character*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Escape Character
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The character that is used to escape characters that would otherwise have a specific meaning to the CSV Parser. If the property has been specified via Expression Language but the expression gets evaluated to an invalid Escape Character at runtime, then it will be skipped and the default Escape Character will be used. Setting it to an empty string means no escape character should be used.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Comment Marker
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Comment Marker
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The character that is used to denote the start of a comment. Any line that begins with this comment will be ignored.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Null String
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Null String
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies a String that, if present as a value in the CSV, should be considered a null field instead of using the literal value.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Trim Fields*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Trim Fields
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Whether or not white space should be removed from the beginning and end of fields
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Quote Mode*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Quote Mode
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how fields should be quoted when they are written
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Quote All Values: All values will be quoted using the configured quote character. 
+
+* Quote Minimal: Values will be quoted only if they are contain special characters such as newline characters or field separators. 
+
+* Quote Non-Numeric Values: Values will be quoted unless the value is a number. 
+
+* Do Not Quote Values: Values will not be quoted. Instead, all special characters will be escaped using the configured escape character. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Record Separator*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Separator
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the characters to use in order to separate CSV Records
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Include Trailing Delimiter*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Include Trailing Delimiter
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If true, a trailing delimiter will be added to each CSV Record that is written. If false, the trailing delimiter will be omitted.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Csvutils-Character-Set*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Character Encoding that is used to encode/decode the CSV file
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

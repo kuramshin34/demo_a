@@ -1,0 +1,78 @@
+= DuplicateFlowFile 2.2.0
+
+Intended for load testing, this processor will create the configured number of copies of each incoming FlowFile. The original FlowFile as well as all generated copies are sent to the 'success' relationship. In addition, each FlowFile gets an attribute 'copy.index' set to the copy number, where the original FlowFile gets a value of zero, and all copies receive incremented integer values.
+
+[horizontal]
+*Tags* (Ключевые слова):
+duplicate, load, test
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Number Of Copies*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Number of Copies
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how many copies of each incoming FlowFile will be made
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|The original FlowFile and all copies will be sent to this relationship
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`copy.index`
+|A zero-based incrementing integer value based on which copy the FlowFile is.
+
+|===
+
+
+
+
+
+
+

@@ -1,0 +1,204 @@
+= PutGridFS 2.2.0
+
+Writes a file to a GridFS bucket.
+
+[horizontal]
+*Tags* (Ключевые слова):
+file, gridfs, mongo, put, store
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Gridfs-Client-Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Client Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The MongoDB client service to use for database connections.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Gridfs-Database-Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Mongo Database Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the database to use
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Gridfs-Bucket-Name
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Bucket Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The GridFS bucket where the files will be stored. If left blank, it will use the default value 'fs' that the MongoDB client driver uses.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Gridfs-File-Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: File Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the file in the bucket that is the target of this processor. GridFS file names do not include path information because GridFS does not sort files into folders within a bucket.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Putgridfs-Properties-Prefix
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: File Properties Prefix
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Attributes that have this prefix will be added to the file stored in GridFS as metadata.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Putgridfs-Enforce-Uniqueness*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Enforce Uniqueness
+
+[horizontal]
+*DESCRIPTION (Описание):*:: When enabled, this option will ensure that uniqueness is enforced on the bucket. It will do so by creating a MongoDB index that matches your selection. It should ideally be configured once when the bucket is created for the first time because it could take a long time to build on an existing bucket wit a lot of data.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* None: No uniqueness will be enforced. 
+
+* Both: Both the filename and hash must be unique. 
+
+* Name: Only the filename must be unique. 
+
+* Hash: Only the file hash must be unique. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Putgridfs-Hash-Attribute
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Hash Attribute
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If uniquness enforcement is enabled and the file hash is part of the constraint, this must be set to an attribute that exists on all incoming flowfiles.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Putgridfs-Chunk-Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Chunk Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Controls the maximum size of each chunk of a file uploaded into GridFS.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`duplicate`
+|Flowfiles that fail the duplicate check are sent to this relationship.
+
+|`success`
+|When the operation succeeds, the flowfile is sent to this relationship.
+
+|`failure`
+|When there is a failure processing the flowfile, it goes to this relationship.
+
+|===
+
+
+
+
+
+
+
+
+
+
+

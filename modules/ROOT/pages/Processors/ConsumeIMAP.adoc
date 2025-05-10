@@ -1,0 +1,286 @@
+= ConsumeIMAP 2.2.0
+
+Consumes messages from Email Server using IMAP protocol. The raw-bytes of each received email message are written as contents of the FlowFile
+
+[horizontal]
+*Tags* (Ключевые слова):
+Consume, Email, Get, Imap, Ingest, Ingress, Message
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+FORBIDDEN (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Host*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Host Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Network address of Email server (e.g., pop.gmail.com, imap.gmail.com . . .)
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Port*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Port
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Numeric value identifying Port of Email server (e.g., 993)
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Authorization-Mode*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Authorization Mode
+
+[horizontal]
+*DESCRIPTION (Описание):*:: How to authorize sending email on the user's behalf.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Use Password: Use password 
+
+* Use OAuth2: Use OAuth2 to acquire access token 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Oauth2-Access-Token-Provider*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: OAuth2 Access Token Provider
+
+[horizontal]
+*DESCRIPTION (Описание):*:: OAuth2 service that can provide access tokens.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*User*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: User Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: User Name used for authentication and authorization with Email server.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Password*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Password
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Password used for authentication and authorization with Email server.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Folder*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Folder
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Email folder to retrieve messages from (e.g., INBOX)
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Fetch.Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Fetch Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specify the maximum number of Messages to fetch per call to Email Server.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Delete.Messages*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Delete Messages
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specify whether mail messages should be deleted after retrieval.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Connection.Timeout*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Connection timeout
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The amount of time to wait to connect to Email server
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Mark Messages As Read*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Mark Messages as Read
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specify if messages should be marked as read after retrieval.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Use Ssl*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Use SSL
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies if IMAP connection must be obtained via SSL encrypted connection (i.e., IMAPS)
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|All messages that are the are successfully received from Email server and converted to FlowFiles are routed to this relationship
+
+|===
+
+
+
+
+
+
+
+
+
+
+

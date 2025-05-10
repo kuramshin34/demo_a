@@ -1,0 +1,90 @@
+= StandardPGPPrivateKeyService 2.2.0
+
+PGP Private Key Service provides Private Keys loaded from files or properties
+
+[horizontal]
+*Tags* (Ключевые слова):
+Encryption, GPG, Key, OpenPGP, PGP, Private, RFC 4880
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.Keyring-File
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Keyring File
+
+[horizontal]
+*DESCRIPTION (Описание):*:: File path to PGP Keyring or Secret Key encoded in binary or ASCII Armor
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Keyring
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Keyring
+
+[horizontal]
+*DESCRIPTION (Описание):*:: PGP Keyring or Secret Key encoded in ASCII Armor
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Key-Password*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Key Password
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Password used for decrypting Private Keys
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

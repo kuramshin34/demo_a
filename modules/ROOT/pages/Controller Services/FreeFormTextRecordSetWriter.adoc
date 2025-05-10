@@ -1,0 +1,73 @@
+= FreeFormTextRecordSetWriter 2.2.0
+
+Writes the contents of a RecordSet as free-form text. The configured text is able to make use of the Expression Language to reference each of the fields that are available in a Record, as well as the attributes in the FlowFile and variables. If there is a name collision, the field name/value is used before attributes or variables. Each record in the RecordSet will be separated by a single newline character.
+
+[horizontal]
+*Tags* (Ключевые слова):
+el, expression, freeform, language, record, recordset, resultset, serialize, text, writer
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Text*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Text
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The text to use when writing the results. This property will evaluate the Expression Language using any of the fields available in a Record.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Character Set*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Character set to use when writing the data to the FlowFile
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

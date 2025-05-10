@@ -1,0 +1,39 @@
+= ConfluentEncodedSchemaReferenceWriter 2.2.0
+
+Writes Schema Identifier according to Confluent encoding as a header consisting of a byte marker and an integer represented as four bytes
+
+[horizontal]
+*Tags* (Ключевые слова):
+avro, confluent, kafka, registry, schema
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

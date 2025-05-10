@@ -1,0 +1,129 @@
+= ScanAttribute 2.2.0
+
+Scans the specified attributes of FlowFiles, checking to see if any of their values are present within the specified dictionary of terms
+
+[horizontal]
+*Tags* (Ключевые слова):
+attributes, find, lookup, scan, search, text
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Dictionary File*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Dictionary File
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A new-line-delimited text file that includes the terms that should trigger a match. Empty lines are ignored.  The contents of the text file are loaded into memory when the processor is scheduled and reloaded when the contents are modified.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Attribute Pattern*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Attribute Pattern
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Regular Expression that specifies the names of attributes whose values will be matched against the terms in the dictionary
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Match Criteria*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Match Criteria
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If set to All Must Match, then FlowFiles will be routed to 'matched' only if all specified attributes' values are found in the dictionary. If set to At Least 1 Must Match, FlowFiles will be routed to 'matched' if any attribute specified is found in the dictionary
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* At Least 1 Must Match
+
+* All Must Match
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Dictionary Filter Pattern
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Dictionary Filter Pattern
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A Regular Expression that will be applied to each line in the dictionary file. If the regular expression does not match the line, the line will not be included in the list of terms to search for. If a Matching Group is specified, only the portion of the term that matches that Matching Group will be used instead of the entire term. If not specified, all terms in the dictionary will be used and each term will consist of the text of the entire line in the file
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`matched`
+|FlowFiles whose attributes are found in the dictionary will be routed to this relationship
+
+|`unmatched`
+|FlowFiles whose attributes are not found in the dictionary will be routed to this relationship
+
+|===
+
+
+
+
+
+
+
+
+
+
+

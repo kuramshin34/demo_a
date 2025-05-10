@@ -1,0 +1,242 @@
+= GrokReader 2.2.0
+
+Provides a mechanism for reading unstructured text data, such as log files, and structuring the data so that it can be processed. The service is configured using Grok patterns. The service reads from a stream of data and splits each message that it finds into a separate Record, each containing the fields that are configured. If a line in the input does not match the expected message pattern, the line of text is either considered to be part of the previous message or is skipped, depending on the configuration, with the exception of stack traces. A stack trace that is found at the end of a log message is considered to be part of the previous message but is added to the 'stackTrace' field of the Record. If a record has no stack trace, it will have a NULL value for the stackTrace field (assuming that the schema does in fact include a stackTrace field of type String). Assuming that the schema includes a '_raw' field of type String, the raw message will be included in the Record.
+
+[horizontal]
+*Tags* (Ключевые слова):
+grok, logfiles, logs, logstash, parse, pattern, reader, record, regex, text, unstructured
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Schema-Access-Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how to obtain the schema that is to be used for interpreting the data.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Use String Fields From Grok Expression: The schema will be derived using the field names present in all configured Grok Expressions. All schema fields will have a String type and will be marked as nullable. The schema will also include a `stackTrace` field, and a `_raw` field containing the input line string. 
+
+* Use 'Schema Name' Property: The name of the Schema to use is specified by the 'Schema Name' Property. The value of this property is used to lookup the Schema in the configured Schema Registry service. 
+
+* Use 'Schema Text' Property: The text of the Schema itself is specified by the 'Schema Text' Property. The value of this property must be a valid Avro Schema. If Expression Language is used, the value of the 'Schema Text' property must be valid after substituting the expressions. 
+
+* Schema Reference Reader: The schema reference information will be provided through a configured Schema Reference Reader service implementation. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Schema-Registry
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for the Schema Registry
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Schema-Name
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the name of the schema to lookup in the Schema Registry property
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Schema-Version
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Version
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the version of the schema to lookup in the Schema Registry. If not specified then the latest version of the schema will be retrieved.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Schema-Branch
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Branch
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the name of the branch to use when looking up the schema in the Schema Registry property. If the chosen Schema Registry does not support branching, this value will be ignored.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Schema-Text
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Text
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The text of an Avro-formatted Schema
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Schema-Reference-Reader*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Reader
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Service implementation responsible for reading FlowFile attributes or content to determine the Schema Reference Identifier
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Grok Pattern File
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Grok Patterns
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Grok Patterns to use for parsing logs. If not specified, a built-in default Pattern file will be used. If specified, all patterns specified will override the default patterns. See the Controller Service's Additional Details for a list of pre-defined patterns.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Grok Expression*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Grok Expressions
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the format of a log line in Grok format. This allows the Record Reader to understand how to parse each log line. The property supports one or more Grok expressions. The Reader attempts to parse input lines according to the configured order of the expressions.If a line in the log file does not match any expressions, the line will be assumed to belong to the previous log message.If other Grok patterns are referenced by this expression, they need to be supplied in the Grok Pattern File property.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*No-Match-Behavior*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: No Match Behavior
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If a line of text is encountered and it does not match the given Grok Expression, and it is not part of a stack trace, this property specifies how the text should be processed.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Append to Previous Message: The line of text that does not match the Grok Expression will be appended to the last field of the prior message. 
+
+* Skip Line: The line of text that does not match the Grok Expression will be skipped. 
+
+* Raw Line: The line of text that does not match the Grok Expression will only be added to the _raw field. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+=== Ограничения
+
+[cols="1a,2a",options="header",]
+|===
+|Требуемые права |Объяснение
+
+|
+|Patterns and Expressions can reference resources over HTTP
+
+|===
+
+
+
+
+
+
+
+
+
+
+
+
+

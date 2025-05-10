@@ -1,0 +1,196 @@
+= ListenOTLP 2.2.0
+
+Collect OpenTelemetry messages over HTTP or gRPC. Supports standard Export Service Request messages for logs, metrics, and traces. Implements OpenTelemetry OTLP Specification 1.0.0 with OTLP/gRPC and OTLP/HTTP. Provides protocol detection using the HTTP Content-Type header.
+
+[horizontal]
+*Tags* (Ключевые слова):
+OTLP, OTel, OpenTelemetry, logs, metrics, telemetry, traces
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+FORBIDDEN (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Address*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Address
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Internet Protocol Address on which to listen for OTLP Export Service Requests. The default value enables listening on all addresses.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Port*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Port
+
+[horizontal]
+*DESCRIPTION (Описание):*:: TCP port number on which to listen for OTLP Export Service Requests over HTTP and gRPC
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Ssl Context Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: SSL Context Service enables TLS communication for HTTPS
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Client Authentication*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Client Authentication
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Client authentication policy for TLS communication with HTTPS
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* WANT
+
+* REQUIRED
+
+* NONE
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Worker Threads*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Worker Threads
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Number of threads responsible for decoding and queuing incoming OTLP Export Service Requests
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Queue Capacity*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Queue Capacity
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Maximum number of OTLP request resource elements that can be received and queued
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Batch Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Maximum number of OTLP request resource elements included in each FlowFile produced
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|Export Service Requests containing OTLP Telemetry
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`mime.type`
+|Content-Type set to application/json
+
+|`resource.type`
+|OpenTelemetry Resource Type: LOGS, METRICS, or TRACES
+
+|`resource.count`
+|Count of resource elements included in messages
+
+|===
+
+
+
+
+
+
+

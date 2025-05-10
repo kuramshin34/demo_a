@@ -1,0 +1,96 @@
+= SplitPCAP 2.2.0
+
+Splits one pcap file into multiple pcap files based on a maximum size.
+
+[horizontal]
+*Tags* (Ключевые слова):
+Capture, Network, PCAP, Packet, Splitter, TShark, TcpDump, WinDump, Wireshark, sniffers
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Pcap Max Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: PCAP Max Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Maximum size of each output PCAP file. PCAP packets larger than the configured size result in routing FlowFiles to the failure relationship.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`failure`
+|If a FlowFile cannot be transformed from the configured input format to the configured output format, the unchanged FlowFile will be routed to this relationship.
+
+|`original`
+|The original FlowFile that was split into segments. If the FlowFile fails processing, nothing will be sent to this relationship
+
+|`split`
+|The individual PCAP 'segments' of the original PCAP FlowFile will be routed to this relationship.
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`error.reason`
+|The reason the FlowFile was sent to the failure relationship.
+
+|`fragment.identifier`
+|All split PCAP FlowFiles produced from the same parent PCAP FlowFile will have the same randomly generated UUID added for this attribute
+
+|`fragment.index`
+|A one-up number that indicates the ordering of the split PCAP FlowFiles that were created from a single parent PCAP FlowFile
+
+|`fragment.count`
+|The number of split PCAP FlowFiles generated from the parent PCAP FlowFile
+
+|`segment.original.filename`
+|The filename of the parent PCAP FlowFile
+
+|===
+
+
+
+
+
+
+

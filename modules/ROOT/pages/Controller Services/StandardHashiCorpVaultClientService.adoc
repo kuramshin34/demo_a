@@ -1,0 +1,199 @@
+= StandardHashiCorpVaultClientService 2.2.0
+
+A controller service for interacting with HashiCorp Vault.
+
+[horizontal]
+*Tags* (Ключевые слова):
+client, hashicorp, vault
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ True (Да) 
+
+
+
+== Properties (Свойства)
+
+
+.*Configuration-Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Configuration Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the source of the configuration properties.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Direct Properties: Use properties, including dynamic properties, configured directly in the Controller Service to configure the client 
+
+* Properties Files: Use one or more '.properties' files to configure the client 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Vault.Uri*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Vault URI
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The URI of the HashiCorp Vault server (e.g., http://localhost:8200).  Required if not specified in the Bootstrap HashiCorp Vault Configuration File.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Vault.Authentication*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Vault Authentication
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Vault authentication method, as described in the Spring Vault Environment Configuration documentation (https://docs.spring.io/spring-vault/docs/2.3.x/reference/html/#vault.core.environment-vault-configuration).
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* TOKEN
+
+* APPID
+
+* APPROLE
+
+* AWS_EC2
+
+* AZURE
+
+* CERT
+
+* CUBBYHOLE
+
+* KUBERNETES
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Vault.Ssl.Context.Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The SSL Context Service used to provide client certificate information for TLS/SSL connections to the HashiCorp Vault server.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Vault.Properties.Files*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Vault Properties Files
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A comma-separated list of files containing HashiCorp Vault configuration properties, as described in the Spring Vault Environment Configuration documentation (https://docs.spring.io/spring-vault/docs/2.3.x/reference/html/#vault.core.environment-vault-configuration). All of the Spring property keys and authentication-specific property keys are supported.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Vault.Connection.Timeout*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Connection Timeout
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The connection timeout for the HashiCorp Vault client
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Vault.Read.Timeout*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Read Timeout
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The read timeout for the HashiCorp Vault client
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`A Spring Vault configuration property name`
+|Allows any Spring Vault property keys to be specified, as described in (https://docs.spring.io/spring-vault/docs/2.3.x/reference/html/#vault.core.environment-vault-configuration). See Additional Details for more information.
+|`The property value`
+|
+
+|===
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

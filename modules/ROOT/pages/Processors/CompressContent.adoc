@@ -1,0 +1,298 @@
+= CompressContent 2.2.0
+
+Compresses or decompresses the contents of FlowFiles using a user-specified compression algorithm and updates the mime.type attribute as appropriate. A common idiom is to precede CompressContent with IdentifyMimeType and configure Mode='decompress' AND Compression Format='use mime.type attribute'. When used in this manner, the MIME type is automatically detected and the data is decompressed, if necessary. If decompression is unnecessary, the data is passed through to the 'success' relationship. This processor operates in a very memory efficient way so very large objects well beyond the heap size are generally fine to process.
+
+[horizontal]
+*Tags* (Ключевые слова):
+brotli, bzip2, compress, content, decompress, deflate, gzip, lz4-framed, lzma, snappy, snappy framed, snappy-hadoop, xz-lzma2, zstd
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Mode*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Mode
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Indicates whether the processor should compress content or decompress content. Must be either 'compress' or 'decompress'
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* compress
+
+* decompress
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Compression Format*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Compression Format
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The compression format to use. Valid values are: GZIP, Deflate, ZSTD, BZIP2, XZ-LZMA2, LZMA, Brotli, Snappy, Snappy Hadoop, Snappy Framed, and LZ4-Framed
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* use mime.type attribute
+
+* gzip
+
+* deflate
+
+* bzip2
+
+* xz-lzma2
+
+* lzma
+
+* snappy
+
+* snappy-hadoop
+
+* snappy framed
+
+* lz4-framed
+
+* zstd
+
+* brotli
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Compression Level*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Compression Level
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The compression level to use; this is valid only when using gzip, deflate or xz-lzma2 compression. A lower value results in faster processing but less compression; a value of 0 indicates no (that is, simple archiving) for gzip or minimal for xz-lzma2 compression. Higher levels can mean much larger memory usage such as the case with levels 7-9 for xz-lzma/2 so be careful relative to heap size.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* 0
+
+* 1
+
+* 2
+
+* 3
+
+* 4
+
+* 5
+
+* 6
+
+* 7
+
+* 8
+
+* 9
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Update Filename*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Update Filename
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If true, will remove the filename extension when decompressing data (only if the extension indicates the appropriate compression format) and add the appropriate extension when compressing data
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+=== Системные ресурсы
+
+[cols="1a,2a",options="header",]
+|===
+|Ресурс |Описание
+
+
+|CPU
+|An instance of this component can cause high usage of this system resource.  Multiple instances or high concurrency settings may result a degradation of performance.
+
+|MEMORY
+|An instance of this component can cause high usage of this system resource.  Multiple instances or high concurrency settings may result a degradation of performance.
+
+|===
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|FlowFiles will be transferred to the success relationship after successfully being compressed or decompressed
+
+|`failure`
+|FlowFiles will be transferred to the failure relationship if they fail to compress/decompress
+
+|===
+
+
+
+=== Читаемые атрибуты
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`mime.type`
+|If the Compression Format is set to use mime.type attribute, this attribute is used to determine the compression type. Otherwise, this attribute is ignored.
+
+|===
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`mime.type`
+|If the Mode property is set to compress, the appropriate MIME Type is set. If the Mode property is set to decompress and the file is successfully decompressed, this attribute is removed, as the MIME Type is no longer known.
+
+|===
+
+
+
+== Варианты использования
+:sectnums:
+
+
+
+=== Compress the contents of a FlowFile
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+
+
+
+.Конфигурация
+====
+"Mode" = "compress"
+"Compression Format" should be set to whichever compression algorithm should be used.
+====
+
+
+=== Decompress the contents of a FlowFile
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+
+
+
+.Конфигурация
+====
+"Mode" = "decompress"
+"Compression Format" should be set to whichever compression algorithm was used to compress the data previously.
+====
+
+
+
+
+== Варианты использования, включающие другие компоненты
+
+
+=== Check whether or not a FlowFile is compressed and if so, decompress it.
+
+
+NOTE: If IdentifyMimeType determines that the content is not compressed, CompressContent will pass the FlowFile along to the 'success' relationship without attempting to decompress it.
+
+
+
+Ключевые слова::
+
+auto
+
+detect
+
+mime type
+
+compress
+
+decompress
+
+gzip
+
+bzip2
+
+
+
+
+
+
+
+

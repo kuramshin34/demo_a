@@ -1,0 +1,203 @@
+= EvaluateXQuery 2.2.0
+
+Evaluates one or more XQueries against the content of a FlowFile.  The results of those XQueries are assigned to FlowFile Attributes or are written to the content of the FlowFile itself, depending on configuration of the Processor.  XQueries are entered by adding user-defined properties; the name of the property maps to the Attribute Name into which the result will be placed (if the Destination is 'flowfile-attribute'; otherwise, the property name is ignored).  The value of the property must be a valid XQuery.  If the XQuery returns more than one result, new attributes or FlowFiles (for Destinations of 'flowfile-attribute' or 'flowfile-content' respectively) will be created for each result (attributes will have a '.n' one-up number appended to the specified attribute name).  If any provided XQuery returns a result, the FlowFile(s) will be routed to 'matched'. If no provided XQuery returns a result, the FlowFile will be routed to 'unmatched'.  If the Destination is 'flowfile-attribute' and the XQueries matche nothing, no attributes will be applied to the FlowFile.
+
+[horizontal]
+*Tags* (Ключевые слова):
+XML, XPath, XQuery, evaluate
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Destination*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Destination
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Indicates whether the results of the XQuery evaluation are written to the FlowFile content or a FlowFile attribute. If set to <flowfile-content>, only one XQuery may be specified and the property name is ignored.  If set to <flowfile-attribute> and the XQuery returns more than one result, multiple attributes will be added to theFlowFile, each named with a '.n' one-up number appended to the specified attribute name
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* flowfile-content
+
+* flowfile-attribute
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Output: Method*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Output: Method
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Identifies the overall method that should be used for outputting a result tree.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* xml
+
+* html
+
+* text
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Output: Omit Xml Declaration*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Output: Omit XML Declaration
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies whether the processor should output an XML declaration when transforming a result tree.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Output: Indent*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Output: Indent
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies whether the processor may add additional whitespace when outputting a result tree.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Validate Dtd*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Allow DTD
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Allow embedded Document Type Declaration in XML. This feature should be disabled to avoid XML entity expansion vulnerabilities.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`A FlowFile attribute(if <Destination> is set to 'flowfile-attribute'`
+|If <Destination>='flowfile-attribute' then the FlowFile attribute is set to the result of the XQuery.  If <Destination>='flowfile-content' then the FlowFile content is set to the result of the XQuery.
+|`An XQuery`
+|
+
+|===
+
+
+
+
+
+=== Системные ресурсы
+
+[cols="1a,2a",options="header",]
+|===
+|Ресурс |Описание
+
+
+|MEMORY
+|Processing requires reading the entire FlowFile into memory
+
+|===
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`failure`
+|FlowFiles are routed to this relationship when the XQuery cannot be evaluated against the content of the FlowFile.
+
+|`unmatched`
+|FlowFiles are routed to this relationship when the XQuery does not match the content of the FlowFile and the Destination is set to flowfile-content
+
+|`matched`
+|FlowFiles are routed to this relationship when the XQuery is successfully evaluated and the FlowFile is modified as a result
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`user-defined`
+|This processor adds user-defined attributes if the <Destination> property is set to flowfile-attribute .
+
+|===
+
+
+
+
+
+
+

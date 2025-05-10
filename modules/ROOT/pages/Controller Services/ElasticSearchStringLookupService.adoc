@@ -1,0 +1,90 @@
+= ElasticSearchStringLookupService 2.2.0
+
+Lookup a string value from Elasticsearch Server associated with the specified document ID. The coordinates that are passed to the lookup must contain the key 'id'.
+
+[horizontal]
+*Tags* (Ключевые слова):
+elasticsearch, enrich, key, lookup, value
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*El-Rest-Client-Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Client Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: An ElasticSearch client service to use for running queries.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*El-Lookup-Index*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Index
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the index to read from
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.El-Lookup-Type
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Type
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The type of this document (used by Elasticsearch for indexing and searching)
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

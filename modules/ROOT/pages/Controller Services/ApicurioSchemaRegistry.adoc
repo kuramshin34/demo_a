@@ -1,0 +1,124 @@
+= ApicurioSchemaRegistry 2.2.0
+
+Provides a Schema Registry that interacts with the Apicurio Schema Registry so that those Schemas that are stored in the Apicurio Schema Registry can be used in NiFi. When a Schema is looked up by name by this registry, it will find a Schema in the Apicurio Schema Registry with their artifact identifiers.
+
+[horizontal]
+*Tags* (Ключевые слова):
+apicurio, avro, registry, schema
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Schema Registry Url*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry URL
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The URL of the Schema Registry e.g. http://localhost:8080
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Schema Group Id*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Group ID
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The artifact Group ID for the schemas
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Cache Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Cache Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how many Schemas should be cached from the Schema Registry. The cache size must be a non-negative integer. When it is set to 0, the cache is effectively disabled.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Cache Expiration*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Cache Expiration
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how long a Schema that is cached should remain in the cache. Once this time period elapses, a cached version of a schema will no longer be used, and the service will have to communicate with the Schema Registry again in order to obtain the schema.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Web Client Service Provider*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Web Client Service Provider
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Controller service for HTTP client operations
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

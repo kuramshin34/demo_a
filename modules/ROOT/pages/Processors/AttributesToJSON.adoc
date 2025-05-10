@@ -1,0 +1,223 @@
+= AttributesToJSON 2.2.0
+
+Generates a JSON representation of the input FlowFile Attributes. The resulting JSON can be written to either a new Attribute 'JSONAttributes' or written to the FlowFile as content. Attributes  which contain nested JSON objects can either be handled as JSON or as escaped JSON depending on the strategy chosen.
+
+[horizontal]
+*Tags* (Ключевые слова):
+attributes, flowfile, json
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.Attributes List
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Attributes List
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Comma separated list of attributes to be included in the resulting JSON. If this value is left empty then all existing Attributes will be included. This list of attributes is case sensitive. If an attribute specified in the list is not found it will be be emitted to the resulting JSON with an empty string or NULL value.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Attributes-To-Json-Regex
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Attributes Regular Expression
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Regular expression that will be evaluated against the flow file attributes to select the matching attributes. This property can be used in combination with the attributes list property.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Destination*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Destination
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Control if JSON value is written as a new flowfile attribute 'JSONAttributes' or written in the flowfile content. Writing to flowfile content will overwrite any existing flowfile content.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* flowfile-attribute
+
+* flowfile-content
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Include Core Attributes*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Include Core Attributes
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Determines if the FlowFile org.apache.nifi.flowfile.attributes.CoreAttributes which are contained in every FlowFile should be included in the final JSON value generated.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Null Value*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Null Value
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If true a non existing selected attribute will be NULL in the resulting JSON. If false an empty string will be placed in the JSON
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Json Handling Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: JSON Handling Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Strategy to use for handling attributes which contain nested JSON.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Escaped: Escapes JSON attribute values to strings 
+
+* Nested: Handles JSON attribute values as nested structured objects or arrays 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Pretty Print*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Pretty Print
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Apply pretty print formatting to the output.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|Successfully converted attributes to JSON
+
+|`failure`
+|Failed to convert attributes to JSON
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`JSONAttributes`
+|JSON representation of Attributes
+
+|===
+
+
+
+
+
+
+

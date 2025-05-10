@@ -1,0 +1,181 @@
+= VerifyContentMAC 2.2.0
+
+Calculates a Message Authentication Code using the provided Secret Key and compares it with the provided MAC property
+
+[horizontal]
+*Tags* (Ключевые слова):
+Authentication, HMAC, MAC, Signing
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Mac-Algorithm*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Message Authentication Code Algorithm
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Hashed Message Authentication Code Function
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* HmacSHA256
+
+* HmacSHA512
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Message-Authentication-Code-Encoding*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Message Authentication Code Encoding
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Encoding of the Message Authentication Code
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* HEXADECIMAL
+
+* BASE64
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Message-Authentication-Code*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Message Authentication Code
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The MAC to compare with the calculated value
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Secret-Key-Encoding*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Secret Key Encoding
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Encoding of the Secret Key
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* UTF8
+
+* HEXADECIMAL
+
+* BASE64
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Secret-Key*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Secret Key
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Secret key to calculate the hash
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|Signature Verification Succeeded
+
+|`failure`
+|Signature Verification Failed
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`mac.calculated`
+|Calculated Message Authentication Code encoded by the selected encoding
+
+|`mac.encoding`
+|The Encoding of the Hashed Message Authentication Code
+
+|`mac.algorithm`
+|Hashed Message Authentication Code Algorithm
+
+|===
+
+
+
+
+
+
+

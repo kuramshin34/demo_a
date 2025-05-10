@@ -1,0 +1,73 @@
+= ForkEnrichment 2.2.0
+
+Used in conjunction with the JoinEnrichment processor, this processor is responsible for adding the attributes that are necessary for the JoinEnrichment processor to perform its function. Each incoming FlowFile will be cloned. The original FlowFile will have appropriate attributes added and then be transferred to the 'original' relationship. The clone will have appropriate attributes added and then be routed to the 'enrichment' relationship. See the documentation for the JoinEnrichment processor (and especially its Additional Details) for more information on how these Processors work together and how to perform enrichment tasks in NiFi by using these Processors.
+
+[horizontal]
+*Tags* (Ключевые слова):
+enrich, fork, join, record
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`original`
+|The incoming FlowFile will be routed to this relationship, after adding appropriate attributes.
+
+|`enrichment`
+|A clone of the incoming FlowFile will be routed to this relationship, after adding appropriate attributes.
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`enrichment.group.id`
+|The Group ID to use in order to correlate the 'original' FlowFile with the 'enrichment' FlowFile.
+
+|`enrichment.role`
+|The role to use for enrichment. This will either be ORIGINAL or ENRICHMENT.
+
+|===
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/JoinEnrichment.adoc[JoinEnrichment]
+
+

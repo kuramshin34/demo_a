@@ -1,0 +1,314 @@
+= Kafka3ConnectionService 2.2.0
+
+Provides and manages connections to Kafka Brokers for producer or consumer operations.
+
+[horizontal]
+*Tags* (Ключевые слова):
+
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Bootstrap.Servers*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Bootstrap Servers
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Comma-separated list of Kafka Bootstrap Servers in the format host:port. Corresponds to Kafka bootstrap.servers property
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Security.Protocol*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Security Protocol
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Security protocol used to communicate with brokers. Corresponds to Kafka Client security.protocol property
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* PLAINTEXT
+
+* SSL
+
+* SASL_PLAINTEXT
+
+* SASL_SSL
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Sasl.Mechanism*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SASL Mechanism
+
+[horizontal]
+*DESCRIPTION (Описание):*:: SASL mechanism used for authentication. Corresponds to Kafka Client sasl.mechanism property
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* GSSAPI: General Security Services API for Kerberos authentication 
+
+* PLAIN: Plain username and password authentication 
+
+* SCRAM-SHA-256: Salted Challenge Response Authentication Mechanism using SHA-512 with username and password 
+
+* SCRAM-SHA-512: Salted Challenge Response Authentication Mechanism using SHA-256 with username and password 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Sasl.Username*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SASL Username
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Username provided with configured password when using PLAIN or SCRAM SASL Mechanisms
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Sasl.Password*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SASL Password
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Password provided with configured username when using PLAIN or SCRAM SASL Mechanisms
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Kerberos-User-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Kerberos User Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Service supporting user authentication with Kerberos
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Sasl.Kerberos.Service.Name
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Kerberos Service Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The service name that matches the primary name of the Kafka server configured in the broker JAAS configuration
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Ssl Context Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Service supporting SSL communication with Kafka brokers
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Isolation.Level*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Transaction Isolation Level
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how the service should handle transaction isolation levels when communicating with Kafka.
+The uncommited option means that messages will be received as soon as they are written to Kafka but will be pulled, even if the producer cancels the transactions.
+The committed option configures the service to not receive any messages for which the producer's transaction was canceled, but this can result in some latency since the
+consumer must wait for the producer to finish its entire transaction instead of pulling as the messages become available.
+Corresponds to Kafka isolation.level property.
+
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Read Committed: Read records from Kafka only after the producer has committed a transaction. 
+
+* Read Uncommitted: Read records from Kafka as soon as the produced has sent the record, regardless of transaction status. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Max.Poll.Records*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Max Poll Records
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Maximum number of records Kafka should return in a single poll.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Default.Api.Timeout.Ms*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Client Timeout
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Default timeout for Kafka client operations. Mapped to Kafka default.api.timeout.ms. The Kafka request.timeout.ms property is derived from half of the configured timeout
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Max.Block.Ms*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Max Metadata Wait Time
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The amount of time publisher will wait to obtain metadata or wait for the buffer to flush during the 'send' call before failing the
+entire 'send' call. Corresponds to Kafka max.block.ms property
+
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Ack.Wait.Time*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Acknowledgment Wait Time
+
+[horizontal]
+*DESCRIPTION (Описание):*:: After sending a message to Kafka, this indicates the amount of time that the service will wait for a response from Kafka.
+If Kafka does not acknowledge the message within this time period, the service will throw an exception.
+
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`The name of a Kafka configuration property.`
+|These properties will be added on the Kafka configuration after loading any provided configuration properties. In the event a dynamic property represents a property that was already set, its value will be ignored and WARN message logged. For the list of available Kafka properties please refer to: http://kafka.apache.org/documentation.html#configuration.
+|`The value of a given Kafka configuration property.`
+|
+
+|===
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

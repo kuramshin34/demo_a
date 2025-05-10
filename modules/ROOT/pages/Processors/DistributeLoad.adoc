@@ -1,0 +1,118 @@
+= DistributeLoad 2.2.0
+
+Distributes FlowFiles to downstream processors based on a Distribution Strategy. If using the Round Robin strategy, the default is to assign each destination a weighting of 1 (evenly distributed). However, optional properties can be added to the change this; adding a property with the name '5' and value '10' means that the relationship with name '5' will be receive 10 FlowFiles in each iteration instead of 1.
+
+[horizontal]
+*Tags* (Ключевые слова):
+distribute, load balance, round robin, route, weighted
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Number Of Relationships*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Number of Relationships
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Determines the number of Relationships to which the load should be distributed
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Distribution Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Distribution Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Determines how the load will be distributed. Relationship weight is in numeric order where '1' has the greatest weight.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* round robin: Relationship selection is evenly distributed in a round robin fashion; all relationships must be available. 
+
+* next available: Relationship selection is distributed across all available relationships in order of their weight; at least one relationship must be available. 
+
+* overflow: Relationship selection is the first available relationship without further distribution among all relationships; at least one relationship must be available. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`The relationship name (positive number)`
+|Adding a property with the name '5' and value '10' means that the relationship with name '5' will receive 10 FlowFiles in each iteration instead of 1.
+|`The relationship Weight (positive number)`
+|
+
+|===
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`1`
+|Where to route flowfiles for this relationship index
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`distribute.load.relationship`
+|The name of the specific relationship the FlowFile has been routed through
+
+|===
+
+
+
+
+
+
+

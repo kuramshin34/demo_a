@@ -1,0 +1,111 @@
+= EnvironmentVariableParameterProvider 2.2.0
+
+Fetches parameters from environment variables
+
+[horizontal]
+*Tags* (Ключевые слова):
+environment, variable
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Parameter-Group-Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Parameter Group Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the parameter group that will be fetched.  This indicates the name of the Parameter Context that may receive the fetched parameters.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Environment-Variable-Inclusion-Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Environment Variable Inclusion Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Indicates how Environment Variables should be included
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Include All: All Environment Variables will be included 
+
+* Comma-Separated: List comma-separated Environment Variable names to include 
+
+* Regular Expression: Include Environment Variable names that match a Regular Expression 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Include-Environment-Variables
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Include Environment Variables
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies environment variable names that should be included from the fetched environment variables.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+=== Ограничения
+
+[cols="1a,2a",options="header",]
+|===
+|Требуемые права |Объяснение
+
+|
+|Provides operator the ability to read environment variables, which may contain environment credentials.
+
+|===
+
+
+
+
+
+
+
+
+
+
+
+
+

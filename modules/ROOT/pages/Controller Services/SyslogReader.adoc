@@ -1,0 +1,81 @@
+= SyslogReader 2.2.0
+
+Attempts to parses the contents of a Syslog message in accordance to RFC5424 and RFC3164. In the case of RFC5424 formatted messages, structured data is not supported, and will be returned as part of the message.Note: Be mindfull that RFC3164 is informational and a wide range of different implementations are present in the wild.
+
+[horizontal]
+*Tags* (Ключевые слова):
+logfiles, logs, parse, reader, record, syslog, text
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Character Set*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies which character set of the Syslog messages
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Syslog-5424-Reader-Raw-Message*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Raw message
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If true, the record will have a _raw field containing the raw message
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

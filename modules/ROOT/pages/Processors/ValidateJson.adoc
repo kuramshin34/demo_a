@@ -1,0 +1,214 @@
+= ValidateJson 2.2.0
+
+Validates the contents of FlowFiles against a configurable JSON Schema. See json-schema.org for specification standards. This Processor does not support input containing multiple JSON objects, such as newline-delimited JSON. If the input FlowFile contains newline-delimited JSON, only the first line will be validated.
+
+[horizontal]
+*Tags* (Ключевые слова):
+JSON, schema, validation
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Schema Access Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how to obtain the schema that is to be used for interpreting the data.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Schema Name Property: The name of the Schema to use is specified by the 'Schema Name' Property. The value of this property is used to lookup the Schema in the configured JSON Schema Registry Service. 
+
+* JSON Schema Property: A URL or file path to the JSON schema or the actual JSON schema is specified by the 'JSON Schema' Property. No matter how the JSON schema is specified, it must be a valid JSON schema 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Schema Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the name of the schema to lookup in the Schema Registry property
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Json Schema Registry*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: JSON Schema Registry
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for the JSON Schema Registry
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Json Schema*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: JSON Schema
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A URL or file path to the JSON schema or the actual JSON schema content
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Json Schema Version*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: JSON Schema Version
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The JSON schema specification
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Draft 4: Draft Version 4 
+
+* Draft 6: Draft Version 6 
+
+* Draft 7: Draft Version 7 
+
+* Draft 2019-09: Draft Version 2019-09 
+
+* Draft 2020-12: Draft Version 2020-12 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Max String Length*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Max String Length
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum allowed length of a string value when parsing the JSON document
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+=== Системные ресурсы
+
+[cols="1a,2a",options="header",]
+|===
+|Ресурс |Описание
+
+
+|MEMORY
+|Validating JSON requires reading FlowFile content into memory
+
+|===
+
+
+
+=== Ограничения
+
+[cols="1a,2a",options="header",]
+|===
+|Требуемые права |Объяснение
+
+|
+|Schema configuration can reference resources over HTTP
+
+|===
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`failure`
+|FlowFiles that cannot be read as JSON are routed to this relationship
+
+|`invalid`
+|FlowFiles that are not valid according to the specified schema are routed to this relationship
+
+|`valid`
+|FlowFiles that are successfully validated against the schema are routed to this relationship
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`json.validation.errors`
+|If the flow file is routed to the invalid relationship , this attribute will contain the error message resulting from the validation failure.
+
+|===
+
+
+
+
+
+
+

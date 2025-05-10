@@ -1,0 +1,259 @@
+= RunMongoAggregation 2.2.0
+
+A processor that runs an aggregation query whenever a flowfile is received.
+
+[horizontal]
+*Tags* (Ключевые слова):
+aggregate, aggregation, mongo
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ALLOWED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.Mongo-Client-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Client Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If configured, this property will use the assigned client service for connection pooling.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Mongo Database Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Mongo Database Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the database to use
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Mongo Collection Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Mongo Collection Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the collection to use
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Mongo-Charset*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the character set of the document data.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Mongo-Agg-Query*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Query
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The aggregation query to be executed.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Allow-Disk-Use*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Allow Disk Use
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Set this to true to enable writing data to temporary files to prevent exceeding the maximum memory use limit during aggregation pipeline staged when handling large datasets.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Json-Type*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: JSON Type
+
+[horizontal]
+*DESCRIPTION (Описание):*:: By default, MongoDB's Java driver returns "extended JSON". Some of the features of this variant of JSON may cause problems for other JSON parsers that expect only standard JSON types and conventions. This configuration setting  controls whether to use extended JSON or provide a clean view that conforms to standard JSON.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Extended JSON: Use MongoDB's "extended JSON". This is the JSON generated with toJson() on a MongoDB Document from the Java driver 
+
+* Standard JSON: Generate a JSON document that conforms to typical JSON conventions instead of Mongo-specific conventions. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Mongo-Query-Attribute
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Query Output Attribute
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If set, the query will be written to a specified attribute on the output flowfiles.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Batch Size
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The number of elements returned from the server in one batch.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Results-Per-Flowfile
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Results Per FlowFile
+
+[horizontal]
+*DESCRIPTION (Описание):*:: How many results to put into a flowfile at once. The whole body will be treated as a JSON array of results.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Mongo-Date-Format
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Date Format
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The date format string to use for formatting Date fields that are returned from Mongo. It is only applied when the JSON output format is set to Standard JSON.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`failure`
+|The input flowfile gets sent to this relationship when the query fails.
+
+|`original`
+|The input flowfile gets sent to this relationship when the query succeeds.
+
+|`results`
+|The result set of the aggregation will be sent to this relationship.
+
+|===
+
+
+
+
+
+
+
+
+
+
+

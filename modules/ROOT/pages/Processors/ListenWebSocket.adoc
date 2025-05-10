@@ -1,0 +1,119 @@
+= ListenWebSocket 2.2.0
+
+Acts as a WebSocket server endpoint to accept client connections. FlowFiles are transferred to downstream relationships according to received message types as the WebSocket server configured with this processor receives client requests
+
+[horizontal]
+*Tags* (Ключевые слова):
+WebSocket, consume, listen, subscribe
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+FORBIDDEN (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Websocket-Server-Controller-Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: WebSocket Server ControllerService
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A WebSocket SERVER Controller Service which can accept WebSocket requests.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Server-Url-Path*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Server URL Path
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The WetSocket URL Path on which this processor listens to. Must starts with '/', e.g. '/example'.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`binary message`
+|The WebSocket binary message output
+
+|`text message`
+|The WebSocket text message output
+
+|`disconnected`
+|The WebSocket session is disconnected
+
+|`connected`
+|The WebSocket session is established
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`websocket.controller.service.id`
+|WebSocket Controller Service id.
+
+|`websocket.session.id`
+|Established WebSocket session id.
+
+|`websocket.endpoint.id`
+|WebSocket endpoint id.
+
+|`websocket.local.address`
+|WebSocket server address.
+
+|`websocket.remote.address`
+|WebSocket client address.
+
+|`websocket.message.type`
+|TEXT or BINARY.
+
+|===
+
+
+
+
+
+
+

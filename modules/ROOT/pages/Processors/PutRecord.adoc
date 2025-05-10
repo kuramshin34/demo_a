@@ -1,0 +1,115 @@
+= PutRecord 2.2.0
+
+The PutRecord processor uses a specified RecordReader to input (possibly multiple) records from an incoming flow file, and sends them to a destination specified by a Record Destination Service (i.e. record sink).
+
+[horizontal]
+*Tags* (Ключевые слова):
+put, record, sink
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Put-Record-Reader*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for reading incoming data
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Put-Record-Sink*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Destination Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the query result records to some destination.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Put-Record-Include-Zero-Record-Results*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Include Zero Record Results
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If no records are read from the incoming FlowFile, this property specifies whether or not an empty record set will be transmitted. The original FlowFile will still be routed to success, but if no transmission occurs, no provenance SEND event will be generated.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`failure`
+|A FlowFile is routed to this relationship if the records could not be transmitted and retrying the operation will also fail
+
+|`success`
+|The original FlowFile will be routed to this relationship if the records were transmitted successfully
+
+|`retry`
+|The original FlowFile is routed to this relationship if the records could not be transmitted but attempting the operation again may succeed
+
+|===
+
+
+
+
+
+
+
+
+
+
+

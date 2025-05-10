@@ -1,0 +1,375 @@
+= PublishAMQP 2.2.0
+
+Creates an AMQP Message from the contents of a FlowFile and sends the message to an AMQP Exchange. In a typical AMQP exchange model, the message that is sent to the AMQP Exchange will be routed based on the 'Routing Key' to its final destination in the queue (the binding). If due to some misconfiguration the binding between the Exchange, Routing Key and Queue is not set up, the message will have no final destination and will return (i.e., the data will not make it to the queue). If that happens you will see a log in both app-log and bulletin stating to that effect, and the FlowFile will be routed to the 'failure' relationship.
+
+[horizontal]
+*Tags* (Ключевые слова):
+amqp, message, publish, put, rabbit, send
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Exchange Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Exchange Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the AMQP Exchange the messages will be sent to. Usually provided by the AMQP administrator (e.g., 'amq.direct'). It is an optional property. If kept empty the messages will be sent to a default AMQP exchange.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Routing Key*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Routing Key
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the Routing Key that will be used by AMQP to route messages from the exchange to a destination queue(s). Usually provided by the administrator (e.g., 'myKey')In the event when messages are sent to a default exchange this property corresponds to a destination queue name, otherwise a binding from the Exchange to a Queue via Routing Key must be set (usually by the AMQP administrator)
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Headers Source*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Headers Source
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The source of the headers which will be applied to the published message.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* FlowFile Attributes: Select FlowFile Attributes based on regular expression pattern for event headers. Key of the matching attribute will be used as header key 
+
+* AMQP Headers Attribute: Prepare headers from 'amqp$headers' attribute string 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Headers Pattern*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Headers Pattern
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Regular expression that will be evaluated against the FlowFile attributes to select the matching attributes and put as AMQP headers. Attribute name will be used as header key.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Header.Separator
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Header Separator
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The character that is used to split key-value for headers. The value must only one character. Otherwise you will get an error message
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Brokers
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Brokers
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A comma-separated list of known AMQP Brokers in the format <host>:<port> (e.g., localhost:5672). If this is set, Host Name and Port are ignored. Only include hosts from the same AMQP cluster.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Host Name
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Host Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Network address of AMQP broker (e.g., localhost). If Brokers is set, then this property is ignored.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Port
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Port
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Numeric value identifying Port of AMQP broker (e.g., 5671). If Brokers is set, then this property is ignored.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Virtual Host
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Virtual Host
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Virtual Host name which segregates AMQP system for enhanced security.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.User Name
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: User Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: User Name used for authentication and authorization.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Password
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Password
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Password used for authentication and authorization.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Amqp Version*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: AMQP Version
+
+[horizontal]
+*DESCRIPTION (Описание):*:: AMQP Version. Currently only supports AMQP v0.9.1.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* 0.9.1
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Ssl-Context-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The SSL Context Service used to provide client certificate information for TLS/SSL connections.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Cert-Authentication
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Use Client Certificate Authentication
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Authenticate using the SSL certificate rather than user name/password.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+=== Системные ресурсы
+
+[cols="1a,2a",options="header",]
+|===
+|Ресурс |Описание
+
+
+|MEMORY
+|An instance of this component can cause high usage of this system resource.  Multiple instances or high concurrency settings may result a degradation of performance.
+
+|===
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|All FlowFiles that are sent to the AMQP destination are routed to this relationship
+
+|`failure`
+|All FlowFiles that cannot be routed to the AMQP destination are routed to this relationship
+
+|===
+
+
+
+=== Читаемые атрибуты
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|The App ID field to set on the AMQP Message
+
+|`amqp$contentEncoding`
+|The Content Encoding to set on the AMQP Message
+
+|`amqp$contentType`
+|The Content Type to set on the AMQP Message
+
+|`amqp$headers`
+|The headers to set on the AMQP Message, if 'Header Source' is set to use it. See additional details of the processor.
+
+|`amqp$deliveryMode`
+|The numeric indicator for the Message's Delivery Mode
+
+|`amqp$priority`
+|The Message priority
+
+|`amqp$correlationId`
+|The Message's Correlation ID
+
+|`amqp$replyTo`
+|The value of the Message's Reply-To field
+
+|`amqp$expiration`
+|The Message Expiration
+
+|`amqp$messageId`
+|The unique ID of the Message
+
+|`amqp$timestamp`
+|The timestamp of the Message, as the number of milliseconds since epoch
+
+|`amqp$type`
+|The type of message
+
+|`amqp$userId`
+|The ID of the user
+
+|`amqp$clusterId`
+|The ID of the AMQP Cluster
+
+|===
+
+
+
+
+
+
+
+
+

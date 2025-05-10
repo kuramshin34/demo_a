@@ -1,0 +1,137 @@
+= ScriptedReportingTask 2.2.0
+
+Provides reporting and status information to a script. ReportingContext, ComponentLog, and VirtualMachineMetrics objects are made available as variables (context, log, and vmMetrics, respectively) to the script for further processing. The context makes various information available such as events, provenance, bulletins, controller services, process groups, Java Virtual Machine metrics, etc.
+
+[horizontal]
+*Tags* (Ключевые слова):
+execute, groovy, reporting, script
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ True (Да) 
+
+
+
+== Properties (Свойства)
+
+
+.*Script Engine*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Script Engine
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Language Engine for executing scripts
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Groovy: Groovy 4.0.24 [Groovy Scripting Engine 2.0] 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Script File
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Script File
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Path to script file to execute. Only one of Script File or Script Body may be used
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Script Body
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Script Body
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Body of script to execute. Only one of Script File or Script Body may be used
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Module Directory
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Module Directory
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Comma-separated list of paths to files and/or directories which contain modules required by the script.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`A script engine property to update`
+|Updates a script engine property specified by the Dynamic Property's key with the value specified by the Dynamic Property's value
+|`The value to set it to`
+|
+
+|===
+
+
+
+
+
+
+
+=== Ограничения
+
+[cols="1a,2a",options="header",]
+|===
+|Требуемые права |Объяснение
+
+|
+|Provides operator the ability to execute arbitrary code assuming all permissions that NiFi has.
+
+|===
+
+
+
+
+
+
+
+
+
+
+
+
+

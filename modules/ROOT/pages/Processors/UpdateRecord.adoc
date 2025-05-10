@@ -1,0 +1,286 @@
+= UpdateRecord 2.2.0
+
+Updates the contents of a FlowFile that contains Record-oriented data (i.e., data that can be read via a RecordReader and written by a RecordWriter). This Processor requires that at least one user-defined Property be added. The name of the Property should indicate a RecordPath that determines the field that should be updated. The value of the Property is either a replacement value (optionally making use of the Expression Language) or is itself a RecordPath that extracts a value from the Record. Whether the Property value is determined to be a RecordPath or a literal value depends on the configuration of the <Replacement Value Strategy> Property.
+
+[horizontal]
+*Tags* (Ключевые слова):
+avro, csv, freeform, generic, json, log, logs, record, schema, text, update
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Record Reader*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for reading incoming data
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Record Writer*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Replacement Value Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Replacement Value Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how to interpret the configured replacement values
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Literal Value: The value entered for a Property (after Expression Language has been evaluated) is the desired value to update the Record Fields with. Expression Language may reference variables 'field.name', 'field.type', and 'field.value' to access information about the field and the value of the field being evaluated. 
+
+* Record Path Value: The value entered for a Property (after Expression Language has been evaluated) is not the literal value to use but rather is a Record Path that should be evaluated against the Record, and the result of the RecordPath will be used to update the Record. Note that if this option is selected, and the Record Path results in multiple values for a given Record, the input FlowFile will be routed to the 'failure' Relationship. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`A RecordPath.`
+|Allows users to specify values to use to replace fields in the record that match the RecordPath.
+|`The value to use to replace fields in the record that match the RecordPath`
+|
+
+|===
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|FlowFiles that are successfully transformed will be routed to this relationship
+
+|`failure`
+|If a FlowFile cannot be transformed from the configured input format to the configured output format, the unchanged FlowFile will be routed to this relationship
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`record.index`
+|This attribute provides the current row index and is only available inside the literal value expression.
+
+|`record.error.message`
+|This attribute provides on failure the error message encountered by the Reader or Writer.
+
+|===
+
+
+
+== Варианты использования
+:sectnums:
+
+
+
+=== Combine multiple fields into a single field.
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+combine
+concatenate
+recordpath
+
+
+
+.Конфигурация
+====
+"Replacement Value Strategy" = "Record Path Value"
+
+A single additional property is added to the Processor. The name of the property is a RecordPath identifying the field to place the result in.
+The value of the property uses the CONCAT Record Path function to concatenate multiple values together, potentially using other string literal values.
+For example, to combine the `title`, `firstName` and `lastName` fields into a single field named `fullName`, we add a property with the name `/fullName` and a value of `CONCAT(/title, ' ', /firstName, ' ', /lastName)`
+
+====
+
+
+=== Change the value of a record field to an explicit value.
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+change
+update
+replace
+transform
+
+
+
+.Конфигурация
+====
+    "Replacement Value Strategy" = "Literal Value"
+
+    A single additional property is added to the Processor. The name of the property is a RecordPath identifying the field to place the result in.
+    The value of the property is the explicit value to set the field to. For example, we can set any field with a name of `txId`, regardless of its level in the data's hierarchy,     to `1111-1111` by adding a property with a name of `//txId` and a value of `1111-1111`
+
+====
+
+
+=== Copy the value of one record field to another record field.
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+change
+update
+copy
+recordpath
+hierarchy
+transform
+
+
+
+.Конфигурация
+====
+    "Replacement Value Strategy" = "Record Path Value"
+
+    A single additional property is added to the Processor. The name of the property is a RecordPath identifying the field to update.
+    The value of the property is a RecordPath identifying the field to copy the value from.
+    For example, we can copy the value of `/identifiers/all/imei` to the `identifier` field at the root level, by adding a property named     `/identifier` with a value of `/identifiers/all/imei`.
+
+====
+
+
+=== Enrich data by injecting the value of an attribute into each Record.
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+enrich
+attribute
+change
+update
+replace
+insert
+transform
+
+
+
+.Конфигурация
+====
+"Replacement Value Strategy" = "Literal Value"
+
+A single additional property is added to the Processor. The name of the property is a RecordPath identifying the field to place the result in.
+The value of the property is an Expression Language expression that references the attribute of interest. We can, for example, insert a new field name `filename` into each record by adding a property named `/filename` with a value of `${filename}`
+
+====
+
+
+=== Change the format of a record field's value.
+
+
+NOTE: Use the RenameRecordField Processor in order to change a field's name.
+
+
+
+Ключевые слова::
+change
+update
+replace
+insert
+transform
+format
+date/time
+timezone
+expression language
+
+
+
+.Конфигурация
+====
+"Replacement Value Strategy" = "Literal Value"
+
+A single additional property is added to the Processor. The name of the property is a RecordPath identifying the field to update.
+The value is an Expression Language expression that references the `field.value` variable. For example, to change the date/time format of a field named `txDate` from `year-month-day` format to `month/day/year` format, we add a property named `/txDate` with a value of `${field.value:toDate('yyyy-MM-dd'):format('MM/dd/yyyy')}`. We could also change the timezone of a timestamp field (and insert the timezone for clarity) by using a value of `${field.value:toDate('yyyy-MM-dd HH:mm:ss', 'UTC-0400'):format('yyyy-MM-dd HH:mm:ss Z', 'UTC')}`.
+
+====
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/ConvertRecord.adoc[ConvertRecord]
+
+

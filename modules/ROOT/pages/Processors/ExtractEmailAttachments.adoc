@@ -1,0 +1,76 @@
+= ExtractEmailAttachments 2.2.0
+
+Extract attachments from a mime formatted email file, splitting them into individual flowfiles.
+
+[horizontal]
+*Tags* (Ключевые слова):
+email, split
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`failure`
+|FlowFiles that could not be parsed
+
+|`original`
+|The original file
+
+|`attachments`
+|Each individual attachment will be routed to the attachments relationship
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`filename `
+|The filename of the attachment
+
+|`email.attachment.parent.filename `
+|The filename of the parent FlowFile
+
+|`email.attachment.parent.uuid`
+|The UUID of the original FlowFile.
+
+|`mime.type`
+|The mime type of the attachment.
+
+|===
+
+
+
+
+
+
+

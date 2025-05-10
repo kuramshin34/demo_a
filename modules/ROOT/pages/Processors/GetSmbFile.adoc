@@ -1,0 +1,460 @@
+= GetSmbFile 2.2.0
+
+Reads file from a samba network location to FlowFiles. Use this processor instead of a cifs mounts if share access control is important. Configure the Hostname, Share and Directory accordingly: \\[Hostname]\[Share]\[path\to\Directory]
+
+[horizontal]
+*Tags* (Ключевые слова):
+samba, smb, cifs, files, get
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+FORBIDDEN (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Hostname*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Hostname
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The network host to which files should be written.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Share*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Share
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The network share to which files should be written. This is the "first folder"after the hostname: \\hostname\[share]\dir1\dir2
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Directory
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Directory
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The network folder to which files should be written. This is the remaining relative path after the share: \\hostname\share\[dir1\dir2].
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Domain
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Domain
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The domain used for authentication. Optional, in most cases username and password is sufficient.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Username
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Username
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The username used for authentication. If no username is set then anonymous authentication is attempted.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Password
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Password
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The password used for authentication. Required if Username is set.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Share Access Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Share Access Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Indicates which shared access are granted on the file during the read. None is the most restrictive, but the safest setting to prevent corruption.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* none
+
+* read
+
+* read, delete
+
+* read, write, delete
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.File Filter
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: File Filter
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Only files whose names match the given regular expression will be picked up
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Path Filter
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Path Filter
+
+[horizontal]
+*DESCRIPTION (Описание):*:: When Recurse Subdirectories is true, then only subdirectories whose path matches the given regular expression will be scanned
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Batch Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum number of files to pull in each iteration
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Keep Source File*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Keep Source File
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If true, the file is not deleted after it has been copied to the Content Repository; this causes the file to be picked up continually and is useful for testing purposes.  If not keeping original NiFi will need write permissions on the directory it is pulling from otherwise it will ignore the file.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Recurse Subdirectories*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Recurse Subdirectories
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Indicates whether or not to pull files from subdirectories
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Polling Interval*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Polling Interval
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Indicates how long to wait before performing a directory listing
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Ignore Hidden Files*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Ignore Hidden Files
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Indicates whether or not hidden files should be ignored
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Smb-Dialect*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SMB Dialect
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The SMB dialect is negotiated between the client and the server by default to the highest common version supported by both end. In some rare cases, the client-server communication may fail with the automatically negotiated dialect. This property can be used to set the dialect explicitly (e.g. to downgrade to a lower version), when those situations would occur.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* AUTO
+
+* SMB 2.0.2
+
+* SMB 2.1
+
+* SMB 3.0
+
+* SMB 3.0.2
+
+* SMB 3.1.1
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Use-Encryption*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Use Encryption
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Turns on/off encrypted communication between the client and the server. The property's behavior is SMB dialect dependent: SMB 2.x does not support encryption and the property has no effect. In case of SMB 3.x, it is a hint/request to the server to turn encryption on if the server also supports it.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Enable-Dfs*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Enable DFS
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Enables accessing Distributed File System (DFS) and following DFS links during SMB operations.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Timeout*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Timeout
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Timeout for read and write operations.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|All files are routed to success
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`filename`
+|The filename is set to the name of the file on the network share
+
+|`path`
+|The path is set to the relative path of the file's network share name. For example, if the input is set to \\hostname\share\tmp, files picked up from \tmp will have the path attribute set to tmp
+
+|`file.creationTime`
+|The date and time that the file was created. May not work on all file systems
+
+|`file.lastModifiedTime`
+|The date and time that the file was last modified. May not work on all file systems
+
+|`file.lastAccessTime`
+|The date and time that the file was last accessed. May not work on all file systems
+
+|`absolute.path`
+|The full path from where a file was picked up. This includes the hostname and the share name
+
+|===
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/FetchSmb.adoc[FetchSmb]
+
+* xref:Processors/ListSmb.adoc[ListSmb]
+
+* xref:Processors/PutSmbFile.adoc[PutSmbFile]
+
+

@@ -1,0 +1,191 @@
+= FlattenJson 2.2.0
+
+Provides the user with the ability to take a nested JSON document and flatten it into a simple key/value pair document. The keys are combined at each level with a user-defined separator that defaults to '.'. This Processor also allows to unflatten back the flattened json. It supports four kinds of flatten mode such as normal, keep-arrays, dot notation for MongoDB query and keep-primitive-arrays. Default flatten mode is 'keep-arrays'.
+
+[horizontal]
+*Tags* (Ключевые слова):
+flatten, json, unflatten
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.Flatten-Json-Separator
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Separator
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The separator character used for joining keys. Must be a JSON-legal character.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Flatten-Mode*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Flatten Mode
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how json should be flattened/unflattened
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* normal: Flattens every objects into a single level json 
+
+* keep arrays: Flattens every objects and keep arrays format 
+
+* dot notation: Conforms to MongoDB dot notation to update also nested documents 
+
+* keep primitive arrays: Flattens every objects except arrays which contain only primitive types (strings, numbers, booleans and null) 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Ignore-Reserved-Characters*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Ignore Reserved Characters
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If true, reserved characters in keys will be ignored
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Flatten-Json-Return-Type*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Return Type
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the desired return type of json such as flatten/unflatten
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* flatten
+
+* unflatten
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Flatten-Json-Character-Set*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Character Set in which file is encoded
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Flatten-Json-Pretty-Print-Json*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Pretty Print JSON
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies whether or not resulted json should be pretty printed
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|Successfully flattened/unflattened files go to this relationship.
+
+|`failure`
+|Files that cannot be flattened/unflattened go to this relationship.
+
+|===
+
+
+
+
+
+
+
+
+
+
+

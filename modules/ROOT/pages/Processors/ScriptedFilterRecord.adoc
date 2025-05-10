@@ -1,0 +1,204 @@
+= ScriptedFilterRecord 2.2.0
+
+This processor provides the ability to filter records out from FlowFiles using the user-provided script. Every record will be evaluated by the script which must return with a boolean value. Records with "true" result will be routed to the "matching" relationship in a batch. Other records will be filtered out.
+
+[horizontal]
+*Tags* (Ключевые слова):
+filter, groovy, record, script
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Record Reader*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Record Reader to use parsing the incoming FlowFile into Records
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Record Writer*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Record Writer to use for serializing Records after they have been transformed
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Script Engine*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Script Language
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Language to use for the script
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Clojure
+
+* Groovy
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Script Body
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Script Body
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Body of script to execute. Only one of Script File or Script Body may be used
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Script File
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Script File
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Path to script file to execute. Only one of Script File or Script Body may be used
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Module Directory
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Module Directory
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Comma-separated list of paths to files and/or directories which contain modules required by the script.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+=== Ограничения
+
+[cols="1a,2a",options="header",]
+|===
+|Требуемые права |Объяснение
+
+|
+|Provides operator the ability to execute arbitrary code assuming all permissions that NiFi has.
+
+|===
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`failure`
+|In case of any issue during processing the incoming FlowFile, the incoming FlowFile will be routed to this relationship.
+
+|`original`
+|After successful procession, the incoming FlowFile will be transferred to this relationship. This happens regardless the number of filtered or remaining records.
+
+|`success`
+|Matching records of the original FlowFile will be routed to this relationship. If there are no matching records, no FlowFile will be routed here.
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`mime.type`
+|Sets the mime.type attribute to the MIME Type specified by the Record Writer
+
+|`record.count`
+|The number of records within the flow file.
+
+|`record.error.message`
+|This attribute provides on failure the error message encountered by the Reader or Writer.
+
+|===
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/ScriptedPartitionRecord.adoc[ScriptedPartitionRecord]
+
+* xref:Processors/ScriptedTransformRecord.adoc[ScriptedTransformRecord]
+
+* xref:Processors/ScriptedValidateRecord.adoc[ScriptedValidateRecord]
+
+

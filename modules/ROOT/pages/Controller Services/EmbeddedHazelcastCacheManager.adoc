@@ -1,0 +1,117 @@
+= EmbeddedHazelcastCacheManager 2.2.0
+
+A service that runs embedded Hazelcast and provides cache instances backed by that. The server does not ask for authentication, it is recommended to run it within secured network.
+
+[horizontal]
+*Tags* (Ключевые слова):
+cache, hazelcast
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Hazelcast-Cluster-Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Cluster Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Name of the Hazelcast cluster.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Hazelcast-Port*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Port
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Port for the Hazelcast instance to use.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Hazelcast-Clustering-Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Clustering Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies with what strategy the Hazelcast cluster should be created.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* None: No high availability or data replication is provided, every node has access only to the data stored locally. 
+
+* All Nodes: Creates Hazelcast cluster based on the NiFi cluster: It expects every NiFi nodes to have a running Hazelcast instance on the same port as specified in the Hazelcast Port property. No explicit listing of the instances is needed. 
+
+* Explicit: Works with an explicit list of Hazelcast instances, creating a cluster using the listed instances. This provides greater control, making it possible to utilize only certain nodes as Hazelcast servers. The list of Hazelcast instances can be set in the property "Hazelcast Instances". The list items must refer to hosts within the NiFi cluster, no external Hazelcast is allowed. NiFi nodes are not listed will be join to the Hazelcast cluster as clients. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Hazelcast-Instances
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Instances
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Only used with "Explicit" Clustering Strategy! List of NiFi instance host names which should be part of the Hazelcast cluster. Host names are separated by comma. The port specified in the "Hazelcast Port" property will be used as server port. The list must contain every instance that will be part of the cluster. Other instances will join the Hazelcast cluster as clients.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

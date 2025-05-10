@@ -1,0 +1,73 @@
+= StandardPGPPublicKeyService 2.2.0
+
+PGP Public Key Service providing Public Keys loaded from files
+
+[horizontal]
+*Tags* (Ключевые слова):
+Encryption, GPG, Key, OpenPGP, PGP, Private, RFC 4880
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.Keyring-File
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Keyring File
+
+[horizontal]
+*DESCRIPTION (Описание):*:: File path to PGP Keyring or Public Key encoded in binary or ASCII Armor
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Keyring
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Keyring
+
+[horizontal]
+*DESCRIPTION (Описание):*:: PGP Keyring or Public Key encoded in ASCII Armor
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

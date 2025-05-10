@@ -1,0 +1,262 @@
+= CountText 2.2.0
+
+Counts various metrics on incoming text. The requested results will be recorded as attributes. The resulting flowfile will not have its content modified.
+
+[horizontal]
+*Tags* (Ключевые слова):
+character, count, line, text, word
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Text-Line-Count*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Count Lines
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If enabled, will count the number of lines present in the incoming text.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Text-Line-Nonempty-Count*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Count Non-Empty Lines
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If enabled, will count the number of lines that contain a non-whitespace character present in the incoming text.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Text-Word-Count*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Count Words
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If enabled, will count the number of words (alphanumeric character groups bounded by whitespace) present in the incoming text. Common logical delimiters [_-.] do not bound a word unless 'Split Words on Symbols' is true.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Text-Character-Count*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Count Characters
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If enabled, will count the number of characters (including whitespace and symbols, but not including newlines and carriage returns) present in the incoming text.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Split-Words-On-Symbols*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Split Words on Symbols
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If enabled, the word count will identify strings separated by common logical delimiters [ _ - . ] as independent words (ex. split-words-on-symbols = 4 words).
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Character-Encoding*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Character Encoding
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies a character encoding to use.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* ISO-8859-1
+
+* UTF-8
+
+* UTF-16
+
+* UTF-16LE
+
+* UTF-16BE
+
+* US-ASCII
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Ajust-Immediately*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Call Immediate Adjustment
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If true, the counter will be updated immediately, without regard to whether the ProcessSession is commit or rolled back;otherwise, the counter will be incremented only if and when the ProcessSession is committed.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|The flowfile contains the original content with one or more attributes added containing the respective counts
+
+|`failure`
+|If the flowfile text cannot be counted for some reason, the original file will be routed to this destination and nothing will be routed elsewhere
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`text.line.count`
+|The number of lines of text present in the FlowFile content
+
+|`text.line.nonempty.count`
+|The number of lines of text (with at least one non-whitespace character) present in the original FlowFile
+
+|`text.word.count`
+|The number of words present in the original FlowFile
+
+|`text.character.count`
+|The number of characters (given the specified character encoding) present in the original FlowFile
+
+|===
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/SplitText.adoc[SplitText]
+
+

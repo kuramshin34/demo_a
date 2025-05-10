@@ -1,0 +1,204 @@
+= ProtobufReader 2.2.0
+
+Parses a Protocol Buffers message from binary format.
+
+[horizontal]
+*Tags* (Ключевые слова):
+parser, protobuf, reader, record
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Schema-Access-Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how to obtain the schema that is to be used for interpreting the data.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Use 'Schema Name' Property: The name of the Schema to use is specified by the 'Schema Name' Property. The value of this property is used to lookup the Schema in the configured Schema Registry service. 
+
+* Use 'Schema Text' Property: The text of the Schema itself is specified by the 'Schema Text' Property. The value of this property must be a valid Avro Schema. If Expression Language is used, the value of the 'Schema Text' property must be valid after substituting the expressions. 
+
+* Schema Reference Reader: The schema reference information will be provided through a configured Schema Reference Reader service implementation. 
+
+* Generate from Proto file: The record schema is generated from the provided proto file 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Schema-Registry
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for the Schema Registry
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Schema-Name
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the name of the schema to lookup in the Schema Registry property
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Schema-Version
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Version
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the version of the schema to lookup in the Schema Registry. If not specified then the latest version of the schema will be retrieved.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Schema-Branch
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Branch
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the name of the branch to use when looking up the schema in the Schema Registry property. If the chosen Schema Registry does not support branching, this value will be ignored.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Schema-Text
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Text
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The text of an Avro-formatted Schema
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Schema-Reference-Reader*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Reader
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Service implementation responsible for reading FlowFile attributes or content to determine the Schema Reference Identifier
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Proto Directory*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Proto Directory
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Directory containing Protocol Buffers message definition (.proto) file(s).
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Message Type*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Message Type
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Fully qualified name of the Protocol Buffers message type including its package (eg. mypackage.MyMessage). The .proto files configured in 'Proto Directory' must contain the definition of this message type.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

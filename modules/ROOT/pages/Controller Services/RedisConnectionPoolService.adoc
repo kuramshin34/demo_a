@@ -1,0 +1,480 @@
+= RedisConnectionPoolService 2.2.0
+
+A service that provides connections to Redis.
+
+[horizontal]
+*Tags* (Ключевые слова):
+cache, redis
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Redis Mode*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Redis Mode
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The type of Redis being communicated with - standalone, sentinel, or clustered.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Standalone: A single standalone Redis instance. 
+
+* Sentinel: Redis Sentinel which provides high-availability. Described further at https://redis.io/topics/sentinel 
+
+* Cluster: Clustered Redis which provides sharding and replication. Described further at https://redis.io/topics/cluster-spec 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Connection String*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Connection String
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The connection string for Redis. In a standalone instance this value will be of the form hostname:port. In a sentinel instance this value will be the comma-separated list of sentinels, such as host1:port1,host2:port2,host3:port3. In a clustered instance this value will be the comma-separated list of cluster masters, such as host1:port,host2:port,host3:port.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Database Index*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Database Index
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The database index to be used by connections created from this connection pool. See the databases property in redis.conf, by default databases 0-15 will be available.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Communication Timeout*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Communication Timeout
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The timeout to use when attempting to communicate with Redis.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Cluster Max Redirects*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Cluster Max Redirects
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum number of redirects that can be performed when clustered.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Sentinel Master
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Sentinel Master
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the sentinel master, require when Mode is set to Sentinel
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Username
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Username
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The username used to authenticate to the Redis server.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Password
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Password
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The password used to authenticate to the Redis server. See the 'requirepass' property in redis.conf.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Sentinel Username
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Sentinel Username
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The username used to authenticate to the Redis sentinel server.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Sentinel Password
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Sentinel Password
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The password used to authenticate to the Redis Sentinel server. See the 'requirepass' and 'sentinel sentinel-pass' properties in sentinel.conf.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Ssl Context Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If specified, this service will be used to create an SSL Context that will be used to secure communications; if not specified, communications will not be secure
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Pool - Max Total*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Pool - Max Total
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum number of connections that can be allocated by the pool (checked out to clients, or idle awaiting checkout). A negative value indicates that there is no limit.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Pool - Max Idle*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Pool - Max Idle
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum number of idle connections that can be held in the pool, or a negative value if there is no limit.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Pool - Min Idle*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Pool - Min Idle
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The target for the minimum number of idle connections to maintain in the pool. If the configured value of Min Idle is greater than the configured value for Max Idle, then the value of Max Idle will be used instead.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Pool - Block When Exhausted*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Pool - Block When Exhausted
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Whether or not clients should block and wait when trying to obtain a connection from the pool when the pool has no available connections. Setting this to false means an error will occur immediately when a client requests a connection and none are available.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Pool - Max Wait Time*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Pool - Max Wait Time
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The amount of time to wait for an available connection when Block When Exhausted is set to true.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Pool - Min Evictable Idle Time*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Pool - Min Evictable Idle Time
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The minimum amount of time an object may sit idle in the pool before it is eligible for eviction.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Pool - Time Between Eviction Runs*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Pool - Time Between Eviction Runs
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The amount of time between attempting to evict idle connections from the pool.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Pool - Num Tests Per Eviction Run*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Pool - Num Tests Per Eviction Run
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The number of connections to tests per eviction attempt. A negative value indicates to test all connections.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Pool - Test On Create*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Pool - Test On Create
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Whether or not connections should be tested upon creation.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Pool - Test On Borrow*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Pool - Test On Borrow
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Whether or not connections should be tested upon borrowing from the pool.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Pool - Test On Return*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Pool - Test On Return
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Whether or not connections should be tested upon returning to the pool.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Pool - Test While Idle*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Pool - Test While Idle
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Whether or not connections should be tested while idle.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

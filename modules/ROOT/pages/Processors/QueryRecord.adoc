@@ -1,0 +1,320 @@
+= QueryRecord 2.2.0
+
+Evaluates one or more SQL queries against the contents of a FlowFile. The result of the SQL query then becomes the content of the output FlowFile. This can be used, for example, for field-specific filtering, transformation, and row-level filtering. Columns can be renamed, simple calculations and aggregations performed, etc. The Processor is configured with a Record Reader Controller Service and a Record Writer service so as to allow flexibility in incoming and outgoing data formats. The Processor must be configured with at least one user-defined property. The name of the Property is the Relationship to route data to, and the value of the Property is a SQL SELECT statement that is used to specify how input data should be transformed/filtered. The SQL statement must be valid ANSI SQL and is powered by Apache Calcite. If the transformation fails, the original FlowFile is routed to the 'failure' relationship. Otherwise, the data selected will be routed to the associated relationship. If the Record Writer chooses to inherit the schema from the Record, it is important to note that the schema that is inherited will be from the ResultSet, rather than the input Record. This allows a single instance of the QueryRecord processor to have multiple queries, each of which returns a different set of columns and aggregations. As a result, though, the schema that is derived will have no schema name, so it is important that the configured Record Writer not attempt to write the Schema Name as an attribute if inheriting the Schema from the Record. See the Processor Usage documentation for more information.
+
+[horizontal]
+*Tags* (Ключевые слова):
+aggregate, avro, calcite, csv, etl, filter, json, logs, modify, query, record, route, select, sql, text, transform, update
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Record-Reader*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for parsing incoming data and determining the data's schema
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Record-Writer*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing results to a FlowFile
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Include-Zero-Record-Flowfiles*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Include Zero Record FlowFiles
+
+[horizontal]
+*DESCRIPTION (Описание):*:: When running the SQL statement against an incoming FlowFile, if the result has no data, this property specifies whether or not a FlowFile will be sent to the corresponding relationship
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Dbf-Default-Precision*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Default Decimal Precision
+
+[horizontal]
+*DESCRIPTION (Описание):*:: When a DECIMAL/NUMBER value is written as a 'decimal' Avro logical type, a specific 'precision' denoting number of available digits is required. Generally, precision is defined by column data type definition or database engines default. However undefined precision (0) can be returned from some database engines. 'Default Decimal Precision' is used when writing those undefined precision numbers.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Dbf-Default-Scale*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Default Decimal Scale
+
+[horizontal]
+*DESCRIPTION (Описание):*:: When a DECIMAL/NUMBER value is written as a 'decimal' Avro logical type, a specific 'scale' denoting number of available decimal digits is required. Generally, scale is defined by column data type definition or database engines default. However when undefined precision (0) is returned, scale can also be uncertain with some database engines. 'Default Decimal Scale' is used when writing those undefined numbers. If a value has more decimals than specified scale, then the value will be rounded-up, e.g. 1.53 becomes 2 with scale 0, and 1.5 with scale 1.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`The name of the relationship to route data to`
+|Each user-defined property specifies a SQL SELECT statement to run over the data, with the data that is selected being routed to the relationship whose name is the property name
+|`A SQL SELECT statement that is used to determine what data should be routed to this relationship.`
+|
+
+|===
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`failure`
+|If a FlowFile fails processing for any reason (for example, the SQL statement contains columns not present in input data), the original FlowFile it will be routed to this relationship
+
+|`original`
+|The original FlowFile is routed to this relationship
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`mime.type`
+|Sets the mime.type attribute to the MIME Type specified by the Record Writer
+
+|`record.count`
+|The number of records selected by the query
+
+|`QueryRecord.Route`
+|The relation to which the FlowFile was routed
+
+|===
+
+
+
+== Варианты использования
+:sectnums:
+
+
+
+=== Filter out records based on the values of the records' fields
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+filter out
+remove
+drop
+strip out
+record field
+sql
+
+
+
+.Конфигурация
+====
+"Record Reader" should be set to a Record Reader that is appropriate for your data.
+"Record Writer" should be set to a Record Writer that writes out data in the desired format.
+
+One additional property should be added.
+The name of the property should be a short description of the data to keep.
+Its value is a SQL statement that selects all columns from a table named `FLOW_FILE` for relevant rows.
+The WHERE clause selects the data to keep. I.e., it is the exact opposite of what we want to remove.
+It is recommended to always quote column names using double-quotes in order to avoid conflicts with SQL keywords.
+For example, to remove records where either the name is George OR the age is less than 18, we would add a   property named "adults not george" with a value that selects records where the name is not George AND the age is greater than or equal to 18.   So the value would be `SELECT * FROM FLOWFILE WHERE "name" <> 'George' AND "age" >= 18`
+
+Adding this property now gives us a new Relationship whose name is the same as the property name. So, the "adults not george" Relationship should be connected to the next Processor in our flow.
+
+====
+
+
+=== Keep only specific records
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+keep
+filter
+retain
+select
+include
+record
+sql
+
+
+
+.Конфигурация
+====
+"Record Reader" should be set to a Record Reader that is appropriate for your data.
+"Record Writer" should be set to a Record Writer that writes out data in the desired format.
+
+One additional property should be added.
+The name of the property should be a short description of the data to keep.
+Its value is a SQL statement that selects all columns from a table named `FLOW_FILE` for relevant rows.
+The WHERE clause selects the data to keep.
+It is recommended to always quote column names using double-quotes in order to avoid conflicts with SQL keywords.
+For example, to keep only records where the person is an adult (aged 18 or older), add a property named "adults"   with a value that is a SQL statement that selects records where the age is at least 18.   So the value would be `SELECT * FROM FLOWFILE WHERE "age" >= 18`
+
+Adding this property now gives us a new Relationship whose name is the same as the property name. So, the "adults" Relationship should be connected to the next Processor in our flow.
+
+====
+
+
+=== Keep only specific fields in a a Record, where the names of the fields to keep are known
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+keep
+filter
+retain
+select
+include
+record
+fields
+sql
+
+
+
+.Конфигурация
+====
+"Record Reader" should be set to a Record Reader that is appropriate for your data.
+"Record Writer" should be set to a Record Writer that writes out data in the desired format.
+
+One additional property should be added.
+The name of the property should be a short description of the data to keep, such as `relevant fields`.
+Its value is a SQL statement that selects the desired columns from a table named `FLOW_FILE` for relevant rows.
+There is no WHERE clause.
+It is recommended to always quote column names using double-quotes in order to avoid conflicts with SQL keywords.
+For example, to keep only the `name`, `age`, and `address` fields, add a property named `relevant fields`   with a value of `SELECT "name", "age", "address" FROM FLOWFILE`
+
+Adding this property now gives us a new Relationship whose name is the same as the property name. So, the `relevant fields` Relationship should be connected to the next Processor in our flow.
+
+====
+
+
+=== Route record-oriented data for processing based on its contents
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+record
+route
+conditional processing
+field
+
+
+
+.Конфигурация
+====
+"Record Reader" should be set to a Record Reader that is appropriate for your data.
+"Record Writer" should be set to a Record Writer that writes out data in the desired format.
+
+For each route that you want to create, add a new property.
+The name of the property should be a short description of the data that should be selected for the route.
+Its value is a SQL statement that selects all columns from a table named `FLOW_FILE`. The WHERE clause selects the data that should be included in the route.
+It is recommended to always quote column names using double-quotes in order to avoid conflicts with SQL keywords.
+
+A new outbound relationship is created for each property that is added. The name of the relationship is the same as the property name.
+
+For example, to route data based on whether or not it is a large transaction, we would add two properties:
+`small transaction` would have a value such as `SELECT * FROM FLOWFILE WHERE transactionTotal < 100`
+`large transaction` would have a value of `SELECT * FROM FLOWFILE WHERE transactionTotal >= 100`
+
+====
+
+
+
+
+
+

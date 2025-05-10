@@ -1,0 +1,309 @@
+= ListenTCP 2.2.0
+
+Listens for incoming TCP connections and reads data from each connection using a line separator as the message demarcator. The default behavior is for each message to produce a single FlowFile, however this can be controlled by increasing the Batch Size to a larger value for higher throughput. The Receive Buffer Size must be set as large as the largest messages expected to be received, meaning if every 100kb there is a line separator, then the Receive Buffer Size must be greater than 100kb. The processor can be configured to use an SSL Context Service to only allow secure connections. When connected clients present certificates for mutual TLS authentication, the Distinguished Names of the client certificate's issuer and subject are added to the outgoing FlowFiles as attributes. The processor does not perform authorization based on Distinguished Name values, but since these values are attached to the outgoing FlowFiles, authorization can be implemented based on these attributes.
+
+[horizontal]
+*Tags* (Ключевые слова):
+listen, ssl, tcp, tls
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+FORBIDDEN (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.Local Network Interface
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Local Network Interface
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of a local network interface to be used to restrict listening to a specific LAN.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Port*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Port
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The port to listen on for communication.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Receive Buffer Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Receive Buffer Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The size of each buffer used to receive messages. Adjust this value appropriately based on the expected size of the incoming messages.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Max Size Of Message Queue*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Max Size of Message Queue
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum size of the internal queue used to buffer messages being transferred from the underlying channel to the processor. Setting this value higher allows more messages to be buffered in memory during surges of incoming messages, but increases the total memory used by the processor during these surges.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Max Size Of Socket Buffer*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Max Size of Socket Buffer
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum size of the socket buffer that should be used. This is a suggestion to the Operating System to indicate how big the socket buffer should be. If this value is set too low, the buffer may fill up before the data can be read, and incoming data will be dropped.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Character Set*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the character set of the received data.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Max Number Of Tcp Connections*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Max Number of Worker Threads
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum number of worker threads available for servicing TCP connections.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Max Batch Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Max Batch Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum number of messages to add to a single FlowFile. If multiple messages are available, they will be concatenated along with the <Message Delimiter> up to this configured maximum number of messages
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Message Delimiter*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Batching Message Delimiter
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the delimiter to place between messages when multiple messages are bundled together (see <Max Batch Size> property).
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Idle-Timeout*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Idle Connection Timeout
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The amount of time a client's connection will remain open if no data is received. The default of 0 seconds will leave connections open until they are closed by the client.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Pool-Receive-Buffers*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Pool Receive Buffers
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Enable or disable pooling of buffers that the processor uses for handling bytes received on socket connections. The framework allocates buffers as needed during processing.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* True
+
+* False
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Ssl Context Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Controller Service to use in order to obtain an SSL Context. If this property is set, messages will be received over a secure connection.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Client Auth*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Client Auth
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The client authentication policy to use for the SSL Context. Only used if an SSL Context Service is provided.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* WANT
+
+* REQUIRED
+
+* NONE
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|Messages received successfully will be sent out this relationship.
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`tcp.sender`
+|The sending host of the messages.
+
+|`tcp.port`
+|The sending port the messages were received.
+
+|`client.certificate.issuer.dn`
+|For connections using mutual TLS, the Distinguished Name of the Certificate Authority that issued the client's certificate is attached to the FlowFile.
+
+|`client.certificate.subject.dn`
+|For connections using mutual TLS, the Distinguished Name of the client certificate's owner (subject) is attached to the FlowFile.
+
+|===
+
+
+
+
+
+
+

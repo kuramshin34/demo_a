@@ -1,0 +1,107 @@
+= RestrictBackpressureSettings 2.2.0
+
+This rule will generate a violation if backpressure settings of a connection exceed configured thresholds. Improper configuration of backpressure settings can lead to decreased performance because of excessive swapping and can fill up the content repository with too much in-flight data.
+
+[horizontal]
+*Tags* (Ключевые слова):
+backpressure, connection
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Minimum Backpressure Object Count Threshold*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Minimum Backpressure Object Count Threshold
+
+[horizontal]
+*DESCRIPTION (Описание):*:: This is the minimum value that should be set for the Object Count backpressure setting on connections. This can be used to prevent a user from setting a value of 0 which disables backpressure based on count.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Maximum Backpressure Object Count Threshold*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Backpressure Object Count Threshold
+
+[horizontal]
+*DESCRIPTION (Описание):*:: This is the maximum value that should be set for the Object Count backpressure setting on connections. This can be used to prevent a user from setting a very high value that may be leading to a lot of swapping.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Minimum Backpressure Data Size Threshold*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Minimum Backpressure Data Size Threshold
+
+[horizontal]
+*DESCRIPTION (Описание):*:: This is the minimum value that should be set for the Data Size backpressure setting on connections. This can be used to prevent a user from setting a value of 0 which disables backpressure based on size.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Maximum Backpressure Data Size Threshold*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Backpressure Data Size Threshold
+
+[horizontal]
+*DESCRIPTION (Описание):*:: This is the maximum value that should be set for the Data Size backpressure setting on connections. This can be used to prevent a user from setting a very high value that may be filling up the content repo.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

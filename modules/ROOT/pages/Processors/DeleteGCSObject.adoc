@@ -1,0 +1,199 @@
+= DeleteGCSObject 2.2.0
+
+Deletes objects from a Google Cloud Bucket. If attempting to delete a file that does not exist, FlowFile is routed to success.
+
+[horizontal]
+*Tags* (Ключевые слова):
+delete, gcs, google, google cloud, storage
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Gcp Credentials Provider Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Controller Service used to obtain Google Cloud Platform credentials.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Gcp-Project-Id
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Project ID
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Google Cloud Project ID
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Gcs-Bucket*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Bucket
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Bucket of the object.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Gcs-Key*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Key
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Name of the object.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Gcs-Generation
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Generation
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The generation of the object to be deleted. If null, will use latest version of the object.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Gcp-Retry-Count*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Number of retries
+
+[horizontal]
+*DESCRIPTION (Описание):*:: How many retry attempts should be made before routing to the failure relationship.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Storage-Api-Url
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Storage API URL
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Overrides the default storage URL. Configuring an alternative Storage API URL also overrides the HTTP Host header on requests as described in the Google documentation for Private Service Connections.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Proxy-Configuration-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|FlowFiles are routed to this relationship after a successful Google Cloud Storage operation.
+
+|`failure`
+|FlowFiles are routed to this relationship if the Google Cloud Storage operation fails.
+
+|===
+
+
+
+
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/FetchGCSObject.adoc[FetchGCSObject]
+
+* xref:Processors/ListGCSBucket.adoc[ListGCSBucket]
+
+* xref:Processors/PutGCSObject.adoc[PutGCSObject]
+
+

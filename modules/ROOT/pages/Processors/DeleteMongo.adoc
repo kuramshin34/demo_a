@@ -1,0 +1,167 @@
+= DeleteMongo 2.2.0
+
+Executes a delete query against a MongoDB collection. The query is provided in the body of the flowfile and the user can select whether it will delete one or many documents that match it.
+
+[horizontal]
+*Tags* (Ключевые слова):
+delete, mongo, mongodb
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.Mongo-Client-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Client Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If configured, this property will use the assigned client service for connection pooling.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Mongo Database Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Mongo Database Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the database to use
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Mongo Collection Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Mongo Collection Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the collection to use
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Delete-Mongo-Delete-Mode
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Delete Mode
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Choose between deleting one document by query or many documents by query.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Delete One: Delete only the first document that matches the query. 
+
+* Delete Many: Delete every document that matches the query. 
+
+* Use 'mongodb.delete.mode' attribute: Read the 'mongodb.delete.mode attribute and use that mode. Acceptable values are 'many' and 'one.' 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Delete-Mongo-Fail-On-No-Delete
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Fail When Nothing Is Deleted
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Determines whether to send the flowfile to the success or failure relationship if nothing is successfully deleted.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* True: Fail when no documents are deleted. 
+
+* False: Do not fail when nothing is deleted. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|All FlowFiles that are written to MongoDB are routed to this relationship
+
+|`failure`
+|All FlowFiles that cannot be written to MongoDB are routed to this relationship
+
+|===
+
+
+
+=== Читаемые атрибуты
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`mongodb.delete.mode`
+|Configurable parameter for controlling delete mode on a per-flowfile basis. The process must be configured to use this option. Acceptable values are 'one' and 'many.'
+
+|===
+
+
+
+
+
+
+
+
+

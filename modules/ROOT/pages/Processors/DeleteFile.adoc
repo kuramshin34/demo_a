@@ -1,0 +1,130 @@
+= DeleteFile 2.2.0
+
+Deletes a file from the filesystem.
+
+[horizontal]
+*Tags* (Ключевые слова):
+delete, file, files, filesystem, local, remove
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Directory Path*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Directory Path
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The path to the directory the file to delete is located in.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Filename*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Filename
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the file to delete.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+=== Ограничения
+
+[cols="1a,2a",options="header",]
+|===
+|Требуемые права |Объяснение
+
+|
+|Provides operator the ability to read from any file that NiFi has access to.
+
+|
+|Provides operator the ability to delete any file that NiFi has access to.
+
+|===
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`failure`
+|All FlowFiles, for which an existing file could not be deleted, are routed to this relationship
+
+|`success`
+|All FlowFiles, for which an existing file has been deleted, are routed to this relationship
+
+|`not found`
+|All FlowFiles, for which the file to delete did not exist, are routed to this relationship
+
+|===
+
+
+
+
+
+
+
+== Варианты использования
+:sectnums:
+
+
+
+=== Delete source file only after its processing completed
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+
+
+
+.Конфигурация
+====
+Retrieve a file from the filesystem, e.g. using 'ListFile' and 'FetchFile'.
+Process the file using any combination of processors.
+Store the resulting file to a destination, e.g. using 'PutSFTP'.
+Using 'DeleteFile', delete the file from the filesystem only after the result has been stored.
+
+====
+
+
+
+
+
+

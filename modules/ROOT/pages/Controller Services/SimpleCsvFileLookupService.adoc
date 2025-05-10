@@ -1,0 +1,304 @@
+= SimpleCsvFileLookupService 2.2.0
+
+A reloadable CSV file-based lookup service. The first line of the csv file is considered as header.
+
+[horizontal]
+*Tags* (Ключевые слова):
+cache, csv, enrich, join, key, lookup, reloadable, value
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Csv-File*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: CSV File
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Path to a CSV File in which the key value pairs can be looked up.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Csv Format*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: CSV Format
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies which "format" the CSV data is in, or specifies if custom formatting should be used.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Custom Format: The format of the CSV is configured by using the properties of this Controller Service, such as Value Separator 
+
+* RFC 4180: CSV data follows the RFC 4180 Specification defined at https://tools.ietf.org/html/rfc4180 
+
+* Microsoft Excel: CSV data follows the format used by Microsoft Excel 
+
+* Tab-Delimited: CSV data is Tab-Delimited instead of Comma Delimited 
+
+* MySQL Format: CSV data follows the format used by MySQL 
+
+* Informix Unload: The format used by Informix when issuing the UNLOAD TO file_name command 
+
+* Informix Unload Escape Disabled: The format used by Informix when issuing the UNLOAD TO file_name command with escaping disabled 
+
+* Default Format: Same as custom format. Available for compatibility reasons. 
+
+* RFC4180: Same as RFC 4180. Available for compatibility reasons. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Character Set*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Character Encoding that is used to decode the CSV file.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Lookup-Key-Column*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Lookup Key Column
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The field in the CSV file that will serve as the lookup key. This is the field that will be matched against the property specified in the lookup processor.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Ignore-Duplicates*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Ignore Duplicates
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Ignore duplicate keys for records in the CSV file.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Value Separator*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Value Separator
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The character that is used to separate values/fields in a CSV Record. If the property has been specified via Expression Language but the expression gets evaluated to an invalid Value Separator at runtime, then it will be skipped and the default Value Separator will be used.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Quote Character*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Quote Character
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The character that is used to quote values so that escape characters do not have to be used. If the property has been specified via Expression Language but the expression gets evaluated to an invalid Quote Character at runtime, then it will be skipped and the default Quote Character will be used.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Quote Mode*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Quote Mode
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how fields should be quoted when they are written
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Quote All Values: All values will be quoted using the configured quote character. 
+
+* Quote Minimal: Values will be quoted only if they are contain special characters such as newline characters or field separators. 
+
+* Quote Non-Numeric Values: Values will be quoted unless the value is a number. 
+
+* Do Not Quote Values: Values will not be quoted. Instead, all special characters will be escaped using the configured escape character. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Comment Marker
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Comment Marker
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The character that is used to denote the start of a comment. Any line that begins with this comment will be ignored.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Escape Character*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Escape Character
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The character that is used to escape characters that would otherwise have a specific meaning to the CSV Parser. If the property has been specified via Expression Language but the expression gets evaluated to an invalid Escape Character at runtime, then it will be skipped and the default Escape Character will be used. Setting it to an empty string means no escape character should be used.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Trim Fields*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Trim Fields
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Whether or not white space should be removed from the beginning and end of fields
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Lookup-Value-Column*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Lookup Value Column
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Lookup value column.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+=== Ограничения
+
+[cols="1a,2a",options="header",]
+|===
+|Требуемые права |Объяснение
+
+|
+|Provides operator the ability to read from any file that NiFi has access to.
+
+|===
+
+
+
+
+
+
+
+
+
+
+
+
+

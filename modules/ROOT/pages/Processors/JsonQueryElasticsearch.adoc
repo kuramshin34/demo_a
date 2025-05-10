@@ -1,0 +1,459 @@
+= JsonQueryElasticsearch 2.2.0
+
+A processor that allows the user to run a query (with aggregations) written with the Elasticsearch JSON DSL. It does not automatically paginate queries for the user. If an incoming relationship is added to this processor, it will use the flowfile's content for the query. Care should be taken on the size of the query because the entire response from Elasticsearch will be loaded into memory all at once and converted into the resulting flowfiles.
+
+[horizontal]
+*Tags* (Ключевые слова):
+elasticsearch, elasticsearch5, elasticsearch6, elasticsearch7, elasticsearch8, get, json, query, read
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ALLOWED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*El-Rest-Query-Definition-Style*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Query Definition Style
+
+[horizontal]
+*DESCRIPTION (Описание):*:: How the JSON Query will be defined for use by the processor.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* FULL_QUERY: Provide the full Query. 
+
+* BUILD_QUERY: Build the Query from separate JSON objects. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.El-Rest-Query
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Query
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A query in JSON syntax, not Lucene syntax. Ex: {"query":{"match":{"somefield":"somevalue"}}}. If this parameter is not set, the query will be read from the flowfile content. If the query (property and flowfile content) is empty, a default empty JSON Object will be used, which will result in a "match_all" query in Elasticsearch.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.El-Rest-Query-Clause
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Query Clause
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A "query" clause in JSON syntax, not Lucene syntax. Ex: {"match":{"somefield":"somevalue"}}. If the query is empty, a default JSON Object will be used, which will result in a "match_all" query in Elasticsearch.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Es-Rest-Size
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum number of documents to retrieve in the query. If the query is paginated, this "size" applies to each page of the query, not the "size" of the entire result set.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Es-Rest-Query-Sort
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Sort
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Sort results by one or more fields, in JSON syntax. Ex: [{"price" : {"order" : "asc", "mode" : "avg"}}, {"post_date" : {"format": "strict_date_optional_time_nanos"}}]
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Es-Rest-Query-Aggs
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Aggregations
+
+[horizontal]
+*DESCRIPTION (Описание):*:: One or more query aggregations (or "aggs"), in JSON syntax. Ex: {"items": {"terms": {"field": "product", "size": 10}}}
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Es-Rest-Query-Fields
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Fields
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Fields of indexed documents to be retrieved, in JSON syntax. Ex: ["user.id", "http.response.*", {"field": "@timestamp", "format": "epoch_millis"}]
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Es-Rest-Query-Script-Fields
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Script Fields
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Fields to created using script evaluation at query runtime, in JSON syntax. Ex: {"test1": {"script": {"lang": "painless", "source": "doc['price'].value * 2"}}, "test2": {"script": {"lang": "painless", "source": "doc['price'].value * params.factor", "params": {"factor": 2.0}}}}
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.El-Query-Attribute
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Query Attribute
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If set, the executed query will be set on each result flowfile in the specified attribute.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*El-Rest-Fetch-Index*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Index
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the index to use.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.El-Rest-Type
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Type
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The type of this document (used by Elasticsearch for indexing and searching).
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Max Json Field String Length*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Max JSON Field String Length
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum allowed length of a string value when parsing a JSON document or attribute.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*El-Rest-Client-Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Client Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: An Elasticsearch client service to use for running queries.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*El-Rest-Split-Up-Hits*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Search Results Split
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Output a flowfile containing all hits or one flowfile for each individual hit.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* PER_HIT: Flowfile per hit. 
+
+* PER_RESPONSE: Flowfile per response. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*El-Rest-Format-Hits*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Search Results Format
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Format of Hits output.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* FULL: Contains full Elasticsearch Hit, including Document Source and Metadata. 
+
+* SOURCE_ONLY: Document Source only (where present). 
+
+* METADATA_ONLY: Hit Metadata only. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*El-Rest-Split-Up-Aggregations*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Aggregation Results Split
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Output a flowfile containing all aggregations or one flowfile for each individual aggregation.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* PER_HIT: Flowfile per hit. 
+
+* PER_RESPONSE: Flowfile per response. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*El-Rest-Format-Aggregations*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Aggregation Results Format
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Format of Aggregation output.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* FULL: Contains full Elasticsearch Aggregation, including Buckets and Metadata. 
+
+* BUCKETS_ONLY: Bucket Content only. 
+
+* METADATA_ONLY: Aggregation Metadata only. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*El-Rest-Output-No-Hits*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Output No Hits
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Output a "hits" flowfile even if no hits found for query. If true, an empty "hits" flowfile will be output even if "aggregations" are output.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`The name of a URL query parameter to add`
+|Adds the specified property name/value as a query parameter in the Elasticsearch URL used for processing. These parameters will override any matching parameters in the query request body
+|`The value of the URL query parameter`
+|
+
+|===
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`hits`
+|Search hits are routed to this relationship.
+
+|`aggregations`
+|Aggregations are routed to this relationship.
+
+|`failure`
+|All flowfiles that fail for reasons unrelated to server availability go to this relationship.
+
+|`original`
+|All original flowfiles that don't cause an error to occur go to this relationship.
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`mime.type`
+|application/json
+
+|`aggregation.name`
+|The name of the aggregation whose results are in the output flowfile
+
+|`aggregation.number`
+|The number of the aggregation whose results are in the output flowfile
+
+|`hit.count`
+|The number of hits that are in the output flowfile
+
+|`elasticsearch.query.error`
+|The error message provided by Elasticsearch if there is an error querying the index.
+
+|===
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/PaginatedJsonQueryElasticsearch.adoc[PaginatedJsonQueryElasticsearch]
+
+

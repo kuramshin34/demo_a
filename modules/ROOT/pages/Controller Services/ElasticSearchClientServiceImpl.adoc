@@ -1,0 +1,494 @@
+= ElasticSearchClientServiceImpl 2.2.0
+
+A controller service for accessing an Elasticsearch client, using the Elasticsearch (low-level) REST Client.
+
+[horizontal]
+*Tags* (Ключевые слова):
+client, elasticsearch, elasticsearch6, elasticsearch7, elasticsearch8
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*El-Cs-Http-Hosts*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: HTTP Hosts
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A comma-separated list of HTTP hosts that host Elasticsearch query nodes. Note that the Host is included in requests as a header (typically including domain and port, e.g. elasticsearch:9200).
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.El-Cs-Path-Prefix
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Path Prefix
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Sets the path's prefix for every request used by the http client. For example, if this is set to "/my/path", then any client request will become "/my/path/" + endpoint. In essence, every request's endpoint is prefixed by this pathPrefix. The path prefix is useful for when Elasticsearch is behind a proxy that provides a base path or a proxy that requires all paths to start with '/'; it is not intended for other purposes and it should not be supplied in other scenarios
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Authorization-Scheme*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Authorization Scheme
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Authorization Scheme used for optional authentication to Elasticsearch.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* None: No authorization scheme. 
+
+* PKI: Mutual TLS with PKI certificate authorization scheme. 
+
+* Basic: Basic authorization scheme. 
+
+* API Key: API key authorization scheme. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.El-Cs-Username
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Username
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The username to use with XPack security.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.El-Cs-Password
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Password
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The password to use with XPack security.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Api-Key-Id
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: API Key ID
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Unique identifier of the API key.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Api-Key
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: API Key
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Encoded API key.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.El-Cs-Ssl-Context-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The SSL Context Service used to provide client certificate information for TLS/SSL connections. This service only applies if the Elasticsearch endpoint(s) have been secured with TLS/SSL.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Proxy-Configuration-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*El-Cs-Connect-Timeout*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Connect timeout
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Controls the amount of time, in milliseconds, before a timeout occurs when trying to connect.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*El-Cs-Socket-Timeout*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Read timeout
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Controls the amount of time, in milliseconds, before a timeout occurs when waiting for a response.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*El-Cs-Charset*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Charset
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The charset to use for interpreting the response from Elasticsearch.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*El-Cs-Suppress-Nulls*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Suppress Null/Empty Values
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how the writer should handle null and empty fields (including objects and arrays)
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Never Suppress: Fields that are missing (present in the schema but not in the record), or that have a value of null/empty, will be written out as a null/empty value 
+
+* Always Suppress: Fields that are missing (present in the schema but not in the record), or that have a value of null/empty, will not be written out 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*El-Cs-Enable-Compression*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Enable Compression
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Whether the REST client should compress requests using gzip content encoding and add the "Accept-Encoding: gzip" header to receive compressed responses
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*El-Cs-Send-Meta-Header*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Send Meta Header
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Whether to send a "X-Elastic-Client-Meta" header that describes the runtime environment. It contains information that is similar to what could be found in User-Agent. Using a separate header allows applications to use User-Agent for their own needs, e.g. to identify application version or other environment information
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*El-Cs-Strict-Deprecation*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Strict Deprecation
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Whether the REST client should return any response containing at least one warning header as a failure
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*El-Cs-Node-Selector*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Node Selector
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Selects Elasticsearch nodes that can receive requests. Used to keep requests away from dedicated Elasticsearch master nodes
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Any: Select any Elasticsearch node to handle requests 
+
+* Skip Dedicated Masters: Skip dedicated Elasticsearch master nodes for handling request 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*El-Cs-Sniff-Cluster-Nodes*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Sniff Cluster Nodes
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Periodically sniff for nodes within the Elasticsearch cluster via the Elasticsearch Node Info API. If Elasticsearch security features are enabled (default to "true" for 8.x+), the Elasticsearch user must have the "monitor" or "manage" cluster privilege to use this API.Note that all HTTP Hosts (and those that may be discovered within the cluster using the Sniffer) must use the same protocol, e.g. http or https, and be contactable using the same client settings. Finally the Elasticsearch "network.publish_host" must match one of the "network.bind_host" list entries see https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-network.html for more information
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*El-Cs-Sniffer-Interval*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Sniffer Interval
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Interval between Cluster sniffer operations
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*El-Cs-Sniffer-Request-Timeout*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Sniffer Request Timeout
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Cluster sniffer timeout for node info requests
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*El-Cs-Sniff-Failure*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Sniff on Failure
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Enable sniffing on failure, meaning that after each failure the Elasticsearch nodes list gets updated straightaway rather than at the following ordinary sniffing round
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*El-Cs-Sniffer-Failure-Delay*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Sniffer Failure Delay
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Delay between an Elasticsearch request failure and updating available Cluster nodes using the Sniffer
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`The name of a Request Header to add`
+|Adds the specified property name/value as a Request Header in the Elasticsearch requests.
+|`The value of the Header`
+|
+
+|===
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

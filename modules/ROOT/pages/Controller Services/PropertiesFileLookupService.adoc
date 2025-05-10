@@ -1,0 +1,67 @@
+= PropertiesFileLookupService 2.2.0
+
+A reloadable properties file-based lookup service
+
+[horizontal]
+*Tags* (Ключевые слова):
+cache, enrich, join, key, lookup, properties, reloadable, value
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Configuration-File*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Configuration File
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A configuration file
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+=== Ограничения
+
+[cols="1a,2a",options="header",]
+|===
+|Требуемые права |Объяснение
+
+|
+|Provides operator the ability to read from any file that NiFi has access to.
+
+|===
+
+
+
+
+
+
+
+
+
+
+
+
+

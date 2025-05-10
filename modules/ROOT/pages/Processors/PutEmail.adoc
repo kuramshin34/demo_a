@@ -1,0 +1,493 @@
+= PutEmail 2.2.0
+
+Sends an e-mail to configured recipients for each incoming FlowFile
+
+[horizontal]
+*Tags* (Ключевые слова):
+email, notify, put, smtp
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ True (Да) 
+
+
+
+== Properties (Свойства)
+
+
+.*Smtp Hostname*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SMTP Hostname
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The hostname of the SMTP host
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Smtp Port*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SMTP Port
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Port used for SMTP communications
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Authorization-Mode*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Authorization Mode
+
+[horizontal]
+*DESCRIPTION (Описание):*:: How to authorize sending email on the user's behalf.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Use Password: Use password 
+
+* Use OAuth2: Use OAuth2 to acquire access token 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Oauth2-Access-Token-Provider*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: OAuth2 Access Token Provider
+
+[horizontal]
+*DESCRIPTION (Описание):*:: OAuth2 service that can provide access tokens.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Smtp Username
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SMTP Username
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Username for the SMTP account
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Smtp Password
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SMTP Password
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Password for the SMTP account
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Smtp Auth*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SMTP Auth
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Flag indicating whether authentication should be used
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Smtp Tls*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SMTP STARTTLS
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Flag indicating whether Opportunistic TLS should be enabled using STARTTLS command
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Smtp Socket Factory*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SMTP Socket Factory
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Socket Factory to use for SMTP Connection
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Smtp X-Mailer Header*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SMTP X-Mailer Header
+
+[horizontal]
+*DESCRIPTION (Описание):*:: X-Mailer used in the header of the outgoing email
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Attribute-Name-Regex
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Attributes to Send as Headers (Regex)
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A Regular Expression that is matched against all FlowFile attribute names. Any attribute whose name matches the regex will be added to the Email messages as a Header. If not specified, no FlowFile attributes will be added as headers.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Content Type*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Content Type
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Mime Type used to interpret the contents of the email, such as text/plain or text/html
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*From*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: From
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Email address to use as the sender. Comma separated sequence of addresses following RFC822 syntax.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.To
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: To
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The recipients to include in the To-Line of the email. Comma separated sequence of addresses following RFC822 syntax.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Cc
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: CC
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The recipients to include in the CC-Line of the email. Comma separated sequence of addresses following RFC822 syntax.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Bcc
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: BCC
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The recipients to include in the BCC-Line of the email. Comma separated sequence of addresses following RFC822 syntax.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Reply-To
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Reply-To
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The recipients that will receive the reply instead of the from (see RFC2822 §3.6.2).This feature is useful, for example, when the email is sent by a no-reply account. This field is optional.Comma separated sequence of addresses following RFC822 syntax.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Subject*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Subject
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The email subject
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Message
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Message
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The body of the email message
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Email-Ff-Content-As-Message*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Flow file content as message
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies whether or not the FlowFile content should be the message of the email. If true, the 'Message' property is ignored.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Input-Character-Set*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Input Character Set
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the character set of the FlowFile contents for reading input FlowFile contents to generate the message body or as an attachment to the message. If not set, UTF-8 will be the default value.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Attach File*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Attach File
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies whether or not the FlowFile content should be attached to the email
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Include All Attributes In Message*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Include All Attributes In Message
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies whether or not all FlowFile attributes should be recorded in the body of the email message
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`mail.propertyName`
+|Dynamic property names that will be passed to the Mail session. Possible properties can be found in: https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html.
+|`Value for a specific property to be set in the JavaMail Session object`
+|
+
+|===
+
+
+
+
+
+=== Системные ресурсы
+
+[cols="1a,2a",options="header",]
+|===
+|Ресурс |Описание
+
+
+|MEMORY
+|The entirety of the FlowFile's content (as a String object) will be read into memory in case the property to use the flow file content as the email body is set to true.
+
+|===
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|FlowFiles that are successfully sent will be routed to this relationship
+
+|`failure`
+|FlowFiles that fail to send will be routed to this relationship
+
+|===
+
+
+
+
+
+
+
+
+
+
+

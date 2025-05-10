@@ -1,0 +1,105 @@
+= SplitXml 2.2.0
+
+Splits an XML File into multiple separate FlowFiles, each comprising a child or descendant of the original root element
+
+[horizontal]
+*Tags* (Ключевые слова):
+split, xml
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Split Depth*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Split Depth
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Indicates the XML-nesting depth to start splitting XML fragments. A depth of 1 means split the root's children, whereas a depth of 2 means split the root's children's children and so forth.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+=== Системные ресурсы
+
+[cols="1a,2a",options="header",]
+|===
+|Ресурс |Описание
+
+
+|MEMORY
+|The entirety of the FlowFile's content (as a Document object) is read into memory, in addition to all of the generated FlowFiles representing the split XML. A Document object can take approximately 10 times as much memory as the size of the XML. For example, a 1 MB XML document may use 10 MB of memory. If many splits are generated due to the size of the XML, a two-phase approach may be necessary to avoid excessive use of memory.
+
+|===
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`failure`
+|If a FlowFile fails processing for any reason (for example, the FlowFile is not valid XML), it will be routed to this relationship
+
+|`original`
+|The original FlowFile that was split into segments. If the FlowFile fails processing, nothing will be sent to this relationship
+
+|`split`
+|All segments of the original FlowFile will be routed to this relationship
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`fragment.identifier`
+|All split FlowFiles produced from the same parent FlowFile will have the same randomly generated UUID added for this attribute
+
+|`fragment.index`
+|A one-up number that indicates the ordering of the split FlowFiles that were created from a single parent FlowFile
+
+|`fragment.count`
+|The number of split FlowFiles generated from the parent FlowFile
+
+|`segment.original.filename `
+|The filename of the parent FlowFile
+
+|===
+
+
+
+
+
+
+

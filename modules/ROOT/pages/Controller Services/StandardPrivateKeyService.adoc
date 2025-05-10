@@ -1,0 +1,90 @@
+= StandardPrivateKeyService 2.2.0
+
+Private Key Service provides access to a Private Key loaded from configured sources
+
+[horizontal]
+*Tags* (Ключевые слова):
+PEM, PKCS8
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.Key-File
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Key File
+
+[horizontal]
+*DESCRIPTION (Описание):*:: File path to Private Key structured using PKCS8 and encoded as PEM
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Key
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Key
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Private Key structured using PKCS8 and encoded as PEM
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Key-Password
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Key Password
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Password used for decrypting Private Keys
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

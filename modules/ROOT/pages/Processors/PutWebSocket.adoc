@@ -1,0 +1,162 @@
+= PutWebSocket 2.2.0
+
+Sends messages to a WebSocket remote endpoint using a WebSocket session that is established by either ListenWebSocket or ConnectWebSocket.
+
+[horizontal]
+*Tags* (Ключевые слова):
+WebSocket, publish, send
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Websocket-Session-Id*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: WebSocket Session Id
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A NiFi Expression to retrieve the session id. If not specified, a message will be sent to all connected WebSocket peers for the WebSocket controller service endpoint.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Websocket-Controller-Service-Id*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: WebSocket ControllerService Id
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A NiFi Expression to retrieve the id of a WebSocket ControllerService.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Websocket-Endpoint-Id*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: WebSocket Endpoint Id
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A NiFi Expression to retrieve the endpoint id of a WebSocket ControllerService.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Websocket-Message-Type*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: WebSocket Message Type
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The type of message content: TEXT or BINARY
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+=== Системные ресурсы
+
+[cols="1a,2a",options="header",]
+|===
+|Ресурс |Описание
+
+
+|MEMORY
+|An instance of this component can cause high usage of this system resource.  Multiple instances or high concurrency settings may result a degradation of performance.
+
+|===
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|FlowFiles that are sent successfully to the destination are transferred to this relationship.
+
+|`failure`
+|FlowFiles that failed to send to the destination are transferred to this relationship.
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`websocket.controller.service.id`
+|WebSocket Controller Service id.
+
+|`websocket.session.id`
+|Established WebSocket session id.
+
+|`websocket.endpoint.id`
+|WebSocket endpoint id.
+
+|`websocket.message.type`
+|TEXT or BINARY.
+
+|`websocket.local.address`
+|WebSocket server address.
+
+|`websocket.remote.address`
+|WebSocket client address.
+
+|`websocket.failure.detail`
+|Detail of the failure.
+
+|===
+
+
+
+
+
+
+

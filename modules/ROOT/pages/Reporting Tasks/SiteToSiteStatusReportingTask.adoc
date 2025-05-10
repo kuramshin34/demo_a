@@ -1,0 +1,301 @@
+= SiteToSiteStatusReportingTask 2.2.0
+
+Publishes Status events using the Site To Site protocol.  The component type and name filter regexes form a union: only components matching both regexes will be reported.  However, all process groups are recursively searched for matching components, regardless of whether the process group matches the component filters.
+
+[horizontal]
+*Tags* (Ключевые слова):
+history, metrics, site, site to site, status
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Destination Url*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Destination URL
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The URL of the destination NiFi instance or, if clustered, a comma-separated list of address in the format of http(s)://host:port/nifi. This destination URL will only be used to initiate the Site-to-Site connection. The data sent by this reporting task will be load-balanced on all the nodes of the destination (if clustered).
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Input Port Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Input Port Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the Input Port to deliver data to.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Ssl Context Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The SSL Context Service to use when communicating with the destination. If not specified, communications will not be secure.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Instance Url*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Instance URL
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The URL of this instance to use in the Content URI of each event.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Compress Events*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Compress Events
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Indicates whether or not to compress the data being sent.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Communications Timeout*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how long to wait to a response from the destination before deciding that an error has occurred and canceling the transaction
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Batch Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how many records to send in a single batch, at most.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*S2s-Transport-Protocol*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Transport Protocol
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies which transport protocol to use for Site-to-Site communication.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* RAW
+
+* HTTP
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Proxy-Configuration-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Record-Writer
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Include-Null-Values*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Include Null Values
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Indicate if null values should be included in records. Default will be false
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Platform*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Platform
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The value to use for the platform field in each status record.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Component Type Filter Regex*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Component Type Filter Regex
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A regex specifying which component types to report.  Any component type matching this regex will be included.  Component types are: Processor, RootProcessGroup, ProcessGroup, RemoteProcessGroup, Connection, InputPort, OutputPort
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Component Name Filter Regex*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Component Name Filter Regex
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A regex specifying which component names to report.  Any component name matching this regex will be included.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

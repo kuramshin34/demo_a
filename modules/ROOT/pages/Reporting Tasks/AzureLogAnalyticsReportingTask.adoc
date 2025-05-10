@@ -1,0 +1,200 @@
+= AzureLogAnalyticsReportingTask 2.2.0
+
+Sends JVM-metrics as well as Apache NiFi-metrics to a Azure Log Analytics workspace.Apache NiFi-metrics can be either configured global or on process-group level.
+
+[horizontal]
+*Tags* (Ключевые слова):
+azure, log analytics, metrics, reporting
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Send Jvm Metrics*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Send JVM Metrics
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Send JVM Metrics in addition to the NiFi-metrics
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Log Analytics Workspace Id*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Log Analytics Workspace Id
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Log Analytics Workspace Id
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Log Analytics Custom Log Name
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Log Analytics Custom Log Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Log Analytics Custom Log Name
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Log Analytics Workspace Key*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Log Analytics Workspace Key
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Azure Log Analytic Worskspace Key
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Application Id*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Application ID
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Application ID to be included in the metrics sent to Azure Log Analytics WS
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Instance Id*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Instance ID
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Id of this NiFi instance to be included in the metrics sent to Azure Log Analytics WS
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Process Group Id(S)
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Process group ID(s)
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If specified, the reporting task will send metrics the configured ProcessGroup(s) only. Multiple IDs should be separated by a comma. If none of the group-IDs could be found or no IDs are defined, the Root Process Group is used and global metrics are sent.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Job Name
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Job Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the exporting job
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Log Analytics Url Endpoint Format
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Log Analytics URL Endpoint Format
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Log Analytics URL Endpoint Format
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

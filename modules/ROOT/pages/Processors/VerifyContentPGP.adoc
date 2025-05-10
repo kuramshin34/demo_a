@@ -1,0 +1,115 @@
+= VerifyContentPGP 2.2.0
+
+Verify signatures using OpenPGP Public Keys
+
+[horizontal]
+*Tags* (Ключевые слова):
+Encryption, GPG, OpenPGP, PGP, RFC 4880, Signing
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Public-Key-Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Public Key Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: PGP Public Key Service for verifying signatures with Public Key Encryption
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|Signature Verification Succeeded
+
+|`failure`
+|Signature Verification Failed
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`pgp.literal.data.filename`
+|Filename from Literal Data
+
+|`pgp.literal.data.modified`
+|Modified Date Time from Literal Data in milliseconds
+
+|`pgp.signature.created`
+|Signature Creation Time in milliseconds
+
+|`pgp.signature.algorithm`
+|Signature Algorithm including key and hash algorithm names
+
+|`pgp.signature.hash.algorithm.id`
+|Signature Hash Algorithm Identifier
+
+|`pgp.signature.key.algorithm.id`
+|Signature Key Algorithm Identifier
+
+|`pgp.signature.key.id`
+|Signature Public Key Identifier
+
+|`pgp.signature.type.id`
+|Signature Type Identifier
+
+|`pgp.signature.version`
+|Signature Version Number
+
+|===
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/DecryptContentPGP.adoc[DecryptContentPGP]
+
+* xref:Processors/EncryptContentPGP.adoc[EncryptContentPGP]
+
+* xref:Processors/SignContentPGP.adoc[SignContentPGP]
+
+

@@ -1,0 +1,191 @@
+= S3FileResourceService 2.2.0
+
+Provides an Amazon Web Services (AWS) S3 file resource for other components.
+
+[horizontal]
+*Tags* (Ключевые слова):
+AWS, Amazon, S3, file, resource
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Bucket*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Bucket
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The S3 Bucket to interact with
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Object Key*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Object Key
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The S3 Object Key to use. This is analogous to a filename for traditional file systems.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Region*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Region
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The AWS Region to connect to.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* AWS GovCloud (US): AWS Region Code : us-gov-west-1 
+
+* AWS GovCloud (US-East): AWS Region Code : us-gov-east-1 
+
+* US East (N. Virginia): AWS Region Code : us-east-1 
+
+* US East (Ohio): AWS Region Code : us-east-2 
+
+* US West (N. California): AWS Region Code : us-west-1 
+
+* US West (Oregon): AWS Region Code : us-west-2 
+
+* EU (Ireland): AWS Region Code : eu-west-1 
+
+* EU (London): AWS Region Code : eu-west-2 
+
+* EU (Paris): AWS Region Code : eu-west-3 
+
+* EU (Frankfurt): AWS Region Code : eu-central-1 
+
+* EU (Zurich): AWS Region Code : eu-central-2 
+
+* EU (Stockholm): AWS Region Code : eu-north-1 
+
+* EU (Milan): AWS Region Code : eu-south-1 
+
+* EU (Spain): AWS Region Code : eu-south-2 
+
+* Asia Pacific (Hong Kong): AWS Region Code : ap-east-1 
+
+* Asia Pacific (Mumbai): AWS Region Code : ap-south-1 
+
+* Asia Pacific (Hyderabad): AWS Region Code : ap-south-2 
+
+* Asia Pacific (Singapore): AWS Region Code : ap-southeast-1 
+
+* Asia Pacific (Sydney): AWS Region Code : ap-southeast-2 
+
+* Asia Pacific (Jakarta): AWS Region Code : ap-southeast-3 
+
+* Asia Pacific (Melbourne): AWS Region Code : ap-southeast-4 
+
+* Asia Pacific (Tokyo): AWS Region Code : ap-northeast-1 
+
+* Asia Pacific (Seoul): AWS Region Code : ap-northeast-2 
+
+* Asia Pacific (Osaka): AWS Region Code : ap-northeast-3 
+
+* South America (Sao Paulo): AWS Region Code : sa-east-1 
+
+* China (Beijing): AWS Region Code : cn-north-1 
+
+* China (Ningxia): AWS Region Code : cn-northwest-1 
+
+* Canada (Central): AWS Region Code : ca-central-1 
+
+* Canada West (Calgary): AWS Region Code : ca-west-1 
+
+* Middle East (UAE): AWS Region Code : me-central-1 
+
+* Middle East (Bahrain): AWS Region Code : me-south-1 
+
+* Africa (Cape Town): AWS Region Code : af-south-1 
+
+* US ISO East: AWS Region Code : us-iso-east-1 
+
+* US ISOB East (Ohio): AWS Region Code : us-isob-east-1 
+
+* US ISO West: AWS Region Code : us-iso-west-1 
+
+* Israel (Tel Aviv): AWS Region Code : il-central-1 
+
+* Use 's3.region' Attribute: Uses 's3.region' FlowFile attribute as region. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Aws Credentials Provider Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: AWS Credentials Provider Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Controller Service that is used to obtain AWS credentials provider
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Controller Services/FetchS3Object.adoc[FetchS3Object]
+
+

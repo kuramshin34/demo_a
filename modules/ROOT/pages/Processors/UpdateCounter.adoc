@@ -1,0 +1,95 @@
+= UpdateCounter 2.2.0
+
+This processor allows users to set specific counters and key points in their flow. It is useful for debugging and basic counting functions.
+
+[horizontal]
+*Tags* (Ключевые слова):
+counter, debug, instrumentation
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Counter-Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Counter Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the counter you want to set the value of - supports expression language like ${counterName}
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Delta*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Delta
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Adjusts the counter by the specified delta for each flow file received. May be a positive or negative integer.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|Counter was updated/retrieved
+
+|===
+
+
+
+=== Читаемые атрибуты
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`counterName`
+|The name of the counter to update/get.
+
+|===
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,89 @@
+= DistributedMapCacheLookupService 2.2.0
+
+Allows to choose a distributed map cache client to retrieve the value associated to a key. The coordinates that are passed to the lookup must contain the key 'key'.
+
+[horizontal]
+*Tags* (Ключевые слова):
+cache, distributed, enrich, key, lookup, map, value
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Distributed-Map-Cache-Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Distributed Cache Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Controller Service that is used to get the cached values.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Character-Encoding*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Character Encoding
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies a character encoding to use.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* ISO-8859-1
+
+* UTF-8
+
+* UTF-16
+
+* UTF-16LE
+
+* UTF-16BE
+
+* US-ASCII
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

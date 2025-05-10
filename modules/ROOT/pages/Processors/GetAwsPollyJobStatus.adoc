@@ -1,0 +1,295 @@
+= GetAwsPollyJobStatus 2.2.0
+
+Retrieves the current status of an AWS Polly job.
+
+[horizontal]
+*Tags* (Ключевые слова):
+AWS, Amazon, ML, Machine Learning, Polly
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Awstaskid*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: AWS Task ID
+
+[horizontal]
+*DESCRIPTION (Описание):*:: 
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Aws Credentials Provider Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: AWS Credentials Provider Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Controller Service that is used to obtain AWS credentials provider
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Region*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Region
+
+[horizontal]
+*DESCRIPTION (Описание):*:: 
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* AWS GovCloud (US-East): AWS Region Code : us-gov-east-1 
+
+* AWS GovCloud (US-West): AWS Region Code : us-gov-west-1 
+
+* Africa (Cape Town): AWS Region Code : af-south-1 
+
+* Asia Pacific (Hong Kong): AWS Region Code : ap-east-1 
+
+* Asia Pacific (Hyderabad): AWS Region Code : ap-south-2 
+
+* Asia Pacific (Jakarta): AWS Region Code : ap-southeast-3 
+
+* Asia Pacific (Malaysia): AWS Region Code : ap-southeast-5 
+
+* Asia Pacific (Melbourne): AWS Region Code : ap-southeast-4 
+
+* Asia Pacific (Mumbai): AWS Region Code : ap-south-1 
+
+* Asia Pacific (Osaka): AWS Region Code : ap-northeast-3 
+
+* Asia Pacific (Seoul): AWS Region Code : ap-northeast-2 
+
+* Asia Pacific (Singapore): AWS Region Code : ap-southeast-1 
+
+* Asia Pacific (Sydney): AWS Region Code : ap-southeast-2 
+
+* Asia Pacific (Thailand): AWS Region Code : ap-southeast-7 
+
+* Asia Pacific (Tokyo): AWS Region Code : ap-northeast-1 
+
+* Canada (Central): AWS Region Code : ca-central-1 
+
+* Canada West (Calgary): AWS Region Code : ca-west-1 
+
+* China (Beijing): AWS Region Code : cn-north-1 
+
+* China (Ningxia): AWS Region Code : cn-northwest-1 
+
+* EU ISOE West: AWS Region Code : eu-isoe-west-1 
+
+* Europe (Frankfurt): AWS Region Code : eu-central-1 
+
+* Europe (Ireland): AWS Region Code : eu-west-1 
+
+* Europe (London): AWS Region Code : eu-west-2 
+
+* Europe (Milan): AWS Region Code : eu-south-1 
+
+* Europe (Paris): AWS Region Code : eu-west-3 
+
+* Europe (Spain): AWS Region Code : eu-south-2 
+
+* Europe (Stockholm): AWS Region Code : eu-north-1 
+
+* Europe (Zurich): AWS Region Code : eu-central-2 
+
+* Israel (Tel Aviv): AWS Region Code : il-central-1 
+
+* Mexico (Central): AWS Region Code : mx-central-1 
+
+* Middle East (Bahrain): AWS Region Code : me-south-1 
+
+* Middle East (UAE): AWS Region Code : me-central-1 
+
+* South America (Sao Paulo): AWS Region Code : sa-east-1 
+
+* US East (N. Virginia): AWS Region Code : us-east-1 
+
+* US East (Ohio): AWS Region Code : us-east-2 
+
+* US ISO East: AWS Region Code : us-iso-east-1 
+
+* US ISO WEST: AWS Region Code : us-iso-west-1 
+
+* US ISOB East (Ohio): AWS Region Code : us-isob-east-1 
+
+* US West (N. California): AWS Region Code : us-west-1 
+
+* US West (Oregon): AWS Region Code : us-west-2 
+
+* aws-cn-global: AWS Region Code : aws-cn-global 
+
+* aws-global: AWS Region Code : aws-global 
+
+* aws-iso-b-global: AWS Region Code : aws-iso-b-global 
+
+* aws-iso-global: AWS Region Code : aws-iso-global 
+
+* aws-us-gov-global: AWS Region Code : aws-us-gov-global 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Communications Timeout*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout
+
+[horizontal]
+*DESCRIPTION (Описание):*:: 
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Ssl Context Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies an optional SSL Context Service that, if provided, will be used to create connections
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Endpoint Override Url
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Endpoint Override URL
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Endpoint URL to use instead of the AWS default including scheme, host, port, and path. The AWS libraries select an endpoint URL based on the AWS region, but this property overrides the selected endpoint URL, allowing use with other S3-compatible endpoints.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Proxy-Configuration-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`running`
+|The job is currently still being processed
+
+|`success`
+|Job successfully finished. FlowFile will be routed to this relation.
+
+|`failure`
+|The job failed, the original FlowFile will be routed to this relationship.
+
+|`original`
+|Upon successful completion, the original FlowFile will be routed to this relationship.
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`PollyS3OutputBucket`
+|The bucket name where polly output will be located.
+
+|`filename`
+|Object key of polly output.
+
+|`outputLocation`
+|S3 path-style output location of the result.
+
+|===
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/StartAwsPollyJob.adoc[StartAwsPollyJob]
+
+

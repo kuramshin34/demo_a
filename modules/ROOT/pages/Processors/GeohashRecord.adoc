@@ -1,0 +1,251 @@
+= GeohashRecord 2.2.0
+
+A record-based processor that encodes and decodes Geohashes from and to latitude/longitude coordinates.
+
+[horizontal]
+*Tags* (Ключевые слова):
+geo, geohash, record
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Mode*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Mode
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies whether to encode latitude/longitude to geohash or decode geohash to latitude/longitude
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* ENCODE
+
+* DECODE
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Record-Reader*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the record reader service to use for reading incoming data
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Record-Writer*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the record writer service to use for writing data
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Routing-Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Routing Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how to route flowfiles after encoding or decoding being performed. SKIP will enrich those records that can be enriched and skip the rest. The SKIP strategy will route a flowfile to failure only if unable to parse the data. Otherwise, it will route the enriched flowfile to success, and the original input to original. SPLIT will separate the records that have been enriched from those that have not and send them to matched, while unenriched records will be sent to unmatched; the original input flowfile will be sent to original. The SPLIT strategy will route a flowfile to failure only if unable to parse the data. REQUIRE will route a flowfile to success only if all of its records are enriched, and the original input will be sent to original. The REQUIRE strategy will route the original input flowfile to failure if any of its records cannot be enriched or unable to be parsed
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* SKIP
+
+* SPLIT
+
+* REQUIRE
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Latitude-Record-Path*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Latitude Record Path
+
+[horizontal]
+*DESCRIPTION (Описание):*:: In the ENCODE mode, this property specifies the record path to retrieve the latitude values. Latitude values should be in the range of [-90, 90]; invalid values will be logged at warn level. In the DECODE mode, this property specifies the record path to put the latitude value
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Longitude-Record-Path*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Longitude Record Path
+
+[horizontal]
+*DESCRIPTION (Описание):*:: In the ENCODE mode, this property specifies the record path to retrieve the longitude values; Longitude values should be in the range of [-180, 180]; invalid values will be logged at warn level. In the DECODE mode, this property specifies the record path to put the longitude value
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Geohash-Record-Path*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Geohash Record Path
+
+[horizontal]
+*DESCRIPTION (Описание):*:: In the ENCODE mode, this property specifies the record path to put the geohash value; in the DECODE mode, this property specifies the record path to retrieve the geohash value
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Geohash-Format*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Geohash Format
+
+[horizontal]
+*DESCRIPTION (Описание):*:: In the ENCODE mode, this property specifies the desired format for encoding geohash; in the DECODE mode, this property specifies the format of geohash provided
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* BASE32
+
+* BINARY
+
+* LONG
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Geohash-Level*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Geohash Level
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The integer precision level(1-12) desired for encoding geohash
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`original`
+|The original input flowfile will be sent to this relationship
+
+|`success`
+|Flowfiles that are successfully encoded or decoded will be routed to success
+
+|`failure`
+|Flowfiles that cannot be encoded or decoded will be routed to failure
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`mime.type`
+|The MIME type indicated by the record writer
+
+|`record.count`
+|The number of records in the resulting flow file
+
+|===
+
+
+
+
+
+
+

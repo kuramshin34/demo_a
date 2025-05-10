@@ -1,0 +1,132 @@
+= StandardKustoIngestService 2.2.0
+
+Sends batches of flowfile content or stream flowfile content to an Azure ADX cluster.
+
+[horizontal]
+*Tags* (Ключевые слова):
+ADX, Azure, Data, Explorer, Kusto, azure, ingest
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Authentication Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Authentication Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Authentication method for access to Azure Data Explorer
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Application Credentials: Azure Application Registration with Application Key 
+
+* Managed Identity: Azure Managed Identity 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Application Client Id*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Application Client ID
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Azure Data Explorer Application Client Identifier for Authentication
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Application Key*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Application Key
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Azure Data Explorer Application Key for Authentication
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Application Tenant Id*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Application Tenant ID
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Azure Data Explorer Application Tenant Identifier for Authentication
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Cluster Uri*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Cluster URI
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Azure Data Explorer Cluster URI
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

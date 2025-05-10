@@ -1,0 +1,260 @@
+= ListDatabaseTables 2.2.0
+
+Generates a set of flow files, each containing attributes corresponding to metadata about a table from a database connection. Once metadata about a table has been fetched, it will not be fetched again until the Refresh Interval (if set) has elapsed, or until state has been manually cleared.
+
+[horizontal]
+*Tags* (Ключевые слова):
+database, jdbc, list, sql, table
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+FORBIDDEN (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*List-Db-Tables-Db-Connection*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Database Connection Pooling Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Controller Service that is used to obtain connection to database
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.List-Db-Tables-Catalog
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Catalog
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of a catalog from which to list database tables. The name must match the catalog name as it is stored in the database. If the property is not set, the catalog name will not be used to narrow the search for tables. If the property is set to an empty string, tables without a catalog will be listed.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.List-Db-Tables-Schema-Pattern
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Pattern
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A pattern for matching schemas in the database. Within a pattern, "%" means match any substring of 0 or more characters, and "_" means match any one character. The pattern must match the schema name as it is stored in the database. If the property is not set, the schema name will not be used to narrow the search for tables. If the property is set to an empty string, tables without a schema will be listed.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.List-Db-Tables-Name-Pattern
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Table Name Pattern
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A pattern for matching tables in the database. Within a pattern, "%" means match any substring of 0 or more characters, and "_" means match any one character. The pattern must match the table name as it is stored in the database. If the property is not set, all tables will be retrieved.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.List-Db-Tables-Types
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Table Types
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A comma-separated list of table types to include. For example, some databases support TABLE and VIEW types. If the property is not set, tables of all types will be returned.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*List-Db-Include-Count*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Include Count
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Whether to include the table's row count as a flow file attribute. This affects performance as a database query will be generated for each table in the retrieved list.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Record-Writer
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Record Writer to use for creating the listing. If not specified, one FlowFile will be created for each entity that is listed. If the Record Writer is specified, all entities will be written to a single FlowFile instead of adding attributes to individual FlowFiles.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*List-Db-Refresh-Interval*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Refresh Interval
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The amount of time to elapse before resetting the processor state, thereby causing all current tables to be listed. During this interval, the processor may continue to run, but tables that have already been listed will not be re-listed. However new/added tables will be listed as the processor runs. A value of zero means the state will never be automatically reset, the user must Clear State manually.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+=== Управление состоянием
+
+[cols="1a,2a",options="header",]
+|===
+|Масштаб |Описание
+
+|
+CLUSTER
+
+|After performing a listing of tables, the timestamp of the query is stored. This allows the Processor to not re-list tables the next time that the Processor is run. Specifying the refresh interval in the processor properties will indicate that when the processor detects the interval has elapsed, the state will be reset and tables will be re-listed as a result. This processor is meant to be run on the primary node only.
+|===
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|All FlowFiles that are received are routed to success
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`db.table.name`
+|Contains the name of a database table from the connection
+
+|`db.table.catalog`
+|Contains the name of the catalog to which the table belongs (may be null)
+
+|`db.table.schema`
+|Contains the name of the schema to which the table belongs (may be null)
+
+|`db.table.fullname`
+|Contains the fully-qualifed table name (possibly including catalog, schema, etc.)
+
+|`db.table.type`
+|Contains the type of the database table from the connection. Typical types are "TABLE", "VIEW", "SYSTEM TABLE", "GLOBAL TEMPORARY", "LOCAL TEMPORARY", "ALIAS", "SYNONYM"
+
+|`db.table.remarks`
+|Contains the name of a database table from the connection
+
+|`db.table.count`
+|Contains the number of rows in the table
+
+|===
+
+
+
+
+
+== Варианты использования, включающие другие компоненты
+
+
+=== Perform a full load of a database, retrieving all rows from all tables, or a specific set of tables.
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+
+full load
+
+rdbms
+
+jdbc
+
+database
+
+
+
+
+
+
+
+

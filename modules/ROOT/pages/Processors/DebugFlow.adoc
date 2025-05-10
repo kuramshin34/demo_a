@@ -1,0 +1,459 @@
+= DebugFlow 2.2.0
+
+The DebugFlow processor aids testing and debugging the FlowFile framework by allowing various responses to be explicitly triggered in response to the receipt of a FlowFile or a timer event without a FlowFile if using timer or cron based scheduling.  It can force responses needed to exercise or test various failure modes that can occur when a processor runs.
+
+[horizontal]
+*Tags* (Ключевые слова):
+FlowFile, debug, flow, processor, test, utility
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Flowfile Success Iterations*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: FlowFile Success Iterations
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Number of FlowFiles to forward to success relationship.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Flowfile Failure Iterations*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: FlowFile Failure Iterations
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Number of FlowFiles to forward to failure relationship.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Flowfile Rollback Iterations*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: FlowFile Rollback Iterations
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Number of FlowFiles to roll back (without penalty).
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Flowfile Rollback Yield Iterations*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: FlowFile Rollback Yield Iterations
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Number of FlowFiles to roll back and yield.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Flowfile Rollback Penalty Iterations*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: FlowFile Rollback Penalty Iterations
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Number of FlowFiles to roll back with penalty.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Flowfile Exception Iterations*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: FlowFile Exception Iterations
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Number of FlowFiles to throw exception.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Flowfile Exception Class*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: FlowFile Exception Class
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Exception class to be thrown (must extend java.lang.RuntimeException).
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*No Flowfile Skip Iterations*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: No FlowFile Skip Iterations
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Number of times to skip onTrigger if no FlowFile.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*No Flowfile Exception Iterations*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: No FlowFile Exception Iterations
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Number of times to throw NPE exception if no FlowFile.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*No Flowfile Yield Iterations*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: No FlowFile Yield Iterations
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Number of times to yield if no FlowFile.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*No Flowfile Exception Class*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: No FlowFile Exception Class
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Exception class to be thrown if no FlowFile (must extend java.lang.RuntimeException).
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Write Iterations*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Write Iterations
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Number of times to write to the FlowFile
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Content Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Content Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The number of bytes to write each time that the FlowFile is written to
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*@Onscheduled Pause Time*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: @OnScheduled Pause Time
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how long the processor should sleep in the @OnScheduled method, so that the processor can be forced to take a long time to start up
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Fail When @Onscheduled Called*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Fail When @OnScheduled called
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies whether or not the Processor should throw an Exception when the methods annotated with @OnScheduled are called
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*@Onunscheduled Pause Time*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: @OnUnscheduled Pause Time
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how long the processor should sleep in the @OnUnscheduled method, so that the processor can be forced to take a long time to respond when user clicks stop
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Fail When @Onunscheduled Called*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Fail When @OnUnscheduled called
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies whether or not the Processor should throw an Exception when the methods annotated with @OnUnscheduled are called
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*@Onstopped Pause Time*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: @OnStopped Pause Time
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how long the processor should sleep in the @OnStopped method, so that the processor can be forced to take a long time to shutdown
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Fail When @Onstopped Called*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Fail When @OnStopped called
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies whether or not the Processor should throw an Exception when the methods annotated with @OnStopped are called
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Ontrigger Pause Time*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: OnTrigger Pause Time
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how long the processor should sleep in the onTrigger() method, so that the processor can be forced to take a long time to perform its task
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Customvalidate Pause Time*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: CustomValidate Pause Time
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how long the processor should sleep in the customValidate() method
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Ignore Interrupts When Paused*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Ignore Interrupts When Paused
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If the Processor's thread(s) are sleeping (due to one of the "Pause Time" properties above), and the thread is interrupted, this indicates whether the Processor should ignore the interrupt and continue sleeping or if it should allow itself to be interrupted.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|FlowFiles processed successfully.
+
+|`failure`
+|FlowFiles that failed to process.
+
+|===
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,619 @@
+= QueryDatabaseTableRecord 2.2.0
+
+Generates a SQL select query, or uses a provided statement, and executes it to fetch all rows whose values in the specified Maximum Value column(s) are larger than the previously-seen maxima. Query result will be converted to the format specified by the record writer. Expression Language is supported for several properties, but no incoming connections are permitted. The Environment/System properties may be used to provide values for any property containing Expression Language. If it is desired to leverage flow file attributes to perform these queries, the GenerateTableFetch and/or ExecuteSQL processors can be used for this purpose. Streaming is used so arbitrarily large result sets are supported. This processor can be scheduled to run on a timer or cron expression, using the standard scheduling methods. This processor is intended to be run on the Primary Node only. FlowFile attribute 'querydbtable.row.count' indicates how many rows were selected.
+
+[horizontal]
+*Tags* (Ключевые слова):
+database, jdbc, query, record, select, sql
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+FORBIDDEN (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Database Connection Pooling Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Database Connection Pooling Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Controller Service that is used to obtain a connection to the database.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Db-Fetch-Db-Type*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Database Type
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Database Type for generating statements specific to a particular service or vendor.
+The Generic Type supports most cases but selecting a specific type enables optimal processing
+or additional features.
+
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Database Dialect Service: Requires configuring a Database Dialect Service for SQL statements 
+
+* Generic: Generates ANSI SQL 
+
+* Oracle: Generates Oracle compliant SQL 
+
+* Oracle 12+: Generates Oracle compliant SQL for version 12 or greater 
+
+* MS SQL 2012+: Generates MS SQL Compatible SQL, for version 2012 or greater 
+
+* MS SQL 2008: Generates MS SQL Compatible SQL for version 2008 
+
+* MySQL: Generates MySQL compatible SQL 
+
+* PostgreSQL: Generates PostgreSQL compatible SQL 
+
+* Phoenix: Generates Phoenix compliant SQL 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Database Dialect Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Database Dialect Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Database Dialect Service for generating statements specific to a particular service or vendor.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Table Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Table Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the database table to be queried. When a custom query is used, this property is used to alias the query and appears as an attribute on the FlowFile.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Columns To Return
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Columns to Return
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A comma-separated list of column names to be used in the query. If your database requires special treatment of the names (quoting, e.g.), each name should include such treatment. If no column names are supplied, all columns in the specified table will be returned. NOTE: It is important to use consistent column names for a given table for incremental fetch to work properly.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Db-Fetch-Where-Clause
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Additional WHERE clause
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A custom clause to be added in the WHERE condition when building SQL queries.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Db-Fetch-Sql-Query
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Custom Query
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A custom SQL query used to retrieve data. Instead of building a SQL query from other properties, this query will be wrapped as a sub-query. Query must have no ORDER BY statement.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Qdbtr-Record-Writer*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing results to a FlowFile. The Record Writer may use Inherit Schema to emulate the inferred schema behavior, i.e. an explicit schema need not be defined in the writer, and will be supplied by the same logic used to infer the schema from the column types.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Maximum-Value Columns
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum-value Columns
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A comma-separated list of column names. The processor will keep track of the maximum value for each column that has been returned since the processor started running. Using multiple columns implies an order to the column list, and each column's values are expected to increase more slowly than the previous columns' values. Thus, using multiple columns implies a hierarchical structure of columns, which is usually used for partitioning tables. This processor can be used to retrieve only those rows that have been added/updated since the last retrieval. Note that some JDBC types such as bit/boolean are not conducive to maintaining maximum value, so columns of these types should not be listed in this property, and will result in error(s) during processing. If no columns are provided, all rows from the table will be considered, which could have a performance impact. NOTE: It is important to use consistent max-value column names for a given table for incremental fetch to work properly.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Initial-Load-Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Initial Load Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: How to handle existing rows in the database table when the processor is started for the first time (or its state has been cleared). The property will be ignored, if any 'initial.maxvalue.*' dynamic property has also been configured.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Start at Beginning: Loads all existing rows from the database table. 
+
+* Start at Current Maximum Values: Loads only the newly inserted or updated rows based on the maximum value(s) of the column(s) configured in the 'Maximum-value Columns' property. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Max Wait Time*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Max Wait Time
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum amount of time allowed for a running SQL select query , zero means there is no limit. Max time less than 1 second will be equal to zero.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Fetch Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Fetch Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The number of result rows to be fetched from the result set at a time. This is a hint to the database driver and may not be honored and/or exact. If the value specified is zero, then the hint is ignored. If using PostgreSQL, then 'Set Auto Commit' must be equal to 'false' to cause 'Fetch Size' to take effect.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Set Auto Commit
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Set Auto Commit
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Allows enabling or disabling the auto commit functionality of the DB connection. Default value is 'No value set'. 'No value set' will leave the db connection's auto commit mode unchanged. For some JDBC drivers such as PostgreSQL driver, it is required to disable the auto commit functionality to get the 'Fetch Size' setting to take effect. When auto commit is enabled, PostgreSQL driver ignores 'Fetch Size' setting and loads all rows of the result set to memory at once. This could lead for a large amount of memory usage when executing queries which fetch large data sets. More Details of this behaviour in PostgreSQL driver can be found in https://jdbc.postgresql.org//documentation/head/query.html.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Qdbt-Max-Rows*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Max Rows Per Flow File
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum number of result rows that will be included in a single FlowFile. This will allow you to break up very large result sets into multiple FlowFiles. If the value specified is zero, then all rows are returned in a single FlowFile.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Qdbt-Output-Batch-Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Output Batch Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The number of output FlowFiles to queue before committing the process session. When set to zero, the session will be committed when all result set rows have been processed and the output FlowFiles are ready for transfer to the downstream relationship. For large result sets, this can cause a large burst of FlowFiles to be transferred at the end of processor execution. If this property is set, then when the specified number of FlowFiles are ready for transfer, then the session will be committed, thus releasing the FlowFiles to the downstream relationship. NOTE: The maxvalue.* and fragment.count attributes will not be set on FlowFiles when this property is set.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Qdbt-Max-Frags*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Number of Fragments
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum number of fragments. If the value specified is zero, then all fragments are returned. This prevents OutOfMemoryError when this processor ingests huge table. NOTE: Setting this property can result in data loss, as the incoming results are not ordered, and fragments may end at arbitrary boundaries where rows are not included in the result set.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Qdbtr-Normalize*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Normalize Table/Column Names
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Whether to change characters in column names when creating the output schema. For example, colons and periods will be changed to underscores.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Dbf-User-Logical-Types*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Use Avro Logical Types
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Whether to use Avro Logical Types for DECIMAL/NUMBER, DATE, TIME and TIMESTAMP columns. If disabled, written as string. If enabled, Logical types are used and written as its underlying type, specifically, DECIMAL/NUMBER as logical 'decimal': written as bytes with additional precision and scale meta data, DATE as logical 'date-millis': written as int denoting days since Unix epoch (1970-01-01), TIME as logical 'time-millis': written as int denoting milliseconds since Unix epoch, and TIMESTAMP as logical 'timestamp-millis': written as long denoting milliseconds since Unix epoch. If a reader of written Avro records also knows these logical types, then these values can be deserialized with more context depending on reader implementation.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Dbf-Default-Precision*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Default Decimal Precision
+
+[horizontal]
+*DESCRIPTION (Описание):*:: When a DECIMAL/NUMBER value is written as a 'decimal' Avro logical type, a specific 'precision' denoting number of available digits is required. Generally, precision is defined by column data type definition or database engines default. However undefined precision (0) can be returned from some database engines. 'Default Decimal Precision' is used when writing those undefined precision numbers.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Dbf-Default-Scale*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Default Decimal Scale
+
+[horizontal]
+*DESCRIPTION (Описание):*:: When a DECIMAL/NUMBER value is written as a 'decimal' Avro logical type, a specific 'scale' denoting number of available decimal digits is required. Generally, scale is defined by column data type definition or database engines default. However when undefined precision (0) is returned, scale can also be uncertain with some database engines. 'Default Decimal Scale' is used when writing those undefined numbers. If a value has more decimals than specified scale, then the value will be rounded-up, e.g. 1.53 becomes 2 with scale 0, and 1.5 with scale 1.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`initial.maxvalue.<max_value_column>`
+|Specifies an initial max value for max value column(s). Properties should be added in the format `initial.maxvalue.<max_value_column>`. This value is only used the first time the table is accessed (when a Maximum Value Column is specified).
+|`Initial maximum value for the specified column`
+|
+
+|===
+
+
+
+=== Управление состоянием
+
+[cols="1a,2a",options="header",]
+|===
+|Масштаб |Описание
+
+|
+CLUSTER
+
+|After performing a query on the specified table, the maximum values for the specified column(s) will be retained for use in future executions of the query. This allows the Processor to fetch only those records that have max values greater than the retained values. This can be used for incremental fetching, fetching of newly added rows, etc. To clear the maximum values, clear the state of the processor per the State Management documentation
+|===
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|Successfully created FlowFile from SQL query result set.
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`tablename`
+|Name of the table being queried
+
+|`querydbtable.row.count`
+|The number of rows selected by the query
+
+|`fragment.identifier`
+|If 'Max Rows Per Flow File' is set then all FlowFiles from the same query result set will have the same value for the fragment.identifier attribute. This can then be used to correlate the results.
+
+|`fragment.count`
+|If 'Max Rows Per Flow File' is set then this is the total number of  FlowFiles produced by a single ResultSet. This can be used in conjunction with the fragment.identifier attribute in order to know how many FlowFiles belonged to the same incoming ResultSet. If Output Batch Size is set, then this attribute will not be populated.
+
+|`fragment.index`
+|If 'Max Rows Per Flow File' is set then the position of this FlowFile in the list of outgoing FlowFiles that were all derived from the same result set FlowFile. This can be used in conjunction with the fragment.identifier attribute to know which FlowFiles originated from the same query result set and in what order  FlowFiles were produced
+
+|`maxvalue.*`
+|Each attribute contains the observed maximum value of a specified 'Maximum-value Column'. The suffix of the attribute is the name of the column. If Output Batch Size is set, then this attribute will not be populated.
+
+|`mime.type`
+|Sets the mime.type attribute to the MIME Type specified by the Record Writer.
+
+|`record.count`
+|The number of records output by the Record Writer.
+
+|===
+
+
+
+== Варианты использования
+:sectnums:
+
+
+
+=== Retrieve all rows from a database table.
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+jdbc
+rdbms
+cdc
+database
+table
+stream
+
+
+
+.Конфигурация
+====
+Configure the "Database Connection Pooling Service" to specify a Connection Pooling Service so that the Processor knows how to connect to the database.
+Set the "Database Type" property to the type of database to query, or "Generic" if the database vendor is not listed.
+Set the "Table Name" property to the name of the table to retrieve records from.
+Configure the "Record Writer" to specify a Record Writer that is appropriate for the desired output format.
+Set the "Maximum-value Columns" property to a comma-separated list of columns whose values can be used to determine which values are new. For example, this might be set to
+    an `id` column that is a one-up number, or a `last_modified` column that is a timestamp of when the row was last modified.
+Set the "Initial Load Strategy" property to "Start at Beginning".
+Set the "Fetch Size" to a number that avoids loading too much data into memory on the NiFi side. For example, a value of `1000` will load up to 1,000 rows of data.
+Set the "Max Rows Per Flow File" to a value that allows efficient processing, such as `1000` or `10000`.
+Set the "Output Batch Size" property to a value greater than `0`. A smaller value, such as `1` or even `20` will result in lower latency but also slightly lower throughput.
+    A larger value such as `1000` will result in higher throughput but also higher latency. It is not recommended to set the value larger than `1000` as it can cause significant
+    memory utilization.
+
+====
+
+
+=== Perform an incremental load of a single database table, fetching only new rows as they are added to the table.
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+incremental load
+rdbms
+jdbc
+cdc
+database
+table
+stream
+
+
+
+.Конфигурация
+====
+Configure the "Database Connection Pooling Service" to specify a Connection Pooling Service so that the Processor knows how to connect to the database.
+Set the "Database Type" property to the type of database to query, or "Generic" if the database vendor is not listed.
+Set the "Table Name" property to the name of the table to retrieve records from.
+Configure the "Record Writer" to specify a Record Writer that is appropriate for the desired output format.
+Set the "Maximum-value Columns" property to a comma-separated list of columns whose values can be used to determine which values are new. For example, this might be set to
+    an `id` column that is a one-up number, or a `last_modified` column that is a timestamp of when the row was last modified.
+Set the "Initial Load Strategy" property to "Start at Current Maximum Values".
+Set the "Fetch Size" to a number that avoids loading too much data into memory on the NiFi side. For example, a value of `1000` will load up to 1,000 rows of data.
+Set the "Max Rows Per Flow File" to a value that allows efficient processing, such as `1000` or `10000`.
+Set the "Output Batch Size" property to a value greater than `0`. A smaller value, such as `1` or even `20` will result in lower latency but also slightly lower throughput.
+    A larger value such as `1000` will result in higher throughput but also higher latency. It is not recommended to set the value larger than `1000` as it can cause significant
+    memory utilization.
+
+====
+
+
+
+
+== Варианты использования, включающие другие компоненты
+
+
+=== Perform an incremental load of multiple database tables, fetching only new rows as they are added to the tables.
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+
+incremental load
+
+rdbms
+
+jdbc
+
+cdc
+
+database
+
+table
+
+stream
+
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/ExecuteSQL.adoc[ExecuteSQL]
+
+* xref:Processors/GenerateTableFetch.adoc[GenerateTableFetch]
+
+

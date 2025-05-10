@@ -1,0 +1,269 @@
+= AmazonGlueSchemaRegistry 2.2.0
+
+Provides a Schema Registry that interacts with the AWS Glue Schema Registry so that those Schemas that are stored in the Glue Schema Registry can be used in NiFi. When a Schema is looked up by name by this registry, it will find a Schema in the Glue Schema Registry with their names.
+
+[horizontal]
+*Tags* (Ключевые слова):
+avro, aws, glue, registry, schema
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Schema-Registry-Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the Schema Registry
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Region*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Region
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The region of the cloud resources
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* AWS GovCloud (US-East): AWS Region Code : us-gov-east-1 
+
+* AWS GovCloud (US-West): AWS Region Code : us-gov-west-1 
+
+* Africa (Cape Town): AWS Region Code : af-south-1 
+
+* Asia Pacific (Hong Kong): AWS Region Code : ap-east-1 
+
+* Asia Pacific (Hyderabad): AWS Region Code : ap-south-2 
+
+* Asia Pacific (Jakarta): AWS Region Code : ap-southeast-3 
+
+* Asia Pacific (Malaysia): AWS Region Code : ap-southeast-5 
+
+* Asia Pacific (Melbourne): AWS Region Code : ap-southeast-4 
+
+* Asia Pacific (Mumbai): AWS Region Code : ap-south-1 
+
+* Asia Pacific (Osaka): AWS Region Code : ap-northeast-3 
+
+* Asia Pacific (Seoul): AWS Region Code : ap-northeast-2 
+
+* Asia Pacific (Singapore): AWS Region Code : ap-southeast-1 
+
+* Asia Pacific (Sydney): AWS Region Code : ap-southeast-2 
+
+* Asia Pacific (Thailand): AWS Region Code : ap-southeast-7 
+
+* Asia Pacific (Tokyo): AWS Region Code : ap-northeast-1 
+
+* Canada (Central): AWS Region Code : ca-central-1 
+
+* Canada West (Calgary): AWS Region Code : ca-west-1 
+
+* China (Beijing): AWS Region Code : cn-north-1 
+
+* China (Ningxia): AWS Region Code : cn-northwest-1 
+
+* EU ISOE West: AWS Region Code : eu-isoe-west-1 
+
+* Europe (Frankfurt): AWS Region Code : eu-central-1 
+
+* Europe (Ireland): AWS Region Code : eu-west-1 
+
+* Europe (London): AWS Region Code : eu-west-2 
+
+* Europe (Milan): AWS Region Code : eu-south-1 
+
+* Europe (Paris): AWS Region Code : eu-west-3 
+
+* Europe (Spain): AWS Region Code : eu-south-2 
+
+* Europe (Stockholm): AWS Region Code : eu-north-1 
+
+* Europe (Zurich): AWS Region Code : eu-central-2 
+
+* Israel (Tel Aviv): AWS Region Code : il-central-1 
+
+* Mexico (Central): AWS Region Code : mx-central-1 
+
+* Middle East (Bahrain): AWS Region Code : me-south-1 
+
+* Middle East (UAE): AWS Region Code : me-central-1 
+
+* South America (Sao Paulo): AWS Region Code : sa-east-1 
+
+* US East (N. Virginia): AWS Region Code : us-east-1 
+
+* US East (Ohio): AWS Region Code : us-east-2 
+
+* US ISO East: AWS Region Code : us-iso-east-1 
+
+* US ISO WEST: AWS Region Code : us-iso-west-1 
+
+* US ISOB East (Ohio): AWS Region Code : us-isob-east-1 
+
+* US West (N. California): AWS Region Code : us-west-1 
+
+* US West (Oregon): AWS Region Code : us-west-2 
+
+* aws-cn-global: AWS Region Code : aws-cn-global 
+
+* aws-global: AWS Region Code : aws-global 
+
+* aws-iso-b-global: AWS Region Code : aws-iso-b-global 
+
+* aws-iso-global: AWS Region Code : aws-iso-global 
+
+* aws-us-gov-global: AWS Region Code : aws-us-gov-global 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Communications-Timeout*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how long to wait to receive data from the Schema Registry before considering the communications a failure
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Cache-Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Cache Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how many Schemas should be cached from the Schema Registry
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Cache-Expiration*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Cache Expiration
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how long a Schema that is cached should remain in the cache. Once this time period elapses, a cached version of a schema will no longer be used, and the service will have to communicate with the Schema Registry again in order to obtain the schema.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Aws-Credentials-Provider-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: AWS Credentials Provider Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Controller Service that is used to obtain AWS credentials provider
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Proxy-Configuration-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Ssl-Context-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies an optional SSL Context Service that, if provided, will be used to create connections
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,497 @@
+= CopyS3Object 2.2.0
+
+Copies a file from one bucket and key to another in AWS S3
+
+[horizontal]
+*Tags* (Ключевые слова):
+AWS, Amazon, Archive, Copy, S3
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Source Bucket*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Source Bucket
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The bucket that contains the file to be copied.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Source Key*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Source Key
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The source key in the source bucket
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Destination Bucket*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Destination Bucket
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The bucket that will receive the copy.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Destination Key*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Destination Key
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The target key in the target bucket
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Aws Credentials Provider Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: AWS Credentials Provider Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Controller Service that is used to obtain AWS credentials provider
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Region*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Region
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The AWS Region to connect to.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* AWS GovCloud (US): AWS Region Code : us-gov-west-1 
+
+* AWS GovCloud (US-East): AWS Region Code : us-gov-east-1 
+
+* US East (N. Virginia): AWS Region Code : us-east-1 
+
+* US East (Ohio): AWS Region Code : us-east-2 
+
+* US West (N. California): AWS Region Code : us-west-1 
+
+* US West (Oregon): AWS Region Code : us-west-2 
+
+* EU (Ireland): AWS Region Code : eu-west-1 
+
+* EU (London): AWS Region Code : eu-west-2 
+
+* EU (Paris): AWS Region Code : eu-west-3 
+
+* EU (Frankfurt): AWS Region Code : eu-central-1 
+
+* EU (Zurich): AWS Region Code : eu-central-2 
+
+* EU (Stockholm): AWS Region Code : eu-north-1 
+
+* EU (Milan): AWS Region Code : eu-south-1 
+
+* EU (Spain): AWS Region Code : eu-south-2 
+
+* Asia Pacific (Hong Kong): AWS Region Code : ap-east-1 
+
+* Asia Pacific (Mumbai): AWS Region Code : ap-south-1 
+
+* Asia Pacific (Hyderabad): AWS Region Code : ap-south-2 
+
+* Asia Pacific (Singapore): AWS Region Code : ap-southeast-1 
+
+* Asia Pacific (Sydney): AWS Region Code : ap-southeast-2 
+
+* Asia Pacific (Jakarta): AWS Region Code : ap-southeast-3 
+
+* Asia Pacific (Melbourne): AWS Region Code : ap-southeast-4 
+
+* Asia Pacific (Tokyo): AWS Region Code : ap-northeast-1 
+
+* Asia Pacific (Seoul): AWS Region Code : ap-northeast-2 
+
+* Asia Pacific (Osaka): AWS Region Code : ap-northeast-3 
+
+* South America (Sao Paulo): AWS Region Code : sa-east-1 
+
+* China (Beijing): AWS Region Code : cn-north-1 
+
+* China (Ningxia): AWS Region Code : cn-northwest-1 
+
+* Canada (Central): AWS Region Code : ca-central-1 
+
+* Canada West (Calgary): AWS Region Code : ca-west-1 
+
+* Middle East (UAE): AWS Region Code : me-central-1 
+
+* Middle East (Bahrain): AWS Region Code : me-south-1 
+
+* Africa (Cape Town): AWS Region Code : af-south-1 
+
+* US ISO East: AWS Region Code : us-iso-east-1 
+
+* US ISOB East (Ohio): AWS Region Code : us-isob-east-1 
+
+* US ISO West: AWS Region Code : us-iso-west-1 
+
+* Israel (Tel Aviv): AWS Region Code : il-central-1 
+
+* Use 's3.region' Attribute: Uses 's3.region' FlowFile attribute as region. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Communications Timeout*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The amount of time to wait in order to establish a connection to AWS or receive data from AWS before timing out.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Fullcontrol User List
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: FullControl User List
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A comma-separated list of Amazon User ID's or E-mail addresses that specifies who should have Full Control for an object
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Read Permission User List
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Read Permission User List
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A comma-separated list of Amazon User ID's or E-mail addresses that specifies who should have Read Access for an object
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Write Permission User List
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Write Permission User List
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A comma-separated list of Amazon User ID's or E-mail addresses that specifies who should have Write Access for an object
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Read Acl User List
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Read ACL User List
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A comma-separated list of Amazon User ID's or E-mail addresses that specifies who should have permissions to read the Access Control List for an object
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Write Acl User List
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Write ACL User List
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A comma-separated list of Amazon User ID's or E-mail addresses that specifies who should have permissions to change the Access Control List for an object
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Canned-Acl
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Canned ACL
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Amazon Canned ACL for an object, one of: BucketOwnerFullControl, BucketOwnerRead, LogDeliveryWrite, AuthenticatedRead, PublicReadWrite, PublicRead, Private; will be ignored if any other ACL/permission/owner property is specified
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Owner
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Owner
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Amazon ID to use for the object's owner
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Ssl Context Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies an optional SSL Context Service that, if provided, will be used to create connections
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Endpoint Override Url
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Endpoint Override URL
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Endpoint URL to use instead of the AWS default including scheme, host, port, and path. The AWS libraries select an endpoint URL based on the AWS region, but this property overrides the selected endpoint URL, allowing use with other S3-compatible endpoints.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Signer Override
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Signer Override
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The AWS S3 library uses Signature Version 4 by default but this property allows you to specify the Version 2 signer to support older S3-compatible services or even to plug in your own custom signer implementation.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Default Signature
+
+* Signature Version 4
+
+* Signature Version 2
+
+* Custom Signature
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Custom-Signer-Class-Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Custom Signer Class Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Fully qualified class name of the custom signer class. The signer must implement com.amazonaws.auth.Signer interface.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Custom-Signer-Module-Location
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Custom Signer Module Location
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Comma-separated list of paths to files and/or directories which contain the custom signer's JAR file and its dependencies (if any).
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Proxy-Configuration-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|FlowFiles are routed to this Relationship after they have been successfully processed.
+
+|`failure`
+|If the Processor is unable to process a given FlowFile, it will be routed to this Relationship.
+
+|===
+
+
+
+
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/DeleteS3Object.adoc[DeleteS3Object]
+
+* xref:Processors/FetchS3Object.adoc[FetchS3Object]
+
+* xref:Processors/ListS3.adoc[ListS3]
+
+* xref:Processors/PutS3Object.adoc[PutS3Object]
+
+* xref:Processors/TagS3Object.adoc[TagS3Object]
+
+

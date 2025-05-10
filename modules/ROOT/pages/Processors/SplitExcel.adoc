@@ -1,0 +1,124 @@
+= SplitExcel 2.2.0
+
+This processor splits a multi sheet Microsoft Excel spreadsheet into multiple Microsoft Excel spreadsheets where each sheet from the original file is converted to an individual spreadsheet in its own flow file. Currently this processor is only capable of processing .xlsx (XSSF 2007 OOXML file format) Excel documents and not older .xls (HSSF '97(-2007) file format) documents. Please note all original cell styles are dropped and formulas are removed leaving only the calculated values. Even a single sheet Microsoft Excel spreadsheet is converted to its own flow file with all the original cell styles dropped and formulas removed.
+
+[horizontal]
+*Tags* (Ключевые слова):
+split, text
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Protection Type*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Protection Type
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies whether an Excel spreadsheet is protected by a password or not.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Unprotected: An Excel spreadsheet not protected by a password 
+
+* Password Protected: An Excel spreadsheet protected by a password 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Password*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Password
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The password for a password protected Excel spreadsheet
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`failure`
+|If a FlowFile cannot be transformed from the configured input format to the configured output format, the unchanged FlowFile will be routed to this relationship.
+
+|`original`
+|The original FlowFile that was split into segments. If the FlowFile fails processing, nothing will be sent to this relationship
+
+|`split`
+|The individual Excel 'segments' of the original Excel FlowFile will be routed to this relationship.
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`fragment.identifier`
+|All split Excel FlowFiles produced from the same parent Excel FlowFile will have the same randomly generated UUID added for this attribute
+
+|`fragment.index`
+|A one-up number that indicates the ordering of the split Excel FlowFiles that were created from a single parent Excel FlowFile
+
+|`fragment.count`
+|The number of split Excel FlowFiles generated from the parent Excel FlowFile
+
+|`segment.original.filename`
+|The filename of the parent Excel FlowFile
+
+|`sheetname`
+|The name of the Excel sheet from the original spreadsheet.
+
+|`total.rows`
+|The number of rows in the Excel sheet from the original spreadsheet.
+
+|===
+
+
+
+
+
+
+

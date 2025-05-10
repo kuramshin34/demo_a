@@ -1,0 +1,141 @@
+= ExternalHazelcastCacheManager 2.2.0
+
+A service that provides cache instances backed by Hazelcast running outside of NiFi.
+
+[horizontal]
+*Tags* (Ключевые слова):
+cache, hazelcast
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Hazelcast-Cluster-Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Cluster Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Name of the Hazelcast cluster.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Hazelcast-Server-Address*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Server Address
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Addresses of one or more the Hazelcast instances, using {host:port} format, separated by comma.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Hazelcast-Retry-Backoff-Initial*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Initial Backoff
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The amount of time the client waits before it tries to reestablish connection for the first time.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Hazelcast-Retry-Backoff-Maximum*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Maximum Backoff
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum amount of time the client waits before it tries to reestablish connection.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Hazelcast-Retry-Backoff-Multiplier*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Backoff Multiplier
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A multiplier by which the wait time is increased before each attempt to reestablish connection.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Hazelcast-Connection-Timeout*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Connection Timeout
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum amount of time the client tries to connect or reconnect before giving up.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

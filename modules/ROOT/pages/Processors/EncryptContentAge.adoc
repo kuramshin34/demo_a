@@ -1,0 +1,143 @@
+= EncryptContentAge 2.2.0
+
+Encrypt content using the age-encryption.org/v1 specification. Supports binary or ASCII armored content encoding using configurable properties. The age standard uses ChaCha20-Poly1305 for authenticated encryption of the payload. The age-keygen command supports generating X25519 key pairs for encryption and decryption operations.
+
+[horizontal]
+*Tags* (Ключевые слова):
+ChaCha20-Poly1305, X25519, age, age-encryption.org, encryption
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*File Encoding*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: File Encoding
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Output encoding for encrypted files. Binary encoding provides optimal processing performance.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* BINARY: Binary encoding 
+
+* ASCII: ASCII Armor encoding 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Public Key Source*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Public Key Source
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Source of information determines the loading strategy for X25519 Public Key Recipients
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* PROPERTIES: Load one or more keys from configured properties 
+
+* RESOURCES: Load one or more keys from files or URLs 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Public Key Recipients*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Public Key Recipients
+
+[horizontal]
+*DESCRIPTION (Описание):*:: One or more X25519 Public Key Recipients, separated with newlines, encoded according to the age specification, starting with age1
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Public Key Recipient Resources*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Public Key Recipient Resources
+
+[horizontal]
+*DESCRIPTION (Описание):*:: One or more files or URLs containing X25519 Public Key Recipients, separated with newlines, encoded according to the age specification, starting with age1
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|Encryption Completed
+
+|`failure`
+|Encryption Failed
+
+|===
+
+
+
+
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/DecryptContentAge.adoc[DecryptContentAge]
+
+

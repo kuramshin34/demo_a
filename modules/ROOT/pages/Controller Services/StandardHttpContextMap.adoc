@@ -1,0 +1,81 @@
+= StandardHttpContextMap 2.2.0
+
+Provides the ability to store and retrieve HTTP requests and responses external to a Processor, so that multiple Processors can interact with the same HTTP request.
+
+[horizontal]
+*Tags* (Ключевые слова):
+http, request, response
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Maximum Outstanding Requests*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Outstanding Requests
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum number of HTTP requests that can be outstanding at any one time. Any attempt to register an additional HTTP Request will cause an error
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Request Expiration*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Request Expiration
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how long an HTTP Request should be left unanswered before being evicted from the cache and being responded to with a Service Unavailable status code
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Controller Services/HandleHttpRequest.adoc[HandleHttpRequest]
+
+* xref:Controller Services/HandleHttpResponse.adoc[HandleHttpResponse]
+
+

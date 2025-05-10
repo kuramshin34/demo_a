@@ -1,0 +1,117 @@
+= CalculateRecordStats 2.2.0
+
+Counts the number of Records in a record set, optionally counting the number of elements per category, where the categories are defined by user-defined properties.
+
+[horizontal]
+*Tags* (Ключевые слова):
+metrics, record, stats
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Record-Stats-Reader*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A record reader to use for reading the records.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Record-Stats-Limit*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: record-stats-limit
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Limit the number of individual stats that are returned for each record path to the top N results.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`The name of the category. For example, sport`
+|Specifies a category that should be counted. For example, if the property name is 'sport' and the value is '/sport', the processor will count how many records have a value of 'soccer' for the /sport field, how many have a value of 'baseball' for the /sport, and so on. These counts be added as attributes named recordStats.sport.soccer, recordStats.sport.baseball.
+|`The RecordPath that points to the value of the category. For example /sport`
+|
+
+|===
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|All FlowFiles that are successfully processed, are routed to this Relationship.
+
+|`failure`
+|If a FlowFile cannot be processed for any reason, it is routed to this Relationship.
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`record.count`
+|A count of the records in the record set in the FlowFile.
+
+|`recordStats.<User Defined Property Name>.count`
+|A count of the records that contain a value for the user defined property.
+
+|`recordStats.<User Defined Property Name>.<value>.count`
+|Each value discovered for the user defined property will have its own count attribute. Total number of top N value counts to be added is defined by the limit configuration.
+
+|===
+
+
+
+
+
+
+

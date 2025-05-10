@@ -1,0 +1,130 @@
+= ExtractEmailHeaders 2.2.0
+
+Using the flowfile content as source of data, extract header from an RFC compliant  email file adding the relevant attributes to the flowfile. This processor does not perform extensive RFC validation but still requires a bare minimum compliance with RFC 2822
+
+[horizontal]
+*Tags* (Ключевые слова):
+email, split
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.Captured_Headers
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Additional Header List
+
+[horizontal]
+*DESCRIPTION (Описание):*:: COLON separated list of additional headers to be extracted from the flowfile content.NOTE the header key is case insensitive and will be matched as lower-case. Values will respect email contents.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Strict_Address_Parsing
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Email Address Parsing
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If "strict", strict address format parsing rules are applied to mailbox and mailbox list fields, such as "to" and "from" headers, and FlowFiles with poorly formed addresses will be routed to the failure relationship, similar to messages that fail RFC compliant format validation. If "non-strict", the processor will extract the contents of mailbox list headers as comma-separated values without attempting to parse each value as well-formed Internet mailbox addresses. This is optional and defaults to Strict Address Parsing
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Strict Address Parsing: Strict email address format will be enforced. FlowFiles will be transfered to the failure relationship if the email address is invalid. 
+
+* Non-Strict Address Parsing: Accept emails, even if the address is poorly formed and doesn't strictly comply with RFC Validation. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|Extraction was successful
+
+|`failure`
+|Flowfiles that could not be parsed as a RFC-2822 compliant message
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`email.headers.bcc.*`
+|Each individual BCC recipient (if available)
+
+|`email.headers.cc.*`
+|Each individual CC recipient (if available)
+
+|`email.headers.from.*`
+|Each individual mailbox contained in the From  of the Email (array as per RFC-2822)
+
+|`email.headers.message-id`
+|The value of the Message-ID header (if available)
+
+|`email.headers.received_date`
+|The Received-Date of the message (if available)
+
+|`email.headers.sent_date`
+|Date the message was sent
+
+|`email.headers.subject`
+|Subject of the message (if available)
+
+|`email.headers.to.*`
+|Each individual TO recipient (if available)
+
+|`email.attachment_count`
+|Number of attachments of the message
+
+|===
+
+
+
+
+
+
+

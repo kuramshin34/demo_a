@@ -1,0 +1,246 @@
+= ModifyCompression 2.2.0
+
+Changes the compression algorithm used to compress the contents of a FlowFile by decompressing the contents of FlowFiles using a user-specified compression algorithm and recompressing the contents using the specified compression format properties. This processor operates in a very memory efficient way so very large objects well beyond the heap size are generally fine to process
+
+[horizontal]
+*Tags* (Ключевые слова):
+brotli, bzip2, compress, content, deflate, gzip, lz4-framed, lzma, recompress, snappy, snappy framed, snappy-hadoop, xz-lzma2, zstd
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Input Compression Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Input Compression Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The strategy to use for decompressing input FlowFiles
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* no compression: No Compression 
+
+* use mime.type attribute: Use the [mime.type] attribute from the input FlowFile to determine the format 
+
+* gzip: GZIP 
+
+* deflate: Deflate 
+
+* bzip2: BZIP2 
+
+* xz-lzma2: XZ-LZMA2 
+
+* lzma: LZMA 
+
+* snappy: Snappy 
+
+* snappy-framed: Snappy-Framed 
+
+* lz4-framed: LZ4 
+
+* zstd: ZSTD 
+
+* brotli: Brotli 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Output Compression Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Output Compression Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The strategy to use for compressing output FlowFiles
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* no compression: No Compression 
+
+* gzip: GZIP 
+
+* deflate: Deflate 
+
+* bzip2: BZIP2 
+
+* xz-lzma2: XZ-LZMA2 
+
+* lzma: LZMA 
+
+* snappy: Snappy 
+
+* snappy-hadoop: Snappy-Hadoop 
+
+* snappy-framed: Snappy-Framed 
+
+* lz4-framed: LZ4 
+
+* zstd: ZSTD 
+
+* brotli: Brotli 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Output Compression Level*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Output Compression Level
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The compression level for output FlowFiles for supported formats. A lower value results in faster processing but less compression; a value of 0 indicates no (that is, simple archiving) for gzip or minimal for xz-lzma2 compression. Higher levels can mean much larger memory usage such as the case with levels 7-9 for xz-lzma/2 so be careful relative to heap size.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* 0
+
+* 1
+
+* 2
+
+* 3
+
+* 4
+
+* 5
+
+* 6
+
+* 7
+
+* 8
+
+* 9
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Output Filename Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Output Filename Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Processing strategy for filename attribute on output FlowFiles
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Original: Retain the filename attribute value from the input FlowFile 
+
+* Updated: Remove the filename extension when decompressing and add a new extension for compressed output FlowFiles 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+=== Системные ресурсы
+
+[cols="1a,2a",options="header",]
+|===
+|Ресурс |Описание
+
+
+|CPU
+|An instance of this component can cause high usage of this system resource.  Multiple instances or high concurrency settings may result a degradation of performance.
+
+|MEMORY
+|An instance of this component can cause high usage of this system resource.  Multiple instances or high concurrency settings may result a degradation of performance.
+
+|===
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|FlowFiles will be transferred to the success relationship on compression modification success
+
+|`failure`
+|FlowFiles will be transferred to the failure relationship on compression modification errors
+
+|===
+
+
+
+=== Читаемые атрибуты
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`mime.type`
+|If the Decompression Format is set to 'use mime.type attribute', this attribute is used to determine the decompression type. Otherwise, this attribute is ignored.
+
+|===
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`mime.type`
+|The appropriate MIME Type is set based on the value of the Compression Format property. If the Compression Format is 'no compression' this attribute is removed as the MIME Type is no longer known.
+
+|===
+
+
+
+
+
+
+

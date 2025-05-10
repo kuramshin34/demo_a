@@ -1,0 +1,217 @@
+= RenameRecordField 2.2.0
+
+Renames one or more fields in each Record of a FlowFile. This Processor requires that at least one user-defined Property be added. The name of the Property should indicate a RecordPath that determines the field that should be updated. The value of the Property is the new name to assign to the Record Field that matches the RecordPath. The property value may use Expression Language to reference FlowFile attributes as well as the variables `field.name`, `field.value`, `field.type`, and `record.index`
+
+[horizontal]
+*Tags* (Ключевые слова):
+avro, csv, field, generic, json, log, logs, record, rename, schema, update
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Record Reader*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for reading incoming data
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Record Writer*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`A RecordPath that identifies which field(s) to update`
+|Allows users to specify a new name for each field that matches the RecordPath.
+|`The new name to assign to the Record field`
+|
+
+|===
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|FlowFiles that are successfully transformed will be routed to this relationship
+
+|`failure`
+|If a FlowFile cannot be transformed from the configured input format to the configured output format, the unchanged FlowFile will be routed to this relationship
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`record.index`
+|This attribute provides the current row index and is only available inside the literal value expression.
+
+|===
+
+
+
+== Варианты использования
+:sectnums:
+
+
+
+=== Rename a field in each Record to a specific, known name.
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+rename
+field
+static
+specific
+name
+
+
+
+.Конфигурация
+====
+Configure the 'Record Reader' according to the input format.
+Configure the 'Record Writer' according to the desired output format.
+
+Add a property to the Processor such that the name of the property is a RecordPath to identifies the field to rename. The value of the property is the new name of the property.
+
+For example, to rename the `name` field to `full_name`, add a property with a name of `/name` and a value of `full_name`.
+
+Many properties can be added following this pattern in order to rename multiple fields.
+
+====
+
+
+=== Rename a field in each Record to a name that is derived from a FlowFile attribute.
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+rename
+field
+expression language
+EL
+flowfile
+attribute
+
+
+
+.Конфигурация
+====
+Configure the 'Record Reader' according to the input format.
+Configure the 'Record Writer' according to the desired output format.
+
+Add a property to the Processor such that the name of the property is a RecordPath to identifies the field to rename. The value of the property is an Expression Language expression that can be used to determine the new name of the field.
+
+For example, to rename the `addr` field to whatever value is stored in the `preferred_address_name` attribute, add a property with a name of `/name` and a value of `${preferred_address_name}`.
+
+Many properties can be added following this pattern in order to rename multiple fields.
+
+====
+
+
+=== Rename a field in each Record to a new name that is derived from the current field name.
+
+
+NOTE: This might be used, for example, to add a prefix or a suffix to some fields, or to transform the name of the field by making it uppercase.
+
+
+
+Ключевые слова::
+rename
+field
+expression language
+EL
+field.name
+
+
+
+.Конфигурация
+====
+Configure the 'Record Reader' according to the input format.
+Configure the 'Record Writer' according to the desired output format.
+
+Add a property to the Processor such that the name of the property is a RecordPath to identifies the field to rename. The value of the property is an Expression Language expression that references the `field.name` property.
+
+For example, to rename all fields with a prefix of `pre_`, we add a property named `/*` and a value of `pre_${field.name}`. If we would like this to happen recursively, to nested fields as well, we use a property name of `//*` with the value of `pre_${field.name}`.
+
+To make all field names uppercase, we can add a property named `//*` with a value of `${field.name:toUpper()}`.
+
+Many properties can be added following this pattern in order to rename multiple fields.
+
+====
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/RemoveRecordField.adoc[RemoveRecordField]
+
+* xref:Processors/UpdateRecord.adoc[UpdateRecord]
+
+

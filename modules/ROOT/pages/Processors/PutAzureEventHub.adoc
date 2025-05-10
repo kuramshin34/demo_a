@@ -1,0 +1,263 @@
+= PutAzureEventHub 2.2.0
+
+Send FlowFile contents to Azure Event Hubs
+
+[horizontal]
+*Tags* (Ключевые слова):
+azure, cloud, eventhub, events, microsoft, streaming, streams
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Event Hub Namespace*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Event Hub Namespace
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Namespace of Azure Event Hubs prefixed to Service Bus Endpoint domain
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Event Hub Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Event Hub Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Name of Azure Event Hubs destination
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Service Bus Endpoint*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Service Bus Endpoint
+
+[horizontal]
+*DESCRIPTION (Описание):*:: To support namespaces not in the default windows.net domain.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Azure: Servicebus endpoint for general use 
+
+* Azure China: Servicebus endpoint for China 
+
+* Azure Germany: Servicebus endpoint for Germany 
+
+* Azure US Government: Servicebus endpoint for US Government 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Transport Type*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Transport Type
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Advanced Message Queuing Protocol Transport Type for communication with Azure Event Hubs
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* AMQP: AMQP over TCP on ports 5671 and 5672 
+
+* AMQP_WEB_SOCKETS: AMQP over HTTPS with WebSockets on port 443 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Shared Access Policy Name
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Shared Access Policy Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the shared access policy. This policy must have Send claims.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Shared Access Policy Primary Key
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Shared Access Policy Key
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The key of the shared access policy. Either the primary or the secondary key can be used.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Use-Managed-Identity*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Use Azure Managed Identity
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Choose whether or not to use the managed identity of Azure VM/VMSS
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Partitioning-Key-Attribute-Name
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Partitioning Key Attribute Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If specified, the value from argument named by this field will be used as a partitioning key to be used by event hub.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Max-Batch-Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Batch Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Maximum number of FlowFiles processed for each Processor invocation
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Proxy-Configuration-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+=== Системные ресурсы
+
+[cols="1a,2a",options="header",]
+|===
+|Ресурс |Описание
+
+
+|MEMORY
+|The Processor buffers FlowFile contents in memory before sending
+
+|===
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|Any FlowFile that is successfully sent to the event hubs will be transferred to this Relationship.
+
+|`failure`
+|Any FlowFile that could not be sent to the event hub will be transferred to this Relationship.
+
+|===
+
+
+
+
+
+
+
+
+
+
+

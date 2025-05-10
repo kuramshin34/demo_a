@@ -1,0 +1,236 @@
+= RouteOnAttribute 2.2.0
+
+Routes FlowFiles based on their Attributes using the Attribute Expression Language
+
+[horizontal]
+*Tags* (Ключевые слова):
+Attribute Expression Language, Expression Language, Regular Expression, attributes, detect, filter, find, regex, regexp, routing, search, string, text
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Routing Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Routing Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how to determine which relationship to use when evaluating the Expression Language
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Route to Property name: A copy of the FlowFile will be routed to each relationship whose corresponding expression evaluates to 'true' 
+
+* Route to 'matched' if all match: Requires that all user-defined expressions evaluate to 'true' for the FlowFile to be considered a match 
+
+* Route to 'matched' if any matches: Requires that at least one user-defined expression evaluate to 'true' for the FlowFile to be considered a match 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`Relationship Name`
+|Routes FlowFiles whose attributes match the Expression Language specified in the Dynamic Property Value to the Relationship specified in the Dynamic Property Key
+|`Expression Language expression that returns a boolean value indicating whether or not the FlowFile should be routed to this Relationship`
+|
+
+|===
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`unmatched`
+|FlowFiles that do not match any user-define expression will be routed here
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`RouteOnAttribute.Route`
+|The relation to which the FlowFile was routed
+
+|===
+
+
+
+== Варианты использования
+:sectnums:
+
+
+
+=== Route data to one or more relationships based on its attributes using the NiFi Expression Language.
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+attributes
+routing
+expression language
+
+
+
+.Конфигурация
+====
+Set the "Routing Strategy" property to "Route to Property name".
+For each route that a FlowFile might be routed to, add a new property. The name of the property should describe the route.
+The value of the property is an Attribute Expression Language expression that returns a boolean value indicating whether or not a given FlowFile will be routed to the associated relationship.
+
+For example, we might route data based on its file extension using the following properties:
+    - "Routing Strategy" = "Route to Property Name"
+    - "jpg" = "${filename:endsWith('.jpg')}"
+    - "png" = "${filename:endsWith('.png')}"
+    - "pdf" = "${filename:endsWith('.pdf')}"
+
+The Processor will now have 3 relationships: `jpg`, `png`, and `pdf`. Each of these should be connected to the appropriate downstream processor.
+
+====
+
+
+=== Keep data only if its attributes meet some criteria, such as its filename ends with .txt.
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+keep
+filter
+remove
+delete
+expression language
+
+
+
+.Конфигурация
+====
+Add a new property for each condition that must be satisfied in order to keep the data.
+If the data should be kept in the case that any of the provided conditions is met, set the "Routing Strategy" property to "Route to 'matched' if any matches".
+If all conditions must be met in order to keep the data, set the "Routing Strategy" property  to "Route to 'matched' if all match".
+
+For example, to keep files whose filename ends with .txt and have a file size of at least 1000 bytes, we will use the following properties:
+    - "ends_with_txt" = "${filename:endsWith('.txt')}"
+    - "large_enough" = "${fileSize:ge(1000)}
+    - "Routing Strategy" = "Route to 'matched' if all match"
+
+Auto-terminate the 'unmatched' relationship.
+Connect the 'matched' relationship to the next processor in the flow.
+
+====
+
+
+=== Discard or drop a file based on attributes, such as filename.
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+discard
+drop
+filter
+remove
+delete
+expression language
+
+
+
+.Конфигурация
+====
+Add a new property for each condition that must be satisfied in order to drop the data.
+If the data should be dropped in the case that any of the provided conditions is met, set the "Routing Strategy" property to "Route to 'matched' if any matches".
+If all conditions must be met in order to drop the data, set the "Routing Strategy" property  to "Route to 'matched' if all match".
+
+Here are a couple of examples for configuring the properties:
+    Example 1 Use Case: Data should be dropped if its "uuid" attribute has an 'a' in it or ends with '0'.
+      Here, we will use the following properties:
+        - "has_a" = "${uuid:contains('a')}"
+        - "ends_with_0" = "${uuid:endsWith('0')}
+        - "Routing Strategy" = "Route to 'matched' if any matches"
+    Example 2 Use Case: Data should be dropped if its 'uuid' attribute has an 'a' AND it ends with a '1'.
+      Here, we will use the following properties:
+        - "has_a" = "${uuid:contains('a')}"
+        - "ends_with_1" = "${uuid:endsWith('1')}
+        - "Routing Strategy" = "Route to 'matched' if all match"
+
+Auto-terminate the 'matched' relationship.
+Connect the 'unmatched' relationship to the next processor in the flow.
+
+====
+
+
+
+
+== Варианты использования, включающие другие компоненты
+
+
+=== Route record-oriented data based on whether or not the record's values meet some criteria
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+
+record
+
+route
+
+content
+
+data
+
+
+
+
+
+
+
+

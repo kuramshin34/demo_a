@@ -1,0 +1,121 @@
+= QueryAzureDataExplorer 2.2.0
+
+Query Azure Data Explorer and stream JSON results to output FlowFiles
+
+[horizontal]
+*Tags* (Ключевые слова):
+ADX, Azure, Data, Explorer, Kusto
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Kusto Query Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Kusto Query Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Azure Data Explorer Kusto Query Service
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Database Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Database Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Azure Data Explorer Database Name for querying
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Query*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Query
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Query to be run against Azure Data Explorer
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|FlowFiles containing results of a successful Query
+
+|`failure`
+|FlowFiles containing original input associated with a failed Query
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`query.error.message`
+|Azure Data Explorer query error message on failures
+
+|`query.executed`
+|Azure Data Explorer query executed
+
+|`mime.type`
+|Content Type set to application/json
+
+|===
+
+
+
+
+
+
+

@@ -1,0 +1,109 @@
+= ModifyBytes 2.2.0
+
+Discard byte range at the start and end or all content of a binary file.
+
+[horizontal]
+*Tags* (Ключевые слова):
+binary, discard, keep
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Start Offset*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Start Offset
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Number of bytes removed at the beginning of the file.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*End Offset*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: End Offset
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Number of bytes removed at the end of the file.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Remove All Content*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Remove All Content
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Remove all content from the FlowFile superseding Start Offset and End Offset properties.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|Processed flowfiles.
+
+|===
+
+
+
+
+
+
+
+
+
+
+

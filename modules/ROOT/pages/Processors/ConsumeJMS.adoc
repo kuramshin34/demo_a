@@ -1,0 +1,649 @@
+= ConsumeJMS 2.2.0
+
+Consumes JMS Message of type BytesMessage, TextMessage, ObjectMessage, MapMessage or StreamMessage transforming its content to a FlowFile and transitioning it to 'success' relationship. JMS attributes such as headers and properties will be copied as FlowFile attributes. MapMessages will be transformed into JSONs and then into byte arrays. The other types will have their raw contents as byte array transferred into the flowfile.
+
+[horizontal]
+*Tags* (Ключевые слова):
+consume, get, jms, message, receive
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+FORBIDDEN (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.Connection Factory Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Connection Factory Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Controller Service that is used to obtain Connection Factory. Alternatively, the 'JNDI *' or the 'JMS *' properties can also be be used to configure the Connection Factory.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Destination Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Destination Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the JMS Destination. Usually provided by the administrator (e.g., 'topic://myTopic' or 'myTopic').
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Destination Type*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Destination Type
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The type of the JMS Destination. Could be one of 'QUEUE' or 'TOPIC'. Usually provided by the administrator. Defaults to 'QUEUE'
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* QUEUE
+
+* TOPIC
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Message Selector
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Message Selector
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The JMS Message Selector to filter the messages that the processor will receive
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.User Name
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: User Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: User Name used for authentication and authorization.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Password
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Password
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Password used for authentication and authorization.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Connection Client Id
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Connection Client ID
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The client id to be set on the connection, if set. For durable non shared consumer this is mandatory, for all others it is optional, typically with shared consumers it is undesirable to be set. Please see JMS spec for further details
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Character-Set*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the character set to use to construct or interpret TextMessages
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Acknowledgement Mode*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Acknowledgement Mode
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The JMS Acknowledgement Mode. Using Auto Acknowledge can cause messages to be lost on restart of NiFi but may provide better performance than Client Acknowledge.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* AUTO_ACKNOWLEDGE (1): Automatically acknowledges a client's receipt of a message, regardless if NiFi session has been commited. Can result in data loss in the event where NiFi abruptly stopped before session was commited. 
+
+* CLIENT_ACKNOWLEDGE (2): (DEFAULT) Manually acknowledges a client's receipt of a message after NiFi Session was commited, thus ensuring no data loss 
+
+* DUPS_OK_ACKNOWLEDGE (3): This acknowledgment mode instructs the session to lazily acknowledge the delivery of messages. May result in both data duplication and data loss while achieving the best throughput. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Durable Subscription
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Durable Subscription
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If destination is Topic if present then make it the consumer durable. @see https://jakarta.ee/specifications/platform/9/apidocs/jakarta/jms/session#createDurableConsumer-jakarta.jms.Topic-java.lang.String-
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Shared Subscription
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Shared Subscription
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If destination is Topic if present then make it the consumer shared. @see https://jakarta.ee/specifications/platform/9/apidocs/jakarta/jms/session#createSharedConsumer-jakarta.jms.Topic-java.lang.String-
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Subscription Name
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Subscription Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the subscription to use if destination is Topic and is shared or durable.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Timeout*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Timeout
+
+[horizontal]
+*DESCRIPTION (Описание):*:: How long to wait to consume a message from the remote broker before giving up.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Maximum Batch Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Batch Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum number of messages to publish or consume in each invocation of the processor.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Error Queue Name
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Error Queue Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of a JMS Queue where - if set - unprocessed messages will be routed. Usually provided by the administrator (e.g., 'queue://myErrorQueue' or 'myErrorQueue').Only applicable if 'Destination Type' is set to 'QUEUE'
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Record-Reader
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Record Reader to use for parsing received JMS Messages into Records.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Record-Writer*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Record Writer to use for serializing Records before writing them to a FlowFile.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Output-Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Output Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The format used to output the JMS message into a FlowFile record.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Use Content as Value: Write only the message to the FlowFile record. 
+
+* Use Wrapper: Write the additional attributes into the FlowFile record on a separate leaf. (See processor usage for more information.) 
+
+* Use Appender: Write the additional attributes into the FlowFile record prefixed with "_". (See processor usage for more information.) 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Java.Naming.Factory.Initial
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: JNDI Initial Context Factory Class
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The fully qualified class name of the JNDI Initial Context Factory Class (java.naming.factory.initial).
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Java.Naming.Provider.Url
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: JNDI Provider URL
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The URL of the JNDI Provider to use as the value for java.naming.provider.url. See additional details documentation for allowed URL schemes.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Connection.Factory.Name
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: JNDI Name of the Connection Factory
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the JNDI Object to lookup for the Connection Factory.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Naming.Factory.Libraries
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: JNDI / JMS Client Libraries
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies jar files and/or directories to add to the ClassPath in order to load the JNDI / JMS client libraries. This should be a comma-separated list of files, directories, and/or URLs. If a directory is given, any files in that directory will be included, but subdirectories will not be included (i.e., it is not recursive).
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Java.Naming.Security.Principal
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: JNDI Principal
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Principal to use when authenticating with JNDI (java.naming.security.principal).
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Java.Naming.Security.Credentials
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: JNDI Credentials
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Credentials to use when authenticating with JNDI (java.naming.security.credentials).
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Cf
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: JMS Connection Factory Implementation Class
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The fully qualified name of the JMS ConnectionFactory implementation class (eg. org.apache.activemq.ActiveMQConnectionFactory).
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Cflib
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: JMS Client Libraries
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Path to the directory with additional resources (eg. JARs, configuration files etc.) to be added to the classpath (defined as a comma separated list of values). Such resources typically represent target JMS client libraries for the ConnectionFactory implementation.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Broker
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: JMS Broker URI
+
+[horizontal]
+*DESCRIPTION (Описание):*:: URI pointing to the network location of the JMS Message broker. Example for ActiveMQ: 'tcp://myhost:61616'. Examples for IBM MQ: 'myhost(1414)' and 'myhost01(1414),myhost02(1414)'.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Ssl Context Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: JMS SSL Context Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The SSL Context Service used to provide client certificate information for TLS/SSL connections.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`The name of a Connection Factory configuration property.`
+|Additional configuration property for the Connection Factory. It can be used when the Connection Factory is being configured via the 'JNDI *' or the 'JMS *'properties of the processor. For more information, see the Additional Details page.
+|`The value of a given Connection Factory configuration property.`
+|
+
+|===
+
+
+
+
+
+
+
+=== Ограничения
+
+[cols="1a,2a",options="header",]
+|===
+|Требуемые права |Объяснение
+
+|
+|Client Library Location can reference resources over HTTP
+
+|===
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|All FlowFiles that are received from the JMS Destination are routed to this relationship
+
+|`parse.failure`
+|If a message cannot be parsed using the configured Record Reader, the contents of the message will be routed to this Relationship as its own individual FlowFile.
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`jms_deliveryMode`
+|The JMSDeliveryMode from the message header.
+
+|`jms_expiration`
+|The JMSExpiration from the message header.
+
+|`jms_priority`
+|The JMSPriority from the message header.
+
+|`jms_redelivered`
+|The JMSRedelivered from the message header.
+
+|`jms_timestamp`
+|The JMSTimestamp from the message header.
+
+|`jms_correlationId`
+|The JMSCorrelationID from the message header.
+
+|`jms_messageId`
+|The JMSMessageID from the message header.
+
+|`jms_type`
+|The JMSType from the message header.
+
+|`jms_replyTo`
+|The JMSReplyTo from the message header.
+
+|`jms_destination`
+|The JMSDestination from the message header.
+
+|`jms.messagetype`
+|The JMS message type, can be TextMessage, BytesMessage, ObjectMessage, MapMessage or StreamMessage).
+
+|`other attributes`
+|Each message property is written to an attribute.
+
+|===
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/JMSConnectionFactoryProvider.adoc[JMSConnectionFactoryProvider]
+
+* xref:Processors/PublishJMS.adoc[PublishJMS]
+
+

@@ -1,0 +1,142 @@
+= GeoEnrichIP 2.2.0
+
+Looks up geolocation information for an IP address and adds the geo information to FlowFile attributes. The geo data is provided as a MaxMind database. The attribute that contains the IP address to lookup is provided by the 'IP Address Attribute' property. If the name of the attribute provided is 'X', then the the attributes added by enrichment will take the form X.geo.<fieldName>
+
+[horizontal]
+*Tags* (Ключевые слова):
+enrich, geo, ip, maxmind
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Geo Database File*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: MaxMind Database File
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Path to Maxmind IP Enrichment Database File
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Ip Address Attribute*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: IP Address Attribute
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of an attribute whose value is a dotted decimal IP address for which enrichment should occur
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Log Level*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Log Level
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Log Level to use when an IP is not found in the database. Accepted values: INFO, DEBUG, WARN, ERROR.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`found`
+|Where to route flow files after successfully enriching attributes with data provided by database
+
+|`not found`
+|Where to route flow files after unsuccessfully enriching attributes because no data was found
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`X.geo.lookup.micros`
+|The number of microseconds that the geo lookup took
+
+|`X.geo.city`
+|The city identified for the IP address
+
+|`X.geo.accuracy`
+|The accuracy radius if provided by the database (in Kilometers)
+
+|`X.geo.latitude`
+|The latitude identified for this IP address
+
+|`X.geo.longitude`
+|The longitude identified for this IP address
+
+|`X.geo.subdivision.N`
+|Each subdivision that is identified for this IP address is added with a one-up number appended to the attribute name, starting with 0
+
+|`X.geo.subdivision.isocode.N`
+|The ISO code for the subdivision that is identified by X.geo.subdivision.N
+
+|`X.geo.country`
+|The country identified for this IP address
+
+|`X.geo.country.isocode`
+|The ISO Code for the country identified
+
+|`X.geo.postalcode`
+|The postal code for the country identified
+
+|===
+
+
+
+
+
+
+

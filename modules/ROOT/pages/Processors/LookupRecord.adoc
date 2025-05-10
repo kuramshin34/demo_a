@@ -1,0 +1,271 @@
+= LookupRecord 2.2.0
+
+Extracts one or more fields from a Record and looks up a value for those fields in a LookupService. If a result is returned by the LookupService, that result is optionally added to the Record. In this case, the processor functions as an Enrichment processor. Regardless, the Record is then routed to either the 'matched' relationship or 'unmatched' relationship (if the 'Routing Strategy' property is configured to do so), indicating whether or not a result was returned by the LookupService, allowing the processor to also function as a Routing processor. The "coordinates" to use for looking up a value in the Lookup Service are defined by adding a user-defined property. Each property that is added will have an entry added to a Map, where the name of the property becomes the Map Key and the value returned by the RecordPath becomes the value for that key. If multiple values are returned by the RecordPath, then the Record will be routed to the 'unmatched' relationship (or 'success', depending on the 'Routing Strategy' property's configuration). If one or more fields match the Result RecordPath, all fields that match will be updated. If there is no match in the configured LookupService, then no fields will be updated. I.e., it will not overwrite an existing value in the Record with a null value. Please note, however, that if the results returned by the LookupService are not accounted for in your schema (specifically, the schema that is configured for your Record Writer) then the fields will not be written out to the FlowFile.
+
+[horizontal]
+*Tags* (Ключевые слова):
+avro, convert, csv, database, db, enrichment, filter, json, logs, lookup, record, route
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Record-Reader*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for reading incoming data
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Record-Writer*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Lookup-Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Lookup Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Lookup Service to use in order to lookup a value in each Record
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Root Record Path
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Root Record Path
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A RecordPath that points to a child Record within each of the top-level Records in the FlowFile. If specified, the additional RecordPath properties will be evaluated against this child Record instead of the top-level Record. This allows for performing enrichment against multiple child Records within a single top-level Record.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Routing-Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Routing Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how to route records after a Lookup has completed
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Route to 'success': Records will be routed to a 'success' Relationship regardless of whether or not there is a match in the configured Lookup Service 
+
+* Route to 'matched' or 'unmatched': Records will be routed to either a 'matched' or an 'unmatched' Relationship depending on whether or not there was a match in the configured Lookup Service. A single input FlowFile may result in two different output FlowFiles. If the given Record Paths evaluate such that multiple sub-records are evaluated, the parent Record will be routed to 'unmatched' unless all sub-records match. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Result-Contents*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Result Contents
+
+[horizontal]
+*DESCRIPTION (Описание):*:: When a result is obtained that contains a Record, this property determines whether the Record itself is inserted at the configured path or if the contents of the Record (i.e., the sub-fields) will be inserted at the configured path.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Insert Entire Record: The entire Record that is retrieved from the Lookup Service will be inserted into the destination path. 
+
+* Insert Record Fields: All of the fields in the Record that is retrieved from the Lookup Service will be inserted into the destination path. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Record-Update-Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Update Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: This property defines the strategy to use when updating the record with the value returned by the Lookup Service.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Replace Existing Values: The "Result RecordPath" property will be ignored and the lookup service must be a single simple key lookup service. Every dynamic property value should be a record path. For each dynamic property, the value contained in the field corresponding to the record path will be used as the key in the Lookup Service and the value returned by the Lookup Service will be used to replace the existing value. It is possible to configure multiple dynamic properties to replace multiple values in one execution. This strategy only supports simple types replacements (strings, integers, etc). 
+
+* Use "Result RecordPath" Property: The "Result RecordPath" property will be used to determine which part of the record should be updated with the value returned by the Lookup Service 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Result-Record-Path
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Result RecordPath
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A RecordPath that points to the field whose value should be updated with whatever value is returned from the Lookup Service. If not specified, the value that is returned from the Lookup Service will be ignored, except for determining whether the FlowFile should be routed to the 'matched' or 'unmatched' Relationship.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Record-Path-Lookup-Miss-Result-Cache-Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Cache Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how many lookup values/records should be cached.Setting this property to zero means no caching will be done and the table will be queried for each lookup value in each record. If the lookup table changes often or the most recent data must be retrieved, do not use the cache.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`Value To Lookup`
+|A RecordPath that points to the field whose value will be looked up in the configured Lookup Service
+|`Valid Record Path`
+|
+
+|===
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|All records will be sent to this Relationship if configured to do so, unless a failure occurs
+
+|`failure`
+|If a FlowFile cannot be enriched, the unchanged FlowFile will be routed to this relationship
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`mime.type`
+|Sets the mime.type attribute to the MIME Type specified by the Record Writer
+
+|`record.count`
+|The number of records in the FlowFile
+
+|===
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/SimpleKeyValueLookupService.adoc[SimpleKeyValueLookupService]
+
+* xref:Processors/DatabaseRecordLookupService.adoc[DatabaseRecordLookupService]
+
+* xref:Processors/IPLookupService.adoc[IPLookupService]
+
+* xref:Processors/ConvertRecord.adoc[ConvertRecord]
+
+* xref:Processors/SplitRecord.adoc[SplitRecord]
+
+

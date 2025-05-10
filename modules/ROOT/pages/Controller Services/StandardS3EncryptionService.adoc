@@ -1,0 +1,182 @@
+= StandardS3EncryptionService 2.2.0
+
+Adds configurable encryption to S3 Put and S3 Fetch operations.
+
+[horizontal]
+*Tags* (Ключевые слова):
+aws, decrypt, decryption, encrypt, encryption, key, s3, service
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Encryption-Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Encryption Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Strategy to use for S3 data encryption and decryption.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* None: No encryption. 
+
+* Server-side S3: Use server-side, S3-managed encryption. 
+
+* Server-side KMS: Use server-side, KMS key to perform encryption. 
+
+* Server-side Customer Key: Use server-side, customer-supplied key to perform encryption. 
+
+* Client-side KMS: Use client-side, KMS key to perform encryption. 
+
+* Client-side Customer Key: Use client-side, customer-supplied key to perform encryption. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Key-Id-Or-Key-Material
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Key ID or Key Material
+
+[horizontal]
+*DESCRIPTION (Описание):*:: For None and Server-side S3: not used. For Server-side KMS and Client-side KMS: the KMS Key ID must be configured. For Server-side Customer Key and Client-side Customer Key: the Key Material must be specified in Base64 encoded form. In case of Server-side Customer Key, the key must be an AES-256 key. In case of Client-side Customer Key, it can be an AES-256, AES-192 or AES-128 key.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Kms-Region
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: KMS Region
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Region of the AWS Key Management Service. Only used in case of Client-side KMS.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* AWS GovCloud (US): AWS Region Code : us-gov-west-1 
+
+* AWS GovCloud (US-East): AWS Region Code : us-gov-east-1 
+
+* US East (N. Virginia): AWS Region Code : us-east-1 
+
+* US East (Ohio): AWS Region Code : us-east-2 
+
+* US West (N. California): AWS Region Code : us-west-1 
+
+* US West (Oregon): AWS Region Code : us-west-2 
+
+* EU (Ireland): AWS Region Code : eu-west-1 
+
+* EU (London): AWS Region Code : eu-west-2 
+
+* EU (Paris): AWS Region Code : eu-west-3 
+
+* EU (Frankfurt): AWS Region Code : eu-central-1 
+
+* EU (Zurich): AWS Region Code : eu-central-2 
+
+* EU (Stockholm): AWS Region Code : eu-north-1 
+
+* EU (Milan): AWS Region Code : eu-south-1 
+
+* EU (Spain): AWS Region Code : eu-south-2 
+
+* Asia Pacific (Hong Kong): AWS Region Code : ap-east-1 
+
+* Asia Pacific (Mumbai): AWS Region Code : ap-south-1 
+
+* Asia Pacific (Hyderabad): AWS Region Code : ap-south-2 
+
+* Asia Pacific (Singapore): AWS Region Code : ap-southeast-1 
+
+* Asia Pacific (Sydney): AWS Region Code : ap-southeast-2 
+
+* Asia Pacific (Jakarta): AWS Region Code : ap-southeast-3 
+
+* Asia Pacific (Melbourne): AWS Region Code : ap-southeast-4 
+
+* Asia Pacific (Tokyo): AWS Region Code : ap-northeast-1 
+
+* Asia Pacific (Seoul): AWS Region Code : ap-northeast-2 
+
+* Asia Pacific (Osaka): AWS Region Code : ap-northeast-3 
+
+* South America (Sao Paulo): AWS Region Code : sa-east-1 
+
+* China (Beijing): AWS Region Code : cn-north-1 
+
+* China (Ningxia): AWS Region Code : cn-northwest-1 
+
+* Canada (Central): AWS Region Code : ca-central-1 
+
+* Canada West (Calgary): AWS Region Code : ca-west-1 
+
+* Middle East (UAE): AWS Region Code : me-central-1 
+
+* Middle East (Bahrain): AWS Region Code : me-south-1 
+
+* Africa (Cape Town): AWS Region Code : af-south-1 
+
+* US ISO East: AWS Region Code : us-iso-east-1 
+
+* US ISOB East (Ohio): AWS Region Code : us-isob-east-1 
+
+* US ISO West: AWS Region Code : us-iso-west-1 
+
+* Israel (Tel Aviv): AWS Region Code : il-central-1 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

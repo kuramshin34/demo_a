@@ -1,0 +1,135 @@
+= FetchBoxFile 2.2.0
+
+Fetches files from a Box Folder. Designed to be used in tandem with ListBoxFile.
+
+[horizontal]
+*Tags* (Ключевые слова):
+box, fetch, storage
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Box-Client-Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Box Client Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Controller Service used to obtain a Box API connection.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Box-File-Id*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: File ID
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The ID of the File to fetch
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|A FlowFile will be routed here for each successfully fetched File.
+
+|`failure`
+|A FlowFile will be routed here for each File for which fetch was attempted but failed.
+
+|===
+
+
+
+=== Читаемые атрибуты
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`box.id`
+|The id of the file
+
+|===
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`box.id`
+|The id of the file
+
+|`filename`
+|The name of the file
+
+|`path`
+|The folder path where the file is located
+
+|`box.size`
+|The size of the file
+
+|`box.timestamp`
+|The last modified time of the file
+
+|`error.code`
+|The error code returned by Box
+
+|`error.message`
+|The error message returned by Box
+
+|===
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/ListBoxFile.adoc[ListBoxFile]
+
+* xref:Processors/PutBoxFile.adoc[PutBoxFile]
+
+

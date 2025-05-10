@@ -1,0 +1,177 @@
+= JSLTTransformJSON 2.2.0
+
+Applies a JSLT transformation to the FlowFile JSON payload. A new FlowFile is created with transformed content and is routed to the 'success' relationship. If the JSLT transform fails, the original FlowFile is routed to the 'failure' relationship.
+
+[horizontal]
+*Tags* (Ключевые слова):
+jslt, json, transform
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Jslt-Transform-Transformation*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: JSLT Transformation
+
+[horizontal]
+*DESCRIPTION (Описание):*:: JSLT Transformation for transform of JSON data. Any NiFi Expression Language present will be evaluated first to get the final transform to be applied. The JSLT Tutorial provides an overview of supported expressions: https://github.com/schibsted/jslt/blob/master/tutorial.md
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Jslt-Transform-Transformation-Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Transformation Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Whether to apply the JSLT transformation to the entire FlowFile contents or each JSON object in the root-level array
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Entire FlowFile: Apply transformation to entire FlowFile content JSON 
+
+* Each JSON Object: Apply transformation each JSON Object in an array 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Jslt-Transform-Pretty_Print*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Pretty Print
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Apply pretty-print formatting to the output of the JSLT transform
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Jslt-Transform-Cache-Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Transform Cache Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Compiling a JSLT Transform can be fairly expensive. Ideally, this will be done only once. However, if the Expression Language is used in the transform, we may need a new Transform for each FlowFile. This value controls how many of those Transforms we cache in memory in order to avoid having to compile the Transform each time.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Jslt-Transform-Result-Filter*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Transform Result Filter
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A filter for output JSON results using a JSLT expression. This property supports changing the default filter, which removes JSON objects with null values, empty objects and empty arrays from the output JSON. This JSLT must return true for each JSON object to be included and false for each object to be removed. Using a filter value of "true" to disables filtering.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+=== Системные ресурсы
+
+[cols="1a,2a",options="header",]
+|===
+|Ресурс |Описание
+
+
+|MEMORY
+|An instance of this component can cause high usage of this system resource.  Multiple instances or high concurrency settings may result a degradation of performance.
+
+|===
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|The FlowFile with transformed content will be routed to this relationship
+
+|`failure`
+|If a FlowFile fails processing for any reason (for example, the FlowFile is not valid JSON), it will be routed to this relationship
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`mime.type`
+|Always set to application/json
+
+|===
+
+
+
+
+
+
+

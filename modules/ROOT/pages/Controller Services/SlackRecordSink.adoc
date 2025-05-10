@@ -1,0 +1,141 @@
+= SlackRecordSink 2.2.0
+
+Format and send Records to a configured Channel using the Slack Post Message API. The service requires a Slack App with a Bot User configured for access to a Slack workspace. The Bot User OAuth Bearer Token is required for posting messages to Slack.
+
+[horizontal]
+*Tags* (Ключевые слова):
+record, sink, slack
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Api-Url*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: API URL
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Slack Web API URL for posting text messages to channels. It only needs to be changed if Slack changes its API URL.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Access-Token*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Access Token
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Bot OAuth Token used for authenticating and authorizing the Slack request sent by NiFi.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Channel-Id*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Channel ID
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Slack channel, private group, or IM channel to send the message to. Use Channel ID instead of the name.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Input-Character-Set*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Input Character Set
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the character set of the records used to generate the Slack message.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Record-Sink-Record-Writer*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Web-Service-Client-Provider*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Web Service Client Provider
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Controller service to provide HTTP client for communicating with Slack API
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,312 @@
+= FetchFile 2.2.0
+
+Reads the contents of a file from disk and streams it into the contents of an incoming FlowFile. Once this is done, the file is optionally moved elsewhere or deleted to help keep the file system organized.
+
+[horizontal]
+*Tags* (Ключевые слова):
+fetch, files, filesystem, get, ingest, ingress, input, local, source
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*File To Fetch*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: File to Fetch
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The fully-qualified filename of the file to fetch from the file system
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Completion Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Completion Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies what to do with the original file on the file system once it has been pulled into NiFi
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* None: Leave the file as-is 
+
+* Move File: Moves the file to the directory specified by the <Move Destination Directory> property 
+
+* Delete File: Deletes the original file from the file system 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Move Destination Directory
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Move Destination Directory
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The directory to the move the original file to once it has been fetched from the file system. This property is ignored unless the Completion Strategy is set to "Move File". If the directory does not exist, it will be created.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Move Conflict Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Move Conflict Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If Completion Strategy is set to Move File and a file already exists in the destination directory with the same name, this property specifies how that naming conflict should be resolved
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Rename: The existing destination file should remain intact. The newly ingested file should be moved to the destination directory but be renamed to a random filename 
+
+* Replace File: The newly ingested file should replace the existing file in the Destination Directory 
+
+* Keep Existing: The existing file should in the Destination Directory should stay intact and the newly ingested file should be deleted 
+
+* Fail: The existing destination file should remain intact and the incoming FlowFile should be routed to failure 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Log Level When File Not Found*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Log level when file not found
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Log level to use in case the file does not exist when the processor is triggered
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* TRACE
+
+* DEBUG
+
+* INFO
+
+* WARN
+
+* ERROR
+
+* FATAL
+
+* NONE
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Log Level When Permission Denied*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Log level when permission denied
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Log level to use in case user pvillard does not have sufficient permissions to read the file
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* TRACE
+
+* DEBUG
+
+* INFO
+
+* WARN
+
+* ERROR
+
+* FATAL
+
+* NONE
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+=== Ограничения
+
+[cols="1a,2a",options="header",]
+|===
+|Требуемые права |Объяснение
+
+|
+|Provides operator the ability to read from any file that NiFi has access to.
+
+|
+|Provides operator the ability to delete any file that NiFi has access to.
+
+|===
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`not.found`
+|Any FlowFile that could not be fetched from the file system because the file could not be found will be transferred to this Relationship.
+
+|`failure`
+|Any FlowFile that could not be fetched from the file system for any reason other than insufficient permissions or the file not existing will be transferred to this Relationship.
+
+|`success`
+|Any FlowFile that is successfully fetched from the file system will be transferred to this Relationship.
+
+|`permission.denied`
+|Any FlowFile that could not be fetched from the file system due to the user running NiFi not having sufficient permissions will be transferred to this Relationship.
+
+|===
+
+
+
+
+
+
+
+
+
+== Варианты использования, включающие другие компоненты
+
+
+=== Ingest all files from a directory into NiFi
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+
+local
+
+files
+
+filesystem
+
+ingest
+
+ingress
+
+get
+
+source
+
+input
+
+fetch
+
+
+
+
+
+
+=== Ingest specific files from a directory into NiFi, filtering on filename
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+
+local
+
+files
+
+filesystem
+
+ingest
+
+ingress
+
+get
+
+source
+
+input
+
+fetch
+
+filter
+
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/GetFile.adoc[GetFile]
+
+* xref:Processors/ListFile.adoc[ListFile]
+
+* xref:Processors/PutFile.adoc[PutFile]
+
+

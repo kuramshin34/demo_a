@@ -1,0 +1,111 @@
+= LookupAttribute 2.2.0
+
+Lookup attributes from a lookup service
+
+[horizontal]
+*Tags* (Ключевые слова):
+Attribute Expression Language, attributes, cache, enrich, join, lookup
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Lookup-Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Lookup Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The lookup service to use for attribute lookups
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Include-Empty-Values*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Include Empty Values
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Include null or blank values for keys that are null or blank
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`The name of the attribute to add to the FlowFile`
+|Adds a FlowFile attribute specified by the dynamic property's key with the value found in the lookup service using the the dynamic property's value
+|`The name of the key or property to retrieve from the lookup service`
+|
+
+|===
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`failure`
+|FlowFiles with failing lookups are routed to this relationship
+
+|`unmatched`
+|FlowFiles with missing lookups are routed to this relationship
+
+|`matched`
+|FlowFiles with matching lookups are routed to this relationship
+
+|===
+
+
+
+
+
+
+
+
+
+
+

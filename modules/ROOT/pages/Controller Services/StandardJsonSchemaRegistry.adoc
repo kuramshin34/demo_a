@@ -1,0 +1,83 @@
+= StandardJsonSchemaRegistry 2.2.0
+
+Provides a service for registering and accessing JSON schemas. One can register a schema as a dynamic property where 'name' represents the schema name and 'value' represents the textual representation of the actual schema following the syntax and semantics of the JSON Schema format. Empty schemas and schemas only consisting of whitespace are not acceptable schemas.The registry is heterogeneous registry as it can store schemas of different schema draft versions. By default the registry is configured to store schemas of Draft 2020-12. When a schema is added, the version which is currently is set, is what the schema is saved as.
+
+[horizontal]
+*Tags* (Ключевые слова):
+json, registry, schema
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Json Schema Version*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: JSON Schema Version
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The JSON schema specification
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Draft 4: Draft Version 4 
+
+* Draft 6: Draft Version 6 
+
+* Draft 7: Draft Version 7 
+
+* Draft 2019-09: Draft Version 2019-09 
+
+* Draft 2020-12: Draft Version 2020-12 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`Schema Name`
+|Adds a named schema using the JSON string representation of a JSON schema
+|`Schema Content`
+|
+
+|===
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

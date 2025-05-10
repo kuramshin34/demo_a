@@ -1,0 +1,113 @@
+= AzureDataLakeStorageFileResourceService 2.2.0
+
+Provides an Azure Data Lake Storage (ADLS) file resource for other components.
+
+[horizontal]
+*Tags* (Ключевые слова):
+adlsgen2, azure, cloud, datalake, file, microsoft, resource, storage
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Adls-Credentials-Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: ADLS Credentials
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Controller Service used to obtain Azure Credentials.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Filesystem-Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Filesystem Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Name of the Azure Storage File System (also called Container). It is assumed to be already existing.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Directory-Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Directory Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Name of the Azure Storage Directory. The Directory Name cannot contain a leading '/'. The root directory can be designated by the empty string value. In case of the PutAzureDataLakeStorage processor, the directory will be created if not already existing.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*File-Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: File Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The filename
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Controller Services/FetchAzureDataLakeStorage.adoc[FetchAzureDataLakeStorage]
+
+

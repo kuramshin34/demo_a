@@ -1,0 +1,466 @@
+= GetShopify 2.2.0
+
+Retrieves objects from a custom Shopify store. The processor yield time must be set to the account's rate limit accordingly.
+
+[horizontal]
+*Tags* (Ключевые слова):
+shopify
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+FORBIDDEN (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Store-Domain*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Store Domain
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The domain of the Shopify store, e.g. nifistore.myshopify.com
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Access-Token*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Access Token
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Access Token to authenticate requests
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Api-Version*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: API Version
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Shopify REST API version
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Object-Category*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Object Category
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Shopify object category
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Customers: Query a Customer resource 
+
+* Discounts: Query a Discount resource 
+
+* Inventory: Query an Inventory resource 
+
+* Online Store: Query an Online Store resource 
+
+* Orders: Query an Order resource 
+
+* Products: Query a Product resource 
+
+* Sales Channels: Query a Sales Channel resource 
+
+* Store Properties: Query a Store Property resource 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Customers*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Customer Category
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Customer resource to query
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Customers: The Customer resource stores information about a shop's customers, such as their contact details, their order history, and whether they've agreed to receive email marketing. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Discounts*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Discount Category
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Discount resource to query
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Price Rules: The PriceRule resource can be used to get discounts using conditions 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Inventory*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Inventory Category
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Inventory resource to query
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Locations: A location represents a geographical location where your stores, pop-up stores, headquarters and warehouses exist. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Online_Store*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Online Store Category
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Online Store resource to query
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Blogs: Shopify shops come with a built-in blogging engine, allowing a shop to have one or more blogs. 
+
+* Comments: A comment is a reader's response to an article in a blog. 
+
+* Pages: Shopify stores come with a tool for creating basic HTML web pages. 
+
+* Redirects: A redirect causes a visitor on a specific path on the shop's site to be automatically sent to a different location. 
+
+* Script Tags: The ScriptTag resource represents remote JavaScript code that is loaded into the pages of a shop's storefront or the order status page of checkout. 
+
+* Themes: A theme controls the look and feel of a Shopify online store. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Orders*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Order Category
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Order resource to query
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Abandoned Checkouts: A checkout is considered abandoned after the customer has added contact information, but before the customer has completed their purchase. 
+
+* Draft Orders: Merchants can use draft orders to create orders on behalf of their customers. 
+
+* Orders: An order is a customer's request to purchase one or more products from a shop. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Product*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Product Category
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Product resource to query
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Collects: Collects are meant for managing the relationship between products and custom collections. 
+
+* Custom Collections: A custom collection is a grouping of products that a merchant can create to make their store easier to browse.  
+
+* Products: Get products in a merchant's store  
+
+* Smart Collections: A smart collection is a grouping of products defined by rules that are set by the merchant. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Sales_Channels*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Sales Channel Category
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Sales Channel resource to query
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Collection Listings: A CollectionListing resource represents a product collection that a merchant has made available to your sales channel. 
+
+* Product Listings: A ProductListing resource represents a Product which is available to your sales channel. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Store_Properties*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Store Property Category
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Store Property resource to query
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Countries: The Country resource represents the tax rates applied to orders from the different countries where a shop sells its products. 
+
+* Currencies: Merchants who use Shopify Payments can allow customers to pay in their local currency on the online store. 
+
+* Policies: Policy resource can be used to access the policies that a merchant has configured for their shop, such as their refund and privacy policies. 
+
+* Shipping Zones: ShippingZone resource can be used to view shipping zones and their countries, provinces, and shipping rates. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Result-Limit
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Result Limit
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum number of results to request for each invocation of the Processor
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Is-Incremental*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Incremental Loading
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The processor can incrementally load the queried objects so that each object is queried exactly once. For each query, the processor queries objects which were created or modified after the previous run time but before the current time.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Incremental-Delay
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Incremental Delay
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The ending timestamp of the time window will be adjusted earlier by the amount configured in this property. For example, with a property value of 10 seconds, an ending timestamp of 12:30:45 would be changed to 12:30:35. Set this property to avoid missing objects when the clock of your local machines and Shopify servers' clock are not in sync.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Incremental-Initial-Start-Time
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Incremental Initial Start Time
+
+[horizontal]
+*DESCRIPTION (Описание):*:: This property specifies the start time when running the first request. Represents an ISO 8601-encoded date and time string. For example, 3:50 pm on September 7, 2019 in the time zone of UTC (Coordinated Universal Time) is represented as "2019-09-07T15:50:00Z".
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Web-Client-Service-Provider*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Web Client Service Provider
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Controller service for HTTP client operations
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+=== Управление состоянием
+
+[cols="1a,2a",options="header",]
+|===
+|Масштаб |Описание
+
+|
+CLUSTER
+
+|For a few resources the processor supports incremental loading. The list of the resources with the supported parameters can be found in the additional details.
+|===
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|For FlowFiles created as a result of a successful query.
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`mime.type`
+|Sets the MIME type to application/json
+
+|===
+
+
+
+
+
+
+

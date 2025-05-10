@@ -1,0 +1,94 @@
+= RouteHL7 2.2.0
+
+Routes incoming HL7 data according to user-defined queries. To add a query, add a new property to the processor. The name of the property will become a new relationship for the processor, and the value is an HL7 Query Language query. If a FlowFile matches the query, a copy of the FlowFile will be routed to the associated relationship.
+
+[horizontal]
+*Tags* (Ключевые слова):
+HL7, Health Level 7, healthcare, route
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Character Encoding*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Character Encoding
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Character Encoding that is used to encode the HL7 data
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`Name of a Relationship`
+|If a FlowFile matches the query, it will be routed to a relationship with the name of the property
+|`An HL7 Query Language query`
+|
+
+|===
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`failure`
+|Any FlowFile that cannot be parsed as HL7 will be routed to this relationship
+
+|`original`
+|The original FlowFile that comes into this processor will be routed to this relationship, unless it is routed to 'failure'
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`RouteHL7.Route`
+|The name of the relationship to which the FlowFile was routed
+
+|===
+
+
+
+
+
+
+

@@ -1,0 +1,183 @@
+= SplitContent 2.2.0
+
+Splits incoming FlowFiles by a specified byte sequence
+
+[horizontal]
+*Tags* (Ключевые слова):
+binary, content, split
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Byte Sequence Format*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Byte Sequence Format
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how the <Byte Sequence> property should be interpreted
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Hexadecimal: The Byte Sequence will be interpreted as a hexadecimal representation of bytes 
+
+* Text: The Byte Sequence will be interpreted as UTF-8 Encoded text 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Byte Sequence*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Byte Sequence
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A representation of bytes to look for and upon which to split the source file into separate files
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Keep Byte Sequence*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Keep Byte Sequence
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Determines whether or not the Byte Sequence should be included with each Split
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Byte Sequence Location*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Byte Sequence Location
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If <Keep Byte Sequence> is set to true, specifies whether the byte sequence should be added to the end of the first split or the beginning of the second; if <Keep Byte Sequence> is false, this property is ignored.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Trailing: Keep the Byte Sequence at the end of the first split if <Keep Byte Sequence> is true 
+
+* Leading: Keep the Byte Sequence at the beginning of the second split if <Keep Byte Sequence> is true 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+=== Системные ресурсы
+
+[cols="1a,2a",options="header",]
+|===
+|Ресурс |Описание
+
+
+|MEMORY
+|The FlowFile with its attributes is stored in memory, not the content of the FlowFile. If many splits are generated due to the size of the content, or how the content is configured to be split, a two-phase approach may be necessary to avoid excessive use of memory.
+
+|===
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`splits`
+|All Splits will be routed to the splits relationship
+
+|`original`
+|The original file
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`fragment.identifier`
+|All split FlowFiles produced from the same parent FlowFile will have the same randomly generated UUID added for this attribute
+
+|`fragment.index`
+|A one-up number that indicates the ordering of the split FlowFiles that were created from a single parent FlowFile
+
+|`fragment.count`
+|The number of split FlowFiles generated from the parent FlowFile
+
+|`segment.original.filename `
+|The filename of the parent FlowFile
+
+|===
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/MergeContent.adoc[MergeContent]
+
+

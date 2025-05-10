@@ -1,0 +1,133 @@
+= SplitRecord 2.2.0
+
+Splits up an input FlowFile that is in a record-oriented data format into multiple smaller FlowFiles
+
+[horizontal]
+*Tags* (Ключевые слова):
+avro, csv, freeform, generic, json, log, logs, schema, split, text
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Record Reader*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for reading incoming data
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Record Writer*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Records Per Split*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Records Per Split
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how many records should be written to each 'split' or 'segment' FlowFile
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`original`
+|Upon successfully splitting an input FlowFile, the original FlowFile will be sent to this relationship.
+
+|`splits`
+|The individual 'segments' of the original FlowFile will be routed to this relationship.
+
+|`failure`
+|If a FlowFile cannot be transformed from the configured input format to the configured output format, the unchanged FlowFile will be routed to this relationship.
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`mime.type`
+|Sets the mime.type attribute to the MIME Type specified by the Record Writer for the FlowFiles routed to the 'splits' Relationship.
+
+|`record.count`
+|The number of records in the FlowFile. This is added to FlowFiles that are routed to the 'splits' Relationship.
+
+|`fragment.identifier`
+|All split FlowFiles produced from the same parent FlowFile will have the same randomly generated UUID added for this attribute
+
+|`fragment.index`
+|A one-up number that indicates the ordering of the split FlowFiles that were created from a single parent FlowFile
+
+|`fragment.count`
+|The number of split FlowFiles generated from the parent FlowFile
+
+|`segment.original.filename `
+|The filename of the parent FlowFile
+
+|===
+
+
+
+
+
+
+

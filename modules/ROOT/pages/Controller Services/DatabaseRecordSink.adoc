@@ -1,0 +1,251 @@
+= DatabaseRecordSink 2.2.0
+
+Provides a service to write records using a configured database connection.
+
+[horizontal]
+*Tags* (Ключевые слова):
+connection, database, db, jdbc, record
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Db-Record-Sink-Dcbp-Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Database Connection Pooling Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Controller Service that is used to obtain a connection to the database for sending records.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Db-Record-Sink-Catalog-Name
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Catalog Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the catalog that the statement should update. This may not apply for the database that you are updating. In this case, leave the field empty
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Db-Record-Sink-Schema-Name
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the schema that the table belongs to. This may not apply for the database that you are updating. In this case, leave the field empty
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Db-Record-Sink-Table-Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Table Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the table that the statement should affect.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Db-Record-Sink-Translate-Field-Names
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Translate Field Names
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If true, the Processor will attempt to translate field names into the appropriate column names for the table specified. If false, the field names must match the column names exactly, or the column will not be updated
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Db-Record-Sink-Unmatched-Field-Behavior
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Unmatched Field Behavior
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If an incoming record has a field that does not map to any of the database table's columns, this property specifies how to handle the situation
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Ignore Unmatched Fields: Any field in the document that cannot be mapped to a column in the database is ignored 
+
+* Fail on Unmatched Fields: If the document has any field that cannot be mapped to a column in the database, the FlowFile will be routed to the failure relationship 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Db-Record-Sink-Unmatched-Column-Behavior
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Unmatched Column Behavior
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If an incoming record does not have a field mapping for all of the database table's columns, this property specifies how to handle the situation
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Ignore Unmatched Columns: Any column in the database that does not have a field in the document will be assumed to not be required.  No notification will be logged 
+
+* Warn on Unmatched Columns: Any column in the database that does not have a field in the document will be assumed to not be required.  A warning will be logged 
+
+* Fail on Unmatched Columns: A flow will fail if any column in the database that does not have a field in the document.  An error will be logged 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Db-Record-Sink-Quoted-Identifiers
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Quote Column Identifiers
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Enabling this option will cause all column names to be quoted, allowing you to use reserved words as column names in your tables.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Db-Record-Sink-Quoted-Table-Identifiers
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Quote Table Identifiers
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Enabling this option will cause the table name to be quoted to support the use of special characters in the table name.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Db-Record-Sink-Query-Timeout*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Max Wait Time
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum amount of time allowed for a running SQL statement , zero means there is no limit. Max time less than 1 second will be equal to zero.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

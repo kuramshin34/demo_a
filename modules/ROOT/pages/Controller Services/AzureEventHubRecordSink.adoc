@@ -1,0 +1,220 @@
+= AzureEventHubRecordSink 2.2.0
+
+Format and send Records to Azure Event Hubs
+
+[horizontal]
+*Tags* (Ключевые слова):
+azure, record, sink
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Service Bus Endpoint*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Service Bus Endpoint
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Provides the domain for connecting to Azure Event Hubs
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Azure: Default Service Bus Endpoint 
+
+* Azure China: China Service Bus Endpoint 
+
+* Azure Germany: Germany Service Bus Endpoint 
+
+* Azure US Government: United States Government Endpoint 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Event Hub Namespace*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Event Hub Namespace
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Provides provides the host for connecting to Azure Event Hubs
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Event Hub Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Event Hub Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Provides the Event Hub Name for connections
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Transport Type*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Transport Type
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Advanced Message Queuing Protocol Transport Type for communication with Azure Event Hubs
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* AMQP: AMQP over TCP on ports 5671 and 5672 
+
+* AMQP_WEB_SOCKETS: AMQP over HTTPS with WebSockets on port 443 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Record-Sink-Record-Writer*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Authentication Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Authentication Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Strategy for authenticating to Azure Event Hubs
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Shared Access Key: Azure Event Hub shared access key 
+
+* Default Azure Credential: The Default Azure Credential will read credentials from standard environment variables and will also attempt to read Managed Identity credentials when running in Microsoft Azure environments 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Shared Access Policy
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Shared Access Policy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the shared access policy. This policy must have Send claims
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Shared Access Policy Key
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Shared Access Policy Key
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The primary or secondary key of the shared access policy
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Partition Key
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Partition Key
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A hint for Azure Event Hub message broker how to distribute messages across one or more partitions
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

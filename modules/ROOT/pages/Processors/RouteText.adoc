@@ -1,0 +1,292 @@
+= RouteText 2.2.0
+
+Routes textual data based on a set of user-defined rules. Each line in an incoming FlowFile is compared against the values specified by user-defined Properties. The mechanism by which the text is compared to these user-defined properties is defined by the 'Matching Strategy'. The data is then routed according to these rules, routing each line of the text individually.
+
+[horizontal]
+*Tags* (Ключевые слова):
+Expression Language, Regular Expression, attributes, csv, delimited, detect, filter, find, logs, regex, regexp, routing, search, string, text
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Routing Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Routing Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how to determine which Relationship(s) to use when evaluating the lines of incoming text against the 'Matching Strategy' and user-defined properties.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Route to each matching Property Name: Lines will be routed to each relationship whose corresponding expression evaluates to 'true' 
+
+* Route to 'matched' if line matches all conditions: Requires that all user-defined expressions evaluate to 'true' for the line to be considered a match 
+
+* Route to 'matched' if lines matches any condition: Requires that at least one user-defined expression evaluate to 'true' for the line to be considered a match 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Matching Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Matching Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies how to evaluate each line of incoming text against the user-defined properties.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Satisfies Expression: Match lines based on whether or not the the text satisfies the given Expression Language expression. I.e., the line will match if the property value, evaluated as an Expression, returns true. The expression is able to reference FlowFile Attributes, as well as the variables 'line' (which is the text of the line to evaluate) and 'lineNo' (which is the line number being evaluated. This will be 1 for the first line, 2 for the second and so on). 
+
+* Starts With: Match lines based on whether the line starts with the property value 
+
+* Ends With: Match lines based on whether the line ends with the property value 
+
+* Contains: Match lines based on whether the line contains the property value 
+
+* Equals: Match lines based on whether the line equals the property value 
+
+* Matches Regular Expression: Match lines based on whether the line exactly matches the Regular Expression that is provided as the Property value 
+
+* Contains Regular Expression: Match lines based on whether the line contains some text that matches the Regular Expression that is provided as the Property value 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Character Set*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The Character Set in which the incoming text is encoded
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Ignore Leading/Trailing Whitespace*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Ignore Leading/Trailing Whitespace
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Indicates whether or not the whitespace at the beginning and end of the lines should be ignored when evaluating the line.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Ignore Case*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Ignore Case
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If true, capitalization will not be taken into account when comparing values. E.g., matching against 'HELLO' or 'hello' will have the same result. This property is ignored if the 'Matching Strategy' is set to 'Satisfies Expression'.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Grouping Regular Expression
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Grouping Regular Expression
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies a Regular Expression to evaluate against each line to determine which Group the line should be placed in. The Regular Expression must have at least one Capturing Group that defines the line's Group. If multiple Capturing Groups exist in the Regular Expression, the values from all Capturing Groups will be concatenated together. Two lines will not be placed into the same FlowFile unless they both have the same value for the Group (or neither line matches the Regular Expression). For example, to group together all lines in a CSV File by the first column, we can set this value to "(.*?),.*". Two lines that have the same Group but different Relationships will never be placed into the same FlowFile.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`Relationship Name`
+|Routes data that matches the value specified in the Dynamic Property Value to the Relationship specified in the Dynamic Property Key.
+|`value to match against`
+|
+
+|===
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`original`
+|The original input file will be routed to this destination when the lines have been successfully routed to 1 or more relationships
+
+|`unmatched`
+|Data that does not satisfy the required user-defined rules will be routed to this Relationship
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`RouteText.Route`
+|The name of the relationship to which the FlowFile was routed.
+
+|`RouteText.Group`
+|The value captured by all capturing groups in the 'Grouping Regular Expression' property. If this property is not set or contains no capturing groups, this attribute will not be added.
+
+|===
+
+
+
+== Варианты использования
+:sectnums:
+
+
+
+=== Drop blank or empty lines from the FlowFile's content.
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+filter
+drop
+empty
+blank
+remove
+delete
+strip out
+lines
+text
+
+
+
+.Конфигурация
+====
+"Routing Strategy" = "Route to each matching Property Name"
+"Matching Strategy" = "Matches Regular Expression"
+"Empty Line" = "^$"
+
+Auto-terminate the "Empty Line" relationship.
+Connect the "unmatched" relationship to the next processor in your flow.
+
+====
+
+
+=== Remove specific lines of text from a file, such as those containing a specific word or having a line length over some threshold.
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+filter
+drop
+empty
+blank
+remove
+delete
+strip out
+lines
+text
+expression language
+
+
+
+.Конфигурация
+====
+"Routing Strategy" = "Route to each matching Property Name"
+"Matching Strategy" = "Satisfies Expression"
+
+An additional property should be added named "Filter Out." The value should be a NiFi Expression Language Expression that can refer to two variables (in addition to FlowFile attributes): `line`, which is the line of text being evaluated; and `lineNo`, which is the line number in the file (starting with 1). The Expression should return `true` for any line that should be dropped.
+
+For example, to remove any line that starts with a # symbol, we can set "Filter Out" to `${line:startsWith("#")}`.
+We could also remove the first 2 lines of text by setting "Filter Out" to `${lineNo:le(2)}`. Note that we use the `le` function because we want lines numbers less than or equal to `2`, since the line index is 1-based.
+
+Auto-terminate the "Filter Out" relationship.
+Connect the "unmatched" relationship to the next processor in your flow.
+
+====
+
+
+
+
+
+

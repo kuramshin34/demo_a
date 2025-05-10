@@ -1,0 +1,84 @@
+= KerberosTicketCacheUserService 2.2.0
+
+Provides a mechanism for creating a KerberosUser from a principal and ticket cache that other components are able to use in order to perform authentication using Kerberos. By encapsulating this information into a Controller Service and allowing other components to make use of it an administrator is able to choose which users are allowed to use which ticket caches and principals. This provides a more robust security model for multi-tenant use cases.
+
+[horizontal]
+*Tags* (Ключевые слова):
+Authentication, Cache, Credentials, Kerberos, Principal, Security, Ticket
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Kerberos Principal*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Kerberos Principal
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Kerberos principal to authenticate as. Requires nifi.kerberos.krb5.file to be set in your nifi.properties
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Kerberos Ticket Cache File*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Kerberos Ticket Cache File
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Kerberos ticket cache associated with the principal.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+=== Ограничения
+
+[cols="1a,2a",options="header",]
+|===
+|Требуемые права |Объяснение
+
+|
+|Allows user to define a ticket cache and principal that can then be used by other components.
+
+|===
+
+
+
+
+
+
+
+
+
+
+
+
+

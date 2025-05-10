@@ -1,0 +1,349 @@
+= GetMongo 2.2.0
+
+Creates FlowFiles from documents in MongoDB loaded by a user-specified query.
+
+[horizontal]
+*Tags* (Ключевые слова):
+get, mongodb, read
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ALLOWED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.Mongo-Client-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Client Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If configured, this property will use the assigned client service for connection pooling.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Mongo Database Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Mongo Database Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the database to use
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Mongo Collection Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Mongo Collection Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name of the collection to use
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Json-Type*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: JSON Type
+
+[horizontal]
+*DESCRIPTION (Описание):*:: By default, MongoDB's Java driver returns "extended JSON". Some of the features of this variant of JSON may cause problems for other JSON parsers that expect only standard JSON types and conventions. This configuration setting  controls whether to use extended JSON or provide a clean view that conforms to standard JSON.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Extended JSON: Use MongoDB's "extended JSON". This is the JSON generated with toJson() on a MongoDB Document from the Java driver 
+
+* Standard JSON: Generate a JSON document that conforms to typical JSON conventions instead of Mongo-specific conventions. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Use-Pretty-Printing*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Pretty Print Results JSON
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Choose whether or not to pretty print the JSON from the results of the query. Choosing 'True' can greatly increase the space requirements on disk depending on the complexity of the JSON document
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* True
+
+* False
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Mongo-Charset*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the character set of the document data.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Query
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Query
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The selection criteria to do the lookup. If the field is left blank, it will look for input from an incoming connection from another processor to provide the query as a valid JSON document inside of the FlowFile's body. If this field is left blank and a timer is enabled instead of an incoming connection, that will result in a full collection fetch using a "{}" query.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Mongo-Query-Attribute
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Query Output Attribute
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If set, the query will be written to a specified attribute on the output flowfiles.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Projection
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Projection
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The fields to be returned from the documents in the result set; must be a valid BSON document
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Sort
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Sort
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The fields by which to sort; must be a valid BSON document
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Limit
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Limit
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum number of elements to return
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Batch Size
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The number of elements to be returned from the server in one batch
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Results-Per-Flowfile
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Results Per FlowFile
+
+[horizontal]
+*DESCRIPTION (Описание):*:: How many results to put into a FlowFile at once. The whole body will be treated as a JSON array of results.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Mongo-Date-Format
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Date Format
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The date format string to use for formatting Date fields that are returned from Mongo. It is only applied when the JSON output format is set to Standard JSON.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Get-Mongo-Send-Empty
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Send Empty Result
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If a query executes successfully, but returns no results, send an empty JSON document signifying no result.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`failure`
+|All input FlowFiles that are part of a failed query execution go here.
+
+|`success`
+|All FlowFiles that have the results of a successful query execution go here.
+
+|`original`
+|All input FlowFiles that are part of a successful query execution go here.
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`mongo.database.name`
+|The database where the results came from.
+
+|`mongo.collection.name`
+|The collection where the results came from.
+
+|===
+
+
+
+
+
+
+

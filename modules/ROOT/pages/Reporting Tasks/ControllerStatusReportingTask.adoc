@@ -1,0 +1,89 @@
+= ControllerStatusReportingTask 2.2.0
+
+Logs the 5-minute stats that are shown in the NiFi Summary Page for Processors and Connections, as well optionally logging the deltas between the previous iteration and the current iteration. Processors' stats are logged using the org.apache.nifi.controller.ControllerStatusReportingTask.Processors logger, while Connections' stats are logged using the org.apache.nifi.controller.ControllerStatusReportingTask.Connections logger. These can be configured in the NiFi logging configuration to log to different files, if desired.
+
+[horizontal]
+*Tags* (Ключевые слова):
+log, stats
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Show Deltas*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Show Deltas
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies whether or not to show the difference in values between the current status and the previous status
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Reporting-Granularity
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Reporting Granularity
+
+[horizontal]
+*DESCRIPTION (Описание):*:: When reporting information, specifies the granularity of the metrics to report
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Five Minutes: The stats that are reported will reflect up to the last 5 minutes' worth of processing, which will coincide with the stats that are shown in the UI. 
+
+* One Second: The stats that are reported will be an average of the value per second, gathered over the last 5 minutes. This is essentially obtained by dividing the stats that are shown in the UI by 300 (300 seconds in 5 minutes), with the exception of when NiFi has been running for less than 5 minutes. In that case, the stats will be divided by the amount of time NiFi has been running. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

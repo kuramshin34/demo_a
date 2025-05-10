@@ -1,0 +1,52 @@
+= SimpleKeyValueLookupService 2.2.0
+
+Allows users to add key/value pairs as User-defined Properties. Each property that is added can be looked up by Property Name. The coordinates that are passed to the lookup must contain the key 'key'.
+
+[horizontal]
+*Tags* (Ключевые слова):
+enrich, key, lookup, value
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+
+
+== Динамические свойства
+
+[width="100%",cols="1a,2a,1a,1a",options="header",]
+|===
+|Наименование |Описание |Значение |Ограничения языка выражений
+
+|`A key that can be looked up`
+|Allows users to add key/value pairs as User-defined Properties. Each property that is added can be looked up by Property Name. The coordinates that are passed to the lookup must contain the key 'key'.
+|`The value for the key`
+|
+
+|===
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

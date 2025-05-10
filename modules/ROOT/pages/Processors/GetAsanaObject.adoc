@@ -1,0 +1,243 @@
+= GetAsanaObject 2.2.0
+
+This processor collects data from Asana
+
+[horizontal]
+*Tags* (Ключевые слова):
+asana, ingest, source
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+FORBIDDEN (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Asana-Controller-Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Asana Client Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specify which controller service to use for accessing Asana.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Distributed-Cache-Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Distributed Cache Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Cache service to store fetched item fingerprints. These, from the last successful query are stored, in order to enable incremental loading and change detection.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Asana-Object-Type*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Object Type
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specify what kind of objects to be collected from Asana
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Tasks: Collect tasks matching to the specified conditions. 
+
+* Task Attachments: Collect attached files of tasks matching to the specified conditions. 
+
+* Projects: Collect projects of the workspace. 
+
+* Tags: Collect tags of the workspace. 
+
+* Users: Collect users assigned to the workspace. 
+
+* Members of a Project: Collect users assigned to the specified project. 
+
+* Teams: Collect teams of the workspace. 
+
+* Team Members: Collect users assigned to the specified team. 
+
+* Stories of Tasks: Collect stories (comments) of of tasks matching to the specified conditions. 
+
+* Status Updates of a Project: Collect status updates of the specified project. 
+
+* Attachments of Status Updates: Collect attached files of project status updates. 
+
+* Events of a Project: Collect various events happening on the specified project and on its' tasks. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Asana-Project-Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Project Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Fetch only objects in this project. Case sensitive.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Asana-Section-Name
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Section Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Fetch only objects in this section. Case sensitive.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Asana-Team-Name
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Team
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Team name. Case sensitive.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Asana-Tag-Name
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Tag
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Fetch only objects having this tag. Case sensitive.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Asana-Output-Batch-Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Output Batch Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The number of items batched together in a single Flow File. If set to 1 (default), then each item is transferred in a separate Flow File and each will have an asana.gid attribute, to help identifying the fetched item on the server side, if needed. If the batch size is greater than 1, then the specified amount of items are batched together in a single Flow File as a Json array, and the Flow Files won't have the asana.gid attribute.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+=== Системные ресурсы
+
+[cols="1a,2a",options="header",]
+|===
+|Ресурс |Описание
+
+
+|MEMORY
+|An instance of this component can cause high usage of this system resource.  Multiple instances or high concurrency settings may result a degradation of performance.
+
+|===
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`updated`
+|Objects that have already been collected earlier, but were updated since, are routed to this relationship.
+
+|`new`
+|Newly collected objects are routed to this relationship.
+
+|`removed`
+|Notification about deleted objects are routed to this relationship. Flow files will not have any payload. IDs of the resources no longer exist are carried by the asana.gid attribute of the generated FlowFiles.
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`asana.gid`
+|Global ID of the object in Asana.
+
+|===
+
+
+
+
+
+
+

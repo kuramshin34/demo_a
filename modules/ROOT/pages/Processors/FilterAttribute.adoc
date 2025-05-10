@@ -1,0 +1,179 @@
+= FilterAttribute 2.2.0
+
+Filters the attributes of a FlowFile by retaining specified attributes and removing the rest or by removing specified attributes and retaining the rest.
+
+[horizontal]
+*Tags* (Ключевые слова):
+Attribute Expression Language, attributes, delete, filter, modification, regex, regular expression, remove, retain
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Filter Mode*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Filter Mode
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the strategy to apply on filtered attributes. Either 'Remove' or 'Retain' only the matching attributes.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Retain: Retains only the attributes matching the filter, all other attributes are removed. 
+
+* Remove: Removes the attributes matching the filter, all other attributes are retained. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Attribute Matching Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Attribute Matching Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the strategy to filter attributes by.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Enumerate attributes: Provides a set of attribute keys to filter for, separated by a comma delimiter ','. 
+
+* Use regular expression: Provides a regular expression to match keys of attributes to filter for. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Filtered Attributes*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Filtered Attributes
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A set of attribute names to filter from FlowFiles. Each attribute name is separated by the comma delimiter ','.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Filtered Attributes Pattern*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Filtered Attributes Pattern
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A regular expression to match names of attributes to filter from FlowFiles.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|All successful FlowFiles are routed to this relationship
+
+|===
+
+
+
+
+
+
+
+== Варианты использования
+:sectnums:
+
+
+
+=== Retain all FlowFile attributes matching a regular expression
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+
+
+
+.Конфигурация
+====
+Set "Filter Mode" to "Retain".
+Set "Attribute Matching Strategy" to "Use regular expression".
+Specify the "Filtered Attributes Pattern", e.g. "my-property|a-prefix[.].*".
+
+====
+
+
+=== Remove only a specified set of FlowFile attributes
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+
+
+
+.Конфигурация
+====
+Set "Filter Mode" to "Remove".
+Set "Attribute Matching Strategy" to "Enumerate attributes".
+Specify the set of "Filtered Attributes" using the delimiter comma ',', e.g. "my-property,other,filename".
+
+====
+
+
+
+
+
+

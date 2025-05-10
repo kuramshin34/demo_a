@@ -1,0 +1,125 @@
+= ConnectWebSocket 2.2.0
+
+Acts as a WebSocket client endpoint to interact with a remote WebSocket server. FlowFiles are transferred to downstream relationships according to received message types as WebSocket client configured with this processor receives messages from remote WebSocket server. If a new flowfile is passed to the processor, the previous sessions will be closed and any data being sent will be aborted.
+
+[horizontal]
+*Tags* (Ключевые слова):
+WebSocket, consume, listen, subscribe
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ALLOWED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Websocket-Client-Controller-Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: WebSocket Client ControllerService
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A WebSocket CLIENT Controller Service which can connect to a WebSocket server.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Websocket-Client-Id*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: WebSocket Client Id
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The client ID to identify WebSocket session. It should be unique within the WebSocket Client Controller Service. Otherwise, it throws WebSocketConfigurationException when it gets started.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`disconnected`
+|The WebSocket session is disconnected
+
+|`connected`
+|The WebSocket session is established
+
+|`binary message`
+|The WebSocket binary message output
+
+|`failure`
+|FlowFile holding connection configuration attributes (like URL or HTTP headers) in case of connection failure
+
+|`text message`
+|The WebSocket text message output
+
+|`success`
+|FlowFile holding connection configuration attributes (like URL or HTTP headers) in case of successful connection
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`websocket.controller.service.id`
+|WebSocket Controller Service id.
+
+|`websocket.session.id`
+|Established WebSocket session id.
+
+|`websocket.endpoint.id`
+|WebSocket endpoint id.
+
+|`websocket.local.address`
+|WebSocket client address.
+
+|`websocket.remote.address`
+|WebSocket server address.
+
+|`websocket.message.type`
+|TEXT or BINARY.
+
+|===
+
+
+
+
+
+
+

@@ -1,0 +1,90 @@
+= MonitorDiskUsage 2.2.0
+
+Checks the amount of storage space available for the specified directory and warns (via a log message and a System-Level Bulletin) if the partition on which it lives exceeds some configurable threshold of storage space
+
+[horizontal]
+*Tags* (Ключевые слова):
+disk, monitoring, repo, storage, warning
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+ (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Threshold*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Threshold
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The threshold at which a bulletin will be generated to indicate that the disk usage of the partition on which the directory found is of concern
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Directory Location*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Directory Location
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The directory path of the partition to be monitored.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Directory Display Name
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Directory Display Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The name to display for the directory in alerts.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

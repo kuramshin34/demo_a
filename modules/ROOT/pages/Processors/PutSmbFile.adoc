@@ -1,0 +1,391 @@
+= PutSmbFile 2.2.0
+
+Writes the contents of a FlowFile to a samba network location. Use this processor instead of a cifs mounts if share access control is important.Configure the Hostname, Share and Directory accordingly: \\[Hostname]\[Share]\[path\to\Directory]
+
+[horizontal]
+*Tags* (Ключевые слова):
+samba, smb, cifs, files, put
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Hostname*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Hostname
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The network host to which files should be written.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Share*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Share
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The network share to which files should be written. This is the "first folder"after the hostname: \\hostname\[share]\dir1\dir2
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Directory
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Directory
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The network folder to which files should be written. This is the remaining relative path after the share: \\hostname\share\[dir1\dir2]. You may use expression language.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Domain
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Domain
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The domain used for authentication. Optional, in most cases username and password is sufficient.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Username
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Username
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The username used for authentication. If no username is set then anonymous authentication is attempted.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Password
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Password
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The password used for authentication. Required if Username is set.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Create Missing Directories*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Create Missing Directories
+
+[horizontal]
+*DESCRIPTION (Описание):*:: If true, then missing destination directories will be created. If false, flowfiles are penalized and sent to failure.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Share Access Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Share Access Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Indicates which shared access are granted on the file during the write. None is the most restrictive, but the safest setting to prevent corruption.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* none
+
+* read
+
+* read, delete
+
+* read, write, delete
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Conflict Resolution Strategy*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Conflict Resolution Strategy
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Indicates what should happen when a file with the same name already exists in the output directory
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* replace
+
+* ignore
+
+* fail
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Batch Size*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Size
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The maximum number of files to put in each iteration
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Temporary Suffix
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Temporary Suffix
+
+[horizontal]
+*DESCRIPTION (Описание):*:: A temporary suffix which will be apended to the filename while it's transfering. After the transfer is complete, the suffix will be removed.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Smb-Dialect*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: SMB Dialect
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The SMB dialect is negotiated between the client and the server by default to the highest common version supported by both end. In some rare cases, the client-server communication may fail with the automatically negotiated dialect. This property can be used to set the dialect explicitly (e.g. to downgrade to a lower version), when those situations would occur.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* AUTO
+
+* SMB 2.0.2
+
+* SMB 2.1
+
+* SMB 3.0
+
+* SMB 3.0.2
+
+* SMB 3.1.1
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Use-Encryption*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Use Encryption
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Turns on/off encrypted communication between the client and the server. The property's behavior is SMB dialect dependent: SMB 2.x does not support encryption and the property has no effect. In case of SMB 3.x, it is a hint/request to the server to turn encryption on if the server also supports it.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Enable-Dfs*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Enable DFS
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Enables accessing Distributed File System (DFS) and following DFS links during SMB operations.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* true
+
+* false
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Timeout*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Timeout
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Timeout for read and write operations.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|Files that have been successfully written to the output network path are transferred to this relationship
+
+|`failure`
+|Files that could not be written to the output network path for some reason are transferred to this relationship
+
+|===
+
+
+
+=== Читаемые атрибуты
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`filename`
+|The filename to use when writing the FlowFile to the network folder.
+
+|===
+
+
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/FetchSmb.adoc[FetchSmb]
+
+* xref:Processors/GetSmbFile.adoc[GetSmbFile]
+
+* xref:Processors/ListSmb.adoc[ListSmb]
+
+

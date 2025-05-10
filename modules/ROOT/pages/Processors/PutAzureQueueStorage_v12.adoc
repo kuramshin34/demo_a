@@ -1,0 +1,178 @@
+= PutAzureQueueStorage_v12 2.2.0
+
+Writes the content of the incoming FlowFiles to the configured Azure Queue Storage.
+
+[horizontal]
+*Tags* (Ключевые слова):
+azure, cloud, enqueue, microsoft, queue, storage
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Queue Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Queue Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Name of the Azure Storage Queue
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Storage-Endpoint-Suffix*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Endpoint Suffix
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Storage accounts in public Azure always use a common FQDN suffix. Override this endpoint suffix with a different suffix in certain circumstances (like Azure Stack or non-public Azure regions).
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Credentials Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Credentials Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Controller Service used to obtain Azure Storage Credentials.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Message Time To Live*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Message Time To Live
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Maximum time to allow the message to be in the queue
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Visibility Timeout*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Visibility Timeout
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The length of time during which the message will be invisible after it is read. If the processing unit fails to delete the message after it is read, then the message will reappear in the queue.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Request Timeout*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Request Timeout
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The timeout for read or write requests to Azure Queue Storage. Defaults to 1 second.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Proxy-Configuration-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: SOCKS, HTTP In case of SOCKS, it is not guaranteed that the selected SOCKS Version will be used by the processor.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|All successfully processed FlowFiles are routed to this relationship
+
+|`failure`
+|Unsuccessful operations will be transferred to the failure relationship.
+
+|===
+
+
+
+
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/GetAzureQueueStorage_v12.adoc[GetAzureQueueStorage_v12]
+
+

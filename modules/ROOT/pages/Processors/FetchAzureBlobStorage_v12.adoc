@@ -1,0 +1,292 @@
+= FetchAzureBlobStorage_v12 2.2.0
+
+Retrieves the specified blob from Azure Blob Storage and writes its content to the content of the FlowFile. The processor uses Azure Blob Storage client library v12.
+
+[horizontal]
+*Tags* (Ключевые слова):
+azure, blob, cloud, microsoft, storage
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Storage-Credentials-Service*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Storage Credentials
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Controller Service used to obtain Azure Blob Storage Credentials.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Container-Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Container Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Name of the Azure storage container. In case of PutAzureBlobStorage processor, container can be created if it does not exist.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Blob-Name*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Blob Name
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The full name of the blob
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.Range-Start
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Range Start
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The byte position at which to start reading from the blob. An empty value or a value of zero will start reading at the beginning of the blob.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Range-Length
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Range Length
+
+[horizontal]
+*DESCRIPTION (Описание):*:: The number of bytes to download from the blob, starting from the Range Start. An empty value or a value that extends beyond the end of the blob will read to the end of the blob.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.Proxy-Configuration-Service
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: SOCKS, HTTP In case of SOCKS, it is not guaranteed that the selected SOCKS Version will be used by the processor.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
+.*Client-Side Encryption Key Type*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Client-Side Encryption Key Type
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the key type to use for client-side encryption.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* NONE: Client-Side Encryption disabled 
+
+* LOCAL: Client-Side Encryption enabled using local key 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Client-Side Encryption Key Id*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Client-Side Encryption Key ID
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the ID of the key to use for client-side encryption.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Client-Side Encryption Local Key*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Client-Side Encryption Local Key
+
+[horizontal]
+*DESCRIPTION (Описание):*:: When using local client-side encryption, this is the raw key, encoded in hexadecimal
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|All successfully processed FlowFiles are routed to this relationship
+
+|`failure`
+|Unsuccessful operations will be transferred to the failure relationship.
+
+|===
+
+
+
+
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`azure.container`
+|The name of the Azure Blob Storage container
+
+|`azure.blobname`
+|The name of the blob on Azure Blob Storage
+
+|`azure.primaryUri`
+|Primary location of the blob
+
+|`azure.etag`
+|ETag of the blob
+
+|`azure.blobtype`
+|Type of the blob (either BlockBlob, PageBlob or AppendBlob)
+
+|`mime.type`
+|MIME Type of the content
+
+|`lang`
+|Language code for the content
+
+|`azure.timestamp`
+|Timestamp of the blob
+
+|`azure.length`
+|Length of the blob
+
+|===
+
+
+
+
+
+== Варианты использования, включающие другие компоненты
+
+
+=== Retrieve all files in an Azure Blob Storage container
+
+
+NOTE: 
+
+
+
+Ключевые слова::
+
+azure
+
+blob
+
+storage
+
+state
+
+retrieve
+
+fetch
+
+all
+
+stream
+
+
+
+
+
+
+
+
+=== Смотрите также
+
+
+* xref:Processors/DeleteAzureBlobStorage_v12.adoc[DeleteAzureBlobStorage_v12]
+
+* xref:Processors/ListAzureBlobStorage_v12.adoc[ListAzureBlobStorage_v12]
+
+* xref:Processors/PutAzureBlobStorage_v12.adoc[PutAzureBlobStorage_v12]
+
+

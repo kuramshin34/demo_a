@@ -1,0 +1,147 @@
+= EncodeContent 2.2.0
+
+Encode or decode the contents of a FlowFile using Base64, Base32, or hex encoding schemes
+
+[horizontal]
+*Tags* (Ключевые слова):
+base32, base64, decode, encode, hex
+[horizontal]
+*Input Requirement* (Требования к вводу данных):
+REQUIRED (Обязательно)
+[horizontal]
+*Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
+ False (Нет) 
+
+
+
+== Properties (Свойства)
+
+
+.*Mode*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Mode
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies whether the content should be encoded or decoded.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Encode: Transform original input to encoded representation 
+
+* Decode: Transform encoded input to original representation 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Encoding*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Encoding
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Specifies the type of encoding used.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Base64: Encode or decode using Base64 set of characters 
+
+* Base32: Encode or decode using Base32 set of characters 
+
+* Hexadecimal: Encode or decode using hexadecimal set of characters 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Line Output Mode*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Line Output Mode
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Controls the line formatting for encoded content based on selected property values.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*ALLOWABLE VALUES (Допустимые значения):*::
+
+* Single Line: The encoded content will be written as a single line. 
+
+* Multiple Lines: The encoded content will be written as multiple lines. 
+
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+.*Encoded Line Length*
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Encoded Line Length
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Each line of encoded data will contain up to the configured number of characters, rounded down to the nearest multiple of 4.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  True (Да) 
+************************************************
+
+
+
+
+
+
+
+
+
+
+=== Relationships (Связи)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`success`
+|Any FlowFile that is successfully encoded or decoded will be routed to success
+
+|`failure`
+|Any FlowFile that cannot be encoded or decoded will be routed to failure
+
+|===
+
+
+
+
+
+
+
+
+
+
+
