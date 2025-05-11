@@ -1,7 +1,7 @@
 name: component
 title: Component
 version: 2.2.0
-start_page: admonition.adoc
+start_page: component/2.2.0/admonition.adoc
 asciidoc:
   attributes:
     source-language: asciidoc@
