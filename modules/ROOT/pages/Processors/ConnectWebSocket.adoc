@@ -1,13 +1,13 @@
 = ConnectWebSocket 2.2.0
 
-Acts as a WebSocket client endpoint to interact with a remote WebSocket server. FlowFiles are transferred to downstream relationships according to received message types as WebSocket client configured with this processor receives messages from remote WebSocket server. If a new flowfile is passed to the processor, the previous sessions will be closed and any data being sent will be aborted.
+Действует как конечная точка клиента WebSocket для взаимодействия с удаленным сервером WebSocket. Передаваемые FlowFiles передаются в зависимости от типов полученных сообщений, как это настроено в данном процессоре. Если новый flowfile подается в процессор, предыдущие сессии будут закрыты, и любые данные, отправляемые в настоящее время, будут прерваны.
 
 [horizontal]
 *Tags* (Ключевые слова):
-WebSocket, consume, listen, subscribe
+WebSocket, потреблять, слушать, подписываться
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-ALLOWED (Обязательно)
+ALLOWED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ ALLOWED (Обязательно)
 .*Websocket-Client-Controller-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: WebSocket Client ControllerService
+*DISPLAY NAME (Отображаемое наименование):*:: WebSocket Client ControllerService (Вебсокет Клиент КонтроллерСервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A WebSocket CLIENT Controller Service which can connect to a WebSocket server.
+*DESCRIPTION (Описание):*:: A WebSocket CLIENT Controller Service which can connect to a WebSocket server. (Сервис управления вебсокетами, который может подключаться к серверу вебсокетов.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ ALLOWED (Обязательно)
 .*Websocket-Client-Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: WebSocket Client Id
+*DISPLAY NAME (Отображаемое наименование):*:: WebSocket Client Id (Клиент ID)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The client ID to identify WebSocket session. It should be unique within the WebSocket Client Controller Service. Otherwise, it throws WebSocketConfigurationException when it gets started.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -68,22 +68,22 @@ ALLOWED (Обязательно)
 |Наименование |Описание
 
 |`disconnected`
-|The WebSocket session is disconnected
+|Сессия WebSocket разорвана
 
 |`connected`
-|The WebSocket session is established
+|Установлена сессия WebSocket
 
 |`binary message`
-|The WebSocket binary message output
+|Выход двоичного сообщения WebSocket
 
 |`failure`
-|FlowFile holding connection configuration attributes (like URL or HTTP headers) in case of connection failure
+|FlowFile с атрибутами конфигурации подключения (например, URL или HTTP-заголовки) в случае неудачного подключения
 
 |`text message`
-|The WebSocket text message output
+|Выход текстового сообщения WebSocket
 
 |`success`
-|FlowFile holding connection configuration attributes (like URL or HTTP headers) in case of successful connection
+|FlowFile с атрибутами конфигурации подключения (например, URL или HTTP-заголовки) в случае успешного подключения
 
 |===
 
@@ -98,22 +98,22 @@ ALLOWED (Обязательно)
 |Наименование |Описание
 
 |`websocket.controller.service.id`
-|WebSocket Controller Service id.
+|Идентификатор сервиса WebSocket Controller.
 
 |`websocket.session.id`
-|Established WebSocket session id.
+|Идентификатор установленной сессии WebSocket.
 
 |`websocket.endpoint.id`
-|WebSocket endpoint id.
+|Идентификатор конечной точки WebSocket.
 
 |`websocket.local.address`
-|WebSocket client address.
+|Адрес клиента WebSocket.
 
 |`websocket.remote.address`
-|WebSocket server address.
+|Адрес сервера WebSocket.
 
 |`websocket.message.type`
-|TEXT or BINARY.
+|TEXT или BINARY.
 
 |===
 

@@ -1,13 +1,13 @@
 = DeleteS3Object 2.2.0
 
-Deletes a file from an Amazon S3 Bucket. If attempting to delete a file that does not exist, FlowFile is routed to success.
+Удаляет файл из Amazon S3 Bucket. Если попытаться удалить файл, который не существует, FlowFile будет направлен в success.
 
 [horizontal]
 *Tags* (Ключевые слова):
 AWS, Amazon, Archive, Delete, S3
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Bucket*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Bucket
+*DISPLAY NAME (Отображаемое наименование):*:: Bucket (Бакет)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The S3 Bucket to interact with
+*DESCRIPTION (Описание):*:: S3 бакет для взаимодействия
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Object Key*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Object Key
+*DISPLAY NAME (Отображаемое наименование):*:: Object Key (Объектный ключ)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The S3 Object Key to use. This is analogous to a filename for traditional file systems.
+*DESCRIPTION (Описание):*:: Ключ объекта S3, который следует использовать. Это аналогично имени файла для традиционных файловых систем.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Aws Credentials Provider Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: AWS Credentials Provider Service
+*DISPLAY NAME (Отображаемое наименование):*:: AWS Credentials Provider Service (...)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Controller Service that is used to obtain AWS credentials provider
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,93 +71,93 @@ REQUIRED (Обязательно)
 .*Region*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Region
+*DISPLAY NAME (Отображаемое наименование):*:: Region (Регион)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The AWS Region to connect to.
+*DESCRIPTION (Описание):*:: AWS Регион для подключения.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* AWS GovCloud (US): AWS Region Code : us-gov-west-1 
+* AWS GovCloud (US) (AWS GovCloud (США)): AWS Region Code : us-gov-west-1 
 
-* AWS GovCloud (US-East): AWS Region Code : us-gov-east-1 
+* AWS GovCloud (US-East) (AWS GovCloud (Восток США)): AWS Region Code : us-gov-east-1 
 
-* US East (N. Virginia): AWS Region Code : us-east-1 
+* US East (N. Virginia) (США Восток (Вирджиния)): AWS Region Code : us-east-1 
 
-* US East (Ohio): AWS Region Code : us-east-2 
+* US East (Ohio) (США Восток (Огайо)): AWS Region Code : us-east-2 
 
-* US West (N. California): AWS Region Code : us-west-1 
+* US West (N. California) (Западная часть США (Калифорния)): AWS Region Code : us-west-1 
 
-* US West (Oregon): AWS Region Code : us-west-2 
+* US West (Oregon) (Западная часть США (Орегон)): AWS Region Code : us-west-2 
 
-* EU (Ireland): AWS Region Code : eu-west-1 
+* EU (Ireland) (Европа (Ирландия)): AWS Region Code : eu-west-1 
 
-* EU (London): AWS Region Code : eu-west-2 
+* EU (London) (Европа (Лондон)): AWS Region Code : eu-west-2 
 
-* EU (Paris): AWS Region Code : eu-west-3 
+* EU (Paris) (Европа (Париж)): AWS Region Code : eu-west-3 
 
-* EU (Frankfurt): AWS Region Code : eu-central-1 
+* EU (Frankfurt) (Европа (Франкфурт)): AWS Region Code : eu-central-1 
 
-* EU (Zurich): AWS Region Code : eu-central-2 
+* EU (Zurich) (Европа (Цюрих)): AWS Region Code : eu-central-2 
 
-* EU (Stockholm): AWS Region Code : eu-north-1 
+* EU (Stockholm) (Европа (Стокгольм)): AWS Region Code : eu-north-1 
 
-* EU (Milan): AWS Region Code : eu-south-1 
+* EU (Milan) (Европа (Милан)): AWS Region Code : eu-south-1 
 
-* EU (Spain): AWS Region Code : eu-south-2 
+* EU (Spain) (Европа (Испания)): AWS Region Code : eu-south-2 
 
-* Asia Pacific (Hong Kong): AWS Region Code : ap-east-1 
+* Asia Pacific (Hong Kong) (Азия Тихоокеанский (Гонконг)): AWS Region Code : ap-east-1 
 
-* Asia Pacific (Mumbai): AWS Region Code : ap-south-1 
+* Asia Pacific (Mumbai) (Азия Тихоокеанский (Мумбаи)): AWS Region Code : ap-south-1 
 
-* Asia Pacific (Hyderabad): AWS Region Code : ap-south-2 
+* Asia Pacific (Hyderabad) (Азия Тихоокеанский (Хайдерабад)): AWS Region Code : ap-south-2 
 
-* Asia Pacific (Singapore): AWS Region Code : ap-southeast-1 
+* Asia Pacific (Singapore) (Азия Тихоокеанский (Сингапур)): AWS Region Code : ap-southeast-1 
 
-* Asia Pacific (Sydney): AWS Region Code : ap-southeast-2 
+* Asia Pacific (Sydney) (Азия Тихоокеанский (Сидней)): AWS Region Code : ap-southeast-2 
 
-* Asia Pacific (Jakarta): AWS Region Code : ap-southeast-3 
+* Asia Pacific (Jakarta) (Азия Тихоокеанский (Джакарта)): AWS Region Code : ap-southeast-3 
 
-* Asia Pacific (Melbourne): AWS Region Code : ap-southeast-4 
+* Asia Pacific (Melbourne) (Азия Тихоокеанский (Мельбурн)): AWS Region Code : ap-southeast-4 
 
-* Asia Pacific (Tokyo): AWS Region Code : ap-northeast-1 
+* Asia Pacific (Tokyo) (Азия Тихоокеанский (Токио)): AWS Region Code : ap-northeast-1 
 
-* Asia Pacific (Seoul): AWS Region Code : ap-northeast-2 
+* Asia Pacific (Seoul) (Азия Тихоокеанский (Сеул)): AWS Region Code : ap-northeast-2 
 
-* Asia Pacific (Osaka): AWS Region Code : ap-northeast-3 
+* Asia Pacific (Osaka) (Азия Тихоокеанский (Осака)): AWS Region Code : ap-northeast-3 
 
-* South America (Sao Paulo): AWS Region Code : sa-east-1 
+* South America (Sao Paulo) (Южная Америка (Сан-Паулу)): AWS Region Code : sa-east-1 
 
-* China (Beijing): AWS Region Code : cn-north-1 
+* China (Beijing) (Китай (Пекин)): AWS Region Code : cn-north-1 
 
-* China (Ningxia): AWS Region Code : cn-northwest-1 
+* China (Ningxia) (Китай (Нингxia)): AWS Region Code : cn-northwest-1 
 
-* Canada (Central): AWS Region Code : ca-central-1 
+* Canada (Central) (Канада (Центральный)): AWS Region Code : ca-central-1 
 
-* Canada West (Calgary): AWS Region Code : ca-west-1 
+* Canada West (Calgary) (Канада (Калгари)): AWS Region Code : ca-west-1 
 
-* Middle East (UAE): AWS Region Code : me-central-1 
+* Middle East (UAE) (Средний Восток (ОАЭ)): AWS Region Code : me-central-1 
 
-* Middle East (Bahrain): AWS Region Code : me-south-1 
+* Middle East (Bahrain) (Средний Восток (Бахрейн)): AWS Region Code : me-south-1 
 
-* Africa (Cape Town): AWS Region Code : af-south-1 
+* Africa (Cape Town) (Африка (Каптайн)): AWS Region Code : af-south-1 
 
-* US ISO East: AWS Region Code : us-iso-east-1 
+* US ISO East (США ISO Восток): AWS Region Code : us-iso-east-1 
 
-* US ISOB East (Ohio): AWS Region Code : us-isob-east-1 
+* US ISOB East (Ohio) (США ISOB Восток (Огайо)): AWS Region Code : us-isob-east-1 
 
-* US ISO West: AWS Region Code : us-iso-west-1 
+* US ISO West (США ISO Запад): AWS Region Code : us-iso-west-1 
 
-* Israel (Tel Aviv): AWS Region Code : il-central-1 
+* Israel (Tel Aviv) (Израиль (Тель-Авив)): AWS Region Code : il-central-1 
 
-* Use 's3.region' Attribute: Uses 's3.region' FlowFile attribute as region. 
+* Use 's3.region' Attribute (Использовать атрибут 's3.region' FlowFile): Uses 's3.region' FlowFile attribute as region. 
 
 
 [horizontal]
@@ -166,14 +166,14 @@ REQUIRED (Обязательно)
 .*Communications Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout (Время ожидания)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The amount of time to wait in order to establish a connection to AWS or receive data from AWS before timing out.
+*DESCRIPTION (Описание):*:: Количество времени для ожидания, чтобы установить соединение с AWS или получить данные от AWS до истечения времени ожидания.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -183,14 +183,14 @@ REQUIRED (Обязательно)
 .Version
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Version
+*DISPLAY NAME (Отображаемое наименование):*:: Version (Версия)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Version of the Object to delete
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -200,14 +200,14 @@ REQUIRED (Обязательно)
 .Fullcontrol User List
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: FullControl User List
+*DISPLAY NAME (Отображаемое наименование):*:: FullControl User List (Список пользователей с полным контролем)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A comma-separated list of Amazon User ID's or E-mail addresses that specifies who should have Full Control for an object
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -217,14 +217,14 @@ REQUIRED (Обязательно)
 .Read Permission User List
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Read Permission User List
+*DISPLAY NAME (Отображаемое наименование):*:: Read Permission User List (Список пользователей с правами чтения)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A comma-separated list of Amazon User ID's or E-mail addresses that specifies who should have Read Access for an object
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -234,14 +234,14 @@ REQUIRED (Обязательно)
 .Write Permission User List
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Write Permission User List
+*DISPLAY NAME (Отображаемое наименование):*:: Write Permission User List (Список пользователей с правом записи)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A comma-separated list of Amazon User ID's or E-mail addresses that specifies who should have Write Access for an object
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -251,14 +251,14 @@ REQUIRED (Обязательно)
 .Read Acl User List
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Read ACL User List
+*DISPLAY NAME (Отображаемое наименование):*:: Read ACL User List (Список пользователей с правами доступа для чтения)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A comma-separated list of Amazon User ID's or E-mail addresses that specifies who should have permissions to read the Access Control List for an object
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -268,14 +268,14 @@ REQUIRED (Обязательно)
 .Write Acl User List
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Write ACL User List
+*DISPLAY NAME (Отображаемое наименование):*:: Write ACL User List (Список пользователей с правом изменения списка управления доступом)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A comma-separated list of Amazon User ID's or E-mail addresses that specifies who should have permissions to change the Access Control List for an object
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -285,14 +285,14 @@ REQUIRED (Обязательно)
 .Owner
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Owner
+*DISPLAY NAME (Отображаемое наименование):*:: Владелец (Owner)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Amazon ID to use for the object's owner
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -302,14 +302,14 @@ REQUIRED (Обязательно)
 .Ssl Context Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (Сервис контекста SSL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies an optional SSL Context Service that, if provided, will be used to create connections
+*DESCRIPTION (Описание):*:: Указывает необязательный сервис контекста SSL, если он предоставлен, будет использоваться для создания подключений
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -319,14 +319,14 @@ REQUIRED (Обязательно)
 .Endpoint Override Url
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Endpoint Override URL
+*DISPLAY NAME (Отображаемое наименование):*:: Endpoint Override URL (URL конечной точки для переопределения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Endpoint URL to use instead of the AWS default including scheme, host, port, and path. The AWS libraries select an endpoint URL based on the AWS region, but this property overrides the selected endpoint URL, allowing use with other S3-compatible endpoints.
+*DESCRIPTION (Описание):*:: URL конечной точки, которую следует использовать вместо AWS по умолчанию, включая схему, хост, порт и путь. Библиотеки AWS выбирают URL-адрес конечной точки на основе региона AWS, но это свойство переопределяет выбранный URL-адрес конечной точки, позволяя использовать его с другими S3-совместимыми конечными точками.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -336,27 +336,27 @@ REQUIRED (Обязательно)
 .Signer Override
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Signer Override
+*DISPLAY NAME (Отображаемое наименование):*:: Signer Override (Переопределение подписчика)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The AWS S3 library uses Signature Version 4 by default but this property allows you to specify the Version 2 signer to support older S3-compatible services or even to plug in your own custom signer implementation.
+*DESCRIPTION (Описание):*:: Библиотека AWS S3 по умолчанию использует Signature Version 4, но это свойство позволяет указать версию 2 подписчика для поддержки старых служб S3-совместимых или даже реализовать собственную пользовательскую реализацию подписчика.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Default Signature
+* Default Signature (По умолчанию)
 
-* Signature Version 4
+* Signature Version 4 (Версия подписи 4)
 
-* Signature Version 2
+* Signature Version 2 (Версия подписи 2)
 
-* Custom Signature
+* Custom Signature (Собственная подпись)
 
 
 [horizontal]
@@ -365,14 +365,14 @@ REQUIRED (Обязательно)
 .*Custom-Signer-Class-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Custom Signer Class Name
+*DISPLAY NAME (Отображаемое наименование):*:: Custom Signer Class Name (Название класса подписи)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Fully qualified class name of the custom signer class. The signer must implement com.amazonaws.auth.Signer interface.
+*DESCRIPTION (Описание):*:: Полное квалифицированное имя класса подписи. Подписчик должен реализовывать интерфейс com.amazonaws.auth.Signer.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -382,14 +382,14 @@ REQUIRED (Обязательно)
 .Custom-Signer-Module-Location
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Custom Signer Module Location
+*DISPLAY NAME (Отображаемое наименование):*:: Custom Signer Module Location (Название модуля подписи)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Comma-separated list of paths to files and/or directories which contain the custom signer's JAR file and its dependencies (if any).
+*DESCRIPTION (Описание):*:: Список, разделенных запятыми путей к файлам и/или директориям, содержащих JAR-файл подписчика и его зависимости (если они есть).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -399,14 +399,14 @@ REQUIRED (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: HTTP + AuthN
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 

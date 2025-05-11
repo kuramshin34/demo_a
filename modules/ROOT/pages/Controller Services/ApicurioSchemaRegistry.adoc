@@ -1,13 +1,13 @@
 = ApicurioSchemaRegistry 2.2.0
 
-Provides a Schema Registry that interacts with the Apicurio Schema Registry so that those Schemas that are stored in the Apicurio Schema Registry can be used in NiFi. When a Schema is looked up by name by this registry, it will find a Schema in the Apicurio Schema Registry with their artifact identifiers.
+Предоставляет реестр схем, который взаимодействует с Apicurio Schema Registry, чтобы те схемы, которые хранятся в Apicurio Schema Registry, могли использоваться в NiFi. Когда схема ищется по имени этим реестром, она найдет схему в Apicurio Schema Registry по своим идентификаторам артефакта.
 
 [horizontal]
 *Tags* (Ключевые слова):
 apicurio, avro, registry, schema
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ apicurio, avro, registry, schema
 .*Schema Registry Url*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry URL
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry URL (URL реестра схем)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The URL of the Schema Registry e.g. http://localhost:8080
+*DESCRIPTION (Описание):*:: URL реестра схем, например http://localhost:8080
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ apicurio, avro, registry, schema
 .*Schema Group Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Group ID
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Group ID (Схема группового идентификатора)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The artifact Group ID for the schemas
+*DESCRIPTION (Описание):*:: Артефакт Группа ИД для схем
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ apicurio, avro, registry, schema
 .*Cache Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Cache Size
+*DISPLAY NAME (Отображаемое наименование):*:: Cache Size (Размер кэша)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how many Schemas should be cached from the Schema Registry. The cache size must be a non-negative integer. When it is set to 0, the cache is effectively disabled.
+*DESCRIPTION (Описание):*:: Указывает, сколько схем должно быть кэшировано из Реестра схем. Размер кэша должен быть неотрицательным целым числом. Когда он установлен в 0, кэш эффективно отключается.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ apicurio, avro, registry, schema
 .*Cache Expiration*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Cache Expiration
+*DISPLAY NAME (Отображаемое наименование):*:: Cache Expiration (Срок хранения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how long a Schema that is cached should remain in the cache. Once this time period elapses, a cached version of a schema will no longer be used, and the service will have to communicate with the Schema Registry again in order to obtain the schema.
+*DESCRIPTION (Описание):*:: Указывает, как долго кэшированная схема должна оставаться в кэше. По истечении этого временного периода кэшированная версия схемы больше не будет использоваться, и сервис будет вынужден снова общаться со Схемарегистром для получения схемы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ apicurio, avro, registry, schema
 .*Web Client Service Provider*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Web Client Service Provider
+*DISPLAY NAME (Отображаемое наименование):*:: Web Client Service Provider (Веб-клиентский сервис-провайдер)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Controller service for HTTP client operations
+*DESCRIPTION (Описание):*:: Контроллерский сервис для операций HTTP клиента
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -115,6 +115,17 @@ apicurio, avro, registry, schema
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

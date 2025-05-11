@@ -1,13 +1,13 @@
 = AttributesToJSON 2.2.0
 
-Generates a JSON representation of the input FlowFile Attributes. The resulting JSON can be written to either a new Attribute 'JSONAttributes' or written to the FlowFile as content. Attributes  which contain nested JSON objects can either be handled as JSON or as escaped JSON depending on the strategy chosen.
+Генерирует JSON-представление атрибутов входного FlowFile. Результирующий JSON можно записать в новую атрибуту 'JSONAttributes' или записать в содержимое FlowFile. Атрибуты, содержащие вложенные объекты JSON, могут быть обработаны как JSON или как экранированный JSON в зависимости от выбранной стратегии.
 
 [horizontal]
 *Tags* (Ключевые слова):
 attributes, flowfile, json
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .Attributes List
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Attributes List
+*DISPLAY NAME (Отображаемое наименование):*:: Attributes List (Атрибуты списка)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Comma separated list of attributes to be included in the resulting JSON. If this value is left empty then all existing Attributes will be included. This list of attributes is case sensitive. If an attribute specified in the list is not found it will be be emitted to the resulting JSON with an empty string or NULL value.
+*DESCRIPTION (Описание):*:: Список атрибутов, разделенных запятыми, которые будут включены в результирующий JSON. Если это значение оставить пустым, то будут включены все существующие атрибуты. Этот список атрибутов чувствителен к регистру. Если атрибут, указанный в списке, не найден, он будет включен в результирующий JSON с пустой строкой или значением NULL.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .Attributes-To-Json-Regex
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Attributes Regular Expression
+*DISPLAY NAME (Отображаемое наименование):*:: Attributes Regular Expression (Регулярное выражение)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Regular expression that will be evaluated against the flow file attributes to select the matching attributes. This property can be used in combination with the attributes list property.
+*DESCRIPTION (Описание):*:: Регулярное выражение, которое будет оцениваться по атрибутам потока файлов для выбора соответствующих атрибутов. Это свойство можно использовать в комбинации с другим свойством списка атрибутов.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,23 +54,23 @@ REQUIRED (Обязательно)
 .*Destination*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Destination
+*DISPLAY NAME (Отображаемое наименование):*:: Destination (Назначение)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Control if JSON value is written as a new flowfile attribute 'JSONAttributes' or written in the flowfile content. Writing to flowfile content will overwrite any existing flowfile content.
+*DESCRIPTION (Описание):*:: Управляет записью JSON-значения в новый атрибут потока 'JSONAttributes' или записью в содержимое потока. Запись в содержимое потока перезапишет любое существующее содержимое потока.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* flowfile-attribute
+* flowfile-attribute (атрибут потока)
 
-* flowfile-content
+* flowfile-content (содержимое потока)
 
 
 [horizontal]
@@ -79,23 +79,23 @@ REQUIRED (Обязательно)
 .*Include Core Attributes*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Include Core Attributes
+*DISPLAY NAME (Отображаемое наименование):*:: Include Core Attributes (Включить основные атрибуты)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Determines if the FlowFile org.apache.nifi.flowfile.attributes.CoreAttributes which are contained in every FlowFile should be included in the final JSON value generated.
+*DESCRIPTION (Описание):*:: Определяет, следует ли включать в окончательное JSON-значение FlowFile org.apache.nifi.flowfile.attributes.CoreAttributes, которые содержатся в каждом FlowFile.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -104,23 +104,23 @@ REQUIRED (Обязательно)
 .*Null Value*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Null Value
+*DISPLAY NAME (Отображаемое наименование):*:: Null Value (Нулевое значение)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true a non existing selected attribute will be NULL in the resulting JSON. If false an empty string will be placed in the JSON
+*DESCRIPTION (Описание):*:: Если true, несуществующий выбранный атрибут будет NULL в результирующем JSON. Если false, пустая строка будет размещена в JSON
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -129,23 +129,23 @@ REQUIRED (Обязательно)
 .*Json Handling Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: JSON Handling Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: JSON Handling Strategy (Стратегия обработки JSON)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Strategy to use for handling attributes which contain nested JSON.
+*DESCRIPTION (Описание):*:: Стратегия для использования при обработке атрибутов, содержащих вложенный JSON.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Escaped: Escapes JSON attribute values to strings 
+* Escaped (Экранированный): Экранирует значения атрибутов JSON в строки 
 
-* Nested: Handles JSON attribute values as nested structured objects or arrays 
+* Nested (Вложенный): Обрабатывает значения атрибутов JSON как вложенные структурные объекты или массивы 
 
 
 [horizontal]
@@ -154,14 +154,14 @@ REQUIRED (Обязательно)
 .*Pretty Print*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Pretty Print
+*DISPLAY NAME (Отображаемое наименование):*:: Pretty Print (Красивый печать)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Apply pretty print formatting to the output.
+*DESCRIPTION (Описание):*:: Применить форматирование красивого вывода к результату.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -193,10 +193,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Successfully converted attributes to JSON
+|Успешно преобразовано атрибуты в JSON
 
 |`failure`
-|Failed to convert attributes to JSON
+|Не удалось преобразовать атрибуты в JSON
 
 |===
 
@@ -211,7 +211,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`JSONAttributes`
-|JSON representation of Attributes
+|JSON-представление атрибутов
 
 |===
 

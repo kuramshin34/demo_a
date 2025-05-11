@@ -1,13 +1,13 @@
 = Kafka3ConnectionService 2.2.0
 
-Provides and manages connections to Kafka Brokers for producer or consumer operations.
+Предоставляет и управляет подключениями к брокерам Kafka для операций производителя или потребителя.
 
 [horizontal]
 *Tags* (Ключевые слова):
 
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ Provides and manages connections to Kafka Brokers for producer or consumer opera
 .*Bootstrap.Servers*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Bootstrap Servers
+*DISPLAY NAME (Отображаемое наименование):*:: Bootstrap Servers (Серверы загрузки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Comma-separated list of Kafka Bootstrap Servers in the format host:port. Corresponds to Kafka bootstrap.servers property
+*DESCRIPTION (Описание):*:: Список, разделенных запятыми Kafka Bootstrap серверов в формате host:port. Соответствует свойству Kafka bootstrap.servers.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,27 +37,27 @@ Provides and manages connections to Kafka Brokers for producer or consumer opera
 .*Security.Protocol*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Security Protocol
+*DISPLAY NAME (Отображаемое наименование):*:: Security Protocol (Безопасный протокол)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Security protocol used to communicate with brokers. Corresponds to Kafka Client security.protocol property
+*DESCRIPTION (Описание):*:: Безопасный протокол, используемый для общения с брокерами. Соответствует свойству Kafka Client security.protocol.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* PLAINTEXT
+* PLAINTEXT (Чистый текст)
 
-* SSL
+* SSL (SSL)
 
-* SASL_PLAINTEXT
+* SASL_PLAINTEXT (SASL Чистый текст)
 
-* SASL_SSL
+* SASL_SSL (SASL SSL)
 
 
 [horizontal]
@@ -66,27 +66,27 @@ Provides and manages connections to Kafka Brokers for producer or consumer opera
 .*Sasl.Mechanism*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SASL Mechanism
+*DISPLAY NAME (Отображаемое наименование):*:: SASL Mechanism (Механизм SASL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: SASL mechanism used for authentication. Corresponds to Kafka Client sasl.mechanism property
+*DESCRIPTION (Описание):*:: Механизм SASL, используемый для аутентификации. Соответствует свойству Kafka Client sasl.mechanism
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* GSSAPI: General Security Services API for Kerberos authentication 
+* GSSAPI (General Security Services API): Общее программное обеспечение для аутентификации Kerberos 
 
-* PLAIN: Plain username and password authentication 
+* PLAIN (Простой): Простая аутентификация имени пользователя и пароля 
 
-* SCRAM-SHA-256: Salted Challenge Response Authentication Mechanism using SHA-512 with username and password 
+* SCRAM-SHA-256 (Сертифицированный механизм ответа на вызов с использованием SHA-256): Сертифицированный механизм ответа на вызов с использованием SHA-256 и имени пользователя и пароля 
 
-* SCRAM-SHA-512: Salted Challenge Response Authentication Mechanism using SHA-256 with username and password 
+* SCRAM-SHA-512 (Сертифицированный механизм ответа на вызов с использованием SHA-512): Сертифицированный механизм ответа на вызов с использованием SHA-512 и имени пользователя и пароля 
 
 
 [horizontal]
@@ -95,14 +95,14 @@ Provides and manages connections to Kafka Brokers for producer or consumer opera
 .*Sasl.Username*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SASL Username
+*DISPLAY NAME (Отображаемое наименование):*:: SASL Username (Имя пользователя)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Username provided with configured password when using PLAIN or SCRAM SASL Mechanisms
+*DESCRIPTION (Описание):*:: Имя пользователя, предоставленное вместе с настроенным паролем при использовании механизмов SASL PLAIN или SCRAM
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -112,14 +112,14 @@ Provides and manages connections to Kafka Brokers for producer or consumer opera
 .*Sasl.Password*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SASL Password
+*DISPLAY NAME (Отображаемое наименование):*:: SASL Password (Пароль SASL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Password provided with configured username when using PLAIN or SCRAM SASL Mechanisms
+*DESCRIPTION (Описание):*:: Пароль, предоставленный вместе с настроенным именем пользователя при использовании механизмов PLAIN или SCRAM SASL
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -129,14 +129,14 @@ Provides and manages connections to Kafka Brokers for producer or consumer opera
 .Kerberos-User-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Kerberos User Service
+*DISPLAY NAME (Отображаемое наименование):*:: Kerberos User Service (Kerberos Пользовательский Сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Service supporting user authentication with Kerberos
+*DESCRIPTION (Описание):*:: Сервис, поддерживающий аутентификацию пользователей с использованием Kerberos
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -146,14 +146,14 @@ Provides and manages connections to Kafka Brokers for producer or consumer opera
 .Sasl.Kerberos.Service.Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Kerberos Service Name
+*DISPLAY NAME (Отображаемое наименование):*:: Kerberos Service Name (Kerberos Сервисный Имя)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The service name that matches the primary name of the Kafka server configured in the broker JAAS configuration
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -163,14 +163,14 @@ Provides and manages connections to Kafka Brokers for producer or consumer opera
 .Ssl Context Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (SSL Контекст Сервиса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Service supporting SSL communication with Kafka brokers
+*DESCRIPTION (Описание):*:: Сервис, поддерживающий SSL-коммуникацию с брокерами Kafka
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -180,28 +180,26 @@ Provides and manages connections to Kafka Brokers for producer or consumer opera
 .*Isolation.Level*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Transaction Isolation Level
+*DISPLAY NAME (Отображаемое наименование):*:: Transaction Isolation Level (Уровень изоляции транзакций)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how the service should handle transaction isolation levels when communicating with Kafka.
-The uncommited option means that messages will be received as soon as they are written to Kafka but will be pulled, even if the producer cancels the transactions.
-The committed option configures the service to not receive any messages for which the producer's transaction was canceled, but this can result in some latency since the
-consumer must wait for the producer to finish its entire transaction instead of pulling as the messages become available.
-Corresponds to Kafka isolation.level property.
-
+*DESCRIPTION (Описание):*:: Определяет, как сервис должен обрабатывать уровни изоляции транзакций при взаимодействии с Kafka.
+Параметр uncommited означает, что сообщения будут получаться сразу же после их записи в Kafka, но будут извлекаться даже если производитель отменил транзакцию.
+Параметр committed настраивает сервис так, чтобы не получать сообщения, для которых транзакция производителя была отменена, но это может привести к задержке, так как потребитель должен ждать завершения всей транзакции производителя вместо того, чтобы извлекать сообщения по мере их появления.
+Соответствует свойству Kafka isolation.level.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Read Committed: Read records from Kafka only after the producer has committed a transaction. 
+* Read Committed (Чтение завершенных): Читать записи из Kafka только после того, как производитель завершил транзакцию. 
 
-* Read Uncommitted: Read records from Kafka as soon as the produced has sent the record, regardless of transaction status. 
+* Read Uncommitted (Чтение незавершенных): Читать записи из Kafka сразу же после того, как производитель отправил запись, независимо от статуса транзакции. 
 
 
 [horizontal]
@@ -210,14 +208,14 @@ Corresponds to Kafka isolation.level property.
 .*Max.Poll.Records*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Poll Records
+*DISPLAY NAME (Отображаемое наименование):*:: Max Poll Records (Максимальное количество записей для опроса Kafka)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Maximum number of records Kafka should return in a single poll.
+*DESCRIPTION (Описание):*:: Maximum number of records Kafka should return in a single poll (Максимальное число записей, которое Kafka должно возвращать в одном опросе).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -227,14 +225,14 @@ Corresponds to Kafka isolation.level property.
 .*Default.Api.Timeout.Ms*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Client Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Client Timeout (Default timeout for Kafka client operations)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Default timeout for Kafka client operations. Mapped to Kafka default.api.timeout.ms. The Kafka request.timeout.ms property is derived from half of the configured timeout
+*DESCRIPTION (Описание):*:: Default timeout для операций клиента Kafka. Сопоставлен с настройкой Kafka default.api.timeout.ms. Свойство request.timeout.ms, настроенное в Kafka, выводится из половины настроенного таймаута
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -244,16 +242,14 @@ Corresponds to Kafka isolation.level property.
 .*Max.Block.Ms*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Metadata Wait Time
+*DISPLAY NAME (Отображаемое наименование):*:: Max Metadata Wait Time (Максимальное время ожидания метаданных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The amount of time publisher will wait to obtain metadata or wait for the buffer to flush during the 'send' call before failing the
-entire 'send' call. Corresponds to Kafka max.block.ms property
-
+*DESCRIPTION (Описание):*:: Количество времени, которое издатель будет ждать для получения метаданных или до очистки буфера во время вызова 'send' перед тем как полностью завершить вызов 'send'. Соответствует свойству Kafka max.block.ms
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -263,16 +259,15 @@ entire 'send' call. Corresponds to Kafka max.block.ms property
 .*Ack.Wait.Time*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Acknowledgment Wait Time
+*DISPLAY NAME (Отображаемое наименование):*:: Acknowledgment Wait Time (Время ожидания подтверждения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: After sending a message to Kafka, this indicates the amount of time that the service will wait for a response from Kafka.
-If Kafka does not acknowledge the message within this time period, the service will throw an exception.
-
+*DESCRIPTION (Описание):*:: После отправки сообщения в Kafka это указывает количество времени, которое сервис будет ждать ответа от Kafka.
+Если Kafka не подтвердит сообщение в течение этого временного периода, сервис выбросит исключение.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -305,6 +300,17 @@ If Kafka does not acknowledge the message within this time period, the service w
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

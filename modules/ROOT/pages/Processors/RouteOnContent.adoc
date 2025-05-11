@@ -1,13 +1,13 @@
 = RouteOnContent 2.2.0
 
-Applies Regular Expressions to the content of a FlowFile and routes a copy of the FlowFile to each destination whose Regular Expression matches. Regular Expressions are added as User-Defined Properties where the name of the property is the name of the relationship and the value is a Regular Expression to match against the FlowFile content. User-Defined properties do support the Attribute Expression Language, but the results are interpreted as literal values, not Regular Expressions
+Применяет регулярные выражения к содержимому FlowFile и направляет копию FlowFile в каждую цель, для которой регулярное выражение соответствует. Регулярные выражения добавляются как пользовательские свойства, где имя свойства — это имя отношения, а значение — регулярное выражение для сопоставления с содержимым FlowFile. Пользовательские свойства поддерживают язык выражений атрибутов, но результаты интерпретируются как литеральные значения, а не регулярные выражения.
 
 [horizontal]
 *Tags* (Ключевые слова):
 content, detect, filter, find, regex, regexp, regular expression, route, search, string, text
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,23 +20,23 @@ REQUIRED (Обязательно)
 .*Match Requirement*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Match Requirement
+*DISPLAY NAME (Отображаемое наименование):*:: Match Requirement (Соответствие требованию)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether the entire content of the file must match the regular expression exactly, or if any part of the file (up to Content Buffer Size) can contain the regular expression in order to be considered a match
+*DESCRIPTION (Описание):*:: Указывает, должно ли точное совпадение с регулярным выражением быть полностью в файле или если любой частью файла (до размера буфера содержимого) может содержаться регулярное выражение для того, чтобы считаться совпадением
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* content must match exactly
+* content must match exactly (содержимое должно точно соответствовать)
 
-* content must contain match
+* content must contain match (в содержимом должно быть совпадение)
 
 
 [horizontal]
@@ -45,14 +45,14 @@ REQUIRED (Обязательно)
 .*Character Set*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Символьный набор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Character Set in which the file is encoded
+*DESCRIPTION (Описание):*:: The Character Set in which the file is encoded (Символьный набор, в котором закодирован файл)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -62,14 +62,14 @@ REQUIRED (Обязательно)
 .*Content Buffer Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Content Buffer Size
+*DISPLAY NAME (Отображаемое наименование):*:: Content Buffer Size (Размер буфера содержимого)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the maximum amount of data to buffer in order to apply the regular expressions. If the size of the FlowFile exceeds this value, any amount of this value will be ignored
+*DESCRIPTION (Описание):*:: Указывает максимальное количество данных для буферизации с целью применения регулярных выражений. Если размер FlowFile превышает это значение, любое количество этого значения будет проигнорировано
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -85,7 +85,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание |Значение |Ограничения языка выражений
 
 |`Relationship Name`
-|Routes FlowFiles whose content matches the regular expression defined by Dynamic Property's value to the Relationship defined by the Dynamic Property's key
+|Направляет FlowFiles, содержимое которых соответствует регулярному выражению, определяемому динамическим свойством, в отношение, определенное ключом динамического свойства.
 |`A Regular Expression`
 |
 
@@ -106,13 +106,24 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`unmatched`
-|FlowFiles that do not match any of the user-supplied regular expressions will be routed to this relationship
+|FlowFiles, не соответствующие ни одному из предоставленных пользователем регулярных выражений, будут направлены в это отношение.
 
 |===
 
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`Relationship Name`
+|Имя отношения
+
+|===
 
 
 

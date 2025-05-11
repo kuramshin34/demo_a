@@ -1,13 +1,13 @@
 = Notify 2.2.0
 
-Caches a release signal identifier in the distributed cache, optionally along with the FlowFile's attributes.  Any flow files held at a corresponding Wait processor will be released once this signal in the cache is discovered.
+Кэширует идентификатор сигнала выпуска в распределенном кэше, при необходимости вместе с атрибутами FlowFile. Любые потоки данных, удерживаемые соответствующим процессором ожидания, будут освобождены, как только этот сигнал в кэше будет обнаружен.
 
 [horizontal]
 *Tags* (Ключевые слова):
-cache, distributed, map, notify, release, signal
+кэш, распределенный, карта, оповещение, выпуск, сигнал
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Release-Signal-Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Release Signal Identifier
+*DISPLAY NAME (Отображаемое наименование):*:: Release Signal Identifier (Идентификатор сигнала выпуска)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A value, or the results of an Attribute Expression Language statement, which will be evaluated against a FlowFile in order to determine the release signal cache key
+*DESCRIPTION (Описание):*:: Значение или результат утверждения языка выражений атрибутов, которое будет оцениваться в потоке данных для определения ключа кэша сигнала выпуска
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Signal-Counter-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Signal Counter Name
+*DISPLAY NAME (Отображаемое наименование):*:: Signal Counter Name (Сигнальный счетчик имени)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A value, or the results of an Attribute Expression Language statement, which will be evaluated against a FlowFile in order to determine the signal counter name. Signal counter name is useful when a corresponding Wait processor needs to know the number of occurrences of different types of events, such as success or failure, or destination data source names, etc.
+*DESCRIPTION (Описание):*:: Значение или результат утверждения языка выражений атрибутов, которое будет оцениваться в потоке данных для определения имени сигнального счетчика. Имя сигнального счетчика полезно, когда соответствующий процесс ожидания должен знать количество появлений различных типов событий, таких как успех или неудача, или имена целевых источников данных и т.д.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Signal-Counter-Delta*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Signal Counter Delta
+*DISPLAY NAME (Отображаемое наименование):*:: Signal Counter Delta (Сигнальный Счетчик Дельта)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A value, or the results of an Attribute Expression Language statement, which will be evaluated against a FlowFile in order to determine the signal counter delta. Specify how much the counter should increase. For example, if multiple signal events are processed at upstream flow in batch oriented way, the number of events processed can be notified with this property at once. Zero (0) has a special meaning, it clears target count back to 0, which is especially useful when used with Wait Releasable FlowFile Count = Zero (0) mode, to provide 'open-close-gate' type of flow control. One (1) can open a corresponding Wait processor, and Zero (0) can negate it as if closing a gate.
+*DESCRIPTION (Описание):*:: Значение, или результат утверждения языка выражений атрибутов, которое будет оцениваться в потоке данных с целью определения сигнального счетчика дельта. Укажите, насколько должен увеличиться счетчик. Например, если несколько событий сигнала обрабатываются группой в пакетном режиме, количество обработанных событий можно уведомить одновременно с этим свойством. Ноль (0) имеет особое значение, он сбрасывает целевой счет до 0, что особенно полезно при использовании режима Wait Releasable FlowFile Count = Zero (0), для обеспечения управления потоком типа 'открыть-закрыть-ворота'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .*Signal-Buffer-Count*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Signal Buffer Count
+*DISPLAY NAME (Отображаемое наименование):*:: Signal Buffer Count (Максимальное количество буферов для входящих потоков)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specify the maximum number of incoming flow files that can be buffered until signals are notified to cache service. The more buffer can provide the better performance, as it reduces the number of interactions with cache service by grouping signals by signal identifier when multiple incoming flow files share the same signal identifier.
+*DESCRIPTION (Описание):*:: Укажите максимальное число входящих файлов потоков, которые могут быть буферизованы до уведомления сигналов к сервису кэша. Чем больше буфер может предоставить, тем лучше производительность, так как он уменьшает количество взаимодействий с сервисом кэша за счет группировки сигналов по идентификатору сигнала при множественных входящих файлах, которые разделяют один и тот же идентификатор сигнала.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ REQUIRED (Обязательно)
 .*Distributed-Cache-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Distributed Cache Service
+*DISPLAY NAME (Отображаемое наименование):*:: Distributed Cache Service (Распределенный кэш)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Controller Service that is used to cache release signals in order to release files queued at a corresponding Wait processor
+*DESCRIPTION (Описание):*:: Сервис контроллера, используемый для кэширования сигналов выпуска с целью освобождения файлов, очередь которых находится у соответствующего процессора ожидания
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ REQUIRED (Обязательно)
 .Attribute-Cache-Regex
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Attribute Cache Regex
+*DISPLAY NAME (Отображаемое наименование):*:: Attribute Cache Regex (Регулярное выражение для атрибутов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Any attributes whose names match this regex will be stored in the distributed cache to be copied to any FlowFiles released from a corresponding Wait processor.  Note that the uuid attribute will not be cached regardless of this value.  If blank, no attributes will be cached.
+*DESCRIPTION (Описание):*:: Любые атрибуты, имена которых соответствуют этому регулярному выражению, будут храниться в распределенном кэше для последующего копирования в FlowFiles, выпущенные из соответствующего процессора Wait. Обратите внимание, что атрибут uuid не будет кэшироваться вне зависимости от этого значения. Если оставить пустым, ни один атрибут не будет кэшироваться.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -136,10 +136,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|All FlowFiles where the release signal has been successfully entered in the cache will be routed to this relationship
+|Все FlowFiles, где сигнал выпуска успешно введен в кэш, будут направлены по этому отношению
 
 |`failure`
-|When the cache cannot be reached, or if the Release Signal Identifier evaluates to null or empty, FlowFiles will be routed to this relationship
+|Когда кэш недоступен или если идентификатор сигнала выпуска оценивается как null или пустой, FlowFiles будут направлены по этому отношению
 
 |===
 
@@ -154,7 +154,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`notified`
-|All FlowFiles will have an attribute 'notified'. The value of this attribute is true, is the FlowFile is notified, otherwise false.
+|Все FlowFiles будут иметь атрибут 'notified'. Значение этого атрибута равно true, если FlowFile уведомлен, в противном случае false.
 
 |===
 

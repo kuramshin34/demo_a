@@ -1,13 +1,13 @@
 = PutGridFS 2.2.0
 
-Writes a file to a GridFS bucket.
+Записывает файл в бакет GridFS.
 
 [horizontal]
 *Tags* (Ключевые слова):
 file, gridfs, mongo, put, store
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Gridfs-Client-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Client Service
+*DISPLAY NAME (Отображаемое наименование):*:: Client Service (Клиентская служба)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The MongoDB client service to use for database connections.
+*DESCRIPTION (Описание):*:: The MongoDB client service to use for database connections. (Служба MongoDB клиента для использования в базах данных.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Gridfs-Database-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Mongo Database Name
+*DISPLAY NAME (Отображаемое наименование):*:: Mongo Database Name (Имя базы данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the database to use
+*DESCRIPTION (Описание):*:: The name of the database to use (Имя базы данных для использования)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .Gridfs-Bucket-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Bucket Name
+*DISPLAY NAME (Отображаемое наименование):*:: Bucket Name (Имя бакета)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The GridFS bucket where the files will be stored. If left blank, it will use the default value 'fs' that the MongoDB client driver uses.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .*Gridfs-File-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: File Name
+*DISPLAY NAME (Отображаемое наименование):*:: Имя файла в бакете, который является целью этого процессора. Имена файлов в GridFS не включают информацию о пути, так как GridFS не сортирует файлы в папки внутри бакета.
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the file in the bucket that is the target of this processor. GridFS file names do not include path information because GridFS does not sort files into folders within a bucket.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ REQUIRED (Обязательно)
 .Putgridfs-Properties-Prefix
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: File Properties Prefix
+*DISPLAY NAME (Отображаемое наименование):*:: File Properties Prefix (Файловые свойства префикс)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Attributes that have this prefix will be added to the file stored in GridFS as metadata.
+*DESCRIPTION (Описание):*:: Атрибуты, которые имеют этот префикс, будут добавлены в файл, хранящийся в GridFS, как метаданные.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,27 +105,27 @@ REQUIRED (Обязательно)
 .*Putgridfs-Enforce-Uniqueness*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Enforce Uniqueness
+*DISPLAY NAME (Отображаемое наименование):*:: Enforce Uniqueness (Принудительное единство)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When enabled, this option will ensure that uniqueness is enforced on the bucket. It will do so by creating a MongoDB index that matches your selection. It should ideally be configured once when the bucket is created for the first time because it could take a long time to build on an existing bucket wit a lot of data.
+*DESCRIPTION (Описание):*:: Когда этот параметр включен, он обеспечит выполнение уникальности в бакете. Для этого будет создан индекс MongoDB, который будет соответствовать вашему выбору. Его лучше настроить один раз при первом создании бакета, так как его построение может занять много времени на существующем бакете с большим объемом данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* None: No uniqueness will be enforced. 
+* None (Нет): Не будет обеспечиваться уникальность. 
 
-* Both: Both the filename and hash must be unique. 
+* Both (Оба): Имена файлов, и хэши должны быть уникальными. 
 
-* Name: Only the filename must be unique. 
+* Name (Имя): Должно быть уникальным только имя файла. 
 
-* Hash: Only the file hash must be unique. 
+* Hash (Хэш): Должен быть уникальным только хэш-код файла. 
 
 
 [horizontal]
@@ -134,14 +134,14 @@ REQUIRED (Обязательно)
 .Putgridfs-Hash-Attribute
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hash Attribute
+*DISPLAY NAME (Отображаемое наименование):*:: Hash Attribute (Хэш атрибут)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If uniquness enforcement is enabled and the file hash is part of the constraint, this must be set to an attribute that exists on all incoming flowfiles.
+*DESCRIPTION (Описание):*:: Если применение уникальности включено и хэш файла является частью ограничения, это должно быть установлено на атрибут, существующий на всех входящих потоках.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -151,14 +151,14 @@ REQUIRED (Обязательно)
 .*Putgridfs-Chunk-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Chunk Size
+*DISPLAY NAME (Отображаемое наименование):*:: Chunk Size (Размер куска)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Controls the maximum size of each chunk of a file uploaded into GridFS.
+*DESCRIPTION (Описание):*:: Контролирует максимальный размер каждого куска файла, загруженного в GridFS.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -182,13 +182,13 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`duplicate`
-|Flowfiles that fail the duplicate check are sent to this relationship.
+|Поток файлов, которые не проходят проверку на дубликаты, отправляются в эту связь.
 
 |`success`
-|When the operation succeeds, the flowfile is sent to this relationship.
+|При успешной операции поток файлов отправляется в эту связь.
 
 |`failure`
-|When there is a failure processing the flowfile, it goes to this relationship.
+|В случае ошибки при обработке потока файлов он перенаправляется в эту связь.
 
 |===
 

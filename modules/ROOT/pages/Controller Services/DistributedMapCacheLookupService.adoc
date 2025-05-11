@@ -1,13 +1,13 @@
 = DistributedMapCacheLookupService 2.2.0
 
-Allows to choose a distributed map cache client to retrieve the value associated to a key. The coordinates that are passed to the lookup must contain the key 'key'.
+Позволяет выбрать распределенный кэш-клиент карты для получения значения, связанного с ключом. Координаты, передаваемые в поиск, должны содержать ключ 'ключ'.
 
 [horizontal]
 *Tags* (Ключевые слова):
-cache, distributed, enrich, key, lookup, map, value
+кэш, распределенный, улучшение, ключ, поиск, карта, значение
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ cache, distributed, enrich, key, lookup, map, value
 .*Distributed-Map-Cache-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Distributed Cache Service
+*DISPLAY NAME (Отображаемое наименование):*:: Distributed Cache Service (Распределенный кэш сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Controller Service that is used to get the cached values.
+*DESCRIPTION (Описание):*:: The Controller Service that is used to get the cached values. (Сервис контроллера, используемый для получения кэшированных значений.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,31 +37,31 @@ cache, distributed, enrich, key, lookup, map, value
 .*Character-Encoding*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Encoding
+*DISPLAY NAME (Отображаемое наименование):*:: Character Encoding (Кодировка символов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies a character encoding to use.
+*DESCRIPTION (Описание):*:: Указывает кодировку символов для использования.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* ISO-8859-1
+* ISO-8859-1 (ISO-8859-1)
 
-* UTF-8
+* UTF-8 (UTF-8)
 
-* UTF-16
+* UTF-16 (UTF-16)
 
-* UTF-16LE
+* UTF-16LE (UTF-16LE)
 
-* UTF-16BE
+* UTF-16BE (UTF-16BE)
 
-* US-ASCII
+* US-ASCII (US-ASCII)
 
 
 [horizontal]
@@ -80,6 +80,17 @@ cache, distributed, enrich, key, lookup, map, value
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|The App ID field from the AMQP Message
+
+|===
 
 
 

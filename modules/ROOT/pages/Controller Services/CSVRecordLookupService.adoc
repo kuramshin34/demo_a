@@ -1,13 +1,13 @@
 = CSVRecordLookupService 2.2.0
 
-A reloadable CSV file-based lookup service. When the lookup key is found in the CSV file, the columns are returned as a Record. All returned fields will be strings. The first line of the csv file is considered as header.
+Перезагружаемый CSV-файловый сервис поиска. Когда ключ поиска найден в CSV-файле, возвращаются столбцы как запись. Все возвращенные поля будут строками. Первая строка CSV-файла считается заголовком.
 
 [horizontal]
 *Tags* (Ключевые слова):
-cache, csv, enrich, join, key, lookup, record, reloadable, value
+кэш, csv, улучшение, объединение, ключ, поиск, запись, перезагружаемый, значение
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ cache, csv, enrich, join, key, lookup, record, reloadable, value
 .*Csv-File*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: CSV File
+*DISPLAY NAME (Отображаемое наименование):*:: CSV File (Файл CSV)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Path to a CSV File in which the key value pairs can be looked up.
+*DESCRIPTION (Описание):*:: Путь к файлу CSV, в котором можно найти пары ключ-значение.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,37 +37,37 @@ cache, csv, enrich, join, key, lookup, record, reloadable, value
 .*Csv Format*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: CSV Format
+*DISPLAY NAME (Отображаемое наименование):*:: CSV Format (Формат)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies which "format" the CSV data is in, or specifies if custom formatting should be used.
+*DESCRIPTION (Описание):*:: Указывает, какой "формат" данных CSV используется или указывает, должно ли использоваться пользовательское форматирование.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Custom Format: The format of the CSV is configured by using the properties of this Controller Service, such as Value Separator 
+* Custom Format (Пользовательский формат): Формат CSV настроен с использованием свойств этого сервиса контроллера, таких как разделитель значений 
 
-* RFC 4180: CSV data follows the RFC 4180 Specification defined at https://tools.ietf.org/html/rfc4180 
+* RFC 4180 (Спецификация RFC 4180): Данные CSV следуют спецификации RFC 4180, определенной по адресу https://tools.ietf.org/html/rfc4180 
 
-* Microsoft Excel: CSV data follows the format used by Microsoft Excel 
+* Microsoft Excel (Майкрософт Excel): Данные CSV следуют формату, используемому Microsoft Excel 
 
-* Tab-Delimited: CSV data is Tab-Delimited instead of Comma Delimited 
+* Tab-Delimited (Табуляция Разделитель): CSV данные являются табулированными вместо запятых 
 
-* MySQL Format: CSV data follows the format used by MySQL 
+* MySQL Format (Формат MySQL): Данные CSV следуют формату, используемому MySQL 
 
-* Informix Unload: The format used by Informix when issuing the UNLOAD TO file_name command 
+* Informix Unload (Информисс Унлоад): Формат, используемый Информиссом при выполнении команды UNLOAD TO file_name 
 
-* Informix Unload Escape Disabled: The format used by Informix when issuing the UNLOAD TO file_name command with escaping disabled 
+* Informix Unload Escape Disabled (Информисс Унлоад Отключен): Формат, используемый Информиссом при выполнении команды UNLOAD TO file_name с отключением экранирования 
 
-* Default Format: Same as custom format. Available for compatibility reasons. 
+* Default Format (Стандартный формат): То же, что и пользовательский формат. Доступно по соображениям совместимости. 
 
-* RFC4180: Same as RFC 4180. Available for compatibility reasons. 
+* RFC4180 (Спецификация RFC 4180): То же, что и спецификация RFC 4180. Доступно по соображениям совместимости. 
 
 
 [horizontal]
@@ -76,14 +76,14 @@ cache, csv, enrich, join, key, lookup, record, reloadable, value
 .*Character Set*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Символьный набор)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Character Encoding that is used to decode the CSV file.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -93,14 +93,14 @@ cache, csv, enrich, join, key, lookup, record, reloadable, value
 .*Lookup-Key-Column*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Lookup Key Column
+*DISPLAY NAME (Отображаемое наименование):*:: Lookup Key Column (Колонка ключа для поиска)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The field in the CSV file that will serve as the lookup key. This is the field that will be matched against the property specified in the lookup processor.
+*DESCRIPTION (Описание):*:: Поле в CSV файле, которое будет использоваться в качестве ключа поиска. Это поле будет сопоставляться с указанным свойством в процессоре поиска.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -110,14 +110,14 @@ cache, csv, enrich, join, key, lookup, record, reloadable, value
 .*Ignore-Duplicates*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Ignore Duplicates
+*DISPLAY NAME (Отображаемое наименование):*:: Ignore Duplicates (Игнорировать дубликаты)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Ignore duplicate keys for records in the CSV file.
+*DESCRIPTION (Описание):*:: Игнорировать дубликаты ключей для записей в CSV файле.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -135,14 +135,14 @@ cache, csv, enrich, join, key, lookup, record, reloadable, value
 .*Value Separator*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Value Separator
+*DISPLAY NAME (Отображаемое наименование):*:: Value Separator (Значение-разделитель)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The character that is used to separate values/fields in a CSV Record. If the property has been specified via Expression Language but the expression gets evaluated to an invalid Value Separator at runtime, then it will be skipped and the default Value Separator will be used.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -152,14 +152,14 @@ cache, csv, enrich, join, key, lookup, record, reloadable, value
 .*Quote Character*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Quote Character
+*DISPLAY NAME (Отображаемое наименование):*:: Quote Character (Символ кавычек)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The character that is used to quote values so that escape characters do not have to be used. If the property has been specified via Expression Language but the expression gets evaluated to an invalid Quote Character at runtime, then it will be skipped and the default Quote Character will be used.
+*DESCRIPTION (Описание):*:: Символ, используемый для цитирования значений таким образом, чтобы escape-символы не приходилось использовать. Если свойство было указано через язык выражений, но при оценке выражения во время выполнения получается недопустимый символ кавычек, то оно будет пропущено, и будет использован символ кавычек по умолчанию.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -169,27 +169,27 @@ cache, csv, enrich, join, key, lookup, record, reloadable, value
 .*Quote Mode*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Quote Mode
+*DISPLAY NAME (Отображаемое наименование):*:: Quote Mode (Режим цитирования)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how fields should be quoted when they are written
+*DESCRIPTION (Описание):*:: Указывает, как поля должны быть заключены при их записи
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Quote All Values: All values will be quoted using the configured quote character. 
+* Quote All Values (Цитировать все значения): Все значения будут заключены в кавычки с использованием настроенного символа кавычек. 
 
-* Quote Minimal: Values will be quoted only if they are contain special characters such as newline characters or field separators. 
+* Quote Minimal (Минимальное цитирование): Значения будут заключены в кавычки только если они содержат специальные символы, такие как символы новой строки или разделители полей. 
 
-* Quote Non-Numeric Values: Values will be quoted unless the value is a number. 
+* Quote Non-Numeric Values (Цитировать нечисловые значения): Значения будут заключены в кавычки, если значение не является числом. 
 
-* Do Not Quote Values: Values will not be quoted. Instead, all special characters will be escaped using the configured escape character. 
+* Do Not Quote Values (Не цитировать значения): Значения не будут заключены в кавычки. Вместо этого все специальные символы будут экранированы с использованием настроенного escape-символа. 
 
 
 [horizontal]
@@ -198,14 +198,14 @@ cache, csv, enrich, join, key, lookup, record, reloadable, value
 .Comment Marker
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Comment Marker
+*DISPLAY NAME (Отображаемое наименование):*:: Comment Marker (Комментарий)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The character that is used to denote the start of a comment. Any line that begins with this comment will be ignored.
+*DESCRIPTION (Описание):*:: Символ, используемый для обозначения начала комментария. Любая строка, начинающаяся с этого символа, будет игнорироваться.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -215,14 +215,14 @@ cache, csv, enrich, join, key, lookup, record, reloadable, value
 .*Escape Character*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Escape Character
+*DISPLAY NAME (Отображаемое наименование):*:: Escape Character (Экранирующий символ)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The character that is used to escape characters that would otherwise have a specific meaning to the CSV Parser. If the property has been specified via Expression Language but the expression gets evaluated to an invalid Escape Character at runtime, then it will be skipped and the default Escape Character will be used. Setting it to an empty string means no escape character should be used.
+*DESCRIPTION (Описание):*:: Символ, используемый для экранирования символов, которые в противном случае имели бы особое значение у CSV-парсера. Если свойство задается с помощью Expression Language, но при оценке выражения возникает недопустимый экранирующий символ, то оно будет пропущено, и будет использоваться значение по умолчанию. Установка его в пустую строку означает, что не должен использоваться ни один экранирующий символ.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -232,23 +232,23 @@ cache, csv, enrich, join, key, lookup, record, reloadable, value
 .*Trim Fields*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Trim Fields
+*DISPLAY NAME (Отображаемое наименование):*:: Trim Fields (Удаление пробелов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Whether or not white space should be removed from the beginning and end of fields
+*DESCRIPTION (Описание):*:: Определяет, должны ли быть удалены начальные и конечные пробелы из полей
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (Истина)
 
-* false
+* false (Ложь)
 
 
 [horizontal]
@@ -269,7 +269,7 @@ cache, csv, enrich, join, key, lookup, record, reloadable, value
 |Требуемые права |Объяснение
 
 |
-|Provides operator the ability to read from any file that NiFi has access to.
+|Предоставляет возможность оператору читать из любого файла, к которому у NiFi есть доступ.
 
 |===
 
@@ -278,6 +278,17 @@ cache, csv, enrich, join, key, lookup, record, reloadable, value
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

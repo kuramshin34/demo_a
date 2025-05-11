@@ -1,13 +1,13 @@
 = CryptographicHashContent 2.2.0
 
-Calculates a cryptographic hash value for the flowfile content using the given algorithm and writes it to an output attribute. Please refer to https://csrc.nist.gov/Projects/Hash-Functions/NIST-Policy-on-Hash-Functions for help to decide which algorithm to use.
+Вычисляет криптографическое значение хеша для содержимого flowfile, используя указанный алгоритм и записывает его в выходной атрибут. Пожалуйста, обратитесь к https://csrc.nist.gov/Projects/Hash-Functions/NIST-Policy-on-Hash-Functions для помощи в выборе подходящего алгоритма.
 
 [horizontal]
 *Tags* (Ключевые слова):
 blake2, content, cryptography, hash, md5, sha
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,23 +20,23 @@ REQUIRED (Обязательно)
 .*Fail_When_Empty*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Fail if the content is empty
+*DISPLAY NAME (Отображаемое наименование):*:: Fail if the content is empty (Прекратить выполнение, если содержимое пустое)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Route to failure if the content is empty. While hashing an empty value is valid, some flows may want to detect empty input.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (да)
 
-* false
+* false (нет)
 
 
 [horizontal]
@@ -45,53 +45,53 @@ REQUIRED (Обязательно)
 .*Hash_Algorithm*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hash Algorithm
+*DISPLAY NAME (Отображаемое наименование):*:: Hash Algorithm (Хэш-алгоритм)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The hash algorithm to use. Note that not all of the algorithms available are recommended for use (some are provided for legacy compatibility). There are many things to consider when picking an algorithm; it is recommended to use the most secure algorithm possible.
+*DESCRIPTION (Описание):*:: Алгоритм хеширования для использования. Следует отметить, что не все доступные алгоритмы рекомендуются для использования (некоторые предоставляются в целях совместимости с устаревшими системами). При выборе алгоритма следует учитывать много факторов; рекомендуется использовать самый безопасный возможный алгоритм.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* MD2: MD2 (16 byte output) [WARNING -- Cryptographically broken] Cryptographically broken due to collisions 
+* MD2 (16 byte output) [WARNING -- Cryptographically broken]: MD2 (16 байт вывода) [ВНИМАНИЕ - Криптографически сломан] Криптографически сломан из-за коллизий 
 
-* MD5: MD5 (16 byte output) [WARNING -- Cryptographically broken] Cryptographically broken due to collisions 
+* MD5 (16 byte output) [WARNING -- Cryptographically broken]: MD5 (16 байт вывода) [ВНИМАНИЕ - Криптографически сломан] Криптографически сломан из-за коллизий 
 
-* SHA-1: SHA-1 (20 byte output) [WARNING -- Cryptographically broken] Cryptographically broken due to collisions 
+* SHA-1 (20 byte output) [WARNING -- Cryptographically broken]: SHA-1 (20 байт вывода) [ВНИМАНИЕ - Криптографически сломан] Криптографически сломан из-за коллизий 
 
-* SHA-224: SHA-224 (28 byte output) SHA-2 family 
+* SHA-224 (28 byte output) SHA-2 family: SHA-224 (28 байт вывода) Семейство SHA-2 
 
-* SHA-256: SHA-256 (32 byte output) SHA-2 family 
+* SHA-256 (32 byte output) SHA-2 family: SHA-256 (32 байта вывода) Семейство SHA-2 
 
-* SHA-384: SHA-384 (48 byte output) SHA-2 family 
+* SHA-384 (48 byte output) SHA-2 family: SHA-384 (48 байт вывода) Семейство SHA-2 
 
-* SHA-512: SHA-512 (64 byte output) SHA-2 family 
+* SHA-512 (64 byte output) SHA-2 family: SHA-512 (64 байта вывода) Семейство SHA-2 
 
-* SHA-512/224: SHA-512/224 (28 byte output) SHA-2 using SHA-512 with truncated output 
+* SHA-512/224 (28 byte output) SHA-2 using SHA-512 with truncated output: SHA-512/224 (28 байт вывода) Семейство SHA-2 с усеченным выводом, используя SHA-512 
 
-* SHA-512/256: SHA-512/256 (32 byte output) SHA-2 using SHA-512 with truncated output 
+* SHA-512/256 (32 byte output) SHA-2 using SHA-512 with truncated output: SHA-512/256 (32 байта вывода) Семейство SHA-2 с усеченным выводом, используя SHA-512 
 
-* SHA3-224: SHA3-224 (28 byte output) Keccak-based SHA3 family 
+* SHA3-224 (28 byte output) Keccak-based SHA3 family: SHA3-224 (28 байт вывода) Семья SHA3 на основе Keccak 
 
-* SHA3-256: SHA3-256 (32 byte output) Keccak-based SHA3 family 
+* SHA3-256 (32 byte output) Keccak-based SHA3 family: SHA3-256 (32 байта вывода) Семья SHA3 на основе Keccak 
 
-* SHA3-384: SHA3-384 (48 byte output) Keccak-based SHA3 family 
+* SHA3-384 (48 byte output) Keccak-based SHA3 family: SHA3-384 (48 байт вывода) Семья SHA3 на основе Keccak 
 
-* SHA3-512: SHA3-512 (64 byte output) Keccak-based SHA3 family 
+* SHA3-512 (64 byte output) Keccak-based SHA3 family: SHA3-512 (64 байта вывода) Семья SHA3 на основе Keccak 
 
-* BLAKE2-160: BLAKE2-160 (20 byte output) Also known as Blake2b 
+* BLAKE2-160 (20 byte output) Also known as Blake2b: BLAKE2-160 (20 байт вывода) Также известный как Blake2b 
 
-* BLAKE2-256: BLAKE2-256 (32 byte output) Also known as Blake2b 
+* BLAKE2-256 (32 byte output) Also known as Blake2b: BLAKE2-256 (32 байта вывода) Также известный как Blake2b 
 
-* BLAKE2-384: BLAKE2-384 (48 byte output) Also known as Blake2b 
+* BLAKE2-384 (48 byte output) Also known as Blake2b: BLAKE2-384 (48 байт вывода) Также известный как Blake2b 
 
-* BLAKE2-512: BLAKE2-512 (64 byte output) Also known as Blake2b 
+* BLAKE2-512 (64 byte output) Also known as Blake2b: BLAKE2-512 (64 байта вывода) Также известный как Blake2b 
 
 
 [horizontal]
@@ -114,10 +114,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`failure`
-|Used for flowfiles that have no content if the 'fail on empty' setting is enabled
+|Используется для flowfile, у которых нет содержимого, если включена настройка 'fail on empty'.
 
 |`success`
-|Used for flowfiles that have a hash value added
+|Используется для flowfile, у которых добавлено значение хеша.
 
 |===
 
@@ -132,7 +132,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`content_<algorithm>`
-|This processor adds an attribute whose value is the result of hashing the flowfile content. The name of this attribute is specified by the value of the algorithm, e.g. 'content_SHA-256'.
+|Этот процессор добавляет атрибут, значением которого является результат хеширования содержимого flowfile. Имя этого атрибута указывается значением алгоритма, например 'content_SHA-256'.
 
 |===
 

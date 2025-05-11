@@ -1,13 +1,13 @@
 = FetchDropbox 2.2.0
 
-Fetches files from Dropbox. Designed to be used in tandem with ListDropbox.
+Сбор файлов из Dropbox. Предназначен для использования в тандеме с ListDropbox.
 
 [horizontal]
 *Tags* (Ключевые слова):
 dropbox, fetch, storage
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Dropbox-Credential-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Dropbox Credential Service
+*DISPLAY NAME (Отображаемое наименование):*:: Dropbox Credential Service (Услуга получения учетных данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Controller Service used to obtain Dropbox credentials (App Key, App Secret, Access Token, Refresh Token). See controller service's Additional Details for more information.
+*DESCRIPTION (Описание):*:: Сервис контроллера, используемый для получения учетных данных Dropbox (App Key, App Secret, Access Token, Refresh Token). Подробнее см. в дополнительных деталях сервиса контроллера.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*File*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: File
+*DISPLAY NAME (Отображаемое наименование):*:: Файл
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Dropbox identifier or path of the Dropbox file to fetch. The 'File' should match the following regular expression pattern: /.*|id:.* . When ListDropbox is used for input, either '${dropbox.id}' (identifying files by Dropbox id) or '${path}/${filename}' (identifying files by path) can be used as 'File' value.
+*DESCRIPTION (Описание):*:: Идентификатор Dropbox или путь к файлу в Dropbox. Значение 'File' должно соответствовать следующему регулярному выражению: /.*|id:.* . При использовании ListDropbox в качестве входных данных могут быть использованы значения '${dropbox.id}' (идентификация файлов по идентификатору Dropbox) или '${path}/${filename}' (идентификация файлов по пути).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: HTTP + AuthN
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -85,10 +85,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|A FlowFile will be routed here for each successfully fetched File.
+|Поток файлов будет направлен сюда для каждого успешно загруженного файла.
 
 |`failure`
-|A FlowFile will be routed here for each File for which fetch was attempted but failed.
+|Поток файлов будет направлен сюда для каждого файла, для которого попытка загрузки не удалась.
 
 |===
 
@@ -103,25 +103,25 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`error.message`
-|The error message returned by Dropbox
+|Сообщение об ошибке, возвращенное Dropbox
 
 |`dropbox.id`
-|The Dropbox identifier of the file
+|Идентификатор Dropbox файла
 
 |`path`
-|The folder path where the file is located
+|Путь к папке, где расположен файл
 
 |`filename`
-|The name of the file
+|Название файла
 
 |`dropbox.size`
-|The size of the file
+|Размер файла
 
 |`dropbox.timestamp`
-|The server modified time of the file
+|Серверное время модификации файла
 
 |`dropbox.revision`
-|Revision of the file
+|Ревизия файла
 
 |===
 

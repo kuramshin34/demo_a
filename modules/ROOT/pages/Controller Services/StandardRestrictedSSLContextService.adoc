@@ -1,13 +1,13 @@
 = StandardRestrictedSSLContextService 2.2.0
 
-Restricted implementation of the SSLContextService. Provides the ability to configure keystore and/or truststore properties once and reuse that configuration throughout the application, but only allows a restricted set of TLS/SSL protocols to be chosen (no SSL protocols are supported). The set of protocols selectable will evolve over time as new protocols emerge and older protocols are deprecated. This service is recommended over StandardSSLContextService if a component doesn't expect to communicate with legacy systems since it is unlikely that legacy systems will support these protocols.
+Ограниченная реализация службы SSLContextService. Предоставляет возможность настроить свойства хранилища ключей и/или сертификатов один раз и повторно использовать эту конфигурацию в течение всего времени работы приложения, но позволяет выбирать только ограниченный набор протоколов TLS/SSL (нет поддержки SSL-протоколов). Набор протоколов, доступных для выбора, будет развиваться с течением времени по мере появления новых протоколов и ухода от старых. Эта служба рекомендуется для компонентов, которые не ожидают взаимодействия со старыми системами, так как крайне маловероятно, что эти системы будут поддерживать эти протоколы.
 
 [horizontal]
 *Tags* (Ключевые слова):
 certificate, jks, keystore, p12, pkcs, pkcs12, secure, ssl, tls, truststore
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ certificate, jks, keystore, p12, pkcs, pkcs12, secure, ssl, tls, truststore
 .Keystore Filename
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Keystore Filename
+*DISPLAY NAME (Отображаемое наименование):*:: Keystore Filename (Имя файла хранилища ключей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The fully-qualified filename of the Keystore
+*DESCRIPTION (Описание):*:: Полное имя файла хранилища ключей
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ certificate, jks, keystore, p12, pkcs, pkcs12, secure, ssl, tls, truststore
 .Keystore Password
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Keystore Password
+*DISPLAY NAME (Отображаемое наименование):*:: Keystore Password (Пароль для хранилища ключей)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The password for the Keystore
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -54,14 +54,14 @@ certificate, jks, keystore, p12, pkcs, pkcs12, secure, ssl, tls, truststore
 .Key-Password
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Key Password
+*DISPLAY NAME (Отображаемое наименование):*:: Key Password (Ключ пароль)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The password for the key. If this is not specified, but the Keystore Filename, Password, and Type are specified, then the Keystore Password will be assumed to be the same as the Key Password.
+*DESCRIPTION (Описание):*:: Пароль для ключа. Если это не указано, но указан файл хранилища ключей, пароль и тип, то будет предполагаться, что пароль хранилища ключей такой же, как и пароль ключа.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -71,25 +71,25 @@ certificate, jks, keystore, p12, pkcs, pkcs12, secure, ssl, tls, truststore
 .Keystore Type
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Keystore Type
+*DISPLAY NAME (Отображаемое наименование):*:: Тип Keystore (Keystore Type)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Type of the Keystore
+*DESCRIPTION (Описание):*:: Тип хранилища ключей
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* BCFKS
+* BCFKS (BCFKS)
 
-* PKCS12
+* PKCS12 (PKCS12)
 
-* JKS
+* JKS (JKS)
 
 
 [horizontal]
@@ -98,14 +98,14 @@ certificate, jks, keystore, p12, pkcs, pkcs12, secure, ssl, tls, truststore
 .Truststore Filename
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Truststore Filename
+*DISPLAY NAME (Отображаемое наименование):*:: Truststore Filename (Имя файла Truststore)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The fully-qualified filename of the Truststore
+*DESCRIPTION (Описание):*:: Полное имя файла Truststore
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -115,14 +115,14 @@ certificate, jks, keystore, p12, pkcs, pkcs12, secure, ssl, tls, truststore
 .Truststore Password
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Truststore Password
+*DISPLAY NAME (Отображаемое наименование):*:: Truststore Password (Пароль от Truststore)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The password for the Truststore
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -132,25 +132,25 @@ certificate, jks, keystore, p12, pkcs, pkcs12, secure, ssl, tls, truststore
 .Truststore Type
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Truststore Type
+*DISPLAY NAME (Отображаемое наименование):*:: Truststore Type (Тип Truststore)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Type of the Truststore
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* BCFKS
+* BCFKS (Binary Compatible File Key Store)
 
-* PKCS12
+* PKCS12 (Personal Information Exchange Syntax Standard)
 
-* JKS
+* JKS (Java Key Store)
 
 
 [horizontal]
@@ -159,25 +159,25 @@ certificate, jks, keystore, p12, pkcs, pkcs12, secure, ssl, tls, truststore
 .Ssl Protocol
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: TLS Protocol
+*DISPLAY NAME (Отображаемое наименование):*:: TLS Protocol (Протокол TLS)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: TLS Protocol Version for encrypted connections. Supported versions depend on the specific version of Java used.
+*DESCRIPTION (Описание):*:: TLS Protocol Version для зашифрованных соединений. Поддерживаемые версии зависят от конкретной версии Java, используемой в системе.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* TLS: Negotiate latest protocol version based on platform supported versions 
+* TLS (TLS): Переговорьте последнюю версию протокола на основе поддерживаемых платформой версий 
 
-* TLSv1.3: Require TLSv1.3 protocol version 
+* TLSv1.3 (TLSv1.3): Требуется версия протокола TLSv1.3 
 
-* TLSv1.2: Require TLSv1.2 protocol version 
+* TLSv1.2 (TLSv1.2): Требуется версия протокола TLSv1.2 
 
 
 [horizontal]
@@ -196,6 +196,17 @@ certificate, jks, keystore, p12, pkcs, pkcs12, secure, ssl, tls, truststore
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

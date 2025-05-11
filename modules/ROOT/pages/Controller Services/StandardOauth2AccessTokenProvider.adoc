@@ -1,13 +1,13 @@
 = StandardOauth2AccessTokenProvider 2.2.0
 
-Provides OAuth 2.0 access tokens that can be used as Bearer authorization header in HTTP requests. Can use either Resource Owner Password Credentials Grant or Client Credentials Grant. Client authentication can be done with either HTTP Basic authentication or in the request body.
+Предоставляет токены OAuth 2.0, которые можно использовать в качестве заголовка авторизации Bearer в HTTP-запросах. Может использовать либо Grant Resource Owner Password Credentials, либо Grant Client Credentials. Клиентская аутентификация может быть выполнена с использованием HTTP Basic Authentication или в теле запроса.
 
 [horizontal]
 *Tags* (Ключевые слова):
 access token, authorization, http, oauth2, provider
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ access token, authorization, http, oauth2, provider
 .*Authorization-Server-Url*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Authorization Server URL
+*DISPLAY NAME (Отображаемое наименование):*:: Authorization Server URL (URL сервера авторизации)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The URL of the authorization server that issues access tokens.
+*DESCRIPTION (Описание):*:: The URL of the authorization server that issues access tokens. (URL сервера, который выдаёт токены доступа.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ access token, authorization, http, oauth2, provider
 .*Client-Authentication-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Client Authentication Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Client Authentication Strategy (Стратегия аутентификации клиента)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Strategy for authenticating the client against the OAuth2 token provider service.
+*DESCRIPTION (Описание):*:: Strategy for authenticating the client against the OAuth2 token provider service. (Стратегия для аутентификации клиента по отношению к сервису поставщика токенов OAuth2.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -62,25 +62,25 @@ access token, authorization, http, oauth2, provider
 .*Grant-Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Grant Type
+*DISPLAY NAME (Отображаемое наименование):*:: Grant Type (Тип предоставления)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The OAuth2 Grant Type to be used when acquiring an access token.
+*DESCRIPTION (Описание):*:: OAuth2 Тип предоставления прав при получении токена доступа.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* User Password: Resource Owner Password Credentials Grant. Used to access resources available to users. Requires username and password and usually Client ID and Client Secret. 
+* User Password (Пользовательский пароль): Ресурсный владелец Парольные учетные данные. Используется для доступа к ресурсам, доступным пользователям. Требует имени пользователя и пароля, а также обычно Client ID и Client Secret. 
 
-* Client Credentials: Client Credentials Grant. Used to access resources available to clients. Requires Client ID and Client Secret. 
+* Client Credentials (Клиентские учетные данные): Клиентские учетные данные. Используется для доступа к ресурсам, доступным клиентам. Требует Client ID и Client Secret. 
 
-* Refresh Token: Refresh Token Grant. Used to get fresh access tokens based on a previously acquired refresh token. Requires Client ID and Client Secret (apart from Refresh Token). 
+* Refresh Token (Обновление токена): Обновление токена. Используется для получения свежих токенов доступа на основе ранее полученного refresh token. Требует Client ID и Client Secret (кроме Refresh Token). 
 
 
 [horizontal]
@@ -89,14 +89,14 @@ access token, authorization, http, oauth2, provider
 .*Service-User-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Username
+*DISPLAY NAME (Отображаемое наименование):*:: Username (Имя пользователя на сервисе)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Username on the service that is being accessed.
+*DESCRIPTION (Описание):*:: Имя пользователя на сервисе, к которому осуществляется доступ.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -106,14 +106,14 @@ access token, authorization, http, oauth2, provider
 .*Service-Password*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Password
+*DISPLAY NAME (Отображаемое наименование):*:: Password (Пароль)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Password for the username on the service that is being accessed.
+*DESCRIPTION (Описание):*:: Пароль для имени пользователя на сервисе, к которому осуществляется доступ.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -123,14 +123,14 @@ access token, authorization, http, oauth2, provider
 .*Refresh-Token*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Refresh Token
+*DISPLAY NAME (Отображаемое наименование):*:: Refresh Token (Обновление токена)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Refresh Token.
+*DESCRIPTION (Описание):*:: Токен обновления.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -140,14 +140,14 @@ access token, authorization, http, oauth2, provider
 .Client-Id
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Client ID
+*DISPLAY NAME (Отображаемое наименование):*:: Client ID (Клиент ID)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: 
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -157,14 +157,14 @@ access token, authorization, http, oauth2, provider
 .*Client-Secret*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Client secret
+*DISPLAY NAME (Отображаемое наименование):*:: Client secret (Секрет клиента)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: 
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -174,14 +174,14 @@ access token, authorization, http, oauth2, provider
 .Scope
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Scope
+*DISPLAY NAME (Отображаемое наименование):*:: Scope (Область)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Space-delimited, case-sensitive list of scopes of the access request (as per the OAuth 2.0 specification)
+*DESCRIPTION (Описание):*:: Пространственно-разделимый, чувствительный к регистру список областей доступа запроса (в соответствии с спецификацией OAuth 2.0)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -191,14 +191,14 @@ access token, authorization, http, oauth2, provider
 .Resource
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Resource
+*DISPLAY NAME (Отображаемое наименование):*:: Resource (Ресурс)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Resource URI for the access token request defined in RFC 8707 Section 2
+*DESCRIPTION (Описание):*:: Resource URI для запроса токена доступа, определенного в RFC 8707 Раздел 2
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -208,14 +208,14 @@ access token, authorization, http, oauth2, provider
 .Audience
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Audience
+*DISPLAY NAME (Отображаемое наименование):*:: Audience (Аудитория)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Audience for the access token request defined in RFC 8693 Section 2.1
+*DESCRIPTION (Описание):*:: Аудитория для запроса токена доступа, определенная в RFC 8693 Раздел 2.1
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -225,14 +225,14 @@ access token, authorization, http, oauth2, provider
 .*Refresh-Window*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Refresh Window
+*DISPLAY NAME (Отображаемое наименование):*:: Refresh Window (Перезагрузить окно)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The service will attempt to refresh tokens expiring within the refresh window, subtracting the configured duration from the token expiration.
+*DESCRIPTION (Описание):*:: Сервис попытается обновить токены, которые истекают в течение перезагрузочного окна, вычитая из срока действия токена настроенную продолжительность.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -242,14 +242,14 @@ access token, authorization, http, oauth2, provider
 .Ssl-Context-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (Сервис контекста SSL)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: 
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -259,14 +259,14 @@ access token, authorization, http, oauth2, provider
 .*Http Protocols*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: HTTP Protocols
+*DISPLAY NAME (Отображаемое наименование):*:: HTTP Протоколы
 
 [horizontal]
-*DESCRIPTION (Описание):*:: HTTP Protocols supported for Application Layer Protocol Negotiation with TLS
+*DESCRIPTION (Описание):*:: Поддерживаемые HTTP протоколы для применения на уровне Application Layer Protocol Negotiation с TLS
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -275,7 +275,7 @@ access token, authorization, http, oauth2, provider
 
 * http/1.1: HTTP/1.1 
 
-* h2 http/1.1: HTTP/2 and HTTP/1.1 negotiated based on requested protocols 
+* h2 http/1.1: HTTP/2 и HTTP/1.1, на основе запрошенных протоколов 
 
 * h2: HTTP/2 
 
@@ -286,14 +286,14 @@ access token, authorization, http, oauth2, provider
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: HTTP + AuthN
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -313,6 +313,17 @@ access token, authorization, http, oauth2, provider
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

@@ -1,13 +1,13 @@
 = ExecuteSQLRecord 2.2.0
 
-Executes provided SQL select query. Query result will be converted to the format specified by a Record Writer. Streaming is used so arbitrarily large result sets are supported. This processor can be scheduled to run on a timer, or cron expression, using the standard scheduling methods, or it can be triggered by an incoming FlowFile. If it is triggered by an incoming FlowFile, then attributes of that FlowFile will be available when evaluating the select query, and the query may use the ? to escape parameters. In this case, the parameters to use must exist as FlowFile attributes with the naming convention sql.args.N.type and sql.args.N.value, where N is a positive integer. The sql.args.N.type is expected to be a number indicating the JDBC Type. The content of the FlowFile is expected to be in UTF-8 format. FlowFile attribute 'executesql.row.count' indicates how many rows were selected.
+Выполняет предоставленный запрос SQL. Результат запроса будет преобразован в формат, указанный записывающим устройством. Используется потоковая передача, поэтому поддерживаются произвольно большие наборы результатов. Этот процессор может быть запланирован для выполнения по таймеру или по cron-выражению, используя стандартные методы планирования, или он может быть активирован входящим FlowFile. Если он активируется входящим FlowFile, то атрибуты этого FlowFile будут доступны при оценке запроса, и запрос может использовать ? для экранирования параметров. В этом случае параметры, которые нужно использовать, должны существовать в атрибутах FlowFile с именами sql.args.N.type и sql.args.N.value, где N — положительное целое число. Ожидается, что содержимое FlowFile будет в формате UTF-8. Атрибут потока файлов 'executesql.row.count' указывает, сколько строк было выбрано.
 
 [horizontal]
 *Tags* (Ключевые слова):
 database, jdbc, query, record, select, sql
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-ALLOWED (Обязательно)
+ALLOWED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  True (Да) 
@@ -20,14 +20,14 @@ ALLOWED (Обязательно)
 .*Database Connection Pooling Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Database Connection Pooling Service
+*DISPLAY NAME (Отображаемое наименование):*:: Database Connection Pooling Service (База данных Подключение Сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Controller Service that is used to obtain connection to database
+*DESCRIPTION (Описание):*:: Контроллер Сервис, используемый для получения подключения к базе данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ ALLOWED (Обязательно)
 .Sql-Pre-Query
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SQL Pre-Query
+*DISPLAY NAME (Отображаемое наименование):*:: SQL Pre-Query (SQL Предварительный запрос)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A semicolon-delimited list of queries executed before the main SQL query is executed. For example, set session properties before main query. It's possible to include semicolons in the statements themselves by escaping them with a backslash ('\;'). Results/outputs from these queries will be suppressed if there are no errors.
+*DESCRIPTION (Описание):*:: Список запросов, выполняемых последовательно перед основным SQL-запросом. Например, установка свойств сессии до основного запроса. Возможно включение точек с запятой в самих заявлениях, экранируя их обратным слэшем ('\;'). Результаты/выходы из этих запросов будут подавлены, если не возникнет ошибка.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ ALLOWED (Обязательно)
 .Sql Select Query
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SQL select query
+*DISPLAY NAME (Отображаемое наименование):*:: SQL select query (SQL запрос)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The SQL select query to execute. The query can be empty, a constant value, or built from attributes using Expression Language. If this property is specified, it will be used regardless of the content of incoming flowfiles. If this property is empty, the content of the incoming flow file is expected to contain a valid SQL select query, to be issued by the processor to the database. Note that Expression Language is not evaluated for flow file contents.
+*DESCRIPTION (Описание):*:: SQL запрос, который необходимо выполнить. Запрос может быть пустым, константным значением или составляться из атрибутов с использованием Expression Language. Если это свойство указано, оно будет использоваться независимо от содержимого входящего потока данных. Если это свойство пустое, ожидается, что содержимое входящего потока данных содержит действительный SQL запрос, который будет выполнен процессором к базе данных. Обратите внимание, что Expression Language не оценивается для содержимого потока данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ ALLOWED (Обязательно)
 .Sql-Post-Query
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SQL Post-Query
+*DISPLAY NAME (Отображаемое наименование):*:: SQL Post-Query (SQL После-Запрос)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A semicolon-delimited list of queries executed after the main SQL query is executed. Example like setting session properties after main query. It's possible to include semicolons in the statements themselves by escaping them with a backslash ('\;'). Results/outputs from these queries will be suppressed if there are no errors.
+*DESCRIPTION (Описание):*:: Разделимый точкой с запятой список запросов, выполняемых после основного SQL-запроса. Пример: настройка свойств сессии после основного запроса. Возможно включение точек с запятой в самих заявлениях, экранируя их обратным слэшем ('\;'). Результаты/выходы из этих запросов будут подавлены, если нет ошибок.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ ALLOWED (Обязательно)
 .*Max Wait Time*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Wait Time
+*DISPLAY NAME (Отображаемое наименование):*:: Max Wait Time (Максимальное время ожидания для выполнения SQL-запроса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum amount of time allowed for a running SQL select query  , zero means there is no limit. Max time less than 1 second will be equal to zero.
+*DESCRIPTION (Описание):*:: Максимальное количество времени, разрешенное для выполнения запроса SQL с данными, где ноль означает отсутствие ограничения. Максимальное время менее одной секунды будет равно нулю.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ ALLOWED (Обязательно)
 .*Esqlrecord-Record-Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing results to a FlowFile. The Record Writer may use Inherit Schema to emulate the inferred schema behavior, i.e. an explicit schema need not be defined in the writer, and will be supplied by the same logic used to infer the schema from the column types.
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для записи результатов в FlowFile. Записыватель записей может использовать Inherit Schema для эмуляции поведения вывода схемы, то есть не обязательно определять явную схему в записи, она будет предоставлена той же логикой, которая используется для вывода схемы из типов столбцов.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -122,14 +122,14 @@ ALLOWED (Обязательно)
 .*Esqlrecord-Normalize*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Normalize Table/Column Names
+*DISPLAY NAME (Отображаемое наименование):*:: Normalize Table/Column Names (Изменить имена столбцов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Whether to change characters in column names. For example, colons and periods will be changed to underscores.
+*DESCRIPTION (Описание):*:: Определяет, следует ли изменять символы в названиях столбцов. Например, двоеточия и точки будут заменены на подчеркивания.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -147,14 +147,14 @@ ALLOWED (Обязательно)
 .*Dbf-User-Logical-Types*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Use Avro Logical Types
+*DISPLAY NAME (Отображаемое наименование):*:: Use Avro Logical Types (Использовать логические типы Avro)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Whether to use Avro Logical Types for DECIMAL/NUMBER, DATE, TIME and TIMESTAMP columns. If disabled, written as string. If enabled, Logical types are used and written as its underlying type, specifically, DECIMAL/NUMBER as logical 'decimal': written as bytes with additional precision and scale meta data, DATE as logical 'date-millis': written as int denoting days since Unix epoch (1970-01-01), TIME as logical 'time-millis': written as int denoting milliseconds since Unix epoch, and TIMESTAMP as logical 'timestamp-millis': written as long denoting milliseconds since Unix epoch. If a reader of written Avro records also knows these logical types, then these values can be deserialized with more context depending on reader implementation.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -172,14 +172,14 @@ ALLOWED (Обязательно)
 .*Dbf-Default-Precision*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Default Decimal Precision
+*DISPLAY NAME (Отображаемое наименование):*:: Default Decimal Precision (По умолчанию Десятичная Точность)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When a DECIMAL/NUMBER value is written as a 'decimal' Avro logical type, a specific 'precision' denoting number of available digits is required. Generally, precision is defined by column data type definition or database engines default. However undefined precision (0) can be returned from some database engines. 'Default Decimal Precision' is used when writing those undefined precision numbers.
+*DESCRIPTION (Описание):*:: Когда значение DECIMAL/NUMBER записывается как логический тип Avro 'decimal', требуется особая точность, обозначающая количество доступных цифр. Обычно точность определяется определением типа данных столбца или значением по умолчанию движка базы данных. Однако неопределенная точность (0) может быть возвращена некоторыми движками баз данных. 'Default Decimal Precision' используется при записи таких чисел с неопределенной точностью.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -189,14 +189,14 @@ ALLOWED (Обязательно)
 .*Dbf-Default-Scale*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Default Decimal Scale
+*DISPLAY NAME (Отображаемое наименование):*:: Default Decimal Scale (По умолчанию Десятичный Масштаб)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When a DECIMAL/NUMBER value is written as a 'decimal' Avro logical type, a specific 'scale' denoting number of available decimal digits is required. Generally, scale is defined by column data type definition or database engines default. However when undefined precision (0) is returned, scale can also be uncertain with some database engines. 'Default Decimal Scale' is used when writing those undefined numbers. If a value has more decimals than specified scale, then the value will be rounded-up, e.g. 1.53 becomes 2 with scale 0, and 1.5 with scale 1.
+*DESCRIPTION (Описание):*:: Когда значение DECIMAL/NUMBER, записанное как 'decimal' логический тип Avro, требуется определённый 'scale', обозначающий количество доступных десятичных цифр. Обычно масштаб определяется определением типа данных столбца или стандартным значением движка базы данных. Однако, когда возвращается неопределённая точность (0), масштаб также может быть неопределённым с некоторыми движками баз данных. 'Default Decimal Scale' используется при записи таких неопределённых чисел. Если значение имеет больше десятичных цифр, чем указанный масштаб, то значение будет округлено вверх, например, 1.53 станет 2 с масштабом 0, а 1.5 с масштабом 1.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -206,14 +206,14 @@ ALLOWED (Обязательно)
 .*Esql-Max-Rows*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Rows Per Flow File
+*DISPLAY NAME (Отображаемое наименование):*:: Max Rows Per Flow File (Максимальное количество строк в файле потока)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The maximum number of result rows that will be included in a single FlowFile. This will allow you to break up very large result sets into multiple FlowFiles. If the value specified is zero, then all rows are returned in a single FlowFile.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -223,14 +223,14 @@ ALLOWED (Обязательно)
 .*Esql-Output-Batch-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Output Batch Size
+*DISPLAY NAME (Отображаемое наименование):*:: Output Batch Size (Размер пакета вывода)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The number of output FlowFiles to queue before committing the process session. When set to zero, the session will be committed when all result set rows have been processed and the output FlowFiles are ready for transfer to the downstream relationship. For large result sets, this can cause a large burst of FlowFiles to be transferred at the end of processor execution. If this property is set, then when the specified number of FlowFiles are ready for transfer, then the session will be committed, thus releasing the FlowFiles to the downstream relationship. NOTE: The fragment.count attribute will not be set on FlowFiles when this property is set.
+*DESCRIPTION (Описание):*:: Количество FlowFiles для очереди перед подтверждением процессной сессии. Когда установлено значение ноль, сессия будет подтверждена после обработки всех строк результирующего набора и готовых к передаче FlowFiles для передачи в следующую связь. Для больших результирующих набовов это может вызвать большой всплеск FlowFiles для передачи в конце выполнения процессора. Если это свойство установлено, то когда указанное количество FlowFiles готово к передаче, сессия будет подтверждено, тем самым освобождая FlowFiles для следующей связи. ПРИМЕЧАНИЕ: Атрибут fragment.count не будет установлен на FlowFiles, если это свойство установлено.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -240,14 +240,14 @@ ALLOWED (Обязательно)
 .*Esql-Fetch-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Fetch Size
+*DISPLAY NAME (Отображаемое наименование):*:: Fetch Size (Размер выборки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The number of result rows to be fetched from the result set at a time. This is a hint to the database driver and may not be honored and/or exact. If the value specified is zero, then the hint is ignored.
+*DESCRIPTION (Описание):*:: Количество строк результатов, которые должны быть извлечены из набора результатов за один раз. Это подсказка для драйвера базы данных и может не учитываться и/или точная реализация. Если указанное значение равно нулю, то подсказка игнорируется.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -257,14 +257,14 @@ ALLOWED (Обязательно)
 .*Esql-Auto-Commit*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Set Auto Commit
+*DISPLAY NAME (Отображаемое наименование):*:: Set Auto Commit (Установка автоматической фиксации)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Enables or disables the auto commit functionality of the DB connection. Default value is 'true'. The default value can be used with most of the JDBC drivers and this functionality doesn't have any impact in most of the cases since this processor is used to read data. However, for some JDBC drivers such as PostgreSQL driver, it is required to disable the auto committing functionality to limit the number of result rows fetching at a time. When auto commit is enabled, postgreSQL driver loads whole result set to memory at once. This could lead for a large amount of memory usage when executing queries which fetch large data sets. More Details of this behaviour in PostgreSQL driver can be found in https://jdbc.postgresql.org//documentation/head/query.html. 
+*DESCRIPTION (Описание):*:: Включает или отключает функцию автоматической фиксации соединения с базой данных. По умолчанию значение 'true'. Этот параметр можно использовать с большинством драйверов JDBC и в большинстве случаев не влияет на работу, так как процессор используется для чтения данных. Однако для некоторых драйверов, таких как драйвер PostgreSQL, требуется отключить функцию автоматической фиксации для ограничения количества строк результатов, загружаемых за один раз. При включении автоматической фиксации драйвер PostgreSQL загружает весь набор результатов в память сразу. Это может привести к большому использованию памяти при выполнении запросов, которые извлекают большие объемы данных. Более подробные сведения о данном поведении в драйвере PostgreSQL можно найти по ссылке https://jdbc.postgresql.org//documentation/head/query.html.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -288,17 +288,17 @@ ALLOWED (Обязательно)
 |Наименование |Описание |Значение |Ограничения языка выражений
 
 |`sql.args.N.type`
-|Incoming FlowFiles are expected to be parametrized SQL statements. The type of each Parameter is specified as an integer that represents the JDBC Type of the parameter. The following types are accepted: [LONGNVARCHAR: -16], [BIT: -7], [BOOLEAN: 16], [TINYINT: -6], [BIGINT: -5], [LONGVARBINARY: -4], [VARBINARY: -3], [BINARY: -2], [LONGVARCHAR: -1], [CHAR: 1], [NUMERIC: 2], [DECIMAL: 3], [INTEGER: 4], [SMALLINT: 5] [FLOAT: 6], [REAL: 7], [DOUBLE: 8], [VARCHAR: 12], [DATE: 91], [TIME: 92], [TIMESTAMP: 93], [VARCHAR: 12], [CLOB: 2005], [NCLOB: 2011]
+|Входящие потоки файлов ожидаются как параметризованные операторы SQL. Тип каждого параметра указывается как целое число, представляющее собой JDBC-тип параметра. Принимаются следующие типы: [LONGNVARCHAR: -16], [BIT: -7], [BOOLEAN: 16], [TINYINT: -6], [BIGINT: -5], [LONGVARBINARY: -4], [VARBINARY: -3], [BINARY: -2], [LONGVARCHAR: -1], [CHAR: 1], [NUMERIC: 2], [DECIMAL: 3], [INTEGER: 4], [SMALLINT: 5] [FLOAT: 6], [REAL: 7], [DOUBLE: 8], [VARCHAR: 12], [DATE: 91], [TIME: 92], [TIMESTAMP: 93], [VARCHAR: 12], [CLOB: 2005], [NCLOB: 2011]
 |`SQL type argument to be supplied`
 |
 
 |`sql.args.N.value`
-|Incoming FlowFiles are expected to be parametrized SQL statements. The value of the Parameters are specified as sql.args.1.value, sql.args.2.value, sql.args.3.value, and so on. The type of the sql.args.1.value Parameter is specified by the sql.args.1.type attribute.
+|Входящие потоки файлов ожидаются как параметризованные операторы SQL. Значения параметров указываются как sql.args.1.value, sql.args.2.value, sql.args.3.value и так далее. Тип параметра sql.args.1.value указывается атрибутом sql.args.1.type.
 |`Argument to be supplied`
 |
 
 |`sql.args.N.format`
-|This attribute is always optional, but default options may not always work for your data. Incoming FlowFiles are expected to be parametrized SQL statements. In some cases a format option needs to be specified, currently this is only applicable for binary data types, dates, times and timestamps. Binary Data Types (defaults to 'ascii') - ascii: each string character in your attribute value represents a single byte. This is the format provided by Avro Processors. base64: the string is a Base64 encoded string that can be decoded to bytes. hex: the string is hex encoded with all letters in upper case and no '0x' at the beginning. Dates/Times/Timestamps - Date, Time and Timestamp formats all support both custom formats or named format ('yyyy-MM-dd','ISO_OFFSET_DATE_TIME') as specified according to java.time.format.DateTimeFormatter. If not specified, a long value input is expected to be an unix epoch (milli seconds from 1970/1/1), or a string value in 'yyyy-MM-dd' format for Date, 'HH:mm:ss.SSS' for Time (some database engines e.g. Derby or MySQL do not support milliseconds and will truncate milliseconds), 'yyyy-MM-dd HH:mm:ss.SSS' for Timestamp is used.
+|Этот атрибут всегда является необязательным, но стандартные параметры могут не всегда подходить для ваших данных. Входящие потоки файлов ожидаются как параметризованные операторы SQL. В некоторых случаях может потребоваться указание формата, сейчас это касается только двоичных типов данных, дат, времени и отметок времени. Двоичные типы данных (по умолчанию 'ascii') - ascii: каждый символ строки в вашем атрибуте значения представляет собой один байт. Это формат, предоставляемый процессорами Avro. base64: строка является закодированной Base64-строкой, которая может быть декодирована в байты. hex: строка представляет собой шестнадцатеричный код с всеми буквами в верхнем регистре и без '0x' в начале. Форматы дат/времени/отметок времени - форматы дат, времени и отметок времени поддерживают как пользовательские форматы, так и именованные форматы ('yyyy-MM-dd','ISO_OFFSET_DATE_TIME') в соответствии с java.time.format.DateTimeFormatter. Если не указан, ожидается входное значение типа long как unix эпоха (миллисекунды от 1970/1/1), или строковое значение в формате 'yyyy-MM-dd' для даты, 'HH:mm:ss.SSS' для времени (некоторые движки баз данных, например Derby или MySQL, не поддерживают миллисекунды и усекут миллисекунды), 'yyyy-MM-dd HH:mm:ss.SSS' для отметки времени используется.
 |`SQL format argument to be supplied`
 |
 
@@ -319,10 +319,10 @@ ALLOWED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Successfully created FlowFile from SQL query result set.
+|Успешно создан FlowFile из набора результатов запроса SQL.
 
 |`failure`
-|SQL query execution failed. Incoming FlowFile will be penalized and routed to this relationship
+|Выполнение запроса SQL не удалось. Входящий FlowFile будет оштрафован и направлен в это отношение
 
 |===
 
@@ -335,13 +335,13 @@ ALLOWED (Обязательно)
 |Наименование |Описание
 
 |`sql.args.N.type`
-|Incoming FlowFiles are expected to be parametrized SQL statements. The type of each Parameter is specified as an integer that represents the JDBC Type of the parameter. The following types are accepted: [LONGNVARCHAR: -16], [BIT: -7], [BOOLEAN: 16], [TINYINT: -6], [BIGINT: -5], [LONGVARBINARY: -4], [VARBINARY: -3], [BINARY: -2], [LONGVARCHAR: -1], [CHAR: 1], [NUMERIC: 2], [DECIMAL: 3], [INTEGER: 4], [SMALLINT: 5] [FLOAT: 6], [REAL: 7], [DOUBLE: 8], [VARCHAR: 12], [DATE: 91], [TIME: 92], [TIMESTAMP: 93], [VARCHAR: 12], [CLOB: 2005], [NCLOB: 2011]
+|Входящие потоки файлов ожидаются как параметризованные операторы SQL. Тип каждого параметра указывается как целое число, представляющее собой JDBC-тип параметра. Принимаются следующие типы: [LONGNVARCHAR: -16], [BIT: -7], [BOOLEAN: 16], [TINYINT: -6], [BIGINT: -5], [LONGVARBINARY: -4], [VARBINARY: -3], [BINARY: -2], [LONGVARCHAR: -1], [CHAR: 1], [NUMERIC: 2], [DECIMAL: 3], [INTEGER: 4], [SMALLINT: 5] [FLOAT: 6], [REAL: 7], [DOUBLE: 8], [VARCHAR: 12], [DATE: 91], [TIME: 92], [TIMESTAMP: 93], [VARCHAR: 12], [CLOB: 2005], [NCLOB: 2011]
 
 |`sql.args.N.value`
-|Incoming FlowFiles are expected to be parametrized SQL statements. The value of the Parameters are specified as sql.args.1.value, sql.args.2.value, sql.args.3.value, and so on. The type of the sql.args.1.value Parameter is specified by the sql.args.1.type attribute.
+|Входящие потоки файлов ожидаются как параметризованные операторы SQL. Значения параметров указываются как sql.args.1.value, sql.args.2.value, sql.args.3.value и так далее. Тип параметра sql.args.1.value указывается атрибутом sql.args.1.type.
 
 |`sql.args.N.format`
-|This attribute is always optional, but default options may not always work for your data. Incoming FlowFiles are expected to be parametrized SQL statements. In some cases a format option needs to be specified, currently this is only applicable for binary data types, dates, times and timestamps. Binary Data Types (defaults to 'ascii') - ascii: each string character in your attribute value represents a single byte. This is the format provided by Avro Processors. base64: the string is a Base64 encoded string that can be decoded to bytes. hex: the string is hex encoded with all letters in upper case and no '0x' at the beginning. Dates/Times/Timestamps - Date, Time and Timestamp formats all support both custom formats or named format ('yyyy-MM-dd','ISO_OFFSET_DATE_TIME') as specified according to java.time.format.DateTimeFormatter. If not specified, a long value input is expected to be an unix epoch (milli seconds from 1970/1/1), or a string value in 'yyyy-MM-dd' format for Date, 'HH:mm:ss.SSS' for Time (some database engines e.g. Derby or MySQL do not support milliseconds and will truncate milliseconds), 'yyyy-MM-dd HH:mm:ss.SSS' for Timestamp is used.
+|Этот атрибут всегда является необязательным, но стандартные параметры могут не всегда подходить для ваших данных. Входящие потоки файлов ожидаются как параметризованные операторы SQL. В некоторых случаях может потребоваться указание формата, сейчас это касается только двоичных типов данных, дат, времени и отметок времени. Двоичные типы данных (по умолчанию 'ascii') - ascii: каждый символ строки в вашем атрибуте значения представляет собой один байт. Это формат, предоставляемый процессорами Avro. base64: строка является закодированной Base64-строкой, которая может быть декодирована в байты. hex: строка представляет собой шестнадцатеричный код с всеми буквами в верхнем регистре и без '0x' в начале. Форматы дат/времени/отметок времени - форматы дат, времени и отметок времени поддерживают как пользовательские форматы, так и именованные форматы ('yyyy-MM-dd','ISO_OFFSET_DATE_TIME') в соответствии с java.time.format.DateTimeFormatter. Если не указан, ожидается входное значение типа long как unix эпоха (миллисекунды от 1970/1/1), или строковое значение в формате 'yyyy-MM-dd' для даты, 'HH:mm:ss.SSS' для времени (некоторые движки баз данных, например Derby или MySQL, не поддерживают миллисекунды и усекут миллисекунды), 'yyyy-MM-dd HH:mm:ss.SSS' для отметки времени используется.
 
 |===
 
@@ -354,40 +354,40 @@ ALLOWED (Обязательно)
 |Наименование |Описание
 
 |`executesql.row.count`
-|Contains the number of rows returned in the select query
+|Содержит количество строк, возвращенных в запросе select
 
 |`executesql.query.duration`
-|Combined duration of the query execution time and fetch time in milliseconds
+|Общая продолжительность времени выполнения запроса и получения данных в миллисекундах
 
 |`executesql.query.executiontime`
-|Duration of the query execution time in milliseconds
+|Продолжительность времени выполнения запроса в миллисекундах
 
 |`executesql.query.fetchtime`
-|Duration of the result set fetch time in milliseconds
+|Продолжительность времени получения набора результатов в миллисекундах
 
 |`executesql.resultset.index`
-|Assuming multiple result sets are returned, the zero based index of this result set.
+|Если возвращается несколько наборов результатов, это индекс нулевой базы данных для этого набора.
 
 |`executesql.error.message`
-|If processing an incoming flow file causes an Exception, the Flow File is routed to failure and this attribute is set to the exception message.
+|Если обработка входящего потока файлов приводит к исключению, поток файлов направляется в отношение 'failure', а этому атрибуту задается сообщение об ошибке.
 
 |`fragment.identifier`
-|If 'Max Rows Per Flow File' is set then all FlowFiles from the same query result set will have the same value for the fragment.identifier attribute. This can then be used to correlate the results.
+|Если установлен 'Max Rows Per Flow File', все потоки файлов из одного и того же набора результатов будут иметь одинаковое значение атрибута fragment.identifier. Это можно использовать для корреляции результатов.
 
 |`fragment.count`
-|If 'Max Rows Per Flow File' is set then this is the total number of  FlowFiles produced by a single ResultSet. This can be used in conjunction with the fragment.identifier attribute in order to know how many FlowFiles belonged to the same incoming ResultSet. If Output Batch Size is set, then this attribute will not be populated.
+|Если установлен 'Max Rows Per Flow File', это общее количество потоков файлов, произведенных одним набором результатов. Это можно использовать в сочетании с атрибутом fragment.identifier для определения того, сколько потоков файлов принадлежало тому же входящему набору результатов. Если установлен параметр Output Batch Size, этот атрибут не будет заполнен.
 
 |`fragment.index`
-|If 'Max Rows Per Flow File' is set then the position of this FlowFile in the list of outgoing FlowFiles that were all derived from the same result set FlowFile. This can be used in conjunction with the fragment.identifier attribute to know which FlowFiles originated from the same query result set and in what order  FlowFiles were produced
+|Если установлен 'Max Rows Per Flow File', позиция этого потока файлов в списке исходящих потоков файлов, все из которых были получены из того же набора результатов потока файлов. Это можно использовать в сочетании с атрибутом fragment.identifier для определения порядка, в котором были произведены потоки файлов.
 
 |`input.flowfile.uuid`
-|If the processor has an incoming connection, outgoing FlowFiles will have this attribute set to the value of the input FlowFile's UUID. If there is no incoming connection, the attribute will not be added.
+|Если у процессора есть входящее соединение, исходящие потоки файлов будут иметь этот атрибут, установленный на значение UUID входного потока файлов. Если нет входящего соединения, атрибут не будет добавлен.
 
 |`mime.type`
-|Sets the mime.type attribute to the MIME Type specified by the Record Writer.
+|Устанавливает атрибут mime.type в указанный MIME-тип записывающим устройством.
 
 |`record.count`
-|The number of records output by the Record Writer.
+|Количество записей, выведенных записывающим устройством.
 
 |===
 

@@ -1,13 +1,13 @@
 = XMLFileLookupService 2.2.0
 
-A reloadable XML file-based lookup service. This service uses Apache Commons Configuration. Example XML configuration file and how to access specific configuration can be found at http://commons.apache.org/proper/commons-configuration/userguide/howto_hierarchical.html. External entity processing is disabled.
+Перезагружаемый XML-файловый сервис поиска. Этот сервис использует Apache Commons Configuration. Пример конфигурационного файла XML и способа доступа к конкретной конфигурации можно найти по адресу http://commons.apache.org/proper/commons-configuration/userguide/howto_hierarchical.html. Обработка внешних сущностей отключена.
 
 [horizontal]
 *Tags* (Ключевые слова):
-cache, enrich, join, key, lookup, reloadable, value, xml
+кэш, улучшение, объединение, ключ, поиск, перезагружаемый, значение, xml
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ cache, enrich, join, key, lookup, reloadable, value, xml
 .*Configuration-File*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Configuration File
+*DISPLAY NAME (Отображаемое наименование):*:: Configuration File (Конфигурационный файл)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A configuration file
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -49,7 +49,7 @@ cache, enrich, join, key, lookup, reloadable, value, xml
 |Требуемые права |Объяснение
 
 |
-|Provides operator the ability to read from any file that NiFi has access to.
+|Предоставляет оператору возможность читать из любого файла, к которому у NiFi есть доступ.
 
 |===
 
@@ -58,6 +58,17 @@ cache, enrich, join, key, lookup, reloadable, value, xml
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

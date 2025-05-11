@@ -1,13 +1,13 @@
 = ModifyBytes 2.2.0
 
-Discard byte range at the start and end or all content of a binary file.
+Отбрасывает диапазон байтов в начале и конце всего содержимого двоичного файла.
 
 [horizontal]
 *Tags* (Ключевые слова):
 binary, discard, keep
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Start Offset*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Start Offset
+*DISPLAY NAME (Отображаемое наименование):*:: Start Offset (Начальный сдвиг)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Number of bytes removed at the beginning of the file.
+*DESCRIPTION (Описание):*:: Количество байтов, удаленных в начале файла.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*End Offset*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: End Offset
+*DISPLAY NAME (Отображаемое наименование):*:: End Offset (Смещение конца)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Number of bytes removed at the end of the file.
+*DESCRIPTION (Описание):*:: Количество байтов, удаленных в конце файла.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Remove All Content*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Remove All Content
+*DISPLAY NAME (Отображаемое наименование):*:: Remove All Content (Удалить все содержимое)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Remove all content from the FlowFile superseding Start Offset and End Offset properties.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -93,13 +93,24 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Processed flowfiles.
+|Обработанные flowfiles.
 
 |===
 
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

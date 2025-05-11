@@ -1,13 +1,13 @@
 = MergeContent 2.2.0
 
-Merges a Group of FlowFiles together based on a user-defined strategy and packages them into a single FlowFile. It is recommended that the Processor be configured with only a single incoming connection, as Group of FlowFiles will not be created from FlowFiles in different connections. This processor updates the mime.type attribute as appropriate. NOTE: this processor should NOT be configured with Cron Driven for the Scheduling Strategy.
+Объединяет группу FlowFiles на основе пользовательской стратегии и помещает их в один FlowFile. Рекомендуется настроить процессор только с одним входящим соединением, так как группа FlowFiles не будет создаваться из FlowFiles в разных соединениях. Этот процессор обновляет атрибут mime.type по мере необходимости. ПРИМЕЧАНИЕ: этот процессор не следует настраивать с Cron Driven для стратегии планирования.
 
 [horizontal]
 *Tags* (Ключевые слова):
 archive, concatenation, content, correlation, flowfile-stream, flowfile-stream-v3, merge, stream, tar, zip
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,23 +20,23 @@ REQUIRED (Обязательно)
 .*Merge Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Merge Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Merge Strategy (Стратегия слияния)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the algorithm used to merge content. The 'Defragment' algorithm combines fragments that are associated by attributes back into a single cohesive FlowFile. The 'Bin-Packing Algorithm' generates a FlowFile populated by arbitrarily chosen FlowFiles
+*DESCRIPTION (Описание):*:: Указывает алгоритм, используемый для слияния содержимого. Алгоритм 'Defragment' объединяет фрагменты, ассоциированные по атрибутам, в один целостный FlowFile. Алгоритм 'Bin-Packing Algorithm' генерирует FlowFile, заполненный произвольно выбранными FlowFiles
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Bin-Packing Algorithm: Generates 'bins' of FlowFiles and fills each bin as full as possible. FlowFiles are placed into a bin based on their size and optionally their attributes (if the <Correlation Attribute> property is set) 
+* Bin-Packing Algorithm (Алгоритм упаковки контейнеров): Генерирует 'контейнеры' FlowFiles и заполняет каждый контейнер как можно полнее. FlowFiles располагаются в контейнере на основе их размера и, при необходимости, по атрибутам (если задано свойство <Корреляционный атрибут>) 
 
-* Defragment: Combines fragments that are associated by attributes back into a single cohesive FlowFile. If using this strategy, all FlowFiles must have the attributes <fragment.identifier>, <fragment.count>, and <fragment.index>. All FlowFiles with the same value for "fragment.identifier" will be grouped together. All FlowFiles in this group must have the same value for the "fragment.count" attribute. All FlowFiles in this group must have a unique value for the "fragment.index" attribute between 0 and the value of the "fragment.count" attribute. 
+* Defragment (Дефрагментация): Объединяет фрагменты, ассоциированные по атрибутам, в один целостный FlowFile. Если используется эта стратегия, все FlowFiles должны иметь атрибуты <fragment.identifier>, <fragment.count> и <fragment.index>. Все FlowFiles с одинаковым значением "fragment.identifier" будут сгруппированы вместе. Во всех FlowFiles этой группы должно быть уникальное значение атрибута "fragment.index" между 0 и значением атрибута "fragment.count". 
 
 
 [horizontal]
@@ -45,33 +45,33 @@ REQUIRED (Обязательно)
 .*Merge Format*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Merge Format
+*DISPLAY NAME (Отображаемое наименование):*:: Merge Format (Формат слияния)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Determines the format that will be used to merge the content.
+*DESCRIPTION (Описание):*:: Определяет формат, который будет использоваться для слияния содержимого.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* TAR: A bin of FlowFiles will be combined into a single TAR file. The FlowFiles' <path> attribute will be used to create a directory in the TAR file if the <Keep Paths> property is set to true; otherwise, all FlowFiles will be added at the root of the TAR file. If a FlowFile has an attribute named <tar.permissions> that is 3 characters, each between 0-7, that attribute will be used as the TAR entry's 'mode'. 
+* TAR (TAR): Бин потоков FlowFiles будет объединен в один файл TAR. Атрибут <path> FlowFile будет использоваться для создания директории в файле TAR, если свойство <Keep Paths> установлено в true; в противном случае все FlowFiles будут добавлены в корневой каталог файла TAR. Если у FlowFile есть атрибут с именем <tar.permissions>, состоящий из 3 цифр от 0 до 7, этот атрибут будет использоваться в качестве режима записи TAR. 
 
-* ZIP: A bin of FlowFiles will be combined into a single ZIP file. The FlowFiles' <path> attribute will be used to create a directory in the ZIP file if the <Keep Paths> property is set to true; otherwise, all FlowFiles will be added at the root of the ZIP file. The <Compression Level> property indicates the ZIP compression to use. 
+* ZIP (ZIP): Бин потоков FlowFiles будет объединен в один файл ZIP. Атрибут <path> FlowFile будет использоваться для создания директории в файле ZIP, если свойство <Keep Paths> установлено в true; в противном случае все FlowFiles будут добавлены в корневой каталог файла ZIP. Свойство <Compression Level> указывает на используемый уровень сжатия ZIP. 
 
-* FlowFile Stream, v3: A bin of FlowFiles will be combined into a single Version 3 FlowFile Stream 
+* FlowFile Stream, v3 (Поток FlowFiles, версия 3): Бин потоков FlowFiles будет объединен в один поток версии 3 FlowFile. 
 
-* FlowFile Stream, v2: A bin of FlowFiles will be combined into a single Version 2 FlowFile Stream 
+* FlowFile Stream, v2 (Поток FlowFiles, версия 2): Бин потоков FlowFiles будет объединен в один поток версии 2 FlowFile. 
 
-* FlowFile Tar, v1: A bin of FlowFiles will be combined into a single Version 1 FlowFile Package 
+* FlowFile Tar, v1 (Пакет FlowFiles, версия 1): Бин потоков FlowFiles будет объединен в один пакет версии 1 FlowFile. 
 
-* Binary Concatenation: The contents of all FlowFiles will be concatenated together into a single FlowFile 
+* Binary Concatenation (Конкатенация бинарных данных): Содержимое всех FlowFiles будет объединено в один поток FlowFile. 
 
-* Avro: The Avro contents of all FlowFiles will be concatenated together into a single FlowFile 
+* Avro (Avro): Содержимое всех FlowFiles, соответствующее Avro, будет объединено в один поток FlowFile. 
 
 
 [horizontal]
@@ -80,23 +80,23 @@ REQUIRED (Обязательно)
 .*Attribute Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Attribute Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Attribute Strategy (Стратегия атрибутов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Determines which FlowFile attributes should be added to the bundle. If 'Keep All Unique Attributes' is selected, any attribute on any FlowFile that gets bundled will be kept unless its value conflicts with the value from another FlowFile. If 'Keep Only Common Attributes' is selected, only the attributes that exist on all FlowFiles in the bundle, with the same value, will be preserved.
+*DESCRIPTION (Описание):*:: Определяет, какие атрибуты FlowFile следует добавить в пакет. Если выбран параметр 'Keep All Unique Attributes', любые атрибуты на любом FlowFile, которые будут включены в пакет, будут сохранены, если их значение не конфликтует с другим значением. Если выбран параметр 'Keep Only Common Attributes', то будут сохраняться только те атрибуты, которые существуют на всех FlowFile в пакете, с одинаковым значением.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Keep Only Common Attributes: Any attribute that is not the same on all FlowFiles in a bin will be dropped. Those that are the same across all FlowFiles will be retained. 
+* Keep Only Common Attributes (Сохранять только общие атрибуты): Любой атрибут, который не одинаков на всех FlowFile в бине, будет удален. Те же самые атрибуты, существующие на всех FlowFile, будут сохранены. 
 
-* Keep All Unique Attributes: Any attribute that has the same value for all FlowFiles in a bin, or has no value for a FlowFile, will be kept. For example, if a bin consists of 3 FlowFiles and 2 of them have a value of 'hello' for the 'greeting' attribute and the third FlowFile has no 'greeting' attribute then the outbound FlowFile will get a 'greeting' attribute with the value 'hello'. 
+* Keep All Unique Attributes (Сохранять все уникальные атрибуты): Любой атрибут с одинаковым значением для всех FlowFile в бине, или без значения для определенного FlowFile, будет сохранен. Например, если пакет состоит из 3 FlowFile и 2 из них имеют значение 'hello' для атрибута 'greeting', а третий FlowFile не имеет атрибута 'greeting', то исходящий FlowFile получит атрибут 'greeting' со значением 'hello'. 
 
 
 [horizontal]
@@ -105,14 +105,14 @@ REQUIRED (Обязательно)
 .Correlation Attribute Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Correlation Attribute Name
+*DISPLAY NAME (Отображаемое наименование):*:: Correlation Attribute Name (Имя атрибута корреляции)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If specified, like FlowFiles will be binned together, where 'like FlowFiles' means FlowFiles that have the same value for this Attribute. If not specified, FlowFiles are bundled by the order in which they are pulled from the queue.
+*DESCRIPTION (Описание):*:: Если указано, похожие FlowFiles будут сгруппированы вместе, где 'похожие FlowFiles' означает FlowFiles, которые имеют одинаковое значение для этого атрибута. Если не указано, FlowFiles группируются по порядку их извлечения из очереди.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -122,27 +122,27 @@ REQUIRED (Обязательно)
 .*Mergecontent-Metadata-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Metadata Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Metadata Strategy (Стратегия метаданных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: For FlowFiles whose input format supports metadata (Avro, e.g.), this property determines which metadata should be added to the bundle. If 'Use First Metadata' is selected, the metadata keys/values from the first FlowFile to be bundled will be used. If 'Keep Only Common Metadata' is selected, only the metadata that exists on all FlowFiles in the bundle, with the same value, will be preserved. If 'Ignore Metadata' is selected, no metadata is transferred to the outgoing bundled FlowFile. If 'Do Not Merge Uncommon Metadata' is selected, any FlowFile whose metadata values do not match those of the first bundled FlowFile will not be merged.
+*DESCRIPTION (Описание):*:: Для FlowFiles, входной формат которых поддерживает метаданные (например, Avro), это свойство определяет, какие метаданные должны быть добавлены к пакету. Если выбран 'Использовать первое метаданное', будут использованы метаданные ключей/значений из первого FlowFile, который будет включен в пакет. Если выбран 'Оставить только общие метаданные', то сохранятся только те метаданные, которые существуют на всех FlowFiles в пакете с одинаковыми значениями. Если выбран 'Игнорировать метаданные', никакие метаданные не будут перенесены в исходящий пакет FlowFile. Если выбран 'Не объединять неподдерживаемые метаданные', то любые FlowFile, метаданные которых значения не совпадают с первым включенным в пакет, не будут объединены.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Use First Metadata: For any input format that supports metadata (Avro, e.g.), the metadata for the first FlowFile in the bin will be set on the output FlowFile. 
+* Использовать первое метаданное: Для любого входного формата, поддерживающего метаданные (например, Avro), метаданные для первого FlowFile в бине будут установлены на выходной FlowFile. 
 
-* Keep Only Common Metadata: For any input format that supports metadata (Avro, e.g.), any FlowFile whose metadata values match those of the first FlowFile, any additional metadata will be dropped but the FlowFile will be merged. Any FlowFile whose metadata values do not match those of the first FlowFile in the bin will not be merged. 
+* Оставить только общие метаданные: Для любого входного формата, поддерживающего метаданные (например, Avro), любые FlowFile, метаданные которых значения совпадают с первым FlowFile в бине, будут объединены. Любые FlowFile, метаданные которых значения не совпадают с первым FlowFile в бине, не будут объединены. 
 
-* Do Not Merge Uncommon Metadata: For any input format that supports metadata (Avro, e.g.), any FlowFile whose metadata values do not match those of the first FlowFile in the bin will not be merged. 
+* Не объединять неподдерживаемые метаданные: Для любого входного формата, поддерживающего метаданные (например, Avro), любые FlowFile, метаданные которых значения не совпадают с первым FlowFile в бине, не будут объединены. 
 
-* Ignore Metadata: Ignores (does not transfer, compare, etc.) any metadata from a FlowFile whose content supports embedded metadata. 
+* Игнорировать метаданные: Игнорирует (не переносит, не сравнивает и т.д.) любую метаданную из FlowFile, содержимое которого поддерживает встроенные метаданные. 
 
 
 [horizontal]
@@ -151,14 +151,14 @@ REQUIRED (Обязательно)
 .*Minimum Number Of Entries*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Minimum Number of Entries
+*DISPLAY NAME (Отображаемое наименование):*:: Minimum Number of Entries (Минимальное количество записей)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The minimum number of files to include in a bundle
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -168,14 +168,14 @@ REQUIRED (Обязательно)
 .*Maximum Number Of Entries*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Number of Entries
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Number of Entries (Максимальное количество записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum number of files to include in a bundle
+*DESCRIPTION (Описание):*:: The maximum number of files to include in a bundle (Максимальное количество файлов для включения в пакет)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -185,14 +185,14 @@ REQUIRED (Обязательно)
 .*Minimum Group Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Minimum Group Size
+*DISPLAY NAME (Отображаемое наименование):*:: Minimum Group Size (Минимальный размер группы)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The minimum size for the bundle
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -202,14 +202,14 @@ REQUIRED (Обязательно)
 .Maximum Group Size
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Group Size
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Group Size (Максимальный размер группы)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum size for the bundle. If not specified, there is no maximum.
+*DESCRIPTION (Описание):*:: Максимальный размер для пакета. Если не указан, то ограничений нет.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -219,19 +219,15 @@ REQUIRED (Обязательно)
 .Bin Termination Check
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Bin Termination Check
+*DISPLAY NAME (Отображаемое наименование):*:: Bin Termination Check (Проверка завершения бина)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies an Expression Language Expression that is to be evaluated against each FlowFile. If the result of the expression is 'true', the
-bin that the FlowFile corresponds to will be terminated, even if the bin has not met the minimum number of entries or minimum size.
-Note that if the FlowFile that triggers the termination of the bin is itself larger than the Maximum Bin Size, it will be placed into its
-own bin without triggering the termination of any other bin. When using this property, it is recommended to use Prioritizers in the flow's
-connections to ensure that the ordering is as desired.
-
+*DESCRIPTION (Описание):*:: Указывает выражение языка выражений, которое должно быть оценено для каждого FlowFile. Если результат выражения равен 'true', то бин, соответствующий FlowFile, будет завершен, даже если бин не достиг минимального количества записей или размера.
+Обратите внимание, что если FlowFile, который инициирует завершение бина, сам по себе больше Максимального Размера Бина, он будет помещен в свой собственный бин без активации завершения других бинов. При использовании этого свойства рекомендуется использовать Приоритайзеры в соединениях потока для обеспечения желаемого порядка.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -241,25 +237,25 @@ connections to ensure that the ordering is as desired.
 .*Flowfile Insertion Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: FlowFile Insertion Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: FlowFile Insertion Strategy (Стратегия вставки FlowFile)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If a given FlowFile terminates the bin based on the <Bin Termination Check> property, specifies where the FlowFile should be included in the bin.
+*DESCRIPTION (Описание):*:: Если данный FlowFile завершает бин на основе свойства <Bin Termination Check>, указывает, где следует включить FlowFile в бин.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Last in Bin: Insert the FlowFile at the end of the Bin that is terminated 
+* Last in Bin (В конце бина): Вставить FlowFile в конец завершенного бина 
 
-* First in New Bin: Insert the FlowFile at the beginning of a newly created Bin 
+* First in New Bin (В начале нового бина): Вставить FlowFile в начало нового созданного бина 
 
-* Isolated: Insert the FlowFile into a new Bin and terminate the Bin immediately with the FlowFile as the only content 
+* Isolated (Изолированный): Вставить FlowFile в новый бин и немедленно завершить бин с FlowFile как единственным содержимым 
 
 
 [horizontal]
@@ -268,14 +264,14 @@ connections to ensure that the ordering is as desired.
 .Max Bin Age
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Bin Age
+*DISPLAY NAME (Отображаемое наименование):*:: Max Bin Age (Максимальный возраст бина)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum age of a Bin that will trigger a Bin to be complete. Expected format is <duration> <time unit> where <duration> is a positive integer and time unit is one of seconds, minutes, hours
+*DESCRIPTION (Описание):*:: Максимальный возраст бина, который заставит его быть завершенным. Ожидаемый формат - <duration> <time unit>, где <duration> - положительное целое число, а time unit - одно из: секунды, минуты, часы
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -285,14 +281,14 @@ connections to ensure that the ordering is as desired.
 .*Maximum Number Of Bins*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum number of Bins
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum number of Bins (Максимальное количество бакетов)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies the maximum number of bins that can be held in memory at any one time
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -302,25 +298,25 @@ connections to ensure that the ordering is as desired.
 .*Delimiter Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Delimiter Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Delimiter Strategy (Стратегия разделителей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Determines if Header, Footer, and Demarcator should point to files containing the respective content, or if the values of the properties should be used as the content.
+*DESCRIPTION (Описание):*:: Определяет, должны ли заголовок, нижний колонтитул и демаркатор указывать на файлы, содержащие соответствующее содержимое, или использовать значения свойств в качестве содержимого.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Do Not Use Delimiters: No Header, Footer, or Demarcator will be used 
+* Do Not Use Delimiters (Не использовать разделители): Ни заголовок, ни нижний колонтитул, ни демаркатор не будут использоваться 
 
-* Filename: The values of Header, Footer, and Demarcator will be retrieved from the contents of a file 
+* Filename (Имя файла): Значения заголовка, нижнего колонтитула и демаркатора будут получены из содержимого файла 
 
-* Text: The values of Header, Footer, and Demarcator will be specified as property values 
+* Text (Текст): Значения заголовка, нижнего колонтитула и демаркатора будут указаны как значения свойств 
 
 
 [horizontal]
@@ -329,14 +325,14 @@ connections to ensure that the ordering is as desired.
 .Header File
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Header
+*DISPLAY NAME (Отображаемое наименование):*:: Header (Файл заголовка)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Filename or text specifying the header to use. If not specified, no header is supplied.
+*DESCRIPTION (Описание):*:: Имя файла или текст, указывающий на используемый заголовок. Если не указан, то заголовок не предоставляется.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -346,14 +342,14 @@ connections to ensure that the ordering is as desired.
 .Footer File
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Footer
+*DISPLAY NAME (Отображаемое наименование):*:: Footer (Файл подвала)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Filename or text specifying the footer to use. If not specified, no footer is supplied.
+*DESCRIPTION (Описание):*:: Имя файла или текст, указывающие на использование подвала. Если не указан, то подвал не предоставляется.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -363,14 +359,14 @@ connections to ensure that the ordering is as desired.
 .Demarcator File
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Demarcator
+*DISPLAY NAME (Отображаемое наименование):*:: Demarcator (Файл демаркатора)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Filename or text specifying the demarcator to use. If not specified, no demarcator is supplied.
+*DESCRIPTION (Описание):*:: Имя файла или текст, указывающий используемый демаркатор. Если не указан, то демаркатор не предоставляется.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -380,39 +376,39 @@ connections to ensure that the ordering is as desired.
 .*Compression Level*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Compression Level
+*DISPLAY NAME (Отображаемое наименование):*:: Compression Level (Уровень сжатия)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies the compression level to use when using the Zip Merge Format; if not using the Zip Merge Format, this value is ignored
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* 0
+* 0 (Ноль)
 
-* 1
+* 1 (Один)
 
-* 2
+* 2 (Два)
 
-* 3
+* 3 (Три)
 
-* 4
+* 4 (Четыре)
 
-* 5
+* 5 (Пять)
 
-* 6
+* 6 (Шесть)
 
-* 7
+* 7 (Семь)
 
-* 8
+* 8 (Восемь)
 
-* 9
+* 9 (Девять)
 
 
 [horizontal]
@@ -421,23 +417,23 @@ connections to ensure that the ordering is as desired.
 .*Keep Path*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Keep Path
+*DISPLAY NAME (Отображаемое наименование):*:: Keep Path (Сохранять путь)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If using the Zip or Tar Merge Format, specifies whether or not the FlowFiles' paths should be included in their entry names.
+*DESCRIPTION (Описание):*:: Если используется формат слияния Zip или Tar, указывает, должны ли имена записей FlowFiles включать их пути.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -446,14 +442,14 @@ connections to ensure that the ordering is as desired.
 .Tar Modified Time
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Tar Modified Time
+*DISPLAY NAME (Отображаемое наименование):*:: Tar Modified Time (Время последней модификации Tar)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If using the Tar Merge Format, specifies if the Tar entry should store the modified timestamp either by expression (e.g. ${file.lastModifiedTime} or static value, both of which must match the ISO8601 format 'yyyy-MM-dd'T'HH:mm:ssZ'.
+*DESCRIPTION (Описание):*:: Если используется формат слияния Tar, указывает, следует ли хранить временную метку модификации в записи Tar выражением (например, ${file.lastModifiedTime} или статическим значением, оба из которых должны соответствовать формату ISO8601 'yyyy-MM-dd'T'HH:mm:ssZ').
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -474,7 +470,7 @@ connections to ensure that the ordering is as desired.
 
 
 |MEMORY
-|While content is not stored in memory, the FlowFiles' attributes are. The configuration of MergeContent (maximum bin size, maximum group size, maximum bin age, max number of entries) will influence how much memory is used. If merging together many small FlowFiles, a two-stage approach may be necessary in order to avoid excessive use of memory.
+|Хотя содержимое не хранится в памяти, атрибуты FlowFiles хранятся. Конфигурация MergeContent (максимальный размер бина, максимальный размер группы, максимальный возраст бина, максимальное количество записей) повлияет на использование памяти. Если объединять множество маленьких FlowFiles, может потребоваться двустадийная стратегия для избежания чрезмерного использования памяти.
 
 |===
 
@@ -489,13 +485,13 @@ connections to ensure that the ordering is as desired.
 |Наименование |Описание
 
 |`failure`
-|If the bundle cannot be created, all FlowFiles that would have been used to created the bundle will be transferred to failure
+|Если пакет не может быть создан, все FlowFiles, которые должны были использоваться для создания пакета, будут переданы в failure
 
 |`original`
-|The FlowFiles that were used to create the bundle
+|FlowFiles, используемые для создания пакета
 
 |`merged`
-|The FlowFile containing the merged content
+|FlowFile с объединенным содержимым
 
 |===
 
@@ -508,19 +504,19 @@ connections to ensure that the ordering is as desired.
 |Наименование |Описание
 
 |`fragment.identifier`
-|Applicable only if the <Merge Strategy> property is set to Defragment. All FlowFiles with the same value for this attribute will be bundled together.
+|Применимо только если свойство <Merge Strategy> установлено в Defragment. Все FlowFiles с одинаковым значением для этого атрибута будут объединены вместе.
 
 |`fragment.index`
-|Applicable only if the <Merge Strategy> property is set to Defragment. This attribute indicates the order in which the fragments should be assembled. This attribute must be present on all FlowFiles when using the Defragment Merge Strategy and must be a unique (i.e., unique across all FlowFiles that have the same value for the "fragment.identifier" attribute) integer between 0 and the value of the fragment.count attribute. If two or more FlowFiles have the same value for the "fragment.identifier" attribute and the same value for the "fragment.index" attribute, the first FlowFile processed will be accepted and subsequent FlowFiles will not be accepted into the Bin.
+|Применимо только если свойство <Merge Strategy> установлено в Defragment. Этот атрибут указывает порядок сборки фрагментов. Этот атрибут должен присутствовать на всех FlowFiles при использовании стратегии объединения Defragment, и должно быть уникальным (то есть уникальным по отношению ко всем FlowFiles, имеющим одинаковое значение для атрибута "fragment.identifier") целое число от 0 до значения атрибута fragment.count. Если два или более FlowFiles содержат атрибут "fragment.index" в данном пакете, все они должны иметь одинаковое значение.
 
 |`fragment.count`
-|Applicable only if the <Merge Strategy> property is set to Defragment. This attribute indicates how many FlowFiles should be expected in the given bundle. At least one FlowFile must have this attribute in the bundle. If multiple FlowFiles contain the "fragment.count" attribute in a given bundle, all must have the same value.
+|Применимо только если свойство <Merge Strategy> установлено в Defragment. Этот атрибут указывает, сколько FlowFiles должно быть ожидано в данном пакете. В пакет должен присутствовать по крайней мере один FlowFile с этим атрибутом. Если несколько FlowFiles содержат атрибут "fragment.count" в данном пакете, все они должны иметь одинаковое значение.
 
 |`segment.original.filename`
-|Applicable only if the <Merge Strategy> property is set to Defragment. This attribute must be present on all FlowFiles with the same value for the fragment.identifier attribute. All FlowFiles in the same bundle must have the same value for this attribute. The value of this attribute will be used for the filename of the completed merged FlowFile.
+|Применимо только если свойство <Merge Strategy> установлено в Defragment. Этот атрибут должен присутствовать на всех FlowFiles с одинаковым значением для атрибута fragment.identifier. Все FlowFiles в одном пакете должны иметь одинаковое значение для этого атрибута. Значение этого атрибута будет использоваться в качестве имени файла завершенного объединенного FlowFile.
 
 |`tar.permissions`
-|Applicable only if the <Merge Format> property is set to TAR. The value of this attribute must be 3 characters; each character must be in the range 0 to 7 (inclusive) and indicates the file permissions that should be used for the FlowFile's TAR entry. If this attribute is missing or has an invalid value, the default value of 644 will be used
+|Применимо только если свойство <Merge Format> установлено в TAR. Значение этого атрибута должно быть тремя символами; каждый символ должен находиться в диапазоне от 0 до 7 (включительно) и указывает файловые разрешения, которые должны быть использованы для записи FlowFile в TAR. Если этот атрибут отсутствует или имеет недопустимое значение, будет использовано默认 значение 644.
 
 |===
 
@@ -533,19 +529,19 @@ connections to ensure that the ordering is as desired.
 |Наименование |Описание
 
 |`filename`
-|When more than 1 file is merged, the filename comes from the segment.original.filename attribute. If that attribute does not exist in the source FlowFiles, then the filename is set to the number of nanoseconds matching system time. Then a filename extension may be applied:if Merge Format is TAR, then the filename will be appended with .tar, if Merge Format is ZIP, then the filename will be appended with .zip, if Merge Format is FlowFileStream, then the filename will be appended with .pkg
+|При объединении более одного файла имя файла берется из атрибута segment.original.filename. Если этот атрибут отсутствует в исходных FlowFiles, то имя файла устанавливается в число наносекунд, соответствующее системному времени. Затем может быть применено расширение имени файла: если формат объединения — TAR, то имя файла будет дополнено .tar; если формат объединения — ZIP, то имя файла будет дополнено .zip; если формат объединения — FlowFileStream, то имя файла будет дополнено .pkg.
 
 |`merge.count`
-|The number of FlowFiles that were merged into this bundle
+|Количество FlowFiles, которые были объединены в этот пакет
 
 |`merge.bin.age`
-|The age of the bin, in milliseconds, when it was merged and output. Effectively this is the greatest amount of time that any FlowFile in this bundle remained waiting in this processor before it was output
+|Возраст бина, в миллисекундах, при его объединении и выводе. По сути, это наибольшее количество времени, которое осталось у любого FlowFile в этом пакете до его передачи даже если он меньше Max Bin Age.
 
 |`merge.uuid`
-|UUID of the merged flow file that will be added to the original flow files attributes.
+|UUID объединенного FlowFile, которое будет добавлено в атрибуты исходных FlowFiles.
 
 |`merge.reason`
-|This processor allows for several thresholds to be configured for merging FlowFiles. This attribute indicates which of the Thresholds resulted in the FlowFiles being merged. For an explanation of each of the possible values and their meanings, see the Processor's Usage / documentation and see the 'Additional Details' page.
+|Этот процессор позволяет настроить несколько пороговых значений для объединения FlowFiles. Этот атрибут указывает, какой из Порогов привел к тому, что FlowFiles были объединены. Для объяснения каждого возможного значения и их значимости см. использование/документацию процессора и страницу 'Дополнительные сведения'.
 
 |===
 
@@ -556,7 +552,7 @@ connections to ensure that the ordering is as desired.
 
 
 
-=== Concatenate FlowFiles with textual content together in order to create fewer, larger FlowFiles.
+=== Объединить FlowFiles с текстовым содержимым вместе, чтобы создать меньше, но больших FlowFiles.
 
 
 NOTE: 
@@ -589,10 +585,10 @@ smash
 ====
 
 
-=== Concatenate FlowFiles with binary content together in order to create fewer, larger FlowFiles.
+=== Объединить FlowFiles с бинарным содержимым вместе, чтобы создать меньше, но больших FlowFiles.
 
 
-NOTE: Not all binary data can be concatenated together. Whether or not this configuration is valid depends on the type of your data.
+NOTE: Не все двоичные данные могут быть объединены вместе. Допустимость этой конфигурации зависит от типа ваших данных.
 
 
 
@@ -621,7 +617,7 @@ smash
 ====
 
 
-=== Reassemble a FlowFile that was previously split apart into smaller FlowFiles by a processor such as SplitText, UnpackContext, SplitRecord, etc.
+=== Пересобирать FlowFile, который ранее был разделен на меньшие FlowFiles процессором SplitText, UnpackContext, SplitRecord и т.д.
 
 
 NOTE: 

@@ -1,13 +1,13 @@
 = FetchBoxFile 2.2.0
 
-Fetches files from a Box Folder. Designed to be used in tandem with ListBoxFile.
+Извлекает файлы из папки Box. Разработано для использования в тандеме с ListBoxFile.
 
 [horizontal]
 *Tags* (Ключевые слова):
 box, fetch, storage
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Box-Client-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Box Client Service
+*DISPLAY NAME (Отображаемое наименование):*:: Box Client Service (Клиент сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Controller Service used to obtain a Box API connection.
+*DESCRIPTION (Описание):*:: Контроллер Сервис, используемый для получения соединения с API Box.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Box-File-Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: File ID
+*DISPLAY NAME (Отображаемое наименование):*:: File ID (Идентификатор файла)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The ID of the File to fetch
+*DESCRIPTION (Описание):*:: Идентификатор файла для получения
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -68,10 +68,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|A FlowFile will be routed here for each successfully fetched File.
+|Поток файлов будет направлен сюда для каждого успешно извлеченного файла.
 
 |`failure`
-|A FlowFile will be routed here for each File for which fetch was attempted but failed.
+|Поток файлов будет направлен сюда для каждого файла, для которого была предпринята попытка извлечения, но она не удалась.
 
 |===
 
@@ -84,7 +84,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`box.id`
-|The id of the file
+|Идентификатор файла
 
 |===
 
@@ -97,25 +97,25 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`box.id`
-|The id of the file
+|Идентификатор файла
 
 |`filename`
-|The name of the file
+|Название файла
 
 |`path`
-|The folder path where the file is located
+|Путь к папке, в которой расположен файл
 
 |`box.size`
-|The size of the file
+|Размер файла
 
 |`box.timestamp`
-|The last modified time of the file
+|Время последнего изменения файла
 
 |`error.code`
-|The error code returned by Box
+|Код ошибки, возвращенный Box
 
 |`error.message`
-|The error message returned by Box
+|Сообщение об ошибке, возвращенное Box
 
 |===
 

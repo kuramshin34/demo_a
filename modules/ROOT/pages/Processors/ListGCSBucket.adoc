@@ -1,13 +1,13 @@
 = ListGCSBucket 2.2.0
 
-Retrieves a listing of objects from a GCS bucket. For each object that is listed, creates a FlowFile that represents the object so that it can be fetched in conjunction with FetchGCSObject. This Processor is designed to run on Primary Node only in a cluster. If the primary node changes, the new Primary Node will pick up where the previous node left off without duplicating all of the data.
+Извлекает список объектов из облачного хранилища GCS. Для каждого перечисленного объекта создает FlowFile, который представляет собой объект для дальнейшего получения вместе с FetchGCSObject. Этот процессор предназначен для выполнения только на основном узле кластера. Если основной узел меняется, новый основной узел продолжит работу с места остановки предыдущего узла без дублирования всех данных.
 
 [horizontal]
 *Tags* (Ключевые слова):
 gcs, google, google cloud, list, storage
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ FORBIDDEN (Обязательно)
 .*Gcp Credentials Provider Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service
+*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service (Google Cloud Platform Учебный класс для получения учетных данных)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Controller Service used to obtain Google Cloud Platform credentials.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ FORBIDDEN (Обязательно)
 .Gcp-Project-Id
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Project ID
+*DISPLAY NAME (Отображаемое наименование):*:: Project ID (Проектный идентификатор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Google Cloud Project ID
+*DESCRIPTION (Описание):*:: Google Cloud Project ID (Идентификатор проекта в Google Cloud)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ FORBIDDEN (Обязательно)
 .*Gcs-Bucket*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Bucket
+*DISPLAY NAME (Отображаемое наименование):*:: Bucket (Бакет)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Bucket of the object.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ FORBIDDEN (Обязательно)
 .Gcs-Prefix
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Prefix
+*DISPLAY NAME (Отображаемое наименование):*:: Prefix (Префикс)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The prefix used to filter the object list. In most cases, it should end with a forward slash ('/').
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,25 +88,25 @@ FORBIDDEN (Обязательно)
 .*Listing-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Listing Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Listing Strategy (Стратегия перечисления)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specify how to determine new/updated entities. See each strategy descriptions for detail.
+*DESCRIPTION (Описание):*:: Укажите, как определять новые или обновленные сущности. Подробнее о каждой стратегии см. в описании.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Tracking Timestamps: This strategy tracks the latest timestamp of listed entity to determine new/updated entities. Since it only tracks few timestamps, it can manage listing state efficiently. This strategy will not pick up any newly added or modified entity if their timestamps are older than the tracked latest timestamp. Also may miss files when multiple subdirectories are being written at the same time while listing is running. 
+* Tracking Timestamps (Отслеживание временных меток): Эта стратегия отслеживает последнюю временную метку перечисленной сущности для определения новых или обновленных сущностей. Поскольку она отслеживает только несколько временных меток, она может эффективно управлять состоянием перечисления. Эта стратегия не выберет никакие новые или измененные сущности, если их временные метки старше отслеживаемых последних временных меток. Также может пропустить файлы, когда одновременно записывается несколько поддиректорий при перечислении. 
 
-* Tracking Entities: This strategy tracks information of all the listed entities within the latest 'Entity Tracking Time Window' to determine new/updated entities. This strategy can pick entities having old timestamp that can be missed with 'Tracing Timestamps'. Works even when multiple subdirectories are being written at the same time while listing is running. However an additional DistributedMapCache controller service is required and more JVM heap memory is used. For more information on how the 'Entity Tracking Time Window' property works, see the description. 
+* Tracking Entities (Отслеживание сущностей): Эта стратегия отслеживает информацию обо всех перечисленных сущностях в пределах последнего 'Entity Tracking Time Window' для определения новых или обновленных сущностей. Эта стратегия может выбрать сущности с устаревшей временной меткой, которая может быть пропущена при использовании 'Tracing Timestamps'. Работает даже если одновременно записываются несколько поддиректорий при перечислении. Однако требует дополнительного контроллера службы DistributedMapCache и большего объема памяти JVM. Подробнее о том, как работает свойство 'Entity Tracking Time Window', см. в описании. 
 
-* No Tracking: This strategy lists all entities without any tracking. The same entities will be listed each time this processor is scheduled. It is recommended to change the default run schedule value. Any property that relates to the persisting state will be ignored. 
+* No Tracking (Без отслеживания): Эта стратегия перечисляет все сущности без какого-либо отслеживания. Одни и те же сущности будут перечисляться каждый раз при запланированном запуске этого процессора. Рекомендуется изменить значение параметра 'default run schedule'. Любая свойство, относящаяся к сохранению состояния, будет проигнорирована. 
 
 
 [horizontal]
@@ -115,14 +115,14 @@ FORBIDDEN (Обязательно)
 .*Et-State-Cache*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Entity Tracking State Cache
+*DISPLAY NAME (Отображаемое наименование):*:: Entity Tracking State Cache (Состояние кэша отслеживания сущностей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Listed entities are stored in the specified cache storage so that this processor can resume listing across NiFi restart or in case of primary node change. 'Tracking Entities' strategy require tracking information of all listed entities within the last 'Tracking Time Window'. To support large number of entities, the strategy uses DistributedMapCache instead of managed state. Cache key format is 'ListedEntities::{processorId}(::{nodeId})'. If it tracks per node listed entities, then the optional '::{nodeId}' part is added to manage state separately. E.g. cluster wide cache key = 'ListedEntities::8dda2321-0164-1000-50fa-3042fe7d6a7b', per node cache key = 'ListedEntities::8dda2321-0164-1000-50fa-3042fe7d6a7b::nifi-node3' The stored cache content is Gzipped JSON string. The cache key will be deleted when target listing configuration is changed. Used by 'Tracking Entities' strategy.
+*DESCRIPTION (Описание):*:: Перечисленные сущности хранятся в указанном хранилище кэша, что позволяет этому процессору возобновить перечисление после перезапуска NiFi или изменения основного узла. Стратегия 'Отслеживание сущностей' требует отслеживания информации обо всех перечисленных сущностях в течение последнего 'Окна времени отслеживания'. Для поддержки большого количества сущностей стратегия использует DistributedMapCache вместо управляемого состояния. Формат ключа кэша имеет вид 'ListedEntities::{processorId}(::{nodeId})'. Если отслеживаются перечисленные сущности на узле, то к ключу добавляется необязательная часть '::{nodeId}' для управления состоянием отдельно. Например, глобальный ключ кэша = 'ListedEntities::8dda2321-0164-1000-50fa-3042fe7d6a7b', ключ кэша для узла = 'ListedEntities::8dda2321-0164-1000-50fa-3042fe7d6a7b::nifi-node3' Содержимое сжатой JSON строки хранится в кэше. Ключ будет удален, когда изменится конфигурация целевого перечисления. Используется стратегией 'Отслеживание сущностей'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -132,23 +132,23 @@ FORBIDDEN (Обязательно)
 .Et-Initial-Listing-Target
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Entity Tracking Initial Listing Target
+*DISPLAY NAME (Отображаемое наименование):*:: Entity Tracking Initial Listing Target (Целевая сущность для начального списка отслеживания)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specify how initial listing should be handled. Used by 'Tracking Entities' strategy.
+*DESCRIPTION (Описание):*:: Укажите, как следует обрабатывать начальный список. Используется стратегией 'Отслеживание Сущностей'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Tracking Time Window: Ignore entities having timestamp older than the specified 'Tracking Time Window' at the initial listing activity. 
+* Tracking Time Window (Окно отслеживания времени): Игнорировать сущности, имеющие временную метку старше указанного 'Окна отслеживания времени' при начальной активности списка. 
 
-* All Available: Regardless of entities timestamp, all existing entities will be listed at the initial listing activity. 
+* All Available (Все доступные): Независимо от временной метки сущностей, все существующие сущности будут перечислены при начальной активности списка. 
 
 
 [horizontal]
@@ -157,14 +157,14 @@ FORBIDDEN (Обязательно)
 .*Et-Time-Window*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Entity Tracking Time Window
+*DISPLAY NAME (Отображаемое наименование):*:: Entity Tracking Time Window (Временное окно отслеживания сущности)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specify how long this processor should track already-listed entities. 'Tracking Entities' strategy can pick any entity whose timestamp is inside the specified time window. For example, if set to '30 minutes', any entity having timestamp in recent 30 minutes will be the listing target when this processor runs. A listed entity is considered 'new/updated' and a FlowFile is emitted if one of following condition meets: 1. does not exist in the already-listed entities, 2. has newer timestamp than the cached entity, 3. has different size than the cached entity. If a cached entity's timestamp becomes older than specified time window, that entity will be removed from the cached already-listed entities. Used by 'Tracking Entities' strategy.
+*DESCRIPTION (Описание):*:: Укажите, как долго этот процессор должен отслеживать уже занесенные в список сущности. Стратегия 'Отслеживание сущностей' может выбрать любую сущность, временная метка которой находится внутри указанного временного окна. Например, если установлено значение '30 минут', любая сущность с временной меткой в течение последних 30 минут будет целью включения при выполнении этого процессора. Занесенная сущность считается 'новой/обновленной' и генерируется FlowFile, если выполняется одно из следующих условий: 1. не существует в уже занесенных сущностях, 2. имеет более новую временную метку, чем кэшированная сущность, 3. имеет разный размер по сравнению с кэшированной сущностью. Если временная метка кэшированной сущности становится старше указанного временного окна, эта сущность будет удалена из кэшированных уже занесенных сущностей. Используется стратегией 'Отслеживание сущностей'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -174,14 +174,14 @@ FORBIDDEN (Обязательно)
 .Record-Writer
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Record Writer to use for creating the listing. If not specified, one FlowFile will be created for each entity that is listed. If the Record Writer is specified, all entities will be written to a single FlowFile instead of adding attributes to individual FlowFiles.
+*DESCRIPTION (Описание):*:: Указывает записыватель записей для создания списка. Если не указан, будет создан один FlowFile для каждой перечисленной сущности. Если указать записыватель записей, все сущности будут записаны в один FlowFile вместо добавления атрибутов к отдельным FlowFiles.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -191,14 +191,14 @@ FORBIDDEN (Обязательно)
 .*Gcs-Use-Generations*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Use Generations
+*DISPLAY NAME (Отображаемое наименование):*:: Use Generations (Использовать Генерации)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether to use GCS Generations, if applicable.  If false, only the latest version of each object will be returned.
+*DESCRIPTION (Описание):*:: Указывает, следует ли использовать GCS Generations, если это применимо. Если false, будет возвращена только последняя версия каждого объекта.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -216,14 +216,14 @@ FORBIDDEN (Обязательно)
 .*Gcp-Retry-Count*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Number of retries
+*DISPLAY NAME (Отображаемое наименование):*:: Number of retries (Количество повторных попыток)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: How many retry attempts should be made before routing to the failure relationship.
+*DESCRIPTION (Описание):*:: How many retry attempts should be made before routing to the failure relationship. (Сколько повторных попыток следует предпринять перед тем, как передать управление в связанное отношение отказа)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -233,14 +233,14 @@ FORBIDDEN (Обязательно)
 .Storage-Api-Url
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Storage API URL
+*DISPLAY NAME (Отображаемое наименование):*:: Storage API URL (URL хранилища)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Overrides the default storage URL. Configuring an alternative Storage API URL also overrides the HTTP Host header on requests as described in the Google documentation for Private Service Connections.
+*DESCRIPTION (Описание):*:: Переопределяет стандартный URL-адрес хранилища. Настройка альтернативного URL-адреса Storage API также переопределяет заголовок HTTP Host в запросах, как описано в документации Google для частных сервисных подключений.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -250,14 +250,14 @@ FORBIDDEN (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: HTTP + AuthN
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -277,7 +277,7 @@ FORBIDDEN (Обязательно)
 |
 CLUSTER
 
-|After performing a listing of keys, the timestamp of the newest key is stored, along with the keys that share that same timestamp. This allows the Processor to list only keys that have been added or modified after this date the next time that the Processor is run. State is stored across the cluster so that this Processor can be run on Primary Node only and if a new Primary Node is selected, the new node can pick up where the previous node left off, without duplicating the data.
+|После выполнения перечисления ключей сохраняется временная метка самого нового ключа, а также ключи, которые разделяют эту же метку. Это позволяет процессору перечислять только ключи, добавленные или измененные после этой даты при следующем запуске процессора. Состояние хранится в кластере, чтобы этот процессор мог выполняться только на основном узле и если новый основной узел будет выбран, новый узел сможет продолжить работу без дублирования данных.
 |===
 
 
@@ -293,7 +293,7 @@ CLUSTER
 |Наименование |Описание
 
 |`success`
-|FlowFiles are routed to this relationship after a successful Google Cloud Storage operation.
+|FlowFiles передаются в это отношение после успешной операции с облачным хранилищем Google Cloud.
 
 |===
 
@@ -308,85 +308,85 @@ CLUSTER
 |Наименование |Описание
 
 |`filename`
-|The name of the file
+|Имя файла
 
 |`gcs.bucket`
-|Bucket of the object.
+|Бакет объекта.
 
 |`gcs.key`
-|Name of the object.
+|Имя объекта.
 
 |`gcs.size`
-|Size of the object.
+|Размер объекта.
 
 |`gcs.cache.control`
-|Data cache control of the object.
+|Управление кэшем данных объекта.
 
 |`gcs.component.count`
-|The number of components which make up the object.
+|Количество компонентов, составляющих объект.
 
 |`gcs.content.disposition`
-|The data content disposition of the object.
+|Данные контент-диспозишн объекта.
 
 |`gcs.content.encoding`
-|The content encoding of the object.
+|Кодировка содержимого объекта.
 
 |`gcs.content.language`
-|The content language of the object.
+|Язык контента объекта.
 
 |`mime.type`
-|The MIME/Content-Type of the object
+|MIME/Content-Type объекта
 
 |`gcs.crc32c`
-|The CRC32C checksum of object's data, encoded in base64 in big-endian order.
+|Контрольная сумма CRC32C объекта, закодированная в base64 в порядке big-endian.
 
 |`gcs.create.time`
-|The creation time of the object (milliseconds)
+|Время создания объекта (в миллисекундах)
 
 |`gcs.update.time`
-|The last modification time of the object (milliseconds)
+|Последнее время модификации объекта (в миллисекундах)
 
 |`gcs.encryption.algorithm`
-|The algorithm used to encrypt the object.
+|Алгоритм, используемый для шифрования объекта.
 
 |`gcs.encryption.sha256`
-|The SHA256 hash of the key used to encrypt the object
+|SHA256-хэш ключа, используемого для шифрования объекта
 
 |`gcs.etag`
-|The HTTP 1.1 Entity tag for the object.
+|HTTP 1.1 Entity tag для объекта.
 
 |`gcs.generated.id`
-|The service-generated for the object
+|Уникальный идентификатор, сгенерированный сервисом
 
 |`gcs.generation`
-|The data generation of the object.
+|Поколение данных объекта.
 
 |`gcs.md5`
-|The MD5 hash of the object's data encoded in base64.
+|MD5-хэш данных объекта, закодированный в base64.
 
 |`gcs.media.link`
-|The media download link to the object.
+|Ссылка на медиа-загрузку для объекта.
 
 |`gcs.metageneration`
-|The metageneration of the object.
+|Метапоколение объекта.
 
 |`gcs.owner`
-|The owner (uploader) of the object.
+|Владелец (загрузчик) объекта.
 
 |`gcs.owner.type`
-|The ACL entity type of the uploader of the object.
+|Тип ACL-сущности загрузчика объекта.
 
 |`gcs.acl.owner`
-|A comma-delimited list of ACL entities that have owner access to the object. Entities will be either email addresses, domains, or project IDs.
+|Список сущностей ACL, имеющих доступ к объекту в качестве владельца. Сущности могут быть адресами электронной почты, доменами или идентификаторами проекта.
 
 |`gcs.acl.writer`
-|A comma-delimited list of ACL entities that have write access to the object. Entities will be either email addresses, domains, or project IDs.
+|Список сущностей ACL, имеющих право на запись в объект. Сущности могут быть адресами электронной почты, доменами или идентификаторами проекта.
 
 |`gcs.acl.reader`
-|A comma-delimited list of ACL entities that have read access to the object. Entities will be either email addresses, domains, or project IDs.
+|Список сущностей ACL, имеющих право на чтение объекта. Сущности могут быть адресами электронной почты, доменами или идентификаторами проекта.
 
 |`gcs.uri`
-|The URI of the object as a string.
+|URI объекта в виде строки.
 
 |===
 

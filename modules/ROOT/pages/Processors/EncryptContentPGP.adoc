@@ -1,13 +1,13 @@
 = EncryptContentPGP 2.2.0
 
-Encrypt contents using OpenPGP. The processor reads input and detects OpenPGP messages to avoid unnecessary additional wrapping in Literal Data packets.
+Шифрует содержимое с использованием OpenPGP. Процессор читает входной поток и обнаруживает OpenPGP-сообщения, чтобы избежать лишней дополнительной упаковки в пакеты с литералами данных.
 
 [horizontal]
 *Tags* (Ключевые слова):
 Encryption, GPG, OpenPGP, PGP, RFC 4880
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,25 +20,25 @@ REQUIRED (Обязательно)
 .*Symmetric-Key-Algorithm*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Symmetric-Key Algorithm
+*DISPLAY NAME (Отображаемое наименование):*:: Symmetric-Key Algorithm (Симметричный алгоритм шифрования)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Symmetric-Key Algorithm for encryption
+*DESCRIPTION (Описание):*:: Симметричный алгоритм для шифрования
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* AES_128
+* AES_128 (Альфа-версия 128)
 
-* AES_192
+* AES_192 (Альфа-версия 192)
 
-* AES_256
+* AES_256 (Альфа-версия 256)
 
 
 [horizontal]
@@ -47,23 +47,23 @@ REQUIRED (Обязательно)
 .*File-Encoding*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: File Encoding
+*DISPLAY NAME (Отображаемое наименование):*:: File Encoding (Файл Кодировка)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: File Encoding for encryption
+*DESCRIPTION (Описание):*:: File Encoding for encryption (Кодировка файла для шифрования)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* ASCII
+* ASCII (Аски)
 
-* BINARY
+* BINARY (Бинарный)
 
 
 [horizontal]
@@ -72,14 +72,14 @@ REQUIRED (Обязательно)
 .Passphrase
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Passphrase
+*DISPLAY NAME (Отображаемое наименование):*:: Passphrase (Парольная фраза)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Passphrase used for encrypting data with Password-Based Encryption
+*DESCRIPTION (Описание):*:: Используется для шифрования данных с использованием Password-Based Encryption
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -89,14 +89,14 @@ REQUIRED (Обязательно)
 .Public-Key-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Public Key Service
+*DISPLAY NAME (Отображаемое наименование):*:: Public Key Service (Общественный сервис ключей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: PGP Public Key Service for encrypting data with Public Key Encryption
+*DESCRIPTION (Описание):*:: PGP Общественный сервис ключей для шифрования данных с помощью общественного ключа Шифрования
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -106,14 +106,14 @@ REQUIRED (Обязательно)
 .Public-Key-Search
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Public Key Search
+*DISPLAY NAME (Отображаемое наименование):*:: Public Key Search (Поиск открытого ключа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: PGP Public Key Search will be used to match against the User ID or Key ID when formatted as uppercase hexadecimal string of 16 characters
+*DESCRIPTION (Описание):*:: PGP Public Key Search будет использоваться для сопоставления с пользовательским идентификатором или идентификатором ключа, когда он отформатирован как строка шестнадцатеричного формата из 16 символов
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -137,10 +137,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Encryption Succeeded
+|Шифрование завершено успешно
 
 |`failure`
-|Encryption Failed
+|Ошибка при шифровании
 
 |===
 
@@ -155,25 +155,25 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`pgp.symmetric.key.algorithm`
-|Symmetric-Key Algorithm
+|Алгоритм симметричного ключа
 
 |`pgp.symmetric.key.algorithm.block.cipher`
-|Symmetric-Key Algorithm Block Cipher
+|Блочный шифр алгоритма симметричного ключа
 
 |`pgp.symmetric.key.algorithm.key.size`
-|Symmetric-Key Algorithm Key Size
+|Размер ключа алгоритма симметричного ключа
 
 |`pgp.symmetric.key.algorithm.id`
-|Symmetric-Key Algorithm Identifier
+|Идентификатор алгоритма симметричного ключа
 
 |`pgp.file.encoding`
-|File Encoding
+|Кодировка файла
 
 |`pgp.compression.algorithm`
-|Compression Algorithm
+|Алгоритм сжатия
 
 |`pgp.compression.algorithm.id`
-|Compression Algorithm Identifier
+|Идентификатор алгоритма сжатия
 
 |===
 

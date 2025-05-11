@@ -1,13 +1,13 @@
 = RetryFlowFile 2.2.0
 
-FlowFiles passed to this Processor have a 'Retry Attribute' value checked against a configured 'Maximum Retries' value. If the current attribute value is below the configured maximum, the FlowFile is passed to a retry relationship. The FlowFile may or may not be penalized in that condition. If the FlowFile's attribute value exceeds the configured maximum, the FlowFile will be passed to a 'retries_exceeded' relationship. WARNING: If the incoming FlowFile has a non-numeric value in the configured 'Retry Attribute' attribute, it will be reset to '1'. You may choose to fail the FlowFile instead of performing the reset. Additional dynamic properties can be defined for any attributes you wish to add to the FlowFiles transferred to 'retries_exceeded'. These attributes support attribute expression language.
+FlowFiles, передаваемые в этот процессор, имеют значение атрибута 'Retry Attribute' проверенное против настроенного значения 'Maximum Retries'. Если текущее значение атрибута меньше, чем настроенное максимальное значение, FlowFile передается в отношение возврата. В этом случае FlowFile может быть оценено или нет. Если значение атрибута FlowFile превышает настроенное максимальное значение, FlowFile будет передан в отношение 'retries_exceeded'. ПРЕДУПРЕЖДЕНИЕ: если входящий FlowFile имеет нечисловое значение в конфигурируемом атрибуте 'Retry Attribute', он будет сброшен до '1'. Вы можете выбрать завершение FlowFile вместо сброса. Дополнительные динамические свойства могут быть определены для любых атрибутов, которые вы хотите добавить в FlowFiles, передаваемые в 'retries_exceeded'. Эти атрибуты поддерживают язык выражений атрибутов.
 
 [horizontal]
 *Tags* (Ключевые слова):
 FlowFile, Retry
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Retry-Attribute*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Retry Attribute
+*DISPLAY NAME (Отображаемое наименование):*:: Retry Attribute (Повторное атрибутирование)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the attribute that contains the current retry count for the FlowFile. WARNING: If the name matches an attribute already on the FlowFile that does not contain a numerical value, the processor will either overwrite that attribute with '1' or fail based on configuration.
+*DESCRIPTION (Описание):*:: Имя атрибута, содержащего текущий счетчик повторов для потока. ПРЕДУПРЕЖДЕНИЕ: Если имя соответствует уже существующему атрибуту на FlowFile, который не содержит числовое значение, процессор либо перезапишет этот атрибут значением '1', либо завершит выполнение в зависимости от конфигурации.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Maximum-Retries*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Retries
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Retries (Максимальное количество повторных попыток)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum number of times a FlowFile can be retried before being passed to the 'retries_exceeded' relationship
+*DESCRIPTION (Описание):*:: The maximum number of times a FlowFile can be retried before being passed to the 'retries_exceeded' relationship (Максимальное количество раз, которое FlowFile может быть перезапущено до того, как будет передано в отношение 'retries_exceeded')
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Penalize-Retries*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Penalize Retries
+*DISPLAY NAME (Отображаемое наименование):*:: Penalize Retries (Наказать попытки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If set to 'true', this Processor will penalize input FlowFiles before passing them to the 'retry' relationship. This does not apply to the 'retries_exceeded' relationship.
+*DESCRIPTION (Описание):*:: Если установлено значение 'true', этот процессор накажет входные FlowFiles перед передачей их в отношение 'retry'. Это не относится к отношению 'retries_exceeded'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -79,23 +79,23 @@ REQUIRED (Обязательно)
 .*Fail On Non-Numerical Overwrite*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Fail on Non-numerical Overwrite
+*DISPLAY NAME (Отображаемое наименование):*:: Fail on Non-numerical Overwrite (Прерывать при нечисловом перезаписи)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If the FlowFile already has the attribute defined in 'Retry Attribute' that is *not* a number, fail the FlowFile instead of resetting that value to '1'
+*DESCRIPTION (Описание):*:: Если поток уже имеет атрибут, определенный в 'Retry Attribute', который *не* является числом, прервите поток вместо того, чтобы сбросить это значение до '1'
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -104,25 +104,25 @@ REQUIRED (Обязательно)
 .*Reuse-Mode*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Reuse Mode
+*DISPLAY NAME (Отображаемое наименование):*:: Reuse Mode (Повторное использование)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Defines how the Processor behaves if the retry FlowFile has a different retry UUID than the instance that received the FlowFile. This generally means that the attribute was not reset after being successfully retried by a previous instance of this processor.
+*DESCRIPTION (Описание):*:: Определяет, как ведет себя Processor, если Retry FlowFile имеет другой UUID повтора, чем экземпляр, который получил FlowFile. Это обычно означает, что атрибут не был сброшен после успешного повтора предыдущим экземпляром этого процессора.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Fail on Reuse: If the RetryFlowFile's UUID does not match the FlowFile's retry UUID, fail the FlowFile regardless of current retry count 
+* Fail on Reuse (Провал при повторном использовании): Если UUID RetryFlowFile не совпадает с UUID FlowFile для повтора, независимо от текущего количества попыток провалить FlowFile. 
 
-* Warn on Reuse: If the RetryFlowFile's UUID does not match the FlowFile's retry UUID, log a warning message before resetting the retry attribute and UUID for this instance 
+* Warn on Reuse (Предупреждение при повторном использовании): Если UUID RetryFlowFile не совпадает с UUID FlowFile для повтора, прежде чем сбросить атрибут повтора и UUID для этого экземпляра, залогировать предупреждающее сообщение. 
 
-* Reset Reuse: If the RetryFlowFile's UUID does not match the FlowFile's retry UUID, log a debug message before resetting the retry attribute and UUID for this instance 
+* Reset Reuse (Сброс повторного использования): Если UUID RetryFlowFile не совпадает с UUID FlowFile для повтора, прежде чем сбросить атрибут повтора и UUID для этого экземпляра, залогировать отладочное сообщение. 
 
 
 [horizontal]

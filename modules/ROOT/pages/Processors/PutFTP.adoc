@@ -1,13 +1,13 @@
 = PutFTP 2.2.0
 
-Sends FlowFiles to an FTP Server
+Отправляет FlowFiles на FTP сервер
 
 [horizontal]
 *Tags* (Ключевые слова):
 archive, copy, egress, files, ftp, put, remote
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Hostname*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hostname
+*DISPLAY NAME (Отображаемое наименование):*:: Hostname (Имя узла)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The fully qualified hostname or IP address of the remote system
+*DESCRIPTION (Описание):*:: Полное доменное имя узла или IP-адрес удаленной системы
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Port*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Port
+*DISPLAY NAME (Отображаемое наименование):*:: Port (Порт)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The port that the remote system is listening on for file transfers
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Username*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Username
+*DISPLAY NAME (Отображаемое наименование):*:: Имя пользователя
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Username
+*DESCRIPTION (Описание):*:: Имя пользователя
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .Password
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Password
+*DISPLAY NAME (Отображаемое наименование):*:: Password (Пароль)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Password for the user account
+*DESCRIPTION (Описание):*:: Пароль для учетной записи пользователя
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -88,14 +88,14 @@ REQUIRED (Обязательно)
 .Remote Path
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Remote Path
+*DISPLAY NAME (Отображаемое наименование):*:: Remote Path (Удаленный путь)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The path on the remote system from which to pull or push files
+*DESCRIPTION (Описание):*:: Путь на удаленной системе, с которого будет извлекаться или отправляться файлы
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ REQUIRED (Обязательно)
 .*Create Directory*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Create Directory
+*DISPLAY NAME (Отображаемое наименование):*:: Create Directory (Создать директорию)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies whether or not the remote directory should be created if it does not exist.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -130,14 +130,14 @@ REQUIRED (Обязательно)
 .*Batch Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Batch Size
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Size (Размер партии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum number of FlowFiles to send in a single connection
+*DESCRIPTION (Описание):*:: Максимальное количество FlowFiles для отправки в одном подключении
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -147,14 +147,14 @@ REQUIRED (Обязательно)
 .*Connection Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Connection Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Connection Timeout (Время ожидания перед тайм-аутом при создании подключения)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Amount of time to wait before timing out while creating a connection
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -164,14 +164,14 @@ REQUIRED (Обязательно)
 .*Data Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Data Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Data Timeout (Время ожидания данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When transferring a file between the local and remote system, this value specifies how long is allowed to elapse without any data being transferred between systems
+*DESCRIPTION (Описание):*:: При передаче файла между локальной и удаленной системой это значение указывает, сколько времени разрешено проходить без передачи данных между системами
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -181,31 +181,31 @@ REQUIRED (Обязательно)
 .*Conflict Resolution*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Conflict Resolution
+*DISPLAY NAME (Отображаемое наименование):*:: Conflict Resolution (Конфликт разрешения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Determines how to handle the problem of filename collisions
+*DESCRIPTION (Описание):*:: Определяет, как обрабатывать проблему коллизий имен файлов
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* REPLACE: Remote file is replaced with new file, FlowFile goes to success 
+* REPLACE (Заменить): Удаленный файл заменяется новым, FlowFile переходит к успеху 
 
-* IGNORE: File is not transferred, FlowFile goes to success 
+* IGNORE (Игнорировать): Файл не передается, FlowFile переходит к успеху 
 
-* RENAME: New file is renamed with a one-up number at the beginning, FlowFile goes to success 
+* RENAME (Переименовать): Новый файл переименовывается с добавлением порядкового номера в начале, FlowFile переходит к успеху 
 
-* REJECT: File is not transferred, FlowFile goes to reject 
+* REJECT (Отклонить): Файл не передается, FlowFile переходит к отказу 
 
-* FAIL: File is not transferred, FlowFile goes to failure 
+* FAIL (Неуспех): Файл не передается, FlowFile переходит к неуспеху 
 
-* NONE: Do not check for conflict before transfer, FlowFile goes to success or failure 
+* NONE (Ничего): Перед передачей не проверять конфликт имен, FlowFile переходит к успеху или неудаче 
 
 
 [horizontal]
@@ -214,23 +214,23 @@ REQUIRED (Обязательно)
 .Dot Rename
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Dot Rename
+*DISPLAY NAME (Отображаемое наименование):*:: Dot Rename (Точечное переименование)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true, then the filename of the sent file is prepended with a "." and then renamed back to the original once the file is completely sent. Otherwise, there is no rename. This property is ignored if the Temporary Filename property is set.
+*DESCRIPTION (Описание):*:: Если значение равно true, то к имени отправляемого файла добавляется точка и он затем возвращается к исходному имени после полного завершения отправки. В противном случае никакого переименования не происходит. Это свойство игнорируется, если установлено свойство Временное имя файла.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (правда)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -239,14 +239,14 @@ REQUIRED (Обязательно)
 .Temporary Filename
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Temporary Filename
+*DISPLAY NAME (Отображаемое наименование):*:: Temporary Filename (Временное имя файла)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If set, the filename of the sent file will be equal to the value specified during the transfer and after successful completion will be renamed to the original filename. If this value is set, the Dot Rename property is ignored.
+*DESCRIPTION (Описание):*:: Если установлено, имя файла, отправленного во время передачи, будет равно указанному значению и после успешной завершения будет переименовано в исходное имя файла. Если это значение установлено, свойство Dot Rename игнорируется.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -256,23 +256,23 @@ REQUIRED (Обязательно)
 .Transfer Mode
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Transfer Mode
+*DISPLAY NAME (Отображаемое наименование):*:: Transfer Mode (Режим передачи)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The FTP Transfer Mode
+*DESCRIPTION (Описание):*:: The FTP Transfer Mode (Режим передачи по протоколу FTP)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Binary
+* Binary (Бинарный)
 
-* ASCII
+* ASCII (Аски-код)
 
 
 [horizontal]
@@ -281,23 +281,23 @@ REQUIRED (Обязательно)
 .Connection Mode
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Connection Mode
+*DISPLAY NAME (Отображаемое наименование):*:: Connection Mode (Режим подключения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The FTP Connection Mode
+*DESCRIPTION (Описание):*:: The FTP Connection Mode (Режим подключения по протоколу FTP)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Active
+* Active (Активный)
 
-* Passive
+* Passive (Пассивный)
 
 
 [horizontal]
@@ -306,14 +306,14 @@ REQUIRED (Обязательно)
 .Reject Zero-Byte Files
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Reject Zero-Byte Files
+*DISPLAY NAME (Отображаемое наименование):*:: Reject Zero-Byte Files (Отклонять нулевые байты)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Determines whether or not Zero-byte files should be rejected without attempting to transfer
+*DESCRIPTION (Описание):*:: Определяет, должны ли файлы с нулевым байтом быть отклонены без попытки передачи
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -331,14 +331,14 @@ REQUIRED (Обязательно)
 .Last Modified Time
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Last Modified Time
+*DISPLAY NAME (Отображаемое наименование):*:: Last Modified Time (Время последней модификации)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The lastModifiedTime to assign to the file after transferring it. If not set, the lastModifiedTime will not be changed. Format must be yyyy-MM-dd'T'HH:mm:ssZ. You may also use expression language such as ${file.lastModifiedTime}. If the value is invalid, the processor will not be invalid but will fail to change lastModifiedTime of the file.
+*DESCRIPTION (Описание):*:: Время последней модификации, которое будет назначено файлу после его передачи. Если не установлено, время последней модификации не изменится. Формат должен быть yyyy-MM-dd'T'HH:mm:ssZ. Вы также можете использовать язык выражений, например ${file.lastModifiedTime}. Если значение недопустимо, процессор не будет недействительным, но не сможет изменить время последней модификации файла.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -348,14 +348,14 @@ REQUIRED (Обязательно)
 .Permissions
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Permissions
+*DISPLAY NAME (Отображаемое наименование):*:: Permissions (Разрешения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The permissions to assign to the file after transferring it. Format must be either UNIX rwxrwxrwx with a - in place of denied permissions (e.g. rw-r--r--) or an octal number (e.g. 644). If not set, the permissions will not be changed. You may also use expression language such as ${file.permissions}. If the value is invalid, the processor will not be invalid but will fail to change permissions of the file.
+*DESCRIPTION (Описание):*:: Разрешения, которые будут присвоены файлу после его передачи. Формат должен быть либо UNIX rwxrwxrwx с тире в качестве запрещенных разрешений (например, rw-r--r--) или восьмеричным числом (например, 644). Если не установлено, разрешения не будут изменены. Вы также можете использовать язык выражений, например ${file.permissions}. Если значение недопустимо, процессор не будет недействительным, но не сможет изменить разрешения файла.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -365,23 +365,23 @@ REQUIRED (Обязательно)
 .*Use Compression*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Use Compression
+*DISPLAY NAME (Отображаемое наименование):*:: Use Compression (Использовать сжатие)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates whether or not ZLIB compression should be used when transferring files
+*DESCRIPTION (Описание):*:: Указывает, следует ли использовать ZLIB-сжатие при передаче файлов
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -390,14 +390,14 @@ REQUIRED (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: SOCKS + AuthN, HTTP + AuthN
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера конфигурации прокси для проксирования сетевых запросов. Поддерживаемые прокси: SOCKS + AuthN, HTTP + AuthN
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -407,14 +407,14 @@ REQUIRED (Обязательно)
 .Internal Buffer Size
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Internal Buffer Size
+*DISPLAY NAME (Отображаемое наименование):*:: Internal Buffer Size (Внутренний размер буфера)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Set the internal buffer size for buffered data streams
+*DESCRIPTION (Описание):*:: Устанавливает внутренний размер буфера для потоков данных с буферизацией
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -424,14 +424,14 @@ REQUIRED (Обязательно)
 .*Ftp-Use-Utf8*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Use UTF-8 Encoding
+*DISPLAY NAME (Отображаемое наименование):*:: Use UTF-8 Encoding (Использовать кодировку UTF-8)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Tells the client to use UTF-8 encoding when processing files and filenames. If set to true, the server must also support UTF-8 encoding.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -455,12 +455,12 @@ REQUIRED (Обязательно)
 |Наименование |Описание |Значение |Ограничения языка выражений
 
 |`pre.cmd._____`
-|The command specified in the key will be executed before doing a put.  You may add these optional properties  to send any commands to the FTP server before the file is actually transferred (before the put command). This option is only available for the PutFTP processor, as only FTP has this functionality. This is essentially the same as sending quote commands to an FTP server from the command line.  While this is the same as sending a quote command, it is very important that you leave off the .
+|Команда, указанная в ключе, будет выполнена перед отправкой. Вы можете добавить эти необязательные свойства для отправки любых команд на FTP сервер до фактической передачи файла (до команды put). Эта опция доступна только для процессора PutFTP, так как только FTP имеет эту функциональность. Это по сути то же самое, что и отправка команд командной строки на FTP сервер. Хотя это то же самое, что и отправка команды, очень важно оставить его без изменений.
 |`Not used`
 |
 
 |`post.cmd._____`
-|The command specified in the key will be executed after doing a put.  You may add these optional properties  to send any commands to the FTP server before the file is actually transferred (before the put command). This option is only available for the PutFTP processor, as only FTP has this functionality. This is essentially the same as sending quote commands to an FTP server from the command line.  While this is the same as sending a quote command, it is very important that you leave off the .
+|Команда, указанная в ключе, будет выполнена после отправки. Вы можете добавить эти необязательные свойства для отправки любых команд на FTP сервер до фактической передачи файла (до команды put). Эта опция доступна только для процессора PutFTP, так как только FTP имеет эту функциональность. Это по сути то же самое, что и отправка команд командной строки на FTP сервер. Хотя это то же самое, что и отправка команды, очень важно оставить его без изменений.
 |`Not used`
 |
 
@@ -481,19 +481,30 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`failure`
-|FlowFiles that failed to send to the remote system; failure is usually looped back to this processor
+|FlowFiles, которые не удалось отправить на удаленную систему; неудача обычно возвращается к этому процессору
 
 |`success`
-|FlowFiles that are successfully sent will be routed to success
+|FlowFiles, которые успешно отправлены будут направлены в success
 
 |`reject`
-|FlowFiles that were rejected by the destination system
+|FlowFiles, которые были отклонены системой назначения
 
 |===
 
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

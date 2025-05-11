@@ -1,13 +1,13 @@
 = StartGcpVisionAnnotateFilesOperation 2.2.0
 
-Trigger a Vision operation on file input. It should be followed by GetGcpVisionAnnotateFilesOperationStatus processor in order to monitor operation status.
+Запускает операцию Vision на входном файле. Для отслеживания статуса операции необходимо использовать процессор GetGcpVisionAnnotateFilesOperationStatus.
 
 [horizontal]
 *Tags* (Ключевые слова):
 Cloud, Google, Machine Learning, Vision
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ Cloud, Google, Machine Learning, Vision
 .Json-Payload
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: JSON Payload
+*DISPLAY NAME (Отображаемое наименование):*:: JSON Payload (JSON запрос для AWS Machine Learning services)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: JSON request for AWS Machine Learning services. The Processor will use FlowFile content for the request when this property is not specified.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ Cloud, Google, Machine Learning, Vision
 .*Gcp-Credentials-Provider-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service
+*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service (...)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Controller Service used to obtain Google Cloud Platform credentials.
+*DESCRIPTION (Описание):*:: Сервис контроллера, используемый для получения учетных данных Google Cloud Platform.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ Cloud, Google, Machine Learning, Vision
 .Output-Bucket
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Output Bucket
+*DISPLAY NAME (Отображаемое наименование):*:: Output Bucket (Выходной бакет)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Name of the GCS bucket where the output of the Vision job will be persisted. The value of this property applies when the JSON Payload property is configured. The JSON Payload property value can use Expression Language to reference the value of ${output-bucket}
+*DESCRIPTION (Описание):*:: Имя Google Cloud Storage (GCS) бакета, в котором будет сохраняться результат задания Vision. Значение этого свойства применяется, если настроено свойство JSON Payload. Значение свойства JSON Payload может использовать Expression Language для ссылки на значение ${output-bucket}
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ Cloud, Google, Machine Learning, Vision
 .Vision-Feature-Type
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Vision Feature Type
+*DISPLAY NAME (Отображаемое наименование):*:: Vision Feature Type (Вид функции GCP Vision)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Type of GCP Vision Feature. The value of this property applies when the JSON Payload property is configured. The JSON Payload property value can use Expression Language to reference the value of ${vision-feature-type}
+*DESCRIPTION (Описание):*:: Тип функции GCP Vision. Значение этого свойства применяется, когда настроено свойство JSON Payload. Значение свойства JSON Payload может использовать язык выражений для ссылки на значение ${vision-feature-type}
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -102,10 +102,10 @@ Cloud, Google, Machine Learning, Vision
 |Наименование |Описание
 
 |`success`
-|FlowFiles are routed to success relationship
+|FlowFiles перенаправляются в отношение успеха
 
 |`failure`
-|FlowFiles are routed to failure relationship
+|FlowFiles перенаправляются в отношение неудачи
 
 |===
 
@@ -120,7 +120,7 @@ Cloud, Google, Machine Learning, Vision
 |Наименование |Описание
 
 |`operationKey`
-|A unique identifier of the operation returned by the Vision server.
+|Уникальный идентификатор операции, возвращенный сервером Vision.
 
 |===
 

@@ -1,13 +1,13 @@
 = GrokReader 2.2.0
 
-Provides a mechanism for reading unstructured text data, such as log files, and structuring the data so that it can be processed. The service is configured using Grok patterns. The service reads from a stream of data and splits each message that it finds into a separate Record, each containing the fields that are configured. If a line in the input does not match the expected message pattern, the line of text is either considered to be part of the previous message or is skipped, depending on the configuration, with the exception of stack traces. A stack trace that is found at the end of a log message is considered to be part of the previous message but is added to the 'stackTrace' field of the Record. If a record has no stack trace, it will have a NULL value for the stackTrace field (assuming that the schema does in fact include a stackTrace field of type String). Assuming that the schema includes a '_raw' field of type String, the raw message will be included in the Record.
+Предоставляет механизм для чтения неупорядоченного текстового данного, такого как файлы журналов, и структурирования данных для дальнейшей обработки. Сервис настраивается с использованием шаблонов Grok. Сервис читает поток данных и разделяет каждое найденное сообщение на отдельную запись, каждая из которых содержит поля, настроенные в конфигурации. Если строка во входном тексте не соответствует ожидаемому шаблону сообщения, строка текста либо считается частью предыдущего сообщения, либо пропускается в зависимости от конфигурации, за исключением трассировок кода. Трассировка, найденная в конце сообщения журнала, считается частью предыдущего сообщения, но добавляется в поле 'stackTrace' записи. Если запись не имеет трассировки, она будет иметь значение NULL для поля stackTrace (предполагая, что схема действительно включает поле stackTrace типа String). Предполагая, что схема включает поле '_raw' типа String, исходное сообщение будет включено в запись.
 
 [horizontal]
 *Tags* (Ключевые слова):
 grok, logfiles, logs, logstash, parse, pattern, reader, record, regex, text, unstructured
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,27 +20,27 @@ grok, logfiles, logs, logstash, parse, pattern, reader, record, regex, text, uns
 .*Schema-Access-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy (Стратегия доступа к схеме)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how to obtain the schema that is to be used for interpreting the data.
+*DESCRIPTION (Описание):*:: Указывает, как получить схему для интерпретации данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Use String Fields From Grok Expression: The schema will be derived using the field names present in all configured Grok Expressions. All schema fields will have a String type and will be marked as nullable. The schema will also include a `stackTrace` field, and a `_raw` field containing the input line string. 
+* Использовать строковые поля из выражения Grok (Use String Fields From Grok Expression): Схема будет получена с использованием имен полей, присутствующих во всех настроенных выражениях Grok. Все поля схемы будут иметь тип String и будут отмечены как nullable. Схема также включит поле `stackTrace` и поле `_raw`, содержащее входная строка. 
 
-* Use 'Schema Name' Property: The name of the Schema to use is specified by the 'Schema Name' Property. The value of this property is used to lookup the Schema in the configured Schema Registry service. 
+* Использовать свойство 'Имя схемы' (Use 'Schema Name' Property): Имя используемой схемы указывается свойством 'Имя схемы'. Значение этого свойства используется для поиска схемы в настроенном сервисе реестра схем. 
 
-* Use 'Schema Text' Property: The text of the Schema itself is specified by the 'Schema Text' Property. The value of this property must be a valid Avro Schema. If Expression Language is used, the value of the 'Schema Text' property must be valid after substituting the expressions. 
+* Использовать свойство 'Текст схемы' (Use 'Schema Text' Property): Сам текст схемы указывается свойством 'Текст схемы'. Значение этого свойства должно быть допустимой Avro схемой. Если используется язык выражений, значение свойства 'Текст схемы' должно быть действительным после замены выражений. 
 
-* Schema Reference Reader: The schema reference information will be provided through a configured Schema Reference Reader service implementation. 
+* Читатель ссылки на схему (Schema Reference Reader): Информация о ссылке на схему будет предоставлена через реализованный сервис конфигурации Schema Reference Reader. 
 
 
 [horizontal]
@@ -49,14 +49,14 @@ grok, logfiles, logs, logstash, parse, pattern, reader, record, regex, text, uns
 .Schema-Registry
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry (Реестър на схеми)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for the Schema Registry
+*DESCRIPTION (Описание):*:: Определя контролера за услуга, който да се използва за реестра на схемите
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -66,14 +66,14 @@ grok, logfiles, logs, logstash, parse, pattern, reader, record, regex, text, uns
 .Schema-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Name
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Name (Схема имени)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the name of the schema to lookup in the Schema Registry property
+*DESCRIPTION (Описание):*:: Указывает имя схемы для поиска в свойстве Реестра схем
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -83,14 +83,14 @@ grok, logfiles, logs, logstash, parse, pattern, reader, record, regex, text, uns
 .Schema-Version
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Version
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Version (Схема версии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the version of the schema to lookup in the Schema Registry. If not specified then the latest version of the schema will be retrieved.
+*DESCRIPTION (Описание):*:: Указывает версию схемы для поиска в Реестре схем. Если не указано, будет получена последняя версия схемы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -100,14 +100,14 @@ grok, logfiles, logs, logstash, parse, pattern, reader, record, regex, text, uns
 .Schema-Branch
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Branch
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Branch (Схема ветки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the name of the branch to use when looking up the schema in the Schema Registry property. If the chosen Schema Registry does not support branching, this value will be ignored.
+*DESCRIPTION (Описание):*:: Указывает имя ветки, которую следует использовать при поиске схемы в свойстве Схемарегистр. Если выбранная Схемарегистр не поддерживает ветвление, это значение будет проигнорировано.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -117,14 +117,14 @@ grok, logfiles, logs, logstash, parse, pattern, reader, record, regex, text, uns
 .Schema-Text
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Text
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Text (Схема текста)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The text of an Avro-formatted Schema
+*DESCRIPTION (Описание):*:: Текст Avro-формамата схемы
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -134,14 +134,14 @@ grok, logfiles, logs, logstash, parse, pattern, reader, record, regex, text, uns
 .*Schema-Reference-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Reader (Ссылочный читатель схемы)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Service implementation responsible for reading FlowFile attributes or content to determine the Schema Reference Identifier
+*DESCRIPTION (Описание):*:: Сервис реализации, отвечающий за чтение атрибутов или содержимого FlowFile для определения идентификатора ссылки на схему
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -151,14 +151,14 @@ grok, logfiles, logs, logstash, parse, pattern, reader, record, regex, text, uns
 .Grok Pattern File
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Grok Patterns
+*DISPLAY NAME (Отображаемое наименование):*:: Grok Patterns (Шаблоны Grok)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Grok Patterns to use for parsing logs. If not specified, a built-in default Pattern file will be used. If specified, all patterns specified will override the default patterns. See the Controller Service's Additional Details for a list of pre-defined patterns.
+*DESCRIPTION (Описание):*:: Шаблоны Grok для анализа журналов. Если не указаны, будет использован встроенный файл по умолчанию. Если указаны, все указанные шаблоны переопределят шаблоны по умолчанию. См. дополнительные сведения о Controller Service для списка предопределенных шаблонов.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -168,14 +168,14 @@ grok, logfiles, logs, logstash, parse, pattern, reader, record, regex, text, uns
 .*Grok Expression*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Grok Expressions
+*DISPLAY NAME (Отображаемое наименование):*:: Grok Expressions (Выражение для Grok)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the format of a log line in Grok format. This allows the Record Reader to understand how to parse each log line. The property supports one or more Grok expressions. The Reader attempts to parse input lines according to the configured order of the expressions.If a line in the log file does not match any expressions, the line will be assumed to belong to the previous log message.If other Grok patterns are referenced by this expression, they need to be supplied in the Grok Pattern File property.
+*DESCRIPTION (Описание):*:: Указывает формат строки журнала в формате Grok. Это позволяет чтению записей понимать, как парсить каждую строку журнала. Свойство поддерживает одно или несколько выражений Grok. Читатель пытается проанализировать входные строки в соответствии с конфигурацией порядка выражений. Если строка в журнале не соответствует ни одному из выражений, строка будет предполагаться принадлежащей предыдущему сообщению журнала.Если другие шаблоны Grok используются этим выражением, они должны быть предоставлены в свойстве файла шаблонов Grok.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -185,25 +185,25 @@ grok, logfiles, logs, logstash, parse, pattern, reader, record, regex, text, uns
 .*No-Match-Behavior*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: No Match Behavior
+*DISPLAY NAME (Отображаемое наименование):*:: No Match Behavior (Поведение без совпадения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If a line of text is encountered and it does not match the given Grok Expression, and it is not part of a stack trace, this property specifies how the text should be processed.
+*DESCRIPTION (Описание):*:: Если встречается строка текста, которая не соответствует заданному выражению Grok и не является частью трассировки стека, это свойство указывает, как должна обрабатываться данная строка.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Append to Previous Message: The line of text that does not match the Grok Expression will be appended to the last field of the prior message. 
+* Append to Previous Message (Добавить к предыдущему сообщению): Строка текста, которая не соответствует выражению Grok, будет добавлена в последнее поле предыдущего сообщения. 
 
-* Skip Line: The line of text that does not match the Grok Expression will be skipped. 
+* Skip Line (Пропустить строку): Строка текста, которая не соответствует выражению Grok, будет пропущена. 
 
-* Raw Line: The line of text that does not match the Grok Expression will only be added to the _raw field. 
+* Raw Line (Сырая строка): Строка текста, которая не соответствует выражению Grok, будет добавлена только в поле _raw. 
 
 
 [horizontal]
@@ -224,7 +224,7 @@ grok, logfiles, logs, logstash, parse, pattern, reader, record, regex, text, uns
 |Требуемые права |Объяснение
 
 |
-|Patterns and Expressions can reference resources over HTTP
+|Шаблоны и выражения могут ссылаться на ресурсы по протоколу HTTP
 
 |===
 
@@ -233,6 +233,17 @@ grok, logfiles, logs, logstash, parse, pattern, reader, record, regex, text, uns
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

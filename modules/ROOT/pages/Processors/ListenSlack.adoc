@@ -1,13 +1,13 @@
 = ListenSlack 2.2.0
 
-Retrieves real-time messages or Slack commands from one or more Slack conversations. The messages are written out in JSON format. Note that this Processor should be used to obtain real-time messages and commands from Slack and does not provide a mechanism for obtaining historical messages. The ConsumeSlack Processor should be used for an initial load of messages from a channel. See Usage / Additional Details for more information about how to configure this Processor and enable it to retrieve messages and commands from Slack.
+Получает реальные сообщения или команды Slack из одного или нескольких разговоров в Slackе. Сообщения выводятся в формате JSON. Обратите внимание, что этот процессор следует использовать для получения реальных сообщений и команд из Slack и не предоставляет механизм для получения исторических сообщений. Для начальной загрузки сообщений из канала следует использовать процессор ConsumeSlack. См. раздел 'Usage / Additional Details' для получения дополнительных сведений о настройке этого процессора и его возможности получать сообщения и команды из Slack.
 
 [horizontal]
 *Tags* (Ключевые слова):
 command, event, listen, message, real-time, receive, slack, social media, team, text, unstructured
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ FORBIDDEN (Обязательно)
 .*App Token*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: App Token
+*DISPLAY NAME (Отображаемое наименование):*:: App Token (Приложение-токен)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Application Token that is registered to your Slack application
+*DESCRIPTION (Описание):*:: Приложение-токен, зарегистрированный для вашего Slack приложения
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -37,14 +37,14 @@ FORBIDDEN (Обязательно)
 .*Bot Token*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Bot Token
+*DISPLAY NAME (Отображаемое наименование):*:: Bot Token (Токен бота)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Bot Token that is registered to your Slack application
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -54,27 +54,27 @@ FORBIDDEN (Обязательно)
 .*Event Type To Receive*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Event Type to Receive
+*DISPLAY NAME (Отображаемое наименование):*:: Event Type to Receive (Тип события для получения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the type of Event that the Processor should respond to
+*DESCRIPTION (Описание):*:: Указывает тип события, на которое должен отвечать процессор
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Receive App Mention Events: The Processor is to receive only slack messages that mention the bot user (App Mention Events) 
+* Receive App Mention Events (Получать упоминания приложения): Процессору следует получать только сообщения Slack, которые упоминают бота-пользователя (события упоминания приложения) 
 
-* Receive Message Events: The Processor is to receive Slack Message Events 
+* Receive Message Events (Получать события сообщений): Процессору следует получать события Slack-сообщений 
 
-* Receive Commands: The Processor is to receive Commands from Slack that are specific to your application. The Processor will not receive Message Events. 
+* Receive Commands (Получать команды): Процессору следует получать команды от Slack, специфичные для вашего приложения. Процессор не будет получать события сообщений. 
 
-* Receive Joined Channel Events: The Processor is to receive only events when a member is joining a channel. The Processor will not receive Message Events. 
+* Receive Joined Channel Events (Получать события присоединения к каналу): Процессору следует получать только события, когда член присоединяется к каналу. Процессор не будет получать события сообщений. 
 
 
 [horizontal]
@@ -83,14 +83,14 @@ FORBIDDEN (Обязательно)
 .*Resolve User Details*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Resolve User Details
+*DISPLAY NAME (Отображаемое наименование):*:: Resolve User Details (Определять данные пользователя)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether the Processor should lookup details about the Slack User who sent the received message. If true, the output JSON will contain an additional field named 'userDetails'. The 'user' field will still contain the ID of the user. In order to enable this capability, the Bot Token must be granted the 'users:read' and optionally the 'users.profile:read' Bot Token Scope. If the rate limit is exceeded when retrieving this information, the received message will be rejected and must be re-delivered.
+*DESCRIPTION (Описание):*:: Указывает, должен ли процессор искать детали о Slack-пользователе, который отправил полученное сообщение. Если значение true, в выходном JSON будет дополнительное поле с именем 'userDetails'. Поле 'user' все равно будет содержать идентификатор пользователя. Для включения этой функциональности Bot Token должен быть предоставлен с разрешением 'users:read' и, при необходимости, 'users.profile:read' Bot Token Scope. Если лимит скорости превышен при получении этой информации, полученное сообщение будет отклонено и должно быть повторно доставлено.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -122,7 +122,7 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`success`
-|All FlowFiles that are created will be sent to this Relationship.
+|Все FlowFiles, созданные в процессоре, будут отправлены по этому Relationship.
 
 |===
 
@@ -137,7 +137,7 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`mime.type`
-|Set to application/json, as the output will always be in JSON format
+|Устанавливается в application/json, так как вывод всегда будет в формате JSON
 
 |===
 

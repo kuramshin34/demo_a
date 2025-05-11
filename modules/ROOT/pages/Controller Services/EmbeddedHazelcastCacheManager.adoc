@@ -1,13 +1,13 @@
 = EmbeddedHazelcastCacheManager 2.2.0
 
-A service that runs embedded Hazelcast and provides cache instances backed by that. The server does not ask for authentication, it is recommended to run it within secured network.
+Сервис, который запускает встроенный Hazelcast и предоставляет экземпляры кэша, поддерживаемые им. Сервер не требует аутентификации, рекомендуется запускать его в защищенной сети.
 
 [horizontal]
 *Tags* (Ключевые слова):
 cache, hazelcast
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ cache, hazelcast
 .*Hazelcast-Cluster-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Cluster Name
+*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Cluster Name (Имя кластера Hazelcast)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Name of the Hazelcast cluster.
+*DESCRIPTION (Описание):*:: Имя кластера Hazelcast.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ cache, hazelcast
 .*Hazelcast-Port*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Port
+*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Port (Порт для экземпляра Hazelcast)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Port for the Hazelcast instance to use.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,25 +54,25 @@ cache, hazelcast
 .*Hazelcast-Clustering-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Clustering Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Clustering Strategy (Стратегия кластеризации Hazelcast)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies with what strategy the Hazelcast cluster should be created.
+*DESCRIPTION (Описание):*:: Указывает, с какой стратегией следует создать кластер Hazelcast.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* None: No high availability or data replication is provided, every node has access only to the data stored locally. 
+* None (Нет): Не предоставляется высокая доступность или репликация данных, каждый узел имеет доступ только к локальным данным. 
 
-* All Nodes: Creates Hazelcast cluster based on the NiFi cluster: It expects every NiFi nodes to have a running Hazelcast instance on the same port as specified in the Hazelcast Port property. No explicit listing of the instances is needed. 
+* All Nodes (Все узлы): Создаёт кластер Hazelcast на основе NiFi-кластера: Ожидает, что каждый узел NiFi имеет запущенный экземпляр Hazelcast на той же порту, что и указан в свойстве "Hazelcast Port". Не требуется явного перечисления экземпляров. 
 
-* Explicit: Works with an explicit list of Hazelcast instances, creating a cluster using the listed instances. This provides greater control, making it possible to utilize only certain nodes as Hazelcast servers. The list of Hazelcast instances can be set in the property "Hazelcast Instances". The list items must refer to hosts within the NiFi cluster, no external Hazelcast is allowed. NiFi nodes are not listed will be join to the Hazelcast cluster as clients. 
+* Explicit (Явный): Работает с явным списком экземпляров Hazelcast, создавая кластер с использованием перечисленных экземпляров. Это обеспечивает больший контроль, позволяя использовать только определенные узлы в качестве серверов Hazelcast. Список экземпляров Hazelcast можно установить в свойстве "Hazelcast Instances". Элементы списка должны ссылаться на хосты в пределах NiFi-кластера, не допускаются внешние Hazelcast. Узлы, которые не перечислены в NiFi, присоединятся к кластеру Hazelcast как клиенты. 
 
 
 [horizontal]
@@ -81,14 +81,14 @@ cache, hazelcast
 .Hazelcast-Instances
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Instances
+*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Instances (Экземпляры Hazelcast)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Only used with "Explicit" Clustering Strategy! List of NiFi instance host names which should be part of the Hazelcast cluster. Host names are separated by comma. The port specified in the "Hazelcast Port" property will be used as server port. The list must contain every instance that will be part of the cluster. Other instances will join the Hazelcast cluster as clients.
+*DESCRIPTION (Описание):*:: Используется только с "Явной" стратегией кластеризации! Список имен хостов экземпляров NiFi, которые должны быть частью кластера Hazelcast. Имена хостов разделяются запятой. Порт, указанный в свойстве "Hazelcast Port", будет использоваться как серверный порт. Список должен содержать каждый экземпляр, который будет частью кластера. Другие экземпляры присоединятся к кластеру Hazelcast в качестве клиентов.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -108,6 +108,17 @@ cache, hazelcast
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

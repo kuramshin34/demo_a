@@ -7,7 +7,7 @@ This processor collects data from Asana
 asana, ingest, source
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ FORBIDDEN (Обязательно)
 .*Asana-Controller-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Asana Client Service
+*DISPLAY NAME (Отображаемое наименование):*:: Asana Client Service (Асана Клиентская Служба)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specify which controller service to use for accessing Asana.
+*DESCRIPTION (Описание):*:: Укажите, какую контроллерную службу следует использовать для доступа к Асане.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ FORBIDDEN (Обязательно)
 .*Distributed-Cache-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Distributed Cache Service
+*DISPLAY NAME (Отображаемое наименование):*:: Distributed Cache Service (Распределенный кэш-сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Cache service to store fetched item fingerprints. These, from the last successful query are stored, in order to enable incremental loading and change detection.
+*DESCRIPTION (Описание):*:: Кэш-сервис для хранения отпечатков пальцев загруженных элементов. Эти отпечатки, полученные из последнего успешного запроса, хранятся для обеспечения инкрементной загрузки и обнаружения изменений.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,43 +54,43 @@ FORBIDDEN (Обязательно)
 .*Asana-Object-Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Object Type
+*DISPLAY NAME (Отображаемое наименование):*:: Object Type (Объект типа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specify what kind of objects to be collected from Asana
+*DESCRIPTION (Описание):*:: Укажите, какие объекты следует собрать из Asana
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Tasks: Collect tasks matching to the specified conditions. 
+* Tasks (Задачи): Собирать задачи, соответствующие указанным условиям. 
 
-* Task Attachments: Collect attached files of tasks matching to the specified conditions. 
+* Task Attachments (Вложения задач): Собирать вложенные файлы задач, соответствующих указанным условиям. 
 
-* Projects: Collect projects of the workspace. 
+* Projects (Проекты): Собирать проекты рабочей области. 
 
-* Tags: Collect tags of the workspace. 
+* Tags (Теги): Собирать теги рабочей области. 
 
-* Users: Collect users assigned to the workspace. 
+* Users (Пользователи): Собирать пользователей, назначенных в рабочую область. 
 
-* Members of a Project: Collect users assigned to the specified project. 
+* Members of a Project (Участники проекта): Собирать пользователей, назначенных на указанный проект. 
 
-* Teams: Collect teams of the workspace. 
+* Teams (Команды): Собирать команды рабочей области. 
 
-* Team Members: Collect users assigned to the specified team. 
+* Team Members (Участники команды): Собирать пользователей, назначенных на указанную команду. 
 
-* Stories of Tasks: Collect stories (comments) of of tasks matching to the specified conditions. 
+* Stories of Tasks (История задач): Собирать истории (комментарии) задач, соответствующих указанным условиям. 
 
-* Status Updates of a Project: Collect status updates of the specified project. 
+* Status Updates of a Project (Обновления статуса проекта): Собирать обновления статуса указанного проекта. 
 
-* Attachments of Status Updates: Collect attached files of project status updates. 
+* Attachments of Status Updates (Вложения обновлений статуса): Собирать вложенные файлы обновлений статуса проекта. 
 
-* Events of a Project: Collect various events happening on the specified project and on its' tasks. 
+* Events of a Project (События проекта): Собирать различные события, происходящие на указанном проекте и его задачах. 
 
 
 [horizontal]
@@ -99,14 +99,14 @@ FORBIDDEN (Обязательно)
 .*Asana-Project-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Project Name
+*DISPLAY NAME (Отображаемое наименование):*:: Project Name (Проект)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Fetch only objects in this project. Case sensitive.
+*DESCRIPTION (Описание):*:: Извлекать только объекты в этом проекте. Чувствительно к регистру.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -116,14 +116,14 @@ FORBIDDEN (Обязательно)
 .Asana-Section-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Section Name
+*DISPLAY NAME (Отображаемое наименование):*:: Section Name (Раздел)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Fetch only objects in this section. Case sensitive.
+*DESCRIPTION (Описание):*:: Извлекать только объекты в этом разделе. Чувствительно к регистру.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -133,14 +133,14 @@ FORBIDDEN (Обязательно)
 .Asana-Team-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Team
+*DISPLAY NAME (Отображаемое наименование):*:: Team (Команда)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Team name. Case sensitive.
+*DESCRIPTION (Описание):*:: Название команды. Чувствительно к регистру.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -150,14 +150,14 @@ FORBIDDEN (Обязательно)
 .Asana-Tag-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Tag
+*DISPLAY NAME (Отображаемое наименование):*:: Тег
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Fetch only objects having this tag. Case sensitive.
+*DESCRIPTION (Описание):*:: Извлекать только объекты с этим тегом. Чувствительно к регистру.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -167,14 +167,14 @@ FORBIDDEN (Обязательно)
 .*Asana-Output-Batch-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Output Batch Size
+*DISPLAY NAME (Отображаемое наименование):*:: Output Batch Size (Размер пакета вывода)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The number of items batched together in a single Flow File. If set to 1 (default), then each item is transferred in a separate Flow File and each will have an asana.gid attribute, to help identifying the fetched item on the server side, if needed. If the batch size is greater than 1, then the specified amount of items are batched together in a single Flow File as a Json array, and the Flow Files won't have the asana.gid attribute.
+*DESCRIPTION (Описание):*:: Количество элементов, сгруппированных вместе в одном Flow File. Если установлено значение 1 (по умолчанию), то каждый элемент передается в отдельный Flow File и каждый из них будет иметь атрибут asana.gid, чтобы помочь идентифицировать полученный элемент на серверной стороне, если это необходимо. Если размер пакета больше 1, то указанное количество элементов группируется вместе в одном Flow File как Json массив, и Flow Files не будут иметь атрибута asana.gid.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -195,7 +195,7 @@ FORBIDDEN (Обязательно)
 
 
 |MEMORY
-|An instance of this component can cause high usage of this system resource.  Multiple instances or high concurrency settings may result a degradation of performance.
+|An instance of this component can cause high usage of this system resource. Multiple instances or high concurrency settings may result a degradation of performance.
 
 |===
 

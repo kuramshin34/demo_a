@@ -1,13 +1,13 @@
 = CompressContent 2.2.0
 
-Compresses or decompresses the contents of FlowFiles using a user-specified compression algorithm and updates the mime.type attribute as appropriate. A common idiom is to precede CompressContent with IdentifyMimeType and configure Mode='decompress' AND Compression Format='use mime.type attribute'. When used in this manner, the MIME type is automatically detected and the data is decompressed, if necessary. If decompression is unnecessary, the data is passed through to the 'success' relationship. This processor operates in a very memory efficient way so very large objects well beyond the heap size are generally fine to process.
+Сжимает или разжимает содержимое FlowFiles, используя указанный пользователем алгоритм сжатия и обновляет атрибут mime.type соответственно. Распространенным идиоматическим шаблоном является предшествование CompressContent IdentifyMimeType, при этом настройка Mode='decompress' AND Compression Format='use mime.type attribute'. При использовании таким образом, MIME-тип автоматически обнаруживается и разжимается, если это необходимо. Если разжатие не требуется, данные передаются в отношение 'success'.
 
 [horizontal]
 *Tags* (Ключевые слова):
 brotli, bzip2, compress, content, decompress, deflate, gzip, lz4-framed, lzma, snappy, snappy framed, snappy-hadoop, xz-lzma2, zstd
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,23 +20,23 @@ REQUIRED (Обязательно)
 .*Mode*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Mode
+*DISPLAY NAME (Отображаемое наименование):*:: Mode (Режим)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates whether the processor should compress content or decompress content. Must be either 'compress' or 'decompress'
+*DESCRIPTION (Описание):*:: Указывает, должен ли процессор сжимать или разжать содержимое. Должно быть либо 'сжимать', либо 'разжимать'
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* compress
+* compress (сжимать)
 
-* decompress
+* decompress (разжимать)
 
 
 [horizontal]
@@ -45,43 +45,43 @@ REQUIRED (Обязательно)
 .*Compression Format*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Compression Format
+*DISPLAY NAME (Отображаемое наименование):*:: Compression Format (Формат сжатия)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The compression format to use. Valid values are: GZIP, Deflate, ZSTD, BZIP2, XZ-LZMA2, LZMA, Brotli, Snappy, Snappy Hadoop, Snappy Framed, and LZ4-Framed
+*DESCRIPTION (Описание):*:: Формат сжатия для использования. Допустимые значения: GZIP, Deflate, ZSTD, BZIP2, XZ-LZMA2, LZMA, Brotli, Snappy, Snappy Hadoop, Snappy Framed, и LZ4-Framed
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* use mime.type attribute
+* use mime.type attribute (использовать атрибут mime.type)
 
-* gzip
+* gzip (gzip)
 
-* deflate
+* deflate (deflate)
 
-* bzip2
+* bzip2 (bzip2)
 
-* xz-lzma2
+* xz-lzma2 (xz-lzma2)
 
-* lzma
+* lzma (lzma)
 
-* snappy
+* snappy (snappy)
 
-* snappy-hadoop
+* snappy-hadoop (snappy hadoop)
 
-* snappy framed
+* snappy framed (snappy framed)
 
-* lz4-framed
+* lz4-framed (lz4 framed)
 
-* zstd
+* zstd (zstd)
 
-* brotli
+* brotli (brotli)
 
 
 [horizontal]
@@ -90,14 +90,14 @@ REQUIRED (Обязательно)
 .*Compression Level*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Compression Level
+*DISPLAY NAME (Отображаемое наименование):*:: Compression Level (Уровень сжатия)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The compression level to use; this is valid only when using gzip, deflate or xz-lzma2 compression. A lower value results in faster processing but less compression; a value of 0 indicates no (that is, simple archiving) for gzip or minimal for xz-lzma2 compression. Higher levels can mean much larger memory usage such as the case with levels 7-9 for xz-lzma/2 so be careful relative to heap size.
+*DESCRIPTION (Описание):*:: Уровень сжатия для использования; это актуально только при использовании сжатия gzip, deflate или xz-lzma2. Меньшее значение приводит к более быстрой обработке, но менее эффективному сжатию; значение 0 указывает на отсутствие сжатия (то есть простое архивирование) для gzip или минимальное для xz-lzma2. Более высокие уровни могут означать значительно большее использование памяти, например, в случае уровней 7-9 для xz-lzma/2, поэтому будьте осторожны относительно размера кучи.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -131,23 +131,23 @@ REQUIRED (Обязательно)
 .*Update Filename*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Update Filename
+*DISPLAY NAME (Отображаемое наименование):*:: Update Filename (Обновление имени файла)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true, will remove the filename extension when decompressing data (only if the extension indicates the appropriate compression format) and add the appropriate extension when compressing data
+*DESCRIPTION (Описание):*:: Если true, при распаковке данных удалит расширение файла (только если расширение указывает на соответствующий формат сжатия) и добавит соответствующее расширение при сжатии данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -167,10 +167,10 @@ REQUIRED (Обязательно)
 
 
 |CPU
-|An instance of this component can cause high usage of this system resource.  Multiple instances or high concurrency settings may result a degradation of performance.
+|Экземпляр этого компонента может вызвать высокое использование системного ресурса. Множественные экземпляры или настройки высокой степени параллелизма могут привести к снижению производительности.
 
 |MEMORY
-|An instance of this component can cause high usage of this system resource.  Multiple instances or high concurrency settings may result a degradation of performance.
+|Экземпляр этого компонента может вызвать высокое использование системного ресурса. Множественные экземпляры или настройки высокой степени параллелизма могут привести к снижению производительности.
 
 |===
 
@@ -185,10 +185,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|FlowFiles will be transferred to the success relationship after successfully being compressed or decompressed
+|FlowFiles будут переданы в отношение 'success', если успешно сжаты или разжаты
 
 |`failure`
-|FlowFiles will be transferred to the failure relationship if they fail to compress/decompress
+|FlowFiles будут переданы в отношение 'failure', если они не могут сжать/разжать
 
 |===
 
@@ -201,7 +201,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`mime.type`
-|If the Compression Format is set to use mime.type attribute, this attribute is used to determine the compression type. Otherwise, this attribute is ignored.
+|Если формат сжатия установлен для использования атрибута mime.type, этот атрибут используется для определения типа сжатия. В противном случае этот атрибут игнорируется.
 
 |===
 
@@ -214,7 +214,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`mime.type`
-|If the Mode property is set to compress, the appropriate MIME Type is set. If the Mode property is set to decompress and the file is successfully decompressed, this attribute is removed, as the MIME Type is no longer known.
+|Если свойство Mode установлено в значение 'compress', устанавливается соответствующий MIME-тип. Если свойство Mode установлено в значение 'decompress' и файл успешно разжат, этот атрибут удаляется, так как MIME-тип больше не известен.
 
 |===
 
@@ -225,7 +225,7 @@ REQUIRED (Обязательно)
 
 
 
-=== Compress the contents of a FlowFile
+=== Сжимает содержимое FlowFile
 
 
 NOTE: 
@@ -243,7 +243,7 @@ NOTE:
 ====
 
 
-=== Decompress the contents of a FlowFile
+=== Разжимает содержимое FlowFile
 
 
 NOTE: 
@@ -266,10 +266,10 @@ NOTE:
 == Варианты использования, включающие другие компоненты
 
 
-=== Check whether or not a FlowFile is compressed and if so, decompress it.
+=== Проверяет, сжат ли FlowFile и если да, то разжимает его.
 
 
-NOTE: If IdentifyMimeType determines that the content is not compressed, CompressContent will pass the FlowFile along to the 'success' relationship without attempting to decompress it.
+NOTE: Если IdentifyMimeType определяет, что содержимое не сжато, CompressContent передаст FlowFile в отношение 'success' без попытки разжать его.
 
 
 

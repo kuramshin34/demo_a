@@ -7,7 +7,7 @@ Allows users to add key/value pairs as User-defined Properties. Each property th
 enrich, key, lookup, value
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 

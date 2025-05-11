@@ -7,7 +7,7 @@ The PutRecord processor uses a specified RecordReader to input (possibly multipl
 put, record, sink
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Put-Record-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Читатель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for reading incoming data
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для чтения входящих данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Put-Record-Sink*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Destination Service
+*DISPLAY NAME (Отображаемое наименование):*:: Record Destination Service (Запись в сервис назначения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the query result records to some destination.
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для записи результатов запроса в некоторую цель.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Put-Record-Include-Zero-Record-Results*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Include Zero Record Results
+*DISPLAY NAME (Отображаемое наименование):*:: Include Zero Record Results (Включить нулевые результаты записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If no records are read from the incoming FlowFile, this property specifies whether or not an empty record set will be transmitted. The original FlowFile will still be routed to success, but if no transmission occurs, no provenance SEND event will be generated.
+*DESCRIPTION (Описание):*:: Если нет записей, считанных из входящего FlowFile, это свойство указывает, будут ли передаваться пустые наборы записей. Оригинальный FlowFile все равно будет направлен к успеху, но если не произойдет передачи, то не будет сгенерировано событие предоставления доказательства.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -106,6 +106,17 @@ REQUIRED (Обязательно)
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|The App ID field from the AMQP Message
+
+|===
 
 
 

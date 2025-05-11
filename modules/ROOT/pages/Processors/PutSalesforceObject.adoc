@@ -1,13 +1,13 @@
 = PutSalesforceObject 2.2.0
 
-Creates new records for the specified Salesforce sObject. The type of the Salesforce object must be set in the input flowfile's 'objectType' attribute. This processor cannot update existing records.
+Создает новые записи для указанного объекта Salesforce в sObject. Тип объекта Salesforce должен быть установлен в атрибуте 'objectType' входного FlowFile. Этот процессор не может обновлять существующие записи.
 
 [horizontal]
 *Tags* (Ключевые слова):
 put, salesforce, sobject
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Salesforce-Url*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Salesforce Instance URL
+*DISPLAY NAME (Отображаемое наименование):*:: Salesforce Instance URL (URL экземпляра Salesforce)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The URL of the Salesforce instance including the domain without additional path information, such as https://MyDomainName.my.salesforce.com
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Salesforce-Api-Version*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: API Version
+*DISPLAY NAME (Отображаемое наименование):*:: API Version (Версия API)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The version number of the Salesforce REST API appended to the URL after the services/data path. See Salesforce documentation for supported versions
+*DESCRIPTION (Описание):*:: Номер версии Salesforce REST API, добавляемый к URL после пути services/data. См. документацию Salesforce о поддерживаемых версиях
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Read-Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Read Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Read Timeout (Время ожидания чтения ответа от Salesforce REST API)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Maximum time allowed for reading a response from the Salesforce REST API
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .*Oauth2-Access-Token-Provider*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: OAuth2 Access Token Provider
+*DISPLAY NAME (Отображаемое наименование):*:: OAuth2 Access Token Provider (OAuth2 Поставщик токенов доступа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Service providing OAuth2 Access Tokens for authenticating using the HTTP Authorization Header
+*DESCRIPTION (Описание):*:: Сервис, предоставляющий OAuth2 Access Tokens для аутентификации с использованием заголовка HTTP Authorization
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ REQUIRED (Обязательно)
 .*Record-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Чтец записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for parsing incoming data and determining the data's schema
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера для использования при разборе входящих данных и определении схемы данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -119,10 +119,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|For FlowFiles created as a result of a successful execution.
+|Для FlowFiles, созданных в результате успешной выполнения.
 
 |`failure`
-|For FlowFiles created as a result of an execution error.
+|Для FlowFiles, созданных в результате ошибки выполнения.
 
 |===
 
@@ -135,7 +135,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`objectType`
-|The Salesforce object type to upload records to. E.g. Account, Contact, Campaign.
+|Тип объекта Salesforce для загрузки записей. Например, Account, Contact, Campaign.
 
 |===
 
@@ -148,7 +148,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`error.message`
-|The error message returned by Salesforce.
+|Сообщение об ошибке, возвращенное Salesforce.
 
 |===
 

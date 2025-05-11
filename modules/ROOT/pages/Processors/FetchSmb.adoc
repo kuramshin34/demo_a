@@ -7,7 +7,7 @@ Fetches files from a SMB Share. Designed to be used in tandem with ListSmb.
 cifs, fetch, files, samba, smb
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Smb-Client-Provider-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SMB Client Provider Service
+*DISPLAY NAME (Отображаемое наименование):*:: SMB Client Provider Service (Сервис поставщика клиента SMB)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the SMB client provider to use for creating SMB connections.
+*DESCRIPTION (Описание):*:: Указывает используемого поставщика SMB для создания подключений SMB.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Remote-File*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Remote File
+*DISPLAY NAME (Отображаемое наименование):*:: Remote File (Удаленный файл)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The full path of the file to be retrieved from the remote server. Expression language is supported.
+*DESCRIPTION (Описание):*:: Полный путь к файлу, который необходимо получить с удаленного сервера. Поддерживается язык выражений.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,25 +54,25 @@ REQUIRED (Обязательно)
 .*Completion Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Completion Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Completion Strategy (Стратегия завершения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies what to do with the original file on the server once it has been processed. If the Completion Strategy fails, a warning will be logged but the data will still be transferred.
+*DESCRIPTION (Описание):*:: Указывает, что делать с исходным файлом на сервере после его обработки. Если стратегия завершения не удалась, будет залогировано предупреждение, но данные все равно будут перенесены.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* None: Leaves the file as-is. 
+* None (Ничего): Оставляет файл без изменений. 
 
-* Move File: Moves the file to the specified directory on the remote system. This option cannot be used when DFS is enabled on 'SMB Client Provider Service'. 
+* Move File (Переместить файл): Перемещает файл в указанную директорию на удаленной системе. Этот параметр нельзя использовать, если DFS включено на 'SMB Client Provider Service'. 
 
-* Delete File: Deletes the file from the remote system. 
+* Delete File (Удалить файл): Удаляет файл с удаленной системы. 
 
 
 [horizontal]
@@ -81,14 +81,14 @@ REQUIRED (Обязательно)
 .*Destination Directory*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Destination Directory
+*DISPLAY NAME (Отображаемое наименование):*:: Destination Directory (Целевая директория)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The directory on the remote server to move the original file to once it has been processed.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -98,14 +98,14 @@ REQUIRED (Обязательно)
 .*Create Destination Directory*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Create Destination Directory
+*DISPLAY NAME (Отображаемое наименование):*:: Create Destination Directory (Создать Директорию Приемника)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies whether or not the remote directory should be created if it does not exist.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 

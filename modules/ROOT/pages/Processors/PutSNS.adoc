@@ -1,13 +1,13 @@
 = PutSNS 2.2.0
 
-Sends the content of a FlowFile as a notification to the Amazon Simple Notification Service
+Отправляет содержимое FlowFile в качестве уведомления в Amazon Simple Notification Service
 
 [horizontal]
 *Tags* (Ключевые слова):
 amazon, aws, publish, pubsub, put, sns, topic
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Amazon Resource Name (Arn)*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Amazon Resource Name (ARN)
+*DISPLAY NAME (Отображаемое наименование):*:: Amazon Resource Name (ARN) (...)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the resource to which notifications should be published
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,23 +37,23 @@ REQUIRED (Обязательно)
 .*Arn Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: ARN Type
+*DISPLAY NAME (Отображаемое наименование):*:: ARN Type (Тип Amazon Resource Name)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The type of Amazon Resource Name that is being used.
+*DESCRIPTION (Описание):*:: Тип Amazon Resource Name, который используется.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Topic ARN: The ARN is the name of a topic 
+* Topic ARN (ARN топика): ARN - это имя топика 
 
-* Target ARN: The ARN is the name of a particular Target, used to notify a specific subscriber 
+* Target ARN (ARN цели): ARN - это имя конкретной цели, используемое для уведомления определенного подписчика 
 
 
 [horizontal]
@@ -62,14 +62,14 @@ REQUIRED (Обязательно)
 .E-Mail Subject
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: E-mail Subject
+*DISPLAY NAME (Отображаемое наименование):*:: E-mail Subject (Тема письма)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The optional subject to use for any subscribers that are subscribed via E-mail
+*DESCRIPTION (Описание):*:: Необязательная тема для любого подписчика, который подписан по электронной почте
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -79,109 +79,109 @@ REQUIRED (Обязательно)
 .*Region*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Region
+*DISPLAY NAME (Отображаемое наименование):*:: Region (Регион)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: 
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* AWS GovCloud (US-East): AWS Region Code : us-gov-east-1 
+* AWS GovCloud (US-East) (AWS Реестр государственных областей Восток): Код региона AWS : us-gov-east-1 
 
-* AWS GovCloud (US-West): AWS Region Code : us-gov-west-1 
+* AWS GovCloud (US-West) (AWS Реестр государственных областей Запад): Код региона AWS : us-gov-west-1 
 
-* Africa (Cape Town): AWS Region Code : af-south-1 
+* Africa (Cape Town) (Африка (Кап Стивенс)): Код региона AWS : af-south-1 
 
-* Asia Pacific (Hong Kong): AWS Region Code : ap-east-1 
+* Asia Pacific (Hong Kong) (Азиатско-Тихоокеанский регион (Гонконг)): Код региона AWS : ap-east-1 
 
-* Asia Pacific (Hyderabad): AWS Region Code : ap-south-2 
+* Asia Pacific (Hyderabad) (Азиатско-Тихоокеанский регион (Хайдерабад)): Код региона AWS : ap-south-2 
 
-* Asia Pacific (Jakarta): AWS Region Code : ap-southeast-3 
+* Asia Pacific (Jakarta) (Азиатско-Тихоокеанский регион (Джакарта)): Код региона AWS : ap-southeast-3 
 
-* Asia Pacific (Malaysia): AWS Region Code : ap-southeast-5 
+* Asia Pacific (Malaysia) (Азиатско-Тихоокеанский регион (Малайзия)): Код региона AWS : ap-southeast-5 
 
-* Asia Pacific (Melbourne): AWS Region Code : ap-southeast-4 
+* Asia Pacific (Melbourne) (Азиатско-Тихоокеанский регион (Мельбурн)): Код региона AWS : ap-southeast-4 
 
-* Asia Pacific (Mumbai): AWS Region Code : ap-south-1 
+* Asia Pacific (Mumbai) (Азиатско-Тихоокеанский регион (Мумбаи)): Код региона AWS : ap-south-1 
 
-* Asia Pacific (Osaka): AWS Region Code : ap-northeast-3 
+* Asia Pacific (Osaka) (Азиатско-Тихоокеанский регион (Осака)): Код региона AWS : ap-northeast-3 
 
-* Asia Pacific (Seoul): AWS Region Code : ap-northeast-2 
+* Asia Pacific (Seoul) (Азиатско-Тихоокеанский регион (Сеул)): Код региона AWS : ap-northeast-2 
 
-* Asia Pacific (Singapore): AWS Region Code : ap-southeast-1 
+* Asia Pacific (Singapore) (Азиатско-Тихоокеанский регион (Сингапур)): Код региона AWS : ap-southeast-1 
 
-* Asia Pacific (Sydney): AWS Region Code : ap-southeast-2 
+* Asia Pacific (Sydney) (Азиатско-Тихоокеанский регион (Сиднее)): Код региона AWS : ap-southeast-2 
 
-* Asia Pacific (Thailand): AWS Region Code : ap-southeast-7 
+* Asia Pacific (Thailand) (Азиатско-Тихоокеанский регион (Таиланд)): Код региона AWS : ap-southeast-7 
 
-* Asia Pacific (Tokyo): AWS Region Code : ap-northeast-1 
+* Asia Pacific (Tokyo) (Азиатско-Тихоокеанский регион (Токио)): Код региона AWS : ap-northeast-1 
 
-* Canada (Central): AWS Region Code : ca-central-1 
+* Canada (Central) (Канада (Центральный)): Код региона AWS : ca-central-1 
 
-* Canada West (Calgary): AWS Region Code : ca-west-1 
+* Canada West (Calgary) (Канада (Калгари)): Код региона AWS : ca-west-1 
 
-* China (Beijing): AWS Region Code : cn-north-1 
+* China (Beijing) (Китай (Пекин)): Код региона AWS : cn-north-1 
 
-* China (Ningxia): AWS Region Code : cn-northwest-1 
+* China (Ningxia) (Китай (Нингxia)): Код региона AWS : cn-northwest-1 
 
-* EU ISOE West: AWS Region Code : eu-isoe-west-1 
+* EU ISOE West (Европа (Западный Изоэтап)): Код региона AWS : eu-isoe-west-1 
 
-* Europe (Frankfurt): AWS Region Code : eu-central-1 
+* Europe (Frankfurt) (Европа (Франкфурт)): Код региона AWS : eu-central-1 
 
-* Europe (Ireland): AWS Region Code : eu-west-1 
+* Europe (Ireland) (Европа (Ирландия)): Код региона AWS : eu-west-1 
 
-* Europe (London): AWS Region Code : eu-west-2 
+* Europe (London) (Европа (Лондон)): Код региона AWS : eu-west-2 
 
-* Europe (Milan): AWS Region Code : eu-south-1 
+* Europe (Milan) (Европа (Милан)): Код региона AWS : eu-south-1 
 
-* Europe (Paris): AWS Region Code : eu-west-3 
+* Europe (Paris) (Европа (Париж)): Код региона AWS : eu-west-3 
 
-* Europe (Spain): AWS Region Code : eu-south-2 
+* Europe (Spain) (Европа (Испания)): Код региона AWS : eu-south-2 
 
-* Europe (Stockholm): AWS Region Code : eu-north-1 
+* Europe (Stockholm) (Европа (Стокгольм)): Код региона AWS : eu-north-1 
 
-* Europe (Zurich): AWS Region Code : eu-central-2 
+* Europe (Zurich) (Европа (Цюрих)): Код региона AWS : eu-central-2 
 
-* Israel (Tel Aviv): AWS Region Code : il-central-1 
+* Israel (Tel Aviv) (Израиль (Тель-Авив)): Код региона AWS : il-central-1 
 
-* Mexico (Central): AWS Region Code : mx-central-1 
+* Mexico (Central) (Мексика (Центральный)): Код региона AWS : mx-central-1 
 
-* Middle East (Bahrain): AWS Region Code : me-south-1 
+* Middle East (Bahrain) (Средиземноморский регион (Бахрейн)): Код региона AWS : me-south-1 
 
-* Middle East (UAE): AWS Region Code : me-central-1 
+* Middle East (UAE) (Средиземноморский регион (ОАЭ)): Код региона AWS : me-central-1 
 
-* South America (Sao Paulo): AWS Region Code : sa-east-1 
+* South America (Sao Paulo) (Южная Америка (Сан-Паулу)): Код региона AWS : sa-east-1 
 
-* US East (N. Virginia): AWS Region Code : us-east-1 
+* US East (N. Virginia) (США (Восточная Виргиния)): Код региона AWS : us-east-1 
 
-* US East (Ohio): AWS Region Code : us-east-2 
+* US East (Ohio) (США (Огайо)): Код региона AWS : us-east-2 
 
-* US ISO East: AWS Region Code : us-iso-east-1 
+* US ISO East (США (Изо Восток)): Код региона AWS : us-iso-east-1 
 
-* US ISO WEST: AWS Region Code : us-iso-west-1 
+* US ISO WEST (США (Изо Запад)): Код региона AWS : us-iso-west-1 
 
-* US ISOB East (Ohio): AWS Region Code : us-isob-east-1 
+* US ISOB East (Ohio) (США (Изо Восток Огайо)): Код региона AWS : us-isob-east-1 
 
-* US West (N. California): AWS Region Code : us-west-1 
+* US West (N. California) (США (Северная Калифорния)): Код региона AWS : us-west-1 
 
-* US West (Oregon): AWS Region Code : us-west-2 
+* US West (Oregon) (США (Орегон)): Код региона AWS : us-west-2 
 
-* aws-cn-global: AWS Region Code : aws-cn-global 
+* aws-cn-global (Глобальный регион aws-cn): Код региона AWS : aws-cn-global 
 
-* aws-global: AWS Region Code : aws-global 
+* aws-global (Глобальный регион aws-global): Код региона AWS : aws-global 
 
-* aws-iso-b-global: AWS Region Code : aws-iso-b-global 
+* aws-iso-b-global (Глобальный регион aws-iso-b-global): Код региона AWS : aws-iso-b-global 
 
-* aws-iso-global: AWS Region Code : aws-iso-global 
+* aws-iso-global (Глобальный регион aws-iso-global): Код региона AWS : aws-iso-global 
 
-* aws-us-gov-global: AWS Region Code : aws-us-gov-global 
+* aws-us-gov-global (Глобальный регион aws-us-gov-global): Код региона AWS : aws-us-gov-global 
 
 
 [horizontal]
@@ -190,14 +190,14 @@ REQUIRED (Обязательно)
 .*Aws Credentials Provider Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: AWS Credentials Provider Service
+*DISPLAY NAME (Отображаемое наименование):*:: AWS Credentials Provider Service (...)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Controller Service that is used to obtain AWS credentials provider
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -207,14 +207,14 @@ REQUIRED (Обязательно)
 .Ssl Context Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (Сервис контекста SSL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies an optional SSL Context Service that, if provided, will be used to create connections
+*DESCRIPTION (Описание):*:: Указывает необязательный сервис контекста SSL, если он предоставлен, будет использоваться для создания подключений
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -224,14 +224,14 @@ REQUIRED (Обязательно)
 .*Communications Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout (Коммуникационный таймаут)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: 
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -241,14 +241,14 @@ REQUIRED (Обязательно)
 .Endpoint Override Url
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Endpoint Override URL
+*DISPLAY NAME (Отображаемое наименование):*:: Endpoint Override URL (URL конечной точки для переопределения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Endpoint URL to use instead of the AWS default including scheme, host, port, and path. The AWS libraries select an endpoint URL based on the AWS region, but this property overrides the selected endpoint URL, allowing use with other S3-compatible endpoints.
+*DESCRIPTION (Описание):*:: URL конечной точки, которую следует использовать вместо AWS по умолчанию, включая схему, хост, порт и путь. Библиотеки AWS выбирают URL-адрес конечной точки на основе региона AWS, но это свойство переопределяет выбранный URL-адрес конечной точки, позволяя использовать его с другими S3-совместимыми конечными точками.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -258,14 +258,14 @@ REQUIRED (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: HTTP + AuthN
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -275,14 +275,14 @@ REQUIRED (Обязательно)
 .*Use Json Structure*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Use JSON Structure
+*DISPLAY NAME (Отображаемое наименование):*:: Use JSON Structure (Использовать структуру JSON)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true, the contents of the FlowFile must be JSON with a top-level element named 'default'. Additional elements can be used to send different messages to different protocols. See the Amazon SNS Documentation for more information.
+*DESCRIPTION (Описание):*:: Если true, содержимое FlowFile должно быть в формате JSON с корневым элементом 'default'. Дополнительные элементы могут использоваться для отправки различных сообщений на разные протоколы. Более подробную информацию см. в документации Amazon SNS.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -300,14 +300,14 @@ REQUIRED (Обязательно)
 .*Character Set*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Символьный набор)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The character set in which the FlowFile's content is encoded
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -317,14 +317,14 @@ REQUIRED (Обязательно)
 .Message Group Id
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Message Group ID
+*DISPLAY NAME (Отображаемое наименование):*:: Message Group ID (ID группы сообщений)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If using FIFO, the message group to which the flowFile belongs
+*DESCRIPTION (Описание):*:: Если используется FIFO, то это идентификатор группы потока, к которой принадлежит flowFile
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -334,14 +334,14 @@ REQUIRED (Обязательно)
 .Deduplication Message Id
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Deduplication Message ID
+*DISPLAY NAME (Отображаемое наименование):*:: Deduplication Message ID (Идентификатор сообщения для дедупликации)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The token used for deduplication of sent messages
+*DESCRIPTION (Описание):*:: The token used for deduplication of sent messages (Токен, используемый для дедупликации отправленных сообщений)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -357,7 +357,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание |Значение |Ограничения языка выражений
 
 |`A name of an attribute to be added to the notification`
-|User specified dynamic Properties are added as attributes to the notification
+|Пользовательские динамические свойства добавляются в качестве атрибутов к уведомлению
 |`The attribute value`
 |
 

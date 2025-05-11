@@ -1,13 +1,13 @@
 = Syslog5424Reader 2.2.0
 
-Provides a mechanism for reading RFC 5424 compliant Syslog data, such as log files, and structuring the data so that it can be processed.
+Предоставляет механизм для чтения данных RFC 5424, совместимых с Syslog, таких как файлы журналов, и структурирования данных для дальнейшей обработки.
 
 [horizontal]
 *Tags* (Ключевые слова):
 logfiles, logs, parse, reader, record, syslog, syslog 5424, text
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ logfiles, logs, parse, reader, record, syslog, syslog 5424, text
 .*Character Set*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Символьный набор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies which character set of the Syslog messages
+*DESCRIPTION (Описание):*:: Указывает, какой символьный набор сообщений Syslog
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,23 +37,23 @@ logfiles, logs, parse, reader, record, syslog, syslog 5424, text
 .*Syslog-5424-Reader-Raw-Message*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Raw message
+*DISPLAY NAME (Отображаемое наименование):*:: Raw message (Сообщение в сыром виде)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true, the record will have a _raw field containing the raw message
+*DESCRIPTION (Описание):*:: Если true, запись будет иметь поле _raw, содержащее исходное сообщение
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -72,6 +72,17 @@ logfiles, logs, parse, reader, record, syslog, syslog 5424, text
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

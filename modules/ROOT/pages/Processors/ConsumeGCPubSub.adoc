@@ -1,13 +1,13 @@
 = ConsumeGCPubSub 2.2.0
 
-Consumes message from the configured Google Cloud PubSub subscription. If the 'Batch Size' is set, the configured number of messages will be pulled in a single request, else only one message will be pulled.
+Потребляет сообщения из настроенной подписки Google Cloud PubSub. Если установлен размер партии, то будет запрошено указанное количество сообщений, в противном случае будет получено только одно сообщение.
 
 [horizontal]
 *Tags* (Ключевые слова):
 consume, gcp, google, google-cloud, message, pubsub
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ FORBIDDEN (Обязательно)
 .*Gcp Credentials Provider Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service
+*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service (Google Cloud Platform Учебный класс для получения учетных данных)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Controller Service used to obtain Google Cloud Platform credentials.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ FORBIDDEN (Обязательно)
 .Gcp-Project-Id
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Project ID
+*DISPLAY NAME (Отображаемое наименование):*:: Project ID (Проектный идентификатор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Google Cloud Project ID
+*DESCRIPTION (Описание):*:: Google Cloud Project ID (Идентификатор проекта в Google Cloud)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ FORBIDDEN (Обязательно)
 .*Gcp-Pubsub-Subscription*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Subscription
+*DISPLAY NAME (Отображаемое наименование):*:: Subscription (Подписка)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Name of the Google Cloud Pub/Sub Subscription
+*DESCRIPTION (Описание):*:: Имя Google Cloud Pub/Sub подписки
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ FORBIDDEN (Обязательно)
 .*Gcp-Pubsub-Publish-Batch-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Batch Size Threshold
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Size Threshold (Пороговое значение размера партии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates the number of messages the cloud service should bundle together in a batch. If not set and left empty, only one message will be used in a batch
+*DESCRIPTION (Описание):*:: Указывает количество сообщений, которые облачная служба должна объединять вместе в одну партию. Если не установлено и не оставить пустым, то в пакете будет использовано только одно сообщение
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ FORBIDDEN (Обязательно)
 .*Api-Endpoint*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: API Endpoint
+*DISPLAY NAME (Отображаемое наименование):*:: API Endpoint (API конечная точка)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Override the gRPC endpoint in the form of [host:port]
+*DESCRIPTION (Описание):*:: Переопределяет gRPC конечную точку в формате [хост:порт]
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ FORBIDDEN (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: HTTP + AuthN
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -151,19 +151,19 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`gcp.pubsub.ackId`
-|Acknowledgement Id of the consumed Google Cloud PubSub message
+|Идентификатор подтверждения потребленного сообщения Google Cloud PubSub
 
 |`gcp.pubsub.messageSize`
-|Serialized size of the consumed Google Cloud PubSub message
+|Сериализованный размер потребленного сообщения Google Cloud PubSub
 
 |`gcp.pubsub.attributesCount`
-|Number of attributes the consumed PubSub message has, if any
+|Количество атрибутов, которые имеет потребленное сообщение PubSub, если они есть
 
 |`gcp.pubsub.publishTime`
-|Timestamp value when the message was published
+|Временной штамп значения, когда было опубликовано сообщение
 
 |`Dynamic Attributes`
-|Other than the listed attributes, this processor may write zero or more attributes, if the original Google Cloud Publisher client added any attributes to the message while sending
+|Помимо перечисленных атрибутов, этот процессор может записывать от нуля до нескольких атрибутов, если оригинальный клиент Google Cloud Publisher добавил какие-либо атрибуты при отправке сообщения
 
 |===
 

@@ -1,13 +1,13 @@
 = ScriptedTransformRecord 2.2.0
 
-Provides the ability to evaluate a simple script against each record in an incoming FlowFile. The script may transform the record in some way, filter the record, or fork additional records. See Processor's Additional Details for more information.
+Предоставляет возможность оценки простого скрипта для каждой записи в поступающем FlowFile. Скрипт может трансформировать запись, отфильтровать её или разветвить дополнительные записи. Более подробная информация доступна в разделе 'Processor's Additional Details'.
 
 [horizontal]
 *Tags* (Ключевые слова):
 filter, groovy, modify, record, script, transform, update
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Record Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Записыватель записей)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Record Reader to use parsing the incoming FlowFile into Records
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Record Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Record Writer to use for serializing Records after they have been transformed
+*DESCRIPTION (Описание):*:: Записыватель записей для сериализации Records после их трансформации
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Script Engine*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Script Language
+*DISPLAY NAME (Отображаемое наименование):*:: Язык скриптов (Script Language)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Language to use for the script
+*DESCRIPTION (Описание):*:: Язык для использования в скрипте
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -79,14 +79,14 @@ REQUIRED (Обязательно)
 .Script Body
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Script Body
+*DISPLAY NAME (Отображаемое наименование):*:: Script Body (Тело скрипта)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Body of script to execute. Only one of Script File or Script Body may be used
+*DESCRIPTION (Описание):*:: Тело скрипта для выполнения. Может быть использовано только одно из значений Script File или Script Body
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -96,14 +96,14 @@ REQUIRED (Обязательно)
 .Script File
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Script File
+*DISPLAY NAME (Отображаемое наименование):*:: Script File (Скриптовый файл)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Path to script file to execute. Only one of Script File or Script Body may be used
+*DESCRIPTION (Описание):*:: Путь к скриптовому файлу для выполнения. Может быть использован только один из Скриптовый файл или Скрипт тела
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -113,14 +113,14 @@ REQUIRED (Обязательно)
 .Module Directory
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Module Directory
+*DISPLAY NAME (Отображаемое наименование):*:: Module Directory (Модульный справочник)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Comma-separated list of paths to files and/or directories which contain modules required by the script.
+*DESCRIPTION (Описание):*:: Список, разделенных запятыми путей к файлам и/или директориям, содержащих модули, необходимые для выполнения скрипта.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -142,7 +142,7 @@ REQUIRED (Обязательно)
 |Требуемые права |Объяснение
 
 |
-|Provides operator the ability to execute arbitrary code assuming all permissions that NiFi has.
+|Предоставляет оператору возможность выполнять произвольный код, принимая все права, которые есть у NiFi.
 
 |===
 
@@ -155,10 +155,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Each FlowFile that were successfully transformed will be routed to this Relationship
+|Каждый FlowFile, который был успешно трансформирован, будет направлен в это отношение
 
 |`failure`
-|Any FlowFile that cannot be transformed will be routed to this Relationship
+|Любой FlowFile, который не может быть трансформирован, будет направлен в это отношение
 
 |===
 
@@ -173,13 +173,13 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`mime.type`
-|Sets the mime.type attribute to the MIME Type specified by the Record Writer
+|Устанавливает атрибут mime.type в указанный MIME-тип записью Writer
 
 |`record.count`
-|The number of records in the FlowFile
+|Количество записей в FlowFile
 
 |`record.error.message`
-|This attribute provides on failure the error message encountered by the Reader or Writer.
+|Этот атрибут предоставляет при сбое сообщение об ошибке, которое встречается Reader или Writer.
 
 |===
 

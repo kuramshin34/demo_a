@@ -1,13 +1,13 @@
 = ControlRate 2.2.0
 
-Controls the rate at which data is transferred to follow-on processors. If you configure a very small Time Duration, then the accuracy of the throttle gets worse. You can improve this accuracy by decreasing the Yield Duration, at the expense of more Tasks given to the processor.
+Контролирует скорость передачи данных в последующие процессоры. Если вы настроите очень маленький временной интервал, то точность ограничения снижается. Точность можно улучшить, уменьшив продолжительность паузы, что потребует больше заданий для процессора.
 
 [horizontal]
 *Tags* (Ключевые слова):
-rate, rate control, throttle, throughput
+скорость, контроль скорости, ограничение, пропускная способность
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,27 +20,27 @@ REQUIRED (Обязательно)
 .*Rate Control Criteria*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Rate Control Criteria
+*DISPLAY NAME (Отображаемое наименование):*:: Rate Control Criteria (Критерии управления скоростью)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates the criteria that is used to control the throughput rate. Changing this value resets the rate counters.
+*DESCRIPTION (Описание):*:: Указывает критерии, используемые для контроля пропускной способности. Изменение этого значения сбрасывает счетчики скорости.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* data rate: Rate is controlled by counting bytes transferred per time duration. 
+* data rate (скорость данных): Скорость контролируется подсчетом переданных байт в единицу времени. 
 
-* flowfile count: Rate is controlled by counting FlowFiles transferred per time duration 
+* flowfile count (количество flow файлов): Скорость контролируется подсчетом переданных FlowFiles в единицу времени 
 
-* attribute value: Rate is controlled by accumulating the value of a specified attribute that is transferred per time duration 
+* attribute value (значение атрибута): Скорость контролируется накоплением значения указанного атрибута, переданного в единицу времени 
 
-* data rate or flowfile count: Rate is controlled by counting bytes and FlowFiles transferred per time duration; if either threshold is met, throttling is enforced 
+* data rate or flowfile count (скорость данных или количество flow файлов): Скорость контролируется подсчетом байт и FlowFiles, переданных в единицу времени; если выполнено любое из пороговых значений, применяется ограничение скорости 
 
 
 [horizontal]
@@ -49,14 +49,14 @@ REQUIRED (Обязательно)
 .*Time Duration*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Time Duration
+*DISPLAY NAME (Отображаемое наименование):*:: Time Duration (Временной интервал)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The amount of time to which the Maximum Rate pertains. Changing this value resets the rate counters.
+*DESCRIPTION (Описание):*:: Количество времени, к которому относится Максимальная скорость. Изменение этого значения сбрасывает счетчики скорости.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -66,14 +66,14 @@ REQUIRED (Обязательно)
 .Maximum Rate
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Rate
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Rate (Максимальная скорость)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum rate at which data should pass through this processor. The format of this property is expected to be a positive integer, or a Data Size (such as '1 MB') if Rate Control Criteria is set to 'data rate'.
+*DESCRIPTION (Описание):*:: Максимальная скорость, при которой данные должны проходить через этот процессор. Формат этого свойства ожидается быть положительным целым числом или Размером Данных (например, '1 MB'), если критерии управления скоростью установлены на 'скорость данных'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -83,14 +83,14 @@ REQUIRED (Обязательно)
 .Maximum Data Rate
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Data Rate
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Data Rate (Максимальная скорость передачи данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum rate at which data should pass through this processor. The format of this property is expected to be a Data Size (such as '1 MB') representing bytes per Time Duration.
+*DESCRIPTION (Описание):*:: Максимальная скорость, при которой данные должны проходить через этот процессор. Формат этого свойства ожидается быть размером данных (например, '1 MB'), представляющим количество байт в единицу времени.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -100,14 +100,14 @@ REQUIRED (Обязательно)
 .Maximum Flowfile Rate
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum FlowFile Rate
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum FlowFile Rate (Максимальная скорость передачи FlowFiles)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum rate at which FlowFiles should pass through this processor. The format of this property is expected to be a positive integer representing FlowFiles count per Time Duration
+*DESCRIPTION (Описание):*:: Максимальная скорость, при которой FlowFiles должны проходить через этот процессор. Формат этого свойства ожидается быть положительным целым числом, представляющим количество FlowFiles в единицу времени
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -117,23 +117,23 @@ REQUIRED (Обязательно)
 .*Rate Exceeded Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Rate Exceeded Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Rate Exceeded Strategy (Стратегия превышения скорости)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies how to handle an incoming FlowFile when the maximum data rate has been exceeded.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Hold FlowFile: The FlowFile will be held in its input queue until the rate of data has fallen below the configured maximum and will then be allowed through. 
+* Hold FlowFile (Удерживать FlowFile): The FlowFile will be held in its input queue until the rate of data has fallen below the configured maximum and will then be allowed through. 
 
-* Route to 'rate exceeded': The FlowFile will be routed to the 'rate exceeded' Relationship. 
+* Route to 'rate exceeded' (Маршрутизация в 'превышение скорости'): The FlowFile will be routed to the 'rate exceeded' Relationship. 
 
 
 [horizontal]
@@ -142,14 +142,14 @@ REQUIRED (Обязательно)
 .Rate Controlled Attribute
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Rate Controlled Attribute
+*DISPLAY NAME (Отображаемое наименование):*:: Rate Controlled Attribute (Контролируемое атрибутивное значение)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of an attribute whose values build toward the rate limit if Rate Control Criteria is set to 'attribute value'. The value of the attribute referenced by this property must be a positive long, or the FlowFile will be routed to failure. This value is ignored if Rate Control Criteria is not set to 'attribute value'. Changing this value resets the rate counters.
+*DESCRIPTION (Описание):*:: Имя атрибута, значения которого накапливаются к скорости ограничения, если установлены критерии контроля скорости. Значение этого атрибута должно быть положительным целым числом, иначе поток будет направлен в сбой. Это значение игнорируется, если критерии контроля скорости не установлены на 'attribute value'. Изменение этого значения сбрасывает счетчики скорости.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -159,14 +159,14 @@ REQUIRED (Обязательно)
 .Grouping Attribute
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Grouping Attribute
+*DISPLAY NAME (Отображаемое наименование):*:: Grouping Attribute (Группирующий атрибут)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: By default, a single "throttle" is used for all FlowFiles. If this value is specified, a separate throttle is used for each value specified by the attribute with this name. Changing this value resets the rate counters.
+*DESCRIPTION (Описание):*:: По умолчанию для всех FlowFiles используется один "throttle". Если это значение указано, то для каждого значения, указанного атрибутом с таким именем, используется отдельный throttle. Изменение этого значения сбрасывает счетчики скорости.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -190,10 +190,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|FlowFiles are transferred to this relationship under normal conditions
+|FlowFiles передаются в это отношение при нормальных условиях
 
 |`failure`
-|FlowFiles will be routed to this relationship if they are missing a necessary Rate Controlled Attribute or the attribute is not in the expected format
+|Если FlowFiles не содержат необходимого атрибута Rate Controlled или атрибут имеет неправильный формат, они будут направлены в это отношение.
 
 |===
 
@@ -208,7 +208,7 @@ REQUIRED (Обязательно)
 
 
 
-=== Limit the rate at which data is sent to a downstream system with little to no bursts
+=== Ограничить скорость передачи данных в систему downstream с небольшими или отсутствующими всплесками
 
 
 NOTE: 
@@ -216,25 +216,24 @@ NOTE:
 
 
 Ключевые слова::
-throttle
-limit
-slow down
-data rate
+ограничение
+лимит
+замедлить
+скорость данных
 
 
 
 .Конфигурация
 ====
-Set the "Rate Control Criteria" to `data rate`.
-Set the "Time Duration" property to `1 sec`.
-Configure the "Maximum Rate" property to specify how much data should be allowed through each second.
+Установите "Rate Control Criteria" в `data rate`.
+Установите свойство "Time Duration" на `1 sec`.
+Настройте свойство "Maximum Rate", чтобы указать, сколько данных должно проходить каждую секунду.
 
-For example, to allow through 8 MB per second, set "Maximum Rate" to `8 MB`.
-
+Например, для разрешения 8 MB в секунду установите "Maximum Rate" в `8 MB`.
 ====
 
 
-=== Limit the rate at which FlowFiles are sent to a downstream system with little to no bursts
+=== Ограничить скорость передачи FlowFiles в систему downstream с небольшими или отсутствующими всплесками
 
 
 NOTE: 
@@ -242,25 +241,24 @@ NOTE:
 
 
 Ключевые слова::
-throttle
-limit
-slow down
-flowfile rate
+ограничение
+лимит
+замедлить
+скорость flowfile
 
 
 
 .Конфигурация
 ====
-Set the "Rate Control Criteria" to `flowfile count`.
-Set the "Time Duration" property to `1 sec`.
-Configure the "Maximum Rate" property to specify how many FlowFiles should be allowed through each second.
+Установите "Rate Control Criteria" в `flowfile count`.
+Установите свойство "Time Duration" на `1 sec`.
+Настройте свойство "Maximum Rate", чтобы указать, сколько FlowFiles должно проходить каждую секунду.
 
-For example, to allow through 100 FlowFiles per second, set "Maximum Rate" to `100`.
-
+Например, для разрешения 100 FlowFiles в секунду установите "Maximum Rate" в `100`.
 ====
 
 
-=== Reject requests that exceed a specific rate with little to no bursts
+=== Отклонять запросы, которые превышают определенную скорость с небольшими или отсутствующими всплесками
 
 
 NOTE: 
@@ -268,27 +266,26 @@ NOTE:
 
 
 Ключевые слова::
-throttle
-limit
-slow down
-request rate
+ограничение
+лимит
+замедлить
+скорость запроса
 
 
 
 .Конфигурация
 ====
-Set the "Rate Control Criteria" to `flowfile count`.
-Set the "Time Duration" property to `1 sec`.
-Set the "Rate Exceeded Strategy" property to `Route to 'rate exceeded'`.
-Configure the "Maximum Rate" property to specify how many requests should be allowed through each second.
+Установите "Rate Control Criteria" в `flowfile count`.
+Установите свойство "Time Duration" на `1 sec`.
+Настройте свойство "Rate Exceeded Strategy", чтобы указать `Route to 'rate exceeded'`.
+Настройте свойство "Maximum Rate", чтобы указать, сколько запросов должно проходить каждую секунду.
 
-For example, to allow through 100 requests per second, set "Maximum Rate" to `100`.
-If more than 100 requests come in during any one second, the additional requests will be routed to `rate exceeded` instead of `success`.
-
+Например, для разрешения 100 запросов в секунду установите "Maximum Rate" в `100`.
+Если за секунду поступит более 100 запросов, дополнительные запросы будут направлены в `rate exceeded` вместо `success`.
 ====
 
 
-=== Reject requests that exceed a specific rate, allowing for bursts
+=== Отклонять запросы, которые превышают определенную скорость, позволяя для всплесков
 
 
 NOTE: 
@@ -296,25 +293,23 @@ NOTE:
 
 
 Ключевые слова::
-throttle
-limit
-slow down
-request rate
+ограничение
+лимит
+замедлить
+скорость запроса
 
 
 
 .Конфигурация
 ====
-Set the "Rate Control Criteria" to `flowfile count`.
-Set the "Time Duration" property to `1 min`.
-Set the "Rate Exceeded Strategy" property to `Route to 'rate exceeded'`.
-Configure the "Maximum Rate" property to specify how many requests should be allowed through each minute.
+Установите "Rate Control Criteria" в `flowfile count`.
+Установите свойство "Time Duration" на `1 min`.
+Настройте свойство "Rate Exceeded Strategy", чтобы указать `Route to 'rate exceeded'`.
+Настройте свойство "Maximum Rate", чтобы указать, сколько запросов должно проходить каждую минуту.
 
-For example, to allow through 100 requests per second, set "Maximum Rate" to `6000`.
-This will allow through 6,000 FlowFiles per minute, which averages to 100 FlowFiles per second. However, those 6,000 FlowFiles may come all within the first couple of
-seconds, or they may come in over a period of 60 seconds. As a result, this gives us an average rate of 100 FlowFiles per second but allows for bursts of data.
-If more than 6,000 requests come in during any one minute, the additional requests will be routed to `rate exceeded` instead of `success`.
-
+Например, для разрешения 100 запросов в секунду установите "Maximum Rate" в `6000`.
+Это позволит передавать 6000 FlowFiles в минуту, что в среднем составляет 100 FlowFiles в секунду. Однако эти 6000 FlowFiles могут поступить всего за первые несколько секунд или равномерно распределиться на протяжении 60 секунд. В результате получаем среднюю скорость 100 FlowFiles в секунду, но позволяет большим всплескам данных.
+Если за минуту поступит более 6000 запросов, дополнительные запросы будут направлены в `rate exceeded` вместо `success`.
 ====
 
 

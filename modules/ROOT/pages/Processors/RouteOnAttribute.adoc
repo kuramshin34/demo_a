@@ -1,13 +1,13 @@
 = RouteOnAttribute 2.2.0
 
-Routes FlowFiles based on their Attributes using the Attribute Expression Language
+Маршрутизирует FlowFiles на основе их атрибутов, используя язык выражений атрибутов
 
 [horizontal]
 *Tags* (Ключевые слова):
-Attribute Expression Language, Expression Language, Regular Expression, attributes, detect, filter, find, regex, regexp, routing, search, string, text
+Язык выражений атрибутов, Выражение языка, Регулярное выражение, атрибуты, обнаружить, фильтровать, найти, регэксп, маршрутизация, поиск, строка, текст
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,25 +20,25 @@ REQUIRED (Обязательно)
 .*Routing Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Routing Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Routing Strategy (Стратегия маршрутизации)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how to determine which relationship to use when evaluating the Expression Language
+*DESCRIPTION (Описание):*:: Указывает, как определить, какое отношение использовать при оценке выражения на языке Expression Language
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Route to Property name: A copy of the FlowFile will be routed to each relationship whose corresponding expression evaluates to 'true' 
+* Route to Property name (Маршрутизация к имени свойства): Копия FlowFile будет направлена в каждое отношение, соответствующее выражению которого оценивается как 'true' 
 
-* Route to 'matched' if all match: Requires that all user-defined expressions evaluate to 'true' for the FlowFile to be considered a match 
+* Route to 'matched' if all match (Маршрутизация к 'соответствует', если все совпадают): Требует, чтобы все пользовательские выражения оценивались как 'true' для того, чтобы FlowFile считался соответствующим 
 
-* Route to 'matched' if any matches: Requires that at least one user-defined expression evaluate to 'true' for the FlowFile to be considered a match 
+* Route to 'matched' if any matches (Маршрутизация к 'соответствует', если хотя бы одно совпадает): Требует, чтобы по крайней мере одно из пользовательских выражений оценивалось как 'true' для того, чтобы FlowFile считался соответствующим 
 
 
 [horizontal]
@@ -53,8 +53,8 @@ REQUIRED (Обязательно)
 |Наименование |Описание |Значение |Ограничения языка выражений
 
 |`Relationship Name`
-|Routes FlowFiles whose attributes match the Expression Language specified in the Dynamic Property Value to the Relationship specified in the Dynamic Property Key
-|`Expression Language expression that returns a boolean value indicating whether or not the FlowFile should be routed to this Relationship`
+|Направляет FlowFiles, атрибуты которых соответствуют выражению языка в значении динамического свойства, к Relationship, указанному в ключе динамического свойства
+|`Выражение языка, возвращающее логическое значение, указывающее, должен ли FlowFile быть направлен к этому Relationship`
 |
 
 |===
@@ -74,7 +74,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`unmatched`
-|FlowFiles that do not match any user-define expression will be routed here
+|FlowFiles, которые не соответствуют ни одному пользовательскому выражению, будут направлены сюда
 
 |===
 
@@ -89,7 +89,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`RouteOnAttribute.Route`
-|The relation to which the FlowFile was routed
+|Отношение, к которому был направлен FlowFile
 
 |===
 
@@ -100,7 +100,7 @@ REQUIRED (Обязательно)
 
 
 
-=== Route data to one or more relationships based on its attributes using the NiFi Expression Language.
+=== Маршрутизировать данные в одно или несколько отношений на основе их атрибутов, используя язык выражений NiFi.
 
 
 NOTE: 
@@ -108,30 +108,29 @@ NOTE:
 
 
 Ключевые слова::
-attributes
-routing
-expression language
+атрибуты
+маршрутизация
+выражение языка
 
 
 
 .Конфигурация
 ====
-Set the "Routing Strategy" property to "Route to Property name".
-For each route that a FlowFile might be routed to, add a new property. The name of the property should describe the route.
-The value of the property is an Attribute Expression Language expression that returns a boolean value indicating whether or not a given FlowFile will be routed to the associated relationship.
+Установите свойство "Routing Strategy" в значение "Route to Property name".
+Для каждого маршрута, к которому может быть направлен FlowFile, добавьте новое свойство. Имя свойства должно описывать маршрут.
+Значение свойства — это выражение языка атрибутов, возвращающее логическое значение, указывающее, должен ли данный FlowFile быть направлен к соответствующему отношению.
 
-For example, we might route data based on its file extension using the following properties:
+Например, мы можем маршрутизировать данные на основе их расширения файла, используя следующие свойства:
     - "Routing Strategy" = "Route to Property Name"
     - "jpg" = "${filename:endsWith('.jpg')}"
     - "png" = "${filename:endsWith('.png')}"
     - "pdf" = "${filename:endsWith('.pdf')}"
 
-The Processor will now have 3 relationships: `jpg`, `png`, and `pdf`. Each of these should be connected to the appropriate downstream processor.
-
+Теперь у процессора будет 3 отношения: `jpg`, `png` и `pdf`. Каждое из этих отношений должно быть подключено к соответствующему downstream-процессору.
 ====
 
 
-=== Keep data only if its attributes meet some criteria, such as its filename ends with .txt.
+=== Оставить данные только в случае, если их атрибуты удовлетворяют некоторым критериям, например, если их имя файла заканчивается на .txt.
 
 
 NOTE: 
@@ -139,32 +138,27 @@ NOTE:
 
 
 Ключевые слова::
-keep
-filter
-remove
-delete
-expression language
+оставить
+фильтровать
+удалить
+выражение языка
 
 
 
 .Конфигурация
 ====
-Add a new property for each condition that must be satisfied in order to keep the data.
-If the data should be kept in the case that any of the provided conditions is met, set the "Routing Strategy" property to "Route to 'matched' if any matches".
-If all conditions must be met in order to keep the data, set the "Routing Strategy" property  to "Route to 'matched' if all match".
+Добавьте новое свойство для каждого условия, которое должно быть выполнено для сохранения данных.
+Если данные должны быть сохранены в случае выполнения любого из предоставленных условий, установите свойство "Routing Strategy" в значение "Route to 'matched' if any matches".
+Если для сохранения данных должны быть выполнены все условия, установите свойство "Routing Strategy" в значение "Route to 'matched' if all match".
 
-For example, to keep files whose filename ends with .txt and have a file size of at least 1000 bytes, we will use the following properties:
+Например, чтобы оставить файлы, имя файла которых заканчивается на .txt и имеет размер не менее 1000 байт, мы будем использовать следующие свойства:
     - "ends_with_txt" = "${filename:endsWith('.txt')}"
     - "large_enough" = "${fileSize:ge(1000)}
     - "Routing Strategy" = "Route to 'matched' if all match"
-
-Auto-terminate the 'unmatched' relationship.
-Connect the 'matched' relationship to the next processor in the flow.
-
 ====
 
 
-=== Discard or drop a file based on attributes, such as filename.
+=== Отбросить или удалить файл на основе атрибутов, таких как имя файла.
 
 
 NOTE: 
@@ -172,36 +166,31 @@ NOTE:
 
 
 Ключевые слова::
-discard
-drop
-filter
-remove
-delete
-expression language
+отбросить
+удалить
+фильтровать
+удалить
+выражение языка
 
 
 
 .Конфигурация
 ====
-Add a new property for each condition that must be satisfied in order to drop the data.
-If the data should be dropped in the case that any of the provided conditions is met, set the "Routing Strategy" property to "Route to 'matched' if any matches".
-If all conditions must be met in order to drop the data, set the "Routing Strategy" property  to "Route to 'matched' if all match".
+Добавьте новое свойство для каждого условия, которое должно быть выполнено для удаления данных.
+Если данные должны быть удалены в случае выполнения любого из предоставленных условий, установите свойство "Routing Strategy" в значение "Route to 'matched' if any matches".
+Если для удаления данных должны быть выполнены все условия, установите свойство "Routing Strategy" в значение "Route to 'matched' if all match".
 
-Here are a couple of examples for configuring the properties:
-    Example 1 Use Case: Data should be dropped if its "uuid" attribute has an 'a' in it or ends with '0'.
-      Here, we will use the following properties:
+Примеры конфигурации свойств:
+    Пример 1 Случай использования: Данные должны быть удалены, если их атрибут "uuid" содержит 'a' или заканчивается на '0'.
+      Здесь мы будем использовать следующие свойства:
         - "has_a" = "${uuid:contains('a')}"
         - "ends_with_0" = "${uuid:endsWith('0')}
         - "Routing Strategy" = "Route to 'matched' if any matches"
-    Example 2 Use Case: Data should be dropped if its 'uuid' attribute has an 'a' AND it ends with a '1'.
-      Here, we will use the following properties:
+    Пример 2 Случай использования: Данные должны быть удалены, если их атрибут 'uuid' содержит 'a' И заканчивается на '1'.
+      Здесь мы будем использовать следующие свойства:
         - "has_a" = "${uuid:contains('a')}"
         - "ends_with_1" = "${uuid:endsWith('1')}
         - "Routing Strategy" = "Route to 'matched' if all match"
-
-Auto-terminate the 'matched' relationship.
-Connect the 'unmatched' relationship to the next processor in the flow.
-
 ====
 
 
@@ -210,7 +199,7 @@ Connect the 'unmatched' relationship to the next processor in the flow.
 == Варианты использования, включающие другие компоненты
 
 
-=== Route record-oriented data based on whether or not the record's values meet some criteria
+=== Маршрутизировать данные, ориентированные на записи, на основе того, удовлетворяют ли значения записи определенным критериям
 
 
 NOTE: 
@@ -219,13 +208,13 @@ NOTE:
 
 Ключевые слова::
 
-record
+запись
 
-route
+маршрутизация
 
-content
+содержимое
 
-data
+данные
 
 
 

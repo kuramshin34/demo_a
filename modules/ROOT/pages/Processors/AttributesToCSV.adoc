@@ -1,13 +1,13 @@
 = AttributesToCSV 2.2.0
 
-Generates a CSV representation of the input FlowFile Attributes. The resulting CSV can be written to either a newly generated attribute named 'CSVAttributes' or written to the FlowFile as content.  If the attribute value contains a comma, newline or double quote, then the attribute value will be escaped with double quotes.  Any double quote characters in the attribute value are escaped with another double quote.
+Генерирует CSV-представление атрибутов входного FlowFile. Результирующий CSV можно записать в новую сгенерированную атрибут, или записать в FlowFile как содержимое. Если значение атрибута содержит запятую, символ новой строки или двойные кавычки, то значение будет экранировано двойными кавычками. Любые двойные кавычки в значении атрибута будут экранированы еще одной двойной кавычкой.
 
 [horizontal]
 *Tags* (Ключевые слова):
 attributes, csv, flowfile
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .Attribute-List
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Attribute List
+*DISPLAY NAME (Отображаемое наименование):*:: Attribute List (Список атрибутов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Comma separated list of attributes to be included in the resulting CSV. If this value is left empty then all existing Attributes will be included. This list of attributes is case sensitive and supports attribute names that contain commas. If an attribute specified in the list is not found it will be emitted to the resulting CSV with an empty string or null depending on the 'Null Value' property. If a core attribute is specified in this list and the 'Include Core Attributes' property is false, the core attribute will be included. The attribute list ALWAYS wins.
+*DESCRIPTION (Описание):*:: Запятая, разделенный список атрибутов для включения в результирующий CSV. Если это значение оставить пустым, будут включены все существующие атрибуты. Этот список атрибутов чувствителен к регистру и поддерживает имена атрибутов, содержащие запятые. Если в списке указан атрибут, который не найден, он будет включен в результирующий CSV с пустой строкой или null в зависимости от свойства 'Null Value'. Если в этом списке указан ядровой атрибут и свойство 'Include Core Attributes' равно false, то ядровой атрибут будет включен. Список атрибутов всегда побеждает.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .Attributes-Regex
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Attributes Regular Expression
+*DISPLAY NAME (Отображаемое наименование):*:: Attributes Regular Expression (Регулярное выражение, которое будет оцениваться по атрибутам потока для выбора соответствующих атрибутов. Это свойство можно использовать в комбинации с другим свойством списка атрибутов. Итоговый результат будет содержать комбинацию найденных совпадений как в ATTRIBUTE_LIST, так и в ATTRIBUTE_REGEX.)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Regular expression that will be evaluated against the flow file attributes to select the matching attributes. This property can be used in combination with the attributes list property.  The final output will contain a combination of matches found in the ATTRIBUTE_LIST and ATTRIBUTE_REGEX.
+*DESCRIPTION (Описание):*:: Regular expression that will be evaluated against the flow file attributes to select the matching attributes. This property can be used in combination with the attributes list property. The final output will contain a combination of matches found in the ATTRIBUTE_LIST and ATTRIBUTE_REGEX.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,23 +54,23 @@ REQUIRED (Обязательно)
 .*Destination*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Destination
+*DISPLAY NAME (Отображаемое наименование):*:: Destination (Назначение)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Control if CSV value is written as a new flowfile attribute 'CSVData' or written in the flowfile content.
+*DESCRIPTION (Описание):*:: Управляет записью CSV-значения в новый атрибут потока 'CSVData' или записью в содержимое потока. Опции: flowfile-attribute - Результирующая строка CSV будет помещена в новый атрибут потока с именем 'CSVData'. Содержимое потока не изменится. flowfile-content - Результирующая строка CSV будет помещена в содержимое потока. Существующий контекст потока будет перезаписан. Атрибут 'CSVData' вообще не будет записан (ни null, ни пустая строка).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* flowfile-attribute: The resulting CSV string will be placed into a new flowfile attribute named 'CSVData'.  The content of the flowfile will not be changed. 
+* flowfile-attribute: The resulting CSV string will be placed into a new flowfile attribute named 'CSVData'. The content of the flowfile will not be changed. 
 
-* flowfile-content: The resulting CSV string will be placed into the content of the flowfile.Existing flowfile context will be overwritten. 'CSVData' will not be written to at all (neither null nor empty string). 
+* flowfile-content: The resulting CSV string will be placed into the content of the flowfile. Existing flowfile context will be overwritten. 'CSVData' will not be written to at all (neither null nor empty string). 
 
 
 [horizontal]
@@ -79,14 +79,14 @@ REQUIRED (Обязательно)
 .*Include-Core-Attributes*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Include Core Attributes
+*DISPLAY NAME (Отображаемое наименование):*:: Include Core Attributes (Включить основные атрибуты)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Determines if the FlowFile org.apache.nifi.flowfile.attributes.CoreAttributes, which are contained in every FlowFile, should be included in the final CSV value generated.  Core attributes will be added to the end of the CSVData and CSVSchema strings.  The Attribute List property overrides this setting.
+*DESCRIPTION (Описание):*:: Определяет, должны ли в конечном CSV значении включаться атрибуты org.apache.nifi.flowfile.attributes.CoreAttributes, содержащиеся во всех FlowFile. Основные атрибуты будут добавлены в конец строк CSVData и CSVSchema. Свойство списка Attribute List переопределяет это настройка.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -107,11 +107,11 @@ REQUIRED (Обязательно)
 *DISPLAY NAME (Отображаемое наименование):*:: Null Value
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true a non existing or empty attribute will be 'null' in the resulting CSV. If false an empty string will be placed in the CSV
+*DESCRIPTION (Описание):*:: Если true, несуществующее или пустое значение будет 'null' в результирующем CSV. Если false, в CSV будет размещен пустая строка.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -129,14 +129,14 @@ REQUIRED (Обязательно)
 .*Include-Schema*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Include Schema
+*DISPLAY NAME (Отображаемое наименование):*:: Include Schema (Включить схему)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true the schema (attribute names) will also be converted to a CSV string which will either be applied to a new attribute named 'CSVSchema' or applied at the first row in the content depending on the DESTINATION property setting.
+*DESCRIPTION (Описание):*:: Если true, схема (атрибуты) также будет преобразована в строку CSV, которая будет применена к новому атрибуту с именем 'CSVSchema' или будет применена в первой строке содержимого в зависимости от настройки свойства DESTINATION.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -168,10 +168,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Successfully converted attributes to CSV
+|Успешно преобразовано атрибуты в CSV
 
 |`failure`
-|Failed to convert attributes to CSV
+|Не удалось преобразовать атрибуты в CSV
 
 |===
 
@@ -186,10 +186,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`CSVSchema`
-|CSV representation of the Schema
+|CSV-представление схемы
 
 |`CSVData`
-|CSV representation of Attributes
+|CSV-представление атрибутов
 
 |===
 

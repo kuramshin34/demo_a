@@ -1,13 +1,13 @@
 = FetchS3Object 2.2.0
 
-Retrieves the contents of an S3 Object and writes it to the content of a FlowFile
+Извлекает содержимое объекта S3 и записывает его в поток файлов
 
 [horizontal]
 *Tags* (Ключевые слова):
 AWS, Amazon, Fetch, Get, S3
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Bucket*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Bucket
+*DISPLAY NAME (Отображаемое наименование):*:: Bucket (Бакет)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The S3 Bucket to interact with
+*DESCRIPTION (Описание):*:: S3 бакет для взаимодействия
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Object Key*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Object Key
+*DISPLAY NAME (Отображаемое наименование):*:: Object Key (Объектный ключ)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The S3 Object Key to use. This is analogous to a filename for traditional file systems.
+*DESCRIPTION (Описание):*:: Ключ объекта S3, который следует использовать. Это аналогично имени файла для традиционных файловых систем.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,93 +54,93 @@ REQUIRED (Обязательно)
 .*Region*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Region
+*DISPLAY NAME (Отображаемое наименование):*:: Region (Регион)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The AWS Region to connect to.
+*DESCRIPTION (Описание):*:: AWS Регион для подключения.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* AWS GovCloud (US): AWS Region Code : us-gov-west-1 
+* AWS GovCloud (US) (AWS GovCloud (США)): AWS Region Code : us-gov-west-1 
 
-* AWS GovCloud (US-East): AWS Region Code : us-gov-east-1 
+* AWS GovCloud (US-East) (AWS GovCloud (Восток США)): AWS Region Code : us-gov-east-1 
 
-* US East (N. Virginia): AWS Region Code : us-east-1 
+* US East (N. Virginia) (США Восток (Вирджиния)): AWS Region Code : us-east-1 
 
-* US East (Ohio): AWS Region Code : us-east-2 
+* US East (Ohio) (США Восток (Огайо)): AWS Region Code : us-east-2 
 
-* US West (N. California): AWS Region Code : us-west-1 
+* US West (N. California) (США Запад (Северная Калифорния)): AWS Region Code : us-west-1 
 
-* US West (Oregon): AWS Region Code : us-west-2 
+* US West (Oregon) (США Запад (Орегон)): AWS Region Code : us-west-2 
 
-* EU (Ireland): AWS Region Code : eu-west-1 
+* EU (Ireland) (Европа (Ирландия)): AWS Region Code : eu-west-1 
 
-* EU (London): AWS Region Code : eu-west-2 
+* EU (London) (Европа (Лондон)): AWS Region Code : eu-west-2 
 
-* EU (Paris): AWS Region Code : eu-west-3 
+* EU (Paris) (Европа (Париж)): AWS Region Code : eu-west-3 
 
-* EU (Frankfurt): AWS Region Code : eu-central-1 
+* EU (Frankfurt) (Европа (Франкфурт)): AWS Region Code : eu-central-1 
 
-* EU (Zurich): AWS Region Code : eu-central-2 
+* EU (Zurich) (Европа (Цюрих)): AWS Region Code : eu-central-2 
 
-* EU (Stockholm): AWS Region Code : eu-north-1 
+* EU (Stockholm) (Европа (Стокгольм)): AWS Region Code : eu-north-1 
 
-* EU (Milan): AWS Region Code : eu-south-1 
+* EU (Milan) (Европа (Милан)): AWS Region Code : eu-south-1 
 
-* EU (Spain): AWS Region Code : eu-south-2 
+* EU (Spain) (Европа (Испания)): AWS Region Code : eu-south-2 
 
-* Asia Pacific (Hong Kong): AWS Region Code : ap-east-1 
+* Asia Pacific (Hong Kong) (Азия Тихоокеанский (Гонконг)): AWS Region Code : ap-east-1 
 
-* Asia Pacific (Mumbai): AWS Region Code : ap-south-1 
+* Asia Pacific (Mumbai) (Азия Тихоокеанский (Мумбаи)): AWS Region Code : ap-south-1 
 
-* Asia Pacific (Hyderabad): AWS Region Code : ap-south-2 
+* Asia Pacific (Hyderabad) (Азия Тихоокеанский (Хайдерабад)): AWS Region Code : ap-south-2 
 
-* Asia Pacific (Singapore): AWS Region Code : ap-southeast-1 
+* Asia Pacific (Singapore) (Азия Тихоокеанский (Сингапур)): AWS Region Code : ap-southeast-1 
 
-* Asia Pacific (Sydney): AWS Region Code : ap-southeast-2 
+* Asia Pacific (Sydney) (Азия Тихоокеанский (Сидней)): AWS Region Code : ap-southeast-2 
 
-* Asia Pacific (Jakarta): AWS Region Code : ap-southeast-3 
+* Asia Pacific (Jakarta) (Азия Тихоокеанский (Джакарта)): AWS Region Code : ap-southeast-3 
 
-* Asia Pacific (Melbourne): AWS Region Code : ap-southeast-4 
+* Asia Pacific (Melbourne) (Азия Тихоокеанский (Мельбурн)): AWS Region Code : ap-southeast-4 
 
-* Asia Pacific (Tokyo): AWS Region Code : ap-northeast-1 
+* Asia Pacific (Tokyo) (Азия Тихоокеанский (Токио)): AWS Region Code : ap-northeast-1 
 
-* Asia Pacific (Seoul): AWS Region Code : ap-northeast-2 
+* Asia Pacific (Seoul) (Азия Тихоокеанский (Сеул)): AWS Region Code : ap-northeast-2 
 
-* Asia Pacific (Osaka): AWS Region Code : ap-northeast-3 
+* Asia Pacific (Osaka) (Азия Тихоокеанский (Осака)): AWS Region Code : ap-northeast-3 
 
-* South America (Sao Paulo): AWS Region Code : sa-east-1 
+* South America (Sao Paulo) (Южная Америка (Сан-Паулу)): AWS Region Code : sa-east-1 
 
-* China (Beijing): AWS Region Code : cn-north-1 
+* China (Beijing) (Китай (Пекин)): AWS Region Code : cn-north-1 
 
-* China (Ningxia): AWS Region Code : cn-northwest-1 
+* China (Ningxia) (Китай (Нингxia)): AWS Region Code : cn-northwest-1 
 
-* Canada (Central): AWS Region Code : ca-central-1 
+* Canada (Central) (Канада (Центральный)): AWS Region Code : ca-central-1 
 
-* Canada West (Calgary): AWS Region Code : ca-west-1 
+* Canada West (Calgary) (Канада Запад (Калгари)): AWS Region Code : ca-west-1 
 
-* Middle East (UAE): AWS Region Code : me-central-1 
+* Middle East (UAE) (Средний Восток (ОАЭ)): AWS Region Code : me-central-1 
 
-* Middle East (Bahrain): AWS Region Code : me-south-1 
+* Middle East (Bahrain) (Средний Восток (Бахрейн)): AWS Region Code : me-south-1 
 
-* Africa (Cape Town): AWS Region Code : af-south-1 
+* Africa (Cape Town) (Африка (Каптайн)): AWS Region Code : af-south-1 
 
-* US ISO East: AWS Region Code : us-iso-east-1 
+* US ISO East (США ISO Восток): AWS Region Code : us-iso-east-1 
 
-* US ISOB East (Ohio): AWS Region Code : us-isob-east-1 
+* US ISOB East (Ohio) (США ISOB Восток (Огайо)): AWS Region Code : us-isob-east-1 
 
-* US ISO West: AWS Region Code : us-iso-west-1 
+* US ISO West (США ISO Запад): AWS Region Code : us-iso-west-1 
 
-* Israel (Tel Aviv): AWS Region Code : il-central-1 
+* Israel (Tel Aviv) (Израиль (Тель-Авив)): AWS Region Code : il-central-1 
 
-* Use 's3.region' Attribute: Uses 's3.region' FlowFile attribute as region. 
+* Use 's3.region' Attribute (Использовать атрибут 's3.region' FlowFile): Uses 's3.region' FlowFile attribute as region. 
 
 
 [horizontal]
@@ -149,14 +149,14 @@ REQUIRED (Обязательно)
 .*Aws Credentials Provider Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: AWS Credentials Provider Service
+*DISPLAY NAME (Отображаемое наименование):*:: AWS Credentials Provider Service (...)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Controller Service that is used to obtain AWS credentials provider
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -166,14 +166,14 @@ REQUIRED (Обязательно)
 .*Communications Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout (Время ожидания)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The amount of time to wait in order to establish a connection to AWS or receive data from AWS before timing out.
+*DESCRIPTION (Описание):*:: Количество времени для ожидания, чтобы установить соединение с AWS или получить данные от AWS до истечения времени ожидания.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -183,14 +183,14 @@ REQUIRED (Обязательно)
 .Version
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Version
+*DISPLAY NAME (Отображаемое наименование):*:: Version (Версия)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Version of the Object to download
+*DESCRIPTION (Описание):*:: The Version of the Object to download (Версия объекта для загрузки)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -200,14 +200,14 @@ REQUIRED (Обязательно)
 .Ssl Context Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (Сервис контекста SSL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies an optional SSL Context Service that, if provided, will be used to create connections
+*DESCRIPTION (Описание):*:: Указывает необязательный сервис контекста SSL, если он предоставлен, будет использоваться для создания подключений
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -217,14 +217,14 @@ REQUIRED (Обязательно)
 .Endpoint Override Url
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Endpoint Override URL
+*DISPLAY NAME (Отображаемое наименование):*:: Endpoint Override URL (URL конечной точки для переопределения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Endpoint URL to use instead of the AWS default including scheme, host, port, and path. The AWS libraries select an endpoint URL based on the AWS region, but this property overrides the selected endpoint URL, allowing use with other S3-compatible endpoints.
+*DESCRIPTION (Описание):*:: URL конечной точки, которую следует использовать вместо AWS по умолчанию, включая схему, хост, порт и путь. Библиотеки AWS выбирают URL-адрес конечной точки на основе региона AWS, но это свойство переопределяет выбранный URL-адрес конечной точки, позволяя использовать его с другими S3-совместимыми конечными точками.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -234,27 +234,27 @@ REQUIRED (Обязательно)
 .Signer Override
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Signer Override
+*DISPLAY NAME (Отображаемое наименование):*:: Signer Override (Переопределение подписчика)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The AWS S3 library uses Signature Version 4 by default but this property allows you to specify the Version 2 signer to support older S3-compatible services or even to plug in your own custom signer implementation.
+*DESCRIPTION (Описание):*:: Библиотека AWS S3 по умолчанию использует Signature Version 4, но это свойство позволяет указать версию 2 подписчика для поддержки старых служб S3-совместимых или даже реализовать собственную пользовательскую реализацию подписчика.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Default Signature
+* Default Signature (По умолчанию)
 
-* Signature Version 4
+* Signature Version 4 (Версия подписи 4)
 
-* Signature Version 2
+* Signature Version 2 (Версия подписи 2)
 
-* Custom Signature
+* Custom Signature (Собственная подпись)
 
 
 [horizontal]
@@ -263,14 +263,14 @@ REQUIRED (Обязательно)
 .*Custom-Signer-Class-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Custom Signer Class Name
+*DISPLAY NAME (Отображаемое наименование):*:: Custom Signer Class Name (Название класса подписи)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Fully qualified class name of the custom signer class. The signer must implement com.amazonaws.auth.Signer interface.
+*DESCRIPTION (Описание):*:: Полное квалифицированное имя класса подписи. Подписчик должен реализовывать интерфейс com.amazonaws.auth.Signer.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -280,14 +280,14 @@ REQUIRED (Обязательно)
 .Custom-Signer-Module-Location
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Custom Signer Module Location
+*DISPLAY NAME (Отображаемое наименование):*:: Custom Signer Module Location (Название модуля подписи)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Comma-separated list of paths to files and/or directories which contain the custom signer's JAR file and its dependencies (if any).
+*DESCRIPTION (Описание):*:: Список, разделенных запятыми путей к файлам и/или директориям, содержащих JAR-файл подписчика и его зависимости (если они есть).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -297,14 +297,14 @@ REQUIRED (Обязательно)
 .Encryption-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Encryption Service
+*DISPLAY NAME (Отображаемое наименование):*:: Encryption Service (Шифрование сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Encryption Service Controller used to configure requests. PutS3Object: For backward compatibility, this value is ignored when 'Server Side Encryption' is set. FetchS3Object: Only needs to be configured in case of Server-side Customer Key, Client-side KMS and Client-side Customer Key encryptions.
+*DESCRIPTION (Описание):*:: Указывает используемый для настройки запросов контроллер службы шифрования. PutS3Object: Для обратной совместимости, это значение игнорируется, если установлено 'Server Side Encryption'. FetchS3Object: Требуется только в случае Server-side Customer Key, Client-side KMS и шифрования с использованием клиентского ключа Customer Key.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -314,14 +314,14 @@ REQUIRED (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: HTTP + AuthN
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -331,23 +331,23 @@ REQUIRED (Обязательно)
 .*Requester-Pays*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Requester Pays
+*DISPLAY NAME (Отображаемое наименование):*:: Requester Pays (Запрашивающий платит)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true, indicates that the requester consents to pay any charges associated with retrieving objects from the S3 bucket.  This sets the 'x-amz-request-payer' header to 'requester'.
+*DESCRIPTION (Описание):*:: Если true, указывает на то, что запрашивающий согласен оплачивать любые связанные с получением объектов из S3 бакета расходы. Это устанавливает заголовок 'x-amz-request-payer' в значение 'requester'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* True: Indicates that the requester consents to pay any charges associated with retrieving objects from the S3 bucket. 
+* True (Истина): Указывает, что запрашивающий согласен оплачивать любые связанные с получением объектов из S3 бакета расходы. 
 
-* False: Does not consent to pay requester charges for retrieving objects from the S3 bucket. 
+* False (Ложь): Не согласен оплачивать требования запрашивающих для получения объектов из S3 бакета. 
 
 
 [horizontal]
@@ -356,14 +356,14 @@ REQUIRED (Обязательно)
 .Range-Start
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Range Start
+*DISPLAY NAME (Отображаемое наименование):*:: Range Start (Начало диапазона)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The byte position at which to start reading from the object. An empty value or a value of zero will start reading at the beginning of the object.
+*DESCRIPTION (Описание):*:: Байт, с которого начинать чтение из объекта. Пустое значение или значение ноль начнут чтение с начала объекта.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -373,14 +373,14 @@ REQUIRED (Обязательно)
 .Range-Length
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Range Length
+*DISPLAY NAME (Отображаемое наименование):*:: Range Length (Длина диапазона)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The number of bytes to download from the object, starting from the Range Start. An empty value or a value that extends beyond the end of the object will read to the end of the object.
+*DESCRIPTION (Описание):*:: Количество байтов для загрузки из объекта, начиная с Range Start. Пустое значение или значение, выходящее за пределы объекта, прочитает до конца объекта.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -404,10 +404,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|FlowFiles are routed to this Relationship after they have been successfully processed.
+|Потоки файлов направляются в эту связь после успешной обработки.
 
 |`failure`
-|If the Processor is unable to process a given FlowFile, it will be routed to this Relationship.
+|Если процессор не может обработать данный поток файлов, он будет направлен в эту связь.
 
 |===
 
@@ -422,61 +422,61 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`s3.url`
-|The URL that can be used to access the S3 object
+|URL, который можно использовать для доступа к объекту S3
 
 |`s3.bucket`
-|The name of the S3 bucket
+|Имя S3 бакета
 
 |`path`
-|The path of the file
+|Путь файла
 
 |`absolute.path`
-|The path of the file
+|Путь файла
 
 |`filename`
-|The name of the file
+|Имя файла
 
 |`hash.value`
-|The MD5 sum of the file
+|MD5 сумма файла
 
 |`hash.algorithm`
 |MD5
 
 |`mime.type`
-|If S3 provides the content type/MIME type, this attribute will hold that file
+|Если S3 предоставляет тип содержимого/MIME-тип, этот атрибут будет содержать его
 
 |`s3.etag`
-|The ETag that can be used to see if the file has changed
+|ETag, который можно использовать для проверки изменений файла
 
 |`s3.exception`
-|The class name of the exception thrown during processor execution
+|Имя класса исключения, брошенного во время выполнения процессора
 
 |`s3.additionalDetails`
-|The S3 supplied detail from the failed operation
+|Подробные сведения об ошибке S3, предоставленные в случае сбоя операции
 
 |`s3.statusCode`
-|The HTTP error code (if available) from the failed operation
+|Код HTTP ошибки (если доступен) в случае сбоя операции
 
 |`s3.errorCode`
-|The S3 moniker of the failed operation
+|Мононимер неисправности S3
 
 |`s3.errorMessage`
-|The S3 exception message from the failed operation
+|Сообщение об исключении S3, предоставленное в случае сбоя операции
 
 |`s3.expirationTime`
-|If the file has an expiration date, this attribute will be set, containing the milliseconds since epoch in UTC time
+|Если файл имеет дату окончания срока действия, этот атрибут будет установлен, содержа указание на количество миллисекунд, прошедших с начала эпохи в формате UTC
 
 |`s3.expirationTimeRuleId`
-|The ID of the rule that dictates this object's expiration time
+|Идентификатор правила, определяющего время окончания действия объекта
 
 |`s3.sseAlgorithm`
-|The server side encryption algorithm of the object
+|Алгоритм серверной стороны шифрования объекта
 
 |`s3.version`
-|The version of the S3 object
+|Версия объекта S3
 
 |`s3.encryptionStrategy`
-|The name of the encryption strategy that was used to store the S3 object (if it is encrypted)
+|Имя стратегии шифрования, использованной для хранения объекта S3 (если он зашифрован)
 
 |===
 
@@ -487,7 +487,7 @@ REQUIRED (Обязательно)
 
 
 
-=== Fetch a specific file from S3
+=== Извлечь конкретный файл из S3
 
 
 NOTE: 
@@ -500,12 +500,11 @@ NOTE:
 
 .Конфигурация
 ====
-The "Bucket" property should be set to the name of the S3 bucket that contains the file. Typically this is defined as an attribute on an incoming FlowFile, so this property is set to `${s3.bucket}`.
-The "Object Key" property denotes the fully qualified filename of the file to fetch. Typically, the FlowFile's `filename` attribute is used, so this property is set to `${filename}`.
-The "Region" property must be set to denote the S3 region that the Bucket resides in. If the flow being built is to be reused elsewhere, it's a good idea to parameterize this property by setting it to something like `#{S3_REGION}`.
+Свойство "Bucket" должно быть установлено в имя S3 бакета, содержащего файл. Обычно это определяется как атрибут входящего потока файлов, поэтому это свойство устанавливается в `${s3.bucket}`.
+Свойство "Object Key" обозначает полностью квалифицированное имя файла для загрузки. Обычно используется атрибут `filename` потока файлов, поэтому это свойство устанавливается в `${filename}`.
+Свойство "Region" должно быть установлено, чтобы указать регион S3, в котором расположен бакет. Если собираемая потоковая операция будет использоваться в другом месте, рекомендуется параметризовать это свойство, установив его, например, как `#{S3_REGION}`.
 
-The "AWS Credentials Provider service" property should specify an instance of the AWSCredentialsProviderControllerService in order to provide credentials for accessing the file.
-
+Свойство "AWS Credentials Provider service" должно указывать на экземпляр AWSCredentialsProviderControllerService для предоставления учетных данных для доступа к файлу.
 ====
 
 
@@ -514,7 +513,7 @@ The "AWS Credentials Provider service" property should specify an instance of th
 == Варианты использования, включающие другие компоненты
 
 
-=== Retrieve all files in an S3 bucket
+=== Извлечь все файлы в S3 бакете
 
 
 NOTE: 
@@ -540,7 +539,7 @@ stream
 
 
 
-=== Retrieve only files from S3 that meet some specified criteria
+=== Извлечь только файлы из S3, удовлетворяющие некоторому заданному критерию
 
 
 NOTE: 
@@ -568,10 +567,10 @@ criteria
 
 
 
-=== Retrieve new files as they arrive in an S3 bucket
+=== Извлечь новые файлы по мере их прибытия в S3 бакет
 
 
-NOTE: This method of retrieving files from S3 is more efficient than using ListS3 and more cost effective. It is the pattern recommended by AWS. However, it does require that the S3 bucket be configured to place notifications on an SQS queue when new files arrive. For more information, see https://docs.aws.amazon.com/AmazonS3/latest/userguide/ways-to-add-notification-config-to-bucket.html
+NOTE: Этот метод извлечения файлов из S3 более эффективен, чем использование ListS3, и дешевле. Это рекомендуемый шаблон AWS. Однако он требует настройки бакета S3 для размещения уведомлений о новых файлах в очереди SQS. Дополнительные сведения см. по ссылке: https://docs.aws.amazon.com/AmazonS3/latest/userguide/ways-to-add-notification-config-to-bucket.html
 
 
 

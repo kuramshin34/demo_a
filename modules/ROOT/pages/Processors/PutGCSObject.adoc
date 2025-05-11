@@ -1,13 +1,13 @@
 = PutGCSObject 2.2.0
 
-Writes the contents of a FlowFile as an object in a Google Cloud Storage.
+Записывает содержимое FlowFile в объект Google Cloud Storage.
 
 [horizontal]
 *Tags* (Ключевые слова):
 archive, gcs, google, google cloud, put
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Gcp Credentials Provider Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service
+*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service (Google Cloud Platform Учебный класс для получения учетных данных)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Controller Service used to obtain Google Cloud Platform credentials.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .Gcp-Project-Id
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Project ID
+*DISPLAY NAME (Отображаемое наименование):*:: Project ID (Проектный идентификатор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Google Cloud Project ID
+*DESCRIPTION (Описание):*:: Google Cloud Project ID (Идентификатор проекта в Google Cloud)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Gcs-Bucket*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Bucket
+*DISPLAY NAME (Отображаемое наименование):*:: Bucket (Бакет)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Bucket of the object.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .*Gcs-Key*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Key
+*DISPLAY NAME (Отображаемое наименование):*:: Key (Ключ)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Name of the object.
+*DESCRIPTION (Описание):*:: Имя объекта.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,23 +88,23 @@ REQUIRED (Обязательно)
 .*Resource Transfer Source*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Resource Transfer Source
+*DISPLAY NAME (Отображаемое наименование):*:: Resource Transfer Source (Источник ресурса для передачи)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The source of the content to be transferred
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* FlowFile Content: The content of the incoming FlowFile provides the source for transfer 
+* FlowFile Content (Содержимое FlowFile): The content of the incoming FlowFile provides the source for transfer 
 
-* File Resource Service: The File Resource Service provides the source for transfer 
+* File Resource Service (Сервис ресурса файлов): The File Resource Service provides the source for transfer 
 
 
 [horizontal]
@@ -113,14 +113,14 @@ REQUIRED (Обязательно)
 .*File Resource Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: File Resource Service
+*DISPLAY NAME (Отображаемое наименование):*:: File Resource Service (Файловый ресурс Сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: File Resource Service providing access to the local resource to be transferred
+*DESCRIPTION (Описание):*:: File Resource Service providing access to the local resource to be transferred (Файловый ресурс Сервис, предоставляющий доступ к локальному ресурсу для передачи)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -130,14 +130,14 @@ REQUIRED (Обязательно)
 .Gcs-Content-Type
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Content Type
+*DISPLAY NAME (Отображаемое наименование):*:: Content Type (Тип содержимого)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Content Type for the file, i.e. text/plain
+*DESCRIPTION (Описание):*:: Тип содержимого для файла, например text/plain
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -147,14 +147,14 @@ REQUIRED (Обязательно)
 .Gcs-Object-Crc32c
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: CRC32C Checksum
+*DISPLAY NAME (Отображаемое наименование):*:: CRC32C Checksum (Контрольная сумма CRC32C)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: CRC32C Checksum (encoded in Base64, big-Endian order) of the file for server-side validation.
+*DESCRIPTION (Описание):*:: Контрольная сумма CRC32C (закодированная в Base64, порядок байт Big-Endian) файла для серверной проверки.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -164,33 +164,33 @@ REQUIRED (Обязательно)
 .Gcs-Object-Acl
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Object ACL
+*DISPLAY NAME (Отображаемое наименование):*:: Object ACL (Объект ACL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Access Control to be attached to the object uploaded. Not providing this will revert to bucket defaults.
+*DESCRIPTION (Описание):*:: Управление доступом, которое будет прикреплено к загруженному объекту. Не предоставление этого параметра вернется к настройкам по умолчанию для бакета.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* All Authenticated Users: Gives the bucket or object owner OWNER permission, and gives all authenticated Google account holders READER and WRITER permissions. All other permissions are removed. 
+* All Authenticated Users (Все аутентифицированные пользователи): Даёт владельцу бакета или объекта права OWNER, и даёт всем аутентифицированным пользователям Google учетным записям READER и WRITER прав. Все остальные права удаляются. 
 
-* Authenticated Read: Gives the bucket or object owner OWNER permission, and gives all authenticated Google account holders READER permission. All other permissions are removed. 
+* Authenticated Read (Чтение для аутентифицированных пользователей): Даёт владельцу бакета или объекта права OWNER, и даёт всем аутентифицированным Google учетным записям READER прав. Все остальные права удаляются. 
 
-* Bucket Owner Full Control: Gives the object and bucket owners OWNER permission. All other permissions are removed. 
+* Bucket Owner Full Control (Полное владение бакета): Даёт владельцу объекта и бакета права OWNER. Все остальные права удаляются. 
 
-* Bucket Owner Read Only: Gives the object owner OWNER permission, and gives the bucket owner READER permission. All other permissions are removed. 
+* Bucket Owner Read Only (Только чтение для владельца бакета): Даёт владельцу объекта права OWNER, и даёт владельцу бакета READER прав. Все остальные права удаляются. 
 
-* Private: Gives the bucket or object owner OWNER permission for a bucket or object, and removes all other access permissions. 
+* Private (Приватный): Даёт владельцу бакета или объекта права OWNER для бакета или объекта и удаляет все остальные разрешения доступа. 
 
-* Project Private: Gives permission to the project team based on their roles. Anyone who is part of the team has READER permission. Project owners and project editors have OWNER permission. This is the default ACL for newly created buckets. This is also the default ACL for newly created objects unless the default object ACL for that bucket has been changed. 
+* Project Private (Приватный для проекта): Даёт право на чтение команде проекта на основе их ролей. Любой, кто является частью команды, имеет права READER. Владельцы и редакторы проекта имеют права OWNER. Это значение по умолчанию для новых бакетов. Также это значение по умолчанию для новых объектов, если ACL по умолчанию для этого бакета не была изменена. 
 
-* Public Read Only: Gives the bucket or object owner OWNER permission, and gives all users, both authenticated and anonymous, READER permission. When you apply this to an object, anyone on the Internet can read the object without authenticating. 
+* Public Read Only (Только чтение для всех): Даёт владельцу бакета или объекта права OWNER, и даёт всем пользователям, как аутентифицированным, так и анонимным, READER прав. Когда это применяется к объекту, любой может читать объект через интернет без аутентификации. 
 
 
 [horizontal]
@@ -199,14 +199,14 @@ REQUIRED (Обязательно)
 .Gcs-Server-Side-Encryption-Key
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Server Side Encryption Key
+*DISPLAY NAME (Отображаемое наименование):*:: Server Side Encryption Key (Серверная сторона Шифрования Ключа)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: An AES256 Encryption Key (encoded in base64) for server-side encryption of the object.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -216,14 +216,14 @@ REQUIRED (Обязательно)
 .*Gcs-Overwrite-Object*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Overwrite Object
+*DISPLAY NAME (Отображаемое наименование):*:: Overwrite Object (Перезапись объекта)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If false, the upload to GCS will succeed only if the object does not exist.
+*DESCRIPTION (Описание):*:: Если false, загрузка в GCS будет выполнена только если объект не существует.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -241,23 +241,23 @@ REQUIRED (Обязательно)
 .Gcs-Content-Disposition-Type
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Content Disposition Type
+*DISPLAY NAME (Отображаемое наименование):*:: Content Disposition Type (Тип содержимого для RFC-6266)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Type of RFC-6266 Content Disposition to be attached to the object
+*DESCRIPTION (Описание):*:: Тип содержимого RFC-6266, который должен быть прикреплен к объекту
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Inline: Indicates that the object should be loaded and rendered within the browser. 
+* Inline (Встроенный): Указывает на то, что объект должен быть загружен и отображен в браузере. 
 
-* Attachment: Indicates that the object should be saved (using a Save As... dialog) rather than opened directly within the browser 
+* Attachment (Вложение): Указывает на то, что объект должен быть сохранен (с использованием диалога Save As...) вместо непосредственного открытия в браузере. 
 
 
 [horizontal]
@@ -266,14 +266,14 @@ REQUIRED (Обязательно)
 .Gzip.Content.Enabled
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: GZIP Compression Enabled
+*DISPLAY NAME (Отображаемое наименование):*:: GZIP Compression Enabled (Сжатие GZIP включено)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Signals to the GCS Blob Writer whether GZIP compression during transfer is desired. False means do not gzip and can boost performance in many cases.
+*DESCRIPTION (Описание):*:: Сигнализирует GCS Blob Writer о желании использовать сжатие GZIP во время передачи. False означает не сжимать и может улучшить производительность в некоторых случаях.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -291,14 +291,14 @@ REQUIRED (Обязательно)
 .Storage-Api-Url
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Storage API URL
+*DISPLAY NAME (Отображаемое наименование):*:: Storage API URL (URL хранилища)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Overrides the default storage URL. Configuring an alternative Storage API URL also overrides the HTTP Host header on requests as described in the Google documentation for Private Service Connections.
+*DESCRIPTION (Описание):*:: Переопределяет стандартный URL-адрес хранилища. Настройка альтернативного URL-адреса Storage API также переопределяет заголовок HTTP Host в запросах, как описано в документации Google для частных сервисных подключений.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -308,14 +308,14 @@ REQUIRED (Обязательно)
 .*Gcp-Retry-Count*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Number of retries
+*DISPLAY NAME (Отображаемое наименование):*:: Number of retries (Количество повторных попыток)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: How many retry attempts should be made before routing to the failure relationship.
+*DESCRIPTION (Описание):*:: How many retry attempts should be made before routing to the failure relationship. (Сколько повторных попыток следует предпринять перед тем, как передать управление в связанное отношение отказа)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -325,14 +325,14 @@ REQUIRED (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: HTTP + AuthN
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -347,9 +347,9 @@ REQUIRED (Обязательно)
 |===
 |Наименование |Описание |Значение |Ограничения языка выражений
 
-|`The name of a User-Defined Metadata field to add to the GCS Object`
-|Allows user-defined metadata to be added to the GCS object as key/value pairs
-|`The value of a User-Defined Metadata field to add to the GCS Object`
+|`Имя поля пользовательской метаданных для добавления в объект GCS`
+|Позволяет добавить пользовательскую метаданную в объект GCS в виде пар ключ/значение
+|`Значение поля пользовательской метаданных для добавления в объект GCS`
 |
 
 |===
@@ -369,10 +369,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|FlowFiles are routed to this relationship after a successful Google Cloud Storage operation.
+|FlowFiles передаются в это отношение после успешной операции с Google Cloud Storage.
 
 |`failure`
-|FlowFiles are routed to this relationship if the Google Cloud Storage operation fails.
+|FlowFiles передаются в это отношение, если операция с Google Cloud Storage завершается неудачей.
 
 |===
 
@@ -385,10 +385,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`filename`
-|Uses the FlowFile's filename as the filename for the GCS object
+|Использует имя файла FlowFile в качестве имени файла для объекта GCS
 
 |`mime.type`
-|Uses the FlowFile's MIME type as the content-type for the GCS object
+|Использует MIME-тип FlowFile в качестве content-type для объекта GCS
 
 |===
 
@@ -401,73 +401,73 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`gcs.bucket`
-|Bucket of the object.
+|Бакет объекта.
 
 |`gcs.key`
-|Name of the object.
+|Имя объекта.
 
 |`gcs.size`
-|Size of the object.
+|Размер объекта.
 
 |`gcs.cache.control`
-|Data cache control of the object.
+|Данные кэш-контроль для объекта.
 
 |`gcs.component.count`
-|The number of components which make up the object.
+|Количество компонентов, составляющих объект.
 
 |`gcs.content.disposition`
-|The data content disposition of the object.
+|Данные контент-диспозишен для объекта.
 
 |`gcs.content.encoding`
-|The content encoding of the object.
+|Кодировка содержимого объекта.
 
 |`gcs.content.language`
-|The content language of the object.
+|Язык контента объекта.
 
 |`mime.type`
-|The MIME/Content-Type of the object
+|MIME/Content-Type объекта
 
 |`gcs.crc32c`
-|The CRC32C checksum of object's data, encoded in base64 in big-endian order.
+|Контрольная сумма CRC32C объекта в кодировке base64 в большом порядке.
 
 |`gcs.create.time`
-|The creation time of the object (milliseconds)
+|Время создания объекта (в миллисекундах)
 
 |`gcs.update.time`
-|The last modification time of the object (milliseconds)
+|Последнее время модификации объекта (в миллисекундах)
 
 |`gcs.encryption.algorithm`
-|The algorithm used to encrypt the object.
+|Алгоритм, используемый для шифрования объекта.
 
 |`gcs.encryption.sha256`
-|The SHA256 hash of the key used to encrypt the object
+|SHA256 хэш ключа, используемого для шифрования объекта
 
 |`gcs.etag`
-|The HTTP 1.1 Entity tag for the object.
+|HTTP 1.1 Entity tag для объекта.
 
 |`gcs.generated.id`
-|The service-generated for the object
+|Уникальный идентификатор, сгенерированный службой для объекта.
 
 |`gcs.generation`
-|The data generation of the object.
+|Поколение данных объекта.
 
 |`gcs.md5`
-|The MD5 hash of the object's data encoded in base64.
+|MD5 хэш данных объекта, закодированный в base64.
 
 |`gcs.media.link`
-|The media download link to the object.
+|Ссылка на медиа-загрузку для объекта.
 
 |`gcs.metageneration`
-|The metageneration of the object.
+|Метапоколение объекта.
 
 |`gcs.owner`
-|The owner (uploader) of the object.
+|Владелец (загрузчик) объекта.
 
 |`gcs.owner.type`
-|The ACL entity type of the uploader of the object.
+|Тип ACL сущности загрузчика объекта.
 
 |`gcs.uri`
-|The URI of the object as a string.
+|URI объекта в виде строки.
 
 |===
 

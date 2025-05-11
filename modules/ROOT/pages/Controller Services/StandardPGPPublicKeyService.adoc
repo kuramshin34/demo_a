@@ -1,13 +1,13 @@
 = StandardPGPPublicKeyService 2.2.0
 
-PGP Public Key Service providing Public Keys loaded from files
+Сервис открытого ключа PGP, предоставляющий открытые ключи, загруженные из файлов
 
 [horizontal]
 *Tags* (Ключевые слова):
-Encryption, GPG, Key, OpenPGP, PGP, Private, RFC 4880
+Шифрование, GPG, Ключ, OpenPGP, PGP, Приватный, RFC 4880
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ Encryption, GPG, Key, OpenPGP, PGP, Private, RFC 4880
 .Keyring-File
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Keyring File
+*DISPLAY NAME (Отображаемое наименование):*:: Keyring File (Файл кошелька)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: File path to PGP Keyring or Public Key encoded in binary or ASCII Armor
+*DESCRIPTION (Описание):*:: Путь к файлу PGP Keyring или публичного ключа, закодированного в двоичном или ASCII Armor формате
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ Encryption, GPG, Key, OpenPGP, PGP, Private, RFC 4880
 .Keyring
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Keyring
+*DISPLAY NAME (Отображаемое наименование):*:: Keyring (Ключевой замок)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: PGP Keyring or Public Key encoded in ASCII Armor
+*DESCRIPTION (Описание):*:: PGP Keyring или публичный ключ, закодированный в ASCII Armor
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -64,6 +64,17 @@ Encryption, GPG, Key, OpenPGP, PGP, Private, RFC 4880
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

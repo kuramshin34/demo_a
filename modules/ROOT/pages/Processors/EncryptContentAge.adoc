@@ -1,13 +1,13 @@
 = EncryptContentAge 2.2.0
 
-Encrypt content using the age-encryption.org/v1 specification. Supports binary or ASCII armored content encoding using configurable properties. The age standard uses ChaCha20-Poly1305 for authenticated encryption of the payload. The age-keygen command supports generating X25519 key pairs for encryption and decryption operations.
+Шифрование содержимого с использованием спецификации age-encryption.org/v1. Поддерживает двоичное или ASCII-армированное кодирование контента, используя настраиваемые свойства. Стандарт age использует для аутентифицированного шифрования полезной нагрузки ChaCha20-Poly1305. Команда age-keygen поддерживает генерацию пар ключей X25519 для операций шифрования и расшифровки.
 
 [horizontal]
 *Tags* (Ключевые слова):
 ChaCha20-Poly1305, X25519, age, age-encryption.org, encryption
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,23 +20,23 @@ REQUIRED (Обязательно)
 .*File Encoding*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: File Encoding
+*DISPLAY NAME (Отображаемое наименование):*:: File Encoding (Кодировка файла)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Output encoding for encrypted files. Binary encoding provides optimal processing performance.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* BINARY: Binary encoding 
+* BINARY (Бинарный): Binary encoding 
 
-* ASCII: ASCII Armor encoding 
+* ASCII (Аски код): ASCII Armor encoding 
 
 
 [horizontal]
@@ -45,23 +45,23 @@ REQUIRED (Обязательно)
 .*Public Key Source*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Public Key Source
+*DISPLAY NAME (Отображаемое наименование):*:: Public Key Source (Источник общедоступного ключа)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Source of information determines the loading strategy for X25519 Public Key Recipients
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* PROPERTIES: Load one or more keys from configured properties 
+* PROPERTIES (Свойства): Load one or more keys from configured properties 
 
-* RESOURCES: Load one or more keys from files or URLs 
+* RESOURCES (Ресурсы): Load one or more keys from files or URLs 
 
 
 [horizontal]
@@ -70,14 +70,14 @@ REQUIRED (Обязательно)
 .*Public Key Recipients*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Public Key Recipients
+*DISPLAY NAME (Отображаемое наименование):*:: Public Key Recipients (Получатели общего ключа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: One or more X25519 Public Key Recipients, separated with newlines, encoded according to the age specification, starting with age1
+*DESCRIPTION (Описание):*:: Один или несколько получателей X25519 общего ключа, разделенных новой строкой, закодированные в соответствии с спецификацией age, начиная с age1
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -87,14 +87,14 @@ REQUIRED (Обязательно)
 .*Public Key Recipient Resources*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Public Key Recipient Resources
+*DISPLAY NAME (Отображаемое наименование):*:: Public Key Recipient Resources (Ресурсы получателей публичных ключей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: One or more files or URLs containing X25519 Public Key Recipients, separated with newlines, encoded according to the age specification, starting with age1
+*DESCRIPTION (Описание):*:: Один или несколько файлов или URL-адресов, содержащих получателей X25519 публичных ключей, разделенные новой строкой и закодированные в соответствии с спецификацией age
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -118,10 +118,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Encryption Completed
+|Шифрование завершено
 
 |`failure`
-|Encryption Failed
+|Ошибка при шифровании
 
 |===
 

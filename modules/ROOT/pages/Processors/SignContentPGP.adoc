@@ -1,13 +1,13 @@
 = SignContentPGP 2.2.0
 
-Sign content using OpenPGP Private Keys
+Подписывает содержимое с использованием закрытых ключей OpenPGP
 
 [horizontal]
 *Tags* (Ключевые слова):
 Encryption, GPG, OpenPGP, PGP, RFC 4880, Signing
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,23 +20,23 @@ REQUIRED (Обязательно)
 .*File-Encoding*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: File Encoding
+*DISPLAY NAME (Отображаемое наименование):*:: File Encoding (Файловый кодинг)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: File Encoding for signing
+*DESCRIPTION (Описание):*:: File Encoding for signing (Кодировка файла для подписи)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* ASCII
+* ASCII (Аски код)
 
-* BINARY
+* BINARY (Бинарный)
 
 
 [horizontal]
@@ -45,14 +45,14 @@ REQUIRED (Обязательно)
 .*Hash-Algorithm*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hash Algorithm
+*DISPLAY NAME (Отображаемое наименование):*:: Хеш-алгоритм (Hash Algorithm)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Hash Algorithm for signing
+*DESCRIPTION (Описание):*:: Алгоритм хеширования для подписи
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -72,23 +72,23 @@ REQUIRED (Обязательно)
 .*Signing-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Signing Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Signing Strategy (Стратегия подписи)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Strategy for writing files to success after signing
+*DESCRIPTION (Описание):*:: Strategy for writing files to success after signing (Стратегия для записи файлов после успешного подписания)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* SIGNED: Produce signed content packaged as an OpenPGP message 
+* SIGNED (Подписанный): Produce signed content packaged as an OpenPGP message (Создать подписанное содержимое, упакованное как OpenPGP-сообщение) 
 
-* DETACHED: Produce detached signature based on associated content packaged according to OpenPGP encoding 
+* DETACHED (Отдельная подпись): Produce detached signature based on associated content packaged according to OpenPGP encoding (Создать отдельную подпись на основе ассоциированного содержимого, упакованного в соответствии с кодированием OpenPGP) 
 
 
 [horizontal]
@@ -97,14 +97,14 @@ REQUIRED (Обязательно)
 .*Private-Key-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Private Key Service
+*DISPLAY NAME (Отображаемое наименование):*:: Private Key Service (Сервис закрытого ключа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: PGP Private Key Service for generating content signatures
+*DESCRIPTION (Описание):*:: PGP Private Key Service для генерации подписей контента
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -114,14 +114,14 @@ REQUIRED (Обязательно)
 .*Private-Key-Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Private Key ID
+*DISPLAY NAME (Отображаемое наименование):*:: Private Key ID (Идентификатор приватного ключа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: PGP Private Key Identifier formatted as uppercase hexadecimal string of 16 characters used for signing
+*DESCRIPTION (Описание):*:: PGP Приватный идентификатор ключа, отформатированный как строка из шестнадцатеричных символов длиной в 16 символов, используемых для подписи
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -145,10 +145,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Content signing succeeded
+|Содержимое подписано успешно
 
 |`failure`
-|Content signing failed
+|Не удалось подписать содержимое
 
 |===
 
@@ -163,31 +163,31 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`pgp.compression.algorithm`
-|Compression Algorithm
+|Алгоритм сжатия
 
 |`pgp.compression.algorithm.id`
-|Compression Algorithm Identifier
+|Идентификатор алгоритма сжатия
 
 |`pgp.file.encoding`
-|File Encoding
+|Кодировка файла
 
 |`pgp.signature.algorithm`
-|Signature Algorithm including key and hash algorithm names
+|Алгоритм подписи, включая имена ключей и алгоритмов хеширования
 
 |`pgp.signature.hash.algorithm.id`
-|Signature Hash Algorithm Identifier
+|Идентификатор алгоритма хеширования подписи
 
 |`pgp.signature.key.algorithm.id`
-|Signature Key Algorithm Identifier
+|Идентификатор алгоритма ключа подписи
 
 |`pgp.signature.key.id`
-|Signature Public Key Identifier
+|Идентификатор открытого ключа подписи
 
 |`pgp.signature.type.id`
-|Signature Type Identifier
+|Идентификатор типа подписи
 
 |`pgp.signature.version`
-|Signature Version Number
+|Номер версии подписи
 
 |===
 
@@ -200,10 +200,10 @@ REQUIRED (Обязательно)
 === Смотрите также
 
 
-* xref:Processors/DecryptContentPGP.adoc[DecryptContentPGP]
+* xref:Processors/DecryptContentPGP.adoc[Расшифровывает содержимое с использованием OpenPGP]
 
-* xref:Processors/EncryptContentPGP.adoc[EncryptContentPGP]
+* xref:Processors/EncryptContentPGP.adoc[Шифрует содержимое с использованием OpenPGP]
 
-* xref:Processors/VerifyContentPGP.adoc[VerifyContentPGP]
+* xref:Processors/VerifyContentPGP.adoc[Проверяет подпись содержимого с использованием OpenPGP]
 
 

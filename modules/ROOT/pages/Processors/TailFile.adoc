@@ -7,7 +7,7 @@
 file, log, source, tail, text
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,23 +20,23 @@ FORBIDDEN (Обязательно)
 .*Tail-Mode*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Tailing mode
+*DISPLAY NAME (Отображаемое наименование):*:: Tailing mode (Режим хвоста)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Mode to use: single file will tail only one file, multiple file will look for a list of file. In Multiple mode the Base directory is required.
+*DESCRIPTION (Описание):*:: Режим использования: одиночный файл будет следить только за одним файлом, множественные файлы будут искать список файлов. В режиме Множественные требуется 'Базовый каталог'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Single file: In this mode, only the one file indicated in the 'Files to tail' property will be watched by the processor. In this mode, the file may not exist when starting the processor. 
+* Single file (Одиночный файл): В этом режиме только указанный в свойстве 'Files to tail' файл будет отслеживаться процессором. В этом режиме файл может не существовать при запуске процессора. 
 
-* Multiple files: In this mode, the 'Files to tail' property accepts a regular expression and the processor will look for files in 'Base directory' to list the files to tail by the processor. 
+* Multiple files (Множественные файлы): В этом режиме свойство 'Files to tail' принимает регулярное выражение, и процессор будет искать файлы в 'Базовом каталоге', чтобы перечислить файлы для отслеживания процессором. 
 
 
 [horizontal]
@@ -45,14 +45,14 @@ FORBIDDEN (Обязательно)
 .*File To Tail*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: File(s) to Tail
+*DISPLAY NAME (Отображаемое наименование):*:: File(s) to Tail (Файлы для отслеживания)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Path of the file to tail in case of single file mode. If using multifile mode, regular expression to find files to tail in the base directory. In case recursivity is set to true, the regular expression will be used to match the path starting from the base directory (see additional details for examples).
+*DESCRIPTION (Описание):*:: Путь к файлу, который нужно отслеживать в режиме одиночного файла. Если используется многофайловый режим, регулярное выражение для поиска файлов в базовой директории. В случае установки рекурсивности на 'true', регулярное выражение будет использовано для сопоставления пути, начиная с базовой директории (см. дополнительные сведения о примерах).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -62,14 +62,14 @@ FORBIDDEN (Обязательно)
 .Rolling Filename Pattern
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Rolling Filename Pattern
+*DISPLAY NAME (Отображаемое наименование):*:: Rolling Filename Pattern (Шаблон имени файла)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If the file to tail "rolls over" as would be the case with log files, this filename pattern will be used to identify files that have rolled over so that if NiFi is restarted, and the file has rolled over, it will be able to pick up where it left off. This pattern supports wildcard characters * and ?, it also supports the notation ${filename} to specify a pattern based on the name of the file (without extension), and will assume that the files that have rolled over live in the same directory as the file being tailed. The same glob pattern will be used for all files.
+*DESCRIPTION (Описание):*:: Если файл, который нужно отслеживать, "перекатывается" как это бывает с лог-файлами, этот шаблон имени файла будет использоваться для идентификации перекатанных файлов, что позволит NiFi, если он перезапустится, продолжить отслеживание, даже если файл был перекатан. Этот шаблон поддерживает символы-джокеры * и ?, а также использует обозначение ${filename} для указания шаблона на основе имени файла (без расширения), и предположит, что перекатанные файлы находятся в той же директории, что и отслеживаемый файл. Один и тот же глобус-шаблон будет использоваться для всех файлов.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -79,14 +79,14 @@ FORBIDDEN (Обязательно)
 .Post-Rollover Tail Period
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Post-Rollover Tail Period
+*DISPLAY NAME (Отображаемое наименование):*:: Post-Rollover Tail Period (Период после перезаписи хвоста)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When a file is rolled over, the processor will continue tailing the rolled over file until it has not been modified for this amount of time. This allows for another process to rollover a file, and then flush out any buffered data. Note that when this value is set, and the tailed file rolls over, the new file will not be tailed until the old file has not been modified for the configured amount of time. Additionally, when using this capability, in order to avoid data duplication, this period must be set longer than the Processor's Run Schedule, and the Processor must not be stopped after the file being tailed has been rolled over and before the data has been fully consumed. Otherwise, the data may be duplicated, as the entire file may be written out as the contents of a single FlowFile.
+*DESCRIPTION (Описание):*:: Когда файл отправляется на перезапись, процессор будет продолжать читать его содержимое в течение этого времени, пока оно не изменилось. Это позволяет другому процессу отправить новый файл и вывести все буферизованные данные. Следует отметить, что при установке этого значения и последующей перезаписи файла, новый файл не будет читаться до тех пор, пока старый файл не останется неизменным в течение заданного времени. Кроме того, при использовании этой возможности для избежания дублирования данных, период должен быть установлен больше расписания выполнения процессора, и процессор не должен быть остановлен после перезаписи файла, который в данный момент читается, и до полной потребности в данных. В противном случае могут возникнуть дубликаты данных, так как весь файл может быть записан как содержимое одного потока FlowFile.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -96,14 +96,14 @@ FORBIDDEN (Обязательно)
 .Tail-Base-Directory
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Base directory
+*DISPLAY NAME (Отображаемое наименование):*:: Base directory (Базовая директория)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Base directory used to look for files to tail. This property is required when using Multifile mode.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -113,25 +113,25 @@ FORBIDDEN (Обязательно)
 .*Initial Start Position*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Initial Start Position
+*DISPLAY NAME (Отображаемое наименование):*:: Initial Start Position (Начальная позиция запуска)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When the Processor first begins to tail data, this property specifies where the Processor should begin reading data. Once data has been ingested from a file, the Processor will continue from the last point from which it has received data.
+*DESCRIPTION (Описание):*:: Когда процессор впервые начинает обрабатывать данные, это свойство указывает, где процессор должен начать читать данные. После того как данные были проинжестированы из файла, процессор будет продолжать с последней точки, с которой он получил данные.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Beginning of Time: Start with the oldest data that matches the Rolling Filename Pattern and then begin reading from the File to Tail 
+* Beginning of Time (Начало времени): Начните с самых старых данных, соответствующих шаблону имени файла, и затем начните читать с файла для продолжения. 
 
-* Beginning of File: Start with the beginning of the File to Tail. Do not ingest any data that has already been rolled over 
+* Beginning of File (Начало файла): Начните с начала файла для продолжения. Не вводите никаких данных, которые уже были перекатами. 
 
-* Current Time: Start with the data at the end of the File to Tail. Do not ingest any data thas has already been rolled over or any data in the File to Tail that has already been written. 
+* Current Time (Текущее время): Начните с данных в конце файла для продолжения. Не вводите никаких данных, которые уже были перекатами или любых данных в файле для продолжения, которые уже были записаны. 
 
 
 [horizontal]
@@ -140,23 +140,23 @@ FORBIDDEN (Обязательно)
 .*File Location*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: State Location
+*DISPLAY NAME (Отображаемое наименование):*:: State Location (Состояние расположения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies where the state is located either local or cluster so that state can be stored appropriately in order to ensure that all data is consumed without duplicating data upon restart of NiFi
+*DESCRIPTION (Описание):*:: Указывает, где находится состояние локально или в кластере, чтобы состояние можно было хранить соответствующим образом, гарантируя отсутствие дублирования данных при перезапуске NiFi
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Local: State is stored locally. Each node in a cluster will tail a different file. 
+* Local (Локально): Состояние хранится локально. Каждый узел в кластере будет отслеживать разные файлы. 
 
-* Remote: State is located on a remote resource. This Processor will store state across the cluster so that it can be run on Primary Node Only and a new Primary Node can pick up where the last one left off. 
+* Remote (Удаленный): Состояние расположено на удаленном ресурсе. Этот процессор будет хранить состояние в кластере, что позволит его запустить только на основном узле, и новый основной узел сможет продолжить работу с того места, где остановился предыдущий. 
 
 
 [horizontal]
@@ -165,14 +165,14 @@ FORBIDDEN (Обязательно)
 .*Tailfile-Recursive-Lookup*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Recursive lookup
+*DISPLAY NAME (Отображаемое наименование):*:: Recursive lookup (Рекурсивный поиск)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When using Multiple files mode, this property defines if files must be listed recursively or not in the base directory.
+*DESCRIPTION (Описание):*:: При использовании режима с несколькими файлами это свойство определяет, должны ли файлы перечисляться рекурсивно в базовой директории или нет.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -190,14 +190,14 @@ FORBIDDEN (Обязательно)
 .Tailfile-Lookup-Frequency
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Lookup frequency
+*DISPLAY NAME (Отображаемое наименование):*:: Lookup frequency (Поиск частоты)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Only used in Multiple files mode. It specifies the minimum duration the processor will wait before listing again the files to tail.
+*DESCRIPTION (Описание):*:: Используется только в режиме нескольких файлов. Указывает минимальный интервал ожидания перед повторным просмотром файлов для отслеживания.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -207,14 +207,14 @@ FORBIDDEN (Обязательно)
 .Tailfile-Maximum-Age
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum age
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum age (Максимальный возраст)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Only used in Multiple files mode. It specifies the necessary minimum duration to consider that no new messages will be appended in a file regarding its last modification date. This should not be set too low to avoid duplication of data in case new messages are appended at a lower frequency.
+*DESCRIPTION (Описание):*:: Используется только в режиме нескольких файлов. Указывает необходимый минимальный срок, считая, что в файле больше не будут добавляться новые сообщения относительно даты его последнего изменения. Это значение не должно быть слишком низким, чтобы избежать дублирования данных в случае добавления новых сообщений реже.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -224,14 +224,14 @@ FORBIDDEN (Обязательно)
 .Reread-On-Nul
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Reread when NUL encountered
+*DISPLAY NAME (Отображаемое наименование):*:: Reread when NUL encountered (Перечитать при встрече с символом NUL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If this option is set to 'true', when a NUL character is read, the processor will yield and try to read the same part again later. (Note: Yielding may delay the processing of other files tailed by this processor, not just the one with the NUL character.) The purpose of this flag is to allow users to handle cases where reading a file may return temporary NUL values. NFS for example may send file contents out of order. In this case the missing parts are temporarily replaced by NUL values. CAUTION! If the file contains legitimate NUL values, setting this flag causes this processor to get stuck indefinitely. For this reason users should refrain from using this feature if they can help it and try to avoid having the target file on a file system where reads are unreliable.
+*DESCRIPTION (Описание):*:: Если этот параметр установлен на 'true', при встрече с символом NUL процессор перейдет в режим ожидания и попытается прочитать ту же часть снова позже. (Примечание: Ожидание может задержать обработку других файлов, отслеживаемых этим процессором, не только тот, который содержит символ NUL.) Целью этого флага является обеспечение возможности обработки случаев, когда чтение файла может временно возвращать значения NUL. Например, NFS может отправлять содержимое файлов не в порядке. В этом случае отсутствующие части временно заменяются символами NUL. ВНИМАНИЕ! Если файл содержит легитимные значения NUL, установка этого флага приводит к бесконечному ожиданию процессора. Из-за этого пользователи должны отказаться от использования этой функции, если смогут, и избегать размещения целевого файла на файловой системе, где чтение может быть ненадежным.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -249,14 +249,14 @@ FORBIDDEN (Обязательно)
 .Line Start Pattern
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Line Start Pattern
+*DISPLAY NAME (Отображаемое наименование):*:: Line Start Pattern (Шаблон начала строки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A Regular Expression to match against the start of a log line. If specified, any line that matches the expression, and any following lines, will be buffered until another line matches the Expression. In doing this, we can avoid splitting apart multi-line messages in the file. This assumes that the data is in UTF-8 format.
+*DESCRIPTION (Описание):*:: Регулярное выражение для сопоставления с началом строки журнала. Если указано, любая строка, которая соответствует выражению, и любые последующие строки будут буферизованы до тех пор, пока другая строка не соответствует выражению. В этом мы избегаем разбиения многострочных сообщений в файле. Это предполагает, что данные находятся в формате UTF-8.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -266,14 +266,14 @@ FORBIDDEN (Обязательно)
 .*Pre-Allocated-Buffer-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Pre-Allocated Buffer Size
+*DISPLAY NAME (Отображаемое наименование):*:: Pre-Allocated Buffer Size (Предварительно выделенный размер буфера)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Sets the amount of memory that is pre-allocated for each tailed file.
+*DESCRIPTION (Описание):*:: Устанавливает количество памяти, которое предварительно выделяется для каждого хвостового файла.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -283,14 +283,14 @@ FORBIDDEN (Обязательно)
 .*Max Buffer Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Buffer Size
+*DISPLAY NAME (Отображаемое наименование):*:: Max Buffer Size (Максимальный размер буфера)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When using the Line Start Pattern, there may be situations in which the data in the file being tailed never matches the Regular Expression. This would result in the processor buffering all data from the tailed file, which can quickly exhaust the heap. To avoid this, the Processor will buffer only up to this amount of data before flushing the buffer, even if it means ingesting partial data from the file.
+*DESCRIPTION (Описание):*:: При использовании шаблона начала строки могут возникнуть ситуации, когда данные в файле, который отслеживается, никогда не соответствуют регулярному выражению. Это приведет к тому, что процессор будет буферизовать все данные из отслеживаемого файла, что может быстро исчерпать кучу. Чтобы этого избежать, процессор будет буферизовать только до этого количества данных перед очисткой буфера, даже если это означает поглощение частичных данных из файла.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 

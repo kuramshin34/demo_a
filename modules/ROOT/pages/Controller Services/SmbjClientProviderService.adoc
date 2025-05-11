@@ -1,13 +1,13 @@
 = SmbjClientProviderService 2.2.0
 
-Provides access to SMB Sessions with shared authentication credentials.
+Предоставляет доступ к сессиям SMB с общими учетными данными для аутентификации.
 
 [horizontal]
 *Tags* (Ключевые слова):
 samba, smb, cifs, files
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ samba, smb, cifs, files
 .*Hostname*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hostname
+*DISPLAY NAME (Отображаемое наименование):*:: Hostname (Имя хоста)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The network host of the SMB file server.
+*DESCRIPTION (Описание):*:: Сетевой узел SMB-файлового сервера.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ samba, smb, cifs, files
 .*Port*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Port
+*DISPLAY NAME (Отображаемое наименование):*:: Port (Порт)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Port to use for connection.
+*DESCRIPTION (Описание):*:: Порт для подключения.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ samba, smb, cifs, files
 .*Share*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Share
+*DISPLAY NAME (Отображаемое наименование):*:: Share (Сетевой ресурс)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The network share to which files should be listed from. This is the "first folder"after the hostname: smb://hostname:port/[share]/dir1/dir2
+*DESCRIPTION (Описание):*:: Сетевой ресурс, к которому должны быть перечислены файлы. Это "первая папка" после имени хоста: smb://hostname:port/[share]/dir1/dir2
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ samba, smb, cifs, files
 .Username
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Username
+*DISPLAY NAME (Отображаемое наименование):*:: Username (Имя пользователя)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The username used for authentication.
+*DESCRIPTION (Описание):*:: Имя пользователя, используемое для аутентификации.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ samba, smb, cifs, files
 .Password
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Password
+*DISPLAY NAME (Отображаемое наименование):*:: Password (Пароль)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The password used for authentication.
+*DESCRIPTION (Описание):*:: Пароль, используемый для аутентификации.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -105,14 +105,14 @@ samba, smb, cifs, files
 .Domain
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Domain
+*DISPLAY NAME (Отображаемое наименование):*:: Domain (Домен)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The domain used for authentication. Optional, in most cases username and password is sufficient.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -122,14 +122,14 @@ samba, smb, cifs, files
 .*Smb-Dialect*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SMB Dialect
+*DISPLAY NAME (Отображаемое наименование):*:: SMB Диалект
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The SMB dialect is negotiated between the client and the server by default to the highest common version supported by both end. In some rare cases, the client-server communication may fail with the automatically negotiated dialect. This property can be used to set the dialect explicitly (e.g. to downgrade to a lower version), when those situations would occur.
+*DESCRIPTION (Описание):*:: Диалект SMB торгуется между клиентом и сервером по умолчанию до самой высокой поддерживаемой версии, которая поддерживает оба конца. В некоторых редких случаях связь клиент-сервер может завершиться неудачей из-за автоматически торгуемого диалекта. Это свойство можно использовать для явного установления диалекта (например, для понижения версии), когда такие ситуации возникают.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -155,14 +155,14 @@ samba, smb, cifs, files
 .*Use-Encryption*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Use Encryption
+*DISPLAY NAME (Отображаемое наименование):*:: Use Encryption (Использовать шифрование)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Turns on/off encrypted communication between the client and the server. The property's behavior is SMB dialect dependent: SMB 2.x does not support encryption and the property has no effect. In case of SMB 3.x, it is a hint/request to the server to turn encryption on if the server also supports it.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -180,14 +180,14 @@ samba, smb, cifs, files
 .*Enable-Dfs*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Enable DFS
+*DISPLAY NAME (Отображаемое наименование):*:: Enable DFS (Включить систему распределенных файлов)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Enables accessing Distributed File System (DFS) and following DFS links during SMB operations.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -205,14 +205,14 @@ samba, smb, cifs, files
 .*Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Timeout (таймаут)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Timeout for read and write operations.
+*DESCRIPTION (Описание):*:: Таймаут для операций чтения и записи.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -232,6 +232,17 @@ samba, smb, cifs, files
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

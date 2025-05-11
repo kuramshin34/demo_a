@@ -1,13 +1,13 @@
 = IPLookupService 2.2.0
 
-A lookup service that provides several types of enrichment information for IP addresses. The service is configured by providing a MaxMind Database file and specifying which types of enrichment should be provided for an IP Address or Hostname. Each type of enrichment is a separate lookup, so configuring the service to provide all of the available enrichment data may be slower than returning only a portion of the available enrichments. In order to use this service, a lookup must be performed using key of 'ip' and a value that is a valid IP address or hostname. View the Usage of this component and choose to view Additional Details for more information, such as the Schema that pertains to the information that is returned.
+Поисковый сервис, который предоставляет несколько типов улучшенной информации для IP-адресов. Сервис настраивается путем предоставления файла базы данных MaxMind и указания каких типов улучшений должно быть предоставлено для IP-адреса или хоста. Каждый тип улучшения представляет собой отдельный поиск, поэтому настройка сервиса для предоставления всех доступных данных об улучшении может быть медленнее, чем возвращение только части доступных улучшений. Для использования этого сервиса необходимо выполнить поиск с ключом 'ip' и значением, которое является действительным IP-адресом или хостом. Просмотрите Использование этого компонента и выберите просмотр Дополнительных сведений для получения дополнительной информации, такой как Схема, относящаяся к возвращаемой информации.
 
 [horizontal]
 *Tags* (Ключевые слова):
 anonymous, cellular, domain, enrich, geo, ip, ipgeo, isp, lookup, maxmind, tor
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ anonymous, cellular, domain, enrich, geo, ip, ipgeo, isp, lookup, maxmind, tor
 .*Database-File*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: MaxMind Database File
+*DISPLAY NAME (Отображаемое наименование):*:: MaxMind Database File (МаксМинд База Данных Файл)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Path to Maxmind IP Enrichment Database File
+*DESCRIPTION (Описание):*:: Путь к базе данных Maxmind IP Enrichment, которая используется для расширения информации об IP-адресах
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,23 +37,23 @@ anonymous, cellular, domain, enrich, geo, ip, ipgeo, isp, lookup, maxmind, tor
 .*Lookup-City*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Lookup Geo Enrichment
+*DISPLAY NAME (Отображаемое наименование):*:: Lookup Geo Enrichment (Поиск геообогащения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether or not information about the geographic information, such as cities, corresponding to the IP address should be returned
+*DESCRIPTION (Описание):*:: Указывает, следует ли возвращать информацию о географической информации, такую как города, соответствующие IP-адресу
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (Истина)
 
-* false
+* false (Ложь)
 
 
 [horizontal]
@@ -62,14 +62,14 @@ anonymous, cellular, domain, enrich, geo, ip, ipgeo, isp, lookup, maxmind, tor
 .*Lookup-Isp*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Lookup ISP
+*DISPLAY NAME (Отображаемое наименование):*:: Lookup ISP (Поиск провайдера информационных услуг)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether or not information about the Information Service Provider corresponding to the IP address should be returned
+*DESCRIPTION (Описание):*:: Указывает, должна ли возвращаться информация о поставщике информационных услуг, соответствующего IP-адресу
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -87,14 +87,14 @@ anonymous, cellular, domain, enrich, geo, ip, ipgeo, isp, lookup, maxmind, tor
 .*Lookup-Domain*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Lookup Domain Name
+*DISPLAY NAME (Отображаемое наименование):*:: Lookup Domain Name (Имя домена для поиска)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether or not information about the Domain Name corresponding to the IP address should be returned. If true, the lookup will contain second-level domain information, such as foo.com but will not contain bar.foo.com
+*DESCRIPTION (Описание):*:: Указывает, должна ли возвращаться информация о домене, соответствующем IP-адресу. Если значение true, поиск будет включать информацию второго уровня домена, например foo.com, но не будет включать bar.foo.com
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -112,14 +112,14 @@ anonymous, cellular, domain, enrich, geo, ip, ipgeo, isp, lookup, maxmind, tor
 .*Lookup-Connection-Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Lookup Connection Type
+*DISPLAY NAME (Отображаемое наименование):*:: Lookup Connection Type (Тип подключения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether or not information about the Connection Type corresponding to the IP address should be returned. If true, the lookup will contain a 'connectionType' field that (if populated) will contain a value of 'Dialup', 'Cable/DSL', 'Corporate', or 'Cellular'
+*DESCRIPTION (Описание):*:: Указывает, должна ли возвращаться информация о типе соединения, соответствующем IP-адресу. Если значение true, то поиск будет содержать поле 'connectionType', которое (если заполнено) будет содержать значения 'Dialup', 'Cable/DSL', 'Corporate' или 'Cellular'
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -137,14 +137,14 @@ anonymous, cellular, domain, enrich, geo, ip, ipgeo, isp, lookup, maxmind, tor
 .*Lookup-Anonymous-Ip*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Lookup Anonymous IP Information
+*DISPLAY NAME (Отображаемое наименование):*:: Lookup Anonymous IP Information (Поиск информации об анонимном IP-адресе)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies whether or not information about whether or not the IP address belongs to an anonymous network should be returned.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -172,6 +172,17 @@ anonymous, cellular, domain, enrich, geo, ip, ipgeo, isp, lookup, maxmind, tor
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

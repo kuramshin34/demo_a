@@ -1,13 +1,13 @@
 = QueryAzureDataExplorer 2.2.0
 
-Query Azure Data Explorer and stream JSON results to output FlowFiles
+Запрашивает Azure Data Explorer и передает JSON результаты в поток FlowFiles на выход
 
 [horizontal]
 *Tags* (Ключевые слова):
 ADX, Azure, Data, Explorer, Kusto
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Kusto Query Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Kusto Query Service
+*DISPLAY NAME (Отображаемое наименование):*:: Kusto Query Service (Служба запросов Kusto)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Azure Data Explorer Kusto Query Service
+*DESCRIPTION (Описание):*:: Azure Data Explorer Kusto Query Service (Служба запросов Azure Data Explorer для Kusto)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Database Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Database Name
+*DISPLAY NAME (Отображаемое наименование):*:: Database Name (База данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Azure Data Explorer Database Name for querying
+*DESCRIPTION (Описание):*:: Azure Data Explorer Database Name для запросов
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Query*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Query
+*DISPLAY NAME (Отображаемое наименование):*:: Query (Запрос)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Query to be run against Azure Data Explorer
+*DESCRIPTION (Описание):*:: Запрос, который будет выполнен в Azure Data Explorer
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -85,10 +85,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|FlowFiles containing results of a successful Query
+|FlowFiles с результатами успешного запроса
 
 |`failure`
-|FlowFiles containing original input associated with a failed Query
+|FlowFiles с исходным вводом, связанным с неудачным запросом
 
 |===
 
@@ -103,13 +103,13 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`query.error.message`
-|Azure Data Explorer query error message on failures
+|Сообщение об ошибке запроса Azure Data Explorer при сбое
 
 |`query.executed`
-|Azure Data Explorer query executed
+|Запрос Azure Data Explorer выполнен
 
 |`mime.type`
-|Content Type set to application/json
+|Тип содержимого установлен в application/json
 
 |===
 

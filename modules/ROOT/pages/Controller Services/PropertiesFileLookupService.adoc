@@ -1,13 +1,13 @@
 = PropertiesFileLookupService 2.2.0
 
-A reloadable properties file-based lookup service
+Перезагружаемый файловый сервис поиска на основе свойств
 
 [horizontal]
 *Tags* (Ключевые слова):
-cache, enrich, join, key, lookup, properties, reloadable, value
+кэш, улучшение, объединение, ключ, поиск, свойства, перезагружаемый, значение
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ cache, enrich, join, key, lookup, properties, reloadable, value
 .*Configuration-File*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Configuration File
+*DISPLAY NAME (Отображаемое наименование):*:: Configuration File (Конфигурационный файл)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A configuration file
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -49,7 +49,7 @@ cache, enrich, join, key, lookup, properties, reloadable, value
 |Требуемые права |Объяснение
 
 |
-|Provides operator the ability to read from any file that NiFi has access to.
+|Предоставляет возможность оператору читать из любого файла, к которому у NiFi есть доступ.
 
 |===
 
@@ -58,6 +58,17 @@ cache, enrich, join, key, lookup, properties, reloadable, value
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

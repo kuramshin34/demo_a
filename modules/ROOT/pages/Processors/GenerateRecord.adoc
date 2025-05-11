@@ -1,13 +1,13 @@
 = GenerateRecord 2.2.0
 
-This processor creates FlowFiles with records having random value for the specified fields. GenerateRecord is useful for testing, configuration, and simulation. It uses either user-defined properties to define a record schema or a provided schema and generates the specified number of records using random data for the fields in the schema.
+Этот процессор создает FlowFiles с записями, имеющими случайные значения для указанных полей. GenerateRecord полезен для тестирования, конфигурации и моделирования. Он использует либо пользовательские свойства для определения схемы записи, либо предоставленную схему и генерирует указанное количество записей, используя случайные данные для полей в схеме.
 
 [horizontal]
 *Tags* (Ключевые слова):
 fake, generate, random, test
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ FORBIDDEN (Обязательно)
 .*Record-Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для записи записей
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ FORBIDDEN (Обязательно)
 .*Number-Of-Records*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Number of Records
+*DISPLAY NAME (Отображаемое наименование):*:: Number of Records (Количество записей)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies how many records will be generated for each outgoing FlowFile.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,23 +54,23 @@ FORBIDDEN (Обязательно)
 .*Nullable-Fields*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Nullable Fields
+*DISPLAY NAME (Отображаемое наименование):*:: Nullable Fields (Поля могут быть нулевыми)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Whether the generated fields will be nullable. Note that this property is ignored if Schema Text is set. Also it only affects the schema of the generated data, not whether any values will be null. If this property is true, see 'Null Value Percentage' to set the probability that any generated field will be null.
+*DESCRIPTION (Описание):*:: Определяет, будут ли сгенерированные поля nullable. Следует отметить, что это свойство игнорируется, если установлен текст схемы. Также оно влияет только на схему сгенерированных данных, а не на то, будут ли какие-либо значения равны null. Если это свойство истинно, см. 'Null Value Percentage', чтобы установить вероятность того, что любое сгенерированное поле будет равно null.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -79,14 +79,14 @@ FORBIDDEN (Обязательно)
 .*Null-Percentage*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Null Value Percentage
+*DISPLAY NAME (Отображаемое наименование):*:: Null Value Percentage (Процент вероятности)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The percent probability (0-100%) that a generated value for any nullable field will be null. Set this property to zero to have no null values, or 100 to have all null values.
+*DESCRIPTION (Описание):*:: Процент вероятности (от 0 до 100%) того, что для любого поля с возможным значением null будет присвоено нулевое значение. Установите это свойство в ноль, чтобы не было нулевых значений, или в 100, чтобы все значения были нулевыми.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -96,14 +96,14 @@ FORBIDDEN (Обязательно)
 .Schema-Text
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Text
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Text (Схема текста)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The text of an Avro-formatted Schema used to generate record data. If this property is set, any user-defined properties are ignored.
+*DESCRIPTION (Описание):*:: Текст Avro-formatted схемы, используемой для генерации данных записей. Если это свойство установлено, любые пользовательские свойства игнорируются.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -140,7 +140,7 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`success`
-|FlowFiles that are successfully created will be routed to this relationship
+|FlowFiles, которые успешно созданы, будут направлены в это отношение
 
 |===
 
@@ -155,10 +155,10 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`mime.type`
-|Sets the mime.type attribute to the MIME Type specified by the Record Writer
+|Устанавливает атрибут mime.type в указанный MIME-тип записчиком
 
 |`record.count`
-|The number of records in the FlowFile
+|Количество записей в FlowFile
 
 |===
 

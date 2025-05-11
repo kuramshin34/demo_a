@@ -1,13 +1,13 @@
 = ListenFTP 2.2.0
 
-Starts an FTP server that listens on the specified port and transforms incoming files into FlowFiles. The URI of the service will be ftp://{hostname}:{port}. The default port is 2221.
+Запускает сервер FTP, который слушает на указанном порту и преобразует поступающие файлы в FlowFiles. URI службы будет ftp://{hostname}:{port}. По умолчанию используется порт 2221.
 
 [horizontal]
 *Tags* (Ключевые слова):
 FTP, FTPS, ingest, listen
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ FORBIDDEN (Обязательно)
 .Bind-Address
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Bind Address
+*DISPLAY NAME (Отображаемое наименование):*:: Bind Address (Адрес привязки)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The address the FTP server should be bound to. If not set (or set to 0.0.0.0), the server binds to all available addresses (i.e. all network interfaces of the host machine).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ FORBIDDEN (Обязательно)
 .*Listening-Port*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Listening Port
+*DISPLAY NAME (Отображаемое наименование):*:: Listening Port (Порт для прослушивания входящих подключений)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Port to listen on for incoming connections. On Linux, root privileges are required to use port numbers below 1024.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ FORBIDDEN (Обязательно)
 .Username
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Username
+*DISPLAY NAME (Отображаемое наименование):*:: Username (Имя пользователя)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the user that is allowed to log in to the FTP server. If a username is provided, a password must also be provided. If no username is specified, anonymous connections will be permitted.
+*DESCRIPTION (Описание):*:: Имя пользователя, которое разрешено для входа на FTP-сервер. Если указано имя пользователя, должен быть предоставлен пароль. Если не указано имя пользователя, будут разрешены анонимные подключения.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ FORBIDDEN (Обязательно)
 .Password
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Password
+*DISPLAY NAME (Отображаемое наименование):*:: Password (Пароль)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If the Username is set, then a password must also be specified. The password provided by the client trying to log in to the FTP server will be checked against this password.
+*DESCRIPTION (Описание):*:: Если установлено имя пользователя, то должен быть указан пароль. Пароль, предоставленный клиентом, пытающимся войти на FTP-сервер, будет проверен против этого пароля.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -88,14 +88,14 @@ FORBIDDEN (Обязательно)
 .Ssl-Context-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (Сервис контекста SSL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the SSL Context Service that can be used to create secure connections. If an SSL Context Service is selected, then a keystore file must also be specified in the SSL Context Service. Without a keystore file, the processor cannot be started successfully.Specifying a truststore file is optional. If a truststore file is specified, client authentication is required (the client needs to send a certificate to the server).Regardless of the selected TLS protocol, the highest available protocol is used for the connection. For example if NiFi is running on Java 11 and TLSv1.2 is selected in the controller service as the preferred TLS Protocol, TLSv1.3 will be used (regardless of TLSv1.2 being selected) because Java 11 supports TLSv1.3.
+*DESCRIPTION (Описание):*:: Указывает сервис контекста SSL, который может использоваться для создания защищенных соединений. Если выбран сервис контекста SSL, то также должен быть указан файл keystore. Без файла keystore процессор не сможет успешно запуститься. Указание файла truststore является необязательным. Если указан файл truststore, то требуется клиентская аутентификация (клиент должен отправить серверу сертификат). Независимо от выбранного протокола TLS, для соединения будет использоваться самый высокий доступный протокол. Например, если NiFi работает на Java 11 и в сервисе контроллера выбран предпочтительный протокол TLS как TLSv1.2, то будет использоваться TLSv1.3 (независимо от того, что выбрано), так как Java 11 поддерживает TLSv1.3.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -119,7 +119,7 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Relationship for successfully received files.
+|Отношение для успешно полученных файлов.
 
 |===
 
@@ -134,10 +134,10 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`filename`
-|The name of the file received via the FTP/FTPS connection.
+|Имя файла, полученного по FTP/FTPS-соединению.
 
 |`path`
-|The path pointing to the file's target directory. E.g.: file.txt is uploaded to /Folder1/SubFolder, then the value of the path attribute will be "/Folder1/SubFolder/" (note that it ends with a separator character).
+|Путь к целевой директории файла. Например: если файл file.txt загружается в /Folder1/SubFolder, то значение атрибута path будет "/Folder1/SubFolder/" (обратите внимание на конечный разделительный символ).
 
 |===
 

@@ -1,13 +1,13 @@
 = ExtractText 2.2.0
 
-Evaluates one or more Regular Expressions against the content of a FlowFile.  The results of those Regular Expressions are assigned to FlowFile Attributes.  Regular Expressions are entered by adding user-defined properties; the name of the property maps to the Attribute Name into which the result will be placed.  The attributes are generated differently based on the enabling of named capture groups.  If named capture groups are not enabled:  The first capture group, if any found, will be placed into that attribute name.But all capture groups, including the matching string sequence itself will also be provided at that attribute name with an index value provided, with the exception of a capturing group that is optional and does not match - for example, given the attribute name "regex" and expression "abc(def)?(g)" we would add an attribute "regex.1" with a value of "def" if the "def" matched. If the "def" did not match, no attribute named "regex.1" would be added but an attribute named "regex.2" with a value of "g" will be added regardless.If named capture groups are enabled:  Each named capture group, if found will be placed into the attributes name with the name provided.  If enabled the matching string sequence itself will be placed into the attribute name.  If multiple matches are enabled, and index will be applied after the first set of matches. The exception is a capturing group that is optional and does not match  For example, given the attribute name "regex" and expression "abc(?<NAMED>def)?(?<NAMED-TWO>g)"  we would add an attribute "regex.NAMED" with the value of "def" if the "def" matched.  We would   add an attribute "regex.NAMED-TWO" with the value of "g" if the "g" matched regardless.  The value of the property must be a valid Regular Expressions with one or more capturing groups. If named capture groups are enabled, all capture groups must be named.  If they are not, then the  processor configuration will fail validation.  If the Regular Expression matches more than once, only the first match will be used unless the property enabling repeating capture group is set to true. If any provided Regular Expression matches, the FlowFile(s) will be routed to 'matched'. If no provided Regular Expression matches, the FlowFile will be routed to 'unmatched' and no attributes will be applied to the FlowFile.
+Оценивает одно или несколько регулярных выражений относительно содержимого файла FlowFile. Результаты этих регулярных выражений назначаются атрибутам FlowFile. Регулярные выражения вводятся с помощью свойств, определяемых пользователем; имя свойства соответствует имени атрибута, в который будет помещен результат. Атрибуты генерируются по-разному в зависимости от включения именованных групп захвата. Если именованные группы не включены: Первая группа захвата, если она найдена, будет помещена в это имя атрибута. Однако все группы захвата, включая саму последовательность совпадающих символов, также будут предоставлены под этим именем атрибута с указанием значения индекса, за исключением группы захвата, которая является необязательной и не соответствует - например, для имени атрибута "regex" и выражения "abc(def)?(g)" мы добавим атрибут "regex.1" с значением "def", если совпадение "def" найдено. Если совпадения нет, то атрибут с названием "regex.1" не будет добавлен, но будет добавлен атрибут с названием "regex.2" с значением "g", независимо от результата.
 
 [horizontal]
 *Tags* (Ключевые слова):
 Regular Expression, Text, evaluate, extract, regex
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Character Set*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Символьный набор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Character Set in which the file is encoded
+*DESCRIPTION (Описание):*:: The Character Set in which the file is encoded (Символьный набор, в котором закодирован файл)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Maximum Buffer Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Buffer Size
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Buffer Size (Максимальный размер буфера)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the maximum amount of data to buffer (per FlowFile) in order to apply the regular expressions. FlowFiles larger than the specified maximum will not be fully evaluated.
+*DESCRIPTION (Описание):*:: Указывает максимальное количество данных для буферизации (на FlowFile) с целью применения регулярных выражений. FlowFiles больше указанного максимума не будут полностью оценены.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .Maximum Capture Group Length
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Capture Group Length
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Capture Group Length (Максимальная длина группы захвата)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the maximum number of characters a given capture group value can have. Any characters beyond the max will be truncated.
+*DESCRIPTION (Описание):*:: Указывает максимальное количество символов, которое может содержать значение данной группы захвата. Любые символы, превышающие максимум, будут усечены.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,23 +71,23 @@ REQUIRED (Обязательно)
 .*Enable Canonical Equivalence*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Enable Canonical Equivalence
+*DISPLAY NAME (Отображаемое наименование):*:: Enable Canonical Equivalence (Включить каноническое эквивалентство)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates that two characters match only when their full canonical decompositions match.
+*DESCRIPTION (Описание):*:: Указывает, что два символа совпадают только в том случае, если их полные канонические разложения совпадают.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -96,23 +96,23 @@ REQUIRED (Обязательно)
 .*Enable Case-Insensitive Matching*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Enable Case-insensitive Matching
+*DISPLAY NAME (Отображаемое наименование):*:: Enable Case-insensitive Matching (Включить нечувствительное к регистру сопоставление)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates that two characters match even if they are in a different case.  Can also be specified via the embedded flag (?i).
+*DESCRIPTION (Описание):*:: Указывает, что два символа считаются одинаковыми, даже если они написаны в разном регистре. Также может быть указано с помощью встроенного флага (?i).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -121,14 +121,14 @@ REQUIRED (Обязательно)
 .*Permit Whitespace And Comments In Pattern*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Permit Whitespace and Comments in Pattern
+*DISPLAY NAME (Отображаемое наименование):*:: Permit Whitespace and Comments in Pattern (Разрешить пробелы и комментарии в шаблоне)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: In this mode, whitespace is ignored, and embedded comments starting with # are ignored until the end of a line.  Can also be specified via the embedded flag (?x).
+*DESCRIPTION (Описание):*:: In this mode, whitespace is ignored, and embedded comments starting with # are ignored until the end of a line. Can also be specified via the embedded flag (?x).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -146,23 +146,23 @@ REQUIRED (Обязательно)
 .*Enable Dotall Mode*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Enable DOTALL Mode
+*DISPLAY NAME (Отображаемое наименование):*:: Enable DOTALL Mode (Включить режим DOTALL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates that the expression '.' should match any character, including a line terminator.  Can also be specified via the embedded flag (?s).
+*DESCRIPTION (Описание):*:: Указывает, что выражение '.' должно соответствовать любому символу, включая символ конца строки. Также может быть указано с помощью встроенного флага (?s).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -171,23 +171,23 @@ REQUIRED (Обязательно)
 .*Enable Literal Parsing Of The Pattern*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Enable Literal Parsing of the Pattern
+*DISPLAY NAME (Отображаемое наименование):*:: Enable Literal Parsing of the Pattern (Включить литеральное разбор шаблона)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates that Metacharacters and escape characters should be given no special meaning.
+*DESCRIPTION (Описание):*:: Указывает, что метасимволы и escape-символы не должны иметь особого значения.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -196,23 +196,23 @@ REQUIRED (Обязательно)
 .*Enable Multiline Mode*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Enable Multiline Mode
+*DISPLAY NAME (Отображаемое наименование):*:: Enable Multiline Mode (Включить многостроковый режим)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates that '^' and '$' should match just after and just before a line terminator or end of sequence, instead of only the beginning or end of the entire input.  Can also be specified via the embeded flag (?m).
+*DESCRIPTION (Описание):*:: Указывает, что '^' и '$' должны соответствовать только после и до строчного терминатора или конца последовательности, а не только в начале или конце всего ввода. Также может быть указано с помощью встроенного флага (?m).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (правда)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -221,14 +221,14 @@ REQUIRED (Обязательно)
 .*Enable Unicode-Aware Case Folding*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Enable Unicode-aware Case Folding
+*DISPLAY NAME (Отображаемое наименование):*:: Enable Unicode-aware Case Folding (Включить соответствие Unicode с учетом регистра)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When used with 'Enable Case-insensitive Matching', matches in a manner consistent with the Unicode Standard.  Can also be specified via the embedded flag (?u).
+*DESCRIPTION (Описание):*:: При использовании с 'Enable Case-insensitive Matching' сопоставление происходит в соответствии сUnicode Standard. Также может быть указано через встроенный флаг (?u).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -246,14 +246,14 @@ REQUIRED (Обязательно)
 .*Enable Unicode Predefined Character Classes*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Enable Unicode Predefined Character Classes
+*DISPLAY NAME (Отображаемое наименование):*:: Enable Unicode Predefined Character Classes (Включить встроенные классы символов Unicode)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies conformance with the Unicode Technical Standard #18: Unicode Regular Expression Annex C: Compatibility Properties.  Can also be specified via the embedded flag (?U).
+*DESCRIPTION (Описание):*:: Указывает соответствие стандарту Unicode Technical Standard #18: Unicode Regular Expression Annex C: Compatibility Properties. Также может быть указано с помощью встроенного флага (?U).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -271,24 +271,24 @@ REQUIRED (Обязательно)
 .*Enable Unix Lines Mode*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Enable Unix Lines Mode
+*DISPLAY NAME (Отображаемое наименование):*:: Enable Unix Lines Mode (Включить режим одиночных строк)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates that only the '
-' line terminator is recognized in the behavior of '.', '^', and '$'.  Can also be specified via the embedded flag (?d).
+*DESCRIPTION (Описание):*:: Указывает, что в поведении '.', '^' и '$' распознаётся только символ новой строки '
+'. Также может быть указано с помощью встроенного флага (?d).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -297,23 +297,23 @@ REQUIRED (Обязательно)
 .*Include Capture Group 0*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Include Capture Group 0
+*DISPLAY NAME (Отображаемое наименование):*:: Include Capture Group 0 (Включить Захватывающую Группу 0)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates that Capture Group 0 should be included as an attribute. Capture Group 0 represents the entirety of the regular expression match, is typically not used, and could have considerable length.
+*DESCRIPTION (Описание):*:: Указывает, что следует включить в качестве атрибута Захватывающую Группу 0. Захватывающая Группа 0 представляет собой весь результат регулярного выражения, обычно не используется и может иметь значительную длину.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -322,14 +322,14 @@ REQUIRED (Обязательно)
 .*Enable Repeating Capture Group*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Enable repeating capture group
+*DISPLAY NAME (Отображаемое наименование):*:: Enable repeating capture group (Включить повторяющуюся группу захвата)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If set to true, every string matching the capture groups will be extracted. Otherwise, if the Regular Expression matches more than once, only the first match will be extracted.
+*DESCRIPTION (Описание):*:: Если установлено значение true, будет извлечено каждое строковое соответствие группам захвата. В противном случае, если регулярное выражение соответствует более одного раза, будет извлечена только первая встречающаяся запись.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -347,17 +347,14 @@ REQUIRED (Обязательно)
 .Enable Named Group Support
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Enable named group support
+*DISPLAY NAME (Отображаемое наименование):*:: Enable named group support (Включить поддержку именованных групп)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If set to true, when named groups are present in the regular expression, the name of the
-group will be used in the attribute name as opposed to the group index.  All capturing groups
-must be named, if the number of groups (not including capture group 0) does not equal the
-number of named groups validation will fail.
+*DESCRIPTION (Описание):*:: Если установлено значение true, когда в регулярном выражении присутствуют именованные группы, вместо индекса группы будет использоваться имя группы в названии атрибута. Все захватывающие группы должны быть именованными, если количество групп (не включая группу захвата 0) не равно количеству именованных групп, валидация не будет пройдена.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -381,7 +378,7 @@ number of named groups validation will fail.
 |Наименование |Описание |Значение |Ограничения языка выражений
 
 |`A FlowFile attribute`
-|The first capture group, if any found, will be placed into that attribute name.But all capture groups, including the matching string sequence itself will also be provided at that attribute name with an index value provided.
+|The first capture group, if any found, will be placed into that attribute name. But all capture groups, including the matching string sequence itself will also be provided at that attribute name with an index value provided.
 |`A Regular Expression with one or more capturing group`
 |
 
@@ -412,6 +409,17 @@ number of named groups validation will fail.
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`A FlowFile attribute`
+|The first capture group, if any found, will be placed into that attribute name. But all capture groups, including the matching string sequence itself will also be provided at that attribute name with an index value provided.
+
+|===
 
 
 

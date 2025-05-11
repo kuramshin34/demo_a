@@ -1,13 +1,13 @@
 = ExecuteGroovyScript 2.2.0
 
-Experimental Extended Groovy script processor. The script is responsible for handling the incoming flow file (transfer to SUCCESS or remove, e.g.) as well as any flow files created by the script. If the handling is incomplete or incorrect, the session will be rolled back.
+Экспериментальный процессор расширенного Groovy скрипта. Скрипт отвечает за обработку входящего потока данных (передачу в SUCCESS или удаление, например). Также скрипт может создавать дополнительные потоки данных. Если обработка не завершена или некорректна, сессия будет отменена.
 
 [horizontal]
 *Tags* (Ключевые слова):
 groovy, groovyx, script
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-ALLOWED (Обязательно)
+ALLOWED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ ALLOWED (Обязательно)
 .Groovyx-Script-File
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Script File
+*DISPLAY NAME (Отображаемое наименование):*:: Script File (Скриптовый файл)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Path to script file to execute. Only one of Script File or Script Body may be used
+*DESCRIPTION (Описание):*:: Путь к файлу скрипта для выполнения. Может быть использован только один из скриптовых файлов или тела скрипта
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ ALLOWED (Обязательно)
 .Groovyx-Script-Body
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Script Body
+*DISPLAY NAME (Отображаемое наименование):*:: Script Body (Тело скрипта)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Body of script to execute. Only one of Script File or Script Body may be used
+*DESCRIPTION (Описание):*:: Тело скрипта для выполнения. Может быть использовано только одно из значений: Файл скрипта или Тело скрипта
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,23 +54,23 @@ ALLOWED (Обязательно)
 .*Groovyx-Failure-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Failure strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Failure strategy (Стратегия обработки ошибок)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: What to do with unhandled exceptions. If you want to manage exception by code then keep the default value `rollback`. If `transfer to failure` selected and unhandled exception occurred then all flowFiles received from incoming queues in this session will be transferred to `failure` relationship with additional attributes set: ERROR_MESSAGE and ERROR_STACKTRACE. If `rollback` selected and unhandled exception occurred then all flowFiles received from incoming queues will be penalized and returned. If the processor has no incoming connections then this parameter has no effect.
+*DESCRIPTION (Описание):*:: Что делать с необработанными исключениями. Если вы хотите управлять исключением программным способом, то сохраните значение по умолчанию `rollback`. Если выбран параметр `transfer to failure` и произошло необработанное исключение, все flowFiles, полученные из входящих очередей в этой сессии, будут переданы в отношение `failure` с дополнительными атрибутами: ERROR_MESSAGE и ERROR_STACKTRACE. Если выбран параметр `rollback` и произошло необработанное исключение, все flowFiles, полученные из входящих очередей, будут наказаны и возвращены. Если процессор не имеет входящих соединений, этот параметр не оказывает никакого влияния.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* rollback
+* rollback (откат)
 
-* transfer to failure
+* transfer to failure (передать в качестве неудачи)
 
 
 [horizontal]
@@ -79,14 +79,14 @@ ALLOWED (Обязательно)
 .Groovyx-Additional-Classpath
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Additional classpath
+*DISPLAY NAME (Отображаемое наименование):*:: Additional classpath (Дополнительный класспaтх)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Classpath list separated by semicolon or comma. You can use masks like `*`, `*.jar` in file name.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -102,7 +102,7 @@ ALLOWED (Обязательно)
 |Наименование |Описание |Значение |Ограничения языка выражений
 
 |`A script engine property to update`
-|Updates a script engine property specified by the Dynamic Property's key with the value specified by the Dynamic Property's value. Use `CTL.` to access any controller services, `SQL.` to access any DBCPServices, `RecordReader.` to access RecordReaderFactory instances, or `RecordWriter.` to access any RecordSetWriterFactory instances.
+|Обновляет свойство движка скриптов, указанное динамическим свойством ключом, с установкой значения, указанного динамическим свойством значением. Используйте `CTL.` для доступа к любым сервисам контроллера, `SQL.` для доступа к любому DBCPService, `RecordReader.` для доступа к экземплярам RecordReaderFactory или `RecordWriter.` для доступа к любым экземплярам RecordSetWriterFactory.
 |`The value to set it to`
 |
 
@@ -121,7 +121,7 @@ ALLOWED (Обязательно)
 |Требуемые права |Объяснение
 
 |
-|Provides operator the ability to execute arbitrary code assuming all permissions that NiFi has.
+|Предоставляет оператору возможность выполнять произвольный код, предполагая все разрешения, которые есть у NiFi.
 
 |===
 
@@ -134,16 +134,27 @@ ALLOWED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|FlowFiles that were successfully processed
+|Потоки данных, которые были успешно обработаны
 
 |`failure`
-|FlowFiles that failed to be processed
+|Потоки данных, которые не удалось обработать
 
 |===
 
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

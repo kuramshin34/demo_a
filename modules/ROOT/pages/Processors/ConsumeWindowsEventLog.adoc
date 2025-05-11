@@ -1,13 +1,13 @@
 = ConsumeWindowsEventLog 2.2.0
 
-Registers a Windows Event Log Subscribe Callback to receive FlowFiles from Events on Windows.  These can be filtered via channel and XPath.
+Регистрирует обратный вызов подписки на события Windows для получения FlowFiles из событий. Эти события можно фильтровать по каналу и XPath.
 
 [horizontal]
 *Tags* (Ключевые слова):
 event, ingest, windows
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ FORBIDDEN (Обязательно)
 .*Channel*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Channel
+*DISPLAY NAME (Отображаемое наименование):*:: Channel (Канал)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Windows Event Log Channel to listen to.
+*DESCRIPTION (Описание):*:: Windows Event Log Channel для прослушивания.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ FORBIDDEN (Обязательно)
 .*Query*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: XPath Query
+*DISPLAY NAME (Отображаемое наименование):*:: XPath Query (XPath Запрос)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: XPath Query to filter events. (See https://msdn.microsoft.com/en-us/library/windows/desktop/dd996910(v=vs.85).aspx for examples.)
+*DESCRIPTION (Описание):*:: XPath Запрос для фильтрации событий. (См. https://msdn.microsoft.com/en-us/library/windows/desktop/dd996910(v=vs.85).aspx для примеров.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ FORBIDDEN (Обязательно)
 .*Maxbuffer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Buffer Size
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Buffer Size (Максимальный размер буфера)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The individual Event Log XMLs are rendered to a buffer.  This specifies the maximum size in bytes that the buffer will be allowed to grow to. (Limiting the maximum size of an individual Event XML.)
+*DESCRIPTION (Описание):*:: Индивидуальные XML-события журнала событий отображаются в буфере. Это указывает на максимальный размер в байтах, который буфер может достичь. (Ограничение максимального размера отдельного XML-события.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ FORBIDDEN (Обязательно)
 .*Maxqueue*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum queue size
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum queue size (Максимальный размер очереди)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Events are received asynchronously and must be output as FlowFiles when the processor is triggered.  This specifies the maximum number of events to queue for transformation into FlowFiles.
+*DESCRIPTION (Описание):*:: События получаются асинхронно и должны быть выведены как FlowFiles при активации процессора. Это указывает на максимальное количество событий для постановки в очередь для преобразования в FlowFiles.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ FORBIDDEN (Обязательно)
 .*Inactivedurationtoreconnect*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Inactive duration to reconnect
+*DISPLAY NAME (Отображаемое наименование):*:: Inactive duration to reconnect (Период бездействия для переподключения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If no new event logs are processed for the specified time period, this processor will try reconnecting to recover from a state where any further messages cannot be consumed. Such situation can happen if Windows Event Log service is restarted, or ERROR_EVT_QUERY_RESULT_STALE (15011) is returned. Setting no duration, e.g. '0 ms' disables auto-reconnection.
+*DESCRIPTION (Описание):*:: Если в течение указанного периода времени не обрабатываются новые события журнала, этот процессор попытается переподключиться для восстановления из состояния, где дальнейшие сообщения не могут быть потреблены. Такая ситуация может возникнуть, если сервис журнала событий Windows перезапускается или возвращается ошибка ERROR_EVT_QUERY_RESULT_STALE (15011). Установка нулевого периода времени, например '0 мс', отключает автоматическое переподключение.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -119,7 +119,7 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Relationship for successfully consumed events.
+|Отношение для успешно потребленных событий.
 
 |===
 
@@ -134,7 +134,7 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`mime.type`
-|Will set a MIME type value of application/xml.
+|Установит значение MIME-типа application/xml.
 
 |===
 

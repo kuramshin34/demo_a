@@ -1,13 +1,13 @@
 = ScriptedRecordSink 2.2.0
 
-Allows the user to provide a scripted RecordSinkService instance in order to transmit records to the desired target. The script must set a variable 'recordSink' to an implementation of RecordSinkService.
+Позволяет пользователю предоставить экземпляр Scripted RecordSinkService для передачи записей в целевой объект. Сценарий должен установить переменную 'recordSink' на реализацию RecordSinkService.
 
 [horizontal]
 *Tags* (Ключевые слова):
 groovy, invoke, record, record sink, script
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,21 +20,21 @@ groovy, invoke, record, record sink, script
 .*Script Engine*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Script Engine
+*DISPLAY NAME (Отображаемое наименование):*:: Script Engine (Скриптовый движок)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Language Engine for executing scripts
+*DESCRIPTION (Описание):*:: Языковой движок для выполнения скриптов
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Groovy: Groovy 4.0.24 [Groovy Scripting Engine 2.0] 
+* Groovy (Гроовий): Groovy 4.0.24 [Groovy Scripting Engine 2.0] 
 
 
 [horizontal]
@@ -43,14 +43,14 @@ groovy, invoke, record, record sink, script
 .Script File
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Script File
+*DISPLAY NAME (Отображаемое наименование):*:: Script File (Скриптовый файл)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Path to script file to execute. Only one of Script File or Script Body may be used
+*DESCRIPTION (Описание):*:: Путь к скриптовому файлу для выполнения. Может быть использован только один из Скриптовый файл или Скрипт тела
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -60,14 +60,14 @@ groovy, invoke, record, record sink, script
 .Script Body
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Script Body
+*DISPLAY NAME (Отображаемое наименование):*:: Script Body (Тело скрипта)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Body of script to execute. Only one of Script File or Script Body may be used
+*DESCRIPTION (Описание):*:: Тело скрипта для выполнения. Может быть использовано только одно из значений Script File или Script Body
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -77,14 +77,14 @@ groovy, invoke, record, record sink, script
 .Module Directory
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Module Directory
+*DISPLAY NAME (Отображаемое наименование):*:: Module Directory (Модульный справочник)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Comma-separated list of paths to files and/or directories which contain modules required by the script.
+*DESCRIPTION (Описание):*:: Список, разделенных запятыми путей к файлам и/или директориям, содержащих модули, необходимые для выполнения скрипта.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -100,7 +100,7 @@ groovy, invoke, record, record sink, script
 |Наименование |Описание |Значение |Ограничения языка выражений
 
 |`Script Engine Binding property`
-|Updates a script engine property specified by the Dynamic Property's key with the value specified by the Dynamic Property's value
+|Обновляет свойство скриптового движка, указанное ключом Dynamic Property, со значением, указанным значением Dynamic Property
 |`Binding property value passed to Script Runner`
 |
 
@@ -119,7 +119,7 @@ groovy, invoke, record, record sink, script
 |Требуемые права |Объяснение
 
 |
-|Provides operator the ability to execute arbitrary code assuming all permissions that NiFi has.
+|Предоставляет оператору возможность выполнять произвольный код, при условии всех прав, которые имеет NiFi.
 
 |===
 
@@ -128,6 +128,17 @@ groovy, invoke, record, record sink, script
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

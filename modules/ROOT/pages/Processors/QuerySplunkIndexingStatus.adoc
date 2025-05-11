@@ -1,13 +1,13 @@
 = QuerySplunkIndexingStatus 2.2.0
 
-Queries Splunk server in order to acquire the status of indexing acknowledgement.
+Запрашивает сервер Splunk для получения статуса подтверждения индексации.
 
 [horizontal]
 *Tags* (Ключевые слова):
 acknowledgement, http, logs, splunk
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Scheme*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Scheme
+*DISPLAY NAME (Отображаемое наименование):*:: Scheme (Схема)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The scheme for connecting to Splunk.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -45,14 +45,14 @@ REQUIRED (Обязательно)
 .*Hostname*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hostname
+*DISPLAY NAME (Отображаемое наименование):*:: Hostname (Хост)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The ip address or hostname of the Splunk server.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -62,14 +62,14 @@ REQUIRED (Обязательно)
 .*Port*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: HTTP Event Collector Port
+*DISPLAY NAME (Отображаемое наименование):*:: HTTP Event Collector Port (HTTP Event Collector Порт)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The HTTP Event Collector HTTP Port Number.
+*DESCRIPTION (Описание):*:: The HTTP Event Collector HTTP Port Number. (Номер порта HTTP для коллектора событий HTTP)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -79,27 +79,27 @@ REQUIRED (Обязательно)
 .Security Protocol
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Security Protocol
+*DISPLAY NAME (Отображаемое наименование):*:: Security Protocol (Безопасный протокол)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The security protocol to use for communicating with Splunk.
+*DESCRIPTION (Описание):*:: Протокол безопасности для обмена информацией с Splunk.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* TLSv1_2
+* TLSv1_2 (TLS версии 1.2)
 
-* TLSv1_1
+* TLSv1_1 (TLS версии 1.1)
 
-* TLSv1
+* TLSv1 (TLS версии 1)
 
-* SSLv3
+* SSLv3 (SSL версия 3)
 
 
 [horizontal]
@@ -108,14 +108,14 @@ REQUIRED (Обязательно)
 .Owner
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Owner
+*DISPLAY NAME (Отображаемое наименование):*:: Owner (Владелец)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The owner to pass to Splunk.
+*DESCRIPTION (Описание):*:: Владелец, которого нужно передать Splunk.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -125,14 +125,14 @@ REQUIRED (Обязательно)
 .Token
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: HTTP Event Collector Token
+*DISPLAY NAME (Отображаемое наименование):*:: HTTP Event Collector Token (HTTP Event Collector Токен)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: HTTP Event Collector token starting with the string Splunk. For example 'Splunk 1234578-abcd-1234-abcd-1234abcd'
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -142,14 +142,14 @@ REQUIRED (Обязательно)
 .Username
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Username
+*DISPLAY NAME (Отображаемое наименование):*:: Username (Имя пользователя)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The username to authenticate to Splunk.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -159,14 +159,14 @@ REQUIRED (Обязательно)
 .Password
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Password
+*DISPLAY NAME (Отображаемое наименование):*:: Password (Пароль)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The password to authenticate to Splunk.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -176,14 +176,14 @@ REQUIRED (Обязательно)
 .*Request-Channel*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Splunk Request Channel
+*DISPLAY NAME (Отображаемое наименование):*:: Splunk Request Channel (Запросный канал)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Identifier of the used request channel.
+*DESCRIPTION (Описание):*:: Идентификатор используемого запросного канала.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -193,14 +193,14 @@ REQUIRED (Обязательно)
 .*Ttl*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Waiting Time
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Waiting Time (Максимальное время ожидания)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum time the processor tries to acquire acknowledgement confirmation for an index, from the point of registration. After the given amount of time, the processor considers the index as not acknowledged and transfers the FlowFile to the "unacknowledged" relationship.
+*DESCRIPTION (Описание):*:: Максимальное время, в течение которого процессор пытается получить подтверждение зарегистрированного индекса. По истечении указанного времени процессор считает индекс не подтвержденным и передает FlowFile в отношение "неподтвержденное".
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -210,14 +210,14 @@ REQUIRED (Обязательно)
 .*Max-Query-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Query Size
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Query Size (Максимальный размер запроса)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The maximum number of acknowledgement identifiers the outgoing query contains in one batch. It is recommended not to set it too low in order to reduce network communication.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -241,16 +241,16 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`failure`
-|A FlowFile is transferred to this relationship when the acknowledgement was not successful due to errors during the communication. FlowFiles are timing out or unknown by the Splunk server will transferred to "undetermined" relationship.
+|Передает FlowFile в это отношение при неудачном подтверждении из-за ошибок во время коммуникации. FlowFiles, которые либо истекли, либо неизвестны серверу Splunk, передаются в отношение "undetermined".
 
 |`success`
-|A FlowFile is transferred to this relationship when the acknowledgement was successful.
+|Передает FlowFile в это отношение при успешном подтверждении.
 
 |`undetermined`
-|A FlowFile is transferred to this relationship when the acknowledgement state is not determined. FlowFiles transferred to this relationship might be penalized. This happens when Splunk returns with HTTP 200 but with false response for the acknowledgement id in the flow file attribute.
+|Передает FlowFile в это отношение, когда статус подтверждения не определен. FlowFiles, переданные в это отношение, могут быть наказаны. Это происходит, когда Splunk возвращает HTTP 200, но отвечает ложно для идентификатора подтверждения в атрибуте FlowFile.
 
 |`unacknowledged`
-|A FlowFile is transferred to this relationship when the acknowledgement was not successful. This can happen when the acknowledgement did not happened within the time period set for Maximum Waiting Time. FlowFiles with acknowledgement id unknown for the Splunk server will be transferred to this relationship after the Maximum Waiting Time is reached.
+|Передает FlowFile в это отношение при неудачном подтверждении. Это может произойти, когда подтверждение не происходило в течение установленного периода времени для Максимального Времени Ожидания. FlowFiles с неизвестным идентификатором подтверждения для сервера Splunk будут переданы в это отношение после истечения Максимального Времени Ожидания.
 
 |===
 
@@ -263,10 +263,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`splunk.acknowledgement.id`
-|The indexing acknowledgement id provided by Splunk.
+|Идентификатор подтверждения индексации, предоставленный сервером Splunk.
 
 |`splunk.responded.at`
-|The time of the response of put request for Splunk.
+|Время ответа put-запроса для Splunk.
 
 |===
 

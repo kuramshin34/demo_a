@@ -1,13 +1,13 @@
 = ProtobufReader 2.2.0
 
-Parses a Protocol Buffers message from binary format.
+Парсит сообщение в формате Protocol Buffers.
 
 [horizontal]
 *Tags* (Ключевые слова):
 parser, protobuf, reader, record
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,27 +20,27 @@ parser, protobuf, reader, record
 .*Schema-Access-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy (Стратегия доступа к схеме)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how to obtain the schema that is to be used for interpreting the data.
+*DESCRIPTION (Описание):*:: Указывает, как получить схему для интерпретации данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Use 'Schema Name' Property: The name of the Schema to use is specified by the 'Schema Name' Property. The value of this property is used to lookup the Schema in the configured Schema Registry service. 
+* Использовать 'Свойство Имя Схемы': Имя схемы, которое указывается свойством 'Имя Схемы'. Значение этого свойства используется для поиска схемы в настроенном сервисе реестра схем. 
 
-* Use 'Schema Text' Property: The text of the Schema itself is specified by the 'Schema Text' Property. The value of this property must be a valid Avro Schema. If Expression Language is used, the value of the 'Schema Text' property must be valid after substituting the expressions. 
+* Использовать 'Свойство Текст Схемы': Текст самой схемы указывается свойством 'Текст Схемы'. Значение этого свойства должно быть допустимой Avro-схемой. Если используется язык выражений, значение свойства 'Текст Схемы' должно быть действительным после замены выражений. 
 
-* Schema Reference Reader: The schema reference information will be provided through a configured Schema Reference Reader service implementation. 
+* Читатель ссылки на схему: Информация о ссылке на схему будет предоставлена через реализованный конфигурируемый сервис читателя ссылок на схему. 
 
-* Generate from Proto file: The record schema is generated from the provided proto file 
+* Сгенерировать из Proto файла: Запись схемы генерируется из предоставленного proto-файла 
 
 
 [horizontal]
@@ -49,14 +49,14 @@ parser, protobuf, reader, record
 .Schema-Registry
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry (Реестър на схеми)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for the Schema Registry
+*DESCRIPTION (Описание):*:: Определя контролера за услуга, който да се използва за реестра на схемите
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -66,14 +66,14 @@ parser, protobuf, reader, record
 .Schema-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Name
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Name (Схема имени)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the name of the schema to lookup in the Schema Registry property
+*DESCRIPTION (Описание):*:: Указывает имя схемы для поиска в свойстве Реестра схем
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -83,14 +83,14 @@ parser, protobuf, reader, record
 .Schema-Version
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Version
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Version (Схема версии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the version of the schema to lookup in the Schema Registry. If not specified then the latest version of the schema will be retrieved.
+*DESCRIPTION (Описание):*:: Указывает версию схемы для поиска в Реестре схем. Если не указано, будет получена последняя версия схемы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -100,14 +100,14 @@ parser, protobuf, reader, record
 .Schema-Branch
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Branch
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Branch (Схема ветки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the name of the branch to use when looking up the schema in the Schema Registry property. If the chosen Schema Registry does not support branching, this value will be ignored.
+*DESCRIPTION (Описание):*:: Указывает имя ветки, которую следует использовать при поиске схемы в свойстве Схемарегистр. Если выбранная Схемарегистр не поддерживает ветвление, это значение будет проигнорировано.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -117,14 +117,14 @@ parser, protobuf, reader, record
 .Schema-Text
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Text
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Text (Схема текста)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The text of an Avro-formatted Schema
+*DESCRIPTION (Описание):*:: Текст Avro-формамата схемы
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -134,14 +134,14 @@ parser, protobuf, reader, record
 .*Schema-Reference-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Reader (Ссылочный читатель схемы)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Service implementation responsible for reading FlowFile attributes or content to determine the Schema Reference Identifier
+*DESCRIPTION (Описание):*:: Сервис реализации, отвечающий за чтение атрибутов или содержимого FlowFile для определения идентификатора ссылки на схему
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -151,14 +151,14 @@ parser, protobuf, reader, record
 .*Proto Directory*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proto Directory
+*DISPLAY NAME (Отображаемое наименование):*:: Proto Directory (Протокольный справочник)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Directory containing Protocol Buffers message definition (.proto) file(s).
+*DESCRIPTION (Описание):*:: Справочник, содержащий файл(ы) определения сообщений Protocol Buffers (.proto).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -168,14 +168,14 @@ parser, protobuf, reader, record
 .*Message Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Message Type
+*DISPLAY NAME (Отображаемое наименование):*:: Тип сообщения
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Fully qualified name of the Protocol Buffers message type including its package (eg. mypackage.MyMessage). The .proto files configured in 'Proto Directory' must contain the definition of this message type.
+*DESCRIPTION (Описание):*:: Полное имя типа Protocol Buffers сообщения, включая его пакет (например, mypackage.MyMessage). Конфигурационные файлы .proto в 'Proto Directory' должны содержать определение этого типа сообщения.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -195,6 +195,17 @@ parser, protobuf, reader, record
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

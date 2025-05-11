@@ -1,13 +1,13 @@
 = AzureLogAnalyticsReportingTask 2.2.0
 
-Sends JVM-metrics as well as Apache NiFi-metrics to a Azure Log Analytics workspace.Apache NiFi-metrics can be either configured global or on process-group level.
+Отправляет метрики JVM, а также метрики Apache NiFi в рабочую область Azure Log Analytics. Метрики Apache NiFi можно настроить глобально или на уровне процесс-группы.
 
 [horizontal]
 *Tags* (Ключевые слова):
 azure, log analytics, metrics, reporting
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ azure, log analytics, metrics, reporting
 .*Send Jvm Metrics*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Send JVM Metrics
+*DISPLAY NAME (Отображаемое наименование):*:: Send JVM Metrics (Отправлять метрики JVM)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Send JVM Metrics in addition to the NiFi-metrics
+*DESCRIPTION (Описание):*:: Отправлять дополнительно метрики JVM вместе с NiFi-metrics
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -45,14 +45,14 @@ azure, log analytics, metrics, reporting
 .*Log Analytics Workspace Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Log Analytics Workspace Id
+*DISPLAY NAME (Отображаемое наименование):*:: Log Analytics Workspace Id (Идентификатор рабочей области Log Analytics)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Log Analytics Workspace Id
+*DESCRIPTION (Описание):*:: Идентификатор рабочей области Log Analytics
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -62,14 +62,14 @@ azure, log analytics, metrics, reporting
 .Log Analytics Custom Log Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Log Analytics Custom Log Name
+*DISPLAY NAME (Отображаемое наименование):*:: Log Analytics Custom Log Name (Название пользовательского журнала анализа данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Log Analytics Custom Log Name
+*DESCRIPTION (Описание):*:: Название пользовательского журнала анализа данных в Log Analytics
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -79,14 +79,14 @@ azure, log analytics, metrics, reporting
 .*Log Analytics Workspace Key*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Log Analytics Workspace Key
+*DISPLAY NAME (Отображаемое наименование):*:: Log Analytics Workspace Key (Рабочая область ключ аналитики)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Azure Log Analytic Worskspace Key
+*DESCRIPTION (Описание):*:: Azure Log Analytic Worskspace Key (Ключ рабочей области анализа журналов Azure)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -96,14 +96,14 @@ azure, log analytics, metrics, reporting
 .*Application Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Application ID
+*DISPLAY NAME (Отображаемое наименование):*:: Application ID (Приложение ИД)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Application ID to be included in the metrics sent to Azure Log Analytics WS
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -113,14 +113,14 @@ azure, log analytics, metrics, reporting
 .*Instance Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Instance ID
+*DISPLAY NAME (Отображаемое наименование):*:: Instance ID (Идентификатор экземпляра)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Id of this NiFi instance to be included in the metrics sent to Azure Log Analytics WS
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -130,14 +130,14 @@ azure, log analytics, metrics, reporting
 .Process Group Id(S)
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Process group ID(s)
+*DISPLAY NAME (Отображаемое наименование):*:: Process group ID(s) (Идентификаторы процессных групп)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If specified, the reporting task will send metrics the configured ProcessGroup(s) only. Multiple IDs should be separated by a comma. If none of the group-IDs could be found or no IDs are defined, the Root Process Group is used and global metrics are sent.
+*DESCRIPTION (Описание):*:: Если указано, отчетная задача отправит метрики только в настроенные ProcessGroup(s). Несколько идентификаторов должны быть разделены запятыми. Если ни одна из групповых идентификаций не может быть найдена или не определены идентификаторы, используется корневой процессный группей и отправляются глобальные метрики.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -147,14 +147,14 @@ azure, log analytics, metrics, reporting
 .Job Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Job Name
+*DISPLAY NAME (Отображаемое наименование):*:: Job Name (Работа)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the exporting job
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -164,14 +164,14 @@ azure, log analytics, metrics, reporting
 .Log Analytics Url Endpoint Format
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Log Analytics URL Endpoint Format
+*DISPLAY NAME (Отображаемое наименование):*:: Log Analytics URL Endpoint Format (Формат URL-адреса конечной точки Log Analytics)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Log Analytics URL Endpoint Format
+*DESCRIPTION (Описание):*:: Формат URL-адреса конечной точки Log Analytics
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -191,6 +191,17 @@ azure, log analytics, metrics, reporting
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

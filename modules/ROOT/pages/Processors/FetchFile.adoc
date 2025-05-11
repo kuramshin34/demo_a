@@ -1,13 +1,13 @@
 = FetchFile 2.2.0
 
-Reads the contents of a file from disk and streams it into the contents of an incoming FlowFile. Once this is done, the file is optionally moved elsewhere or deleted to help keep the file system organized.
+Читает содержимое файла с диска и передаёт его в поток входящих FlowFile. Как только это будет сделано, файл либо перемещается куда-либо ещё, либо удаляется для помощи в организации файловой системы.
 
 [horizontal]
 *Tags* (Ключевые слова):
 fetch, files, filesystem, get, ingest, ingress, input, local, source
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*File To Fetch*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: File to Fetch
+*DISPLAY NAME (Отображаемое наименование):*:: File to Fetch (Файл для загрузки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The fully-qualified filename of the file to fetch from the file system
+*DESCRIPTION (Описание):*:: Полное имя файла, который нужно получить из файловой системы
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,25 +37,25 @@ REQUIRED (Обязательно)
 .*Completion Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Completion Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Completion Strategy (Стратегия завершения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies what to do with the original file on the file system once it has been pulled into NiFi
+*DESCRIPTION (Описание):*:: Указывает, что делать с исходным файлом на файловой системе после его извлечения в NiNi
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* None: Leave the file as-is 
+* None (Ничего): Оставьте файл без изменений 
 
-* Move File: Moves the file to the directory specified by the <Move Destination Directory> property 
+* Move File (Переместить файл): Перемещает файл в директорию, указанную свойством <Move Destination Directory> 
 
-* Delete File: Deletes the original file from the file system 
+* Delete File (Удалить файл): Удаляет исходный файл с файловой системы 
 
 
 [horizontal]
@@ -64,14 +64,14 @@ REQUIRED (Обязательно)
 .Move Destination Directory
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Move Destination Directory
+*DISPLAY NAME (Отображаемое наименование):*:: Move Destination Directory (Перемещение целевой директории)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The directory to the move the original file to once it has been fetched from the file system. This property is ignored unless the Completion Strategy is set to "Move File". If the directory does not exist, it will be created.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -81,27 +81,27 @@ REQUIRED (Обязательно)
 .*Move Conflict Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Move Conflict Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Move Conflict Strategy (Стратегия разрешения конфликтов перемещения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If Completion Strategy is set to Move File and a file already exists in the destination directory with the same name, this property specifies how that naming conflict should be resolved
+*DESCRIPTION (Описание):*:: Если стратегия завершения установлена на 'Переместить файл', и в целевой директории уже существует файл с тем же именем, это свойство определяет, как следует разрешить конфликт именования
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Rename: The existing destination file should remain intact. The newly ingested file should be moved to the destination directory but be renamed to a random filename 
+* Rename (Переименовать): Файл назначения должен остаться неизменным. Новый импортированный файл следует переместить в целевую директорию, но переименовать в случайное имя 
 
-* Replace File: The newly ingested file should replace the existing file in the Destination Directory 
+* Replace File (Заменить файл): Новый импортированный файл должен заменить существующий файл в целевой директории 
 
-* Keep Existing: The existing file should in the Destination Directory should stay intact and the newly ingested file should be deleted 
+* Keep Existing (Сохранить существующий): Существующий файл в целевой директории должен остаться неизменным, а новый импортированный файл следует удалить 
 
-* Fail: The existing destination file should remain intact and the incoming FlowFile should be routed to failure 
+* Fail (Неуспех): Существующий файл назначения должен остаться неизменным, а поступающий FlowFile следует направлять в случае неудачи 
 
 
 [horizontal]
@@ -110,33 +110,33 @@ REQUIRED (Обязательно)
 .*Log Level When File Not Found*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Log level when file not found
+*DISPLAY NAME (Отображаемое наименование):*:: Log level when file not found (Уровень логирования при отсутствии файла)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Log level to use in case the file does not exist when the processor is triggered
+*DESCRIPTION (Описание):*:: Уровень логирования для использования в случае, если файл не существует при срабатывании процессора
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* TRACE
+* TRACE (ТРЕЙС)
 
-* DEBUG
+* DEBUG (ДЕБАГ)
 
-* INFO
+* INFO (ИНФОРМАЦИЯ)
 
-* WARN
+* WARN (ПРЕДУПРЕЖДЕНИЕ)
 
-* ERROR
+* ERROR (ОШИБКА)
 
-* FATAL
+* FATAL (ФАТАЛЬНАЯ ОШИБКА)
 
-* NONE
+* NONE (НЕТ)
 
 
 [horizontal]
@@ -145,33 +145,33 @@ REQUIRED (Обязательно)
 .*Log Level When Permission Denied*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Log level when permission denied
+*DISPLAY NAME (Отображаемое наименование):*:: Log level when permission denied (Уровень логирования при отсутствии достаточных прав)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Log level to use in case user pvillard does not have sufficient permissions to read the file
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* TRACE
+* TRACE (ТРАССИРОВКА)
 
-* DEBUG
+* DEBUG (ОТЛАДКА)
 
-* INFO
+* INFO (ИНФОРМАЦИЯ)
 
-* WARN
+* WARN (ПРЕДУПРЕЖДЕНИЕ)
 
-* ERROR
+* ERROR (ОШИБКА)
 
-* FATAL
+* FATAL (СТОП)
 
-* NONE
+* NONE (НИКАКОЙ)
 
 
 [horizontal]
@@ -192,10 +192,10 @@ REQUIRED (Обязательно)
 |Требуемые права |Объяснение
 
 |
-|Provides operator the ability to read from any file that NiFi has access to.
+|Позволяет оператору читать из любого файла, доступного NiFi.
 
 |
-|Provides operator the ability to delete any file that NiFi has access to.
+|Позволяет оператору удалять любой файл, доступный NiFi.
 
 |===
 
@@ -208,22 +208,33 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`not.found`
-|Any FlowFile that could not be fetched from the file system because the file could not be found will be transferred to this Relationship.
+|Любой FlowFile, который не удалось получить из файловой системы, потому что файл не может быть найден, будет передан в эту Relationship.
 
 |`failure`
-|Any FlowFile that could not be fetched from the file system for any reason other than insufficient permissions or the file not existing will be transferred to this Relationship.
+|Любой FlowFile, который не удалось получить из файловой системы по любой причине, кроме недостаточных прав или отсутствия файла, будет передан в эту Relationship.
 
 |`success`
-|Any FlowFile that is successfully fetched from the file system will be transferred to this Relationship.
+|Любой FlowFile, успешно полученный из файловой системы, будет передан в эту Relationship.
 
 |`permission.denied`
-|Any FlowFile that could not be fetched from the file system due to the user running NiFi not having sufficient permissions will be transferred to this Relationship.
+|Любой FlowFile, который не удалось получить из файловой системы из-за того, что пользователь, запустивший NiFi, не имеет достаточных прав, будет передан в эту Relationship.
 
 |===
 
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 
@@ -232,7 +243,7 @@ REQUIRED (Обязательно)
 == Варианты использования, включающие другие компоненты
 
 
-=== Ingest all files from a directory into NiFi
+=== Взять все файлы из директории в NiFi
 
 
 NOTE: 
@@ -264,7 +275,7 @@ fetch
 
 
 
-=== Ingest specific files from a directory into NiFi, filtering on filename
+=== Взять конкретные файлы из директории в NiFi, фильтруя по имени файла
 
 
 NOTE: 

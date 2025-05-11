@@ -1,13 +1,13 @@
 = PutMongo 2.2.0
 
-Writes the contents of a FlowFile to MongoDB
+Записывает содержимое FlowFile в MongoDB
 
 [horizontal]
 *Tags* (Ключевые слова):
 insert, mongodb, put, update, write
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .Mongo-Client-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Client Service
+*DISPLAY NAME (Отображаемое наименование):*:: Client Service (Клиент Сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If configured, this property will use the assigned client service for connection pooling.
+*DESCRIPTION (Описание):*:: Если настроено, это свойство будет использовать назначенный клиентский сервис для пула соединений.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Mongo Database Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Mongo Database Name
+*DISPLAY NAME (Отображаемое наименование):*:: Mongo Database Name (Имя базы данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the database to use
+*DESCRIPTION (Описание):*:: Имя базы данных, которую следует использовать
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Mongo Collection Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Mongo Collection Name
+*DISPLAY NAME (Отображаемое наименование):*:: Mongo Collection Name (Имя коллекции)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the collection to use
+*DESCRIPTION (Описание):*:: Имя коллекции для использования
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,23 +71,23 @@ REQUIRED (Обязательно)
 .*Mode*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Mode
+*DISPLAY NAME (Отображаемое наименование):*:: Mode (Режим)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates whether the processor should insert or update content
+*DESCRIPTION (Описание):*:: Указывает, должен ли процессор вставлять или обновлять содержимое
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* insert
+* insert (вставить)
 
-* update
+* update (обновить)
 
 
 [horizontal]
@@ -96,23 +96,23 @@ REQUIRED (Обязательно)
 .*Upsert*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Upsert
+*DISPLAY NAME (Отображаемое наименование):*:: Upsert (Вставить)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When true, inserts a document if no document matches the update query criteria; this property is valid only when using update mode, otherwise it is ignored
+*DESCRIPTION (Описание):*:: Когда true, вставляет документ, если нет документа, соответствующего критериям запроса на обновление; это свойство действительно только при использовании режима обновления, в противном случае оно игнорируется
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -121,14 +121,14 @@ REQUIRED (Обязательно)
 .Update Query Key
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Update Query Key
+*DISPLAY NAME (Отображаемое наименование):*:: Update Query Key (Обновление Ключа Запроса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: One or more comma-separated document key names used to build the update query criteria, such as _id
+*DESCRIPTION (Описание):*:: Один или несколько запятой, разделенных именами документов ключей, используемых для построения критериев обновления запроса, таких как _id
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -138,14 +138,14 @@ REQUIRED (Обязательно)
 .Putmongo-Update-Query
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Update Query
+*DISPLAY NAME (Отображаемое наименование):*:: Update Query (Обновление запроса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specify a full MongoDB query to be used for the lookup query to do an update/upsert. NOTE: this field is ignored if the 'Update Query Key' value is not empty.
+*DESCRIPTION (Описание):*:: Укажите полный MongoDB запрос для поиска данных, которые будут обновлены или вставлены. Примечание: это поле игнорируется, если значение 'Update Query Key' не пусто.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -155,23 +155,23 @@ REQUIRED (Обязательно)
 .*Put-Mongo-Update-Mode*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Update Mode
+*DISPLAY NAME (Отображаемое наименование):*:: Update Mode (Режим обновления)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Choose an update mode. You can either supply a JSON document to use as a direct replacement or specify a document that contains update operators like $set, $unset, and $inc. When Operators mode is enabled, the flowfile content is expected to be the operator part for example: {$set:{"key": "value"},$inc:{"count":1234}} and the update query will come from the configured Update Query property.
+*DESCRIPTION (Описание):*:: Выберите режим обновления. Вы можете либо предоставить JSON документ для использования в качестве прямой замены, либо указать документ, содержащий операторы обновления, такие как $set, $unset и $inc. Когда режим с включенными операторами активен, ожидается, что содержимое потока будет частью оператора, например: {$set:{"key": "value"},$inc:{"count":1234}} и запрос на обновление будет взят из настроенного свойства Update Query.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* With whole document
+* С целым документом (With whole document)
 
-* With operators enabled
+* С включенными операторами (With operators enabled)
 
 
 [horizontal]
@@ -180,25 +180,25 @@ REQUIRED (Обязательно)
 .Update Method
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Update Method
+*DISPLAY NAME (Отображаемое наименование):*:: Update Method (Метод обновления)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: MongoDB method for running collection update operations, such as updateOne or updateMany
+*DESCRIPTION (Описание):*:: MongoDB метод для выполнения операций обновления коллекции, таких как updateOne или updateMany
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Update One: Updates only the first document that matches the query. 
+* Update One (Обновить Один): Обновляет только первый документ, который соответствует запросу. 
 
-* Update Many: Updates every document that matches the query. 
+* Update Many (Обновить Многие): Обновляет каждый документ, который соответствует запросу. 
 
-* Use 'mongodb.update.mode' FlowFile attribute.: Use the value of the 'mongodb.update.mode' attribute of the incoming FlowFile. Acceptable values are 'one' and 'many'. 
+* Use 'mongodb.update.mode' FlowFile attribute (Использовать атрибут 'mongodb.update.mode' FlowFile): Используйте значение атрибута 'mongodb.update.mode' входящего FlowFile. Допустимые значения: 'one' и 'many'. 
 
 
 [horizontal]
@@ -207,14 +207,14 @@ REQUIRED (Обязательно)
 .*Character Set*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Символьный набор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Character Set in which the data is encoded
+*DESCRIPTION (Описание):*:: The Character Set in which the data is encoded (Символьный набор, в котором закодирована информация)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -235,7 +235,7 @@ REQUIRED (Обязательно)
 
 
 |MEMORY
-|An instance of this component can cause high usage of this system resource.  Multiple instances or high concurrency settings may result a degradation of performance.
+|Экземпляр этого компонента может вызвать высокое использование системного ресурса. Множественные экземпляры или настройки высокой конкоррентности могут привести к снижению производительности.
 
 |===
 
@@ -250,10 +250,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|All FlowFiles that are written to MongoDB are routed to this relationship
+|Все FlowFiles, записанные в MongoDB, направляются в это отношение
 
 |`failure`
-|All FlowFiles that cannot be written to MongoDB are routed to this relationship
+|Все FlowFiles, которые не могут быть записаны в MongoDB, направляются в это отношение
 
 |===
 
@@ -268,13 +268,13 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`mongo.put.update.match.count`
-|The match count from result if update/upsert is performed, otherwise not set.
+|Количество совпадений из результата, если выполняется обновление/upsert, в противном случае не установлено.
 
 |`mongo.put.update.modify.count`
-|The modify count from result if update/upsert is performed, otherwise not set.
+|Количество модификаций из результата, если выполняется обновление/upsert, в противном случае не установлено.
 
 |`mongo.put.upsert.id`
-|The '_id' hex value if upsert is performed, otherwise not set.
+|Шестнадцатеричное значение '_id', если выполняется upsert, в противном случае не установлено.
 
 |===
 

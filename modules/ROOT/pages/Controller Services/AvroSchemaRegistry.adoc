@@ -1,13 +1,13 @@
 = AvroSchemaRegistry 2.2.0
 
-Provides a service for registering and accessing schemas. You can register a schema as a dynamic property where 'name' represents the schema name and 'value' represents the textual representation of the actual schema following the syntax and semantics of Avro's Schema format.
+Предоставляет сервис для регистрации и доступа к схемам. Вы можете зарегистрировать схему как динамическое свойство, где 'name' представляет имя схемы, а 'value' представляет содержимое текстовой строки в формате Avro.
 
 [horizontal]
 *Tags* (Ключевые слова):
 avro, csv, json, registry, schema
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ avro, csv, json, registry, schema
 .*Avro-Reg-Validated-Field-Names*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Validate Field Names
+*DISPLAY NAME (Отображаемое наименование):*:: Validate Field Names (Проверять имена полей в схеме Avro на соответствие правилам именования Avro)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Whether or not to validate the field names in the Avro schema based on Avro naming rules. If set to true, all field names must be valid Avro names, which must begin with [A-Za-z_], and subsequently contain only [A-Za-z0-9_]. If set to false, no validation will be performed on the field names.
+*DESCRIPTION (Описание):*:: Будет ли проверяться соответствие имен полей в схеме Avro правилам именования Avro. Если установлено значение true, все имена полей должны быть допустимыми для Avro, что требует начинаться с [A-Za-z_] и затем содержать только [A-Za-z0-9_]. Если установлено значение false, проверка имен полей не будет выполняться.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -51,7 +51,7 @@ avro, csv, json, registry, schema
 |Наименование |Описание |Значение |Ограничения языка выражений
 
 |`Schema name`
-|Adds a named schema using the JSON string representation of an Avro schema
+|Добавляет именованную схему, используя строковое представление JSON Avro-схемы
 |`Schema Content`
 |
 
@@ -68,6 +68,17 @@ avro, csv, json, registry, schema
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

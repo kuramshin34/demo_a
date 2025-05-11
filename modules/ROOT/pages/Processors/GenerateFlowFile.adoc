@@ -1,13 +1,13 @@
 = GenerateFlowFile 2.2.0
 
-This processor creates FlowFiles with random data or custom content. GenerateFlowFile is useful for load testing, configuration, and simulation. Also see DuplicateFlowFile for additional load testing.
+Этот процессор создает FlowFiles с случайными данными или пользовательским контентом. GenerateFlowFile полезен для тестирования нагрузки, конфигурации и симуляции. Также см. DuplicateFlowFile для дополнительного тестирования нагрузки.
 
 [horizontal]
 *Tags* (Ключевые слова):
 generate, load, random, test
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ FORBIDDEN (Обязательно)
 .*File Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: File Size
+*DISPLAY NAME (Отображаемое наименование):*:: File Size (Размер файла)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The size of the file that will be used
+*DESCRIPTION (Описание):*:: The size of the file that will be used (Размер файла, который будет использоваться)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ FORBIDDEN (Обязательно)
 .*Batch Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Batch Size
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Size (Размер партии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The number of FlowFiles to be transferred in each invocation
+*DESCRIPTION (Описание):*:: Количество FlowFiles, передаваемых при каждом вызове
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,23 +54,23 @@ FORBIDDEN (Обязательно)
 .*Data Format*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Data Format
+*DISPLAY NAME (Отображаемое наименование):*:: Data Format (Формат данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether the data should be Text or Binary
+*DESCRIPTION (Описание):*:: Указывает, должны ли данные быть текстом или двоичными данными
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Binary
+* Binary (Двоичный)
 
-* Text
+* Text (Текстовый)
 
 
 [horizontal]
@@ -79,23 +79,23 @@ FORBIDDEN (Обязательно)
 .*Unique Flowfiles*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Unique FlowFiles
+*DISPLAY NAME (Отображаемое наименование):*:: Unique FlowFiles (Уникальные файлы потока)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true, each FlowFile that is generated will be unique. If false, a random value will be generated and all FlowFiles will get the same content but this offers much higher throughput
+*DESCRIPTION (Описание):*:: Если true, каждый сгенерированный FlowFile будет уникален. Если false, будет сгенерировано случайное значение, и все FlowFiles получат одинаковое содержимое, что обеспечивает гораздо большую пропускную способность
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -104,14 +104,14 @@ FORBIDDEN (Обязательно)
 .Generate-Ff-Custom-Text
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Custom Text
+*DISPLAY NAME (Отображаемое наименование):*:: Custom Text (Генерировать пользовательский текст)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If Data Format is text and if Unique FlowFiles is false, then this custom text will be used as content of the generated FlowFiles and the File Size will be ignored. Finally, if Expression Language is used, evaluation will be performed only once per batch of generated FlowFiles
+*DESCRIPTION (Описание):*:: Если формат данных - это текст, и если уникальные потоки файлов равны false, тогда будет использован этот пользовательский текст в качестве содержимого сгенерированных FlowFiles, а размер файла будет проигнорирован. Наконец, если используется язык выражений, оценка будет выполнена только один раз для пакета сгенерированных FlowFiles
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -121,14 +121,14 @@ FORBIDDEN (Обязательно)
 .*Character-Set*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Символьный набор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the character set to use when writing the bytes of Custom Text to a flow file.
+*DESCRIPTION (Описание):*:: Указывает символьный набор, который следует использовать при записи байтов пользовательского текста в поток файлов.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -138,14 +138,14 @@ FORBIDDEN (Обязательно)
 .Mime-Type
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Mime Type
+*DISPLAY NAME (Отображаемое наименование):*:: Mime Type (Тип MIME)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the value to set for the "mime.type" attribute.
+*DESCRIPTION (Описание):*:: Указывает значение, которое нужно установить для атрибута "mime.type".
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -161,7 +161,7 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание |Значение |Ограничения языка выражений
 
 |`Generated FlowFile attribute name`
-|Specifies an attribute on generated FlowFiles defined by the Dynamic Property's key and value. If Expression Language is used, evaluation will be performed only once per batch of generated FlowFiles.
+|Указывает атрибут на сгенерированных FlowFiles, определяемый ключом и значением динамического свойства. Если используется язык выражений, оценка будет выполняться только один раз за пакет сгенерированных FlowFiles.
 |`Generated FlowFile attribute value`
 |
 
@@ -197,7 +197,7 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`mime.type`
-|Sets the MIME type of the output if the 'Mime Type' property is set
+|Устанавливает MIME-тип вывода, если установлено свойство 'Mime Type'
 
 |===
 

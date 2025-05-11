@@ -1,13 +1,13 @@
 = UpdateDatabaseTable 2.2.0
 
-This processor uses a JDBC connection and incoming records to generate any database table changes needed to support the incoming records. It expects a 'flat' record layout, meaning none of the top-level record fields has nested fields that are intended to become columns themselves.
+Этот процессор использует подключение JDBC и входящие записи для генерации любых изменений в базе данных, необходимых для поддержки входящих записей. Он ожидает 'плоское' расположение записей, что означает, что ни одно из верхних уровней полей записи не имеет вложенных полей, предназначенных для самостоятельно стать столбцами.
 
 [horizontal]
 *Tags* (Ключевые слова):
 alter, database, jdbc, metadata, table, update
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Record-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The service for reading incoming flow files. The reader is only used to determine the schema of the records, the actual records will not be processed.
+*DESCRIPTION (Описание):*:: Сервис для чтения входящих файлов потока. Читатель используется только для определения схемы записей, сами записи не будут обрабатываться.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Updatedatabasetable-Dbcp-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Database Connection Pooling Service
+*DISPLAY NAME (Отображаемое наименование):*:: Database Connection Pooling Service (База данных Подключение Сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Controller Service that is used to obtain connection(s) to the database
+*DESCRIPTION (Описание):*:: Контроллер Сервис, используемый для получения соединения(ий) с базой данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,40 +54,38 @@ REQUIRED (Обязательно)
 .*Db-Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Database Type
+*DISPLAY NAME (Отображаемое наименование):*:: Database Type (Тип базы данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Database Type for generating statements specific to a particular service or vendor.
-The Generic Type supports most cases but selecting a specific type enables optimal processing
-or additional features.
-
+*DESCRIPTION (Описание):*:: Тип базы данных для генерации операторов, специфичных для определенного сервиса или поставщика.
+Общий тип поддерживает большинство случаев, но выбор конкретного типа позволяет оптимизировать обработку или предоставить дополнительные функции.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Database Dialect Service: Requires configuring a Database Dialect Service for SQL statements 
+* Database Dialect Service (Сервис диалект базы данных): Требует настройки сервиса диалект базы данных для операторов SQL 
 
-* Generic: Generates ANSI SQL 
+* Generic (Общий): Генерирует ANSI SQL 
 
-* Oracle: Generates Oracle compliant SQL 
+* Oracle (Oracle): Генерирует совместимый с Oracle SQL 
 
-* Oracle 12+: Generates Oracle compliant SQL for version 12 or greater 
+* Oracle 12+ (Oracle 12+) : Генерирует совместимый с Oracle SQL для версии 12 или выше 
 
-* MS SQL 2012+: Generates MS SQL Compatible SQL, for version 2012 or greater 
+* MS SQL 2012+ (MS SQL 2012+): Генерирует совместимый с MS SQL Compatible SQL для версии 2012 или выше 
 
-* MS SQL 2008: Generates MS SQL Compatible SQL for version 2008 
+* MS SQL 2008 (MS SQL 2008): Генерирует совместимый с MS SQL Compatible SQL для версии 2008 
 
-* MySQL: Generates MySQL compatible SQL 
+* MySQL (MySQL): Генерирует совместимый с MySQL SQL 
 
-* PostgreSQL: Generates PostgreSQL compatible SQL 
+* PostgreSQL (PostgreSQL): Генерирует совместимый с PostgreSQL SQL 
 
-* Phoenix: Generates Phoenix compliant SQL 
+* Phoenix (Phoenix): Генерирует совместимый с Phoenix SQL 
 
 
 [horizontal]
@@ -96,14 +94,14 @@ or additional features.
 .*Database Dialect Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Database Dialect Service
+*DISPLAY NAME (Отображаемое наименование):*:: Database Dialect Service (База данных Диалект Сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Database Dialect Service for generating statements specific to a particular service or vendor.
+*DESCRIPTION (Описание):*:: База данных Диалект Сервис для генерации заявлений, специфичных для определенной службы или поставщика.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -113,14 +111,14 @@ or additional features.
 .Updatedatabasetable-Catalog-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Catalog Name
+*DISPLAY NAME (Отображаемое наименование):*:: Catalog Name (Каталог)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the catalog that the statement should update. This may not apply for the database that you are updating. In this case, leave the field empty. Note that if the property is set and the database is case-sensitive, the catalog name must match the database's catalog name exactly.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -130,14 +128,14 @@ or additional features.
 .Updatedatabasetable-Schema-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Name
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Name (Схема имени)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the database schema that the table belongs to. This may not apply for the database that you are updating. In this case, leave the field empty. Note that if the property is set and the database is case-sensitive, the schema name must match the database's schema name exactly.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -147,14 +145,14 @@ or additional features.
 .*Updatedatabasetable-Table-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Table Name
+*DISPLAY NAME (Отображаемое наименование):*:: Table Name (Таблица)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the database table to update. If the table does not exist, then it will either be created or an error thrown, depending on the value of the Create Table property.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -164,23 +162,23 @@ or additional features.
 .*Updatedatabasetable-Create-Table*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Create Table Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Create Table Strategy (Создание стратегии таблицы)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies how to process the target table when it does not exist (create it, fail, e.g.).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Create If Not Exists: Create a table with the given schema if it does not already exist 
+* Create If Not Exists (Создать, если не существует): Create a table with the given schema if it does not already exist 
 
-* Fail If Not Exists: If the target does not already exist, log an error and route the flowfile to failure 
+* Fail If Not Exists (Не удалось создать, залогируйте ошибку и направьте поток в сбой): If the target does not already exist, log an error and route the flowfile to failure 
 
 
 [horizontal]
@@ -189,14 +187,14 @@ or additional features.
 .Updatedatabasetable-Primary-Keys
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Primary Key Fields
+*DISPLAY NAME (Отображаемое наименование):*:: Primary Key Fields (Поля первичного ключа)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A comma-separated list of record field names that uniquely identifies a row in the database. This property is only used if the specified table needs to be created, in which case the Primary Key Fields will be used to specify the primary keys of the newly-created table. IMPORTANT: Primary Key Fields must match the record field names exactly unless 'Quote Column Identifiers' is false and the database allows for case-insensitive column names. In practice it is best to specify Primary Key Fields that exactly match the record field names, and those will become the column names in the created table.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -206,23 +204,23 @@ or additional features.
 .*Updatedatabasetable-Translate-Field-Names*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Translate Field Names
+*DISPLAY NAME (Отображаемое наименование):*:: Translate Field Names (Перевести имена полей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true, the Processor will attempt to translate field names into the corresponding column names for the table specified, for the purposes of determining whether the field name exists as a column in the target table. NOTE: If the target table does not exist and is to be created, this property is ignored and the field names will be used as-is. If false, the field names must match the column names exactly, or the column may not be found and instead an error my be reported that the column already exists.
+*DESCRIPTION (Описание):*:: Если true, процессор попытается перевести имена полей в соответствующие названия столбцов для таблицы, указанной в назначении, с целью определения, существует ли имя поля как столбец в целевой таблице. Примечание: если целевая таблица не существует и будет создана, это свойство игнорируется, и имена полей будут использоваться как есть. Если false, имена полей должны точно соответствовать названиям столбцов, иначе столбец может не быть найден, и вместо этого может быть сообщено об ошибке, что столбец уже существует.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (да)
 
-* false
+* false (нет)
 
 
 [horizontal]
@@ -231,29 +229,29 @@ or additional features.
 .*Column Name Translation Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Column Name Translation Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Column Name Translation Strategy (Стратегия перевода имен столбцов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The strategy used to normalize table column name. Column Name will be uppercased to do case-insensitive matching irrespective of strategy
+*DESCRIPTION (Описание):*:: Стратегия, используемая для нормализации имен табличных столбцов. Имена столбцов будут приводиться к верхнему регистру для осуществления нечувствительного к регистру сопоставления независимо от стратегии
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Remove Underscore: Underscores '_' will be removed from column names Ex: 'Pics_1_23' becomes 'PICS123' 
+* Remove Underscore (Удалить подчеркивание): Подчеркивания '_' будут удалены из имен столбцов. Пример: 'Pics_1_23' станет 'PICS123' 
 
-* Remove Space: Spaces will be removed from column names Ex. 'User Name' becomes 'USERNAME' 
+* Remove Space (Удалить пробел): Пробелы будут удалены из имен столбцов. Пример: 'User Name' станет 'USERNAME' 
 
-* Remove Underscores and Spaces: Spaces and Underscores will be removed from column names Ex. 'User_1 Name' becomes 'USER1NAME' 
+* Remove Underscores and Spaces (Удалить подчеркивание и пробел): Пробелы и подчеркивания будут удалены из имен столбцов. Пример: 'User_1 Name' станет 'USER1NAME' 
 
-* Remove Regular Expression Characters: Remove Regular Expression Characters Ex. 'user-id' becomes USERID ,total(estimated) become TOTALESTIMATED 
+* Remove Regular Expression Characters (Удалить символы регулярного выражения): Будут удалены все символы, соответствующие этому регулярному выражению. Пример 1: '\d' будет удалять все цифры; пример 2: '[^a-zA-Z0-9_]' будет удалять специальные символы, кроме подчеркивания 
 
-* Regular Expression: Remove characters matching this Regular Expression from the column names Ex.1. '\d' will  Remove all numbers 2. '[^a-zA-Z0-9_]' will remove special characters except underscore 
+* Regular Expression (Регулярное выражение): Будут удалены все символы, соответствующие этому регулярному выражению. Пример 1: '\d' будет удалять все цифры; пример 2: '[^a-zA-Z0-9_]' будет удалять специальные символы, кроме подчеркивания 
 
 
 [horizontal]
@@ -262,14 +260,14 @@ or additional features.
 .*Column Name Translation Pattern*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Column Name Translation Pattern
+*DISPLAY NAME (Отображаемое наименование):*:: Column Name Translation Pattern (Имя столбца будет нормализовано с использованием этого регулярного выражения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Column name will be normalized with this regular expression
+*DESCRIPTION (Описание):*:: Столбец будет иметь имя, которое будет нормализовано с использованием этого регулярного выражения
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -279,23 +277,23 @@ or additional features.
 .*Updatedatabasetable-Update-Field-Names*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Update Field Names
+*DISPLAY NAME (Отображаемое наименование):*:: Update Field Names (Обновить имена полей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: This property indicates whether to update the output schema such that the field names are set to the exact column names from the specified table. This should be used if the incoming record field names may not match the table's column names in terms of upper- and lower-case. For example, this property should be set to true if the output FlowFile is destined for Oracle e.g., which expects the field names to match the column names exactly. NOTE: The value of the 'Translate Field Names' property is ignored when updating field names; instead they are updated to match the column name as returned by the database.
+*DESCRIPTION (Описание):*:: Это свойство указывает, следует ли обновить схему вывода так, чтобы имена полей были установлены в точные названия столбцов из указанной таблицы. Это следует использовать, если имена полей записи могут не совпадать с названиями столбцов таблицы в терминах регистра (верхнего и нижнего). Например, это свойство должно быть установлено в true, если FlowFile предназначен для Oracle, поскольку он ожидает, что имена полей будут точно соответствовать названиям столбцов. ПРИМЕЧАНИЕ: Значение свойства 'Translate Field Names' игнорируется при обновлении имен полей; вместо этого они обновляются, чтобы соответствовать названию столбца, возвращаемому базой данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -304,14 +302,14 @@ or additional features.
 .*Updatedatabasetable-Record-Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing results to a FlowFile. The Record Writer should use Inherit Schema to emulate the inferred schema behavior, i.e. an explicit schema need not be defined in the writer, and will be supplied by the same logic used to infer the schema from the column types. If Create Table Strategy is set 'Create If Not Exists', the Record Writer's output format must match the Record Reader's format in order for the data to be placed in the created table location. Note that this property is only used if 'Update Field Names' is set to true and the field names do not all match the column names exactly. If no update is needed for any field names (or 'Update Field Names' is false), the Record Writer is not used and instead the input FlowFile is routed to success or failure without modification.
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для использования при записи результатов в FlowFile. Записыватель записей должен использовать Inherit Schema, чтобы имитировать поведение схемы, инферренного поведения, то есть не обязательно определять явную схему в записи, и она будет предоставлена той же логикой, которая используется для вывода схемы из типов столбцов. Если стратегия создания таблицы установлена как 'Create If Not Exists', формат вывода Record Writer должен соответствовать формату Record Reader, чтобы данные могли быть размещены в созданном расположении таблицы. Обратите внимание, что это свойство используется только если 'Update Field Names' установлено в true и имена полей не совпадают с точными названиями столбцов. Если обновление имени поля не требуется (или 'Update Field Names' равно false), Record Writer не используется, а вместо этого входной FlowFile направляется в успех или неудачу без изменений.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -321,14 +319,14 @@ or additional features.
 .Updatedatabasetable-Quoted-Table-Identifiers
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Quote Table Identifiers
+*DISPLAY NAME (Отображаемое наименование):*:: Quote Table Identifiers (Идентификаторы таблицы для цитирования)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Enabling this option will cause the table name to be quoted to support the use of special characters in the table name and/or forcing the value of the Table Name property to match the target table name exactly.
+*DESCRIPTION (Описание):*:: Включение этой опции приведет к тому, что имя таблицы будет заключено в кавычки для поддержки использования специальных символов в имени таблицы и/или принудительного соответствия значения свойства Имя таблицы точному имени целевой таблицы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -346,14 +344,14 @@ or additional features.
 .Updatedatabasetable-Quoted-Column-Identifiers
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Quote Column Identifiers
+*DISPLAY NAME (Отображаемое наименование):*:: Quote Column Identifiers (Цитирование идентификаторов столбцов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Enabling this option will cause all column names to be quoted, allowing you to use reserved words as column names in your tables and/or forcing the record field names to match the column names exactly.
+*DESCRIPTION (Описание):*:: Включение этой опции приведет к цитированию всех имен столбцов, что позволит использовать зарезервированные слова в качестве имен столбцов в ваших таблицах и/или принудительно сопоставлять имена полей записей с именами столбцов.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -371,14 +369,14 @@ or additional features.
 .*Updatedatabasetable-Query-Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Query Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Query Timeout (Время ожидания запроса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Sets the number of seconds the driver will wait for a query to execute. A value of 0 means no timeout. NOTE: Non-zero values may not be supported by the driver.
+*DESCRIPTION (Описание):*:: Устанавливает количество секунд, в течение которых драйвер будет ждать выполнения запроса. Значение 0 означает отсутствие таймаута. Примечание: некоторые драйвера могут не поддерживать ненулевые значения.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -402,10 +400,10 @@ or additional features.
 |Наименование |Описание
 
 |`success`
-|A FlowFile containing records routed to this relationship after the record has been successfully transmitted to the database.
+|Поток файлов, содержащий записи, направленные в это отношение после того, как запись была успешно передана в базу данных.
 
 |`failure`
-|A FlowFile containing records routed to this relationship if the record could not be transmitted to the database.
+|Поток файлов, содержащий записи, направленные в это отношение, если запись не могла быть передана в базу данных.
 
 |===
 
@@ -420,16 +418,16 @@ or additional features.
 |Наименование |Описание
 
 |`output.table`
-|This attribute is written on the flow files routed to the 'success' and 'failure' relationships, and contains the target table name.
+|Это атрибут записывается на потоки файлов, направленные в отношения 'success' и 'failure', и содержит имя целевой таблицы.
 
 |`output.path`
-|This attribute is written on the flow files routed to the 'success' and 'failure' relationships, and contains the path on the file system to the table (or partition location if the table is partitioned).
+|Это атрибут записывается на потоки файлов, направленные в отношения 'success' и 'failure', и содержит путь на файловой системе к таблице (или расположению раздела, если таблица является разбитой).
 
 |`mime.type`
-|Sets the mime.type attribute to the MIME Type specified by the Record Writer, only if a Record Writer is specified and Update Field Names is 'true'.
+|Устанавливает атрибут mime.type в указанный MIME-тип записывателем записи, только если указан записыватель записей и Update Field Names равен 'true'.
 
 |`record.count`
-|Sets the number of records in the FlowFile, only if a Record Writer is specified and Update Field Names is 'true'.
+|Устанавливает количество записей в FlowFile, только если указан записыватель записей и Update Field Names равно 'true'.
 
 |===
 

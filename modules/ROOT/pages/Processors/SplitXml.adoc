@@ -1,13 +1,13 @@
 = SplitXml 2.2.0
 
-Splits an XML File into multiple separate FlowFiles, each comprising a child or descendant of the original root element
+Разделяет файл XML на несколько отдельных FlowFiles, каждая из которых представляет собой дочерний или потомка исходного корневого элемента
 
 [horizontal]
 *Tags* (Ключевые слова):
 split, xml
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Split Depth*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Split Depth
+*DISPLAY NAME (Отображаемое наименование):*:: Split Depth (Глубина разделения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates the XML-nesting depth to start splitting XML fragments. A depth of 1 means split the root's children, whereas a depth of 2 means split the root's children's children and so forth.
+*DESCRIPTION (Описание):*:: Указывает глубину вложения XML-элементов, с которой начинать разбиение фрагментов XML. Глубина 1 означает разделение дочерних элементов корня, а глубина 2 - разделение дочерних элементов второго уровня и так далее.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -48,7 +48,7 @@ REQUIRED (Обязательно)
 
 
 |MEMORY
-|The entirety of the FlowFile's content (as a Document object) is read into memory, in addition to all of the generated FlowFiles representing the split XML. A Document object can take approximately 10 times as much memory as the size of the XML. For example, a 1 MB XML document may use 10 MB of memory. If many splits are generated due to the size of the XML, a two-phase approach may be necessary to avoid excessive use of memory.
+|Весь контент FlowFile (в виде объекта Document) считывается в память, а также все сгенерированные FlowFiles, представляющие собой разбитый XML. Объект Document может занимать примерно в 10 раз больше памяти, чем размер XML. Например, документ XML размером 1 МБ может использовать 10 МБ памяти. Если создается много разбиений из-за размера XML, может потребоваться двухфазный подход для избежания чрезмерного использования памяти.
 
 |===
 
@@ -63,13 +63,13 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`failure`
-|If a FlowFile fails processing for any reason (for example, the FlowFile is not valid XML), it will be routed to this relationship
+|Если FlowFile не обрабатывается по какой-либо причине (например, FlowFile не является допустимым XML), он будет направлен в эту связь
 
 |`original`
-|The original FlowFile that was split into segments. If the FlowFile fails processing, nothing will be sent to this relationship
+|Исходный FlowFile, который был разделен на сегменты. Если FlowFile не обрабатывается, ничего не будет отправлено в эту связь
 
 |`split`
-|All segments of the original FlowFile will be routed to this relationship
+|Все сегменты исходного FlowFile будут направлены в эту связь
 
 |===
 
@@ -84,16 +84,16 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`fragment.identifier`
-|All split FlowFiles produced from the same parent FlowFile will have the same randomly generated UUID added for this attribute
+|Все разбитые FlowFiles, произведенные из одного родительского FlowFile, будут иметь добавленный случайно сгенерированный UUID для этого атрибута
 
 |`fragment.index`
-|A one-up number that indicates the ordering of the split FlowFiles that were created from a single parent FlowFile
+|Числовой инкремент, указывающий порядок разбитых FlowFiles, созданных из одного родительского FlowFile
 
 |`fragment.count`
-|The number of split FlowFiles generated from the parent FlowFile
+|Количество разбитых FlowFiles, сгенерированных из родительского FlowFile
 
-|`segment.original.filename `
-|The filename of the parent FlowFile
+|`segment.original.filename`
+|Имя файла родительского FlowFile
 
 |===
 

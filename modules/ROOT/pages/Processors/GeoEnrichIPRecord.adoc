@@ -1,13 +1,13 @@
 = GeoEnrichIPRecord 2.2.0
 
-Looks up geolocation information for an IP address and adds the geo information to FlowFile attributes. The geo data is provided as a MaxMind database. This version uses the NiFi Record API to allow large scale enrichment of record-oriented data sets. Each field provided by the MaxMind database can be directed to a field of the user's choosing by providing a record path for that field configuration. 
+Ищет геолокационную информацию для IP-адреса и добавляет эту информацию в атрибуты FlowFile. Данные о геолокации предоставляются в виде базы данных MaxMind. Эта версия использует API записи NiFi для обеспечения масштабируемого обогащения наборов данных, ориентированных на запись. Каждое поле, предоставленное базой данных MaxMind, может быть направлено в поле выбора пользователя, предоставив конфигурационный путь записи для этого поля.
 
 [horizontal]
 *Tags* (Ключевые слова):
 enrich, geo, ip, maxmind, record
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Geo Database File*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: MaxMind Database File
+*DISPLAY NAME (Отображаемое наименование):*:: MaxMind Database File (Геобаза данных файл)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Path to Maxmind IP Enrichment Database File
+*DESCRIPTION (Описание):*:: Путь к базе данных Maxmind IP улучшения файла
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Geo-Enrich-Ip-Record-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Record reader service to use for reading the flowfile contents.
+*DESCRIPTION (Описание):*:: Сервис для чтения содержимого потока файлов.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Geo-Enrich-Ip-Record-Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Record writer service to use for enriching the flowfile contents.
+*DESCRIPTION (Описание):*:: Сервис записывателя записей для обогащения содержимого потока.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .*Geo-Enrich-Ip-Split-Found-Not-Found*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Separate Enriched From Not Enriched
+*DISPLAY NAME (Отображаемое наименование):*:: Separate Enriched From Not Enriched (Разделить обогащенные от необогащенных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Separate records that have been enriched from ones that have not. Default behavior is to send everything to the found relationship if even one record is enriched.
+*DESCRIPTION (Описание):*:: Разделять записи, которые были обогащены, от тех, которые не были. По умолчанию поведение — отправить все в отношение 'найдено', если даже одна запись обогащена.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -96,14 +96,14 @@ REQUIRED (Обязательно)
 .*Geo-Enrich-Ip-Ip-Record-Path*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: IP Address Record Path
+*DISPLAY NAME (Отображаемое наименование):*:: IP Address Record Path (IP адресная запись пути)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The record path to retrieve the IP address for doing the lookup.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -113,14 +113,14 @@ REQUIRED (Обязательно)
 .Geo-Enrich-Ip-City-Record-Path
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: City Record Path
+*DISPLAY NAME (Отображаемое наименование):*:: City Record Path (Городская запись пути)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Record path for putting the city identified for the IP address
+*DESCRIPTION (Описание):*:: Record path for putting the city identified for the IP address (Путь записи для размещения города, определенного по IP-адресу)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -130,14 +130,14 @@ REQUIRED (Обязательно)
 .Geo-Enrich-Ip-Latitude-Record-Path
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Latitude Record Path
+*DISPLAY NAME (Отображаемое наименование):*:: Latitude Record Path (Широта Запись Пути)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Record path for putting the latitude identified for this IP address
+*DESCRIPTION (Описание):*:: Record path for putting the latitude identified for this IP address (Путь записи для размещения широты, идентифицированной для этого IP-адреса)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -147,14 +147,14 @@ REQUIRED (Обязательно)
 .Geo-Enrich-Ip-Longitude-Record-Path
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Longitude Record Path
+*DISPLAY NAME (Отображаемое наименование):*:: Longitude Record Path (Долгота Запись Пути)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Record path for putting the longitude identified for this IP address
+*DESCRIPTION (Описание):*:: Record path for putting the longitude identified for this IP address (Путь записи для размещения долготы, идентифицированной для этого IP-адреса)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -164,14 +164,14 @@ REQUIRED (Обязательно)
 .Geo-Enrich-Ip-Country-Record-Path
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Country Record Path
+*DISPLAY NAME (Отображаемое наименование):*:: Country Record Path (Страна Запись Путь)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Record path for putting the country identified for this IP address
+*DESCRIPTION (Описание):*:: Record path for putting the country identified for this IP address (Путь записи для размещения страны, идентифицированной по этому IP-адресу)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -181,14 +181,14 @@ REQUIRED (Обязательно)
 .Geo-Enrich-Ip-Country-Iso-Record-Path
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Country ISO Code Record Path
+*DISPLAY NAME (Отображаемое наименование):*:: Country ISO Code Record Path (Путь записи кода страны по ISO)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Record path for putting the ISO Code for the country identified
+*DESCRIPTION (Описание):*:: Record path for putting the ISO Code for the country identified (Путь для размещения кода страны по ISO, определенной по IP-адресу)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -198,14 +198,14 @@ REQUIRED (Обязательно)
 .Geo-Enrich-Ip-Country-Postal-Record-Path
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Country Postal Code Record Path
+*DISPLAY NAME (Отображаемое наименование):*:: Country Postal Code Record Path (Страна Почтовый Код Запись Путь)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Record path for putting the postal code for the country identified
+*DESCRIPTION (Описание):*:: Record path for putting the postal code for the country identified (Путь записи для размещения почтового кода страны, идентифицированной)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -215,14 +215,14 @@ REQUIRED (Обязательно)
 .*Log Level*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Log Level
+*DISPLAY NAME (Отображаемое наименование):*:: Log Level (Уровень логирования)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Log Level to use when an IP is not found in the database. Accepted values: INFO, DEBUG, WARN, ERROR.
+*DESCRIPTION (Описание):*:: Уровень логирования, который следует использовать, если IP не найден в базе данных. Принимаемые значения: INFO, DEBUG, WARN, ERROR.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -246,19 +246,30 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`original`
-|The original input flowfile goes to this relationship regardless of whether the content was enriched or not.
+|Исходный входной flowfile перенаправляется по этому отношению независимо от того, было ли содержимое обогащено или нет.
 
 |`found`
-|Where to route flow files after successfully enriching attributes with data provided by database
+|Куда направлять flow файлы после успешной передачи атрибутов с данными, предоставленными базой данных
 
 |`not found`
-|Where to route flow files after unsuccessfully enriching attributes because no data was found
+|Куда направлять flow файлы после неудачной передачи атрибутов из-за отсутствия данных
 
 |===
 
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

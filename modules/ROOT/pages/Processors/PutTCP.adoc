@@ -1,13 +1,13 @@
 = PutTCP 2.2.0
 
-Sends serialized FlowFiles or Records over TCP to a configurable destination with optional support for TLS
+Отправляет сериализованные FlowFiles или записи через TCP на настраиваемую цель с поддержкой TLS (опционально)
 
 [horizontal]
 *Tags* (Ключевые слова):
 egress, put, remote, tcp
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Hostname*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hostname
+*DISPLAY NAME (Отображаемое наименование):*:: Hostname (Хост)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Destination hostname or IP address
+*DESCRIPTION (Описание):*:: Destination hostname or IP address (Адрес хоста или IP-адрес назначения)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Port*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Port
+*DISPLAY NAME (Отображаемое наименование):*:: Port (Порт)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Destination port number
+*DESCRIPTION (Описание):*:: Номер конечного порта
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Max Size Of Socket Send Buffer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Size of Socket Send Buffer
+*DISPLAY NAME (Отображаемое наименование):*:: Max Size of Socket Send Buffer (Максимальный размер буфера отправки сокета)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum size of the socket send buffer that should be used. This is a suggestion to the Operating System to indicate how big the socket buffer should be. If this value is set too low, the buffer may fill up before the data can be read, and incoming data will be dropped.
+*DESCRIPTION (Описание):*:: Максимальный размер буфера отправки сокета, который следует использовать. Это рекомендация для операционной системы указать, насколько большой должен быть сокетный буфер. Если это значение установлено слишком низким, буфер может заполниться до того, как данные могут быть прочитаны, и входящие данные будут отброшены.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .*Idle Connection Expiration*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Idle Connection Expiration
+*DISPLAY NAME (Отображаемое наименование):*:: Idle Connection Expiration (Время ожидания бездействия соединения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The amount of time a connection should be held open without being used before closing the connection. A value of 0 seconds will disable this feature.
+*DESCRIPTION (Описание):*:: Количество времени, в течение которого соединение должно оставаться открытым без использования, прежде чем закроется соединение. Значение 0 секунд отключит эту функцию.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ REQUIRED (Обязательно)
 .Timeout
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Timeout (таймаут)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The timeout for connecting to and communicating with the destination. Does not apply to UDP
+*DESCRIPTION (Описание):*:: Таймаут для подключения и обмена данными с пунктом назначения. Не применяется к UDP
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,23 +105,23 @@ REQUIRED (Обязательно)
 .*Connection Per Flowfile*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Connection Per FlowFile
+*DISPLAY NAME (Отображаемое наименование):*:: Connection Per FlowFile (Соединение на поток)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether to send each FlowFile's content on an individual connection.
+*DESCRIPTION (Описание):*:: Указывает, следует ли отправлять содержимое каждого FlowFile по отдельному соединению.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -130,14 +130,14 @@ REQUIRED (Обязательно)
 .Ssl Context Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (SSL Контекст Сервиса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the SSL Context Service to enable TLS socket communication
+*DESCRIPTION (Описание):*:: Указывает службу SSL Context для включения коммуникации с использованием TLS-сокетов
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -147,23 +147,23 @@ REQUIRED (Обязательно)
 .*Transmission Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Transmission Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Transmission Strategy (Стратегия передачи)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies the strategy used for reading input FlowFiles and transmitting messages to the destination socket address
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* FlowFile-oriented: Send FlowFile content as a single stream 
+* FlowFile-oriented (ориентированный на FlowFile): Send FlowFile content as a single stream 
 
-* Record-oriented: Read Records from input FlowFiles and send serialized Records as individual messages 
+* Record-oriented (ориентированный на запись): Read Records from input FlowFiles and send serialized Records as individual messages 
 
 
 [horizontal]
@@ -172,14 +172,14 @@ REQUIRED (Обязательно)
 .Outgoing Message Delimiter
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Outgoing Message Delimiter
+*DISPLAY NAME (Отображаемое наименование):*:: Outgoing Message Delimiter (Исходящее сообщение разделитель)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the delimiter to use when sending messages out over the same TCP stream. The delimiter is appended to each FlowFile message that is transmitted over the stream so that the receiver can determine when one message ends and the next message begins. Users should ensure that the FlowFile content does not contain the delimiter character to avoid errors. In order to use a new line character you can enter '\n'. For a tab character use '\t'. Finally for a carriage return use '\r'.
+*DESCRIPTION (Описание):*:: Указывает используемый разделитель при отправке сообщений через один и тот же TCP-поток. Разделитель добавляется к каждому сообщению FlowFile, передаваемому по потоку, чтобы получатель мог определить, когда завершается одно сообщение и начинается следующее. Пользователи должны убедиться, что содержимое FlowFile не содержит символ разделителя, чтобы избежать ошибок. Для использования символа новой строки введите '\n'. Для табуляции используйте '\t', а для возврата каретки - '\r'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -189,14 +189,14 @@ REQUIRED (Обязательно)
 .*Character Set*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Символьный набор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the character set of the data being sent.
+*DESCRIPTION (Описание):*:: Указывает символьный набор данных, отправляемых.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -206,14 +206,14 @@ REQUIRED (Обязательно)
 .*Record Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Записыватель)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for reading Records from input FlowFiles
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для чтения записей из входного потока FlowFiles
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -223,14 +223,14 @@ REQUIRED (Обязательно)
 .*Record Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Записыватель записей (Record Writer)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing Records to the configured socket address
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для использования при записи записей в настроенный адрес сокета
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -254,10 +254,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|FlowFiles that are sent successfully to the destination are sent out this relationship.
+|FlowFiles, которые успешно отправлены на цель, выходят по этому отношению.
 
 |`failure`
-|FlowFiles that failed to send to the destination are sent out this relationship.
+|FlowFiles, которые не удалось отправить на цель, выходят по этому отношению.
 
 |===
 
@@ -272,7 +272,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`record.count.transmitted`
-|Count of records transmitted to configured destination address
+|Количество записей, переданных на настроенный адрес назначения
 
 |===
 

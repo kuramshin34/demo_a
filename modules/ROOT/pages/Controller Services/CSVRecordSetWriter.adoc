@@ -1,13 +1,13 @@
 = CSVRecordSetWriter 2.2.0
 
-Writes the contents of a RecordSet as CSV data. The first line written will be the column names (unless the 'Include Header Line' property is false). All subsequent lines will be the values corresponding to the record fields.
+Записывает содержимое RecordSet в виде CSV данных. Первая строка, записанная будет содержать имена столбцов (если свойство 'Include Header Line' не установлено в false). Все последующие строки будут соответствовать полям записи.
 
 [horizontal]
 *Tags* (Ключевые слова):
 csv, delimited, record, recordset, result, row, separated, serializer, set, tab, tsv, writer
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,27 +20,27 @@ csv, delimited, record, recordset, result, row, separated, serializer, set, tab,
 .*Schema Write Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Write Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Write Strategy (Стратегия записи схемы)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how the schema for a Record should be added to the data.
+*DESCRIPTION (Описание):*:: Указывает, как должна быть добавлена схема для записи в данные.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Do Not Write Schema: Do not add any schema-related information to the FlowFile. 
+* Не записывать схему (Do Not Write Schema): Не добавлять никакой информации, связанной со схемой, в поток данных. 
 
-* Set 'schema.name' Attribute: The FlowFile will be given an attribute named 'schema.name' and this attribute will indicate the name of the schema in the Schema Registry. Note that ifthe schema for a record is not obtained from a Schema Registry, then no attribute will be added. 
+* Установить атрибут 'schema.name' (Set 'schema.name' Attribute): Потоку данных будет присвоен атрибут с именем 'schema.name', который укажет на имя схемы в Реестре схем. Обратите внимание, что если схема для записи не получается из Реестра схем, то атрибут не будет добавлен. 
 
-* Set 'avro.schema' Attribute: The FlowFile will be given an attribute named 'avro.schema' and this attribute will contain the Avro Schema that describes the records in the FlowFile. The contents of the FlowFile need not be Avro, but the text of the schema will be used. 
+* Установить атрибут 'avro.schema' (Set 'avro.schema' Attribute): Потоку данных будет присвоен атрибут с именем 'avro.schema', который будет содержать Avro-схему, описывающую записи в потоке данных. Содержимое потока данных не обязательно должно быть Avro, но текст схемы будет использован. 
 
-* Schema Reference Writer: The schema reference information will be written through a configured Schema Reference Writer service implementation. 
+* Schema Reference Writer (Писатель ссылок на схему): Информация о ссылке на схему будет записана через реализованный конфигурацией сервис Писателя ссылок на схему. 
 
 
 [horizontal]
@@ -49,14 +49,14 @@ csv, delimited, record, recordset, result, row, separated, serializer, set, tab,
 .Schema-Cache
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Cache
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Cache (Схема кэш)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies a Schema Cache to add the Record Schema to so that Record Readers can quickly lookup the schema.
+*DESCRIPTION (Описание):*:: Указывает схему кэша для добавления записи схемы, чтобы записи читатели могли быстро осуществлять поиск схемы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -66,14 +66,14 @@ csv, delimited, record, recordset, result, row, separated, serializer, set, tab,
 .*Schema Reference Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Writer (Схема Референс Витър)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Service implementation responsible for writing FlowFile attributes or content header with Schema reference information
+*DESCRIPTION (Описание):*:: Сервис реализации, отвечающий за запись атрибутов FlowFile или содержимого заголовка с информацией о ссылке на схему
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -83,25 +83,25 @@ csv, delimited, record, recordset, result, row, separated, serializer, set, tab,
 .*Schema-Access-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy (Стратегия доступа к схеме)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how to obtain the schema that is to be used for interpreting the data.
+*DESCRIPTION (Описание):*:: Определяет, как получить схему для интерпретации данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Inherit Record Schema: The schema used to write records will be the same schema that was given to the Record when the Record was created. 
+* Inherit Record Schema (Наследовать схему записи): Схема, используемая для записи записей, будет той же самой схемой, которая была дана записи при её создании. 
 
-* Use 'Schema Name' Property: The name of the Schema to use is specified by the 'Schema Name' Property. The value of this property is used to lookup the Schema in the configured Schema Registry service. 
+* Use 'Schema Name' Property (Использовать свойство 'Имя схемы'): Имя используемой схемы указывается свойством 'Имя схемы'. Значение этого свойства используется для поиска схемы в настроенном сервисе реестра схем. 
 
-* Use 'Schema Text' Property: The text of the Schema itself is specified by the 'Schema Text' Property. The value of this property must be a valid Avro Schema. If Expression Language is used, the value of the 'Schema Text' property must be valid after substituting the expressions. 
+* Use 'Schema Text' Property (Использовать свойство 'Текст схемы'): Сам текст схемы указывается свойством 'Текст схемы'. Значение этого свойства должно быть допустимой Avro Schema. Если используется Expression Language, значение свойства 'Текст схемы' должно быть действительным после замены выражений. 
 
 
 [horizontal]
@@ -110,14 +110,14 @@ csv, delimited, record, recordset, result, row, separated, serializer, set, tab,
 .Schema-Registry
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry (Реестър на схеми)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for the Schema Registry
+*DESCRIPTION (Описание):*:: Определя контролера за услуга, който да се използва за реестра на схемите
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -127,14 +127,14 @@ csv, delimited, record, recordset, result, row, separated, serializer, set, tab,
 .Schema-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Name
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Name (Схема имени)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the name of the schema to lookup in the Schema Registry property
+*DESCRIPTION (Описание):*:: Указывает имя схемы для поиска в свойстве Реестра схем
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -144,14 +144,14 @@ csv, delimited, record, recordset, result, row, separated, serializer, set, tab,
 .Schema-Version
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Version
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Version (Схема версии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the version of the schema to lookup in the Schema Registry. If not specified then the latest version of the schema will be retrieved.
+*DESCRIPTION (Описание):*:: Указывает версию схемы для поиска в Реестре схем. Если не указано, будет получена последняя версия схемы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -161,14 +161,14 @@ csv, delimited, record, recordset, result, row, separated, serializer, set, tab,
 .Schema-Branch
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Branch
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Branch (Схема ветки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the name of the branch to use when looking up the schema in the Schema Registry property. If the chosen Schema Registry does not support branching, this value will be ignored.
+*DESCRIPTION (Описание):*:: Указывает имя ветки, которую следует использовать при поиске схемы в свойстве Схемарегистр. Если выбранная Схемарегистр не поддерживает ветвление, это значение будет проигнорировано.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -178,14 +178,14 @@ csv, delimited, record, recordset, result, row, separated, serializer, set, tab,
 .Schema-Text
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Text
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Text (Схема текста)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The text of an Avro-formatted Schema
+*DESCRIPTION (Описание):*:: Текст Avro-формамата схемы
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -195,14 +195,14 @@ csv, delimited, record, recordset, result, row, separated, serializer, set, tab,
 .*Schema-Reference-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Reader (Ссылочный читатель схемы)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Service implementation responsible for reading FlowFile attributes or content to determine the Schema Reference Identifier
+*DESCRIPTION (Описание):*:: Сервис реализации, отвечающий за чтение атрибутов или содержимого FlowFile для определения идентификатора ссылки на схему
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -212,14 +212,14 @@ csv, delimited, record, recordset, result, row, separated, serializer, set, tab,
 .Date Format
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Date Format
+*DISPLAY NAME (Отображаемое наименование):*:: Date Format (Формат даты)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the format to use when reading/writing Date fields. If not specified, Date fields will be assumed to be number of milliseconds since epoch (Midnight, Jan 1, 1970 GMT). If specified, the value must match the Java java.time.format.DateTimeFormatter format (for example, MM/dd/yyyy for a two-digit month, followed by a two-digit day, followed by a four-digit year, all separated by '/' characters, as in 01/01/2017).
+*DESCRIPTION (Описание):*:: Указывает формат, который следует использовать при чтении или записи полей Date. Если не указан, поля Date будут считаться количеством миллисекунд от начала эпохи (полночь, 1 января 1970 г., GMT). Если указано, значение должно соответствовать формату Java java.time.format.DateTimeFormatter (например, MM/dd/yyyy для двузначного месяца, затем двузначного дня и четырехзначного года, все разделенные символами '/' как в 01/01/2017).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -229,14 +229,14 @@ csv, delimited, record, recordset, result, row, separated, serializer, set, tab,
 .Time Format
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Time Format
+*DISPLAY NAME (Отображаемое наименование):*:: Time Format (Формат времени)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the format to use when reading/writing Time fields. If not specified, Time fields will be assumed to be number of milliseconds since epoch (Midnight, Jan 1, 1970 GMT). If specified, the value must match the Java java.time.format.DateTimeFormatter format (for example, HH:mm:ss for a two-digit hour in 24-hour format, followed by a two-digit minute, followed by a two-digit second, all separated by ':' characters, as in 18:04:15).
+*DESCRIPTION (Описание):*:: Указывает формат, который следует использовать при чтении/записи полей Time. Если не указано, поля Time будут считаться количеством миллисекунд с эпохи (Полночь, 1 января 1970 г., GMT). Если указано, значение должно соответствовать формату Java java.time.format.DateTimeFormatter (например, HH:mm:ss для двузначного часа в 24-часовом формате, за которым следуют двузначная минута и двузначная секунда, все разделённые символами ':' как в 18:04:15).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -246,14 +246,14 @@ csv, delimited, record, recordset, result, row, separated, serializer, set, tab,
 .Timestamp Format
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Timestamp Format
+*DISPLAY NAME (Отображаемое наименование):*:: Формат Timestamp (Timestamp Format)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the format to use when reading/writing Timestamp fields. If not specified, Timestamp fields will be assumed to be number of milliseconds since epoch (Midnight, Jan 1, 1970 GMT). If specified, the value must match the Java java.time.format.DateTimeFormatter format (for example, MM/dd/yyyy HH:mm:ss for a two-digit month, followed by a two-digit day, followed by a four-digit year, all separated by '/' characters; and then followed by a two-digit hour in 24-hour format, followed by a two-digit minute, followed by a two-digit second, all separated by ':' characters, as in 01/01/2017 18:04:15).
+*DESCRIPTION (Описание):*:: Указывает формат, который следует использовать при чтении или записи полей Timestamp. Если не указан, поля Timestamp будут считаться количеством миллисекунд с начала эпохи (Полночь 1 января 1970 г., GMT). Если указано, значение должно соответствовать формату Java java.time.format.DateTimeFormatter (например, MM/dd/yyyy HH:mm:ss для двузначного месяца, затем двузначного дня, затем четырехзначного года, все разделенные '/' символами; а затем следует двузначный час в 24-часовом формате, за которым следуют двузначные минуты и секунды, все разделенные ':' символами, как в 01/01/2017 18:04:15).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -263,33 +263,33 @@ csv, delimited, record, recordset, result, row, separated, serializer, set, tab,
 .*Csv Format*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: CSV Format
+*DISPLAY NAME (Отображаемое наименование):*:: CSV Format (Формат)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies which "format" the CSV data is in, or specifies if custom formatting should be used.
+*DESCRIPTION (Описание):*:: Указывает, какой "формат" данных CSV используется или указывает, должно ли использоваться пользовательское форматирование.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Custom Format: The format of the CSV is configured by using the properties of this Controller Service, such as Value Separator 
+* Custom Format (Пользовательский формат): Формат CSV настроен с использованием свойств этого сервиса контроллера, таких как Разделитель значений 
 
-* RFC 4180: CSV data follows the RFC 4180 Specification defined at https://tools.ietf.org/html/rfc4180 
+* RFC 4180 (Спецификация RFC 4180): Данные CSV следуют спецификации RFC 4180, определенной по адресу https://tools.ietf.org/html/rfc4180 
 
-* Microsoft Excel: CSV data follows the format used by Microsoft Excel 
+* Microsoft Excel (Майкрософт Excel): Данные CSV следуют формату, используемому Microsoft Excel 
 
-* Tab-Delimited: CSV data is Tab-Delimited instead of Comma Delimited 
+* Tab-Delimited (Табуляция Разделитель): CSV данные представлены табуляцией вместо запятых 
 
-* MySQL Format: CSV data follows the format used by MySQL 
+* MySQL Format (Формат MySQL): Данные CSV следуют формату, используемому MySQL 
 
-* Informix Unload: The format used by Informix when issuing the UNLOAD TO file_name command 
+* Informix Unload (Информис Уноулд): Формат, используемый Информис при выполнении команды UNLOAD TO file_name 
 
-* Informix Unload Escape Disabled: The format used by Informix when issuing the UNLOAD TO file_name command with escaping disabled 
+* Informix Unload Escape Disabled (Информис Уноулд Эскейп Дисаблед): Формат, используемый Информис при выполнении команды UNLOAD TO file_name с отключенным экранированием 
 
 
 [horizontal]
@@ -298,23 +298,23 @@ csv, delimited, record, recordset, result, row, separated, serializer, set, tab,
 .*Csv-Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: CSV Writer
+*DISPLAY NAME (Отображаемое наименование):*:: CSV Writer (Записыватель CSV)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies which writer implementation to use to write CSV records. NOTE: Different writers may support different subsets of functionality and may also exhibit different levels of performance.
+*DESCRIPTION (Описание):*:: Указывает, какую реализацию записи использовать для записи CSV записей. Примечание: Разные писатели могут поддерживать разные подмножества функциональности и могут проявлять разные уровни производительности.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Apache Commons CSV: The CSV writer implementation from the Apache Commons CSV library. 
+* Apache Commons CSV (Apache Commons CSV): Реализация записи CSV из библиотеки Apache Commons CSV. 
 
-* FastCSV: The CSV writer implementation from the FastCSV library. NOTE: This writer only officially supports RFC-4180, so it recommended to set the 'CSV Format' property to 'RFC 4180'. It does handle some non-compliant CSV data, for that case set the 'CSV Format' property to 'CUSTOM' and the other custom format properties (such as 'Trim Fields', 'Trim double quote', etc.) as appropriate. Be aware that this may cause errors if FastCSV doesn't handle the property settings correctly (such as 'Quote Mode'), but otherwise may process the output as expected even if the data is not fully RFC-4180 compliant. 
+* FastCSV (FastCSV): Реализация записи CSV из библиотеки FastCSV. Примечание: Этот писатель официально поддерживает только RFC-4180, поэтому рекомендуется установить свойство 'Формат CSV' на 'RFC 4180'. Он обрабатывает некоторые данные CSV, которые не соответствуют стандарту RFC-4180, в этом случае установите свойство 'Формат CSV' на 'CUSTOM', а другие настройки пользовательского формата (такие как 'Обрезать поля', 'Удалить двойные кавычки и т.д.) соответственно. Следует быть внимательным, так как это может вызвать ошибки, если FastCSV неправильно обрабатывает настройки свойств (например, 'Режим кавычек'), но в противном случае может обработать вывод так, как ожидалось, даже если данные полностью не соответствуют стандарту RFC-4180. 
 
 
 [horizontal]
@@ -323,14 +323,14 @@ csv, delimited, record, recordset, result, row, separated, serializer, set, tab,
 .*Value Separator*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Value Separator
+*DISPLAY NAME (Отображаемое наименование):*:: Value Separator (Значение-разделитель)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The character that is used to separate values/fields in a CSV Record. If the property has been specified via Expression Language but the expression gets evaluated to an invalid Value Separator at runtime, then it will be skipped and the default Value Separator will be used.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -340,14 +340,14 @@ csv, delimited, record, recordset, result, row, separated, serializer, set, tab,
 .*Include Header Line*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Include Header Line
+*DISPLAY NAME (Отображаемое наименование):*:: Include Header Line (Включать строку с заголовками)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether or not the CSV column names should be written out as the first line.
+*DESCRIPTION (Описание):*:: Указывает, должны ли имена столбцов CSV записываться как первая строка.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -365,14 +365,14 @@ csv, delimited, record, recordset, result, row, separated, serializer, set, tab,
 .*Quote Character*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Quote Character
+*DISPLAY NAME (Отображаемое наименование):*:: Quote Character (Символ кавычек)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The character that is used to quote values so that escape characters do not have to be used. If the property has been specified via Expression Language but the expression gets evaluated to an invalid Quote Character at runtime, then it will be skipped and the default Quote Character will be used.
+*DESCRIPTION (Описание):*:: Символ, используемый для цитирования значений таким образом, чтобы escape-символы не приходилось использовать. Если свойство было указано через язык выражений, но при оценке выражения во время выполнения получается недопустимый символ кавычек, то оно будет пропущено, и будет использован символ кавычек по умолчанию.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -382,14 +382,14 @@ csv, delimited, record, recordset, result, row, separated, serializer, set, tab,
 .*Escape Character*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Escape Character
+*DISPLAY NAME (Отображаемое наименование):*:: Escape Character (Экранирующий символ)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The character that is used to escape characters that would otherwise have a specific meaning to the CSV Parser. If the property has been specified via Expression Language but the expression gets evaluated to an invalid Escape Character at runtime, then it will be skipped and the default Escape Character will be used. Setting it to an empty string means no escape character should be used.
+*DESCRIPTION (Описание):*:: Символ, используемый для экранирования символов, которые в противном случае имели бы особое значение у CSV-парсера. Если свойство задается с помощью Expression Language, но при оценке выражения возникает недопустимый экранирующий символ, то оно будет пропущено, и будет использоваться значение по умолчанию. Установка его в пустую строку означает, что не должен использоваться ни один экранирующий символ.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -399,14 +399,14 @@ csv, delimited, record, recordset, result, row, separated, serializer, set, tab,
 .Comment Marker
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Comment Marker
+*DISPLAY NAME (Отображаемое наименование):*:: Comment Marker (Комментарий)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The character that is used to denote the start of a comment. Any line that begins with this comment will be ignored.
+*DESCRIPTION (Описание):*:: Символ, используемый для обозначения начала комментария. Любая строка, начинающаяся с этого символа, будет игнорироваться.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -416,14 +416,14 @@ csv, delimited, record, recordset, result, row, separated, serializer, set, tab,
 .Null String
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Null String
+*DISPLAY NAME (Отображаемое наименование):*:: Null String (Нулевой строковый литерал)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies a String that, if present as a value in the CSV, should be considered a null field instead of using the literal value.
+*DESCRIPTION (Описание):*:: Указывает строку, которая, если присутствует в CSV как значение, должна рассматриваться как пустое поле вместо использования литерального значения.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -433,23 +433,23 @@ csv, delimited, record, recordset, result, row, separated, serializer, set, tab,
 .*Trim Fields*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Trim Fields
+*DISPLAY NAME (Отображаемое наименование):*:: Trim Fields (Удаление пробелов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Whether or not white space should be removed from the beginning and end of fields
+*DESCRIPTION (Описание):*:: Определяет, должны ли быть удалены начальные и конечные пробелы из полей
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (Истина)
 
-* false
+* false (Ложь)
 
 
 [horizontal]
@@ -458,27 +458,27 @@ csv, delimited, record, recordset, result, row, separated, serializer, set, tab,
 .*Quote Mode*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Quote Mode
+*DISPLAY NAME (Отображаемое наименование):*:: Quote Mode (Режим цитирования)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how fields should be quoted when they are written
+*DESCRIPTION (Описание):*:: Указывает, как поля должны быть заключены при их записи
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Quote All Values: All values will be quoted using the configured quote character. 
+* Quote All Values (Цитировать все значения): Все значения будут заключены в кавычки с использованием настроенного символа кавычек. 
 
-* Quote Minimal: Values will be quoted only if they are contain special characters such as newline characters or field separators. 
+* Quote Minimal (Минимальное цитирование): Значения будут заключены в кавычки только если они содержат специальные символы, такие как символы новой строки или разделители полей. 
 
-* Quote Non-Numeric Values: Values will be quoted unless the value is a number. 
+* Quote Non-Numeric Values (Цитировать нечисловые значения): Значения будут заключены в кавычки, если значение не является числом. 
 
-* Do Not Quote Values: Values will not be quoted. Instead, all special characters will be escaped using the configured escape character. 
+* Do Not Quote Values (Не цитировать значения): Значения не будут заключены в кавычки. Вместо этого все специальные символы будут экранированы с использованием настроенного escape-символа. 
 
 
 [horizontal]
@@ -487,14 +487,14 @@ csv, delimited, record, recordset, result, row, separated, serializer, set, tab,
 .*Record Separator*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Separator
+*DISPLAY NAME (Отображаемое наименование):*:: Record Separator (Разделитель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the characters to use in order to separate CSV Records
+*DESCRIPTION (Описание):*:: Указывает символы для использования в порядке разделения CSV записей
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -504,14 +504,14 @@ csv, delimited, record, recordset, result, row, separated, serializer, set, tab,
 .*Include Trailing Delimiter*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Include Trailing Delimiter
+*DISPLAY NAME (Отображаемое наименование):*:: Include Trailing Delimiter (Включить завершающий разделитель)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true, a trailing delimiter will be added to each CSV Record that is written. If false, the trailing delimiter will be omitted.
+*DESCRIPTION (Описание):*:: Если true, к каждому записанному CSV записи будет добавлен завершающий разделитель. Если false, завершающий разделитель будет опущен.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -529,14 +529,14 @@ csv, delimited, record, recordset, result, row, separated, serializer, set, tab,
 .*Csvutils-Character-Set*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Символьная кодировка)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Character Encoding that is used to encode/decode the CSV file
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -556,6 +556,17 @@ csv, delimited, record, recordset, result, row, separated, serializer, set, tab,
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

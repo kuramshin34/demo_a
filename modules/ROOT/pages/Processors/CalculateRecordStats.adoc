@@ -1,13 +1,13 @@
 = CalculateRecordStats 2.2.0
 
-Counts the number of Records in a record set, optionally counting the number of elements per category, where the categories are defined by user-defined properties.
+Подсчитывает количество записей в наборе записей, при необходимости подсчитывая количество элементов по категориям, где категории определяются пользовательскими свойствами.
 
 [horizontal]
 *Tags* (Ключевые слова):
 metrics, record, stats
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Record-Stats-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Записыватель записей)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A record reader to use for reading the records.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Record-Stats-Limit*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: record-stats-limit
+*DISPLAY NAME (Отображаемое наименование):*:: record-stats-limit (лимит записей статистики)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Limit the number of individual stats that are returned for each record path to the top N results.
+*DESCRIPTION (Описание):*:: Ограничить количество индивидуальных статистических данных, возвращаемых для каждого пути записи до верхних N результатов.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 

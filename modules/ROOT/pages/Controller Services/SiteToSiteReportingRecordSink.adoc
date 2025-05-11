@@ -1,13 +1,13 @@
 = SiteToSiteReportingRecordSink 2.2.0
 
-Provides a service to write records using a configured RecordSetWriter over a Site-to-Site connection.
+Предоставляет сервис для записи записей с использованием настроенного RecordSetWriter через соединение Site-to-Site.
 
 [horizontal]
 *Tags* (Ключевые слова):
 db, record, s2s, site
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ db, record, s2s, site
 .*Record-Sink-Record-Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records.
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для использования при записи записей.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ db, record, s2s, site
 .*Destination Url*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Destination URL
+*DISPLAY NAME (Отображаемое наименование):*:: Destination URL (Адрес назначения NiFi экземпляра или, если кластеризовано, запятая-разделенный список адресов в формате http(s)://хост:порт/nifi. Этот адрес назначения будет использоваться только для инициации подключения Site-to-Site. Данные, отправляемые этим заданием отчетности, будут распределяться по всем узлам назначения (если кластеризовано).)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The URL of the destination NiFi instance or, if clustered, a comma-separated list of address in the format of http(s)://host:port/nifi. This destination URL will only be used to initiate the Site-to-Site connection. The data sent by this reporting task will be load-balanced on all the nodes of the destination (if clustered).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ db, record, s2s, site
 .*Input Port Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Input Port Name
+*DISPLAY NAME (Отображаемое наименование):*:: Input Port Name (Входной порт для доставки данных)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the Input Port to deliver data to.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ db, record, s2s, site
 .Ssl Context Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (Сервис контекста SSL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The SSL Context Service to use when communicating with the destination. If not specified, communications will not be secure.
+*DESCRIPTION (Описание):*:: Сервис контекста SSL, который следует использовать при взаимодействии с назначением. Если не указан, коммуникации будут недоступны.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ db, record, s2s, site
 .*Instance Url*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Instance URL
+*DISPLAY NAME (Отображаемое наименование):*:: Instance URL (URL экземпляра)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The URL of this instance to use in the Content URI of each event.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,23 +105,23 @@ db, record, s2s, site
 .*Compress Events*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Compress Events
+*DISPLAY NAME (Отображаемое наименование):*:: Compress Events (События сжатия)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates whether or not to compress the data being sent.
+*DESCRIPTION (Описание):*:: Указывает, следует ли сжимать данные, отправляемые.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -130,14 +130,14 @@ db, record, s2s, site
 .*Communications Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout (Коммуникационный таймаут)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how long to wait to a response from the destination before deciding that an error has occurred and canceling the transaction
+*DESCRIPTION (Описание):*:: Указывает, сколько времени ждать ответа от пункта назначения, прежде чем решить, что произошла ошибка и аннулировать транзакцию
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -147,14 +147,14 @@ db, record, s2s, site
 .*Batch Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Batch Size
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Size (Размер партии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how many records to send in a single batch, at most.
+*DESCRIPTION (Описание):*:: Указывает, сколько записей следует отправлять в одной партии, максимум.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -164,23 +164,23 @@ db, record, s2s, site
 .*S2s-Transport-Protocol*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Transport Protocol
+*DISPLAY NAME (Отображаемое наименование):*:: Transport Protocol (Протокол передачи)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies which transport protocol to use for Site-to-Site communication.
+*DESCRIPTION (Описание):*:: Specifies which transport protocol to use for Site-to-Site communication. (Указывает, какой протокол транспортировки использовать для взаимодействия между сайтами.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* RAW
+* RAW (Необработанный)
 
-* HTTP
+* HTTP (HTTP)
 
 
 [horizontal]
@@ -189,14 +189,14 @@ db, record, s2s, site
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: HTTP + AuthN
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -216,6 +216,17 @@ db, record, s2s, site
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|The App ID field from the AMQP Message
+
+|===
 
 
 

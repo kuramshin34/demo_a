@@ -1,13 +1,13 @@
 = DatabaseRecordSink 2.2.0
 
-Provides a service to write records using a configured database connection.
+Предоставляет сервис для записи записей с использованием настроенной базы данных.
 
 [horizontal]
 *Tags* (Ключевые слова):
 connection, database, db, jdbc, record
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ connection, database, db, jdbc, record
 .*Db-Record-Sink-Dcbp-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Database Connection Pooling Service
+*DISPLAY NAME (Отображаемое наименование):*:: Database Connection Pooling Service (База данных Сервис Подключения Пула)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Controller Service that is used to obtain a connection to the database for sending records.
+*DESCRIPTION (Описание):*:: Контроллер Сервис, используемый для получения подключения к базе данных для отправки записей.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ connection, database, db, jdbc, record
 .Db-Record-Sink-Catalog-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Catalog Name
+*DISPLAY NAME (Отображаемое наименование):*:: Catalog Name (Каталог)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the catalog that the statement should update. This may not apply for the database that you are updating. In this case, leave the field empty
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ connection, database, db, jdbc, record
 .Db-Record-Sink-Schema-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Name
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Name (Схема имени)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the schema that the table belongs to. This may not apply for the database that you are updating. In this case, leave the field empty
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ connection, database, db, jdbc, record
 .*Db-Record-Sink-Table-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Table Name
+*DISPLAY NAME (Отображаемое наименование):*:: Table Name (Таблица)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the table that the statement should affect.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ connection, database, db, jdbc, record
 .Db-Record-Sink-Translate-Field-Names
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Translate Field Names
+*DISPLAY NAME (Отображаемое наименование):*:: Translate Field Names (Перевести имена полей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true, the Processor will attempt to translate field names into the appropriate column names for the table specified. If false, the field names must match the column names exactly, or the column will not be updated
+*DESCRIPTION (Описание):*:: Если true, процессор попытается перевести имена полей в соответствующие названия столбцов для указанной таблицы. Если false, имена полей должны точно совпадать с названиями столбцов, иначе столбец не будет обновлен
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -113,23 +113,23 @@ connection, database, db, jdbc, record
 .Db-Record-Sink-Unmatched-Field-Behavior
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Unmatched Field Behavior
+*DISPLAY NAME (Отображаемое наименование):*:: Unmatched Field Behavior (Поведение поведения для несоответствующих полей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If an incoming record has a field that does not map to any of the database table's columns, this property specifies how to handle the situation
+*DESCRIPTION (Описание):*:: Если входящая запись имеет поле, которое не сопоставляется ни с одним из столбцов базы данных, это свойство указывает, как следует обрабатывать эту ситуацию
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Ignore Unmatched Fields: Any field in the document that cannot be mapped to a column in the database is ignored 
+* Ignore Unmatched Fields (Игнорировать несоответствующие поля): Любое поле в документе, которое не может быть сопоставлено с колонкой в базе данных, игнорируется 
 
-* Fail on Unmatched Fields: If the document has any field that cannot be mapped to a column in the database, the FlowFile will be routed to the failure relationship 
+* Fail on Unmatched Fields (Ошибка при несоответствующих полях): Если документ имеет какое-либо поле, которое не может быть сопоставлено с колонкой в базе данных, FlowFile будет направлен в отношение неудач 
 
 
 [horizontal]
@@ -138,25 +138,25 @@ connection, database, db, jdbc, record
 .Db-Record-Sink-Unmatched-Column-Behavior
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Unmatched Column Behavior
+*DISPLAY NAME (Отображаемое наименование):*:: Unmatched Column Behavior (Несоответствие поведению столбцов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If an incoming record does not have a field mapping for all of the database table's columns, this property specifies how to handle the situation
+*DESCRIPTION (Описание):*:: Если входящий запись не имеет сопоставления для всех столбцов базы данных, это свойство указывает, как следует обрабатывать такую ситуацию
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Ignore Unmatched Columns: Any column in the database that does not have a field in the document will be assumed to not be required.  No notification will be logged 
+* Ignore Unmatched Columns (Игнорировать несоответствующие столбцы): Любой столбец в базе данных, который не имеет поля в документе, будет считаться необязательным.  Никаких уведомлений не будет зарегистрировано 
 
-* Warn on Unmatched Columns: Any column in the database that does not have a field in the document will be assumed to not be required.  A warning will be logged 
+* Warn on Unmatched Columns (Предупреждать о несоответствующих столбцах): Любой столбец в базе данных, который не имеет поля в документе, будет считаться необязательным.  Будет зарегистрировано предупреждение 
 
-* Fail on Unmatched Columns: A flow will fail if any column in the database that does not have a field in the document.  An error will be logged 
+* Fail on Unmatched Columns (Провалить при несоответствующих столбцах): Поток завершится с ошибкой, если какой-либо столбец в базе данных не имеет поля в документе.  Будет зарегистрирована ошибка 
 
 
 [horizontal]
@@ -165,14 +165,14 @@ connection, database, db, jdbc, record
 .Db-Record-Sink-Quoted-Identifiers
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Quote Column Identifiers
+*DISPLAY NAME (Отображаемое наименование):*:: Quote Column Identifiers (Цитатные идентификаторы столбцов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Enabling this option will cause all column names to be quoted, allowing you to use reserved words as column names in your tables.
+*DESCRIPTION (Описание):*:: Включение этой опции приведет к тому, что все имена столбцов будут заключены в кавычки, позволяя использовать зарезервированные слова в качестве имен столбцов в ваших таблицах.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -190,14 +190,14 @@ connection, database, db, jdbc, record
 .Db-Record-Sink-Quoted-Table-Identifiers
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Quote Table Identifiers
+*DISPLAY NAME (Отображаемое наименование):*:: Quote Table Identifiers (Цитирование табличных идентификаторов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Enabling this option will cause the table name to be quoted to support the use of special characters in the table name.
+*DESCRIPTION (Описание):*:: Включение этой опции приведет к цитированию имени таблицы для поддержки использования специальных символов в имени таблицы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -215,14 +215,14 @@ connection, database, db, jdbc, record
 .*Db-Record-Sink-Query-Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Wait Time
+*DISPLAY NAME (Отображаемое наименование):*:: Max Wait Time (Максимальное время ожидания)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum amount of time allowed for a running SQL statement , zero means there is no limit. Max time less than 1 second will be equal to zero.
+*DESCRIPTION (Описание):*:: Максимальное количество времени, разрешенное для выполнения SQL-заявления, где ноль означает отсутствие ограничения. Максимальное время менее одной секунды будет равно нулю.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -242,6 +242,17 @@ connection, database, db, jdbc, record
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

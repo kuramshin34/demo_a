@@ -1,13 +1,13 @@
 = ConfluentSchemaRegistry 2.2.0
 
-Provides a Schema Registry that interacts with the Confluent Schema Registry so that those Schemas that are stored in the Confluent Schema Registry can be used in NiFi. The Confluent Schema Registry has a notion of a "subject" for schemas, which is their terminology for a schema name. When a Schema is looked up by name by this registry, it will find a Schema in the Confluent Schema Registry with that subject.
+Предоставляет реестр схем, который взаимодействует с Confluent Schema Registry, чтобы использовать схемы, хранящиеся в Confluent Schema Registry в NiFi. Confluent Schema Registry имеет концепцию "предмета" для схем, что является их терминологией для имени схемы. Когда схема ищется по имени этим реестром, она найдет схему в Confluent Schema Registry с этим предметом.
 
 [horizontal]
 *Tags* (Ключевые слова):
 avro, confluent, kafka, registry, schema
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ avro, confluent, kafka, registry, schema
 .*Url*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry URLs
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry URLs (URL-адреса реестра схем)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A comma-separated list of URLs of the Schema Registry to interact with
+*DESCRIPTION (Описание):*:: Список URL-адресов реестра схем, разделенных запятыми, для взаимодействия
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ avro, confluent, kafka, registry, schema
 .Ssl-Context
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (SSL Контекст Сервиса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the SSL Context Service to use for interacting with the Confluent Schema Registry
+*DESCRIPTION (Описание):*:: Указывает на сервис SSL контекста для взаимодействия с Confluent Schema Registry
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ avro, confluent, kafka, registry, schema
 .*Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout (Время ожидания)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies how long to wait to receive data from the Schema Registry before considering the communications a failure
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ avro, confluent, kafka, registry, schema
 .*Cache-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Cache Size
+*DISPLAY NAME (Отображаемое наименование):*:: Cache Size (Размер кэша)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how many Schemas should be cached from the Schema Registry
+*DESCRIPTION (Описание):*:: Указывает, сколько схем должно быть кэшировано из Реестра схем
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ avro, confluent, kafka, registry, schema
 .*Cache-Expiration*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Cache Expiration
+*DISPLAY NAME (Отображаемое наименование):*:: Cache Expiration (Время жизни кэша)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how long a Schema that is cached should remain in the cache. Once this time period elapses, a cached version of a schema will no longer be used, and the service will have to communicate with the Schema Registry again in order to obtain the schema.
+*DESCRIPTION (Описание):*:: Указывает, как долго схема, помещенная в кэш, должна оставаться в кэше. По истечении этого временного периода версия схемы, сохраненная в кэше, больше не будет использоваться, и сервис будет вынужден снова общаться с Реестром схем для получения схемы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,23 +105,23 @@ avro, confluent, kafka, registry, schema
 .Authentication-Type
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Authentication Type
+*DISPLAY NAME (Отображаемое наименование):*:: Authentication Type (Тип аутентификации)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: HTTP Client Authentication Type for Confluent Schema Registry
+*DESCRIPTION (Описание):*:: HTTP Client Authentication Type for Confluent Schema Registry (Тип HTTP клиентской аутентификации для реестра схем Confluent)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* BASIC
+* BASIC (Базовый)
 
-* NONE
+* NONE (Отсутствие)
 
 
 [horizontal]
@@ -130,14 +130,14 @@ avro, confluent, kafka, registry, schema
 .Username
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Username
+*DISPLAY NAME (Отображаемое наименование):*:: Username (Имя пользователя)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Username for authentication to Confluent Schema Registry
+*DESCRIPTION (Описание):*:: Имя пользователя для аутентификации в Confluent Schema Registry
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -147,14 +147,14 @@ avro, confluent, kafka, registry, schema
 .Password
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Password
+*DISPLAY NAME (Отображаемое наименование):*:: Password (Пароль)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Password for authentication to Confluent Schema Registry
+*DESCRIPTION (Описание):*:: Пароль для аутентификации в Confluent Schema Registry
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -170,7 +170,7 @@ avro, confluent, kafka, registry, schema
 |Наименование |Описание |Значение |Ограничения языка выражений
 
 |`request.header.*`
-|Properties that begin with 'request.header.' are populated into a map and passed as http headers in REST requests to the Confluent Schema Registry
+|Свойства, начинающиеся с 'request.header.', заполняются в карту и передаются как HTTP-заголовки в REST-запросах к Confluent Schema Registry
 |`String literal, may not be empty`
 |
 
@@ -187,6 +187,17 @@ avro, confluent, kafka, registry, schema
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

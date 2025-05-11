@@ -1,13 +1,13 @@
 = JettyWebSocketClient 2.2.0
 
-Implementation of WebSocketClientService. This service uses Jetty WebSocket client module to provide WebSocket session management throughout the application.
+Реализация WebSocketClientService. Этот сервис использует модуль Jetty WebSocket клиента для управления сессиями WebSocket в приложении.
 
 [horizontal]
 *Tags* (Ключевые слова):
 Jetty, WebSocket, client
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ Jetty, WebSocket, client
 .*Input-Buffer-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Input Buffer Size
+*DISPLAY NAME (Отображаемое наименование):*:: Input Buffer Size (Входной размер буфера)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The size of the input (read from network layer) buffer size.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ Jetty, WebSocket, client
 .*Max-Text-Message-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Text Message Size
+*DISPLAY NAME (Отображаемое наименование):*:: Max Text Message Size (Максимальный размер текстового сообщения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum size of a text message during parsing/generating.
+*DESCRIPTION (Описание):*:: The maximum size of a text message during parsing/generating. (Максимальный размер текстового сообщения при парсинге/генерации.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ Jetty, WebSocket, client
 .*Max-Binary-Message-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Binary Message Size
+*DISPLAY NAME (Отображаемое наименование):*:: Max Binary Message Size (Максимальный размер двоичного сообщения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum size of a binary message during parsing/generating.
+*DESCRIPTION (Описание):*:: The maximum size of a binary message during parsing/generating. (Максимальный размер двоичного сообщения при анализе/генерации.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ Jetty, WebSocket, client
 .*Websocket-Uri*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: WebSocket URI
+*DISPLAY NAME (Отображаемое наименование):*:: WebSocket URI (URI веб-сокета, к которому подключается клиент)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The WebSocket URI this client connects to.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ Jetty, WebSocket, client
 .Ssl-Context-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (Сервис контекста SSL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The SSL Context Service to use in order to secure the server. If specified, the server will accept only WSS requests; otherwise, the server will accept only WS requests
+*DESCRIPTION (Описание):*:: Сервис контекста SSL, который следует использовать для защиты сервера. Если указан, сервер будет принимать только запросы WSS; в противном случае, сервер будет принимать только запросы WS
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ Jetty, WebSocket, client
 .*Connection-Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Connection Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Connection Timeout (Время ожидания подключения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The timeout to connect the WebSocket URI.
+*DESCRIPTION (Описание):*:: The timeout to connect the WebSocket URI. (Время ожидания для подключения к WebSocket URI)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -122,14 +122,14 @@ Jetty, WebSocket, client
 .*Connection-Attempt-Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Connection Attempt Count
+*DISPLAY NAME (Отображаемое наименование):*:: Connection Attempt Count (Количество попыток соединения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The number of times to try and establish a connection.
+*DESCRIPTION (Описание):*:: The number of times to try and establish a connection. (Количество раз, которое следует попытаться установить соединение.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -139,14 +139,14 @@ Jetty, WebSocket, client
 .*Session-Maintenance-Interval*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Session Maintenance Interval
+*DISPLAY NAME (Отображаемое наименование):*:: Session Maintenance Interval (Интервал между активностями обслуживания сессии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The interval between session maintenance activities. A WebSocket session established with a WebSocket server can be terminated due to different reasons including restarting the WebSocket server or timing out inactive sessions. This session maintenance activity is periodically executed in order to reconnect those lost sessions, so that a WebSocket client can reuse the same session id transparently after it reconnects successfully.  The maintenance activity is executed until corresponding processors or this controller service is stopped.
+*DESCRIPTION (Описание):*:: Интервал между активностями обслуживания сессии. Установленная с помощью сервера WebSocket WebSocket-сессия может быть завершена по разным причинам, включая перезапуск сервера WebSocket или таймаут неактивных сессий. Эта активность обслуживания сессии выполняется периодически с целью переподключения тех утерянных сессий, чтобы веб-сокет клиент мог прозрачно использовать ту же идентификатор сессии после успешной повторной подключения. Активность обслуживания выполняется до тех пор, пока соответствующие процессоры или этот сервисный контроллер не будут остановлены.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -156,14 +156,14 @@ Jetty, WebSocket, client
 .User-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: User Name
+*DISPLAY NAME (Отображаемое наименование):*:: User Name (Имя пользователя)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The user name for Basic Authentication.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -173,14 +173,14 @@ Jetty, WebSocket, client
 .User-Password
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: User Password
+*DISPLAY NAME (Отображаемое наименование):*:: User Password (Пользовательский пароль)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The user password for Basic Authentication.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -190,14 +190,14 @@ Jetty, WebSocket, client
 .*Authentication-Charset*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Authentication Header Charset
+*DISPLAY NAME (Отображаемое наименование):*:: Authentication Header Charset (Автоматизированный заголовок символов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The charset for Basic Authentication header base64 string.
+*DESCRIPTION (Описание):*:: Набор символов для базовой строки base64 в заголовке Basic Authentication.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -207,14 +207,14 @@ Jetty, WebSocket, client
 .Custom-Authorization
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Custom Authorization
+*DISPLAY NAME (Отображаемое наименование):*:: Custom Authorization (Настраивает пользовательский HTTP Authorization Header, как описано в RFC 7235 Раздел 4.2. Установка пользовательского Authorization Header исключает настройку свойств Имя пользователя и Пароль для Basic Authentication.)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Configures a custom HTTP Authorization Header as described in RFC 7235 Section 4.2. Setting a custom Authorization Header excludes configuring the User Name and User Password properties for Basic Authentication.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -224,14 +224,14 @@ Jetty, WebSocket, client
 .Proxy-Host
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: HTTP Proxy Host
+*DISPLAY NAME (Отображаемое наименование):*:: HTTP Proxy Host (Хост HTTP прокси)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The host name of the HTTP Proxy.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -241,14 +241,14 @@ Jetty, WebSocket, client
 .Proxy-Port
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: HTTP Proxy Port
+*DISPLAY NAME (Отображаемое наименование):*:: HTTP Proxy Port (Порт HTTP Прокси)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The port number of the HTTP Proxy.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -268,6 +268,17 @@ Jetty, WebSocket, client
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

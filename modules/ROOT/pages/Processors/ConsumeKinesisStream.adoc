@@ -1,13 +1,13 @@
 = ConsumeKinesisStream 2.2.0
 
-Reads data from the specified AWS Kinesis stream and outputs a FlowFile for every processed Record (raw)  or a FlowFile for a batch of processed records if a Record Reader and Record Writer are configured. At-least-once delivery of all Kinesis Records within the Stream while the processor is running. AWS Kinesis Client Library can take several seconds to initialise before starting to fetch data. Uses DynamoDB for check pointing and CloudWatch (optional) for metrics. Ensure that the credentials provided have access to DynamoDB and CloudWatch (optional) along with Kinesis.
+Читает данные из указанного потока AWS Kinesis и выводит FlowFile для каждого обработанного записи (сырые) или FlowFile для пакета обработанных записей, если настроен Reader записи. По крайней мере один раз доставка всех записей Kinesis в потоке при работе процессора. AWS Kinesis Client Library может занять несколько секунд для инициализации перед началом получения данных. Использует DynamoDB для контрольной точки и CloudWatch (необязательно) для метрик. Убедитесь, что предоставленные учетные данные имеют доступ к DynamoDB и CloudWatch (необязательно), а также Kinesis.
 
 [horizontal]
 *Tags* (Ключевые слова):
 amazon, aws, consume, kinesis, stream
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ FORBIDDEN (Обязательно)
 .*Kinesis-Stream-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Amazon Kinesis Stream Name
+*DISPLAY NAME (Отображаемое наименование):*:: Amazon Kinesis Stream Name (Название потока Amazon Kinesis)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of Kinesis Stream
+*DESCRIPTION (Описание):*:: The name of Kinesis Stream (Имя потока Kinesis)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ FORBIDDEN (Обязательно)
 .*Amazon-Kinesis-Stream-Application-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Application Name
+*DISPLAY NAME (Отображаемое наименование):*:: Application Name (Название приложения Kinesis Stream Reader)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Kinesis stream reader application name.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ FORBIDDEN (Обязательно)
 .Amazon-Kinesis-Stream-Record-Reader
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Читатель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Record Reader to use for reading received messages. The Kinesis Stream name can be referred to by Expression Language '${kinesis.name}' to access a schema. If Record Reader/Writer are not specified, each Kinesis Record will create a FlowFile.
+*DESCRIPTION (Описание):*:: Читатель записей, используемый для чтения полученных сообщений. Имя Kinesis Stream можно ссылаться с помощью выражения языка '${kinesis.name}' для доступа к схеме. Если Читатель/Писатель не указаны, каждая запись Kinesis создаст FlowFile.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ FORBIDDEN (Обязательно)
 .Amazon-Kinesis-Stream-Record-Writer
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Record Writer to use for serializing Records to an output FlowFile. The Kinesis Stream name can be referred to by Expression Language '${kinesis.name}' to access a schema. If Record Reader/Writer are not specified, each Kinesis Record will create a FlowFile.
+*DESCRIPTION (Описание):*:: Записыватель записей для сериализации записей в поток FlowFile. Имя Kinesis Stream можно ссылаться с помощью выражения Expression Language '${kinesis.name}' для доступа к схеме. Если Reader/Writer не указаны, каждая запись Kinesis создаст FlowFile.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,109 +88,109 @@ FORBIDDEN (Обязательно)
 .*Region*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Region
+*DISPLAY NAME (Отображаемое наименование):*:: Region (Регион)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: 
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* AWS GovCloud (US-East): AWS Region Code : us-gov-east-1 
+* AWS GovCloud (US-East) (AWS Реестр правительственных облаков (Восток США)): AWS Region Code : us-gov-east-1 
 
-* AWS GovCloud (US-West): AWS Region Code : us-gov-west-1 
+* AWS GovCloud (US-West) (AWS Реестр правительственных облаков (Запад США)): AWS Region Code : us-gov-west-1 
 
-* Africa (Cape Town): AWS Region Code : af-south-1 
+* Africa (Cape Town) (Африка (Кап Стивенс)): AWS Region Code : af-south-1 
 
-* Asia Pacific (Hong Kong): AWS Region Code : ap-east-1 
+* Asia Pacific (Hong Kong) (Азия Тихоокеанский восток (Гонконг)): AWS Region Code : ap-east-1 
 
-* Asia Pacific (Hyderabad): AWS Region Code : ap-south-2 
+* Asia Pacific (Hyderabad) (Азия Тихоокеанский восток (Хайдерабад)): AWS Region Code : ap-south-2 
 
-* Asia Pacific (Jakarta): AWS Region Code : ap-southeast-3 
+* Asia Pacific (Jakarta) (Азия Тихоокеанский восток (Джакарта)): AWS Region Code : ap-southeast-3 
 
-* Asia Pacific (Malaysia): AWS Region Code : ap-southeast-5 
+* Asia Pacific (Malaysia) (Азия Тихоокеанский восток (Малайзия)): AWS Region Code : ap-southeast-5 
 
-* Asia Pacific (Melbourne): AWS Region Code : ap-southeast-4 
+* Asia Pacific (Melbourne) (Азия Тихоокеанский восток (Мельбурн)): AWS Region Code : ap-southeast-4 
 
-* Asia Pacific (Mumbai): AWS Region Code : ap-south-1 
+* Asia Pacific (Mumbai) (Азия Тихоокеанский восток (Мумбаи)): AWS Region Code : ap-south-1 
 
-* Asia Pacific (Osaka): AWS Region Code : ap-northeast-3 
+* Asia Pacific (Osaka) (Азия Тихоокеанский восток (Осака)): AWS Region Code : ap-northeast-3 
 
-* Asia Pacific (Seoul): AWS Region Code : ap-northeast-2 
+* Asia Pacific (Seoul) (Азия Тихоокеанский восток (Сеул)): AWS Region Code : ap-northeast-2 
 
-* Asia Pacific (Singapore): AWS Region Code : ap-southeast-1 
+* Asia Pacific (Singapore) (Азия Тихоокеанский восток (Сингапур)): AWS Region Code : ap-southeast-1 
 
-* Asia Pacific (Sydney): AWS Region Code : ap-southeast-2 
+* Asia Pacific (Sydney) (Азия Тихоокеанский восток (Сидней)): AWS Region Code : ap-southeast-2 
 
-* Asia Pacific (Thailand): AWS Region Code : ap-southeast-7 
+* Asia Pacific (Thailand) (Азия Тихоокеанский восток (Таиланд)): AWS Region Code : ap-southeast-7 
 
-* Asia Pacific (Tokyo): AWS Region Code : ap-northeast-1 
+* Asia Pacific (Tokyo) (Азия Тихоокеанский восток (Токио)): AWS Region Code : ap-northeast-1 
 
-* Canada (Central): AWS Region Code : ca-central-1 
+* Canada (Central) (Канада (Центральный)): AWS Region Code : ca-central-1 
 
-* Canada West (Calgary): AWS Region Code : ca-west-1 
+* Canada West (Calgary) (Канада (Калгари)): AWS Region Code : ca-west-1 
 
-* China (Beijing): AWS Region Code : cn-north-1 
+* China (Beijing) (Китай (Пекин)): AWS Region Code : cn-north-1 
 
-* China (Ningxia): AWS Region Code : cn-northwest-1 
+* China (Ningxia) (Китай (Нинся)): AWS Region Code : cn-northwest-1 
 
-* EU ISOE West: AWS Region Code : eu-isoe-west-1 
+* EU ISOE West (Европа (Западный Изоэ)): AWS Region Code : eu-isoe-west-1 
 
-* Europe (Frankfurt): AWS Region Code : eu-central-1 
+* Europe (Frankfurt) (Европа (Франкфурт)): AWS Region Code : eu-central-1 
 
-* Europe (Ireland): AWS Region Code : eu-west-1 
+* Europe (Ireland) (Европа (Ирландия)): AWS Region Code : eu-west-1 
 
-* Europe (London): AWS Region Code : eu-west-2 
+* Europe (London) (Европа (Лондон)): AWS Region Code : eu-west-2 
 
-* Europe (Milan): AWS Region Code : eu-south-1 
+* Europe (Milan) (Европа (Милан)): AWS Region Code : eu-south-1 
 
-* Europe (Paris): AWS Region Code : eu-west-3 
+* Europe (Paris) (Европа (Париж)): AWS Region Code : eu-west-3 
 
-* Europe (Spain): AWS Region Code : eu-south-2 
+* Europe (Spain) (Европа (Испания)): AWS Region Code : eu-south-2 
 
-* Europe (Stockholm): AWS Region Code : eu-north-1 
+* Europe (Stockholm) (Европа (Стокгольм)): AWS Region Code : eu-north-1 
 
-* Europe (Zurich): AWS Region Code : eu-central-2 
+* Europe (Zurich) (Европа (Цюрих)): AWS Region Code : eu-central-2 
 
-* Israel (Tel Aviv): AWS Region Code : il-central-1 
+* Israel (Tel Aviv) (Израиль (Тель-Авив)): AWS Region Code : il-central-1 
 
-* Mexico (Central): AWS Region Code : mx-central-1 
+* Mexico (Central) (Мексика (Центральный)): AWS Region Code : mx-central-1 
 
-* Middle East (Bahrain): AWS Region Code : me-south-1 
+* Middle East (Bahrain) (Средний Восток (Бахрейн)): AWS Region Code : me-south-1 
 
-* Middle East (UAE): AWS Region Code : me-central-1 
+* Middle East (UAE) (Средний Восток (ОАЭ)): AWS Region Code : me-central-1 
 
-* South America (Sao Paulo): AWS Region Code : sa-east-1 
+* South America (Sao Paulo) (Южная Америка (Сан-Паулу)): AWS Region Code : sa-east-1 
 
-* US East (N. Virginia): AWS Region Code : us-east-1 
+* US East (N. Virginia) (США (Вирджиния Северная)): AWS Region Code : us-east-1 
 
-* US East (Ohio): AWS Region Code : us-east-2 
+* US East (Ohio) (США (Огайо)): AWS Region Code : us-east-2 
 
-* US ISO East: AWS Region Code : us-iso-east-1 
+* US ISO East (США (Изо Восток)): AWS Region Code : us-iso-east-1 
 
-* US ISO WEST: AWS Region Code : us-iso-west-1 
+* US ISO WEST (США (Изо Запад)): AWS Region Code : us-iso-west-1 
 
-* US ISOB East (Ohio): AWS Region Code : us-isob-east-1 
+* US ISOB East (Ohio) (США (Изо Восток Огайо)): AWS Region Code : us-isob-east-1 
 
-* US West (N. California): AWS Region Code : us-west-1 
+* US West (N. California) (США (Северная Калифорния)): AWS Region Code : us-west-1 
 
-* US West (Oregon): AWS Region Code : us-west-2 
+* US West (Oregon) (США (Орегон)): AWS Region Code : us-west-2 
 
-* aws-cn-global: AWS Region Code : aws-cn-global 
+* aws-cn-global (aws-cn-global): AWS Region Code : aws-cn-global 
 
-* aws-global: AWS Region Code : aws-global 
+* aws-global (aws-global): AWS Region Code : aws-global 
 
-* aws-iso-b-global: AWS Region Code : aws-iso-b-global 
+* aws-iso-b-global (aws-iso-b-global): AWS Region Code : aws-iso-b-global 
 
-* aws-iso-global: AWS Region Code : aws-iso-global 
+* aws-iso-global (aws-iso-global): AWS Region Code : aws-iso-global 
 
-* aws-us-gov-global: AWS Region Code : aws-us-gov-global 
+* aws-us-gov-global (aws-us-gov-global): AWS Region Code : aws-us-gov-global 
 
 
 [horizontal]
@@ -199,14 +199,14 @@ FORBIDDEN (Обязательно)
 .Endpoint Override Url
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Endpoint Override URL
+*DISPLAY NAME (Отображаемое наименование):*:: Endpoint Override URL (URL конечной точки для переопределения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Endpoint URL to use instead of the AWS default including scheme, host, port, and path. The AWS libraries select an endpoint URL based on the AWS region, but this property overrides the selected endpoint URL, allowing use with other S3-compatible endpoints.
+*DESCRIPTION (Описание):*:: URL конечной точки, которую следует использовать вместо AWS по умолчанию, включая схему, хост, порт и путь. Библиотеки AWS выбирают URL-адрес конечной точки на основе региона AWS, но это свойство переопределяет выбранный URL-адрес конечной точки, позволяя использовать его с другими S3-совместимыми конечными точками.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -216,14 +216,14 @@ FORBIDDEN (Обязательно)
 .Amazon-Kinesis-Stream-Dynamodb-Override
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: DynamoDB Override
+*DISPLAY NAME (Отображаемое наименование):*:: DynamoDB Override (Переопределение DynamoDB)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: DynamoDB override to use non-AWS deployments
+*DESCRIPTION (Описание):*:: DynamoDB override to use non-AWS deployments (Переопределение DynamoDB для использования в не-AWS развертываниях)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -233,25 +233,25 @@ FORBIDDEN (Обязательно)
 .*Amazon-Kinesis-Stream-Initial-Position*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Initial Stream Position
+*DISPLAY NAME (Отображаемое наименование):*:: Initial Stream Position (Начальная позиция потока)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Initial position to read Kinesis streams.
+*DESCRIPTION (Описание):*:: Начальная позиция для чтения Kinesis потоков.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* LATEST: Start reading just after the most recent record in the shard, so that you always read the most recent data in the shard. 
+* LATEST: Начните читать сразу после самого последнего записи в шире, так что вы всегда читаете самую свежую данные в шире. 
 
-* TRIM_HORIZON: Start reading at the last untrimmed record in the shard in the system, which is the oldest data record in the shard. 
+* TRIM_HORIZON: Начните читать с последней неотрезанной записи в шире в системе, что является самой старой записью данных в шире. 
 
-* AT_TIMESTAMP: Start reading from the position denoted by a specific time stamp, provided in the value Timestamp. 
+* AT_TIMESTAMP: Начните читать с позиции, обозначенной конкретным временем, предоставленным в значении Timestamp. 
 
 
 [horizontal]
@@ -260,14 +260,14 @@ FORBIDDEN (Обязательно)
 .Amazon-Kinesis-Stream-Position-Timestamp
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Stream Position Timestamp
+*DISPLAY NAME (Отображаемое наименование):*:: Stream Position Timestamp (Временная метка позиции в потоке)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Timestamp position in stream from which to start reading Kinesis Records. Required if Initial position to read Kinesis streams. is AT_TIMESTAMP. Uses the Timestamp Format to parse value into a Date.
+*DESCRIPTION (Описание):*:: Timestamp position in stream from which to start reading Kinesis Records. Required if Initial position to read Kinesis streams is AT_TIMESTAMP. Uses the Timestamp Format to parse value into a Date.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -277,14 +277,14 @@ FORBIDDEN (Обязательно)
 .*Amazon-Kinesis-Stream-Timestamp-Format*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Timestamp Format
+*DISPLAY NAME (Отображаемое наименование):*:: Timestamp Format (Формат временной метки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Format to use for parsing the Stream Position Timestamp into a Date and converting the Kinesis Record's Approximate Arrival Timestamp into a FlowFile attribute.
+*DESCRIPTION (Описание):*:: Формат для анализа временной метки потока и преобразования приблизительного времени доставки Kinesis Record в атрибут FlowFile.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -294,14 +294,14 @@ FORBIDDEN (Обязательно)
 .*Amazon-Kinesis-Stream-Failover-Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Failover Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Failover Timeout (Переключение таймаут)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Kinesis Client Library failover timeout
+*DESCRIPTION (Описание):*:: Kinesis Client Library failover timeout (Таймаут переключения клиента библиотеки Kinesis)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -311,14 +311,14 @@ FORBIDDEN (Обязательно)
 .*Amazon-Kinesis-Stream-Graceful-Shutdown-Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Graceful Shutdown Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Graceful Shutdown Timeout (Время ожидания завершения работы)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Kinesis Client Library graceful shutdown timeout
+*DESCRIPTION (Описание):*:: Kinesis Client Library graceful shutdown timeout (Время ожидания завершения работы библиотеки клиента Kinesis)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -328,14 +328,14 @@ FORBIDDEN (Обязательно)
 .*Amazon-Kinesis-Stream-Checkpoint-Interval*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Checkpoint Interval
+*DISPLAY NAME (Отображаемое наименование):*:: Checkpoint Interval (Интервал между контрольными точками)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Interval between Kinesis checkpoints
+*DESCRIPTION (Описание):*:: Interval between Kinesis checkpoints (Интервал между контрольными точками в Amazon Kinesis)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -345,14 +345,14 @@ FORBIDDEN (Обязательно)
 .*Amazon-Kinesis-Stream-Retry-Count*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Retry Count
+*DISPLAY NAME (Отображаемое наименование):*:: Retry Count (Количество повторных попыток операции Kinesis)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Number of times to retry a Kinesis operation (process record, checkpoint, shutdown)
+*DESCRIPTION (Описание):*:: Число повторных попыток выполнения операции Kinesis (обработка записи, контрольная точка, завершение работы)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -362,14 +362,14 @@ FORBIDDEN (Обязательно)
 .*Amazon-Kinesis-Stream-Retry-Wait*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Retry Wait
+*DISPLAY NAME (Отображаемое наименование):*:: Retry Wait (Перерыв между повторными операциями Kinesis)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Interval between Kinesis operation retries (process record, checkpoint, shutdown)
+*DESCRIPTION (Описание):*:: Интервал между перезапусками операций Kinesis (обработка записи, контрольная точка, выключение)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -379,14 +379,14 @@ FORBIDDEN (Обязательно)
 .*Amazon-Kinesis-Stream-Cloudwatch-Flag*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Report Metrics to CloudWatch
+*DISPLAY NAME (Отображаемое наименование):*:: Report Metrics to CloudWatch (Отчет метрик в CloudWatch)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Whether to report Kinesis usage metrics to CloudWatch.
+*DESCRIPTION (Описание):*:: Отображать ли использование Kinesis метрики в CloudWatch.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -404,14 +404,14 @@ FORBIDDEN (Обязательно)
 .*Communications Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout (Коммуникационный таймаут)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: 
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -421,14 +421,14 @@ FORBIDDEN (Обязательно)
 .*Aws Credentials Provider Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: AWS Credentials Provider Service
+*DISPLAY NAME (Отображаемое наименование):*:: AWS Credentials Provider Service (...)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Controller Service that is used to obtain AWS credentials provider
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -438,14 +438,14 @@ FORBIDDEN (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: HTTP + AuthN
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -461,7 +461,7 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание |Значение |Ограничения языка выражений
 
 |`Kinesis Client Library (KCL) Configuration property name`
-|Override default KCL Configuration ConfigsBuilder properties with required values. Supports setting of values directly on the ConfigsBuilder, such as 'namespace', as well as properties on nested builders. For example, to set configsBuilder.retrievalConfig().maxListShardsRetryAttempts(value), name the property as 'retrievalConfig.maxListShardsRetryAttempts'. Only supports setting of simple property values, e.g. String, int, long and boolean. Does not allow override of KCL Configuration settings handled by non-dynamic processor properties.
+|Переопределяет свойства конфигурации по умолчанию для KCL с необходимыми значениями. Поддерживает установку значений непосредственно в ConfigsBuilder, таких как 'namespace', а также свойства на вложенных построителях. Например, чтобы установить configsBuilder.retrievalConfig().maxListShardsRetryAttempts(value), назовите свойство как 'retrievalConfig.maxListShardsRetryAttempts'. Поддерживает только установку простых значений свойств, таких как String, int, long и boolean. Не позволяет переопределять свойства конфигурации KCL, обрабатываемые не динамическим процессором свойств.
 |`Value to set in the KCL Configuration property`
 |
 
@@ -479,10 +479,10 @@ FORBIDDEN (Обязательно)
 
 
 |CPU
-|Kinesis Client Library is used to create a Worker thread for consumption of Kinesis Records. The Worker is initialised and started when this Processor has been triggered. It runs continually, spawning Kinesis Record Processors as required to fetch Kinesis Records. The Worker Thread (and any child Record Processor threads) are not controlled by the normal NiFi scheduler as part of the Concurrent Thread pool and are not released until this processor is stopped.
+|Kinesis Client Library используется для создания рабочего потока для потребления записей Kinesis. Рабочий процесс инициализируется и запускается, когда этот процессор был активирован. Он работает непрерывно, порождая процессоры записей Kinesis по мере необходимости для получения записей Kinesis. Рабочий поток (и любой дочерний процессор записи) не контролируются обычным планировщиком NiFi в качестве части пула параллельных потоков и не высвобождаются, пока этот процессор не остановлен.
 
 |NETWORK
-|Kinesis Client Library will continually poll for new Records, requesting up to a maximum number of Records/bytes per call. This can result in sustained network usage.
+|Kinesis Client Library будет непрерывно запрашивать новые записи, запрашивая до максимального количества записей/байтов за один раз. Это может привести к постоянному сетевому использованию.
 
 |===
 
@@ -497,7 +497,7 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`success`
-|FlowFiles are routed to success relationship
+|FlowFiles направляются в отношение успеха
 
 |===
 
@@ -512,25 +512,25 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`aws.kinesis.partition.key`
-|Partition key of the (last) Kinesis Record read from the Shard
+|Partition ключ последней записи Kinesis, прочитанной из Шира
 
 |`aws.kinesis.shard.id`
-|Shard ID from which the Kinesis Record was read
+|Идентификатор шира, из которого была прочитана запись Kinesis
 
 |`aws.kinesis.sequence.number`
-|The unique identifier of the (last) Kinesis Record within its Shard
+|Уникальный идентификатор последней записи Kinesis в её Шире
 
 |`aws.kinesis.approximate.arrival.timestamp`
-|Approximate arrival timestamp of the (last) Kinesis Record read from the stream
+|Приблизительная временная метка прибытия последней записи Kinesis, прочитанной из потока
 
 |`mime.type`
-|Sets the mime.type attribute to the MIME Type specified by the Record Writer (if configured)
+|Устанавливает атрибут mime.type в указанный MIME-тип записью Writer (если настроен)
 
 |`record.count`
-|Number of records written to the FlowFiles by the Record Writer (if configured)
+|Количество записей, записанных в FlowFiles записью Writer (если настроена)
 
 |`record.error.message`
-|This attribute provides on failure the error message encountered by the Record Reader or Record Writer (if configured)
+|Этот атрибут предоставляет при неудаче сообщение об ошибке, которое встретилось Reader записи или Writer (если настроен)
 
 |===
 

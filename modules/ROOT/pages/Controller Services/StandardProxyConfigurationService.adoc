@@ -1,13 +1,13 @@
 = StandardProxyConfigurationService 2.2.0
 
-Provides a set of configurations for different NiFi components to use a proxy server.
+Предоставляет набор конфигураций для различных компонентов NiFi для использования прокси-сервера.
 
 [horizontal]
 *Tags* (Ключевые слова):
 Proxy
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ Proxy
 .*Proxy-Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Type
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Type (Тип прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Proxy type.
+*DESCRIPTION (Описание):*:: Тип прокси.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -47,23 +47,23 @@ Proxy
 .*Socks-Version*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SOCKS Version
+*DISPLAY NAME (Отображаемое наименование):*:: SOCKS Version (Версия протокола SOCKS)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: SOCKS Protocol Version
+*DESCRIPTION (Описание):*:: SOCKS Protocol Version (Версия протокола SOCKS)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* SOCKS4
+* SOCKS4 (Версия 4 SOCKS)
 
-* SOCKS5
+* SOCKS5 (Версия 5 SOCKS)
 
 
 [horizontal]
@@ -72,14 +72,14 @@ Proxy
 .Proxy-Server-Host
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Server Host
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Server Host (Хост или IP-адрес прокси-сервера)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Proxy server hostname or ip-address.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -89,14 +89,14 @@ Proxy
 .Proxy-Server-Port
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Server Port
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Server Port (Порт прокси-сервера)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Proxy server port number.
+*DESCRIPTION (Описание):*:: Номер порта прокси-сервера.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -106,14 +106,14 @@ Proxy
 .Proxy-User-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy User Name
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy User Name (Прокси-пользователь)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the proxy client for user authentication.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -123,14 +123,14 @@ Proxy
 .Proxy-User-Password
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy User Password
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy User Password (Пароль пользователя прокси)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The password of the proxy client for user authentication.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -150,6 +150,17 @@ Proxy
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

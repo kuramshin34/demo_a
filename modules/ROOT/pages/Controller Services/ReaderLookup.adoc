@@ -1,13 +1,13 @@
 = ReaderLookup 2.2.0
 
-Provides a RecordReaderFactory that can be used to dynamically select another RecordReaderFactory. This will allow multiple RecordReaderFactories to be defined and registered, and then selected dynamically at runtime by referencing a FlowFile attribute in the Service to Use property.
+Предоставляет фабрику RecordReader, которая может быть использована для динамического выбора другой фабрики RecordReader. Это позволит определить и зарегистрировать несколько фабрик RecordReader и выбирать их динамически в runtime, ссылаясь на атрибут FlowFile в свойстве Service to Use.
 
 [horizontal]
 *Tags* (Ключевые слова):
 lookup, parse, reader, record, row
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ lookup, parse, reader, record, row
 .*Service To Use*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Service to Use
+*DISPLAY NAME (Отображаемое наименование):*:: Service to Use (Сервис для использования)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies the name of the user-defined property whose associated Controller Service should be used.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -60,6 +60,17 @@ lookup, parse, reader, record, row
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

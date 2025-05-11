@@ -1,13 +1,13 @@
 = ISPEnrichIP 2.2.0
 
-Looks up ISP information for an IP address and adds the information to FlowFile attributes. The ISP data is provided as a MaxMind ISP database. (Note that this is NOT the same as the GeoLite database utilized by some geo enrichment tools). The attribute that contains the IP address to lookup is provided by the 'IP Address Attribute' property. If the name of the attribute provided is 'X', then the the attributes added by enrichment will take the form X.isp.<fieldName>
+Ищет информацию об операторе связи для IP-адреса и добавляет информацию в атрибуты FlowFile. Информация об операторе предоставляется базой данных MaxMind ISP. (Обратите внимание, что это НЕ та же база данных GeoLite, которая используется некоторыми инструментами гео-обогащения). Атрибут, содержащий IP-адрес для поиска, указывается свойством 'IP Address Attribute'. Если имя предоставленного атрибута — 'X', то атрибуты, добавляемые обогащением, будут иметь вид X.isp.<fieldName>
 
 [horizontal]
 *Tags* (Ключевые слова):
 ISP, enrich, ip, maxmind
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Geo Database File*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: MaxMind Database File
+*DISPLAY NAME (Отображаемое наименование):*:: MaxMind Database File (Геобаза данных файл)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Path to Maxmind IP Enrichment Database File
+*DESCRIPTION (Описание):*:: Путь к базе данных Maxmind IP улучшения файла
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Ip Address Attribute*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: IP Address Attribute
+*DISPLAY NAME (Отображаемое наименование):*:: IP Address Attribute (IP Адрес)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of an attribute whose value is a dotted decimal IP address for which enrichment should occur
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Log Level*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Log Level
+*DISPLAY NAME (Отображаемое наименование):*:: Log Level (Уровень логирования)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Log Level to use when an IP is not found in the database. Accepted values: INFO, DEBUG, WARN, ERROR.
+*DESCRIPTION (Описание):*:: Уровень логирования, который следует использовать, если IP не найден в базе данных. Принимаемые значения: INFO, DEBUG, WARN, ERROR.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -85,10 +85,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`found`
-|Where to route flow files after successfully enriching attributes with data provided by database
+|Куда направлять flow файлы после успешной enrichment атрибутов данными из базы данных
 
 |`not found`
-|Where to route flow files after unsuccessfully enriching attributes because no data was found
+|Куда направлять flow файлы после неудачной enrichment атрибутов, так как данные не были найдены
 
 |===
 
@@ -103,19 +103,19 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`X.isp.lookup.micros`
-|The number of microseconds that the geo lookup took
+|Количество микросекунд, затраченных на поиск геолокации
 
 |`X.isp.asn`
-|The Autonomous System Number (ASN) identified for the IP address
+|Идентифицированный номер автономной системы (ASN) для IP-адреса
 
 |`X.isp.asn.organization`
-|The Organization Associated with the ASN identified
+|Организация, связанная с идентифицированным ASN
 
 |`X.isp.name`
-|The name of the ISP associated with the IP address provided
+|Название оператора, связанного с предоставленным IP-адресом
 
 |`X.isp.organization`
-|The Organization associated with the IP address provided
+|Организация, связанная с предоставленным IP-адресом
 
 |===
 

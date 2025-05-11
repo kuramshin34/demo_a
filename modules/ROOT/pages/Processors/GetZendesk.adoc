@@ -1,13 +1,13 @@
 = GetZendesk 2.2.0
 
-Incrementally fetches data from Zendesk API.
+Инкрементно извлекает данные из API Zendesk.
 
 [horizontal]
 *Tags* (Ключевые слова):
 zendesk
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ FORBIDDEN (Обязательно)
 .*Web-Client-Service-Provider*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Web Client Service Provider
+*DISPLAY NAME (Отображаемое наименование):*:: Web Client Service Provider (Веб-клиентский сервис-провайдер)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Controller service for HTTP client operations.
+*DESCRIPTION (Описание):*:: Контроллерский сервис для операций HTTP клиента.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ FORBIDDEN (Обязательно)
 .*Zendesk-Subdomain*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Subdomain Name
+*DISPLAY NAME (Отображаемое наименование):*:: Subdomain Name (Поддомен)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Name of the Zendesk subdomain.
+*DESCRIPTION (Описание):*:: Имя поддомена Zendesk.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ FORBIDDEN (Обязательно)
 .*Zendesk-User*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: User Name
+*DISPLAY NAME (Отображаемое наименование):*:: User Name (Пользователь)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Login user to Zendesk subdomain.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,23 +71,23 @@ FORBIDDEN (Обязательно)
 .*Zendesk-Authentication-Type-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Authentication Type
+*DISPLAY NAME (Отображаемое наименование):*:: Authentication Type (Тип аутентификации)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Type of authentication to Zendesk API.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Password: Password of Zendesk login user. 
+* Password (Пароль): Password of Zendesk login user. 
 
-* Token: Authentication token generated in Zendesk Admin menu for API access. 
+* Token (Токен): Authentication token generated in Zendesk Admin menu for API access. 
 
 
 [horizontal]
@@ -96,14 +96,14 @@ FORBIDDEN (Обязательно)
 .*Zendesk-Authentication-Value-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Authentication Credential
+*DISPLAY NAME (Отображаемое наименование):*:: Authentication Credential (Аутентификация учетных данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Password or authentication token for Zendesk login user.
+*DESCRIPTION (Описание):*:: Пароль или аутентификационный токен для входа пользователя Zendesk.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -113,23 +113,23 @@ FORBIDDEN (Обязательно)
 .*Zendesk-Export-Method*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Export Method
+*DISPLAY NAME (Отображаемое наименование):*:: Export Method (Экспортный метод)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Method for incremental export.
+*DESCRIPTION (Описание):*:: Method for incremental export. (Метод для поэтапного экспорта)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Cursor Based: In cursor-based incremental exports, each page of results includes an "after" cursor pointer to use as the starting cursor for the next page of results. 
+* Cursor Based (На основе курсора): In cursor-based incremental exports, each page of results includes an "after" cursor pointer to use as the starting cursor for the next page of results. (В поэтапных экспортах на основе курсора каждая страница результатов включает указатель курсора "after", который следует использовать в качестве начального курсора для следующей страницы результатов.) 
 
-* Time Based: In time-based incremental exports, each page of results includes an end time to use as the start time for the next page of results. 
+* Time Based (На основе времени): In time-based incremental exports, each page of results includes an end time to use as the start time for the next page of results. (В поэтапных экспортах на основе времени каждая страница результатов включает время окончания для использования в качестве начального времени для следующей страницы результатов.) 
 
 
 [horizontal]
@@ -138,35 +138,35 @@ FORBIDDEN (Обязательно)
 .*Zendesk-Resource*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Resource
+*DISPLAY NAME (Отображаемое наименование):*:: Resource (Ресурс)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The particular Zendesk resource which is meant to be exported.
+*DESCRIPTION (Описание):*:: Определенный ресурс Zendesk, который предназначен для экспорта.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Tickets: Tickets are the means through which end users (customers) communicate with agents in Zendesk Support. 
+* Tickets (Билеты): Tickets служат средством общения между конечными пользователями (клиентами) и агентами в Zendesk Support. 
 
-* Ticket Events: Stream of changes that occurred on tickets. Each event is tied to an update on a ticket and contains all the fields that were updated in that change. 
+* Ticket Events (События билетов): Поток изменений, которые произошли с билетами. Каждое событие связано с обновлением билета и содержит все поля, которые были обновлены в этом изменении. 
 
-* Ticket Metric Events: Ticket metric events API can be used to track reply times, agent work times, and requester wait times. 
+* Ticket Metric Events (События метрик билетов): API событий метрик билетов можно использовать для отслеживания времени ответа, работы агента и ожидания запроса. 
 
-* Users: Zendesk Support has three types of users: end users (customers), agents, and administrators. 
+* Users (Пользователи): В Zendesk Support есть три типа пользователей: конечные пользователи (клиенты), агенты и администраторы. 
 
-* Organizations: Just as agents can be segmented into groups in Zendesk Support, customers (end-users) can be segmented into organizations. 
+* Organizations (Организации): Так же, как агенты могут быть сгруппированы в группы в Zendesk Support, клиенты (конечные пользователи) могут быть сгруппированы в организации. 
 
-* Articles: Articles are content items such as help topics or tech notes contained in sections. 
+* Articles (Статьи): Статьи представляют собой элементы контента, такие как темы помощи или технические заметки, которые содержатся в разделах. 
 
-* NPS - Responses: When a recipient responds to an NPS survey, their rating, comment, and last survey date are captured. 
+* NPS - Responses (NPS - Ответы): Когда получатель отвечает на опрос NPS, фиксируются его оценка, комментарий и дата последнего опроса. 
 
-* NPS - Recipients: Every NPS survey is delivered to one or multiple recipients. For most businesses that use Zendesk Support, the recipients are customers. Agents and admins will never receive surveys. 
+* NPS - Recipients (NPS - Получатели): Каждый NPS-опрос доставляется одному или нескольким получателям. Для большинства компаний, использующих Zendesk Support, получателями являются клиенты. Агентам и администраторам опросы никогда не доставляются. 
 
 
 [horizontal]
@@ -175,14 +175,14 @@ FORBIDDEN (Обязательно)
 .*Zendesk-Query-Start-Timestamp*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Query Start Timestamp
+*DISPLAY NAME (Отображаемое наименование):*:: Query Start Timestamp (Временная метка начала запроса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Initial timestamp to query Zendesk API from in Unix timestamp seconds format.
+*DESCRIPTION (Описание):*:: Initial timestamp to query Zendesk API from in Unix timestamp seconds format. (Начальная временная метка для запроса к API Zendesk в формате Unix timestamp секунд)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -202,7 +202,7 @@ FORBIDDEN (Обязательно)
 |
 CLUSTER
 
-|Paging cursor for Zendesk API is stored. Cursor is updated after each successful request.
+|Курсор для API Zendesk хранится. Курсор обновляется после каждого успешного запроса.
 |===
 
 
@@ -218,7 +218,7 @@ CLUSTER
 |Наименование |Описание
 
 |`success`
-|For FlowFiles created as a result of a successful HTTP request.
+|Для FlowFiles, созданных в результате успешного HTTP-запроса.
 
 |===
 
@@ -233,7 +233,7 @@ CLUSTER
 |Наименование |Описание
 
 |`record.count`
-|The number of records fetched by the processor.
+|Количество записей, извлеченных процессором.
 
 |===
 

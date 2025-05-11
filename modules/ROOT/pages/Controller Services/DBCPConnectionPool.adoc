@@ -1,13 +1,13 @@
 = DBCPConnectionPool 2.2.0
 
-Provides Database Connection Pooling Service. Connections can be asked from pool and returned after usage.
+Предоставляет сервис пула подключений к базе данных. Соединения могут быть запрошены из пула и возвращены после использования.
 
 [horizontal]
 *Tags* (Ключевые слова):
 connection, database, dbcp, jdbc, pooling, store
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  True (Да) 
@@ -20,14 +20,14 @@ connection, database, dbcp, jdbc, pooling, store
 .*Database Connection Url*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Database Connection URL
+*DISPLAY NAME (Отображаемое наименование):*:: Database Connection URL (URL подключения к базе данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A database connection URL used to connect to a database. May contain database system name, host, port, database name and some parameters. The exact syntax of a database connection URL is specified by your DBMS.
+*DESCRIPTION (Описание):*:: URL-адрес для подключения к базе данных, используемый для взаимодействия с базой данных. Может содержать имя системы базы данных, хост, порт, имя базы данных и некоторые параметры. Точный синтаксис URL-адреса подключения к базе данных указывается вашим СУБД.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ connection, database, dbcp, jdbc, pooling, store
 .*Database Driver Class Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Database Driver Class Name
+*DISPLAY NAME (Отображаемое наименование):*:: Database Driver Class Name (Имя класса драйвера базы данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Database driver class name
+*DESCRIPTION (Описание):*:: Имя класса драйвера базы данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ connection, database, dbcp, jdbc, pooling, store
 .Database-Driver-Locations
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Database Driver Location(s)
+*DISPLAY NAME (Отображаемое наименование):*:: Database Driver Location(s) (Местоположение драйвера базы данных)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Comma-separated list of files/folders and/or URLs containing the driver JAR and its dependencies (if any). For example '/var/tmp/mariadb-java-client-1.1.7.jar'
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ connection, database, dbcp, jdbc, pooling, store
 .Kerberos-User-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Kerberos User Service
+*DISPLAY NAME (Отображаемое наименование):*:: Kerberos User Service (Kerberos User Service)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies the Kerberos User Controller Service that should be used for authenticating with Kerberos
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ connection, database, dbcp, jdbc, pooling, store
 .Database User
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Database User
+*DISPLAY NAME (Отображаемое наименование):*:: Database User (База данных пользователь)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Database user name
+*DESCRIPTION (Описание):*:: Имя пользователя базы данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ connection, database, dbcp, jdbc, pooling, store
 .Password
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Password
+*DISPLAY NAME (Отображаемое наименование):*:: Password (Пароль)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The password for the database user
+*DESCRIPTION (Описание):*:: Пароль для пользователя базы данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -122,48 +122,46 @@ connection, database, dbcp, jdbc, pooling, store
 .*Max Wait Time*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Wait Time
+*DISPLAY NAME (Отображаемое наименование):*:: Max Wait Time (Максимальное время ожидания)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum amount of time that the pool will wait (when there are no available connections)  for a connection to be returned before failing, or -1 to wait indefinitely. 
+*DESCRIPTION (Описание):*:: Максимальное количество времени, которое пул будет ждать (когда нет доступных соединений) перед тем, как попытаться получить соединение, или -1 для бесконечного ожидания.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *REQUIRED (Обязательный параметр):*::  True (Да) 
 ************************************************
-.*Max Total Connections*
+.Max Total Connections
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Total Connections
+*DISPLAY NAME (Отображаемое наименование):*:: Max Total Connections (Максимальное количество активных подключений, которые могут быть выделены из этого пула одновременно, или отрицательное значение для безлимитного)
+
+
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum number of active connections that can be allocated from this pool at the same time,  or negative for no limit.
-
-
-[horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
-*REQUIRED (Обязательный параметр):*::  True (Да) 
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
 ************************************************
 .Validation-Query
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Validation query
+*DISPLAY NAME (Отображаемое наименование):*:: Validation query (Проверка запроса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Validation query used to validate connections before returning them. When connection is invalid, it gets dropped and new valid connection will be returned. Note!! Using validation might have some performance penalty.
+*DESCRIPTION (Описание):*:: Запрос проверки, используемый для валидации подключений перед их возвратом. Если подключение недействительно, оно отбрасывается, и будет возвращено новое действительное подключение. Обратите внимание! Использование проверки может иметь некоторый скрытый штраф в производительности.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -173,14 +171,14 @@ connection, database, dbcp, jdbc, pooling, store
 .Dbcp-Min-Idle-Conns
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Minimum Idle Connections
+*DISPLAY NAME (Отображаемое наименование):*:: Minimum Idle Connections (Минимальное количество поддерживаемых подключений)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The minimum number of connections that can remain idle in the pool without extra ones being created. Set to or zero to allow no idle connections.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -190,14 +188,14 @@ connection, database, dbcp, jdbc, pooling, store
 .Dbcp-Max-Idle-Conns
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Idle Connections
+*DISPLAY NAME (Отображаемое наименование):*:: Max Idle Connections (Максимальное количество неактивных соединений)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The maximum number of connections that can remain idle in the pool without extra ones being released. Set to any negative value to allow unlimited idle connections.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -207,14 +205,14 @@ connection, database, dbcp, jdbc, pooling, store
 .Dbcp-Max-Conn-Lifetime
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Connection Lifetime
+*DISPLAY NAME (Отображаемое наименование):*:: Max Connection Lifetime (Максимальный срок службы соединения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum lifetime of a connection. After this time is exceeded the connection will fail the next activation, passivation or validation test. A value of zero or less means the connection has an infinite lifetime.
+*DESCRIPTION (Описание):*:: Максимальный срок службы соединения. По истечении этого времени соединение не пройдёт следующий тест активации, пассивации или валидации. Значение равное нулю или меньше означает бесконечный срок службы соединения.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -224,14 +222,14 @@ connection, database, dbcp, jdbc, pooling, store
 .Dbcp-Time-Between-Eviction-Runs
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Time Between Eviction Runs
+*DISPLAY NAME (Отображаемое наименование):*:: Time Between Eviction Runs (Период времени для сна между запусками потока очистки недогруженных соединений)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The time period to sleep between runs of the idle connection evictor thread. When non-positive, no idle connection evictor thread will be run.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -241,14 +239,14 @@ connection, database, dbcp, jdbc, pooling, store
 .Dbcp-Min-Evictable-Idle-Time
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Minimum Evictable Idle Time
+*DISPLAY NAME (Отображаемое наименование):*:: Minimum Evictable Idle Time (Минимальное время простоя для очистки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The minimum amount of time a connection may sit idle in the pool before it is eligible for eviction.
+*DESCRIPTION (Описание):*:: The minimum amount of time a connection may sit idle in the pool before it is eligible for eviction. (Минимальное количество времени, в течение которого соединение может находиться в пуле бездействия перед тем, как оно станет кандидатом на удаление)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -258,14 +256,14 @@ connection, database, dbcp, jdbc, pooling, store
 .Dbcp-Soft-Min-Evictable-Idle-Time
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Soft Minimum Evictable Idle Time
+*DISPLAY NAME (Отображаемое наименование):*:: Soft Minimum Evictable Idle Time (Минимальное время простоя соединения в пуле, после которого оно может быть вытеснено эвиктором бездействующих соединений, при условии, что в пуле остается не менее определенного количества бездействующих соединений. Когда версия этого параметра без условия 'мягкости' установлена в положительное значение, она сначала проверяется эвиктором бездействующих соединений: когда бездействующие соединения посещаются эвиктором, время простоя сначала сравнивается с ним (без учета количества бездействующих соединений в пуле), а затем — с этим мягким параметром, включая ограничение минимального количества бездействующих соединений в пуле.)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The minimum amount of time a connection may sit idle in the pool before it is eligible for eviction by the idle connection evictor, with the extra condition that at least a minimum number of idle connections remain in the pool. When the not-soft version of this option is set to a positive value, it is examined first by the idle connection evictor: when idle connections are visited by the evictor, idle time is first compared against it (without considering the number of idle connections in the pool) and then against this soft option, including the minimum idle connections constraint.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -281,12 +279,12 @@ connection, database, dbcp, jdbc, pooling, store
 |Наименование |Описание |Значение |Ограничения языка выражений
 
 |`JDBC property name`
-|JDBC driver property name and value applied to JDBC connections.
+|Имя и значение свойства драйвера JDBC, применяемого к подключениям JDBC.
 |`JDBC property value`
 |
 
 |`SENSITIVE.JDBC property name`
-|JDBC driver property name prefixed with 'SENSITIVE.' handled as a sensitive property.
+|Свойство драйвера JDBC, имя которого начинается с префикса 'SENSITIVE.', обрабатываемое как чувствительное свойство.
 |`JDBC property value`
 |
 
@@ -305,7 +303,7 @@ connection, database, dbcp, jdbc, pooling, store
 |Требуемые права |Объяснение
 
 |
-|Database Driver Location can reference resources over HTTP
+|Расположение драйвера базы данных может ссылаться на ресурсы по протоколу HTTP
 
 |===
 
@@ -314,6 +312,17 @@ connection, database, dbcp, jdbc, pooling, store
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

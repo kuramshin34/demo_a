@@ -1,13 +1,13 @@
 = DeleteAzureBlobStorage_v12 2.2.0
 
-Deletes the specified blob from Azure Blob Storage. The processor uses Azure Blob Storage client library v12.
+Удаляет указанный большой двоичный объект из Azure Blob Storage. Процессор использует библиотеку клиента Azure Blob Storage версии 12.
 
 [horizontal]
 *Tags* (Ключевые слова):
 azure, blob, cloud, microsoft, storage
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Storage-Credentials-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Storage Credentials
+*DISPLAY NAME (Отображаемое наименование):*:: Storage Credentials (Хранилище учетных данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Controller Service used to obtain Azure Blob Storage Credentials.
+*DESCRIPTION (Описание):*:: Контроллер сервис, используемый для получения учетных данных Azure Blob Storage.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Container-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Container Name
+*DISPLAY NAME (Отображаемое наименование):*:: Container Name (Контейнер)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Name of the Azure storage container. In case of PutAzureBlobStorage processor, container can be created if it does not exist.
+*DESCRIPTION (Описание):*:: Имя контейнера Azure хранения. В случае PutAzureBlobStorage процессора, контейнер может быть создан, если он не существует.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Blob-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Blob Name
+*DISPLAY NAME (Отображаемое наименование):*:: Blob Name (Название боба)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The full name of the blob
+*DESCRIPTION (Описание):*:: Полное название боба
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,25 +71,25 @@ REQUIRED (Обязательно)
 .*Delete-Snapshots-Option*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Delete Snapshots Option
+*DISPLAY NAME (Отображаемое наименование):*:: Delete Snapshots Option (Удаление опций снимков)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies the snapshot deletion options to be used when deleting a blob.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* None: Delete the blob only. 
+* None (Нет): Delete the blob only. 
 
-* Include Snapshots: Delete the blob and its snapshots. 
+* Include Snapshots (Включить снимки): Delete the blob and its snapshots. 
 
-* Delete Snapshots Only: Delete only the blob's snapshots. 
+* Delete Snapshots Only (Удалить только снимки): Delete only the blob's snapshots. 
 
 
 [horizontal]
@@ -98,14 +98,14 @@ REQUIRED (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: SOCKS, HTTP In case of SOCKS, it is not guaranteed that the selected SOCKS Version will be used by the processor.
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: SOCKS, HTTP В случае использования SOCKS, не гарантируется, что выбранная версия SOCKS будет использоваться процессором.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -129,16 +129,27 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|All successfully processed FlowFiles are routed to this relationship
+|Все успешно обработанные FlowFiles направляются в это отношение
 
 |`failure`
-|Unsuccessful operations will be transferred to the failure relationship.
+|Неуспешные операции будут переданы в отношение неудачи.
 
 |===
 
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

@@ -1,13 +1,13 @@
 = PutAzureDataExplorer 2.2.0
 
-Acts as an Azure Data Explorer sink which sends FlowFiles to the provided endpoint. Data can be sent through queued ingestion or streaming ingestion to the Azure Data Explorer cluster.
+Действует как приемник Azure Data Explorer, который отправляет FlowFiles в предоставленный конечный пункт. Данные могут быть отправлены через очередь или потоковую инжекцию в кластер Azure Data Explorer.
 
 [horizontal]
 *Tags* (Ключевые слова):
 ADX, Azure, Data, Explorer, Kusto
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Kusto Ingest Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Kusto Ingest Service
+*DISPLAY NAME (Отображаемое наименование):*:: Kusto Ingest Service (Служба ввода Kusto)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Azure Data Explorer Kusto Ingest Service
+*DESCRIPTION (Описание):*:: Azure Data Explorer Kusto Ingest Service (Служба ввода данных Azure Data Explorer для Kusto)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Database Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Database Name
+*DISPLAY NAME (Отображаемое наименование):*:: Database Name (База данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Azure Data Explorer Database Name for ingesting data
+*DESCRIPTION (Описание):*:: Azure Data Explorer Database Name для ввода данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Table Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Table Name
+*DISPLAY NAME (Отображаемое наименование):*:: Table Name (Таблица имени для ввода данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Azure Data Explorer Table Name for ingesting data
+*DESCRIPTION (Описание):*:: Azure Data Explorer Table Name for ingesting data (Имя таблицы Azure Data Explorer для ввода данных)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .Ingest Mapping Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Ingest Mapping Name
+*DISPLAY NAME (Отображаемое наименование):*:: Ingest Mapping Name (Имя сопоставления для ввода данных)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the mapping responsible for storing the data in the appropriate columns.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,45 +88,45 @@ REQUIRED (Обязательно)
 .*Data Format*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Data Format
+*DISPLAY NAME (Отображаемое наименование):*:: Data Format (Формат данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The format of the data that is sent to Azure Data Explorer. Supported formats include: avro, csv, json
+*DESCRIPTION (Описание):*:: Формат данных, отправляемых в Azure Data Explorer. Поддерживаются следующие форматы: avro, csv, json
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* avro: An Avro format with support for logical types and for the snappy compression codec 
+* avro (Avro): Формат Avro с поддержкой логических типов и кодека snappy для сжатия. 
 
-* apacheavro: An Avro format with support for logical types and for the snappy compression codec. 
+* apacheavro (Apache Avro): Формат Avro с поддержкой логических типов и кодека snappy для сжатия. 
 
-* csv: A text file with comma-separated values (,). For more information, see RFC 4180: Common Format and MIME Type for Comma-Separated Values (CSV) Files. 
+* csv (CSV): Текстовый файл с разделителями-запятыми (,). Более подробную информацию см. в RFC 4180: Common Format and MIME Type for Comma-Separated Values (CSV) Files. 
 
-* json: A text file containing JSON objects separated by \n or \r\n. For more information, see JSON Lines (JSONL). 
+* json (JSON): Текстовый файл, содержащий объекты JSON, разделенные \n или \r\n. Более подробную информацию см. в JSON Lines (JSONL). 
 
-* multijson: A text file containing a JSON array of property containers (each representing a record) or any number of property containers separated by spaces, \n or \r\n. Each property container may be spread across multiple lines. This format is preferable to JSON unless the data is not property containers. 
+* multijson (Multi-JSON): Текстовый файл, содержащий массив объектов JSON (каждый представляет собой запись) или любое количество свойств, разделенных пробелами, \n или \r\n. Каждое свойство может занимать несколько строк. Этот формат предпочтительнее, чем JSON, если данные не представляют собой объекты. 
 
-* orc: An ORC file. 
+* orc (ORC): Файл в формате ORC. 
 
-* parquet: A parquet file. 
+* parquet (Parquet): Файл в формате Parquet. 
 
-* psv: A text file with values separated by vertical bars (|). 
+* psv (PSV): Текстовый файл с разделителями-вертикальными чертами (|). 
 
-* scsv: A text file with values separated by semicolons (;). 
+* scsv (Semi-CSV): Текстовый файл с разделителями-точками с запятой (;). 
 
-* sohsv: A text file with SOH-separated values. (SOH is the ASCII code point 1. This format is used by Hive in HDInsight). 
+* sohsv (SOH-SV): Текстовый файл с разделителями, использующими SOH (ASCII код 1). Этот формат используется Hive в HDInsight. 
 
-* tsv: A text file with tab delimited values (\t). 
+* tsv (TSV): Текстовый файл с табуляциями, разделенными \t. 
 
-* tsve: A text file with tab-delimited values (\t). A backslash (\) is used as escape character. 
+* tsve (TSVE): Текстовый файл с разделителями-табуляциями (\t). Используется обратная косая черта (\) в качестве escape-символа. 
 
-* txt: A text file with lines separated by \n. Empty lines are skipped 
+* txt (TXT): Текстовый файл с разделителями \n. Пустые строки пропускаются. 
 
 
 [horizontal]
@@ -135,23 +135,23 @@ REQUIRED (Обязательно)
 .*Partially Succeeded Routing Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Partially Succeeded Routing Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Partially Succeeded Routing Strategy (Частично Успешный Стратегия Маршрутизации)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Defines where to route FlowFiles that resulted in a partially succeeded status.
+*DESCRIPTION (Описание):*:: Определяет, куда маршрутизировать FlowFiles, которые в результате имели частично успешный статус.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* success
+* success (успех)
 
-* failure
+* failure (неудача)
 
 
 [horizontal]
@@ -160,14 +160,14 @@ REQUIRED (Обязательно)
 .*Streaming Enabled*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Streaming Enabled
+*DISPLAY NAME (Отображаемое наименование):*:: Streaming Enabled (Включено потоковое вещание)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Whether to stream data to Azure Data Explorer.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -185,23 +185,23 @@ REQUIRED (Обязательно)
 .*Ingestion Ignore First Record*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Ingestion Ignore First Record
+*DISPLAY NAME (Отображаемое наименование):*:: Ingestion Ignore First Record (Игнорировать первую запись при инжекции)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Defines whether ignore first record while ingestion.
+*DESCRIPTION (Описание):*:: Определяет, следует ли игнорировать первую запись при инжекции.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -210,23 +210,23 @@ REQUIRED (Обязательно)
 .*Poll For Ingest Status*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Poll for Ingest Status
+*DISPLAY NAME (Отображаемое наименование):*:: Poll for Ingest Status (Опрос статуса внесения)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Determines whether to poll on ingestion status after an ingestion to Azure Data Explorer is completed
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -235,14 +235,14 @@ REQUIRED (Обязательно)
 .*Ingest Status Polling Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Ingest Status Polling Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Ingest Status Polling Timeout (Время ожидания опроса статуса инжеста)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Defines the total amount time to poll for ingestion status
+*DESCRIPTION (Описание):*:: Defines the total amount time to poll for ingestion status (Определяет общее время для опроса статуса инжеста)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -252,14 +252,14 @@ REQUIRED (Обязательно)
 .*Ingest Status Polling Interval*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Ingest Status Polling Interval
+*DISPLAY NAME (Отображаемое наименование):*:: Ingest Status Polling Interval (Интервал опроса состояния инжекта)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Defines the value of interval of time to poll for ingestion status
+*DESCRIPTION (Описание):*:: Defines the value of interval of time to poll for ingestion status (Определяет значение интервала времени для опроса состояния инжекта)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -283,16 +283,27 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Ingest processing succeeded
+|Успешная инжекция данных
 
 |`failure`
-|Ingest processing failed
+|Неудачная инжекция данных
 
 |===
 
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

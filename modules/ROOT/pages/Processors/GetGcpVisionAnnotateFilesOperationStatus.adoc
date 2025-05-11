@@ -1,13 +1,13 @@
 = GetGcpVisionAnnotateFilesOperationStatus 2.2.0
 
-Retrieves the current status of an Google Vision operation.
+Извлекает текущий статус операции Google Vision.
 
 [horizontal]
 *Tags* (Ключевые слова):
 Cloud, Google, Machine Learning, Vision
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ Cloud, Google, Machine Learning, Vision
 .*Gcp-Credentials-Provider-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service
+*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service (...)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Controller Service used to obtain Google Cloud Platform credentials.
+*DESCRIPTION (Описание):*:: Сервис контроллера, используемый для получения учетных данных Google Cloud Platform.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ Cloud, Google, Machine Learning, Vision
 .*Operationkey*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: GCP Operation Key
+*DISPLAY NAME (Отображаемое наименование):*:: GCP Operation Key (Уникальный идентификатор Vision операции)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The unique identifier of the Vision operation.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -68,16 +68,16 @@ Cloud, Google, Machine Learning, Vision
 |Наименование |Описание
 
 |`running`
-|The job is currently still being processed
+|Операция в данный момент все еще обрабатывается
 
 |`success`
-|FlowFiles are routed to success relationship
+|FlowFiles направляются в отношение успеха
 
 |`failure`
-|FlowFiles are routed to failure relationship
+|FlowFiles направляются в отношение неудачи
 
 |`original`
-|Upon successful completion, the original FlowFile will be routed to this relationship.
+|После успешной завершения оригинальный FlowFile направляется в это отношение.
 
 |===
 
@@ -90,7 +90,7 @@ Cloud, Google, Machine Learning, Vision
 |Наименование |Описание
 
 |`operationKey`
-|A unique identifier of the operation designated by the Vision server.
+|Уникальный идентификатор операции, назначенный сервером Vision.
 
 |===
 

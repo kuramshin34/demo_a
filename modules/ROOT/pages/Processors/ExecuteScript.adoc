@@ -1,13 +1,13 @@
 = ExecuteScript 2.2.0
 
-Experimental - Executes a script given the flow file and a process session.  The script is responsible for handling the incoming flow file (transfer to SUCCESS or remove, e.g.) as well as any flow files created by the script. If the handling is incomplete or incorrect, the session will be rolled back. Experimental: Impact of sustained usage not yet verified.
+Экспериментальный процессор, выполняющий скрипт, данный поток и процесс сессии. Скрипт отвечает за обработку входящего потока (передача в SUCCESS или удаление, например) а также любой созданных потоков файлов. Если обработка не завершена или некорректна, сессия будет отменена. Экспериментально: Влияние долговременной эксплуатации еще не проверено.
 
 [horizontal]
 *Tags* (Ключевые слова):
 clojure, execute, groovy, script
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-ALLOWED (Обязательно)
+ALLOWED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  True (Да) 
@@ -20,23 +20,23 @@ ALLOWED (Обязательно)
 .*Script Engine*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Script Engine
+*DISPLAY NAME (Отображаемое наименование):*:: Script Engine (Скриптовый движок)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Language Engine for executing scripts
+*DESCRIPTION (Описание):*:: Языковой движок для выполнения скриптов
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Clojure: Clojure 1.8.0 [Clojure UNKNOWN] 
+* Clojure (Клоджур): Клоджур 1.8.0 [Clojure UNKNOWN] 
 
-* Groovy: Groovy 4.0.24 [Groovy Scripting Engine 2.0] 
+* Groovy (Гровли): Гровли 4.0.24 [Groovy Scripting Engine 2.0] 
 
 
 [horizontal]
@@ -45,14 +45,14 @@ ALLOWED (Обязательно)
 .Script File
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Script File
+*DISPLAY NAME (Отображаемое наименование):*:: Script File (Скриптовый файл)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Path to script file to execute. Only one of Script File or Script Body may be used
+*DESCRIPTION (Описание):*:: Путь к скриптовому файлу для выполнения. Может быть использован только один из Скриптовый файл или Скрипт тела
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -62,14 +62,14 @@ ALLOWED (Обязательно)
 .Script Body
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Script Body
+*DISPLAY NAME (Отображаемое наименование):*:: Script Body (Тело скрипта)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Body of script to execute. Only one of Script File or Script Body may be used
+*DESCRIPTION (Описание):*:: Тело скрипта для выполнения. Может быть использовано только одно из значений Script File или Script Body
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -79,14 +79,14 @@ ALLOWED (Обязательно)
 .Module Directory
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Module Directory
+*DISPLAY NAME (Отображаемое наименование):*:: Module Directory (Модульный справочник)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Comma-separated list of paths to files and/or directories which contain modules required by the script.
+*DESCRIPTION (Описание):*:: Список, разделенных запятыми путей к файлам и/или директориям, содержащих модули, необходимые для выполнения скрипта.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -102,7 +102,7 @@ ALLOWED (Обязательно)
 |Наименование |Описание |Значение |Ограничения языка выражений
 
 |`Script Engine Binding property`
-|Updates a script engine property specified by the Dynamic Property's key with the value specified by the Dynamic Property's value
+|Обновляет свойство скриптового движка, указанное ключом динамического свойства, со значением, указанным значением динамического свойства
 |`Binding property value passed to Script Runner`
 |
 
@@ -121,7 +121,7 @@ LOCAL
 
 CLUSTER
 
-|Scripts can store and retrieve state using the State Management APIs. Consult the State Manager section of the Developer's Guide for more details.
+|Скрипты могут хранить и извлекать состояние с помощью API управления состоянием. Более подробную информацию см. в разделе 'State Manager' Developer's Guide.
 |===
 
 
@@ -135,7 +135,7 @@ CLUSTER
 |Требуемые права |Объяснение
 
 |
-|Provides operator the ability to execute arbitrary code assuming all permissions that NiFi has.
+|Предоставляет оператору возможность выполнять произвольный код, принимая все разрешения, которые есть у NiFi.
 
 |===
 
@@ -148,16 +148,27 @@ CLUSTER
 |Наименование |Описание
 
 |`success`
-|FlowFiles that were successfully processed
+|Потоки, которые были успешно обработаны
 
 |`failure`
-|FlowFiles that failed to be processed
+|Потоки, которые не удалось обработать
 
 |===
 
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

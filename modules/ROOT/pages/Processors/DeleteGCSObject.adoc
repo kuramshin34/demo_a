@@ -1,13 +1,13 @@
 = DeleteGCSObject 2.2.0
 
-Deletes objects from a Google Cloud Bucket. If attempting to delete a file that does not exist, FlowFile is routed to success.
+Удаляет объекты из Google Cloud Bucket. Если попытаться удалить файл, который не существует, FlowFile будет направлен в success.
 
 [horizontal]
 *Tags* (Ключевые слова):
 delete, gcs, google, google cloud, storage
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Gcp Credentials Provider Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service
+*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service (Google Cloud Platform Учебный класс для получения учетных данных)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Controller Service used to obtain Google Cloud Platform credentials.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .Gcp-Project-Id
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Project ID
+*DISPLAY NAME (Отображаемое наименование):*:: Project ID (Проектный идентификатор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Google Cloud Project ID
+*DESCRIPTION (Описание):*:: Google Cloud Project ID (Идентификатор проекта в Google Cloud)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Gcs-Bucket*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Bucket
+*DISPLAY NAME (Отображаемое наименование):*:: Bucket (Бакет)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Bucket of the object.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .*Gcs-Key*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Key
+*DISPLAY NAME (Отображаемое наименование):*:: Key (Ключ)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Name of the object.
+*DESCRIPTION (Описание):*:: Имя объекта.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ REQUIRED (Обязательно)
 .Gcs-Generation
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Generation
+*DISPLAY NAME (Отображаемое наименование):*:: Generation (Поколение)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The generation of the object to be deleted. If null, will use latest version of the object.
+*DESCRIPTION (Описание):*:: Поколение объекта, который будет удален. Если значение null, будет использована последняя версия объекта.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ REQUIRED (Обязательно)
 .*Gcp-Retry-Count*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Number of retries
+*DISPLAY NAME (Отображаемое наименование):*:: Number of retries (Количество повторных попыток)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: How many retry attempts should be made before routing to the failure relationship.
+*DESCRIPTION (Описание):*:: How many retry attempts should be made before routing to the failure relationship. (Сколько повторных попыток следует предпринять перед тем, как передать управление в связанное отношение отказа)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -122,14 +122,14 @@ REQUIRED (Обязательно)
 .Storage-Api-Url
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Storage API URL
+*DISPLAY NAME (Отображаемое наименование):*:: Storage API URL (URL хранилища)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Overrides the default storage URL. Configuring an alternative Storage API URL also overrides the HTTP Host header on requests as described in the Google documentation for Private Service Connections.
+*DESCRIPTION (Описание):*:: Переопределяет стандартный URL-адрес хранилища. Настройка альтернативного URL-адреса Storage API также переопределяет заголовок HTTP Host в запросах, как описано в документации Google для частных сервисных подключений.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -139,14 +139,14 @@ REQUIRED (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: HTTP + AuthN
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -180,6 +180,17 @@ REQUIRED (Обязательно)
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

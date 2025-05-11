@@ -7,7 +7,7 @@ A processor which can interact with a configurable Workday Report. The processor
 Workday, report
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-ALLOWED (Обязательно)
+ALLOWED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ ALLOWED (Обязательно)
 .*Workday Report Url*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Workday Report URL
+*DISPLAY NAME (Отображаемое наименование):*:: Workday Report URL (Рабочий отчет URL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: HTTP remote URL of Workday report including a scheme of http or https, as well as a hostname or IP address with optional port and path elements.
+*DESCRIPTION (Описание):*:: HTTP удаленный URL отчета Workday, включая схему http или https, а также имя хоста или IP-адрес с необязательным портом и элементами пути.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,23 +37,23 @@ ALLOWED (Обязательно)
 .*Authorization Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Authorization Type
+*DISPLAY NAME (Отображаемое наименование):*:: Authorization Type (Тип авторизации)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The type of authorization for retrieving data from Workday resources.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Basic Auth: Used to access resources using Workday password and username. 
+* Basic Auth (Базовая аутентификация): Used to access resources using Workday password and username. 
 
-* OAuth: Used to get fresh access tokens based on a previously acquired refresh token. Requires Client ID, Client Secret and Refresh Token. 
+* OAuth (Авторизация на основе OAuth): Used to get fresh access tokens based on a previously acquired refresh token. Requires Client ID, Client Secret and Refresh Token. 
 
 
 [horizontal]
@@ -62,14 +62,14 @@ ALLOWED (Обязательно)
 .*Access Token Provider*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Access Token Provider
+*DISPLAY NAME (Отображаемое наименование):*:: Access Token Provider (Поставщик токена доступа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Enables managed retrieval of OAuth2 Bearer Token.
+*DESCRIPTION (Описание):*:: Позволяет управляемому получению OAuth2 Bearer Token.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -79,14 +79,14 @@ ALLOWED (Обязательно)
 .*Workday Username*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Workday Username
+*DISPLAY NAME (Отображаемое наименование):*:: Workday Username (Рабочий день Имя пользователя)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The username provided for authentication of Workday requests. Encoded using Base64 for HTTP Basic Authentication as described in RFC 7617.
+*DESCRIPTION (Описание):*:: Имя пользователя, предоставленное для аутентификации запросов Workday. Кодируется с использованием Base64 в соответствии с описанием RFC 7617 для HTTP Basic Authentication.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -96,14 +96,14 @@ ALLOWED (Обязательно)
 .*Workday Password*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Workday Password
+*DISPLAY NAME (Отображаемое наименование):*:: Workday Password (Пароль для аутентификации запросов Workday)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The password provided for authentication of Workday requests. Encoded using Base64 for HTTP Basic Authentication as described in RFC 7617.
+*DESCRIPTION (Описание):*:: Пароль, предоставленный для аутентификации запросов Workday. Закодирован с использованием Base64 в соответствии с RFC 7617 для HTTP Basic Authentication.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -113,14 +113,14 @@ ALLOWED (Обязательно)
 .*Web Client Service Provider*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Web Client Service Provider
+*DISPLAY NAME (Отображаемое наименование):*:: Web Client Service Provider (Веб-клиент, используемый для взаимодействия с API Workday)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Web client which is used to communicate with the Workday API.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -130,14 +130,14 @@ ALLOWED (Обязательно)
 .Record-Reader
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Чтец записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for parsing incoming data and determining the data's schema.
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера для использования при разборе входящих данных и определении схемы данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -147,14 +147,14 @@ ALLOWED (Обязательно)
 .*Record-Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Record Writer to use for serializing Records to an output FlowFile.
+*DESCRIPTION (Описание):*:: Записыватель записей для сериализации Records в FlowFile.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 

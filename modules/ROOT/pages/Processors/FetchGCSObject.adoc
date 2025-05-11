@@ -7,7 +7,7 @@ Fetches a file from a Google Cloud Bucket. Designed to be used in tandem with Li
 fetch, gcs, google, google cloud, storage
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Gcp Credentials Provider Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service
+*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service (Google Cloud Platform Учебный класс для получения учетных данных)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Controller Service used to obtain Google Cloud Platform credentials.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .Gcp-Project-Id
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Project ID
+*DISPLAY NAME (Отображаемое наименование):*:: Project ID (Проектный идентификатор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Google Cloud Project ID
+*DESCRIPTION (Описание):*:: Google Cloud Project ID (Идентификатор проекта в Google Cloud)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Gcs-Bucket*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Bucket
+*DISPLAY NAME (Отображаемое наименование):*:: Bucket (Бакет)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Bucket of the object.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .*Gcs-Key*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Key
+*DISPLAY NAME (Отображаемое наименование):*:: Key (Ключ)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Name of the object.
+*DESCRIPTION (Описание):*:: Имя объекта.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ REQUIRED (Обязательно)
 .Gcs-Generation
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Object Generation
+*DISPLAY NAME (Отображаемое наименование):*:: Объект Генерации (Object Generation)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The generation of the Object to download. If not set, the latest generation will be downloaded.
+*DESCRIPTION (Описание):*:: Генерация объекта для загрузки. Если не установлено, будет загружена последняя версия.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ REQUIRED (Обязательно)
 .Gcs-Server-Side-Encryption-Key
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Server Side Encryption Key
+*DISPLAY NAME (Отображаемое наименование):*:: Server Side Encryption Key (Серверная сторона Шифрования Ключа)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: An AES256 Key (encoded in base64) which the object has been encrypted in.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -122,14 +122,14 @@ REQUIRED (Обязательно)
 .Gcs-Object-Range-Start
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Range Start
+*DISPLAY NAME (Отображаемое наименование):*:: Range Start (Начало диапазона)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The byte position at which to start reading from the object. An empty value or a value of zero will start reading at the beginning of the object.
+*DESCRIPTION (Описание):*:: Позиция байта, с которой следует начать чтение объекта. Пустое значение или значение нуля приведут к чтению с начала объекта.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -139,14 +139,14 @@ REQUIRED (Обязательно)
 .Gcs-Object-Range-Length
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Range Length
+*DISPLAY NAME (Отображаемое наименование):*:: Range Length (Длина диапазона)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The number of bytes to download from the object, starting from the Range Start. An empty value or a value that extends beyond the end of the object will read to the end of the object.
+*DESCRIPTION (Описание):*:: Количество байтов для загрузки из объекта, начиная с Range Start. Пустое значение или значение, выходящее за пределы объекта, прочитает до конца объекта.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -156,14 +156,14 @@ REQUIRED (Обязательно)
 .*Gcp-Retry-Count*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Number of retries
+*DISPLAY NAME (Отображаемое наименование):*:: Number of retries (Количество повторных попыток)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: How many retry attempts should be made before routing to the failure relationship.
+*DESCRIPTION (Описание):*:: How many retry attempts should be made before routing to the failure relationship. (Сколько повторных попыток следует предпринять перед тем, как передать управление в связанное отношение отказа)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -173,14 +173,14 @@ REQUIRED (Обязательно)
 .Storage-Api-Url
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Storage API URL
+*DISPLAY NAME (Отображаемое наименование):*:: Storage API URL (URL хранилища)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Overrides the default storage URL. Configuring an alternative Storage API URL also overrides the HTTP Host header on requests as described in the Google documentation for Private Service Connections.
+*DESCRIPTION (Описание):*:: Переопределяет стандартный URL-адрес хранилища. Настройка альтернативного URL-адреса Storage API также переопределяет заголовок HTTP Host в запросах, как описано в документации Google для частных сервисных подключений.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -190,14 +190,14 @@ REQUIRED (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: HTTP + AuthN
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 

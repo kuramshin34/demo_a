@@ -1,13 +1,13 @@
 = ValidateRecord 2.2.0
 
-Validates the Records of an incoming FlowFile against a given schema. All records that adhere to the schema are routed to the "valid" relationship while records that do not adhere to the schema are routed to the "invalid" relationship. It is therefore possible for a single incoming FlowFile to be split into two individual FlowFiles if some records are valid according to the schema and others are not. Any FlowFile that is routed to the "invalid" relationship will emit a ROUTE Provenance Event with the Details field populated to explain why records were invalid. In addition, to gain further explanation of why records were invalid, DEBUG-level logging can be enabled for the "org.apache.nifi.processors.standard.ValidateRecord" logger.
+Проверяет записи входящего FlowFile на соответствие заданной схеме. Все записи, которые соответствуют схеме, передаются в отношение "valid", а те, которые не соответствуют, — в отношение "invalid". Таким образом, один входящий FlowFile может быть разделен на две отдельные FlowFiles, если некоторые записи соответствуют схеме, а другие — нет. Любая FlowFile, которая передается в отношение "invalid", испускает событие Provenance ROUTE с полем Details, заполненным объяснением, почему записи были недопустимыми. Кроме того, для дальнейшего изучения причин несоответствия записей можно включить режим отладки (DEBUG-level logging) для журнала "org.apache.nifi.processors.standard.ValidateRecord".
 
 [horizontal]
 *Tags* (Ключевые слова):
 record, schema, validate
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Record-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Записыватель данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for reading incoming data
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера для использования при чтении входящих данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Record-Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records. Regardless of the Controller Service schema access configuration, the schema that is used to validate record is used to write the valid results.
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для использования при записи записей. Независимо от конфигурации схемы доступа к Controller Service, схема, используемая для проверки записи действительных результатов.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .Invalid-Record-Writer
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer for Invalid Records
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer for Invalid Records (Записыватель для недопустимых записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If specified, this Controller Service will be used to write out any records that are invalid. If not specified, the writer specified by the "Record Writer" property will be used with the schema used to read the input records. This is useful, for example, when the configured Record Writer cannot write data that does not adhere to its schema (as is the case with Avro) or when it is desirable to keep invalid records in their original format while converting valid records to another format.
+*DESCRIPTION (Описание):*:: Если указан, этот сервис контроллера будет использоваться для записи любых недопустимых записей. Если не указано, то будет использован писатель, указанный свойством "Record Writer", вместе с схемой, используемой для чтения входных записей. Это полезно, например, когда настроенный писатель записей не может записывать данные, не соответствующие своей схеме (что характерно для Avro) или когда желательно хранить недопустимые записи в их исходном формате при преобразовании допустимых записей в другой формат.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,25 +71,25 @@ REQUIRED (Обязательно)
 .*Schema-Access-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy (Схема доступа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how to obtain the schema that should be used to validate records
+*DESCRIPTION (Описание):*:: Определяет, как получить схему, которая должна использоваться для проверки записей
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Use Reader's Schema: The schema to validate the data against is determined by asking the configured Record Reader for its schema 
+* Использовать схему читателя (Use Reader's Schema): Схема, которая должна использоваться для проверки данных, определяется конфигурируемым объектом Record Reader. 
 
-* Use 'Schema Name' Property: The name of the Schema to use is specified by the 'Schema Name' Property. The value of this property is used to lookup the Schema in the configured Schema Registry service. 
+* Использовать свойство 'Имя схемы' (Use 'Schema Name' Property): Имя схемы указывается свойством 'Имя схемы'. Значение этого свойства используется для поиска схемы в конфигурируемом сервисе регистрации схем (Schema Registry service). 
 
-* Use 'Schema Text' Property: The text of the Schema itself is specified by the 'Schema Text' Property. The value of this property must be a valid Avro Schema. If Expression Language is used, the value of the 'Schema Text' property must be valid after substituting the expressions. 
+* Использовать свойство 'Текст схемы' (Use 'Schema Text' Property): Текст самой схемы указывается свойством 'Текст схемы'. Значение этого свойства должно быть допустимой Avro-схемой. Если используется Expression Language, значение свойства 'Текст схемы' должно быть действительным после подстановки выражений. 
 
 
 [horizontal]
@@ -98,14 +98,14 @@ REQUIRED (Обязательно)
 .Schema-Registry
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry (Реестър на схеми)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for the Schema Registry
+*DESCRIPTION (Описание):*:: Определя контролера за услуга, който да се използва за реестра на схемите
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -115,14 +115,14 @@ REQUIRED (Обязательно)
 .Schema-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Name
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Name (Схема имени)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the name of the schema to lookup in the Schema Registry property
+*DESCRIPTION (Описание):*:: Указывает имя схемы для поиска в свойстве Реестра схем
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -132,14 +132,14 @@ REQUIRED (Обязательно)
 .Schema-Branch
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Branch
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Branch (Схема ветки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the name of the branch to use when looking up the schema in the Schema Registry property. If the chosen Schema Registry does not support branching, this value will be ignored.
+*DESCRIPTION (Описание):*:: Указывает имя ветки, которую следует использовать при поиске схемы в свойстве Схемарегистр. Если выбранная Схемарегистр не поддерживает ветвление, это значение будет проигнорировано.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -149,14 +149,14 @@ REQUIRED (Обязательно)
 .Schema-Version
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Version
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Version (Схема версии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the version of the schema to lookup in the Schema Registry. If not specified then the latest version of the schema will be retrieved.
+*DESCRIPTION (Описание):*:: Указывает версию схемы для поиска в Реестре схем. Если не указано, будет получена последняя версия схемы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -166,14 +166,14 @@ REQUIRED (Обязательно)
 .Schema-Text
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Text
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Text (Схема текста)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The text of an Avro-formatted Schema
+*DESCRIPTION (Описание):*:: Текст Avro-формамата схемы
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -183,23 +183,23 @@ REQUIRED (Обязательно)
 .*Allow-Extra-Fields*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Allow Extra Fields
+*DISPLAY NAME (Отображаемое наименование):*:: Allow Extra Fields (Разрешить дополнительные поля)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If the incoming data has fields that are not present in the schema, this property determines whether or not the Record is valid. If true, the Record is still valid. If false, the Record will be invalid due to the extra fields.
+*DESCRIPTION (Описание):*:: Если входящие данные содержат поля, которые отсутствуют в схеме, это свойство определяет, является ли запись действительной. Если true, запись все еще действительна. Если false, запись будет недействительной из-за дополнительных полей.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -208,14 +208,14 @@ REQUIRED (Обязательно)
 .*Strict-Type-Checking*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Strict Type Checking
+*DISPLAY NAME (Отображаемое наименование):*:: Строгая проверка типов (Strict Type Checking)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If the incoming data has a Record where a field is not of the correct type, this property determines how to handle the Record. If true, the Record will be considered invalid. If false, the Record will be considered valid and the field will be coerced into the correct type (if possible, according to the type coercion supported by the Record Writer). This property controls how the data is validated against the validation schema.
+*DESCRIPTION (Описание):*:: Если в поступающих данных есть запись, где поле имеет неправильный тип, это свойство определяет, как обрабатывать запись. Если true, запись будет считаться недопустимой. Если false, запись будет считаться допустимой, и поле будет приведено к правильному типу (если это возможно, в соответствии с преобразованием типов, поддерживаемым записывающим Record). Это свойство контролирует, как данные проверяются по схеме валидации.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -233,14 +233,14 @@ REQUIRED (Обязательно)
 .*Coerce-Types*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Force Types From Reader's Schema
+*DISPLAY NAME (Отображаемое наименование):*:: Force Types From Reader's Schema (Принудительное использование типов из схемы читателя)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If enabled, the processor will coerce every field to the type specified in the Reader's schema. If the value of a field cannot be coerced to the type, the field will be skipped (will not be read from the input data), thus will not appear in the output. If not enabled, then every field will appear in the output but their types may differ from what is specified in the schema. For details please see the Additional Details page of the processor's Help. This property controls how the data is read by the specified Record Reader.
+*DESCRIPTION (Описание):*:: Если это включено, процессор будет принудительно приводить каждое поле к указанному в схеме читателя типу. Если значение поля не может быть приведено к указанному типу, поле будет пропущено (не будет читаться из входных данных), таким образом, оно не появится в выходе. Если отключено, то каждое поле появится в выходе, но их типы могут отличаться от указанных в схеме. Подробнее см. страницу помощи процессора.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -258,14 +258,14 @@ REQUIRED (Обязательно)
 .Validation-Details-Attribute-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Validation Details Attribute Name
+*DISPLAY NAME (Отображаемое наименование):*:: Validation Details Attribute Name (Имя атрибута деталей валидации)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If specified, when a validation error occurs, this attribute name will be used to leave the details. The number of characters will be limited by the property 'Maximum Validation Details Length'.
+*DESCRIPTION (Описание):*:: Если указано, при возникновении ошибки валидации это имя атрибута будет использоваться для оставления деталей. Количество символов будет ограничено свойством 'Maximum Validation Details Length'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -275,14 +275,14 @@ REQUIRED (Обязательно)
 .Maximum-Validation-Details-Length
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Validation Details Length
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Validation Details Length (Максимальная длина деталей валидации)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the maximum number of characters that validation details value can have. Any characters beyond the max will be truncated. This property is only used if 'Validation Details Attribute Name' is set
+*DESCRIPTION (Описание):*:: Указывает максимальное количество символов, которое может иметь значение атрибута деталей валидации. Любые символы за пределами максимума будут усечены. Это свойство используется только если установлено 'Имя атрибута деталей валидации'
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -306,13 +306,13 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`failure`
-|If the records cannot be read, validated, or written, for any reason, the original FlowFile will be routed to this relationship
+|Если записи не могут быть прочитаны, проверены или записаны по какой-либо причине, исходная FlowFile будет направлена в это отношение
 
 |`invalid`
-|Records that are not valid according to the schema will be routed to this relationship
+|Записи, которые не соответствуют схеме, будут направлены в это отношение
 
 |`valid`
-|Records that are valid according to the schema will be routed to this relationship
+|Записи, которые соответствуют схеме, будут направлены в это отношение
 
 |===
 
@@ -327,10 +327,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`mime.type`
-|Sets the mime.type attribute to the MIME Type specified by the Record Writer
+|Устанавливает атрибут mime.type в указанный MIME-тип записью
 
 |`record.count`
-|The number of records in the FlowFile routed to a relationship
+|Количество записей в FlowFile, направленном в отношение
 
 |===
 

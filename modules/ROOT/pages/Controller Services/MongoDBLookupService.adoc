@@ -1,16 +1,16 @@
 = MongoDBLookupService 2.2.0
 
-Provides a lookup service based around MongoDB. Each key that is specified 
-will be added to a query as-is. For example, if you specify the two keys, 
-user and email, the resulting query will be { "user": "tester", "email": "tester@test.com" }.
-The query is limited to the first result (findOne in the Mongo documentation). If no "Lookup Value Field" is specified then the entire MongoDB result document minus the _id field will be returned as a record.
+Предоставляет сервис поиска на основе MongoDB. Каждый ключ, указанный в 
+запросе, будет добавлен как есть. Например, если вы укажете два ключа: 
+пользователь и электронная почта, результирующий запрос будет иметь вид { "user": "tester", "email": "tester@test.com" }.
+Запрос ограничен первым результатом (findOne в документации MongoDB). Если не указан "Lookup Value Field", то вся документация MongoDB без поля _id будет возвращена как запись.
 
 [horizontal]
 *Tags* (Ключевые слова):
 lookup, mongo, mongodb, record
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -23,25 +23,25 @@ lookup, mongo, mongodb, record
 .*Schema-Access-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy (Стратегия доступа к схеме)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how to obtain the schema that is to be used for interpreting the data.
+*DESCRIPTION (Описание):*:: Определяет, как получить схему для интерпретации данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Use 'Schema Name' Property: The name of the Schema to use is specified by the 'Schema Name' Property. The value of this property is used to lookup the Schema in the configured Schema Registry service. 
+* Use 'Schema Name' Property (Использовать свойство 'Имя схемы'): Имя схемы, которое указывается в свойстве 'Имя схемы'. Значение этого свойства используется для поиска схемы в настроенном сервисе реестра схем. 
 
-* Use 'Schema Text' Property: The text of the Schema itself is specified by the 'Schema Text' Property. The value of this property must be a valid Avro Schema. If Expression Language is used, the value of the 'Schema Text' property must be valid after substituting the expressions. 
+* Use 'Schema Text' Property (Использовать свойство 'Текст схемы'): Текст самой схемы указывается в свойстве 'Текст схемы'. Значение этого свойства должно быть допустимой Avro схемой. Если используется язык выражений, значение свойства 'Текст схемы' должно быть действительным после замены выражений. 
 
-* Infer from Result
+* Infer from Result (Инфер от результата)
 
 
 [horizontal]
@@ -50,14 +50,14 @@ lookup, mongo, mongodb, record
 .Schema-Registry
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry (Реестър на схеми)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for the Schema Registry
+*DESCRIPTION (Описание):*:: Определя контролера за услуга, който да се използва за реестра на схемите
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -67,14 +67,14 @@ lookup, mongo, mongodb, record
 .Schema-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Name
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Name (Схема имени)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the name of the schema to lookup in the Schema Registry property
+*DESCRIPTION (Описание):*:: Указывает имя схемы для поиска в свойстве Реестра схем
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -84,14 +84,14 @@ lookup, mongo, mongodb, record
 .Schema-Version
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Version
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Version (Схема версии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the version of the schema to lookup in the Schema Registry. If not specified then the latest version of the schema will be retrieved.
+*DESCRIPTION (Описание):*:: Указывает версию схемы для поиска в Реестре схем. Если не указано, будет получена последняя версия схемы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -101,14 +101,14 @@ lookup, mongo, mongodb, record
 .Schema-Branch
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Branch
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Branch (Схема ветки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the name of the branch to use when looking up the schema in the Schema Registry property. If the chosen Schema Registry does not support branching, this value will be ignored.
+*DESCRIPTION (Описание):*:: Указывает имя ветки, которую следует использовать при поиске схемы в свойстве Схемарегистр. Если выбранная Схемарегистр не поддерживает ветвление, это значение будет проигнорировано.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -118,14 +118,14 @@ lookup, mongo, mongodb, record
 .Schema-Text
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Text
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Text (Схема текста)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The text of an Avro-formatted Schema
+*DESCRIPTION (Описание):*:: Текст Avro-формамата схемы
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -135,14 +135,14 @@ lookup, mongo, mongodb, record
 .*Mongo-Lookup-Client-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Client Service
+*DISPLAY NAME (Отображаемое наименование):*:: Client Service (Клиентская служба)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A MongoDB controller service to use with this lookup service.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -152,14 +152,14 @@ lookup, mongo, mongodb, record
 .*Mongo-Db-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Mongo Database Name
+*DISPLAY NAME (Отображаемое наименование):*:: Mongo Database Name (Имя базы данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the database to use
+*DESCRIPTION (Описание):*:: Название базы данных, которую следует использовать
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -169,14 +169,14 @@ lookup, mongo, mongodb, record
 .*Mongo-Collection-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Mongo Collection Name
+*DISPLAY NAME (Отображаемое наименование):*:: Mongo Collection Name (Имя коллекции)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the collection to use
+*DESCRIPTION (Описание):*:: Название коллекции для использования
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -186,14 +186,14 @@ lookup, mongo, mongodb, record
 .Mongo-Lookup-Value-Field
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Lookup Value Field
+*DISPLAY NAME (Отображаемое наименование):*:: Lookup Value Field (Поле значения для поиска)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The field whose value will be returned when the lookup key(s) match a record. If not specified then the entire MongoDB result document minus the _id field will be returned as a record.
+*DESCRIPTION (Описание):*:: Поле, значение которого будет возвращено при соответствии ключу(ям) поиска. Если не указано, то будет возвращен весь документ MongoDB за вычетом поля _id в качестве записи.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -203,14 +203,14 @@ lookup, mongo, mongodb, record
 .Mongo-Lookup-Projection
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Projection
+*DISPLAY NAME (Отображаемое наименование):*:: Projection (Проекция)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies a projection for limiting which fields will be returned.
+*DESCRIPTION (Описание):*:: Указывает проекцию для ограничения полей, которые будут возвращены.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -230,6 +230,17 @@ lookup, mongo, mongodb, record
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

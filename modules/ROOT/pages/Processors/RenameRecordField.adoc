@@ -1,13 +1,13 @@
 = RenameRecordField 2.2.0
 
-Renames one or more fields in each Record of a FlowFile. This Processor requires that at least one user-defined Property be added. The name of the Property should indicate a RecordPath that determines the field that should be updated. The value of the Property is the new name to assign to the Record Field that matches the RecordPath. The property value may use Expression Language to reference FlowFile attributes as well as the variables `field.name`, `field.value`, `field.type`, and `record.index`
+Переименовывает одно или несколько полей в каждом Record FlowFile. Этот процессор требует, чтобы было добавлено хотя бы одно пользовательское свойство. Имя свойства должно указывать на путь записи, который определяет поле для обновления. Значение свойства — это новое имя, которое будет присвоено полю записи, соответствующему пути записи. Свойство значения может использовать выражения языка для ссылки на атрибуты FlowFile, а также переменные `field.name`, `field.value`, `field.type` и `record.index`.
 
 [horizontal]
 *Tags* (Ключевые слова):
 avro, csv, field, generic, json, log, logs, record, rename, schema, update
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Record Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for reading incoming data
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для использования при чтении входящих данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Record Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для использования при записи записей
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -60,7 +60,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание |Значение |Ограничения языка выражений
 
 |`A RecordPath that identifies which field(s) to update`
-|Allows users to specify a new name for each field that matches the RecordPath.
+|Позволяет пользователям указать новое имя для каждого поля, соответствующего пути записи.
 |`The new name to assign to the Record field`
 |
 
@@ -81,10 +81,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|FlowFiles that are successfully transformed will be routed to this relationship
+|FlowFiles, которые успешно преобразованы, будут направлены в это отношение
 
 |`failure`
-|If a FlowFile cannot be transformed from the configured input format to the configured output format, the unchanged FlowFile will be routed to this relationship
+|Если FlowFile не может быть преобразован из конфигурированного входного формата в требуемый выходной формат, неизмененный FlowFile будет направлен в это отношение
 
 |===
 
@@ -99,7 +99,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`record.index`
-|This attribute provides the current row index and is only available inside the literal value expression.
+|Это атрибут предоставляет текущий индекс строки и доступен только внутри выражения литерального значения.
 
 |===
 
@@ -110,7 +110,7 @@ REQUIRED (Обязательно)
 
 
 
-=== Rename a field in each Record to a specific, known name.
+=== Переименовать поле в каждом Record в конкретное, известное имя.
 
 
 NOTE: 
@@ -131,16 +131,15 @@ name
 Configure the 'Record Reader' according to the input format.
 Configure the 'Record Writer' according to the desired output format.
 
-Add a property to the Processor such that the name of the property is a RecordPath to identifies the field to rename. The value of the property is the new name of the property.
+Add a property to the Processor such that the name of the property is a RecordPath to identifies the field to rename. The value of the property is the new name to assign to the Record Field that matches the RecordPath.
 
 For example, to rename the `name` field to `full_name`, add a property with a name of `/name` and a value of `full_name`.
 
 Many properties can be added following this pattern in order to rename multiple fields.
-
 ====
 
 
-=== Rename a field in each Record to a name that is derived from a FlowFile attribute.
+=== Переименовать поле в каждом Record в имя, которое является производным от атрибута FlowFile.
 
 
 NOTE: 
@@ -167,14 +166,13 @@ Add a property to the Processor such that the name of the property is a RecordPa
 For example, to rename the `addr` field to whatever value is stored in the `preferred_address_name` attribute, add a property with a name of `/name` and a value of `${preferred_address_name}`.
 
 Many properties can be added following this pattern in order to rename multiple fields.
-
 ====
 
 
-=== Rename a field in each Record to a new name that is derived from the current field name.
+=== Переименовать поле в каждом Record в новое имя, которое является производным от текущего имени поля.
 
 
-NOTE: This might be used, for example, to add a prefix or a suffix to some fields, or to transform the name of the field by making it uppercase.
+NOTE: Это может быть использовано, например, для добавления префикса или суффикса к некоторым полям или для трансформации имени поля в верхний регистр.
 
 
 
@@ -196,10 +194,7 @@ Add a property to the Processor such that the name of the property is a RecordPa
 
 For example, to rename all fields with a prefix of `pre_`, we add a property named `/*` and a value of `pre_${field.name}`. If we would like this to happen recursively, to nested fields as well, we use a property name of `//*` with the value of `pre_${field.name}`.
 
-To make all field names uppercase, we can add a property named `//*` with a value of `${field.name:toUpper()}`.
-
-Many properties can be added following this pattern in order to rename multiple fields.
-
+To make all field names uppercase, we can add a property named `//*` with a value of `${field.name:toUpper()}`. Many properties can be added following this pattern in order to rename multiple fields.
 ====
 
 

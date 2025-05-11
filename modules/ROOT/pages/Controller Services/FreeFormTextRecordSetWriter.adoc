@@ -1,13 +1,13 @@
 = FreeFormTextRecordSetWriter 2.2.0
 
-Writes the contents of a RecordSet as free-form text. The configured text is able to make use of the Expression Language to reference each of the fields that are available in a Record, as well as the attributes in the FlowFile and variables. If there is a name collision, the field name/value is used before attributes or variables. Each record in the RecordSet will be separated by a single newline character.
+Записывает содержимое набора записей в свободной форме текста. Настроенный текст может использовать выражение для ссылки на каждое из полей, доступных в записи, а также атрибуты в потоке файлов и переменные. Если возникает коллизия имен, используется имя поля/значение перед атрибутами или переменными. Каждая запись в наборе записей будет отделена одним символом новой строки.
 
 [horizontal]
 *Tags* (Ключевые слова):
 el, expression, freeform, language, record, recordset, resultset, serialize, text, writer
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ el, expression, freeform, language, record, recordset, resultset, serialize, tex
 .*Text*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Text
+*DISPLAY NAME (Отображаемое наименование):*:: Text (Текст для записи результатов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The text to use when writing the results. This property will evaluate the Expression Language using any of the fields available in a Record.
+*DESCRIPTION (Описание):*:: Текст, который будет использоваться при написании результатов. Это свойство оценивает Язык Выражений, используя любые доступные поля в записи.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ el, expression, freeform, language, record, recordset, resultset, serialize, tex
 .*Character Set*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Символьный набор)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Character set to use when writing the data to the FlowFile
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -64,6 +64,17 @@ el, expression, freeform, language, record, recordset, resultset, serialize, tex
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

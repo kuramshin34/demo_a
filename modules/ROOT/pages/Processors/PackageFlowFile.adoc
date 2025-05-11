@@ -1,13 +1,13 @@
 = PackageFlowFile 2.2.0
 
-This processor will package FlowFile attributes and content into an output FlowFile that can be exported from NiFi and imported back into NiFi, preserving the original attributes and content.
+Этот процессор будет упаковывать атрибуты и содержимое FlowFile в выходной FlowFile, который может быть экспортирован из NiFi и импортирован обратно в NiFi, сохраняя оригинальные атрибуты и содержимое.
 
 [horizontal]
 *Tags* (Ключевые слова):
 attributes, flowfile, flowfile-stream, flowfile-stream-v3, package
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Max-Batch-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Batch Size
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Batch Size (Максимальный размер пакета)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Maximum number of FlowFiles to package into one output FlowFile using a best effort, non guaranteed approach. Multiple input queues can produce unexpected batching behavior.
+*DESCRIPTION (Описание):*:: Максимальное количество FlowFiles для упаковки в один выходной FlowFile с использованием наилучшего усилия, не гарантированного подхода. Несколько входных очередей могут вызывать неожиданное поведение пакетирования.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -51,10 +51,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|The packaged FlowFile is sent to this relationship
+|Упакованный FlowFile отправляется в это отношение
 
 |`original`
-|The FlowFiles that were used to create the package are sent to this relationship
+|FlowFiles, которые использовались для создания пакета, отправляются в это отношение
 
 |===
 
@@ -69,7 +69,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`mime.type`
-|The mime.type will be changed to application/flowfile-v3
+|Поле mime.type будет изменено на application/flowfile-v3
 
 |===
 
@@ -80,10 +80,10 @@ REQUIRED (Обязательно)
 == Варианты использования, включающие другие компоненты
 
 
-=== Send FlowFile content and attributes from one NiFi instance to another NiFi instance.
+=== Отправлять содержимое и атрибуты FlowFile с одного экземпляра NiFi на другой экземпляр NiFi.
 
 
-NOTE: A Remote Process Group is preferred to send FlowFiles between two NiFi instances, but an alternative is to use PackageFlowFile then InvokeHTTP sending to ListenHTTP.
+NOTE: Для отправки FlowFiles между двумя экземплярами NiFi предпочтительно использовать Remote Process Group, но альтернативой является использование PackageFlowFile, затем InvokeHTTP отправляющий в ListenHTTP.
 
 
 
@@ -106,7 +106,7 @@ transfer
 
 
 
-=== Export FlowFile content and attributes from NiFi to external storage and reimport.
+=== Экспортировать содержимое и атрибуты FlowFile из NiFi в внешнее хранилище и затем импортировать.
 
 
 NOTE: 

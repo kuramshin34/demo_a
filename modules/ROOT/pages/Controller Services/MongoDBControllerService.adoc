@@ -1,13 +1,13 @@
 = MongoDBControllerService 2.2.0
 
-Provides a controller service that configures a connection to MongoDB and provides access to that connection to other Mongo-related components.
+Предоставляет сервис контроллера, который настраивает соединение с MongoDB и предоставляет доступ к этому соединению для других компонентов, связанных с Mongo.
 
 [horizontal]
 *Tags* (Ключевые слова):
 mongo, mongodb, service
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ mongo, mongodb, service
 .*Mongo-Uri*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Mongo URI
+*DISPLAY NAME (Отображаемое наименование):*:: Mongo URI (Монго URI)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: MongoURI, typically of the form: mongodb://host1[:port1][,host2[:port2],...]
+*DESCRIPTION (Описание):*:: MongoURI, обычно имеет вид: mongodb://host1[:port1][,host2[:port2],...]
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ mongo, mongodb, service
 .Database User
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Database User
+*DISPLAY NAME (Отображаемое наименование):*:: Database User (База данных пользователь)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Database user name
+*DESCRIPTION (Описание):*:: Имя пользователя базы данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ mongo, mongodb, service
 .Password
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Password
+*DISPLAY NAME (Отображаемое наименование):*:: Password (Пароль)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The password for the database user
+*DESCRIPTION (Описание):*:: Пароль для пользователя базы данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -71,14 +71,14 @@ mongo, mongodb, service
 .Ssl-Context-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (SSL Контекст Сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The SSL Context Service used to provide client certificate information for TLS/SSL connections.
+*DESCRIPTION (Описание):*:: The SSL Context Service used to provide client certificate information for TLS/SSL connections. (Сервис контекста SSL, используемый для предоставления информации о клиентских сертификатах для подключений TLS/SSL.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,25 +88,25 @@ mongo, mongodb, service
 .Ssl-Client-Auth
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Client Auth
+*DISPLAY NAME (Отображаемое наименование):*:: Client Auth (Клиентская аутентификация)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Client authentication policy when connecting to secure (TLS/SSL) cluster. Possible values are REQUIRED, WANT, NONE. This property is only used when an SSL Context has been defined and enabled.
+*DESCRIPTION (Описание):*:: Политика аутентификации клиента при подключении к защищенному (TLS/SSL) кластеру. Возможные значения: REQUIRED, WANT, NONE. Это свойство используется только в том случае, если определен и включен SSL-контекст.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* WANT
+* WANT (ЖЕЛАНИЕ)
 
-* REQUIRED
+* REQUIRED (ТРЕБОВАНИЕ)
 
-* NONE
+* NONE (НИКАК)
 
 
 [horizontal]
@@ -115,37 +115,37 @@ mongo, mongodb, service
 .*Mongo-Write-Concern*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Write Concern
+*DISPLAY NAME (Отображаемое наименование):*:: Write Concern (Настройки записи)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The write concern to use
+*DESCRIPTION (Описание):*:: Настройка записи, которую следует использовать
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* ACKNOWLEDGED: Write operations that use this write concern will wait for acknowledgement, using the default write concern configured on the server 
+* ACKNOWLEDGED (Подтверждено): Операции записи, которые используют эту настройку записи, будут ждать подтверждения по умолчанию, настроенного на сервере 
 
-* UNACKNOWLEDGED: Write operations that use this write concern will return as soon as the message is written to the socket. Exceptions are raised for network issues, but not server errors 
+* UNACKNOWLEDGED (Без подтверждения): Операции записи, которые используют эту настройку записи, вернутся сразу после того, как сообщение будет записано в сокет. Исключения возбуждаются для сетевых проблем, но не для ошибок сервера 
 
-* FSYNCED: Deprecated.  Use of "JOURNALED" is preferred 
+* FSYNCED (С синхронизацией): Устарело. Предпочтительнее использовать "JOURNALED" 
 
-* JOURNALED: Write operations wait for the server to group commit to the journal file on disk 
+* JOURNALED (Записано в журнал): Операции записи будут ждать, пока сервер не сгруппирует коммит к файлу журнала на диске 
 
-* REPLICA_ACKNOWLEDGED: Deprecated.  Use of "W2" is preferred 
+* REPLICA_ACKNOWLEDGED (Подтверждено репликой): Устарело. Предпочтительнее использовать "W2" 
 
-* MAJORITY: Exceptions are raised for network issues, and server errors; waits on a majority of servers for the write operation 
+* MAJORITY (Большинство): Исключения возбуждаются для сетевых проблем и ошибок сервера; ждут большинства серверов для операции записи 
 
-* W1: Write operations that use this write concern will wait for acknowledgement from a single member 
+* W1 (Подтверждено от одного члена): Операции записи, которые используют эту настройку записи, будут ждать подтверждения от одного члена 
 
-* W2: Write operations that use this write concern will wait for acknowledgement from two members 
+* W2 (Подтверждено от двух членов): Операции записи, которые используют эту настройку записи, будут ждать подтверждения от двух членов 
 
-* W3: Write operations that use this write concern will wait for acknowledgement from three members 
+* W3 (Подтверждено от трех членов): Операции записи, которые используют эту настройку записи, будут ждать подтверждения от трех членов 
 
 
 [horizontal]
@@ -164,6 +164,17 @@ mongo, mongodb, service
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

@@ -1,13 +1,13 @@
 = SlackRecordSink 2.2.0
 
-Format and send Records to a configured Channel using the Slack Post Message API. The service requires a Slack App with a Bot User configured for access to a Slack workspace. The Bot User OAuth Bearer Token is required for posting messages to Slack.
+Форматирует и отправляет записи в настроенный канал с использованием API Slack Post Message. Сервис требует конфигурации приложения Slack с настроенным ботом для доступа к рабочей области Slack. Для отправки сообщений необходим OAuth Bearer токен пользователя-бота.
 
 [horizontal]
 *Tags* (Ключевые слова):
 record, sink, slack
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ record, sink, slack
 .*Api-Url*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: API URL
+*DISPLAY NAME (Отображаемое наименование):*:: API URL (URL веб-интерфейса API для Slack, используемого для отправки текстовых сообщений в каналы.)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Slack Web API URL for posting text messages to channels. It only needs to be changed if Slack changes its API URL.
+*DESCRIPTION (Описание):*:: Slack Web API URL для отправки текстовых сообщений в каналы. Его необходимо изменить только в случае изменения URL-адреса API Slack.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ record, sink, slack
 .*Access-Token*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Access Token
+*DISPLAY NAME (Отображаемое наименование):*:: Access Token (Маркер доступа)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Bot OAuth Token used for authenticating and authorizing the Slack request sent by NiFi.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -54,14 +54,14 @@ record, sink, slack
 .*Channel-Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Channel ID
+*DISPLAY NAME (Отображаемое наименование):*:: Channel ID (Канал)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Slack channel, private group, or IM channel to send the message to. Use Channel ID instead of the name.
+*DESCRIPTION (Описание):*:: Slack канал, частная группа или личный чат для отправки сообщения. Используйте Channel ID вместо имени.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ record, sink, slack
 .*Input-Character-Set*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Input Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Input Character Set (Входной набор символов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the character set of the records used to generate the Slack message.
+*DESCRIPTION (Описание):*:: Указывает набор символов, используемых для генерации сообщения Slack.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ record, sink, slack
 .*Record-Sink-Record-Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records.
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для использования при записи записей.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ record, sink, slack
 .*Web-Service-Client-Provider*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Web Service Client Provider
+*DISPLAY NAME (Отображаемое наименование):*:: Web Service Client Provider (Веб-сервис Клиент Провайдер)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Controller service to provide HTTP client for communicating with Slack API
+*DESCRIPTION (Описание):*:: Контроллер сервис для предоставления HTTP клиента для взаимодействия с API Slack
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -132,6 +132,17 @@ record, sink, slack
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

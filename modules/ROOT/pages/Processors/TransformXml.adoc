@@ -1,13 +1,13 @@
 = TransformXml 2.2.0
 
-Applies the provided XSLT file to the FlowFile XML payload. A new FlowFile is created with transformed content and is routed to the 'success' relationship. If the XSL transform fails, the original FlowFile is routed to the 'failure' relationship
+Применяет предоставленный файл XSLT к содержимому FlowFile в формате XML. Создается новый FlowFile с преобразованным содержимым и направляется в отношение 'success'. Если трансформация XSL не выполняется, исходный FlowFile направляется в отношение 'failure'.
 
 [horizontal]
 *Tags* (Ключевые слова):
 transform, xml, xslt
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .Xslt File Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: XSLT file name
+*DISPLAY NAME (Отображаемое наименование):*:: XSLT file name (Имя файла XSLT)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Provides the name (including full path) of the XSLT file to apply to the FlowFile XML content.One of the 'XSLT file name' and 'XSLT Lookup' properties must be defined.
+*DESCRIPTION (Описание):*:: Предоставляет имя (включая полный путь) XSLT-файла, который будет применен к содержимому XML FlowFile. Одно из свойств 'XSLT file name' и 'XSLT Lookup' должно быть определено.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .Xslt-Controller
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: XSLT Lookup
+*DISPLAY NAME (Отображаемое наименование):*:: XSLT Lookup (Поиск XSLT)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Controller lookup used to store XSLT definitions. One of the 'XSLT file name' and 'XSLT Lookup' properties must be defined. WARNING: note that the lookup controller service should not be used to store large XSLT files.
+*DESCRIPTION (Описание):*:: Контроллер поиска, используемый для хранения определений XSLT. Одно из свойств 'Имя файла XSLT' и 'Поиск XSLT' должно быть определено. ВНИМАНИЕ: следует отметить, что сервис поиска контроллера не должен использоваться для хранения больших файлов XSLT.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .Xslt-Controller-Key
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: XSLT Lookup key
+*DISPLAY NAME (Отображаемое наименование):*:: XSLT Lookup key (Ключ для извлечения определения XSLT из контроллера поиска XSLT)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Key used to retrieve the XSLT definition from the XSLT lookup controller. This property must be set when using the XSLT controller property.
+*DESCRIPTION (Описание):*:: Ключ, используемый для получения определения XSLT из контроллера поиска XSLT. Это свойство должно быть установлено при использовании свойства контроллера XSLT.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -74,11 +74,11 @@ REQUIRED (Обязательно)
 *DISPLAY NAME (Отображаемое наименование):*:: Indent
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Whether or not to indent the output.
+*DESCRIPTION (Описание):*:: Определяет, следует ли форматировать вывод с отступом.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -96,14 +96,14 @@ REQUIRED (Обязательно)
 .*Secure-Processing*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Secure processing
+*DISPLAY NAME (Отображаемое наименование):*:: Secure processing (Безопасная обработка)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Whether or not to mitigate various XML-related attacks like XXE (XML External Entity) attacks.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -121,14 +121,14 @@ REQUIRED (Обязательно)
 .*Cache-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Cache size
+*DISPLAY NAME (Отображаемое наименование):*:: Cache size (Максимальное количество стилей для кэширования. Ноль отключает кэш.)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Maximum number of stylesheets to cache. Zero disables the cache.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -138,14 +138,14 @@ REQUIRED (Обязательно)
 .*Cache-Ttl-After-Last-Access*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Cache TTL after last access
+*DISPLAY NAME (Отображаемое наименование):*:: Cache TTL after last access (Время жизни кэша после последнего доступа)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The cache TTL (time-to-live) or how long to keep stylesheets in the cache after last access.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -161,7 +161,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание |Значение |Ограничения языка выражений
 
 |`An XSLT transform parameter name`
-|These XSLT parameters are passed to the transformer
+|Эти параметры XSLT передаются трансформатору
 |`An XSLT transform parameter value`
 |
 
@@ -182,10 +182,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|The FlowFile with transformed content will be routed to this relationship
+|FlowFile с преобразованным содержимым будет направлен в это отношение
 
 |`failure`
-|If a FlowFile fails processing for any reason (for example, the FlowFile is not valid XML), it will be routed to this relationship
+|Если FlowFile не обрабатывается по какой-либо причине (например, FlowFile не является действительным XML), он будет направлен в это отношение
 
 |===
 

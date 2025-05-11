@@ -1,13 +1,13 @@
 = CSVReader 2.2.0
 
-Parses CSV-formatted data, returning each row in the CSV file as a separate record. This reader allows for inferring a schema based on the first line of the CSV, if a 'header line' is present, or providing an explicit schema for interpreting the values. See Controller Service's Usage for further documentation.
+Парсит данные в формате CSV, возвращая каждую строку в файле CSV отдельным записью. Этот читатель позволяет выводить схему на основе первой линии CSV, если присутствует 'заголовочная линия', или предоставлять явную схему для интерпретации значений. См. документацию по сервису контроллера для дальнейших сведений.
 
 [horizontal]
 *Tags* (Ключевые слова):
 comma, csv, delimited, parse, reader, record, row, separated, values
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,29 +20,29 @@ comma, csv, delimited, parse, reader, record, row, separated, values
 .*Schema-Access-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy (Стратегия доступа к схеме)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how to obtain the schema that is to be used for interpreting the data.
+*DESCRIPTION (Описание):*:: Указывает, как получить схему для интерпретации данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Use 'Schema Name' Property: The name of the Schema to use is specified by the 'Schema Name' Property. The value of this property is used to lookup the Schema in the configured Schema Registry service. 
+* Использовать свойство 'Имя схемы': Имя схемы, которое указывается свойством 'Имя схемы'. Значение этого свойства используется для поиска схемы в настроенной службе реестра схем. 
 
-* Use 'Schema Text' Property: The text of the Schema itself is specified by the 'Schema Text' Property. The value of this property must be a valid Avro Schema. If Expression Language is used, the value of the 'Schema Text' property must be valid after substituting the expressions. 
+* Использовать свойство 'Текст схемы': Текст самой схемы указывается свойством 'Текст схемы'. Значение этого свойства должно быть допустимой Avro-схемой. Если используется язык выражений, значение свойства 'Текст схемы' должно быть действительным после подстановки выражений. 
 
-* Schema Reference Reader: The schema reference information will be provided through a configured Schema Reference Reader service implementation. 
+* Читатель ссылки на схему: Информация о ссылке на схему будет предоставлена через реализованную конфигурируемую службу читателя ссылок на схему. 
 
-* Use String Fields From Header: The first non-comment line of the CSV file is a header line that contains the names of the columns. The schema will be derived by using the column names in the header and assuming that all columns are of type String. 
+* Использовать строковые поля из заголовка: Первая некомментарийная строка CSV-файла является строкой заголовка, содержащей имена столбцов. Схема будет получена с использованием имен столбцов в заголовке и предположением, что все столбцы имеют тип String. 
 
-* Infer Schema: The Schema of the data will be inferred automatically when the data is read. See component Usage and Additional Details for information about how the schema is inferred. 
+* Вывести схему: Схема данных будет автоматически выведена при чтении данных. См. раздел 'Использование и дополнительные сведения' для получения информации о том, как выводится схема. 
 
 
 [horizontal]
@@ -51,14 +51,14 @@ comma, csv, delimited, parse, reader, record, row, separated, values
 .Schema-Registry
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry (Реестър на схеми)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for the Schema Registry
+*DESCRIPTION (Описание):*:: Определя контролера за услуга, който да се използва за реестра на схемите
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -68,14 +68,14 @@ comma, csv, delimited, parse, reader, record, row, separated, values
 .Schema-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Name
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Name (Схема имени)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the name of the schema to lookup in the Schema Registry property
+*DESCRIPTION (Описание):*:: Указывает имя схемы для поиска в свойстве Реестра схем
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -85,14 +85,14 @@ comma, csv, delimited, parse, reader, record, row, separated, values
 .Schema-Version
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Version
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Version (Схема версии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the version of the schema to lookup in the Schema Registry. If not specified then the latest version of the schema will be retrieved.
+*DESCRIPTION (Описание):*:: Указывает версию схемы для поиска в Реестре схем. Если не указано, будет получена последняя версия схемы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -102,14 +102,14 @@ comma, csv, delimited, parse, reader, record, row, separated, values
 .Schema-Branch
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Branch
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Branch (Схема ветки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the name of the branch to use when looking up the schema in the Schema Registry property. If the chosen Schema Registry does not support branching, this value will be ignored.
+*DESCRIPTION (Описание):*:: Указывает имя ветки, которую следует использовать при поиске схемы в свойстве Схемарегистр. Если выбранная Схемарегистр не поддерживает ветвление, это значение будет проигнорировано.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -119,14 +119,14 @@ comma, csv, delimited, parse, reader, record, row, separated, values
 .Schema-Text
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Text
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Text (Схема текста)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The text of an Avro-formatted Schema
+*DESCRIPTION (Описание):*:: Текст Avro-формамата схемы
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -136,14 +136,14 @@ comma, csv, delimited, parse, reader, record, row, separated, values
 .*Schema-Reference-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Reader (Ссылочный читатель схемы)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Service implementation responsible for reading FlowFile attributes or content to determine the Schema Reference Identifier
+*DESCRIPTION (Описание):*:: Сервис реализации, отвечающий за чтение атрибутов или содержимого FlowFile для определения идентификатора ссылки на схему
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -153,25 +153,25 @@ comma, csv, delimited, parse, reader, record, row, separated, values
 .*Csv-Reader-Csv-Parser*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: CSV Parser
+*DISPLAY NAME (Отображаемое наименование):*:: CSV Parser (Парсер CSV)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies which parser to use to read CSV records. NOTE: Different parsers may support different subsets of functionality and may also exhibit different levels of performance.
+*DESCRIPTION (Описание):*:: Указывает, какой парсер использовать для чтения записей CSV. Примечание: Разные парсеры могут поддерживать разные подмножества функциональности и могут также проявлять различные уровни производительности.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Apache Commons CSV: The CSV parser implementation from the Apache Commons CSV library. 
+* Apache Commons CSV (Апач Коммонс CSV): Реализация парсера CSV из библиотеки Apache Commons CSV. 
 
-* Jackson CSV: The CSV parser implementation from the Jackson Dataformats library. 
+* Jackson CSV (Джексон CSV): Реализация парсера CSV из библиотеки Jackson Dataformats. 
 
-* FastCSV: The CSV parser implementation from the FastCSV library. NOTE: This parser only officially supports RFC-4180, so it recommended to set the 'CSV Format' property to 'RFC 4180'. It does handle some non-compliant CSV data, for that case set the 'CSV Format' property to 'CUSTOM' and the other custom format properties (such as 'Trim Fields', 'Trim double quote', etc.) as appropriate. Be aware that this may cause errors if FastCSV doesn't handle the property settings correctly (such as 'Ignore Header'), but otherwise may process the input as expected even if the data is not fully RFC-4180 compliant. 
+* FastCSV (ФэстCSV): Реализация парсера CSV из библиотеки FastCSV. Примечание: Этот парсер официально поддерживает только RFC-4180, поэтому рекомендуется установить свойство 'CSV Format' в значение 'RFC 4180'. Он обрабатывает некоторые данные CSV, которые не соответствуют стандарту RFC-4180, поэтому в этом случае установите свойство 'CSV Format' в значение 'CUSTOM', а остальные настройки пользовательского формата (такие как 'Trim Fields', 'Trim double quote', и т.д.) соответственно. Следует быть внимательными, так как ошибки могут возникать, если FastCSV неправильно обрабатывает настройки свойств (например, 'Ignore Header'), но в противном случае он может обрабатывать входные данные так, как ожидается, даже если данные полностью не соответствуют стандарту RFC-4180. 
 
 
 [horizontal]
@@ -180,14 +180,14 @@ comma, csv, delimited, parse, reader, record, row, separated, values
 .Date Format
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Date Format
+*DISPLAY NAME (Отображаемое наименование):*:: Date Format (Формат даты)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the format to use when reading/writing Date fields. If not specified, Date fields will be assumed to be number of milliseconds since epoch (Midnight, Jan 1, 1970 GMT). If specified, the value must match the Java java.time.format.DateTimeFormatter format (for example, MM/dd/yyyy for a two-digit month, followed by a two-digit day, followed by a four-digit year, all separated by '/' characters, as in 01/01/2017).
+*DESCRIPTION (Описание):*:: Указывает формат, который следует использовать при чтении или записи полей Date. Если не указан, поля Date будут считаться количеством миллисекунд от начала эпохи (полночь, 1 января 1970 г., GMT). Если указано, значение должно соответствовать формату Java java.time.format.DateTimeFormatter (например, MM/dd/yyyy для двузначного месяца, затем двузначного дня и четырехзначного года, все разделенные символами '/' как в 01/01/2017).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -197,14 +197,14 @@ comma, csv, delimited, parse, reader, record, row, separated, values
 .Time Format
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Time Format
+*DISPLAY NAME (Отображаемое наименование):*:: Time Format (Формат времени)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the format to use when reading/writing Time fields. If not specified, Time fields will be assumed to be number of milliseconds since epoch (Midnight, Jan 1, 1970 GMT). If specified, the value must match the Java java.time.format.DateTimeFormatter format (for example, HH:mm:ss for a two-digit hour in 24-hour format, followed by a two-digit minute, followed by a two-digit second, all separated by ':' characters, as in 18:04:15).
+*DESCRIPTION (Описание):*:: Указывает формат, который следует использовать при чтении/записи полей Time. Если не указано, поля Time будут считаться количеством миллисекунд с эпохи (Полночь, 1 января 1970 г., GMT). Если указано, значение должно соответствовать формату Java java.time.format.DateTimeFormatter (например, HH:mm:ss для двузначного часа в 24-часовом формате, за которым следуют двузначная минута и двузначная секунда, все разделённые символами ':' как в 18:04:15).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -214,14 +214,14 @@ comma, csv, delimited, parse, reader, record, row, separated, values
 .Timestamp Format
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Timestamp Format
+*DISPLAY NAME (Отображаемое наименование):*:: Формат Timestamp (Timestamp Format)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the format to use when reading/writing Timestamp fields. If not specified, Timestamp fields will be assumed to be number of milliseconds since epoch (Midnight, Jan 1, 1970 GMT). If specified, the value must match the Java java.time.format.DateTimeFormatter format (for example, MM/dd/yyyy HH:mm:ss for a two-digit month, followed by a two-digit day, followed by a four-digit year, all separated by '/' characters; and then followed by a two-digit hour in 24-hour format, followed by a two-digit minute, followed by a two-digit second, all separated by ':' characters, as in 01/01/2017 18:04:15).
+*DESCRIPTION (Описание):*:: Указывает формат, который следует использовать при чтении или записи полей Timestamp. Если не указан, поля Timestamp будут считаться количеством миллисекунд с начала эпохи (Полночь 1 января 1970 г., GMT). Если указано, значение должно соответствовать формату Java java.time.format.DateTimeFormatter (например, MM/dd/yyyy HH:mm:ss для двузначного месяца, затем двузначного дня, затем четырехзначного года, все разделенные '/' символами; а затем следует двузначный час в 24-часовом формате, за которым следуют двузначные минуты и секунды, все разделенные ':' символами, как в 01/01/2017 18:04:15).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -231,33 +231,33 @@ comma, csv, delimited, parse, reader, record, row, separated, values
 .*Csv Format*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: CSV Format
+*DISPLAY NAME (Отображаемое наименование):*:: CSV Format (Формат)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies which "format" the CSV data is in, or specifies if custom formatting should be used.
+*DESCRIPTION (Описание):*:: Указывает, какой "формат" данных CSV используется или указывает, должно ли использоваться пользовательское форматирование.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Custom Format: The format of the CSV is configured by using the properties of this Controller Service, such as Value Separator 
+* Custom Format (Пользовательский формат): Формат CSV настроен с использованием свойств этого сервиса контроллера, таких как Разделитель значений 
 
-* RFC 4180: CSV data follows the RFC 4180 Specification defined at https://tools.ietf.org/html/rfc4180 
+* RFC 4180 (Спецификация RFC 4180): Данные CSV следуют спецификации RFC 4180, определенной по адресу https://tools.ietf.org/html/rfc4180 
 
-* Microsoft Excel: CSV data follows the format used by Microsoft Excel 
+* Microsoft Excel (Майкрософт Excel): Данные CSV следуют формату, используемому Microsoft Excel 
 
-* Tab-Delimited: CSV data is Tab-Delimited instead of Comma Delimited 
+* Tab-Delimited (Табуляция Разделитель): CSV данные представлены табуляцией вместо запятых 
 
-* MySQL Format: CSV data follows the format used by MySQL 
+* MySQL Format (Формат MySQL): Данные CSV следуют формату, используемому MySQL 
 
-* Informix Unload: The format used by Informix when issuing the UNLOAD TO file_name command 
+* Informix Unload (Информис Уноулд): Формат, используемый Информис при выполнении команды UNLOAD TO file_name 
 
-* Informix Unload Escape Disabled: The format used by Informix when issuing the UNLOAD TO file_name command with escaping disabled 
+* Informix Unload Escape Disabled (Информис Уноулд Эскейп Дисаблед): Формат, используемый Информис при выполнении команды UNLOAD TO file_name с отключенным экранированием 
 
 
 [horizontal]
@@ -266,14 +266,14 @@ comma, csv, delimited, parse, reader, record, row, separated, values
 .*Value Separator*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Value Separator
+*DISPLAY NAME (Отображаемое наименование):*:: Value Separator (Значение-разделитель)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The character that is used to separate values/fields in a CSV Record. If the property has been specified via Expression Language but the expression gets evaluated to an invalid Value Separator at runtime, then it will be skipped and the default Value Separator will be used.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -283,14 +283,14 @@ comma, csv, delimited, parse, reader, record, row, separated, values
 .*Record Separator*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Separator
+*DISPLAY NAME (Отображаемое наименование):*:: Record Separator (Разделитель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the characters to use in order to separate CSV Records
+*DESCRIPTION (Описание):*:: Указывает символы для использования в порядке разделения CSV записей
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -300,14 +300,14 @@ comma, csv, delimited, parse, reader, record, row, separated, values
 .*Skip Header Line*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Treat First Line as Header
+*DISPLAY NAME (Отображаемое наименование):*:: Treat First Line as Header (Обрабатывать первую строку как заголовок)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether or not the first line of CSV should be considered a Header or should be considered a record. If the Schema Access Strategy indicates that the columns must be defined in the header, then this property will be ignored, since the header must always be present and won't be processed as a Record. Otherwise, if 'true', then the first line of CSV data will not be processed as a record and if 'false',then the first line will be interpreted as a record.
+*DESCRIPTION (Описание):*:: Указывает, следует ли считать первую строку CSV заголовком или трактовать её как запись. Если стратегия доступа к схеме указывает, что столбцы должны быть определены в заголовке, то это свойство будет проигнорировано, так как заголовок всегда должен присутствовать и не будет обрабатываться как запись. В противном случае, если установлено значение 'true', первая строка данных CSV не будет обрабатываться как запись, а если 'false', то она будет интерпретироваться как запись.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -325,14 +325,14 @@ comma, csv, delimited, parse, reader, record, row, separated, values
 .Ignore-Csv-Header
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Ignore CSV Header Column Names
+*DISPLAY NAME (Отображаемое наименование):*:: Ignore CSV Header Column Names (Игнорировать имена столбцов в заголовке CSV)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If the first line of a CSV is a header, and the configured schema does not match the fields named in the header line, this controls how the Reader will interpret the fields. If this property is true, then the field names mapped to each column are driven only by the configured schema and any fields not in the schema will be ignored. If this property is false, then the field names found in the CSV Header will be used as the names of the fields.
+*DESCRIPTION (Описание):*:: Если первая строка в CSV является заголовком, и настроенная схема не соответствует полям, названным в строке заголовка, это определяет, как Reader будет интерпретировать поля. Если это свойство истинно, то имена полей, сопоставленных каждому столбцу, определяются только настроенной схемой, и любые поля, не входящие в схему, будут проигнорированы. Если это свойство ложно, то имена полей, найденные в заголовке CSV, будут использоваться как имена полей.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -350,14 +350,14 @@ comma, csv, delimited, parse, reader, record, row, separated, values
 .*Quote Character*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Quote Character
+*DISPLAY NAME (Отображаемое наименование):*:: Quote Character (Символ кавычек)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The character that is used to quote values so that escape characters do not have to be used. If the property has been specified via Expression Language but the expression gets evaluated to an invalid Quote Character at runtime, then it will be skipped and the default Quote Character will be used.
+*DESCRIPTION (Описание):*:: Символ, используемый для цитирования значений таким образом, чтобы escape-символы не приходилось использовать. Если свойство было указано через язык выражений, но при оценке выражения во время выполнения получается недопустимый символ кавычек, то оно будет пропущено, и будет использован символ кавычек по умолчанию.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -367,14 +367,14 @@ comma, csv, delimited, parse, reader, record, row, separated, values
 .*Escape Character*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Escape Character
+*DISPLAY NAME (Отображаемое наименование):*:: Escape Character (Экранирующий символ)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The character that is used to escape characters that would otherwise have a specific meaning to the CSV Parser. If the property has been specified via Expression Language but the expression gets evaluated to an invalid Escape Character at runtime, then it will be skipped and the default Escape Character will be used. Setting it to an empty string means no escape character should be used.
+*DESCRIPTION (Описание):*:: Символ, используемый для экранирования символов, которые в противном случае имели бы особое значение у CSV-парсера. Если свойство задается с помощью Expression Language, но при оценке выражения возникает недопустимый экранирующий символ, то оно будет пропущено, и будет использоваться значение по умолчанию. Установка его в пустую строку означает, что не должен использоваться ни один экранирующий символ.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -384,14 +384,14 @@ comma, csv, delimited, parse, reader, record, row, separated, values
 .Comment Marker
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Comment Marker
+*DISPLAY NAME (Отображаемое наименование):*:: Comment Marker (Комментарий)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The character that is used to denote the start of a comment. Any line that begins with this comment will be ignored.
+*DESCRIPTION (Описание):*:: Символ, используемый для обозначения начала комментария. Любая строка, начинающаяся с этого символа, будет игнорироваться.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -401,14 +401,14 @@ comma, csv, delimited, parse, reader, record, row, separated, values
 .Null String
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Null String
+*DISPLAY NAME (Отображаемое наименование):*:: Null String (Нулевой строковый литерал)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies a String that, if present as a value in the CSV, should be considered a null field instead of using the literal value.
+*DESCRIPTION (Описание):*:: Указывает строку, которая, если присутствует в CSV как значение, должна рассматриваться как пустое поле вместо использования литерального значения.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -418,23 +418,23 @@ comma, csv, delimited, parse, reader, record, row, separated, values
 .*Trim Fields*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Trim Fields
+*DISPLAY NAME (Отображаемое наименование):*:: Trim Fields (Удаление пробелов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Whether or not white space should be removed from the beginning and end of fields
+*DESCRIPTION (Описание):*:: Определяет, должны ли быть удалены начальные и конечные пробелы из полей
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (Истина)
 
-* false
+* false (Ложь)
 
 
 [horizontal]
@@ -443,14 +443,14 @@ comma, csv, delimited, parse, reader, record, row, separated, values
 .*Csvutils-Character-Set*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Символьная кодировка)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Character Encoding that is used to encode/decode the CSV file
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -460,18 +460,18 @@ comma, csv, delimited, parse, reader, record, row, separated, values
 .Csvutils-Allow-Duplicate-Header-Names
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Allow Duplicate Header Names
+*DISPLAY NAME (Отображаемое наименование):*:: Allow Duplicate Header Names (Разрешать дублирование имен заголовков)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Whether duplicate header names are allowed. Header names are case-sensitive, for example "name" and "Name" are treated as separate fields.
-Handling of duplicate header names is CSV Parser specific (where applicable):
-* Apache Commons CSV - duplicate headers will result in column data "shifting" right with new fields created for "unknown_field_index_X" where "X" is the CSV column index number
-* Jackson CSV - duplicate headers will be de-duplicated with the field value being that of the right-most duplicate CSV column
-* FastCSV - duplicate headers will be de-duplicated with the field value being that of the left-most duplicate CSV column
+*DESCRIPTION (Описание):*:: Разрешено ли дублирование имен заголовков. Имена заголовков чувствительны к регистру, например "name" и "Name" рассматриваются как отдельные поля.
+Обработка дублирования имен заголовков специфична для CSV-парсера (применимо):
+* Apache Commons CSV - дублирование заголовков приведет к сдвигу данных столбцов вправо с созданием новых полей "unknown_field_index_X" где "X" — номер индекса столбца CSV
+* Jackson CSV - дублирование заголовков будет устранено с полем значением, равным правому дублированию CSV-столбца
+* FastCSV - дублирование заголовков будет устранено с полем значением, равным левому дублированию CSV-столбца
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -489,23 +489,23 @@ Handling of duplicate header names is CSV Parser specific (where applicable):
 .*Trim Double Quote*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Trim double quote
+*DISPLAY NAME (Отображаемое наименование):*:: Trim double quote (Удалять двойные кавычки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Whether or not to trim starting and ending double quotes. For example: with trim string '"test"' would be parsed to 'test', without trim would be parsed to '"test"'.If set to 'false' it means full compliance with RFC-4180. Default value is true, with trim.
+*DESCRIPTION (Описание):*:: Будет ли удаляться начальные и конечные двойные кавычки. Например: с обрезанной строкой '"test"' будет распарсена как 'test', без обрезки будет распарсена как '"test"'. Если установлено в 'false', это означает полное соответствие RFC-4180. По умолчанию значение true, с обрезкой.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -524,6 +524,17 @@ Handling of duplicate header names is CSV Parser specific (where applicable):
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

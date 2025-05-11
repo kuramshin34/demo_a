@@ -1,13 +1,13 @@
 = RecordSetWriterLookup 2.2.0
 
-Provides a RecordSetWriterFactory that can be used to dynamically select another RecordSetWriterFactory. This will allow multiple RecordSetWriterFactory's to be defined and registered, and then selected dynamically at runtime by tagging FlowFiles with the attributes and referencing those attributes in the Service to Use property.
+Предоставляет RecordSetWriterFactory, который может быть использован для динамического выбора другого RecordSetWriterFactory. Это позволит определить и зарегистрировать несколько RecordSetWriterFactory и выбирать их динамически в runtime, помечая FlowFiles атрибутами и ссылаясь на эти атрибуты в свойстве Service to Use.
 
 [horizontal]
 *Tags* (Ключевые слова):
 lookup, record, recordset, result, row, serializer, set, writer
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ lookup, record, recordset, result, row, serializer, set, writer
 .*Service To Use*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Service to Use
+*DISPLAY NAME (Отображаемое наименование):*:: Service to Use (Сервис для использования)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies the name of the user-defined property whose associated Controller Service should be used.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -60,6 +60,17 @@ lookup, record, recordset, result, row, serializer, set, writer
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

@@ -1,13 +1,13 @@
 = QueryAirtableTable 2.2.0
 
-Query records from an Airtable table. Records are incrementally retrieved based on the last modified time of the records. Records can also be further filtered by setting the 'Custom Filter' property which supports the formulas provided by the Airtable API. This processor is intended to be run on the Primary Node only.
+Запрашивает записи из таблицы Airtable. Записи получаются инкрементально на основе времени последнего изменения записей. Записи также можно дополнительно отфильтровать, установив свойство 'Custom Filter', которое поддерживает формулы, предоставляемые API Airtable. Этот процессор предназначен для выполнения только на основном узле.
 
 [horizontal]
 *Tags* (Ключевые слова):
 airtable, database, query
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ FORBIDDEN (Обязательно)
 .*Api-Url*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: API URL
+*DISPLAY NAME (Отображаемое наименование):*:: API URL (URL для REST API Airtable, включая домен и путь к API)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The URL for the Airtable REST API including the domain and the path to the API (e.g. https://api.airtable.com/v0).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ FORBIDDEN (Обязательно)
 .*Pat*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Personal Access Token
+*DISPLAY NAME (Отображаемое наименование):*:: Personal Access Token (Персональный маркер доступа)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Personal Access Token (PAT) to use in queries. Should be generated on Airtable's account page.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -54,14 +54,14 @@ FORBIDDEN (Обязательно)
 .*Base-Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Base ID
+*DISPLAY NAME (Отображаемое наименование):*:: Base ID (Базовый идентификатор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The ID of the Airtable base to be queried.
+*DESCRIPTION (Описание):*:: Идентификатор базы данных Airtable, которую необходимо запросить.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ FORBIDDEN (Обязательно)
 .*Table-Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Table ID
+*DISPLAY NAME (Отображаемое наименование):*:: Table ID (Таблица ID)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name or the ID of the Airtable table to be queried.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ FORBIDDEN (Обязательно)
 .Fields
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Fields
+*DISPLAY NAME (Отображаемое наименование):*:: Fields (Поля)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Comma-separated list of fields to query from the table. Both the field's name and ID can be used.
+*DESCRIPTION (Описание):*:: Список полей, разделенных запятыми, которые следует запросить из таблицы. Имя поля и его идентификатор могут быть использованы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ FORBIDDEN (Обязательно)
 .Custom-Filter
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Custom Filter
+*DISPLAY NAME (Отображаемое наименование):*:: Custom Filter (Настраиваемый фильтр)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Filter records by Airtable's formulas.
+*DESCRIPTION (Описание):*:: Фильтрует записи по формулам Airtable.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -122,14 +122,14 @@ FORBIDDEN (Обязательно)
 .*Query-Time-Window-Lag*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Query Time Window Lag
+*DISPLAY NAME (Отображаемое наименование):*:: Query Time Window Lag (Время задержки окна запроса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The amount of lag to be applied to the query time window's end point. Set this property to avoid missing records when the clock of your local machines and Airtable servers' clock are not in sync. Must be greater than or equal to 1 second.
+*DESCRIPTION (Описание):*:: Количество задержки, применяемой к конечной точке временного окна запроса. Установите это свойство, чтобы избежать пропуска записей, если часы вашего локального оборудования и серверов Airtable не синхронизированы. Должно быть больше или равно 1 секунде.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -139,14 +139,14 @@ FORBIDDEN (Обязательно)
 .*Web-Client-Service-Provider*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Web Client Service Provider
+*DISPLAY NAME (Отображаемое наименование):*:: Web Client Service Provider (Веб Клиент Сервис Провайдер)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Web Client Service Provider to use for Airtable REST API requests
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -156,14 +156,14 @@ FORBIDDEN (Обязательно)
 .Query-Page-Size
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Query Page Size
+*DISPLAY NAME (Отображаемое наименование):*:: Query Page Size (Размер страницы запроса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Number of records to be fetched in a page. Should be between 1 and 100 inclusively.
+*DESCRIPTION (Описание):*:: Количество записей, которые должны быть получены на одной странице. Должно быть в диапазоне от 1 до 100 включительно.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -173,14 +173,14 @@ FORBIDDEN (Обязательно)
 .Max-Records-Per-Flowfile
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Records Per FlowFile
+*DISPLAY NAME (Отображаемое наименование):*:: Max Records Per FlowFile (Максимальное количество записей на поток)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The maximum number of result records that will be included in a single FlowFile. This will allow you to break up very large result sets into multiple FlowFiles. If no value specified, then all records are returned in a single FlowFile.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -200,7 +200,7 @@ FORBIDDEN (Обязательно)
 |
 CLUSTER
 
-|The last successful query's time is stored in order to enable incremental loading. The initial query returns all the records in the table and each subsequent query filters the records by their last modified time. In other words, if a record is updated after the last successful query only the updated records will be returned in the next query. State is stored across the cluster, so this Processor can run only on the Primary Node and if a new Primary Node is selected, the new node can pick up where the previous one left off without duplicating the data.
+|Время последнего успешного запроса хранится для обеспечения инкрементальной загрузки. Первый запрос возвращает все записи в таблице, и каждый последующий запрос фильтрует записи по времени их последнего изменения. Другими словами, если запись обновлена после последнего успешного запроса, то в следующем запросе будут возвращены только обновленные записи. Состояние хранится в кластере, поэтому этот процессор может выполняться только на основном узле и если выбирается новый основной узел, новый узел сможет продолжить работу с того места, где остановился предыдущий, не дублируя данные.
 |===
 
 
@@ -216,7 +216,7 @@ CLUSTER
 |Наименование |Описание
 
 |`success`
-|For FlowFiles created as a result of a successful query.
+|Для FlowFiles, созданных в результате успешного запроса.
 
 |===
 
@@ -231,16 +231,16 @@ CLUSTER
 |Наименование |Описание
 
 |`record.count`
-|Sets the number of records in the FlowFile.
+|Устанавливает количество записей в FlowFile.
 
 |`fragment.identifier`
-|If 'Max Records Per FlowFile' is set then all FlowFiles from the same query result set will have the same value for the fragment.identifier attribute. This can then be used to correlate the results.
+|Если установлено 'Max Records Per FlowFile', то все FlowFiles из одного и того же результирующего набора будут иметь одинаковое значение атрибута fragment.identifier. Это можно использовать для корреляции результатов.
 
 |`fragment.count`
-|If 'Max Records Per FlowFile' is set then this is the total number of FlowFiles produced by a single ResultSet. This can be used in conjunction with the fragment.identifier attribute in order to know how many FlowFiles belonged to the same incoming ResultSet.
+|Если установлено 'Max Records Per FlowFile', то это общее количество FlowFiles, произведенных одним результирующим набором. Это можно использовать в сочетании с атрибутом fragment.identifier для определения, сколько FlowFiles принадлежало тому же входящему результирующему набору.
 
 |`fragment.index`
-|If 'Max Records Per FlowFile' is set then the position of this FlowFile in the list of outgoing FlowFiles that were all derived from the same result set FlowFile. This can be used in conjunction with the fragment.identifier attribute to know which FlowFiles originated from the same query result set and in what order FlowFiles were produced
+|Если установлено 'Max Records Per FlowFile', то позиция этого FlowFile в списке исходящих FlowFiles, все из которых были получены из одного и того же результирующего набора FlowFile. Это можно использовать в сочетании с атрибутом fragment.identifier для определения, какие FlowFiles происходят от одного и того же запроса результатов и в каком порядке были произведены FlowFiles.
 
 |===
 

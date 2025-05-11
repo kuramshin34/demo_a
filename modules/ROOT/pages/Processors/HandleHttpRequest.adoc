@@ -1,13 +1,13 @@
 = HandleHttpRequest 2.2.0
 
-Starts an HTTP Server and listens for HTTP Requests. For each request, creates a FlowFile and transfers to 'success'. This Processor is designed to be used in conjunction with the HandleHttpResponse Processor in order to create a Web Service. In case  of a multipart request, one FlowFile is generated for each part.
+Запускает сервер HTTP и слушает запросы HTTP. Для каждого запроса создает FlowFile и передает в 'success'. Этот процессор предназначен для использования в сочетании с Processorem HandleHttpResponse для создания веб-сервиса. В случае мультипартного запроса генерируется один FlowFile на каждую часть.
 
 [horizontal]
 *Tags* (Ключевые слова):
 http, https, ingress, listen, request, web service
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ FORBIDDEN (Обязательно)
 .*Listening Port*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Listening Port
+*DISPLAY NAME (Отображаемое наименование):*:: Listening Port (Порт для прослушивания входящих HTTP-запросов)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Port to listen on for incoming HTTP requests
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ FORBIDDEN (Обязательно)
 .Hostname
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hostname
+*DISPLAY NAME (Отображаемое наименование):*:: Hostname (Имя узла)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Hostname to bind to. If not specified, will bind to all hosts
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ FORBIDDEN (Обязательно)
 .Ssl Context Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (Сервис контекста SSL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The SSL Context Service to use in order to secure the server. If specified, the server will accept only HTTPS requests; otherwise, the server will accept only HTTP requests
+*DESCRIPTION (Описание):*:: Сервис контекста SSL, который следует использовать для обеспечения безопасности сервера. Если указан, сервер будет принимать только запросы HTTPS; в противном случае, сервер будет принимать только HTTP-запросы
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ FORBIDDEN (Обязательно)
 .*Http Protocols*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: HTTP Protocols
+*DISPLAY NAME (Отображаемое наименование):*:: HTTP Протоколы
 
 [horizontal]
-*DESCRIPTION (Описание):*:: HTTP Protocols supported for Application Layer Protocol Negotiation with TLS
+*DESCRIPTION (Описание):*:: Поддерживаемые HTTP протоколы для применения уровня Application Layer Protocol Negotiation с TLS
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -87,7 +87,7 @@ FORBIDDEN (Обязательно)
 
 * http/1.1: HTTP/1.1 
 
-* h2 http/1.1: HTTP/2 and HTTP/1.1 negotiated based on requested protocols 
+* h2 http/1.1: HTTP/2 и HTTP/1.1, основанные на запрошенных протоколах 
 
 * h2: HTTP/2 
 
@@ -98,14 +98,14 @@ FORBIDDEN (Обязательно)
 .*Http Context Map*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: HTTP Context Map
+*DISPLAY NAME (Отображаемое наименование):*:: HTTP Context Map (HTTP Контекстная карта)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The HTTP Context Map Controller Service to use for caching the HTTP Request Information
+*DESCRIPTION (Описание):*:: Контроллер сервиса HTTP Context Map для использования кэширования информации о запросе HTTP
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -115,14 +115,14 @@ FORBIDDEN (Обязательно)
 .Allowed Paths
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Allowed Paths
+*DISPLAY NAME (Отображаемое наименование):*:: Allowed Paths (Допустимые пути)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A Regular Expression that specifies the valid HTTP Paths that are allowed in the incoming URL Requests. If this value is specified and the path of the HTTP Requests does not match this Regular Expression, the Processor will respond with a 404: NotFound
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -132,14 +132,14 @@ FORBIDDEN (Обязательно)
 .*Default Url Character Set*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Default URL Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Default URL Character Set (По умолчанию набор символов для декодирования URL-параметров)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The character set to use for decoding URL parameters if the HTTP Request does not supply one
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -149,14 +149,14 @@ FORBIDDEN (Обязательно)
 .*Allow Get*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Allow GET
+*DISPLAY NAME (Отображаемое наименование):*:: Allow GET (Разрешить HTTP GET метод)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Allow HTTP GET Method
+*DESCRIPTION (Описание):*:: Разрешить HTTP GET Method
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -174,14 +174,14 @@ FORBIDDEN (Обязательно)
 .*Allow Post*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Allow POST
+*DISPLAY NAME (Отображаемое наименование):*:: Allow POST (Разрешить POST)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Allow HTTP POST Method
+*DESCRIPTION (Описание):*:: Разрешить HTTP POST метод
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -199,14 +199,14 @@ FORBIDDEN (Обязательно)
 .*Allow Put*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Allow PUT
+*DISPLAY NAME (Отображаемое наименование):*:: Allow PUT (Разрешить PUT)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Allow HTTP PUT Method
+*DESCRIPTION (Описание):*:: Разрешить HTTP PUT метод
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -224,14 +224,14 @@ FORBIDDEN (Обязательно)
 .*Allow Delete*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Allow DELETE
+*DISPLAY NAME (Отображаемое наименование):*:: Allow DELETE (Разрешить удаление)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Allow HTTP DELETE Method
+*DESCRIPTION (Описание):*:: Разрешить HTTP DELETE метод
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -249,14 +249,14 @@ FORBIDDEN (Обязательно)
 .*Allow Head*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Allow HEAD
+*DISPLAY NAME (Отображаемое наименование):*:: Allow HEAD (Разрешить HTTP HEAD Метод)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Allow HTTP HEAD Method
+*DESCRIPTION (Описание):*:: Разрешить HTTP HEAD Метод
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -274,14 +274,14 @@ FORBIDDEN (Обязательно)
 .*Allow Options*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Allow OPTIONS
+*DISPLAY NAME (Отображаемое наименование):*:: Allow OPTIONS (Разрешить OPTIONS)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Allow HTTP OPTIONS Method
+*DESCRIPTION (Описание):*:: Allow HTTP OPTIONS Method (Разрешить метод HTTP OPTIONS)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -299,14 +299,14 @@ FORBIDDEN (Обязательно)
 .*Maximum Threads*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Threads
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Threads (Максимальное количество потоков)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The maximum number of threads that the embedded HTTP server will use for handling requests.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -316,14 +316,14 @@ FORBIDDEN (Обязательно)
 .*Request Header Maximum Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Request Header Maximum Size
+*DISPLAY NAME (Отображаемое наименование):*:: Request Header Maximum Size (Максимальный размер заголовка HTTP-запроса)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The maximum supported size of HTTP headers in requests sent to this processor
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -333,14 +333,14 @@ FORBIDDEN (Обязательно)
 .Additional Http Methods
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Additional HTTP Methods
+*DISPLAY NAME (Отображаемое наименование):*:: Additional HTTP Methods (Дополнительные методы HTTP)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A comma-separated list of non-standard HTTP Methods that should be allowed
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -350,25 +350,25 @@ FORBIDDEN (Обязательно)
 .*Client Authentication*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Client Authentication
+*DISPLAY NAME (Отображаемое наименование):*:: Client Authentication (Клиентская аутентификация)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether or not the Processor should authenticate clients. This value is ignored if the <SSL Context Service> Property is not specified or the SSL Context provided uses only a KeyStore and not a TrustStore.
+*DESCRIPTION (Описание):*:: Указывает, должен ли процессор проверять клиентов. Это значение игнорируется, если свойство <SSL Context Service> не указано или используемый SSL-контекст содержит только хранилище ключей (KeyStore), а не доверительный сертификат (TrustStore).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* No Authentication: Processor will not authenticate clients. Anyone can communicate with this Processor anonymously 
+* No Authentication (Нет аутентификации): Процессор не будет проверять клиентов. Любой пользователь может анонимно общаться с этим процессором. 
 
-* Want Authentication: Processor will try to verify the client but if unable to verify will allow the client to communicate anonymously 
+* Want Authentication (Желать аутентификации): Процессор попытается проверить клиента, но если не сможет это сделать, разрешит анонимное общение. 
 
-* Need Authentication: Processor will reject communications from any client unless the client provides a certificate that is trusted by the TrustStorespecified in the SSL Context Service 
+* Need Authentication (Требовать аутентификацию): Процессор отклонит коммуникации с любым клиентом, если тот не предоставит сертификат, признанный доверительными хранилищами (TrustStore), указанными в SSL-контексте Service. 
 
 
 [horizontal]
@@ -377,14 +377,14 @@ FORBIDDEN (Обязательно)
 .*Container-Queue-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Container Queue Size
+*DISPLAY NAME (Отображаемое наименование):*:: Container Queue Size (Размер очереди для контейнеров HTTP-запросов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The size of the queue for Http Request Containers
+*DESCRIPTION (Описание):*:: The size of the queue for Http Request Containers (Размер очереди для контейнеров HTTP-запросов)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -394,14 +394,14 @@ FORBIDDEN (Обязательно)
 .*Multipart-Request-Max-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Multipart Request Max Size
+*DISPLAY NAME (Отображаемое наименование):*:: Multipart Request Max Size (Максимальный размер запроса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The max size of the request. Only applies for requests with Content-Type: multipart/form-data, and is used to prevent denial of service type of attacks, to prevent filling up the heap or disk space
+*DESCRIPTION (Описание):*:: Максимальный размер запроса. Применяется только для запросов с Content-Type: multipart/form-data, чтобы предотвратить атаки типа DoS, а также чтобы избежать заполнения кучи или дискового пространства
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -411,14 +411,14 @@ FORBIDDEN (Обязательно)
 .*Multipart-Read-Buffer-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Multipart Read Buffer Size
+*DISPLAY NAME (Отображаемое наименование):*:: Multipart Read Buffer Size (Размер буфера чтения мультичасти)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The threshold size, at which the contents of an incoming file would be written to disk. Only applies for requests with Content-Type: multipart/form-data. It is used to prevent denial of service type of attacks, to prevent filling up the heap or disk space.
+*DESCRIPTION (Описание):*:: Пороговый размер, при достижении которого содержимое входящего файла будет записываться на диск. Применяется только для запросов с Content-Type: multipart/form-data. Используется для защиты от атак типа DoS, предотвращения заполнения кучи или дискового пространства.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -428,14 +428,14 @@ FORBIDDEN (Обязательно)
 .Parameters-To-Attributes
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Parameters to Attributes List
+*DISPLAY NAME (Отображаемое наименование):*:: Parameters to Attributes List (Параметры в список атрибутов)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A comma-separated list of HTTP parameters or form data to output as attributes
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -459,7 +459,7 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`success`
-|All content that is received is routed to the 'success' relationship
+|Все полученное содержимое направляется в отношение 'success'
 
 |===
 
@@ -474,91 +474,91 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`http.context.identifier`
-|An identifier that allows the HandleHttpRequest and HandleHttpResponse to coordinate which FlowFile belongs to which HTTP Request/Response.
+|Идентификатор, позволяющий HandleHttpRequest и HandleHttpResponse координировать принадлежность какого FlowFile к какому HTTP-запросу/ответу.
 
 |`mime.type`
-|The MIME Type of the data, according to the HTTP Header "Content-Type"
+|Тип MIME данных, согласно заголовку HTTP "Content-Type"
 
 |`http.servlet.path`
-|The part of the request URL that is considered the Servlet Path
+|Часть URL-запроса, считающаяся Servlet Path
 
 |`http.context.path`
-|The part of the request URL that is considered to be the Context Path
+|Часть URL-запроса, считающаяся Context Path
 
 |`http.method`
-|The HTTP Method that was used for the request, such as GET or POST
+|Метод HTTP, использованный для запроса, например GET или POST
 
 |`http.local.name`
-|IP address/hostname of the server
+|IP-адрес/хост сервера
 
 |`http.server.port`
-|Listening port of the server
+|Порт прослушивания сервера
 
 |`http.query.string`
-|The query string portion of the Request URL
+|Строка запроса, часть URL-запроса
 
 |`http.remote.host`
-|The hostname of the requestor
+|Хост запрашивающего лица
 
 |`http.remote.addr`
-|The hostname:port combination of the requestor
+|Комбинация хоста:порт запрашивающего лица
 
 |`http.remote.user`
-|The username of the requestor
+|Имя пользователя запрашивающего лица
 
 |`http.protocol`
-|The protocol used to communicate
+|Используемый протокол для связи
 
 |`http.request.uri`
-|The full Request URL
+|Полный URL-запроса
 
 |`http.auth.type`
-|The type of HTTP Authorization used
+|Тип HTTP-авторизации, использованной
 
 |`http.principal.name`
-|The name of the authenticated user making the request
+|Имя аутентифицированного пользователя, сделавшего запрос
 
 |`http.query.param.XXX`
-|Each of query parameters in the request will be added as an attribute, prefixed with "http.query.param."
+|Каждый из параметров запроса в строке запроса будет добавлен как атрибут, с префиксом "http.query.param."
 
 |`http.param.XXX`
-|Form parameters in the request that are configured by "Parameters to Attributes List" will be added as an attribute, prefixed with "http.param.". Putting form parameters of large size is not recommended.
+|Формальные параметры в запросе, настроенные по "Список параметров для атрибутов" будут добавлены как атрибут, с префиксом "http.param.". Размер больших форм-параметров не рекомендуется.
 
 |`http.subject.dn`
-|The Distinguished Name of the requestor. This value will not be populated unless the Processor is configured to use an SSLContext Service
+|Идентификатор Distinguished Name запрашивающего лица. Это значение не будет заполнено, если процессор настроен для использования службы SSLContext
 
 |`http.issuer.dn`
-|The Distinguished Name of the entity that issued the Subject's certificate. This value will not be populated unless the Processor is configured to use an SSLContext Service
+|Идентификатор Distinguished Name сущности, выдавшей сертификат Субъекта. Это значение не будет заполнено, если процессор настроен для использования службы SSLContext
 
 |`http.certificate.sans.N.name`
-|X.509 Client Certificate Subject Alternative Name value from mutual TLS authentication. The attribute name has a zero-based index ordered according to the content of Client Certificate
+|Значение X.509 Subject Alternative Name из мульти-TLS аутентификации. Имя атрибута имеет нулевой индекс, упорядоченное по содержимому сертификата клиента
 
 |`http.certificate.sans.N.nameType`
-|X.509 Client Certificate Subject Alternative Name type from mutual TLS authentication. The attribute name has a zero-based index ordered according to the content of Client Certificate. The attribute value is one of the General Names from RFC 3280 Section 4.1.2.7
+|Тип X.509 Subject Alternative Name из мульти-TLS аутентификации. Имя атрибута имеет нулевой индекс, упорядоченное по содержимому сертификата клиента. Значение является одним из Общих имен из RFC 3280 Раздел 4.1.2.7
 
 |`http.headers.XXX`
-|Each of the HTTP Headers that is received in the request will be added as an attribute, prefixed with "http.headers." For example, if the request contains an HTTP Header named "x-my-header", then the value will be added to an attribute named "http.headers.x-my-header"
+|Каждый из HTTP-заголовков, полученных в запросе, будет добавлен как атрибут, с префиксом "http.headers.". Например, если запрос содержит HTTP-заголовок с именем "x-my-header", то значение будет добавлено в атрибут с именем "http.headers.x-my-header"
 
 |`http.headers.multipart.XXX`
-|Each of the HTTP Headers that is received in the multipart request will be added as an attribute, prefixed with "http.headers.multipart." For example, if the multipart request contains an HTTP Header named "content-disposition", then the value will be added to an attribute named "http.headers.multipart.content-disposition"
+|Каждый из HTTP-заголовков, полученных в мультипартном запросе, будет добавлен как атрибут, с префиксом "http.headers.multipart.". Например, если мультипартный запрос содержит HTTP-заголовок с именем "content-disposition", то значение будет добавлено в атрибут с именем "http.headers.multipart.content-disposition"
 
 |`http.multipart.size`
-|For requests with Content-Type "multipart/form-data", the part's content size is recorded into this attribute
+|Для запросов с Content-Type "multipart/form-data", размер содержимого части записывается в этот атрибут
 
 |`http.multipart.content.type`
-|For requests with Content-Type "multipart/form-data", the part's content type is recorded into this attribute
+|Для запросов с Content-Type "multipart/form-data", тип содержимого части записывается в этот атрибут
 
 |`http.multipart.name`
-|For requests with Content-Type "multipart/form-data", the part's name is recorded into this attribute
+|Для запросов с Content-Type "multipart/form-data", имя части записывается в этот атрибут
 
 |`http.multipart.filename`
-|For requests with Content-Type "multipart/form-data", when the part contains an uploaded file, the name of the file is recorded into this attribute. Files are stored temporarily at the default temporary-file directory specified in "java.io.File" Java Docs)
+|Для запросов с Content-Type "multipart/form-data", когда часть содержит загруженный файл, имя файла записывается в этот атрибут. Файлы временно хранятся в директории по умолчанию для временных файлов, указанной в "java.io.File" Java Docs
 
 |`http.multipart.fragments.sequence.number`
-|For requests with Content-Type "multipart/form-data", the part's index is recorded into this attribute. The index starts with 1.
+|Для запросов с Content-Type "multipart/form-data", индекс части записывается в этот атрибут. Индекс начинается с 1.
 
 |`http.multipart.fragments.total.number`
-|For requests with Content-Type "multipart/form-data", the count of all parts is recorded into this attribute.
+|Для запросов с Content-Type "multipart/form-data", количество всех частей записывается в этот атрибут.
 
 |===
 

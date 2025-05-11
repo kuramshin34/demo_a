@@ -1,13 +1,13 @@
 = Wait 2.2.0
 
-Routes incoming FlowFiles to the 'wait' relationship until a matching release signal is stored in the distributed cache from a corresponding Notify processor. When a matching release signal is identified, a waiting FlowFile is routed to the 'success' relationship. The release signal entry is then removed from the cache. The attributes of the FlowFile that produced the release signal are copied to the waiting FlowFile if the Attribute Cache Regex property of the corresponding Notify processor is set properly. If there are multiple release signals in the cache identified by the Release Signal Identifier, and the Notify processor is configured to copy the FlowFile attributes to the cache, then the FlowFile passing the Wait processor receives the union of the attributes of the FlowFiles that produced the release signals in the cache (identified by Release Signal Identifier). Waiting FlowFiles will be routed to 'expired' if they exceed the Expiration Duration. If you need to wait for more than one signal, specify the desired number of signals via the 'Target Signal Count' property. This is particularly useful with processors that split a source FlowFile into multiple fragments, such as SplitText. In order to wait for all fragments to be processed, connect the 'original' relationship to a Wait processor, and the 'splits' relationship to a corresponding Notify processor. Configure the Notify and Wait processors to use the '${fragment.identifier}' as the value of 'Release Signal Identifier', and specify '${fragment.count}' as the value of 'Target Signal Count' in the Wait processor.It is recommended to use a prioritizer (for instance First In First Out) when using the 'wait' relationship as a loop.
+Маршрутизирует входящие FlowFiles в отношение 'wait' до тех пор, пока соответствующий сигнал выпуска не будет сохранен в распределенном кэше от соответствующего процессора Notify. Когда соответствующий сигнал выпуска идентифицируется, ожидающий FlowFile направляется в отношение 'success'. Сигнал выпуска удаляется из кэша. Атрибуты FlowFile, которые произвели сигнал выпуска, копируются в ожидающий FlowFile, если для свойства Attribute Cache Regex соответствующего процессора Notify установлено правильное значение. Если в кэше идентифицировано несколько сигналов выпуска (обозначенных Release Signal Identifier) и настроен копировать атрибуты FlowFile в кэш, то ожидающий FlowFile, проходящий через процессор Wait, получает объединение атрибутов FlowFiles, которые произвели сигналы выпуска в кэше (идентифицированные по Release Signal Identifier). Ожидающие FlowFiles будут направлены в 'expired', если они превышают установленный срок действия. Если вам нужно дождаться более одного сигнала, укажите желаемое количество сигналов через свойство 'Target Signal Count'. Это особенно полезно с процессорами, которые разделяют исходный FlowFile на несколько фрагментов, например SplitText. Для того чтобы дождаться всех фрагментов, подключите отношение 'original' к процессору Wait, а отношение 'splits' к соответствующему процессору Notify. Настройте процессоры Notify и Wait для использования '${fragment.identifier}' в качестве значения 'Release Signal Identifier', и укажите '${fragment.count}' в качестве значения 'Target Signal Count' в процессоре Wait. Рекомендуется использовать диспетчер приоритетов (например, FIFO) при использовании отношения 'wait' как петли.
 
 [horizontal]
 *Tags* (Ключевые слова):
 cache, distributed, hold, map, release, signal, wait
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Release-Signal-Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Release Signal Identifier
+*DISPLAY NAME (Отображаемое наименование):*:: Release Signal Identifier (Идентификатор сигнала выпуска)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A value that specifies the key to a specific release signal cache. To decide whether the FlowFile that is being processed by the Wait processor should be sent to the 'success' or the 'wait' relationship, the processor checks the signals in the cache specified by this key.
+*DESCRIPTION (Описание):*:: Значение, которое указывает на ключ к конкретному кэшу сигналов выпуска. Для определения того, должен ли поток данных, обрабатываемый процессором Wait, быть отправлен в отношение 'успех' или 'ожидание', процессор проверяет сигналы в кэше, указанном этим ключом.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Target-Signal-Count*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Target Signal Count
+*DISPLAY NAME (Отображаемое наименование):*:: Target Signal Count (Целевое количество сигналов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The number of signals that need to be in the cache (specified by the Release Signal Identifier) in order for the FlowFile processed by the Wait processor to be sent to the ‘success’ relationship. If the number of signals in the cache has reached this number, the FlowFile is routed to the 'success' relationship and the number of signals in the cache is decreased by this value. If Signal Counter Name is specified, this processor checks a particular counter, otherwise checks against the total number of signals in the cache.
+*DESCRIPTION (Описание):*:: Количество сигналов, которые должны быть в кэше (указанные с помощью идентификатора выпуска) для того, чтобы FlowFile, обрабатываемый процессором ожидания, был отправлен в отношение 'успех'. Если количество сигналов в кэше достигло этого числа, FlowFile направляется в отношение 'успех', и количество сигналов в кэше уменьшается на это значение. Если указано имя счетчика сигналов, этот процессор проверяет конкретный счетчик, в противном случае сравнивает общее количество сигналов в кэше.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .Signal-Counter-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Signal Counter Name
+*DISPLAY NAME (Отображаемое наименование):*:: Signal Counter Name (Сигнальный Счетчик Имя)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Within the cache (specified by the Release Signal Identifier) the signals may belong to different counters. If this property is specified, the processor checks the number of signals in the cache that belong to this particular counter. If not specified, the processor checks the total number of signals in the cache.
+*DESCRIPTION (Описание):*:: В кэше (указанном по идентификатору сигнала выпуска) сигналы могут принадлежать разным счетчикам. Если это свойство указано, процессор проверяет количество сигналов в кэше, которые принадлежат конкретному счетчику. Если не указано, процессор проверяет общее количество сигналов в кэше.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .*Wait-Buffer-Count*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Wait Buffer Count
+*DISPLAY NAME (Отображаемое наименование):*:: Wait Buffer Count (Максимальное количество входящих FlowFiles, которые могут быть буферизованы для проверки возможности перемещения вперед)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specify the maximum number of incoming FlowFiles that can be buffered to check whether it can move forward. The more buffer can provide the better performance, as it reduces the number of interactions with cache service by grouping FlowFiles by signal identifier. Only a signal identifier can be processed at a processor execution.
+*DESCRIPTION (Описание):*:: Укажите максимальное количество входящих FlowFiles, которые могут быть буферизованы для проверки возможности перемещения вперед. Чем больше буфер может предоставить, тем лучше производительность, так как он уменьшает количество взаимодействий с кэш-сервисом за счет группировки FlowFiles по идентификатору сигнала. Только идентификатор сигнала может быть обработан на этапе выполнения процессора.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ REQUIRED (Обязательно)
 .*Releasable-Flowfile-Count*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Releasable FlowFile Count
+*DISPLAY NAME (Отображаемое наименование):*:: Releasable FlowFile Count (Количество выпускаемых FlowFile)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A value, or the results of an Attribute Expression Language statement, which will be evaluated against a FlowFile in order to determine the releasable FlowFile count. This specifies how many FlowFiles can be released when a target count reaches target signal count. Zero (0) has a special meaning, any number of FlowFiles can be released as long as signal count matches target.
+*DESCRIPTION (Описание):*:: Значение, или результат утверждения языка выражений атрибутов, которое будет оцениваться по отношению к FlowFile для определения количества выпускаемых FlowFile. Это определяет, сколько FlowFile можно выпустить, когда целевое количество достигнет целевого сигнального счета. Ноль (0) имеет особое значение, любое количество FlowFile может быть выпущено, если счетчик сигналов соответствует целевому.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ REQUIRED (Обязательно)
 .*Expiration-Duration*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Expiration Duration
+*DISPLAY NAME (Отображаемое наименование):*:: Expiration Duration (Срок действия)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates the duration after which waiting FlowFiles will be routed to the 'expired' relationship
+*DESCRIPTION (Описание):*:: Указывает продолжительность, по истечении которой ожидающие FlowFiles будут направлены в отношение 'expired'
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -122,14 +122,14 @@ REQUIRED (Обязательно)
 .*Distributed-Cache-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Distributed Cache Service
+*DISPLAY NAME (Отображаемое наименование):*:: Distributed Cache Service (Распределенный кэш сервис)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Controller Service that is used to check for release signals from a corresponding Notify processor
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -139,23 +139,23 @@ REQUIRED (Обязательно)
 .*Attribute-Copy-Mode*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Attribute Copy Mode
+*DISPLAY NAME (Отображаемое наименование):*:: Attribute Copy Mode (Режим копирования атрибутов)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies how to handle attributes copied from FlowFiles entering the Notify processor
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Replace if present: When cached attributes are copied onto released FlowFiles, they replace any matching attributes. 
+* Replace if present (Заменить, если присутствует): When cached attributes are copied onto released FlowFiles, they replace any matching attributes. 
 
-* Keep original: Attributes on released FlowFiles are not overwritten by copied cached attributes. 
+* Keep original (Сохранить оригинальные): Attributes on released FlowFiles are not overwritten by copied cached attributes. 
 
 
 [horizontal]
@@ -164,23 +164,23 @@ REQUIRED (Обязательно)
 .*Wait-Mode*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Wait Mode
+*DISPLAY NAME (Отображаемое наименование):*:: Wait Mode (Режим ожидания)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how to handle a FlowFile waiting for a notify signal
+*DESCRIPTION (Описание):*:: Указывает, как обрабатывать поток данных (FlowFile), ожидающий сигнала уведомления
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Transfer to wait relationship: Transfer a FlowFile to the 'wait' relationship when whose release signal has not been notified yet. This mode allows other incoming FlowFiles to be enqueued by moving FlowFiles into the wait relationship. It is recommended to set a prioritizer (for instance First In First Out) on the 'wait' relationship. 
+* Transfer to wait relationship (Передать в отношение 'wait'): Передать FlowFile в отношение 'wait', если сигнал освобождения еще не был уведомлен. Этот режим позволяет другим поступающим FlowFiles быть помещенными в отношение 'wait'. Рекомендуется установить приоритезатор (например, FIFO) на отношение 'wait'. 
 
-* Keep in the upstream connection: Transfer a FlowFile to the upstream connection where it comes from when whose release signal has not been notified yet. This mode helps keeping upstream connection being full so that the upstream source processor will not be scheduled while back-pressure is active and limit incoming FlowFiles.  
+* Keep in the upstream connection (Оставить в исходном соединении): Передать FlowFile в исходное соединение, где он был получен, если сигнал освобождения еще не был уведомлен. Этот режим помогает поддерживать заполненность исходного соединения, что предотвращает планирование верхнего источника процессора при активных условиях обратной связи и ограничивает поступление новых FlowFiles. 
 
 
 [horizontal]
@@ -189,14 +189,14 @@ REQUIRED (Обязательно)
 .Wait-Penalty-Duration
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Wait Penalty Duration
+*DISPLAY NAME (Отображаемое наименование):*:: Wait Penalty Duration (Период наложения штрафа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If configured, after a signal identifier got processed but did not meet the release criteria, the signal identifier is penalized and FlowFiles having the signal identifier will not be processed again for the specified period of time, so that the signal identifier will not block others to be processed. This can be useful for use cases where a Wait processor is expected to process multiple signal identifiers, and each signal identifier has multiple FlowFiles, and also the order of releasing FlowFiles is important within a signal identifier. The FlowFile order can be configured with Prioritizers. IMPORTANT: There is a limitation of number of queued signals can be processed, and Wait processor may not be able to check all queued signal ids. See additional details for the best practice.
+*DESCRIPTION (Описание):*:: Если настроено, после того как идентификатор сигнала был обработан, но не соответствует критериям освобождения, идентификатор сигнала наказывается, и FlowFiles с этим идентификатором сигнала больше не будут обрабатываться в течение указанного периода времени, чтобы предотвратить блокировку других процессов. Это может быть полезно для сценариев, где ожидается, что Wait processor обработает несколько идентификаторов сигналов, и каждый идентификатор сигнала имеет несколько FlowFiles, а также важен порядок освобождения FlowFiles в рамках одного идентификатора сигнала. Порядок FlowFile можно настроить с помощью Prioritizers. ВАЖНО: существует ограничение на количество очередных сигналов, которые могут быть обработаны, и Wait processor может не иметь возможности проверить все идентификаторы очередных сигналов. См. дополнительные сведения для лучших практик.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -220,16 +220,16 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`expired`
-|A FlowFile that has exceeded the configured Expiration Duration will be routed to this relationship
+|FlowFile, который превысил установленный срок действия Expiration Duration, будет направлен в это отношение
 
 |`wait`
-|A FlowFile with no matching release signal in the cache will be routed to this relationship
+|FlowFile без соответствующего сигнала выпуска в кэше будет направлен в это отношение
 
 |`success`
-|A FlowFile with a matching release signal in the cache will be routed to this relationship
+|FlowFile с соответствующим сигналом выпуска в кэше будет направлен в это отношение
 
 |`failure`
-|When the cache cannot be reached, or if the Release Signal Identifier evaluates to null or empty, FlowFiles will be routed to this relationship
+|Когда кэш недоступен, или если Release Signal Identifier оценивается как null или пустая строка, FlowFiles будут направлены в это отношение
 
 |===
 
@@ -244,10 +244,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`wait.start.timestamp`
-|All FlowFiles will have an attribute 'wait.start.timestamp', which sets the initial epoch timestamp when the file first entered this processor.  This is used to determine the expiration time of the FlowFile.  This attribute is not written when the FlowFile is transferred to failure, expired or success
+|Все FlowFiles будут иметь атрибут 'wait.start.timestamp', который устанавливает начальную эпоху метки времени, когда файл впервые вошел в этот процессор. Это используется для определения срока действия FlowFile. Этот атрибут не записывается, если FlowFile передается в failure, expired или success
 
 |`wait.counter.<counterName>`
-|The name of each counter for which at least one signal has been present in the cache since the last time the cache was empty gets copied to the current FlowFile as an attribute.
+|Каждый счетчик, для которого хотя бы один сигнал присутствовал в кэше с момента последнего времени, когда кэш был пуст, копируется в текущий FlowFile как атрибут.
 
 |===
 

@@ -1,13 +1,13 @@
 = FetchGridFS 2.2.0
 
-Retrieves one or more files from a GridFS bucket by file name or by a user-defined query.
+Извлекает один или несколько файлов из GridFS бакета по имени файла или с помощью пользовательского запроса.
 
 [horizontal]
 *Tags* (Ключевые слова):
 fetch, gridfs, mongo
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Gridfs-Client-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Client Service
+*DISPLAY NAME (Отображаемое наименование):*:: Client Service (Клиентская служба)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The MongoDB client service to use for database connections.
+*DESCRIPTION (Описание):*:: The MongoDB client service to use for database connections. (Служба MongoDB клиента для использования в базах данных.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Gridfs-Database-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Mongo Database Name
+*DISPLAY NAME (Отображаемое наименование):*:: Mongo Database Name (Имя базы данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the database to use
+*DESCRIPTION (Описание):*:: The name of the database to use (Имя базы данных для использования)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .Gridfs-Bucket-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Bucket Name
+*DISPLAY NAME (Отображаемое наименование):*:: Bucket Name (Имя бакета)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The GridFS bucket where the files will be stored. If left blank, it will use the default value 'fs' that the MongoDB client driver uses.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .Gridfs-File-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: File Name
+*DISPLAY NAME (Отображаемое наименование):*:: File Name (Имя файла в бакете, на который направлен этот процессор)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the file in the bucket that is the target of this processor.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ REQUIRED (Обязательно)
 .Gridfs-Query
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Query
+*DISPLAY NAME (Отображаемое наименование):*:: Query (Запрос)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A valid MongoDB query to use to fetch one or more files from GridFS.
+*DESCRIPTION (Описание):*:: Допустимый запрос MongoDB для получения одного или нескольких файлов из GridFS.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ REQUIRED (Обязательно)
 .Mongo-Query-Attribute
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Query Output Attribute
+*DISPLAY NAME (Отображаемое наименование):*:: Query Output Attribute (Выходной атрибут запроса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If set, the query will be written to a specified attribute on the output flowfiles.
+*DESCRIPTION (Описание):*:: Если установлено, запрос будет записан в указанный атрибут на выходном потоке.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -122,23 +122,23 @@ REQUIRED (Обязательно)
 .*Mongo-Operation-Mode*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Operation Mode
+*DISPLAY NAME (Отображаемое наименование):*:: Operation Mode (Режим операции)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: This option controls when results are made available to downstream processors. If Stream Query Results is enabled, provenance will not be tracked relative to the input flowfile if an input flowfile is received and starts the query. In Stream Query Results mode errors will be handled by sending a new flowfile with the original content and attributes of the input flowfile to the failure relationship. Streaming should only be used if there is reliable connectivity between MongoDB and NiFi.
+*DESCRIPTION (Описание):*:: Этот параметр контролирует, когда результаты становятся доступны для последующих процессоров. Если включена опция Stream Query Results, происхождение не будет отслеживаться относительно входного потока данных, если поступает входной поток данных и начинает запрос. В режиме Stream Query Results ошибки будут обрабатываться путем отправки нового потока данных с исходным содержимым и атрибутами входного потока данных в отношение сбоя.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Full Query Fetch: Fetch the entire query result and then make it available to downstream processors. 
+* Full Query Fetch (Полный запрос получения): Загрузить весь результат запроса и затем сделать его доступным для последующих процессоров. 
 
-* Stream Query Results: As soon as the query start sending results to the downstream processors at regular intervals. 
+* Stream Query Results (Результаты запроса в режиме потоковой передачи): Как только запрос начнет отправлять результаты downstream-процессорам через регулярные интервалы. 
 
 
 [horizontal]
@@ -161,13 +161,13 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`failure`
-|When there is a failure processing the flowfile, it goes to this relationship.
+|При возникновении ошибки при обработке flowfile, он переходит в это отношение.
 
 |`success`
-|When the operation succeeds, the flowfile is sent to this relationship.
+|При успешном завершении операции flowfile отправляется в это отношение.
 
 |`original`
-|The original input flowfile goes to this relationship if the query does not cause an error
+|Исходный input flowfile переходит в это отношение, если запрос не вызывает ошибку
 
 |===
 
@@ -182,7 +182,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`gridfs.file.metadata`
-|The custom metadata stored with a file is attached to this property if it exists.
+|Настраиваемые метаданные, хранящиеся с файлом, прикрепляются к этому свойству, если они существуют.
 
 |===
 

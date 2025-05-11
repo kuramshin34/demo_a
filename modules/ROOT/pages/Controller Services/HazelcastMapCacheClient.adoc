@@ -1,13 +1,13 @@
 = HazelcastMapCacheClient 2.2.0
 
-An implementation of DistributedMapCacheClient that uses Hazelcast as the backing cache. This service relies on an other controller service, manages the actual Hazelcast calls, set in Hazelcast Cache Manager.
+Реализация DistributedMapCacheClient, использующая Hazelcast в качестве основной системы кэширования. Этот сервис зависит от другого контроллер-сервиса, управляет фактическими вызовами Hazelcast, настроенными в менеджере кэша Hazelcast.
 
 [horizontal]
 *Tags* (Ключевые слова):
 cache, hazelcast, map
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ cache, hazelcast, map
 .*Hazelcast-Cache-Manager*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Cache Manager
+*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Cache Manager (Хазелькаст Кеш Менеджер)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A Hazelcast Cache Manager which manages connections to Hazelcast and provides cache instances.
+*DESCRIPTION (Описание):*:: A Hazelcast Cache Manager which manages connections to Hazelcast and provides cache instances. (Менеджер кеша Hazelcast, который управляет подключениями к Hazelcast и предоставляет экземпляры кеша.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ cache, hazelcast, map
 .*Hazelcast-Cache-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Cache Name
+*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Cache Name (Имя кэша)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of a given cache. A Hazelcast cluster may handle multiple independent caches, each identified by a name. Clients using caches with the same name are working on the same data structure within Hazelcast.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ cache, hazelcast, map
 .*Hazelcast-Entry-Ttl*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Entry Lifetime
+*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Entry Lifetime (Срок хранения записи в Hazelcast)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates how long the written entries should exist in Hazelcast. Setting it to '0 secs' means that the datawill exists until its deletion or until the Hazelcast server is shut down. Using `EmbeddedHazelcastCacheManager` ascache manager will not provide policies to limit the size of the cache.
+*DESCRIPTION (Описание):*:: Указывает, как долго должны существовать записанные записи в Hazelcast. Установка на '0 сек' означает, что данные будут существовать до их удаления или пока не будет остановлен сервер Hazelcast.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -81,6 +81,17 @@ cache, hazelcast, map
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

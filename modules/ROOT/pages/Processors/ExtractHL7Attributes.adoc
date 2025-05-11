@@ -1,13 +1,13 @@
 = ExtractHL7Attributes 2.2.0
 
-Extracts information from an HL7 (Health Level 7) formatted FlowFile and adds the information as FlowFile Attributes. The attributes are named as <Segment Name> <dot> <Field Index>. If the segment is repeating, the naming will be <Segment Name> <underscore> <Segment Index> <dot> <Field Index>. For example, we may have an attribute named "MHS.12" with a value of "2.1" and an attribute named "OBX_11.3" with a value of "93000^CPT4".
+Извлекает информацию из FlowFile в формате HL7 (Health Level 7) и добавляет информацию как атрибуты FlowFile. Атрибуты названы как <Имя сегмента> <точка> <Индекс поля>. Если сегмент повторяется, то название будет <Имя сегмента> <нижнее подчеркивание> <Индекс сегмента> <точка> <Индекс поля>. Например, у нас может быть атрибут с именем "MHS.12" со значением "2.1" и атрибут с именем "OBX_11.3" со значением "93000^CPT4".
 
 [horizontal]
 *Tags* (Ключевые слова):
-HL7, attributes, extract, health level 7, healthcare
+HL7, атрибуты, извлечение, Health Level 7, здоровье
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Character Encoding*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Encoding
+*DISPLAY NAME (Отображаемое наименование):*:: Character Encoding (Кодировка символов)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Character Encoding that is used to encode the HL7 data
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Use-Segment-Names*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Use Segment Names
+*DISPLAY NAME (Отображаемое наименование):*:: Use Segment Names (Использовать имена сегментов)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Whether or not to use HL7 segment names in attributes
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -62,23 +62,23 @@ REQUIRED (Обязательно)
 .*Parse-Segment-Fields*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Parse Segment Fields
+*DISPLAY NAME (Отображаемое наименование):*:: Parse Segment Fields (Разбор полей сегментов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Whether or not to parse HL7 segment fields into attributes
+*DESCRIPTION (Описание):*:: Определяет, следует ли анализировать поля HL7 сегментов в атрибуты
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -87,23 +87,23 @@ REQUIRED (Обязательно)
 .*Skip-Validation*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Skip Validation
+*DISPLAY NAME (Отображаемое наименование):*:: Skip Validation (Пропускать проверку значений HL7 сообщения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Whether or not to validate HL7 message values
+*DESCRIPTION (Описание):*:: Whether or not to validate HL7 message values (Будет ли проверяться значения HL7 сообщений)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -112,21 +112,21 @@ REQUIRED (Обязательно)
 .*Hl7-Input-Version*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: HL7 Input Version
+*DISPLAY NAME (Отображаемое наименование):*:: HL7 Input Version (Версия ввода HL7)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The HL7 version to use for parsing and validation
+*DESCRIPTION (Описание):*:: The HL7 version to use for parsing and validation (Версия HL7 для парсинга и проверки)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* autodetect
+* autodetect (автоопределение)
 
 * 2.2
 
@@ -163,16 +163,27 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|A FlowFile is routed to this relationship if it is properly parsed as HL7 and its attributes extracted
+|Поток файлов передается в это отношение, если он правильно интерпретируется как HL7 и извлекаются его атрибуты
 
 |`failure`
-|A FlowFile is routed to this relationship if it cannot be mapped to FlowFile Attributes. This would happen if the FlowFile does not contain valid HL7 data
+|Поток файлов передается в это отношение, если он не может быть сопоставлен с атрибутами FlowFile. Это произойдет, если поток файлов не содержит допустимых данных HL7
 
 |===
 
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

@@ -1,13 +1,13 @@
 = ParseEvtx 2.2.0
 
-Parses the contents of a Windows Event Log file (evtx) and writes the resulting XML to the FlowFile
+Парсит содержимое файла журнала событий Windows (evtx) и записывает результат в FlowFile в формате XML
 
 [horizontal]
 *Tags* (Ключевые слова):
 event, evtx, file, logs, message, windows
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,25 +20,25 @@ REQUIRED (Обязательно)
 .*Granularity*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Granularity
+*DISPLAY NAME (Отображаемое наименование):*:: Granularity (Гранулярность)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Output flow file for each Record, Chunk, or File encountered in the event log
+*DESCRIPTION (Описание):*:: Выходной поток файла для каждого записи, фрагмента или файла, встречающегося в журнале событий
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Record
+* Record (Запись)
 
-* Chunk
+* Chunk (Фрагмент)
 
-* File
+* File (Файл)
 
 
 [horizontal]
@@ -61,16 +61,16 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`bad chunk`
-|Any bad chunks of records will be transferred to this relationship in their original binary form
+|Любые плохие части записей будут переданы по этому отношению в их исходной бинарной форме
 
 |`success`
-|Any FlowFile that was successfully converted from evtx to XML
+|Любой FlowFile, успешно преобразованный из evtx в XML
 
 |`failure`
-|Any FlowFile that encountered an exception during conversion will be transferred to this relationship with as much parsing as possible done
+|Любой FlowFile, который столкнулся с исключением при конвертации, будет передан по этому отношению с максимально возможным парсингом
 
 |`original`
-|The unmodified input FlowFile will be transferred to this relationship
+|Неизмененный входной FlowFile будет передан по этому отношению
 
 |===
 
@@ -83,7 +83,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`filename`
-|The filename of the evtx file
+|Имя файла evtx
 
 |===
 
@@ -96,10 +96,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`filename`
-|The output filename
+|Имя выходного файла
 
 |`mime.type`
-|The output filetype (application/xml for success and failure relationships, original value for bad chunk and original relationships)
+|Тип выходного файла (application/xml для отношений success и failure, исходное значение для отношений bad chunk и original)
 
 |===
 

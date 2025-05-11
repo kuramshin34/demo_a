@@ -1,13 +1,13 @@
 = PutDropbox 2.2.0
 
-Puts content to a Dropbox folder.
+Отправляет содержимое в папку Dropbox.
 
 [horizontal]
 *Tags* (Ключевые слова):
 dropbox, put, storage
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Dropbox-Credential-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Dropbox Credential Service
+*DISPLAY NAME (Отображаемое наименование):*:: Dropbox Credential Service (Услуга получения учетных данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Controller Service used to obtain Dropbox credentials (App Key, App Secret, Access Token, Refresh Token). See controller service's Additional Details for more information.
+*DESCRIPTION (Описание):*:: Сервис контроллера, используемый для получения учетных данных Dropbox (App Key, App Secret, Access Token, Refresh Token). Подробнее см. в дополнительных деталях сервиса контроллера.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Folder*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Folder
+*DISPLAY NAME (Отображаемое наименование):*:: Folder (Папка)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The path of the Dropbox folder to upload files to. The folder will be created if it does not exist yet.
+*DESCRIPTION (Описание):*:: Путь к папке Dropbox, в которую нужно загрузить файлы. Папка будет создана, если она еще не существует.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*File-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Filename
+*DISPLAY NAME (Отображаемое наименование):*:: Filename (Имя файла)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The full name of the file to upload.
+*DESCRIPTION (Описание):*:: Полное имя файла для загрузки.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,25 +71,25 @@ REQUIRED (Обязательно)
 .*Conflict-Resolution-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Conflict Resolution Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Conflict Resolution Strategy (Стратегия разрешения конфликтов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates what should happen when a file with the same name already exists in the specified Dropbox folder.
+*DESCRIPTION (Описание):*:: Указывает, что должно произойти, если файл с тем же именем уже существует в указанной папке Dropbox.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* fail: Handle file conflict as failure. 
+* fail: Обработать конфликт как неудачу. 
 
-* ignore: Ignore conflict, do not change the original file. 
+* ignore: Игнорировать конфликт, не изменять оригинальный файл. 
 
-* replace: Replace existing file in case of conflict. 
+* replace: Заменить существующий файл в случае конфликта. 
 
 
 [horizontal]
@@ -98,14 +98,14 @@ REQUIRED (Обязательно)
 .Chunked-Upload-Threshold
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Chunked Upload Threshold
+*DISPLAY NAME (Отображаемое наименование):*:: Chunked Upload Threshold (Максимальный размер содержимого, которое загружается за один раз)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum size of the content which is uploaded at once. FlowFiles larger than this threshold are uploaded in chunks. Maximum allowed value is 150 MB.
+*DESCRIPTION (Описание):*:: Максимальный размер содержимого, которое загружается за один раз. Если FlowFiles превышают этот порог, они загружаются частями. Максимально допустимое значение - 150 МБ.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -115,14 +115,14 @@ REQUIRED (Обязательно)
 .Chunked-Upload-Size
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Chunked Upload Size
+*DISPLAY NAME (Отображаемое наименование):*:: Chunked Upload Size (Размер чанка)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Defines the size of a chunk. Used when a FlowFile's size exceeds 'Chunked Upload Threshold' and content is uploaded in smaller chunks. It is recommended to specify chunked upload size smaller than 'Chunked Upload Threshold' and as multiples of 4 MB. Maximum allowed value is 150 MB.
+*DESCRIPTION (Описание):*:: Определяет размер чанка. Используется, когда размер FlowFile превышает 'Chunked Upload Threshold', и содержимое загружается небольшими частями. Рекомендуется указывать размер чанка меньше, чем 'Chunked Upload Threshold', и как кратные 4 МБ. Максимально допустимое значение - 150 МБ.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -132,14 +132,14 @@ REQUIRED (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: HTTP + AuthN
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -163,10 +163,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Files that have been successfully written to Dropbox are transferred to this relationship.
+|Файлы, успешно записанные в Dropbox, передаются по этому отношению.
 
 |`failure`
-|Files that could not be written to Dropbox for some reason are transferred to this relationship.
+|Файлы, которые не удалось записать в Dropbox по какой-либо причине, передаются по этому отношению.
 
 |===
 
@@ -179,7 +179,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`filename`
-|Uses the FlowFile's filename as the filename for the Dropbox object.
+|Использует имя файла FlowFile в качестве имени файла для объекта Dropbox.
 
 |===
 
@@ -192,25 +192,25 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`error.message`
-|The error message returned by Dropbox
+|Сообщение об ошибке, возвращенное Dropbox
 
 |`dropbox.id`
-|The Dropbox identifier of the file
+|Идентификатор Dropbox файла
 
 |`path`
-|The folder path where the file is located
+|Путь к папке, где расположен файл
 
 |`filename`
-|The name of the file
+|Имя файла
 
 |`dropbox.size`
-|The size of the file
+|Размер файла
 
 |`dropbox.timestamp`
-|The server modified time of the file
+|Серверное время модификации файла
 
 |`dropbox.revision`
-|Revision of the file
+|Ревизия файла
 
 |===
 

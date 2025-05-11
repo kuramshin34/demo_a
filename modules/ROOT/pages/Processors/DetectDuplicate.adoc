@@ -1,13 +1,13 @@
 = DetectDuplicate 2.2.0
 
-Caches a value, computed from FlowFile attributes, for each incoming FlowFile and determines if the cached value has already been seen. If so, routes the FlowFile to 'duplicate' with an attribute named 'original.identifier' that specifies the original FlowFile's "description", which is specified in the <FlowFile Description> property. If the FlowFile is not determined to be a duplicate, the Processor routes the FlowFile to 'non-duplicate'
+Кэширует значение, вычисляемое из атрибутов FlowFile, для каждого входящего FlowFile и определяет, было ли это значение уже видно. Если да, то направляет FlowFile в 'duplicate' с атрибутом named 'original.identifier', который указывает оригинальное описание FlowFile, которое задается свойством <FlowFile Description>.
 
 [horizontal]
 *Tags* (Ключевые слова):
 dedupe, dupe, duplicate, hash
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Cache Entry Identifier*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Cache Entry Identifier
+*DISPLAY NAME (Отображаемое наименование):*:: Cache Entry Identifier (Идентификатор записи кэша)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A FlowFile attribute, or the results of an Attribute Expression Language statement, which will be evaluated against a FlowFile in order to determine the value used to identify duplicates; it is this value that is cached
+*DESCRIPTION (Описание):*:: Атрибут FlowFile или результат выражения языка Attribute Expression Language, которое будет оцениваться относительно FlowFile с целью определения значения, используемого для идентификации дубликатов; именно это значение кэшируется
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Flowfile Description*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: FlowFile Description
+*DISPLAY NAME (Отображаемое наименование):*:: FlowFile Description (Описание FlowFile)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When a FlowFile is added to the cache, this value is stored along with it so that if a duplicate is found, this description of the original FlowFile will be added to the duplicate's "original.flowfile.description" attribute
+*DESCRIPTION (Описание):*:: Когда FlowFile добавляется в кэш, это значение хранится вместе с ним, чтобы если будет найдена дубликация, это описание исходного FlowFile будет добавлено в атрибут "original.flowfile.description" дубликата
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .Age Off Duration
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Age Off Duration
+*DISPLAY NAME (Отображаемое наименование):*:: Age Off Duration (Временной интервал для устаревания кэшированных FlowFiles)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Time interval to age off cached FlowFiles
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .*Distributed Cache Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Distributed Cache Service
+*DISPLAY NAME (Отображаемое наименование):*:: Distributed Cache Service (Распределенный сервис кэша)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Controller Service that is used to cache unique identifiers, used to determine duplicates
+*DESCRIPTION (Описание):*:: Контроллер-сервис, используемый для кэширования уникальных идентификаторов, которые используются для определения дубликатов
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,23 +88,23 @@ REQUIRED (Обязательно)
 .Cache The Entry Identifier
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Cache The Entry Identifier
+*DISPLAY NAME (Отображаемое наименование):*:: Cache The Entry Identifier (Кэшировать идентификатор записи)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When true this cause the processor to check for duplicates and cache the Entry Identifier. When false, the processor would only check for duplicates and not cache the Entry Identifier, requiring another processor to add identifiers to the distributed cache.
+*DESCRIPTION (Описание):*:: Когда это значение равно true, процессор проверяет на наличие дубликатов и кэширует идентификатор записи. Когда значение равно false, процессор будет проверять на наличие дубликатов без кэширования идентификатора записи, требуя от другого процессора добавить идентификаторы в распределенный кэш.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -127,13 +127,13 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`non-duplicate`
-|If a FlowFile's Cache Entry Identifier was not found in the cache, it will be routed to this relationship
+|Если идентификатор записи в кэше для FlowFile не найден, он будет направлен по этому отношению
 
 |`duplicate`
-|If a FlowFile has been detected to be a duplicate, it will be routed to this relationship
+|Если FlowFile был определен как дубликат, он будет направлен по этому отношению
 
 |`failure`
-|If unable to communicate with the cache, the FlowFile will be penalized and routed to this relationship
+|Если не удается взаимодействовать с кэшем, FlowFile будет оштрафован и направлен по этому отношению
 
 |===
 
@@ -148,7 +148,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`original.flowfile.description`
-|All FlowFiles routed to the duplicate relationship will have an attribute added named original.flowfile.description. The value of this attribute is determined by the attributes of the original copy of the data and by the FlowFile Description property.
+|Все FlowFiles, направленные в отношение 'duplicate', получат атрибут с именем original.flowfile.description. Значение этого атрибута определяется атрибутами оригинальной копии данных и свойством <FlowFile Description>.
 
 |===
 

@@ -1,13 +1,13 @@
 = ScriptedPartitionRecord 2.2.0
 
-Receives Record-oriented data (i.e., data that can be read by the configured Record Reader) and evaluates the user provided script against each record in the incoming flow file. Each record is then grouped with other records sharing the same partition and a FlowFile is created for each groups of records. Two records shares the same partition if the evaluation of the script results the same return value for both. Those will be considered as part of the same partition.
+Принимает данные, ориентированные на запись (то есть данные, которые могут быть прочитаны конфигурируемым читателем записей) и оценивает предоставленный пользователем скрипт для каждой записи во входящем потоке файлов. Каждая запись затем группируется с другими записями, разделяющими ту же партицию, и создается FlowFile для каждой группы записей. Две записи разделяют одну и ту же партицию, если оценка скрипта дает одинаковый возвращаемый результат для обеих. Они будут считаться частью одной партии.
 
 [horizontal]
 *Tags* (Ключевые слова):
 groovy, group, organize, partition, record, script, segment, split
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ groovy, group, organize, partition, record, script, segment, split
 .*Record Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Записыватель записей)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Record Reader to use parsing the incoming FlowFile into Records
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ groovy, group, organize, partition, record, script, segment, split
 .*Record Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Record Writer to use for serializing Records after they have been transformed
+*DESCRIPTION (Описание):*:: Записыватель записей для сериализации Records после их трансформации
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ groovy, group, organize, partition, record, script, segment, split
 .*Script Engine*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Script Language
+*DISPLAY NAME (Отображаемое наименование):*:: Язык скриптов (Script Language)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Language to use for the script
+*DESCRIPTION (Описание):*:: Язык для использования в скрипте
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -79,14 +79,14 @@ groovy, group, organize, partition, record, script, segment, split
 .Script Body
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Script Body
+*DISPLAY NAME (Отображаемое наименование):*:: Script Body (Тело скрипта)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Body of script to execute. Only one of Script File or Script Body may be used
+*DESCRIPTION (Описание):*:: Тело скрипта для выполнения. Может быть использовано только одно из значений Script File или Script Body
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -96,14 +96,14 @@ groovy, group, organize, partition, record, script, segment, split
 .Script File
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Script File
+*DISPLAY NAME (Отображаемое наименование):*:: Script File (Скриптовый файл)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Path to script file to execute. Only one of Script File or Script Body may be used
+*DESCRIPTION (Описание):*:: Путь к скриптовому файлу для выполнения. Может быть использован только один из Скриптовый файл или Скрипт тела
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -113,14 +113,14 @@ groovy, group, organize, partition, record, script, segment, split
 .Module Directory
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Module Directory
+*DISPLAY NAME (Отображаемое наименование):*:: Module Directory (Модульный справочник)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Comma-separated list of paths to files and/or directories which contain modules required by the script.
+*DESCRIPTION (Описание):*:: Список, разделенных запятыми путей к файлам и/или директориям, содержащих модули, необходимые для выполнения скрипта.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -142,7 +142,7 @@ groovy, group, organize, partition, record, script, segment, split
 |Требуемые права |Объяснение
 
 |
-|Provides operator the ability to execute arbitrary code assuming all permissions that NiFi has.
+|Предоставляет оператору возможность выполнять произвольный код, принимая все разрешения, которые имеет NiFi.
 
 |===
 
@@ -155,13 +155,13 @@ groovy, group, organize, partition, record, script, segment, split
 |Наименование |Описание
 
 |`success`
-|FlowFiles that are successfully partitioned will be routed to this relationship
+|Поток-файлы, которые успешно разделёны, будут направлены в эту связь
 
 |`original`
-|Once all records in an incoming FlowFile have been partitioned, the original FlowFile is routed to this relationship.
+|Как только все записи в поступающем потоке-файле будут разделёны, оригинальный поток-файл будет направлен в эту связь.
 
 |`failure`
-|If a FlowFile cannot be partitioned from the configured input format to the configured output format, the unchanged FlowFile will be routed to this relationship
+|Если поток-файл не может быть разделён из конфигурируемого формата ввода в формат вывода, неизменённый поток-файл будет направлен в эту связь
 
 |===
 
@@ -176,22 +176,22 @@ groovy, group, organize, partition, record, script, segment, split
 |Наименование |Описание
 
 |`partition`
-|The partition of the outgoing flow file. If the script indicates that the partition has a null value, the attribute will be set to the literal string "<null partition>" (without quotes). Otherwise, the attribute is set to the String representation of whatever value is returned by the script.
+|Партиция исходящего потока-файла. Если скрипт указывает, что партиция имеет значение null, атрибут будет установлен в литеральную строку "<null partition>" (без кавычек). В противном случае атрибут устанавливается в строковое представление возвращаемого значения скриптом.
 
 |`mime.type`
-|Sets the mime.type attribute to the MIME Type specified by the Record Writer
+|Устанавливает атрибут mime.type в указанный MIME-тип записывателем
 
 |`record.count`
-|The number of records within the flow file.
+|Количество записей в потоке-файле.
 
 |`record.error.message`
-|This attribute provides on failure the error message encountered by the Reader or Writer.
+|Этот атрибут предоставляет при неудаче сообщение об ошибке, которое встречается Reader или Writer.
 
 |`fragment.index`
-|A one-up number that indicates the ordering of the partitioned FlowFiles that were created from a single parent FlowFile
+|Одноразовый номер, указывающий порядок разделенных потоков-файлов, созданных из одного родительского потока-файла
 
 |`fragment.count`
-|The number of partitioned FlowFiles generated from the parent FlowFile
+|Количество сгенерированных разбитых потоков-файлов от родительского потока-файла
 
 |===
 

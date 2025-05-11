@@ -1,13 +1,13 @@
 = PutAzureQueueStorage_v12 2.2.0
 
-Writes the content of the incoming FlowFiles to the configured Azure Queue Storage.
+Записывает содержимое входящих FlowFiles в настроенное хранилище очередей Azure.
 
 [horizontal]
 *Tags* (Ключевые слова):
 azure, cloud, enqueue, microsoft, queue, storage
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Queue Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Queue Name
+*DISPLAY NAME (Отображаемое наименование):*:: Queue Name (Очередь имени)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Name of the Azure Storage Queue
+*DESCRIPTION (Описание):*:: Имя очереди Azure Storage Queue
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Storage-Endpoint-Suffix*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Endpoint Suffix
+*DISPLAY NAME (Отображаемое наименование):*:: Endpoint Suffix (Суффикс конечной точки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Storage accounts in public Azure always use a common FQDN suffix. Override this endpoint suffix with a different suffix in certain circumstances (like Azure Stack or non-public Azure regions).
+*DESCRIPTION (Описание):*:: Хранилища в публичном Azure всегда используют общий FQDN суффикс. Переопределите этот суффикс конечной точки с другим суффиксом в особых обстоятельствах (например, Azure Stack или непубличные регионы Azure).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Credentials Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Credentials Service
+*DISPLAY NAME (Отображаемое наименование):*:: Credentials Service (Услуга учетных данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Controller Service used to obtain Azure Storage Credentials.
+*DESCRIPTION (Описание):*:: Сервис контроллера, используемый для получения учетных данных Azure Storage.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .*Message Time To Live*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Message Time To Live
+*DISPLAY NAME (Отображаемое наименование):*:: Message Time To Live (Время жизни сообщения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Maximum time to allow the message to be in the queue
+*DESCRIPTION (Описание):*:: Максимальное время, разрешенное для сообщения в очереди
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ REQUIRED (Обязательно)
 .*Visibility Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Visibility Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Visibility Timeout (Видимость таймаут)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The length of time during which the message will be invisible after it is read. If the processing unit fails to delete the message after it is read, then the message will reappear in the queue.
+*DESCRIPTION (Описание):*:: Длительность времени, в течение которого сообщение будет невидимым после его прочтения. Если обработная единица не удаляет сообщение после его чтения, оно снова появится в очереди.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ REQUIRED (Обязательно)
 .*Request Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Request Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Request Timeout (Запрос таймаут)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The timeout for read or write requests to Azure Queue Storage. Defaults to 1 second.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -122,14 +122,14 @@ REQUIRED (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: SOCKS, HTTP In case of SOCKS, it is not guaranteed that the selected SOCKS Version will be used by the processor.
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: SOCKS, HTTP В случае использования SOCKS, не гарантируется, что выбранная версия SOCKS будет использоваться процессором.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -153,16 +153,27 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|All successfully processed FlowFiles are routed to this relationship
+|Все успешно обработанные FlowFiles направляются в это отношение
 
 |`failure`
-|Unsuccessful operations will be transferred to the failure relationship.
+|Неуспешные операции будут переданы в отношение сбоя.
 
 |===
 
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

@@ -1,13 +1,13 @@
 = KerberosKeytabUserService 2.2.0
 
-Provides a mechanism for creating a KerberosUser from a principal and keytab that other components are able to use in order to perform authentication using Kerberos. By encapsulating this information into a Controller Service and allowing other components to make use of it (as opposed to specifying the principal and keytab directly in the processor) an administrator is able to choose which users are allowed to use which keytabs and principals. This provides a more robust security model for multi-tenant use cases.
+Предоставляет механизм создания KerberosUser из принципала и keytab, которые могут быть использованы другими компонентами для выполнения аутентификации с помощью Kerberos. Заключая эту информацию в сервис контроллера и позволяя другим компонентам его использовать (вместо прямого указания принципала и keytab в процессоре) администратор может выбирать, какие пользователи могут использовать какие keytab и принципы. Это обеспечивает более надежную модель безопасности для мульти-клиентных сценариев.
 
 [horizontal]
 *Tags* (Ключевые слова):
 Authentication, Credentials, Kerberos, Keytab, Principal, Security
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ Authentication, Credentials, Kerberos, Keytab, Principal, Security
 .*Kerberos Principal*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Kerberos Principal
+*DISPLAY NAME (Отображаемое наименование):*:: Kerberos Principal (Kerberos-главный)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Kerberos principal to authenticate as. Requires nifi.kerberos.krb5.file to be set in your nifi.properties
+*DESCRIPTION (Описание):*:: Kerberos-главный для аутентификации. Требуется установка nifi.kerberos.krb5.file в ваших nifi.properties
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ Authentication, Credentials, Kerberos, Keytab, Principal, Security
 .*Kerberos Keytab*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Kerberos Keytab
+*DISPLAY NAME (Отображаемое наименование):*:: Kerberos Keytab (Керберoс ключевой файл)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Kerberos keytab associated with the principal.
+*DESCRIPTION (Описание):*:: Kerberos keytab, связанный с принципалом.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -66,7 +66,7 @@ Authentication, Credentials, Kerberos, Keytab, Principal, Security
 |Требуемые права |Объяснение
 
 |
-|Allows user to define a Keytab and principal that can then be used by other components.
+|Позволяет пользователю определить Keytab и принцип, которые затем могут быть использованы другими компонентами.
 
 |===
 
@@ -75,6 +75,17 @@ Authentication, Credentials, Kerberos, Keytab, Principal, Security
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

@@ -1,13 +1,13 @@
 = StandardPrivateKeyService 2.2.0
 
-Private Key Service provides access to a Private Key loaded from configured sources
+Сервис приватного ключа обеспечивает доступ к загруженному из настроенных источников частному ключу
 
 [horizontal]
 *Tags* (Ключевые слова):
 PEM, PKCS8
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ PEM, PKCS8
 .Key-File
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Key File
+*DISPLAY NAME (Отображаемое наименование):*:: Key File (Файл ключа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: File path to Private Key structured using PKCS8 and encoded as PEM
+*DESCRIPTION (Описание):*:: Путь к файлу, содержащему закрытый ключ, структурированный по PKCS8 и закодированный в формате PEM
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ PEM, PKCS8
 .Key
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Key
+*DISPLAY NAME (Отображаемое наименование):*:: Ключ (Key)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Private Key structured using PKCS8 and encoded as PEM
+*DESCRIPTION (Описание):*:: Приватный ключ, структурированный с использованием PKCS8 и закодированный в формате PEM
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -54,14 +54,14 @@ PEM, PKCS8
 .Key-Password
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Key Password
+*DISPLAY NAME (Отображаемое наименование):*:: Key Password (Пароль для расшифровки приватных ключей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Password used for decrypting Private Keys
+*DESCRIPTION (Описание):*:: Пароль, используемый для расшифровки приватных ключей
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -81,6 +81,17 @@ PEM, PKCS8
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

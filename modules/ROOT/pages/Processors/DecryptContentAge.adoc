@@ -1,13 +1,13 @@
 = DecryptContentAge 2.2.0
 
-Decrypt content using the age-encryption.org/v1 specification. Detects binary or ASCII armored content encoding using the initial file header bytes. The age standard uses ChaCha20-Poly1305 for authenticated encryption of the payload. The age-keygen command supports generating X25519 key pairs for encryption and decryption operations.
+Расшифровка содержимого с использованием спецификации age-encryption.org/v1. Обнаружение двоичного или ASCII армированного кодирования контента с помощью начальных байтов заголовка файла. Стандарт age использует ChaCha20-Poly1305 для аутентифицированного шифрования полезной нагрузки. Команда age-keygen поддерживает генерацию пар ключей X25519 для операций шифрования и расшифровки.
 
 [horizontal]
 *Tags* (Ключевые слова):
 ChaCha20-Poly1305, X25519, age, age-encryption.org, encryption
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,23 +20,23 @@ REQUIRED (Обязательно)
 .*Private Key Source*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Private Key Source
+*DISPLAY NAME (Отображаемое наименование):*:: Private Key Source (Источник ключа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Source of information determines the loading strategy for X25519 Private Key Identities
+*DESCRIPTION (Описание):*:: Источник информации определяет стратегию загрузки для X25519 приватных ключей
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* PROPERTIES: Load one or more keys from configured properties 
+* PROPERTIES (Свойства): Загрузить один или несколько ключей из настроенных свойств 
 
-* RESOURCES: Load one or more keys from files or URLs 
+* RESOURCES (Ресурсы): Загрузить один или несколько ключей из файлов или URL-адресов 
 
 
 [horizontal]
@@ -45,14 +45,14 @@ REQUIRED (Обязательно)
 .*Private Key Identities*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Private Key Identities
+*DISPLAY NAME (Отображаемое наименование):*:: Private Key Identities (Идентификаторы закрытых ключей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: One or more X25519 Private Key Identities, separated with newlines, encoded according to the age specification, starting with AGE-SECRET-KEY-1
+*DESCRIPTION (Описание):*:: Один или несколько X25519 идентификаторов закрытых ключей, разделенных новой строкой, соответствующие спецификации age, начиная с AGE-SECRET-KEY-1
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -62,14 +62,14 @@ REQUIRED (Обязательно)
 .*Private Key Identity Resources*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Private Key Identity Resources
+*DISPLAY NAME (Отображаемое наименование):*:: Private Key Identity Resources (Ресурсы идентификаторов закрытых ключей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: One or more files or URLs containing X25519 Private Key Identities, separated with newlines, encoded according to the age specification, starting with AGE-SECRET-KEY-1
+*DESCRIPTION (Описание):*:: Один или несколько файлов или URL-адресов, содержащих идентификаторы закрытых ключей X25519, разделенные новой строкой, кодируемые в соответствии с спецификацией age, начиная с AGE-SECRET-KEY-1
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -93,16 +93,27 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Decryption Completed
+|Расшифровка завершена
 
 |`failure`
-|Decryption Failed
+|Расшифровка не удалась
 
 |===
 
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

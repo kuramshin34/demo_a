@@ -7,7 +7,7 @@ An HTTP client processor which can interact with a configurable HTTP Endpoint. T
 client, http, https, rest
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-ALLOWED (Обязательно)
+ALLOWED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  True (Да) 
@@ -20,14 +20,14 @@ ALLOWED (Обязательно)
 .*Http Method*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: HTTP Method
+*DISPLAY NAME (Отображаемое наименование):*:: HTTP Method (Метод запроса HTTP)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: HTTP request method (GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS). Arbitrary methods are also supported. Methods other than POST, PUT and PATCH will be sent without a message body.
+*DESCRIPTION (Описание):*:: Метод запроса HTTP (GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS). Также поддерживаются произвольные методы. Методы, отличные от POST, PUT и PATCH, будут отправлены без тела сообщения.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ ALLOWED (Обязательно)
 .*Http Url*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: HTTP URL
+*DISPLAY NAME (Отображаемое наименование):*:: HTTP URL (HTTP удаленный URL, включая схему http или https, а также имя хоста или IP-адрес с необязательным портом и элементами пути. Любое кодирование URL должно быть выполнено пользователем.)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: HTTP remote URL including a scheme of http or https, as well as a hostname or IP address with optional port and path elements. Any encoding of the URL must be done by the user.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,23 +54,23 @@ ALLOWED (Обязательно)
 .*Http/2 Disabled*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: HTTP/2 Disabled
+*DISPLAY NAME (Отображаемое наименование):*:: HTTP/2 Disabled (Отключено)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Disable negotiation of HTTP/2 protocol. HTTP/2 requires TLS. HTTP/1.1 protocol supported is required when HTTP/2 is disabled.
+*DESCRIPTION (Описание):*:: Отключить переговоры о протоколе HTTP/2. Для работы HTTP/2 требуется TLS. Когда HTTP/2 отключено, поддерживается протокол HTTP/1.1.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* True
+* True (Да)
 
-* False
+* False (Нет)
 
 
 [horizontal]
@@ -79,14 +79,14 @@ ALLOWED (Обязательно)
 .Ssl Context Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (SSL Контекст Сервиса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: SSL Context Service provides trusted certificates and client certificates for TLS communication.
+*DESCRIPTION (Описание):*:: SSL Context Service обеспечивает доверенные сертификаты и клиентские сертификаты для коммуникации TLS.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -96,14 +96,14 @@ ALLOWED (Обязательно)
 .*Connection Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Connection Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Connection Timeout (Максимальное время ожидания подключения к HTTP URL)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Maximum time to wait for initial socket connection to the HTTP URL.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -113,14 +113,14 @@ ALLOWED (Обязательно)
 .*Socket Read Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Socket Read Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Socket Read Timeout (Время ожидания чтения сокета)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Maximum time to wait for receiving responses from a socket connection to the HTTP URL.
+*DESCRIPTION (Описание):*:: Максимальное время ожидания получения ответов от соединения сокета с HTTP URL.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -130,14 +130,14 @@ ALLOWED (Обязательно)
 .*Socket Write Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Socket Write Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Socket Write Timeout (Время ожидания записи при отправке запросов по сокетному подключению к HTTP-URL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Maximum time to wait for write operations while sending requests from a socket connection to the HTTP URL.
+*DESCRIPTION (Описание):*:: Максимальное время ожидания для операций записи при отправке запросов из сокетного подключения к HTTP URL.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -147,14 +147,14 @@ ALLOWED (Обязательно)
 .*Socket Idle Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Socket Idle Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Socket Idle Timeout (Максимальное время ожидания перед закрытием простоящих соединений с HTTP URL)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Maximum time to wait before closing idle connections to the HTTP URL.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -164,14 +164,14 @@ ALLOWED (Обязательно)
 .*Socket Idle Connections*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Socket Idle Connections
+*DISPLAY NAME (Отображаемое наименование):*:: Socket Idle Connections (Соединения с пассивным состоянием)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Maximum number of idle connections to the HTTP URL.
+*DESCRIPTION (Описание):*:: Максимальное количество неактивных соединений к HTTP URL.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -181,14 +181,14 @@ ALLOWED (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: SOCKS, HTTP + AuthN In case of SOCKS, it is not guaranteed that the selected SOCKS Version will be used by the processor.
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: SOCKS, HTTP + AuthN В случае использования SOCKS, не гарантируется, что выбранная версия SOCKS будет использоваться процессором.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -198,14 +198,14 @@ ALLOWED (Обязательно)
 .Request Oauth2 Access Token Provider
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Request OAuth2 Access Token Provider
+*DISPLAY NAME (Отображаемое наименование):*:: Request OAuth2 Access Token Provider (Запрашивает поставщика токена OAuth2)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Enables managed retrieval of OAuth2 Bearer Token applied to HTTP requests using the Authorization Header.
+*DESCRIPTION (Описание):*:: Позволяет управляемо получать токен Bearer OAuth2, применяемый к HTTP-запросам с использованием заголовка Authorization.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -215,14 +215,14 @@ ALLOWED (Обязательно)
 .Request Username
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Request Username
+*DISPLAY NAME (Отображаемое наименование):*:: Request Username (Запрос имени пользователя)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The username provided for authentication of HTTP requests. Encoded using Base64 for HTTP Basic Authentication as described in RFC 7617.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -232,14 +232,14 @@ ALLOWED (Обязательно)
 .Request Password
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Request Password
+*DISPLAY NAME (Отображаемое наименование):*:: Request Password (Запрос пароля)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The password provided for authentication of HTTP requests. Encoded using Base64 for HTTP Basic Authentication as described in RFC 7617.
+*DESCRIPTION (Описание):*:: Пароль, предоставленный для аутентификации HTTP-запросов. Закодирован с использованием Base64 в соответствии с RFC 7617.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -249,14 +249,14 @@ ALLOWED (Обязательно)
 .Request Digest Authentication Enabled
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Request Digest Authentication Enabled
+*DISPLAY NAME (Отображаемое наименование):*:: Request Digest Authentication Enabled (Запрос на включение проверки подлинности по методу digest с именем пользователя и паролем в соответствии с RFC 7616)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Enable Digest Authentication on HTTP requests with Username and Password credentials as described in RFC 7616.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -274,14 +274,14 @@ ALLOWED (Обязательно)
 .Request Failure Penalization Enabled
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Request Failure Penalization Enabled
+*DISPLAY NAME (Отображаемое наименование):*:: Request Failure Penalization Enabled (Включено принудительное наложение штрафа за неудачные запросы)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Enable penalization of request FlowFiles when receiving HTTP response with a status code between 400 and 499.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -299,23 +299,23 @@ ALLOWED (Обязательно)
 .Request Body Enabled
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Request Body Enabled
+*DISPLAY NAME (Отображаемое наименование):*:: Request Body Enabled (Включено отправка HTTP запроса тела для методов PATCH, POST или PUT)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Enable sending HTTP request body for PATCH, POST, or PUT methods.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (Да)
 
-* false
+* false (Нет)
 
 
 [horizontal]
@@ -324,14 +324,14 @@ ALLOWED (Обязательно)
 .Request Multipart Form-Data Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Request Multipart Form-Data Name
+*DISPLAY NAME (Отображаемое наименование):*:: Request Multipart Form-Data Name (Запрос имени мультиформатной формы данных)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Enable sending HTTP request body formatted using multipart/form-data and using the form name configured.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -341,14 +341,14 @@ ALLOWED (Обязательно)
 .Request Multipart Form-Data Filename Enabled
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Request Multipart Form-Data Filename Enabled
+*DISPLAY NAME (Отображаемое наименование):*:: Request Multipart Form-Data Filename Enabled (Запрос на отправку имени файла в форме мультипартного заголовка Content-Disposition для HTTP-запросов с multipart/form-data)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Enable sending the FlowFile filename attribute as the filename parameter in the Content-Disposition Header for multipart/form-data HTTP requests.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -366,14 +366,14 @@ ALLOWED (Обязательно)
 .*Request Chunked Transfer-Encoding Enabled*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Request Chunked Transfer-Encoding Enabled
+*DISPLAY NAME (Отображаемое наименование):*:: Request Chunked Transfer-Encoding Enabled (Запрос с включенным кодированием передачи кусками в заголовке)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Enable sending HTTP requests with the Transfer-Encoding Header set to chunked, and disable sending the Content-Length Header. Transfer-Encoding applies to the body in HTTP/1.1 requests as described in RFC 7230 Section 3.3.1
+*DESCRIPTION (Описание):*:: Включает отправку HTTP-запросов с заголовком Transfer-Encoding, установленным на chunked, и отключает отправку заголовка Content-Length. Кодирование передачи кусками применяется к телу в запросах HTTP/1.1, как описано в RFC 7230 Раздел 3.3.1
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -391,23 +391,23 @@ ALLOWED (Обязательно)
 .*Request Content-Encoding*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Request Content-Encoding
+*DISPLAY NAME (Отображаемое наименование):*:: Request Content-Encoding (Запрос кодировки содержимого)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: HTTP Content-Encoding applied to request body during transmission. The receiving server must support the selected encoding to avoid request failures.
+*DESCRIPTION (Описание):*:: HTTP Content-Encoding, применяемое к телу запроса во время передачи. Принимающий сервер должен поддерживать выбранную кодировку, чтобы избежать сбоев в запросе.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* DISABLED: Content encoding not applied during transmission 
+* DISABLED (Не применяется): Кодировка содержимого не применяется во время передачи 
 
-* GZIP: Gzip content encoding and HTTP Content-Encoding header applied during transmission 
+* GZIP (Gzip): Применение кодировки Gzip и HTTP Content-Encoding заголовка к содержимому во время передачи 
 
 
 [horizontal]
@@ -416,14 +416,14 @@ ALLOWED (Обязательно)
 .*Request Content-Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Request Content-Type
+*DISPLAY NAME (Отображаемое наименование):*:: Request Content-Type (Тип содержимого запроса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: HTTP Content-Type Header applied to when sending an HTTP request body for PATCH, POST, or PUT methods. The Content-Type defaults to application/octet-stream when not configured.
+*DESCRIPTION (Описание):*:: HTTP Content-Type Header, применяемый к телу HTTP-запроса при отправке его методами PATCH, POST или PUT. По умолчанию Content-Type устанавливается в application/octet-stream, если не настроено иное.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -433,23 +433,23 @@ ALLOWED (Обязательно)
 .*Request Date Header Enabled*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Request Date Header Enabled
+*DISPLAY NAME (Отображаемое наименование):*:: Request Date Header Enabled (Включено отправка HTTP Date Header на запросы в соответствии с RFC 7231 Раздел 7.1.1.2)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Enable sending HTTP Date Header on HTTP requests as described in RFC 7231 Section 7.1.1.2.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* True
+* True (Да)
 
-* False
+* False (Нет)
 
 
 [horizontal]
@@ -458,14 +458,14 @@ ALLOWED (Обязательно)
 .Request Header Attributes Pattern
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Request Header Attributes Pattern
+*DISPLAY NAME (Отображаемое наименование):*:: Request Header Attributes Pattern (Шаблон атрибутов заголовка запроса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Regular expression that defines which FlowFile attributes to send as HTTP headers in the request. If not defined, no attributes are sent as headers. Dynamic properties will be always be sent as headers. The dynamic property name will be the header key and the dynamic property value, interpreted as Expression Language, will be the header value. Attributes and their values are limited to ASCII characters due to the requirement of the HTTP protocol.
+*DESCRIPTION (Описание):*:: Регулярное выражение, которое определяет, какие FlowFile атрибуты отправлять в HTTP-заголовках в запросе. Если не определено, ни один атрибут не будет отправлен в заголовках. Динамические свойства всегда будут отправляться в заголовках. Имя динамического свойства будет ключом заголовка, а значение динамического свойства, интерпретируемое как Expression Language, будет значением заголовка. Атрибуты и их значения ограничены ASCII-символами из-за требований протокола HTTP.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -475,14 +475,14 @@ ALLOWED (Обязательно)
 .Request User-Agent
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Request User-Agent
+*DISPLAY NAME (Отображаемое наименование):*:: Request User-Agent (Запрос Пользовательского агента)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: HTTP User-Agent Header applied to requests. RFC 7231 Section 5.5.3 describes recommend formatting.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -492,14 +492,14 @@ ALLOWED (Обязательно)
 .Response Body Attribute Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Response Body Attribute Name
+*DISPLAY NAME (Отображаемое наименование):*:: Response Body Attribute Name (Имя атрибута тела ответа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: FlowFile attribute name used to write an HTTP response body for FlowFiles transferred to the Original relationship.
+*DESCRIPTION (Описание):*:: Имя атрибута FlowFile, используемого для записи HTTP-тела ответа для передаваемых в Original relationship FlowFiles.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -509,14 +509,14 @@ ALLOWED (Обязательно)
 .Response Body Attribute Size
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Response Body Attribute Size
+*DISPLAY NAME (Отображаемое наименование):*:: Response Body Attribute Size (Размер атрибута тела ответа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Maximum size in bytes applied when writing an HTTP response body to a FlowFile attribute. Attributes exceeding the maximum will be truncated.
+*DESCRIPTION (Описание):*:: Максимальный размер в байтах, применяемый при записи HTTP-ответа в атрибут FlowFile. Атрибуты, превышающие максимальный размер, будут усечены.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -526,14 +526,14 @@ ALLOWED (Обязательно)
 .*Response Body Ignored*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Response Body Ignored
+*DISPLAY NAME (Отображаемое наименование):*:: Response Body Ignored (Ответ тела игнорировать)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Disable writing HTTP response FlowFiles to Response relationship
+*DESCRIPTION (Описание):*:: Отключает запись HTTP-ответа FlowFiles в связь Response
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -551,23 +551,23 @@ ALLOWED (Обязательно)
 .*Response Cache Enabled*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Response Cache Enabled
+*DISPLAY NAME (Отображаемое наименование):*:: Response Cache Enabled (Включено кэширование ответов, описанное в RFC 7234. Кэширование ответов учитывает ETag и другие заголовки.)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Enable HTTP response caching described in RFC 7234. Caching responses considers ETag and other headers.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (да)
 
-* false
+* false (нет)
 
 
 [horizontal]
@@ -576,14 +576,14 @@ ALLOWED (Обязательно)
 .*Response Cache Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Response Cache Size
+*DISPLAY NAME (Отображаемое наименование):*:: Response Cache Size (Максимальный размер кэша HTTP-ответов в байтах)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Maximum size of HTTP response cache in bytes. Caching responses considers ETag and other headers.
+*DESCRIPTION (Описание):*:: Максимальный размер HTTP-ответа, хранящегося в кэше, в байтах. Кэширование ответов учитывает ETag и другие заголовки.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -593,14 +593,14 @@ ALLOWED (Обязательно)
 .*Response Cookie Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Response Cookie Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Response Cookie Strategy (Стратегия обработки cookie-файлов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Strategy for accepting and persisting HTTP cookies. Accepting cookies enables persistence across multiple requests.
+*DESCRIPTION (Описание):*:: Стратегия для принятия и сохранения HTTP cookie-файлов. Прием cookie-файлов позволяет обеспечить постоянство между несколькими запросами.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -618,14 +618,14 @@ ALLOWED (Обязательно)
 .Response Generation Required
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Response Generation Required
+*DISPLAY NAME (Отображаемое наименование):*:: Response Generation Required (Требуется генерация ответа)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Enable generation and transfer of a FlowFile to the Response relationship regardless of HTTP response received.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -643,23 +643,23 @@ ALLOWED (Обязательно)
 .*Response Flowfile Naming Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Response FlowFile Naming Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Response FlowFile Naming Strategy (Стратегия именования FlowFile для ответа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Determines the strategy used for setting the filename attribute of FlowFiles transferred to the Response relationship.
+*DESCRIPTION (Описание):*:: Определяет стратегию использования для установки атрибута filename FlowFiles, передаваемых в отношение Response.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* RANDOM: FlowFile filename attribute will be a random value. 
+* RANDOM (Случайный): Атрибут filename FlowFile будет случайным значением. 
 
-* URL_PATH: FlowFile filename attribute will be extracted from the remote URL path. The attribute may contain URL encoded characters. If the path doesn't exist, the attribute will be a random value. 
+* URL_PATH (Путь URL): Атрибут filename FlowFile будет извлечен из удаленного пути URL. Атрибут может содержать кодированные URL-символы. Если путь не существует, атрибут будет случайным значением. 
 
 
 [horizontal]
@@ -668,23 +668,23 @@ ALLOWED (Обязательно)
 .Response Header Request Attributes Enabled
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Response Header Request Attributes Enabled
+*DISPLAY NAME (Отображаемое наименование):*:: Response Header Request Attributes Enabled (Включено добавление HTTP-ответов в атрибуты потока данных, передаваемых в исходные, повторные или без повторных отношений)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Enable adding HTTP response headers as attributes to FlowFiles transferred to the Original, Retry or No Retry relationships.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (да)
 
-* false
+* false (нет)
 
 
 [horizontal]
@@ -693,14 +693,14 @@ ALLOWED (Обязательно)
 .Response Header Request Attributes Prefix
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Response Header Request Attributes Prefix
+*DISPLAY NAME (Отображаемое наименование):*:: Response Header Request Attributes Prefix (Префикс для HTTP-ответов, включаемых в атрибуты FlowFile при передаче по связям Оригинал, Повторная попытка или Не повторять)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Prefix to HTTP response headers when included as attributes to FlowFiles transferred to the Original, Retry or No Retry relationships.  It is recommended to end with a separator character like '.' or '-'.
+*DESCRIPTION (Описание):*:: Префикс к HTTP-заголовкам ответа, когда он включен как атрибуты в FlowFile, передаваемые по связям Оригинал, Повторная попытка или Не повторять. Рекомендуется заканчивать разделительным символом, например '.' или '-'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -710,23 +710,23 @@ ALLOWED (Обязательно)
 .*Response Redirects Enabled*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Response Redirects Enabled
+*DISPLAY NAME (Отображаемое наименование):*:: Response Redirects Enabled (Включено перенаправление HTTP ответов)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Enable following HTTP redirects sent with HTTP 300 series responses as described in RFC 7231 Section 6.4.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* True
+* True (Истина)
 
-* False
+* False (Ложь)
 
 
 [horizontal]
@@ -746,7 +746,7 @@ ALLOWED (Обязательно)
 |
 
 |`post:form:<NAME>`
-|When the HTTP Method is POST, dynamic properties with the property name in the form of post:form:<NAME>, where the <NAME> will be the form data name, will be used to fill out the multipart form parts.  If send message body is false, the flowfile will not be sent, but any other form data will be.
+|When the HTTP Method is POST, dynamic properties with the property name in the form of post:form:<NAME>, where the <NAME> will be the form data name, will be used to fill out the multipart form parts. If send message body is false, the flowfile will not be sent, but any other form data will be.
 |`Attribute Expression Language`
 |
 

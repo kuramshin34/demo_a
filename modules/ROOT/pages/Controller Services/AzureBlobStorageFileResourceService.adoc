@@ -1,13 +1,13 @@
 = AzureBlobStorageFileResourceService 2.2.0
 
-Provides an Azure Blob Storage file resource for other components.
+Предоставляет ресурс файла Azure Blob Storage для других компонентов.
 
 [horizontal]
 *Tags* (Ключевые слова):
 azure, blob, cloud, file, microsoft, resource, storage
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ azure, blob, cloud, file, microsoft, resource, storage
 .*Storage-Credentials-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Storage Credentials
+*DISPLAY NAME (Отображаемое наименование):*:: Storage Credentials (Хранилище учетных данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Controller Service used to obtain Azure Blob Storage Credentials.
+*DESCRIPTION (Описание):*:: Контроллер сервис, используемый для получения учетных данных Azure Blob Storage.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ azure, blob, cloud, file, microsoft, resource, storage
 .*Container-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Container Name
+*DISPLAY NAME (Отображаемое наименование):*:: Container Name (Контейнер)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Name of the Azure storage container. In case of PutAzureBlobStorage processor, container can be created if it does not exist.
+*DESCRIPTION (Описание):*:: Имя контейнера Azure хранения. В случае PutAzureBlobStorage процессора, контейнер может быть создан, если он не существует.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ azure, blob, cloud, file, microsoft, resource, storage
 .*Blob-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Blob Name
+*DISPLAY NAME (Отображаемое наименование):*:: Blob Name (Название боба)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The full name of the blob
+*DESCRIPTION (Описание):*:: Полное название боба
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -81,6 +81,17 @@ azure, blob, cloud, file, microsoft, resource, storage
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

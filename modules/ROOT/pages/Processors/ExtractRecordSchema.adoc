@@ -1,13 +1,13 @@
 = ExtractRecordSchema 2.2.0
 
-Extracts the record schema from the FlowFile using the supplied Record Reader and writes it to the `avro.schema` attribute.
+Извлекает схему записи из FlowFile, используя предоставленный Reader записи и записывает её в атрибут `avro.schema`.
 
 [horizontal]
 *Tags* (Ключевые слова):
 avro, csv, freeform, generic, json, record, schema, text, xml
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Record-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Записыватель данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for reading incoming data
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера для использования при чтении входящих данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Cache-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Cache Size
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Cache Size (Размер схемы кэша)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the number of schemas to cache. This value should reflect the expected number of different schemas that may be in the incoming FlowFiles. This ensures more efficient retrieval of the schemas and thus the processor performance.
+*DESCRIPTION (Описание):*:: Указывает количество схем для кэширования. Это значение должно отражать ожидаемое количество различных схем, которые могут присутствовать в поступающих FlowFiles. Это обеспечивает более эффективное получение схем и, соответственно, производительность процессора.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -68,10 +68,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|FlowFiles whose record schemas are successfully extracted will be routed to this relationship
+|FlowFiles с успешно извлеченной схемой записи будут направлены в это отношение
 
 |`failure`
-|If a FlowFile's record schema cannot be extracted from the configured input format, the FlowFile will be routed to this relationship
+|Если для FlowFile не удается извлечь схему записи из конфигурируемого формата ввода, FlowFile будет направлен в это отношение
 
 |===
 
@@ -86,10 +86,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`record.error.message`
-|This attribute provides on failure the error message encountered by the Reader.
+|Этот атрибут предоставляет сообщение об ошибке при неудачном завершении операции чтения.
 
 |`avro.schema`
-|This attribute provides the schema extracted from the input FlowFile using the provided RecordReader.
+|Этот атрибут содержит схему, извлеченную из входного FlowFile с использованием предоставленного Reader записи.
 
 |===
 

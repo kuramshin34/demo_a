@@ -1,13 +1,13 @@
 = PutAzureDataLakeStorage 2.2.0
 
-Writes the contents of a FlowFile as a file on Azure Data Lake Storage Gen 2
+Записывает содержимое FlowFile в виде файла на Azure Data Lake Storage Gen 2
 
 [horizontal]
 *Tags* (Ключевые слова):
 adlsgen2, azure, cloud, datalake, microsoft, storage
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Adls-Credentials-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: ADLS Credentials
+*DISPLAY NAME (Отображаемое наименование):*:: ADLS Credentials (Услуга учетных данных ADLS)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Controller Service used to obtain Azure Credentials.
+*DESCRIPTION (Описание):*:: Контроллер сервиса, используемый для получения учетных данных Azure.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Filesystem-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Filesystem Name
+*DISPLAY NAME (Отображаемое наименование):*:: Filesystem Name (Файловая система)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Name of the Azure Storage File System (also called Container). It is assumed to be already existing.
+*DESCRIPTION (Описание):*:: Имя файловой системы Azure Storage (также называемой контейнером). Предполагается, что она уже существует.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Directory-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Directory Name
+*DISPLAY NAME (Отображаемое наименование):*:: Directory Name (Имя каталога)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Name of the Azure Storage Directory. The Directory Name cannot contain a leading '/'. The root directory can be designated by the empty string value. In case of the PutAzureDataLakeStorage processor, the directory will be created if not already existing.
+*DESCRIPTION (Описание):*:: Имя Azure Storage каталога. Имя каталога не может начинаться с '/'. Корневой каталог можно обозначить пустым значением строки. В случае процессора PutAzureDataLakeStorage, если каталог не существует, он будет создан.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .*File-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: File Name
+*DISPLAY NAME (Отображаемое наименование):*:: File Name (Имя файла)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The filename
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,23 +88,23 @@ REQUIRED (Обязательно)
 .*Writing-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Writing Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Writing Strategy (Стратегия написания)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Defines the approach for writing the Azure file.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Write and Rename: The processor writes the Azure file into a temporary directory and then renames/moves it to the final destination. This prevents other processes from reading partially written files. 
+* Write and Rename (Запись и переименование): The processor writes the Azure file into a temporary directory and then renames/moves it to the final destination. This prevents other processes from reading partially written files. 
 
-* Simple Write: The processor writes the Azure file directly to the destination. This might result in the reading of partially written files. 
+* Simple Write (Простая запись): The processor writes the Azure file directly to the destination. This might result in the reading of partially written files. 
 
 
 [horizontal]
@@ -113,14 +113,14 @@ REQUIRED (Обязательно)
 .Base-Temporary-Path
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Base Temporary Path
+*DISPLAY NAME (Отображаемое наименование):*:: Base Temporary Path (Базовый временный путь)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Path where the temporary directory will be created. The Path name cannot contain a leading '/'. The root directory can be designated by the empty string value. Non-existing directories will be created.The Temporary File Directory name is _nifitempdirectory
+*DESCRIPTION (Описание):*:: Путь, где будет создана временная директория. Имя пути не может начинаться с '/'. Корневую директорию можно обозначить пустой строкой значением. Несуществующие директории будут созданы. Имя временной файловой директории — _nifitempdirectory
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -130,25 +130,25 @@ REQUIRED (Обязательно)
 .*Conflict-Resolution-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Conflict Resolution Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Conflict Resolution Strategy (Стратегия разрешения конфликтов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates what should happen when a file with the same name already exists in the output directory
+*DESCRIPTION (Описание):*:: Указывает, что должно произойти, если файл с тем же именем уже существует в выходной директории
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* fail
+* fail (не удалось)
 
-* replace
+* replace (заменить)
 
-* ignore
+* ignore (игнорировать)
 
 
 [horizontal]
@@ -157,23 +157,23 @@ REQUIRED (Обязательно)
 .*Resource Transfer Source*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Resource Transfer Source
+*DISPLAY NAME (Отображаемое наименование):*:: Resource Transfer Source (Источник ресурса для передачи)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The source of the content to be transferred
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* FlowFile Content: The content of the incoming FlowFile provides the source for transfer 
+* FlowFile Content (Содержимое FlowFile): The content of the incoming FlowFile provides the source for transfer 
 
-* File Resource Service: The File Resource Service provides the source for transfer 
+* File Resource Service (Сервис ресурса файлов): The File Resource Service provides the source for transfer 
 
 
 [horizontal]
@@ -182,14 +182,14 @@ REQUIRED (Обязательно)
 .*File Resource Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: File Resource Service
+*DISPLAY NAME (Отображаемое наименование):*:: File Resource Service (Файловый ресурс Сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: File Resource Service providing access to the local resource to be transferred
+*DESCRIPTION (Описание):*:: File Resource Service providing access to the local resource to be transferred (Файловый ресурс Сервис, предоставляющий доступ к локальному ресурсу для передачи)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -199,14 +199,14 @@ REQUIRED (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: SOCKS, HTTP In case of SOCKS, it is not guaranteed that the selected SOCKS Version will be used by the processor.
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: SOCKS, HTTP В случае использования SOCKS, не гарантируется, что выбранная версия SOCKS будет использоваться процессором.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -230,10 +230,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Files that have been successfully written to Azure storage are transferred to this relationship
+|Файлы, успешно записанные в Azure storage, передаются по этому отношению
 
 |`failure`
-|Files that could not be written to Azure storage for some reason are transferred to this relationship
+|Файлы, которые не удалось записать в Azure storage по какой-либо причине, передаются по этому отношению
 
 |===
 
@@ -248,19 +248,19 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`azure.filesystem`
-|The name of the Azure File System
+|Имя файловой системы Azure
 
 |`azure.directory`
-|The name of the Azure Directory
+|Имя каталога Azure
 
 |`azure.filename`
-|The name of the Azure File
+|Имя файла Azure
 
 |`azure.primaryUri`
-|Primary location for file content
+|Основное расположение для содержимого файла
 
 |`azure.length`
-|The length of the Azure File
+|Длина файла Azure
 
 |===
 

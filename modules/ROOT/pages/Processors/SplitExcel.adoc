@@ -1,13 +1,13 @@
 = SplitExcel 2.2.0
 
-This processor splits a multi sheet Microsoft Excel spreadsheet into multiple Microsoft Excel spreadsheets where each sheet from the original file is converted to an individual spreadsheet in its own flow file. Currently this processor is only capable of processing .xlsx (XSSF 2007 OOXML file format) Excel documents and not older .xls (HSSF '97(-2007) file format) documents. Please note all original cell styles are dropped and formulas are removed leaving only the calculated values. Even a single sheet Microsoft Excel spreadsheet is converted to its own flow file with all the original cell styles dropped and formulas removed.
+Этот процессор разбивает многолистовую Microsoft Excel таблицу на несколько Microsoft Excel таблиц, где каждый лист исходного файла преобразуется в отдельную таблицу в собственном потоковом файле. В настоящее время этот процессор способен обрабатывать только документы Excel .xlsx (формат OOXML 2007+) и не старые документы .xls (HSSF '97(-2007) формат). Обратите внимание, что все исходные стили ячеек удаляются, а также удаляются формулы, оставляя только рассчитанные значения. Даже однолистовая Microsoft Excel таблица преобразуется в собственный потоковый файл с удалением всех исходных стилей и формул.
 
 [horizontal]
 *Tags* (Ключевые слова):
 split, text
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,23 +20,23 @@ REQUIRED (Обязательно)
 .*Protection Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Protection Type
+*DISPLAY NAME (Отображаемое наименование):*:: Protection Type (Тип защиты)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether an Excel spreadsheet is protected by a password or not.
+*DESCRIPTION (Описание):*:: Указывает, защищена ли электронная таблица паролем или нет.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Unprotected: An Excel spreadsheet not protected by a password 
+* Unprotected (Незащищенный): Электронная таблица, не защищенная паролем 
 
-* Password Protected: An Excel spreadsheet protected by a password 
+* Password Protected (Защищенный паролем): Электронная таблица, защищенная паролем 
 
 
 [horizontal]
@@ -45,14 +45,14 @@ REQUIRED (Обязательно)
 .*Password*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Password
+*DISPLAY NAME (Отображаемое наименование):*:: Password (Пароль)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The password for a password protected Excel spreadsheet
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -76,13 +76,13 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`failure`
-|If a FlowFile cannot be transformed from the configured input format to the configured output format, the unchanged FlowFile will be routed to this relationship.
+|Если FlowFile не может быть преобразован из конфигурируемого входного формата в конфигурируемый выходной формат, неизмененный FlowFile будет направлен к этому отношению.
 
 |`original`
-|The original FlowFile that was split into segments. If the FlowFile fails processing, nothing will be sent to this relationship
+|Исходный FlowFile, который был разделен на сегменты. Если FlowFile не обрабатывается должным образом, ничего не будет отправлено в это отношение.
 
 |`split`
-|The individual Excel 'segments' of the original Excel FlowFile will be routed to this relationship.
+|Индивидуальные Excel 'сегменты' исходного Excel FlowFile будут направлены к этому отношению.
 
 |===
 
@@ -97,22 +97,22 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`fragment.identifier`
-|All split Excel FlowFiles produced from the same parent Excel FlowFile will have the same randomly generated UUID added for this attribute
+|Все разделенные Excel FlowFiles, произведенные из одного родительского Excel FlowFile, будут иметь добавленный случайно сгенерированный UUID для этого атрибута.
 
 |`fragment.index`
-|A one-up number that indicates the ordering of the split Excel FlowFiles that were created from a single parent Excel FlowFile
+|Одноувеличивающий номер, указывающий порядок разделенных Excel FlowFiles, созданных из одного родительского Excel FlowFile.
 
 |`fragment.count`
-|The number of split Excel FlowFiles generated from the parent Excel FlowFile
+|Количество разделенных Excel FlowFiles, сгенерированных из родительского Excel FlowFile.
 
 |`segment.original.filename`
-|The filename of the parent Excel FlowFile
+|Имя файла родительского Excel FlowFile.
 
 |`sheetname`
-|The name of the Excel sheet from the original spreadsheet.
+|Название листа в исходной электронной таблице.
 
 |`total.rows`
-|The number of rows in the Excel sheet from the original spreadsheet.
+|Количество строк в листе исходной электронной таблицы.
 
 |===
 

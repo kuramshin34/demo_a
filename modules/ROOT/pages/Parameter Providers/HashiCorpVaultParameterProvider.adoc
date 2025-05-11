@@ -1,13 +1,13 @@
 = HashiCorpVaultParameterProvider 2.2.0
 
-Provides parameters from HashiCorp Vault Key/Value Version 1 and Version 2 Secrets.  Each Secret represents a parameter group, which will map to a Parameter Context.  The keys and values in the Secret map to Parameters.
+Предоставляет параметры из хранилища ключей HashiCorp Vault Версии 1 и Версии 2 секретов. Каждый секрет представляет собой группу параметров, которая будет сопоставлена с контекстом параметров. Ключи и значения в секрете соответствуют параметрам.
 
 [horizontal]
 *Tags* (Ключевые слова):
 hashicorp, secret, vault
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ hashicorp, secret, vault
 .*Vault-Client-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: HashiCorp Vault Client Service
+*DISPLAY NAME (Отображаемое наименование):*:: HashiCorp Vault Client Service (ХэшиКоп Ваult Клиент Сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The service used to interact with HashiCorp Vault
+*DESCRIPTION (Описание):*:: Сервис, используемый для взаимодействия с ХэшиКопом Ваулт
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ hashicorp, secret, vault
 .*Kv-Path*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Key/Value Path
+*DISPLAY NAME (Отображаемое наименование):*:: Ключ/Значение Путь
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The HashiCorp Vault path to the Key/Value Secrets Engine
+*DESCRIPTION (Описание):*:: ХэшиКоп Хранилище пути к секретам Key/Value Engine
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,23 +54,23 @@ hashicorp, secret, vault
 .*Kv-Version*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Key/Value Version
+*DISPLAY NAME (Отображаемое наименование):*:: Key/Value Версия
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The version of the Key/Value Secrets Engine
+*DESCRIPTION (Описание):*:: Версия Key/Value Секретов Движка
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* KV_1: Key/Value Secret Engine Version 1. 
+* KV_1: Версия секрета Key/Value 1. 
 
-* KV_2: Key/Value Secret Engine Version 2. If multiple versions of the secret exist, latest will be used. 
+* KV_2: Версия секрета Key/Value 2. Если существует несколько версий секрета, будет использоваться последняя. 
 
 
 [horizontal]
@@ -79,14 +79,14 @@ hashicorp, secret, vault
 .*Secret-Name-Pattern*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Secret Name Pattern
+*DISPLAY NAME (Отображаемое наименование):*:: Secret Name Pattern (Шаблон имени секрета)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A Regular Expression indicating which Secrets to include as parameter groups to map to Parameter Contexts by name.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -106,6 +106,17 @@ hashicorp, secret, vault
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

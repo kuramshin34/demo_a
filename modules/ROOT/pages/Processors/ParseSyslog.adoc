@@ -1,13 +1,13 @@
 = ParseSyslog 2.2.0
 
-Attempts to parses the contents of a Syslog message in accordance to RFC5424 and RFC3164 formats and adds attributes to the FlowFile for each of the parts of the Syslog message.Note: Be mindfull that RFC3164 is informational and a wide range of different implementations are present in the wild. If messages fail parsing, considering using RFC5424 or using a generic parsing processors such as ExtractGrok.
+Пытается разобрать содержимое сообщения Syslog в соответствии с форматами RFC5424 и RFC3164 и добавляет атрибуты к FlowFile для каждой части сообщения Syslog. Обратите внимание, что RFC3164 является информационным, и в природе существует множество различных реализаций. Если сообщения не распарсятся, рассмотрите возможность использования формата RFC5424 или используйте процессоры для общих парсингов, такие как ExtractGrok.
 
 [horizontal]
 *Tags* (Ключевые слова):
 attributes, event, logs, message, syslog, system
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Character Set*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Символьный набор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies which character set of the Syslog messages
+*DESCRIPTION (Описание):*:: Указывает, какой символьный набор сообщений Syslog
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -51,10 +51,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`failure`
-|Any FlowFile that could not be parsed as a Syslog message will be transferred to this Relationship without any attributes being added
+|Любой FlowFile, который не удалось распарсить как сообщение Syslog, будет передан в это отношение без добавления атрибутов
 
 |`success`
-|Any FlowFile that is successfully parsed as a Syslog message will be to this Relationship.
+|Любой FlowFile, который успешно распарсен как сообщение Syslog, будет передан в это отношение.
 
 |===
 
@@ -69,28 +69,28 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`syslog.priority`
-|The priority of the Syslog message.
+|Приоритет сообщения Syslog.
 
 |`syslog.severity`
-|The severity of the Syslog message derived from the priority.
+|Степень важности сообщения Syslog, полученная из приоритета.
 
 |`syslog.facility`
-|The facility of the Syslog message derived from the priority.
+|Фабрика сообщения Syslog, полученная из приоритета.
 
 |`syslog.version`
-|The optional version from the Syslog message.
+|Необязательная версия из сообщения Syslog.
 
 |`syslog.timestamp`
-|The timestamp of the Syslog message.
+|Отметка времени сообщения Syslog.
 
 |`syslog.hostname`
-|The hostname or IP address of the Syslog message.
+|Хостнейм или IP-адрес сообщения Syslog.
 
 |`syslog.sender`
-|The hostname of the Syslog server that sent the message.
+|Хостнейм сервера Syslog, который отправил сообщение.
 
 |`syslog.body`
-|The body of the Syslog message, everything after the hostname.
+|Тело сообщения Syslog, все что после хостнейма.
 
 |===
 

@@ -1,13 +1,13 @@
 = SplitContent 2.2.0
 
-Splits incoming FlowFiles by a specified byte sequence
+Разделяет входящие FlowFiles на указанную последовательность байт
 
 [horizontal]
 *Tags* (Ключевые слова):
 binary, content, split
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,23 +20,23 @@ REQUIRED (Обязательно)
 .*Byte Sequence Format*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Byte Sequence Format
+*DISPLAY NAME (Отображаемое наименование):*:: Byte Sequence Format (Формат последовательности байтов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how the <Byte Sequence> property should be interpreted
+*DESCRIPTION (Описание):*:: Указывает, как следует интерпретировать свойство <Byte Sequence>
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Hexadecimal: The Byte Sequence will be interpreted as a hexadecimal representation of bytes 
+* Hexadecimal (Шестнадцатеричный): Последовательность байтов будет интерпретироваться как шестнадцатеричное представление байтов 
 
-* Text: The Byte Sequence will be interpreted as UTF-8 Encoded text 
+* Text (Текст): Последовательность байтов будет интерпретироваться как текстовая информация, закодированная в UTF-8 
 
 
 [horizontal]
@@ -45,14 +45,14 @@ REQUIRED (Обязательно)
 .*Byte Sequence*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Byte Sequence
+*DISPLAY NAME (Отображаемое наименование):*:: Byte Sequence (Последовательность байтов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A representation of bytes to look for and upon which to split the source file into separate files
+*DESCRIPTION (Описание):*:: Представление байтов для поиска и разделения исходного файла на отдельные файлы
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -62,23 +62,23 @@ REQUIRED (Обязательно)
 .*Keep Byte Sequence*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Keep Byte Sequence
+*DISPLAY NAME (Отображаемое наименование):*:: Keep Byte Sequence (Сохранять последовательность байт)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Determines whether or not the Byte Sequence should be included with each Split
+*DESCRIPTION (Описание):*:: Определяет, должна ли последовательность байтов включаться с каждым разделением
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (да)
 
-* false
+* false (нет)
 
 
 [horizontal]
@@ -87,23 +87,23 @@ REQUIRED (Обязательно)
 .*Byte Sequence Location*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Byte Sequence Location
+*DISPLAY NAME (Отображаемое наименование):*:: Byte Sequence Location (Расположение последовательности байтов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If <Keep Byte Sequence> is set to true, specifies whether the byte sequence should be added to the end of the first split or the beginning of the second; if <Keep Byte Sequence> is false, this property is ignored.
+*DESCRIPTION (Описание):*:: Если установлено значение <Keep Byte Sequence> в true, указывает, должна ли добавляться последовательность байтов в конец первого сплита или в начало второго; если <Keep Byte Sequence> равно false, это свойство игнорируется.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Trailing: Keep the Byte Sequence at the end of the first split if <Keep Byte Sequence> is true 
+* Trailing (В конце первого сплита): Сохранять последовательность байтов в конце первого сплита, если <Keep Byte Sequence> установлено в true 
 
-* Leading: Keep the Byte Sequence at the beginning of the second split if <Keep Byte Sequence> is true 
+* Leading (В начале второго сплита): Сохранять последовательность байтов в начале второго сплита, если <Keep Byte Sequence> установлено в true 
 
 
 [horizontal]
@@ -123,7 +123,7 @@ REQUIRED (Обязательно)
 
 
 |MEMORY
-|The FlowFile with its attributes is stored in memory, not the content of the FlowFile. If many splits are generated due to the size of the content, or how the content is configured to be split, a two-phase approach may be necessary to avoid excessive use of memory.
+|Поток с его атрибутами хранится в памяти, не содержимое потока. Если из-за размера содержимого или способа его настройки для разделения генерируется много фрагментов, может потребоваться двухфазный подход, чтобы избежать чрезмерного использования памяти.
 
 |===
 
@@ -138,10 +138,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`splits`
-|All Splits will be routed to the splits relationship
+|Все фрагменты будут направлены в отношение splits
 
 |`original`
-|The original file
+|Исходный файл
 
 |===
 
@@ -156,16 +156,16 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`fragment.identifier`
-|All split FlowFiles produced from the same parent FlowFile will have the same randomly generated UUID added for this attribute
+|Все фрагменты потоков, произведенные из одного родительского FlowFile, будут иметь добавленный случайно сгенерированный UUID для этого атрибута
 
 |`fragment.index`
-|A one-up number that indicates the ordering of the split FlowFiles that were created from a single parent FlowFile
+|Одноувеличивающий номер, указывающий порядок фрагментов потоков, созданных из одного родительского FlowFile
 
 |`fragment.count`
-|The number of split FlowFiles generated from the parent FlowFile
+|Количество фрагментов потоков, сгенерированных из родительского FlowFile
 
 |`segment.original.filename `
-|The filename of the parent FlowFile
+|Имя файла родительского FlowFile
 
 |===
 

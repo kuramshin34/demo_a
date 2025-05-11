@@ -1,13 +1,13 @@
 = MonitorDiskUsage 2.2.0
 
-Checks the amount of storage space available for the specified directory and warns (via a log message and a System-Level Bulletin) if the partition on which it lives exceeds some configurable threshold of storage space
+Проверяет количество доступного хранилища для указанной директории и предупреждает (через сообщение в журнале и системный уровень бюллетень) если раздел, на котором она расположена, превышает некоторую заданную пороговую долю хранилища
 
 [horizontal]
 *Tags* (Ключевые слова):
-disk, monitoring, repo, storage, warning
+диск, мониторинг, репозиторий, хранение, предупреждение
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ disk, monitoring, repo, storage, warning
 .*Threshold*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Threshold
+*DISPLAY NAME (Отображаемое наименование):*:: Threshold (Порог)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The threshold at which a bulletin will be generated to indicate that the disk usage of the partition on which the directory found is of concern
+*DESCRIPTION (Описание):*:: Пороговое значение, при достижении которого будет сгенерировано сообщение для указания на то, что использование диска в директории превышает допустимый уровень
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ disk, monitoring, repo, storage, warning
 .*Directory Location*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Directory Location
+*DISPLAY NAME (Отображаемое наименование):*:: Directory Location (Расположение каталога)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The directory path of the partition to be monitored.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ disk, monitoring, repo, storage, warning
 .Directory Display Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Directory Display Name
+*DISPLAY NAME (Отображаемое наименование):*:: Directory Display Name (Имя для отображения в директивах)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name to display for the directory in alerts.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -81,6 +81,17 @@ disk, monitoring, repo, storage, warning
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

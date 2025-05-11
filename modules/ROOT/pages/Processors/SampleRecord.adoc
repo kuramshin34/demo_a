@@ -1,13 +1,13 @@
 = SampleRecord 2.2.0
 
-Samples the records of a FlowFile based on a specified sampling strategy (such as Reservoir Sampling). The resulting FlowFile may be of a fixed number of records (in the case of reservoir-based algorithms) or some subset of the total number of records (in the case of probabilistic sampling), or a deterministic number of records (in the case of interval sampling).
+Примеры записей потока на основе указанной стратегии выборки (например, Выборочная выборка резервуара). Результирующий файл потока может быть фиксированным числом записей (в случае алгоритмов на основе резервуара) или некоторым подмножеством общего числа записей (в случае вероятностной выборки), или детерминированным числом записей (в случае интервальной выборки).
 
 [horizontal]
 *Tags* (Ключевые слова):
 interval, range, record, reservoir, sample
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Record-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Чтец записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for parsing incoming data and determining the data's schema
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера для использования при разборе входящих данных и определении схемы данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Record-Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing results to a FlowFile
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для использования при записи результатов в FlowFile
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,27 +54,27 @@ REQUIRED (Обязательно)
 .*Sample-Record-Sampling-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Sampling Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Sampling Strategy (Стратегия выборки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies which method to use for sampling records from the incoming FlowFile
+*DESCRIPTION (Описание):*:: Указывает, какой метод следует использовать для выборки записей из входящего потока
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Interval Sampling: Selects every Nth record where N is the value of the 'Interval Value' property 
+* Interval Sampling (Выборка по интервалам): Выбирает каждую N-ую запись, где N — значение свойства 'Interval Value' 
 
-* Range Sampling: Creates a sample of records based on the index (i.e. record number) of the records using the specified range. An example is '3,6-8,20-' which includes the third record, the sixth, seventh and eighth record, and all records from the twentieth record on. Commas separate intervals that don't overlap, and an interval can be between two numbers (i.e. 6-8) or up to a given number (i.e. -5), or from a number to the number of the last record (i.e. 20-). 
+* Range Sampling (Выборка по диапазону): Создаёт образец записей на основе индекса (то есть номера записи) используя указанный диапазон. Пример: '3,6-8,20-' включает третью запись, шестую, седьмую и восьмую записи, а также все записи от двадцатой записи. 
 
-* Probabilistic Sampling: Selects each record with probability P where P is the value of the 'Selection Probability' property 
+* Probabilistic Sampling (Вероятностная выборка): Выбирает каждую запись с вероятностью P, где P — значение свойства 'Selection Probability' 
 
-* Reservoir Sampling: Creates a sample of K records where each record has equal probability of being included, where K is the value of the 'Reservoir Size' property. Note that if the value is very large it may cause memory issues as the reservoir is kept in-memory. 
+* Reservoir Sampling (Выборка резервуара): Создаёт образец из K записей, где каждая запись имеет равную вероятность быть включённой, где K — значение свойства 'Reservoir Size'. Обратите внимание, что если значение очень велико, это может вызвать проблемы с памятью, так как резервуар хранится в памяти. 
 
 
 [horizontal]
@@ -83,14 +83,14 @@ REQUIRED (Обязательно)
 .*Sample-Record-Interval*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Sampling Interval
+*DISPLAY NAME (Отображаемое наименование):*:: Sampling Interval (Интервал выборки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the number of records to skip before writing a record to the outgoing FlowFile. This property is only used if Sampling Strategy is set to Interval Sampling. A value of zero (0) will cause no records to be included in theoutgoing FlowFile, a value of one (1) will cause all records to be included, and a value of two (2) will cause half the records to be included, and so on.
+*DESCRIPTION (Описание):*:: Указывает количество записей, которые нужно пропустить перед записью записи в исходящий FlowFile. Это свойство используется только если стратегия выборки установлена на интервальную выборку. Значение ноль (0) приведет к включению в исходящий FlowFile ни одной записи, значение один (1) приведет ко всем записям быть включенными, а значение два (2) приведет к включению половины записей и так далее.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -100,14 +100,14 @@ REQUIRED (Обязательно)
 .*Sample-Record-Range*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Sampling Range
+*DISPLAY NAME (Отображаемое наименование):*:: Sampling Range (Диапазон выборки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the range of records to include in the sample, from 1 to the total number of records. An example is '3,6-8,20-' which includes the third record, the sixth, seventh and eighth records, and all records from the twentieth record on. Commas separate intervals that don't overlap, and an interval can be between two numbers (i.e. 6-8) or up to a given number (i.e. -5), or from a number to the number of the last record (i.e. 20-). If this property is unset, all records will be included.
+*DESCRIPTION (Описание):*:: Указывает диапазон записей для включения в образец, от 1 до общего количества записей. Пример: '3,6-8,20-' включает третью запись, шестую, седьмую и восьмую записи и все записи с двадцатой записи. Запятые разделяют интервалы, которые не перекрываются, а интервал может быть между двумя числами (например, 6-8) или до заданного числа (например, -5), или от числа до последней записи (например, 20-). Если это свойство не установлено, будут включены все записи.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -117,14 +117,14 @@ REQUIRED (Обязательно)
 .*Sample-Record-Probability*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Sampling Probability
+*DISPLAY NAME (Отображаемое наименование):*:: Sampling Probability (Вероятность выборки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the probability (as a percent from 0-100) of a record being included in the outgoing FlowFile. This property is only used if Sampling Strategy is set to Probabilistic Sampling. A value of zero (0) will cause no records to be included in theoutgoing FlowFile, and a value of 100 will cause all records to be included in the outgoing FlowFile..
+*DESCRIPTION (Описание):*:: Указывает вероятность (в процентах от 0 до 100) записи, включаемой в исходящий FlowFile. Это свойство используется только если стратегия выборки установлена в Пробит-выборку. Значение ноль (0) приведет к тому, что ни одна запись не будет включена в исходящий FlowFile, а значение 100 приведет ко всем записям, включаемым в исходящий FlowFile.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -134,14 +134,14 @@ REQUIRED (Обязательно)
 .*Sample-Record-Reservoir*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Reservoir Size
+*DISPLAY NAME (Отображаемое наименование):*:: Reservoir Size (Размер резервуара)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the number of records to write to the outgoing FlowFile. This property is only used if Sampling Strategy is set to reservoir-based strategies such as Reservoir Sampling.
+*DESCRIPTION (Описание):*:: Указывает количество записей для записи в исходящий FlowFile. Это свойство используется только если Стратегия выборки установлена на стратегии на основе резервуара, такие как Выборочная выборка резервуара.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -151,14 +151,14 @@ REQUIRED (Обязательно)
 .Sample-Record-Random-Seed
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Random Seed
+*DISPLAY NAME (Отображаемое наименование):*:: Random Seed (Семя)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies a particular number to use as the seed for the random number generator (used by probabilistic strategies). Setting this property will ensure the same records are selected even when using probabilistic strategies.
+*DESCRIPTION (Описание):*:: Указывает конкретное число для использования в качестве семени для генератора случайных чисел (используется вероятностными стратегиями). Установка этого свойства обеспечит выбор одних и тех же записей даже при использовании вероятностных стратегий.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -179,7 +179,7 @@ REQUIRED (Обязательно)
 
 
 |MEMORY
-|An instance of this component can cause high usage of this system resource.  Multiple instances or high concurrency settings may result a degradation of performance.
+|Экземпляр этого компонента может вызвать высокое использование системного ресурса. Несколько экземпляров или высокие настройки конкоррентности могут привести к снижению производительности.
 
 |===
 
@@ -194,13 +194,13 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`failure`
-|If a FlowFile fails processing for any reason (for example, any record is not valid), the original FlowFile will be routed to this relationship
+|Если FlowFile не обрабатывается по какой-либо причине (например, любая запись недействительна), исходный FlowFile будет направлен в это отношение
 
 |`success`
-|The FlowFile is routed to this relationship if the sampling completed successfully
+|FlowFile направляется в это отношение, если выборка завершена успешно
 
 |`original`
-|The original FlowFile is routed to this relationship if sampling is successful
+|Исходный FlowFile направляется в это отношение, если выборка успешна
 
 |===
 
@@ -215,10 +215,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`mime.type`
-|The MIME type indicated by the record writer
+|Тип MIME, указанный записывателем записей
 
 |`record.count`
-|The number of records in the resulting flow file
+|Количество записей в результирующем файле потока
 
 |===
 

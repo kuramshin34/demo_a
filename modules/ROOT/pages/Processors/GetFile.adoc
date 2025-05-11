@@ -1,13 +1,13 @@
 = GetFile 2.2.0
 
-Creates FlowFiles from files in a directory.  NiFi will ignore files it doesn't have at least read permissions for.
+Создает FlowFiles из файлов в директории. NiFi проигнорирует файлы, доступ к которым у него нет хотя бы на чтение.
 
 [horizontal]
 *Tags* (Ключевые слова):
 files, filesystem, get, ingest, ingress, input, local, source
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ FORBIDDEN (Обязательно)
 .*Input Directory*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Input Directory
+*DISPLAY NAME (Отображаемое наименование):*:: Input Directory (Входная директория)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The input directory from which to pull files
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ FORBIDDEN (Обязательно)
 .*File Filter*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: File Filter
+*DISPLAY NAME (Отображаемое наименование):*:: File Filter (Файловый фильтр)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Only files whose names match the given regular expression will be picked up
+*DESCRIPTION (Описание):*:: Будут захвачены только файлы, имена которых соответствуют данному регулярному выражению
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ FORBIDDEN (Обязательно)
 .Path Filter
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Path Filter
+*DISPLAY NAME (Отображаемое наименование):*:: Path Filter (Путь фильтра)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When Recurse Subdirectories is true, then only subdirectories whose path matches the given regular expression will be scanned
+*DESCRIPTION (Описание):*:: Когда Recurse Subdirectories установлен в true, только поддиректории, пути которых соответствуют заданному регулярному выражению, будут сканироваться
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ FORBIDDEN (Обязательно)
 .*Batch Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Batch Size
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Size (Размер партии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum number of files to pull in each invocation of the processor
+*DESCRIPTION (Описание):*:: Максимальное количество файлов для извлечения при каждом вызове процессора
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ FORBIDDEN (Обязательно)
 .*Keep Source File*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Keep Source File
+*DISPLAY NAME (Отображаемое наименование):*:: Keep Source File (Сохранять исходный файл)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true, the file is not deleted after it has been copied to the Content Repository; this causes the file to be picked up continually and is useful for testing purposes.  If not keeping original NiFi will need write permissions on the directory it is pulling from otherwise it will ignore the file.
+*DESCRIPTION (Описание):*:: Если true, файл не удаляется после копирования в репозиторий контента; это приводит к тому, что файл будет постоянно выбираться и полезен для целей тестирования. Если не сохранять оригинал, NiFi будет нуждаться в правах записи на директорию, откуда он извлекает файл, иначе проигнорирует его.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -113,23 +113,23 @@ FORBIDDEN (Обязательно)
 .*Recurse Subdirectories*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Recurse Subdirectories
+*DISPLAY NAME (Отображаемое наименование):*:: Recurse Subdirectories (Рекурсивно поддиректории)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates whether or not to pull files from subdirectories
+*DESCRIPTION (Описание):*:: Указывает, следует ли извлекать файлы из поддиректорий
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (Да)
 
-* false
+* false (Нет)
 
 
 [horizontal]
@@ -138,14 +138,14 @@ FORBIDDEN (Обязательно)
 .*Polling Interval*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Polling Interval
+*DISPLAY NAME (Отображаемое наименование):*:: Polling Interval (Интервал опроса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates how long to wait before performing a directory listing
+*DESCRIPTION (Описание):*:: Указывает, как долго ждать перед выполнением списка директорий
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -155,23 +155,23 @@ FORBIDDEN (Обязательно)
 .*Ignore Hidden Files*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Ignore Hidden Files
+*DISPLAY NAME (Отображаемое наименование):*:: Ignore Hidden Files (Игнорировать скрытые файлы)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates whether or not hidden files should be ignored
+*DESCRIPTION (Описание):*:: Указывает, следует ли игнорировать скрытые файлы
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (да)
 
-* false
+* false (нет)
 
 
 [horizontal]
@@ -180,14 +180,14 @@ FORBIDDEN (Обязательно)
 .*Minimum File Age*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Minimum File Age
+*DISPLAY NAME (Отображаемое наименование):*:: Minimum File Age (Минимальный возраст файла)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The minimum age that a file must be in order to be pulled; any file younger than this amount of time (according to last modification date) will be ignored
+*DESCRIPTION (Описание):*:: Минимальный возраст, который файл должен иметь для того, чтобы быть извлеченным; любой файл моложе этого количества времени (согласно дате последнего изменения) будет проигнорирован
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -197,14 +197,14 @@ FORBIDDEN (Обязательно)
 .Maximum File Age
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum File Age
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum File Age (Максимальный возраст файла)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum age that a file must be in order to be pulled; any file older than this amount of time (according to last modification date) will be ignored
+*DESCRIPTION (Описание):*:: Максимальный возраст, который должен иметь файл для его извлечения; любые файлы старше этого времени (согласно дате последнего изменения) будут игнорироваться
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -214,14 +214,14 @@ FORBIDDEN (Обязательно)
 .*Minimum File Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Minimum File Size
+*DISPLAY NAME (Отображаемое наименование):*:: Minimum File Size (Минимальный размер файла)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The minimum size that a file must be in order to be pulled
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -231,14 +231,14 @@ FORBIDDEN (Обязательно)
 .Maximum File Size
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum File Size
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum File Size (Максимальный размер файла)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum size that a file can be in order to be pulled
+*DESCRIPTION (Описание):*:: The maximum size that a file can be in order to be pulled (Максимальный размер, который файл может иметь для извлечения)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -260,10 +260,10 @@ FORBIDDEN (Обязательно)
 |Требуемые права |Объяснение
 
 |
-|Provides operator the ability to read from any file that NiFi has access to.
+|Позволяет оператору читать из любого файла, доступного NiFi.
 
 |
-|Provides operator the ability to delete any file that NiFi has access to.
+|Позволяет оператору удалять любой файл, доступный NiFi.
 
 |===
 
@@ -276,7 +276,7 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`success`
-|All files are routed to success
+|Все файлы направляются в success
 
 |===
 
@@ -291,31 +291,31 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`filename`
-|The filename is set to the name of the file on disk
+|Имя файла устанавливается в имя файла на диске
 
 |`path`
-|The path is set to the relative path of the file's directory on disk. For example, if the <Input Directory> property is set to /tmp, files picked up from /tmp will have the path attribute set to ./. If the <Recurse Subdirectories> property is set to true and a file is picked up from /tmp/abc/1/2/3, then the path attribute will be set to abc/1/2/3
+|Атрибут пути устанавливается в относительный путь директории файла на диске. Например, если свойство <Input Directory> установлено в /tmp, файлы, захваченные из /tmp, будут иметь атрибут path, равный '.. Если свойство <Recurse Subdirectories> установлено в true и файл захвачен из /tmp/abc/1/2/3, то атрибут пути будет установлен в abc/1/2/3
 
 |`file.creationTime`
-|The date and time that the file was created. May not work on all file systems
+|Дата и время создания файла. Возможно, не работает на всех файловых системах
 
 |`file.lastModifiedTime`
-|The date and time that the file was last modified. May not work on all file systems
+|Дата и время последнего изменения файла. Возможно, не работает на всех файловых системах
 
 |`file.lastAccessTime`
-|The date and time that the file was last accessed. May not work on all file systems
+|Дата и время последнего доступа к файлу. Возможно, не работает на всех файловых системах
 
 |`file.owner`
-|The owner of the file. May not work on all file systems
+|Владелец файла. Возможно, не работает на всех файловых системах
 
 |`file.group`
-|The group owner of the file. May not work on all file systems
+|Группа владельца файла. Возможно, не работает на всех файловых системах
 
 |`file.permissions`
-|The read/write/execute permissions of the file. May not work on all file systems
+|Права доступа на чтение/запись/выполнение файла. Возможно, не работает на всех файловых системах
 
 |`absolute.path`
-|The full/absolute path from where a file was picked up. The current 'path' attribute is still populated, but may be a relative path
+|Полный/абсолютный путь откуда был захвачен файл. Текущий атрибут 'путь' все еще заполнен, но может быть относительным путем
 
 |===
 

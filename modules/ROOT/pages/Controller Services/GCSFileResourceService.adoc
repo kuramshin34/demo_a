@@ -1,13 +1,13 @@
 = GCSFileResourceService 2.2.0
 
-Provides a Google Compute Storage (GCS) file resource for other components.
+Предоставляет файловый ресурс Google Compute Storage (GCS) для других компонентов.
 
 [horizontal]
 *Tags* (Ключевые слова):
 file, gcs, resource
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ file, gcs, resource
 .*Bucket*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Bucket
+*DISPLAY NAME (Отображаемое наименование):*:: Bucket (Бакет)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Bucket of the object.
+*DESCRIPTION (Описание):*:: Бакет объекта.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ file, gcs, resource
 .*Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Name
+*DISPLAY NAME (Отображаемое наименование):*:: Name (Имя объекта)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Name of the object.
+*DESCRIPTION (Описание):*:: Название объекта.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ file, gcs, resource
 .*Gcp-Credentials-Provider-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service
+*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service (...)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Controller Service used to obtain Google Cloud Platform credentials.
+*DESCRIPTION (Описание):*:: Сервис контроллера, используемый для получения учетных данных Google Cloud Platform.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -81,6 +81,17 @@ file, gcs, resource
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

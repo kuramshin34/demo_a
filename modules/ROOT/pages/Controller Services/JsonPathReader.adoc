@@ -1,13 +1,13 @@
 = JsonPathReader 2.2.0
 
-Parses JSON records and evaluates user-defined JSON Path's against each JSON object. While the reader expects each record to be well-formed JSON, the content of a FlowFile may consist of many records, each as a well-formed JSON array or JSON object with optional whitespace between them, such as the common 'JSON-per-line' format. If an array is encountered, each element in that array will be treated as a separate record. User-defined properties define the fields that should be extracted from the JSON in order to form the fields of a Record. Any JSON field that is not extracted via a JSONPath will not be returned in the JSON Records.
+Парсит JSON записи и оценивает пользовательские JSON Path для каждого объекта JSON. Хотя читальщик ожидает, что каждая запись будет корректно отформатированным JSON, содержимое FlowFile может состоять из множества записей, каждая в виде отдельного массива или объекта с необязательными пробелами между ними, такими как распространенный формат 'JSON-per-line'. Если встречается массив, каждый элемент в этом массиве будет рассматриваться как отдельная запись. Пользовательские свойства определяют поля, которые должны быть извлечены из JSON для формирования полей записи. Любое поле JSON, не извлеченное через JSONPath, не будет возвращено в JSON Записях.
 
 [horizontal]
 *Tags* (Ключевые слова):
 json, jsonpath, parser, reader, record
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,27 +20,27 @@ json, jsonpath, parser, reader, record
 .*Schema-Access-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy (Стратегия доступа к схеме)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how to obtain the schema that is to be used for interpreting the data.
+*DESCRIPTION (Описание):*:: Определяет, как получить схему для интерпретации данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Use 'Schema Name' Property: The name of the Schema to use is specified by the 'Schema Name' Property. The value of this property is used to lookup the Schema in the configured Schema Registry service. 
+* Использовать 'Свойство Имя Схемы' (Use 'Schema Name' Property): Имя схемы, которое указывается свойством 'Имя Схемы'. Значение этого свойства используется для поиска схемы в настроенном сервисе реестра схем. 
 
-* Use 'Schema Text' Property: The text of the Schema itself is specified by the 'Schema Text' Property. The value of this property must be a valid Avro Schema. If Expression Language is used, the value of the 'Schema Text' property must be valid after substituting the expressions. 
+* Использовать 'Свойство Текст Схемы' (Use 'Schema Text' Property): Текст самой схемы указывается свойством 'Текст Схемы'. Значение этого свойства должно быть допустимой Avro схемой. Если используется язык выражений, значение свойства 'Текст Схемы' должно быть действительным после замены выражений. 
 
-* Schema Reference Reader: The schema reference information will be provided through a configured Schema Reference Reader service implementation. 
+* Схема ссылки на чтение (Schema Reference Reader): Информация о ссылке на схему будет предоставлена через реализованный конфигурируемый сервис чтения ссылок на схемы. 
 
-* Infer Schema: The Schema of the data will be inferred automatically when the data is read. See component Usage and Additional Details for information about how the schema is inferred. 
+* Вывести схему (Infer Schema): Схема данных будет автоматически выведена при чтении данных. См. раздел 'Использование и дополнительные сведения' для получения информации о том, как выводится схема. 
 
 
 [horizontal]
@@ -49,14 +49,14 @@ json, jsonpath, parser, reader, record
 .Schema-Registry
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry (Реестър на схеми)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for the Schema Registry
+*DESCRIPTION (Описание):*:: Определя контролера за услуга, който да се използва за реестра на схемите
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -66,14 +66,14 @@ json, jsonpath, parser, reader, record
 .Schema-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Name
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Name (Схема имени)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the name of the schema to lookup in the Schema Registry property
+*DESCRIPTION (Описание):*:: Указывает имя схемы для поиска в свойстве Реестра схем
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -83,14 +83,14 @@ json, jsonpath, parser, reader, record
 .Schema-Version
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Version
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Version (Схема версии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the version of the schema to lookup in the Schema Registry. If not specified then the latest version of the schema will be retrieved.
+*DESCRIPTION (Описание):*:: Указывает версию схемы для поиска в Реестре схем. Если не указано, будет получена последняя версия схемы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -100,14 +100,14 @@ json, jsonpath, parser, reader, record
 .Schema-Branch
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Branch
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Branch (Схема ветки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the name of the branch to use when looking up the schema in the Schema Registry property. If the chosen Schema Registry does not support branching, this value will be ignored.
+*DESCRIPTION (Описание):*:: Указывает имя ветки, которую следует использовать при поиске схемы в свойстве Схемарегистр. Если выбранная Схемарегистр не поддерживает ветвление, это значение будет проигнорировано.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -117,14 +117,14 @@ json, jsonpath, parser, reader, record
 .Schema-Text
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Text
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Text (Схема текста)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The text of an Avro-formatted Schema
+*DESCRIPTION (Описание):*:: Текст Avro-формамата схемы
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -134,14 +134,14 @@ json, jsonpath, parser, reader, record
 .*Schema-Reference-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Reader (Ссылочный читатель схемы)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Service implementation responsible for reading FlowFile attributes or content to determine the Schema Reference Identifier
+*DESCRIPTION (Описание):*:: Сервис реализации, отвечающий за чтение атрибутов или содержимого FlowFile для определения идентификатора ссылки на схему
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -151,14 +151,14 @@ json, jsonpath, parser, reader, record
 .*Max String Length*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max String Length
+*DISPLAY NAME (Отображаемое наименование):*:: Max String Length (Максимальная длина строки)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The maximum allowed length of a string value when parsing the JSON document
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -168,14 +168,14 @@ json, jsonpath, parser, reader, record
 .*Allow Comments*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Allow Comments
+*DISPLAY NAME (Отображаемое наименование):*:: Allow Comments (Разрешить комментарии)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Whether to allow comments when parsing the JSON document
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -193,14 +193,14 @@ json, jsonpath, parser, reader, record
 .Date Format
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Date Format
+*DISPLAY NAME (Отображаемое наименование):*:: Date Format (Формат даты)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the format to use when reading/writing Date fields. If not specified, Date fields will be assumed to be number of milliseconds since epoch (Midnight, Jan 1, 1970 GMT). If specified, the value must match the Java java.time.format.DateTimeFormatter format (for example, MM/dd/yyyy for a two-digit month, followed by a two-digit day, followed by a four-digit year, all separated by '/' characters, as in 01/01/2017).
+*DESCRIPTION (Описание):*:: Указывает формат, который следует использовать при чтении или записи полей Date. Если не указан, поля Date будут считаться количеством миллисекунд от начала эпохи (полночь, 1 января 1970 г., GMT). Если указано, значение должно соответствовать формату Java java.time.format.DateTimeFormatter (например, MM/dd/yyyy для двузначного месяца, затем двузначного дня и четырехзначного года, все разделенные символами '/' как в 01/01/2017).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -210,14 +210,14 @@ json, jsonpath, parser, reader, record
 .Time Format
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Time Format
+*DISPLAY NAME (Отображаемое наименование):*:: Time Format (Формат времени)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the format to use when reading/writing Time fields. If not specified, Time fields will be assumed to be number of milliseconds since epoch (Midnight, Jan 1, 1970 GMT). If specified, the value must match the Java java.time.format.DateTimeFormatter format (for example, HH:mm:ss for a two-digit hour in 24-hour format, followed by a two-digit minute, followed by a two-digit second, all separated by ':' characters, as in 18:04:15).
+*DESCRIPTION (Описание):*:: Указывает формат, который следует использовать при чтении/записи полей Time. Если не указано, поля Time будут считаться количеством миллисекунд с эпохи (Полночь, 1 января 1970 г., GMT). Если указано, значение должно соответствовать формату Java java.time.format.DateTimeFormatter (например, HH:mm:ss для двузначного часа в 24-часовом формате, за которым следуют двузначная минута и двузначная секунда, все разделённые символами ':' как в 18:04:15).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -227,14 +227,14 @@ json, jsonpath, parser, reader, record
 .Timestamp Format
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Timestamp Format
+*DISPLAY NAME (Отображаемое наименование):*:: Формат Timestamp (Timestamp Format)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the format to use when reading/writing Timestamp fields. If not specified, Timestamp fields will be assumed to be number of milliseconds since epoch (Midnight, Jan 1, 1970 GMT). If specified, the value must match the Java java.time.format.DateTimeFormatter format (for example, MM/dd/yyyy HH:mm:ss for a two-digit month, followed by a two-digit day, followed by a four-digit year, all separated by '/' characters; and then followed by a two-digit hour in 24-hour format, followed by a two-digit minute, followed by a two-digit second, all separated by ':' characters, as in 01/01/2017 18:04:15).
+*DESCRIPTION (Описание):*:: Указывает формат, который следует использовать при чтении или записи полей Timestamp. Если не указан, поля Timestamp будут считаться количеством миллисекунд с начала эпохи (Полночь 1 января 1970 г., GMT). Если указано, значение должно соответствовать формату Java java.time.format.DateTimeFormatter (например, MM/dd/yyyy HH:mm:ss для двузначного месяца, затем двузначного дня, затем четырехзначного года, все разделенные '/' символами; а затем следует двузначный час в 24-часовом формате, за которым следуют двузначные минуты и секунды, все разделенные ':' символами, как в 01/01/2017 18:04:15).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -267,6 +267,17 @@ json, jsonpath, parser, reader, record
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

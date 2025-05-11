@@ -1,13 +1,13 @@
 = DeleteFile 2.2.0
 
-Deletes a file from the filesystem.
+Удаляет файл с файловой системы.
 
 [horizontal]
 *Tags* (Ключевые слова):
 delete, file, files, filesystem, local, remove
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Directory Path*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Directory Path
+*DISPLAY NAME (Отображаемое наименование):*:: Directory Path (Путь к директории)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The path to the directory the file to delete is located in.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Filename*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Filename
+*DISPLAY NAME (Отображаемое наименование):*:: Filename (Имя файла)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the file to delete.
+*DESCRIPTION (Описание):*:: Имя файла для удаления.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -66,10 +66,10 @@ REQUIRED (Обязательно)
 |Требуемые права |Объяснение
 
 |
-|Provides operator the ability to read from any file that NiFi has access to.
+|Предоставляет оператору возможность читать любой файл, к которому у NiFi есть доступ.
 
 |
-|Provides operator the ability to delete any file that NiFi has access to.
+|Предоставляет оператору возможность удалять любой файл, к которому у NiFi есть доступ.
 
 |===
 
@@ -82,19 +82,30 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`failure`
-|All FlowFiles, for which an existing file could not be deleted, are routed to this relationship
+|Все FlowFiles, для которых не удалось удалить существующий файл, направляются в это отношение
 
 |`success`
-|All FlowFiles, for which an existing file has been deleted, are routed to this relationship
+|Все FlowFiles, для которых был успешно удалён существующий файл, направляются в это отношение
 
 |`not found`
-|All FlowFiles, for which the file to delete did not exist, are routed to this relationship
+|Все FlowFiles, для которых файл, подлежащий удалению, не существовал, направляются в это отношение
 
 |===
 
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 
@@ -103,7 +114,7 @@ REQUIRED (Обязательно)
 
 
 
-=== Delete source file only after its processing completed
+=== Удалить исходный файл только после его обработки завершена
 
 
 NOTE: 
@@ -116,11 +127,10 @@ NOTE:
 
 .Конфигурация
 ====
-Retrieve a file from the filesystem, e.g. using 'ListFile' and 'FetchFile'.
-Process the file using any combination of processors.
-Store the resulting file to a destination, e.g. using 'PutSFTP'.
-Using 'DeleteFile', delete the file from the filesystem only after the result has been stored.
-
+Извлечь файл из файловой системы, например, с помощью 'ListFile' и 'FetchFile'.
+Обработать файл с использованием любой комбинации процессоров.
+Сохранить результирующий файл в место назначения, например, с помощью 'PutSFTP'.
+Используя 'DeleteFile', удалить файл из файловой системы только после завершения обработки.
 ====
 
 

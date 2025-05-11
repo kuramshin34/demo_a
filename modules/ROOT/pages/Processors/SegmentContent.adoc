@@ -1,13 +1,13 @@
 = SegmentContent 2.2.0
 
-Segments a FlowFile into multiple smaller segments on byte boundaries. Each segment is given the following attributes: fragment.identifier, fragment.index, fragment.count, segment.original.filename; these attributes can then be used by the MergeContent processor in order to reconstitute the original FlowFile
+Разделяет FlowFile на несколько меньших сегментов по границе байтов. Каждый сегмент получает следующие атрибуты: fragment.identifier, fragment.index, fragment.count, segment.original.filename; эти атрибуты можно использовать для восстановления исходного FlowFile с помощью процессора MergeContent
 
 [horizontal]
 *Tags* (Ключевые слова):
 segment, split
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Segment Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Segment Size
+*DISPLAY NAME (Отображаемое наименование):*:: Segment Size (Размер сегмента)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum data size in bytes for each segment
+*DESCRIPTION (Описание):*:: Максимальный размер данных в байтах для каждого сегмента
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -51,10 +51,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`segments`
-|All segments will be sent to this relationship. If the file was small enough that it was not segmented, a copy of the original is sent to this relationship as well as original
+|Все сегменты будут отправлены по этому отношению. Если файл был достаточно мал, чтобы не быть разделенным, копия исходного файла также будет отправлена в это отношение
 
 |`original`
-|The original FlowFile will be sent to this relationship
+|Исходный FlowFile будет отправлен по этому отношению
 
 |===
 
@@ -69,19 +69,16 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`fragment.identifier`
-|All segments produced from the same parent FlowFile will have the same randomly generated UUID added for this attribute
+|Все сегменты, произведенные из одного и того же родительского FlowFile, будут иметь добавленный случайно сгенерированный UUID для этого атрибута
 
 |`fragment.index`
-|A one-up number that indicates the ordering of the segments that were created from a single parent FlowFile
+|Один вверх номер, указывающий порядок сегментов, созданных из одного родительского FlowFile
 
 |`fragment.count`
-|The number of segments generated from the parent FlowFile
+|Количество сегментов, сгенерированных из родительского FlowFile
 
-|`segment.original.filename `
-|The filename of the parent FlowFile
-
-|`segment.original.filename `
-|The filename will be updated to include the parent's filename, the segment index, and the segment count
+|`segment.original.filename`
+|Имя файла родителя будет обновлено, чтобы включить имя файла родителя, индекс сегмента и количество сегментов
 
 |===
 

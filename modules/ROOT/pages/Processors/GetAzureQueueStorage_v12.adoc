@@ -1,13 +1,13 @@
 = GetAzureQueueStorage_v12 2.2.0
 
-Retrieves the messages from an Azure Queue Storage. The retrieved messages will be deleted from the queue by default. If the requirement is to consume messages without deleting them, set 'Auto Delete Messages' to 'false'. Note: There might be chances of receiving duplicates in situations like when a message is received but was unable to be deleted from the queue due to some unexpected situations.
+Извлекает сообщения из хранилища очередей Azure. По умолчанию извлеченные сообщения будут удалены из очереди. Если требуется потреблять сообщения без их удаления, установите 'Auto Delete Messages' в значение 'false'. Обратите внимание: В некоторых ситуациях могут возникать повторения при получении сообщений, если сообщение было получено, но из-за каких-либо неожиданных обстоятельств не удалось удалить его из очереди.
 
 [horizontal]
 *Tags* (Ключевые слова):
 azure, cloud, dequeue, microsoft, queue, storage
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ FORBIDDEN (Обязательно)
 .*Queue Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Queue Name
+*DISPLAY NAME (Отображаемое наименование):*:: Queue Name (Очередь имени)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Name of the Azure Storage Queue
+*DESCRIPTION (Описание):*:: Имя очереди Azure Storage Queue
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ FORBIDDEN (Обязательно)
 .*Storage-Endpoint-Suffix*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Endpoint Suffix
+*DISPLAY NAME (Отображаемое наименование):*:: Endpoint Suffix (Суффикс конечной точки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Storage accounts in public Azure always use a common FQDN suffix. Override this endpoint suffix with a different suffix in certain circumstances (like Azure Stack or non-public Azure regions).
+*DESCRIPTION (Описание):*:: Хранилища в публичном Azure всегда используют общий FQDN суффикс. Переопределите этот суффикс конечной точки с другим суффиксом в особых обстоятельствах (например, Azure Stack или непубличные регионы Azure).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ FORBIDDEN (Обязательно)
 .*Credentials Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Credentials Service
+*DISPLAY NAME (Отображаемое наименование):*:: Credentials Service (Услуга учетных данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Controller Service used to obtain Azure Storage Credentials.
+*DESCRIPTION (Описание):*:: Сервис контроллера, используемый для получения учетных данных Azure Storage.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ FORBIDDEN (Обязательно)
 .*Auto Delete Messages*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Auto Delete Messages
+*DISPLAY NAME (Отображаемое наименование):*:: Auto Delete Messages (Автоматическое удаление сообщений)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether the received message is to be automatically deleted from the queue.
+*DESCRIPTION (Описание):*:: Указывает, следует ли автоматически удалять полученное сообщение из очереди.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -96,14 +96,14 @@ FORBIDDEN (Обязательно)
 .*Message Batch Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Message Batch Size
+*DISPLAY NAME (Отображаемое наименование):*:: Message Batch Size (Размер пакета сообщений)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The number of messages to be retrieved from the queue.
+*DESCRIPTION (Описание):*:: Количество сообщений, которые будут извлечены из очереди.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -113,14 +113,14 @@ FORBIDDEN (Обязательно)
 .*Visibility Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Visibility Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Visibility Timeout (Видимость таймаут)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The duration during which the retrieved message should be invisible to other consumers.
+*DESCRIPTION (Описание):*:: Продолжительность, в течение которой извлеченное сообщение должно быть невидимым для других потребителей.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -130,14 +130,14 @@ FORBIDDEN (Обязательно)
 .*Request Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Request Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Request Timeout (Запрос таймаут)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The timeout for read or write requests to Azure Queue Storage. Defaults to 1 second.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -147,14 +147,14 @@ FORBIDDEN (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: SOCKS, HTTP In case of SOCKS, it is not guaranteed that the selected SOCKS Version will be used by the processor.
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: SOCKS, HTTP В случае использования SOCKS, не гарантируется, что выбранная версия SOCKS будет использоваться процессором.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -178,7 +178,7 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`success`
-|All successfully processed FlowFiles are routed to this relationship
+|Все успешно обработанные FlowFiles направляются в это отношение
 
 |===
 
@@ -193,19 +193,19 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`azure.queue.uri`
-|The absolute URI of the configured Azure Queue Storage
+|Абсолютный URI конфигурированной очереди хранилища Azure
 
 |`azure.queue.insertionTime`
-|The time when the message was inserted into the queue storage
+|Время вставки сообщения в хранилище очередей
 
 |`azure.queue.expirationTime`
-|The time when the message will expire from the queue storage
+|Время, когда сообщение истечет из хранилища очередей
 
 |`azure.queue.messageId`
-|The ID of the retrieved message
+|Идентификатор извлеченного сообщения
 
 |`azure.queue.popReceipt`
-|The pop receipt of the retrieved message
+|Получить чек приема извлеченного сообщения
 
 |===
 

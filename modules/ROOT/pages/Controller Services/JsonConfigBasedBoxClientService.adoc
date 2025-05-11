@@ -1,13 +1,13 @@
 = JsonConfigBasedBoxClientService 2.2.0
 
-Provides Box client objects through which Box API calls can be used.
+Предоставляет объекты клиента Box, через которые можно использовать вызовы API Box.
 
 [horizontal]
 *Tags* (Ключевые слова):
 box, client, provider
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -17,34 +17,34 @@ box, client, provider
 == Properties (Свойства)
 
 
-.*Box-Account-Id*
+.Box-Account-Id
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Account ID
+*DISPLAY NAME (Отображаемое наименование):*:: Account ID (Учетная запись)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The ID of the Box account who owns the accessed resource. Same as 'User Id' under 'App Info' in the App 'General Settings'.
+*DESCRIPTION (Описание):*:: Идентификатор учетной записи Box, которая владеет доступным ресурсом. Тот же самый, что и 'User Id' в разделе 'Общие настройки' приложения 'General Settings'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
-*REQUIRED (Обязательный параметр):*::  True (Да) 
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
 ************************************************
 .App-Config-File
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: App Config File
+*DISPLAY NAME (Отображаемое наименование):*:: App Config File (Путь к файлу конфигурации приложения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Full path of an App config JSON file. See Additional Details for more information.
+*DESCRIPTION (Описание):*:: Полный путь к JSON файлу конфигурации приложения. Более подробная информация в разделе 'Дополнительные детали'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ box, client, provider
 .App-Config-Json
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: App Config JSON
+*DISPLAY NAME (Отображаемое наименование):*:: App Config JSON (Приложение Конфигурация JSON)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The raw JSON containing an App config. See Additional Details for more information.
+*DESCRIPTION (Описание):*:: Сырой JSON, содержащий конфигурацию приложения. Более подробная информация доступна в разделе Дополнительные детали.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -71,14 +71,14 @@ box, client, provider
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: HTTP + AuthN
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -98,6 +98,17 @@ box, client, provider
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

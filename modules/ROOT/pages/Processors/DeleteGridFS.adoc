@@ -1,13 +1,13 @@
 = DeleteGridFS 2.2.0
 
-Deletes a file from GridFS using a file name or a query.
+Удаляет файл из GridFS с использованием имени файла или запроса.
 
 [horizontal]
 *Tags* (Ключевые слова):
 delete, gridfs, mongodb
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Gridfs-Client-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Client Service
+*DISPLAY NAME (Отображаемое наименование):*:: Client Service (Клиентская служба)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The MongoDB client service to use for database connections.
+*DESCRIPTION (Описание):*:: The MongoDB client service to use for database connections. (Служба MongoDB клиента для использования в базах данных.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Gridfs-Database-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Mongo Database Name
+*DISPLAY NAME (Отображаемое наименование):*:: Mongo Database Name (Имя базы данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the database to use
+*DESCRIPTION (Описание):*:: The name of the database to use (Имя базы данных для использования)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .Gridfs-Bucket-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Bucket Name
+*DISPLAY NAME (Отображаемое наименование):*:: Bucket Name (Имя бакета)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The GridFS bucket where the files will be stored. If left blank, it will use the default value 'fs' that the MongoDB client driver uses.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .Gridfs-File-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: File Name
+*DISPLAY NAME (Отображаемое наименование):*:: Имя файла в бакете (...)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the file in the bucket that is the target of this processor. GridFS file names do not include path information because GridFS does not sort files into folders within a bucket.
+*DESCRIPTION (Описание):*:: Имя файла в бакете, на который направлен этот процессор. Имена файлов в GridFS не включают информацию о пути, так как GridFS не сортирует файлы в папки внутри бакета.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ REQUIRED (Обязательно)
 .Delete-Gridfs-Query
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Query
+*DISPLAY NAME (Отображаемое наименование):*:: Query (Запрос)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A valid MongoDB query to use to find and delete one or more files from GridFS.
+*DESCRIPTION (Описание):*:: Допустимый запрос MongoDB для поиска и удаления одного или нескольких файлов из GridFS.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ REQUIRED (Обязательно)
 .Mongo-Query-Attribute
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Query Output Attribute
+*DISPLAY NAME (Отображаемое наименование):*:: Query Output Attribute (Выходной атрибут запроса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If set, the query will be written to a specified attribute on the output flowfiles.
+*DESCRIPTION (Описание):*:: Если установлено, запрос будет записан в указанный атрибут на выходном потоке.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -136,10 +136,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|When the operation succeeds, the flowfile is sent to this relationship.
+|При успешном выполнении операции передача flowfile осуществляется по этому отношению.
 
 |`failure`
-|When there is a failure processing the flowfile, it goes to this relationship.
+|В случае сбоя при обработке flowfile она перенаправляется в это отношение.
 
 |===
 

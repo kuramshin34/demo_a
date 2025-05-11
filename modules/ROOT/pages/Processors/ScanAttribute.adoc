@@ -1,13 +1,13 @@
 = ScanAttribute 2.2.0
 
-Scans the specified attributes of FlowFiles, checking to see if any of their values are present within the specified dictionary of terms
+Проверяет указанные атрибуты FlowFiles, проверяя, содержатся ли их значения в заданном словаре терминов
 
 [horizontal]
 *Tags* (Ключевые слова):
 attributes, find, lookup, scan, search, text
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Dictionary File*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Dictionary File
+*DISPLAY NAME (Отображаемое наименование):*:: Dictionary File (Словарный файл)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A new-line-delimited text file that includes the terms that should trigger a match. Empty lines are ignored.  The contents of the text file are loaded into memory when the processor is scheduled and reloaded when the contents are modified.
+*DESCRIPTION (Описание):*:: Файл с разделителями новой строки, содержащий термины, которые должны вызывать соответствие. Пустые строки игнорируются. Содержимое текстового файла загружается в память при планировании процессора и перезагружается при изменении содержимого.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Attribute Pattern*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Attribute Pattern
+*DISPLAY NAME (Отображаемое наименование):*:: Attribute Pattern (Шаблон атрибута)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Regular Expression that specifies the names of attributes whose values will be matched against the terms in the dictionary
+*DESCRIPTION (Описание):*:: Регулярное выражение, которое указывает имена атрибутов, значения которых будут сопоставлены с терминами в словаре
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,23 +54,23 @@ REQUIRED (Обязательно)
 .*Match Criteria*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Match Criteria
+*DISPLAY NAME (Отображаемое наименование):*:: Match Criteria (Соответствие критериям)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If set to All Must Match, then FlowFiles will be routed to 'matched' only if all specified attributes' values are found in the dictionary. If set to At Least 1 Must Match, FlowFiles will be routed to 'matched' if any attribute specified is found in the dictionary
+*DESCRIPTION (Описание):*:: Если установлено значение 'Все должно совпадать', то FlowFiles будут направлены в 'сопоставленный' только если все указанные значения атрибутов найдены в словаре. Если установлено значение 'Хотя бы одно должно совпадать', FlowFiles будут направлены в 'сопоставленный' если какой-либо из указанных атрибутов найден в словаре
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* At Least 1 Must Match
+* At Least 1 Must Match (Хотя бы одно должно совпадать)
 
-* All Must Match
+* All Must Match (Все должно совпадать)
 
 
 [horizontal]
@@ -79,14 +79,14 @@ REQUIRED (Обязательно)
 .Dictionary Filter Pattern
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Dictionary Filter Pattern
+*DISPLAY NAME (Отображаемое наименование):*:: Dictionary Filter Pattern (Схема фильтрации словаря)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A Regular Expression that will be applied to each line in the dictionary file. If the regular expression does not match the line, the line will not be included in the list of terms to search for. If a Matching Group is specified, only the portion of the term that matches that Matching Group will be used instead of the entire term. If not specified, all terms in the dictionary will be used and each term will consist of the text of the entire line in the file
+*DESCRIPTION (Описание):*:: Регулярное выражение, которое будет применено к каждой строке в файле словаря. Если регулярное выражение не соответствует строке, эта строка не будет включена в список терминов для поиска. Если указана группа сопоставления, то вместо всего термина будет использована только та часть термина, которая соответствует этой группе сопоставления. Если не указано, все термины в словаре будут использоваться, и каждый термин будет состоять из текста всей строки в файле.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -110,10 +110,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`matched`
-|FlowFiles whose attributes are found in the dictionary will be routed to this relationship
+|FlowFiles, у которых атрибуты найдены в словаре, будут направлены по этому отношению
 
 |`unmatched`
-|FlowFiles whose attributes are not found in the dictionary will be routed to this relationship
+|FlowFiles, у которых атрибуты не найдены в словаре, будут направлены по этому отношению
 
 |===
 

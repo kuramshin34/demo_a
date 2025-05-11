@@ -1,13 +1,13 @@
 = AzureDataLakeStorageFileResourceService 2.2.0
 
-Provides an Azure Data Lake Storage (ADLS) file resource for other components.
+Предоставляет ресурс файла Azure Data Lake Storage (ADLS) для других компонентов.
 
 [horizontal]
 *Tags* (Ключевые слова):
 adlsgen2, azure, cloud, datalake, file, microsoft, resource, storage
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ adlsgen2, azure, cloud, datalake, file, microsoft, resource, storage
 .*Adls-Credentials-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: ADLS Credentials
+*DISPLAY NAME (Отображаемое наименование):*:: ADLS Credentials (Услуга учетных данных ADLS)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Controller Service used to obtain Azure Credentials.
+*DESCRIPTION (Описание):*:: Контроллер сервиса, используемый для получения учетных данных Azure.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ adlsgen2, azure, cloud, datalake, file, microsoft, resource, storage
 .*Filesystem-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Filesystem Name
+*DISPLAY NAME (Отображаемое наименование):*:: Filesystem Name (Файловая система)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Name of the Azure Storage File System (also called Container). It is assumed to be already existing.
+*DESCRIPTION (Описание):*:: Имя файловой системы Azure Storage (также называемой контейнером). Предполагается, что она уже существует.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ adlsgen2, azure, cloud, datalake, file, microsoft, resource, storage
 .*Directory-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Directory Name
+*DISPLAY NAME (Отображаемое наименование):*:: Directory Name (Имя каталога)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Name of the Azure Storage Directory. The Directory Name cannot contain a leading '/'. The root directory can be designated by the empty string value. In case of the PutAzureDataLakeStorage processor, the directory will be created if not already existing.
+*DESCRIPTION (Описание):*:: Имя Azure Storage каталога. Имя каталога не может начинаться с '/'. Корневой каталог можно обозначить пустым значением строки. В случае процессора PutAzureDataLakeStorage, если каталог не существует, он будет создан.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ adlsgen2, azure, cloud, datalake, file, microsoft, resource, storage
 .*File-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: File Name
+*DISPLAY NAME (Отображаемое наименование):*:: File Name (Имя файла)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The filename
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -98,6 +98,17 @@ adlsgen2, azure, cloud, datalake, file, microsoft, resource, storage
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

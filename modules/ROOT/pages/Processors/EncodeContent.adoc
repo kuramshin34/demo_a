@@ -1,13 +1,13 @@
 = EncodeContent 2.2.0
 
-Encode or decode the contents of a FlowFile using Base64, Base32, or hex encoding schemes
+Кодировать или декодировать содержимое FlowFile, используя схемы кодирования Base64, Base32 или шестнадцатеричный код
 
 [horizontal]
 *Tags* (Ключевые слова):
 base32, base64, decode, encode, hex
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,23 +20,23 @@ REQUIRED (Обязательно)
 .*Mode*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Mode
+*DISPLAY NAME (Отображаемое наименование):*:: Mode (Режим)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether the content should be encoded or decoded.
+*DESCRIPTION (Описание):*:: Указывает, должно ли содержимое быть закодировано или декодировано.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Encode: Transform original input to encoded representation 
+* Encode (Закодировать): Преобразовать исходное входное представление в закодированное 
 
-* Decode: Transform encoded input to original representation 
+* Decode (Декодировать): Преобразовать закодированное входное представление обратно в исходное 
 
 
 [horizontal]
@@ -45,25 +45,25 @@ REQUIRED (Обязательно)
 .*Encoding*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Encoding
+*DISPLAY NAME (Отображаемое наименование):*:: Кодирование
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the type of encoding used.
+*DESCRIPTION (Описание):*:: Указывает тип используемого кодирования.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Base64: Encode or decode using Base64 set of characters 
+* Base64: Кодирование или декодирование с использованием набора символов Base64 
 
-* Base32: Encode or decode using Base32 set of characters 
+* Base32: Кодирование или декодирование с использованием набора символов Base32 
 
-* Hexadecimal: Encode or decode using hexadecimal set of characters 
+* Hexadecimal: Кодирование или декодирование с использованием шестнадцатеричного набора символов 
 
 
 [horizontal]
@@ -72,23 +72,23 @@ REQUIRED (Обязательно)
 .*Line Output Mode*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Line Output Mode
+*DISPLAY NAME (Отображаемое наименование):*:: Line Output Mode (Режим вывода линии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Controls the line formatting for encoded content based on selected property values.
+*DESCRIPTION (Описание):*:: Контролирует форматирование строки для закодированного контента на основе выбранных значений свойств.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Single Line: The encoded content will be written as a single line. 
+* Single Line (Одна строка): Закодированный контент будет записан как одна строка. 
 
-* Multiple Lines: The encoded content will be written as multiple lines. 
+* Multiple Lines (Несколько строк): Закодированный контент будет записан как несколько строк. 
 
 
 [horizontal]
@@ -97,14 +97,14 @@ REQUIRED (Обязательно)
 .*Encoded Line Length*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Encoded Line Length
+*DISPLAY NAME (Отображаемое наименование):*:: Encoded Line Length (Длина закодированной строки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Each line of encoded data will contain up to the configured number of characters, rounded down to the nearest multiple of 4.
+*DESCRIPTION (Описание):*:: Каждая строка закодированных данных будет содержать до конфигурируемого количества символов, округленного в меньшую сторону до ближайшего кратного четырем.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -128,10 +128,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Any FlowFile that is successfully encoded or decoded will be routed to success
+|Любой FlowFile, который успешно закодирован или декодирован, будет направлен в success
 
 |`failure`
-|Any FlowFile that cannot be encoded or decoded will be routed to failure
+|Любой FlowFile, который не может быть закодирован или декодирован, будет направлен в failure
 
 |===
 

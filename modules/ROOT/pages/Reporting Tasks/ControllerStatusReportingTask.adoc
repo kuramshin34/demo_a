@@ -1,13 +1,13 @@
 = ControllerStatusReportingTask 2.2.0
 
-Logs the 5-minute stats that are shown in the NiFi Summary Page for Processors and Connections, as well optionally logging the deltas between the previous iteration and the current iteration. Processors' stats are logged using the org.apache.nifi.controller.ControllerStatusReportingTask.Processors logger, while Connections' stats are logged using the org.apache.nifi.controller.ControllerStatusReportingTask.Connections logger. These can be configured in the NiFi logging configuration to log to different files, if desired.
+Логирует статистику за последние 5 минут, отображаемую на странице сводной информации NiFi для процессоров и соединений, а также при необходимости логирует дельты между предыдущим и текущим циклом. Статистика процессоров логируется с использованием логгера org.apache.nifi.controller.ControllerStatusReportingTask.Processors, а статистики соединений логируются с использованием логгера org.apache.nifi.controller.ControllerStatusReportingTask.Connections. Это можно настроить в конфигурации логирования NiFi для записи в разные файлы, если это необходимо.
 
 [horizontal]
 *Tags* (Ключевые слова):
 log, stats
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,23 +20,23 @@ log, stats
 .*Show Deltas*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Show Deltas
+*DISPLAY NAME (Отображаемое наименование):*:: Show Deltas (Показывать дельты)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether or not to show the difference in values between the current status and the previous status
+*DESCRIPTION (Описание):*:: Указывает, следует ли показывать разницу в значениях между текущим состоянием и предыдущим состоянием
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -45,23 +45,23 @@ log, stats
 .Reporting-Granularity
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Reporting Granularity
+*DISPLAY NAME (Отображаемое наименование):*:: Reporting Granularity (Отчетный уровень детализации)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When reporting information, specifies the granularity of the metrics to report
+*DESCRIPTION (Описание):*:: При формировании отчета информация, указывает степень детализации метрик для отчета
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Five Minutes: The stats that are reported will reflect up to the last 5 minutes' worth of processing, which will coincide with the stats that are shown in the UI. 
+* Five Minutes (Пять минут): Статистика, которая будет сообщаться, отразит последние 5 минут обработки, что совпадает со статистикой, отображаемой в пользовательском интерфейсе. 
 
-* One Second: The stats that are reported will be an average of the value per second, gathered over the last 5 minutes. This is essentially obtained by dividing the stats that are shown in the UI by 300 (300 seconds in 5 minutes), with the exception of when NiFi has been running for less than 5 minutes. In that case, the stats will be divided by the amount of time NiFi has been running. 
+* One Second (Одна секунда): Статистика, которая будет сообщаться, будет средним значением за каждую секунду, собранным за последние 5 минут. Это в основном получается делением статистики, отображаемой в пользовательском интерфейсе, на 300 (300 секунд в 5 минутах), за исключением случаев, когда NiFi работает менее 5 минут. В таком случае статистика будет разделена на количество времени, в течение которого работает NiFi. 
 
 
 [horizontal]
@@ -80,6 +80,17 @@ log, stats
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

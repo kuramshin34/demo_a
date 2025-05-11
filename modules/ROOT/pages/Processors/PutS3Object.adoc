@@ -1,13 +1,13 @@
 = PutS3Object 2.2.0
 
-Writes the contents of a FlowFile as an S3 Object to an Amazon S3 Bucket.
+Записывает содержимое FlowFile в объект S3 на Amazon S3 Bucket.
 
 [horizontal]
 *Tags* (Ключевые слова):
 AWS, Amazon, Archive, Put, S3
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Bucket*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Bucket
+*DISPLAY NAME (Отображаемое наименование):*:: Bucket (Бакет)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The S3 Bucket to interact with
+*DESCRIPTION (Описание):*:: S3 бакет для взаимодействия
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Object Key*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Object Key
+*DISPLAY NAME (Отображаемое наименование):*:: Object Key (Объектный ключ)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The S3 Object Key to use. This is analogous to a filename for traditional file systems.
+*DESCRIPTION (Описание):*:: Ключ объекта S3, который следует использовать. Это аналогично имени файла для традиционных файловых систем.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,93 +54,93 @@ REQUIRED (Обязательно)
 .*Region*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Region
+*DISPLAY NAME (Отображаемое наименование):*:: Region (Регион)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The AWS Region to connect to.
+*DESCRIPTION (Описание):*:: AWS Регион для подключения.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* AWS GovCloud (US): AWS Region Code : us-gov-west-1 
+* AWS GovCloud (US) (AWS GovCloud (США)): AWS Region Code : us-gov-west-1 
 
-* AWS GovCloud (US-East): AWS Region Code : us-gov-east-1 
+* AWS GovCloud (US-East) (AWS GovCloud (Восток США)): AWS Region Code : us-gov-east-1 
 
-* US East (N. Virginia): AWS Region Code : us-east-1 
+* US East (N. Virginia) (США Восток (Вирджиния)): AWS Region Code : us-east-1 
 
-* US East (Ohio): AWS Region Code : us-east-2 
+* US East (Ohio) (США Восток (Огайо)): AWS Region Code : us-east-2 
 
-* US West (N. California): AWS Region Code : us-west-1 
+* US West (N. California) (США Запад (Северная Калифорния)): AWS Region Code : us-west-1 
 
-* US West (Oregon): AWS Region Code : us-west-2 
+* US West (Oregon) (США Запад (Орегон)): AWS Region Code : us-west-2 
 
-* EU (Ireland): AWS Region Code : eu-west-1 
+* EU (Ireland) (Европа (Ирландия)): AWS Region Code : eu-west-1 
 
-* EU (London): AWS Region Code : eu-west-2 
+* EU (London) (Европа (Лондон)): AWS Region Code : eu-west-2 
 
-* EU (Paris): AWS Region Code : eu-west-3 
+* EU (Paris) (Европа (Париж)): AWS Region Code : eu-west-3 
 
-* EU (Frankfurt): AWS Region Code : eu-central-1 
+* EU (Frankfurt) (Европа (Франкфурт)): AWS Region Code : eu-central-1 
 
-* EU (Zurich): AWS Region Code : eu-central-2 
+* EU (Zurich) (Европа (Цюрих)): AWS Region Code : eu-central-2 
 
-* EU (Stockholm): AWS Region Code : eu-north-1 
+* EU (Stockholm) (Европа (Стокгольм)): AWS Region Code : eu-north-1 
 
-* EU (Milan): AWS Region Code : eu-south-1 
+* EU (Milan) (Европа (Милан)): AWS Region Code : eu-south-1 
 
-* EU (Spain): AWS Region Code : eu-south-2 
+* EU (Spain) (Европа (Испания)): AWS Region Code : eu-south-2 
 
-* Asia Pacific (Hong Kong): AWS Region Code : ap-east-1 
+* Asia Pacific (Hong Kong) (Азия Тихоокеанский (Гонконг)): AWS Region Code : ap-east-1 
 
-* Asia Pacific (Mumbai): AWS Region Code : ap-south-1 
+* Asia Pacific (Mumbai) (Азия Тихоокеанский (Мумбаи)): AWS Region Code : ap-south-1 
 
-* Asia Pacific (Hyderabad): AWS Region Code : ap-south-2 
+* Asia Pacific (Hyderabad) (Азия Тихоокеанский (Хайдерабад)): AWS Region Code : ap-south-2 
 
-* Asia Pacific (Singapore): AWS Region Code : ap-southeast-1 
+* Asia Pacific (Singapore) (Азия Тихоокеанский (Сингапур)): AWS Region Code : ap-southeast-1 
 
-* Asia Pacific (Sydney): AWS Region Code : ap-southeast-2 
+* Asia Pacific (Sydney) (Азия Тихоокеанский (Сидней)): AWS Region Code : ap-southeast-2 
 
-* Asia Pacific (Jakarta): AWS Region Code : ap-southeast-3 
+* Asia Pacific (Jakarta) (Азия Тихоокеанский (Джакарта)): AWS Region Code : ap-southeast-3 
 
-* Asia Pacific (Melbourne): AWS Region Code : ap-southeast-4 
+* Asia Pacific (Melbourne) (Азия Тихоокеанский (Мельбурн)): AWS Region Code : ap-southeast-4 
 
-* Asia Pacific (Tokyo): AWS Region Code : ap-northeast-1 
+* Asia Pacific (Tokyo) (Азия Тихоокеанский (Токио)): AWS Region Code : ap-northeast-1 
 
-* Asia Pacific (Seoul): AWS Region Code : ap-northeast-2 
+* Asia Pacific (Seoul) (Азия Тихоокеанский (Сеул)): AWS Region Code : ap-northeast-2 
 
-* Asia Pacific (Osaka): AWS Region Code : ap-northeast-3 
+* Asia Pacific (Osaka) (Азия Тихоокеанский (Осака)): AWS Region Code : ap-northeast-3 
 
-* South America (Sao Paulo): AWS Region Code : sa-east-1 
+* South America (Sao Paulo) (Южная Америка (Сан-Паулу)): AWS Region Code : sa-east-1 
 
-* China (Beijing): AWS Region Code : cn-north-1 
+* China (Beijing) (Китай (Пекин)): AWS Region Code : cn-north-1 
 
-* China (Ningxia): AWS Region Code : cn-northwest-1 
+* China (Ningxia) (Китай (Нингxia)): AWS Region Code : cn-northwest-1 
 
-* Canada (Central): AWS Region Code : ca-central-1 
+* Canada (Central) (Канада (Центральный)): AWS Region Code : ca-central-1 
 
-* Canada West (Calgary): AWS Region Code : ca-west-1 
+* Canada West (Calgary) (Канада Запад (Калгари)): AWS Region Code : ca-west-1 
 
-* Middle East (UAE): AWS Region Code : me-central-1 
+* Middle East (UAE) (Средний Восток (ОАЭ)): AWS Region Code : me-central-1 
 
-* Middle East (Bahrain): AWS Region Code : me-south-1 
+* Middle East (Bahrain) (Средний Восток (Бахрейн)): AWS Region Code : me-south-1 
 
-* Africa (Cape Town): AWS Region Code : af-south-1 
+* Africa (Cape Town) (Африка (Каптайн)): AWS Region Code : af-south-1 
 
-* US ISO East: AWS Region Code : us-iso-east-1 
+* US ISO East (США ISO Восток): AWS Region Code : us-iso-east-1 
 
-* US ISOB East (Ohio): AWS Region Code : us-isob-east-1 
+* US ISOB East (Ohio) (США ISOB Восток (Огайо)): AWS Region Code : us-isob-east-1 
 
-* US ISO West: AWS Region Code : us-iso-west-1 
+* US ISO West (США ISO Запад): AWS Region Code : us-iso-west-1 
 
-* Israel (Tel Aviv): AWS Region Code : il-central-1 
+* Israel (Tel Aviv) (Израиль (Тель-Авив)): AWS Region Code : il-central-1 
 
-* Use 's3.region' Attribute: Uses 's3.region' FlowFile attribute as region. 
+* Use 's3.region' Attribute (Использовать атрибут 's3.region' FlowFile): Uses 's3.region' FlowFile attribute as region. 
 
 
 [horizontal]
@@ -149,14 +149,14 @@ REQUIRED (Обязательно)
 .*Aws Credentials Provider Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: AWS Credentials Provider Service
+*DISPLAY NAME (Отображаемое наименование):*:: AWS Credentials Provider Service (...)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Controller Service that is used to obtain AWS credentials provider
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -166,23 +166,23 @@ REQUIRED (Обязательно)
 .*Resource Transfer Source*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Resource Transfer Source
+*DISPLAY NAME (Отображаемое наименование):*:: Resource Transfer Source (Источник ресурса для передачи)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The source of the content to be transferred
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* FlowFile Content: The content of the incoming FlowFile provides the source for transfer 
+* FlowFile Content (Содержимое FlowFile): The content of the incoming FlowFile provides the source for transfer 
 
-* File Resource Service: The File Resource Service provides the source for transfer 
+* File Resource Service (Сервис ресурса файлов): The File Resource Service provides the source for transfer 
 
 
 [horizontal]
@@ -191,14 +191,14 @@ REQUIRED (Обязательно)
 .*File Resource Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: File Resource Service
+*DISPLAY NAME (Отображаемое наименование):*:: File Resource Service (Файловый ресурс Сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: File Resource Service providing access to the local resource to be transferred
+*DESCRIPTION (Описание):*:: File Resource Service providing access to the local resource to be transferred (Файловый ресурс Сервис, предоставляющий доступ к локальному ресурсу для передачи)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -208,39 +208,39 @@ REQUIRED (Обязательно)
 .*Storage Class*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Storage Class
+*DISPLAY NAME (Отображаемое наименование):*:: Storage Class (Класс хранения)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: 
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* DeepArchive
+* DeepArchive (Глубокий архив)
 
-* Glacier
+* Glacier (Гибридный архив)
 
-* GlacierInstantRetrieval
+* GlacierInstantRetrieval (Мгновенный восстановление из гибридного архива)
 
-* IntelligentTiering
+* IntelligentTiering (Интеллектуальное тарирование)
 
-* OneZoneInfrequentAccess
+* OneZoneInfrequentAccess (Однозонный доступ по требованию)
 
-* Outposts
+* Outposts (Точки выхода)
 
-* ReducedRedundancy
+* ReducedRedundancy (Уменьшенная избыточность)
 
-* Snow
+* Snow (Снег)
 
-* Standard
+* Standard (Стандартный)
 
-* StandardInfrequentAccess
+* StandardInfrequentAccess (Стандартный доступ по требованию)
 
 
 [horizontal]
@@ -249,14 +249,14 @@ REQUIRED (Обязательно)
 .Encryption-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Encryption Service
+*DISPLAY NAME (Отображаемое наименование):*:: Encryption Service (Шифрование сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Encryption Service Controller used to configure requests. PutS3Object: For backward compatibility, this value is ignored when 'Server Side Encryption' is set. FetchS3Object: Only needs to be configured in case of Server-side Customer Key, Client-side KMS and Client-side Customer Key encryptions.
+*DESCRIPTION (Описание):*:: Указывает используемый для настройки запросов контроллер службы шифрования. PutS3Object: Для обратной совместимости, это значение игнорируется, если установлено 'Server Side Encryption'. FetchS3Object: Требуется только в случае Server-side Customer Key, Client-side KMS и шифрования с использованием клиентского ключа Customer Key.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -266,14 +266,14 @@ REQUIRED (Обязательно)
 .*Server-Side-Encryption*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Server Side Encryption
+*DISPLAY NAME (Отображаемое наименование):*:: Server Side Encryption (Серверная сторона шифрования)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies the algorithm used for server side encryption.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -291,15 +291,15 @@ REQUIRED (Обязательно)
 .Content Type
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Content Type
+*DISPLAY NAME (Отображаемое наименование):*:: Content Type (Тип содержимого)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Sets the Content-Type HTTP header indicating the type of content stored in the associated object. The value of this header is a standard MIME type.
-AWS S3 Java client will attempt to determine the correct content type if one hasn't been set yet. Users are responsible for ensuring a suitable content type is set when uploading streams. If no content type is provided and cannot be determined by the filename, the default content type "application/octet-stream" will be used.
+*DESCRIPTION (Описание):*:: Устанавливает заголовок HTTP Content-Type, указывающий тип хранимого контента. Значение этого заголовка является стандартным MIME типом.
+Клиент Java AWS S3 попытается определить правильный тип содержимого, если он не был установлен. Пользователи отвечают за обеспечение подходящего типа содержимого при загрузке потоков. Если тип содержимого не указан и не может быть определен по имени файла, будет использоваться значение по умолчанию "application/octet-stream".
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -309,15 +309,15 @@ AWS S3 Java client will attempt to determine the correct content type if one has
 .Content Disposition
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Content Disposition
+*DISPLAY NAME (Отображаемое наименование):*:: Content Disposition (Содержимое)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Sets the Content-Disposition HTTP header indicating if the content is intended to be displayed inline or should be downloaded.
- Possible values are 'inline' or 'attachment'. If this property is not specified, object's content-disposition will be set to filename. When 'attachment' is selected, '; filename=' plus object key are automatically appended to form final value 'attachment; filename="filename.jpg"'.
+*DESCRIPTION (Описание):*:: Устанавливает заголовок HTTP Content-Disposition, указывающий, должно ли содержимое отображаться встроенно.
+Возможные значения: 'inline' или 'attachment'. Если это свойство не указано, значение content-disposition объекта будет установлено в filename. При выборе 'attachment' автоматически добавляется '; filename=' плюс ключ объекта для формирования окончательного значения 'attachment; filename="filename.jpg"'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -335,14 +335,14 @@ AWS S3 Java client will attempt to determine the correct content type if one has
 .Cache Control
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Cache Control
+*DISPLAY NAME (Отображаемое наименование):*:: Cache Control (Управление кэшем)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Sets the Cache-Control HTTP header indicating the caching directives of the associated object. Multiple directives are comma-separated.
+*DESCRIPTION (Описание):*:: Устанавливает заголовок HTTP Cache-Control, указывающий директивы кэширования для связанного объекта. Несколько директив разделяются запятыми.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -352,14 +352,14 @@ AWS S3 Java client will attempt to determine the correct content type if one has
 .S3-Object-Tags-Prefix
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Object Tags Prefix
+*DISPLAY NAME (Отображаемое наименование):*:: Object Tags Prefix (Префикс тегов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the prefix which would be scanned against the incoming FlowFile's attributes and the matching attribute's name and value would be considered as the outgoing S3 object's Tag name and Tag value respectively. For Ex: If the incoming FlowFile carries the attributes tagS3country, tagS3PII, the tag prefix to be specified would be 'tagS3'
+*DESCRIPTION (Описание):*:: Указывает префикс, который будет просканирован по отношению к входящим атрибутам FlowFile и соответствующее имя и значение атрибута будут рассматриваться как название и значение тега выходного S3 объекта. Например: если входящий FlowFile несет атрибуты tagS3country, tagS3PII, то префикс тегов, который должен быть указан, будет 'tagS3'
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -369,23 +369,23 @@ AWS S3 Java client will attempt to determine the correct content type if one has
 .S3-Object-Remove-Tags-Prefix
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Remove Tag Prefix
+*DISPLAY NAME (Отображаемое наименование):*:: Remove Tag Prefix (Удалить префикс тега)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If set to 'True', the value provided for 'Object Tags Prefix' will be removed from the attribute(s) and then considered as the Tag name. For ex: If the incoming FlowFile carries the attributes tagS3country, tagS3PII and the prefix is set to 'tagS3' then the corresponding tag values would be 'country' and 'PII'
+*DESCRIPTION (Описание):*:: Если установлено значение 'True', значение, предоставленное для 'Объект Теги Префикс', будет удалено из атрибута(ов), а затем рассматриваться как имя тега. Например: если поток объектов несет атрибуты tagS3country, tagS3PII, и префикс установлен на 'tagS3', то соответствующие значения тегов будут 'country' и 'PII'
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* True
+* True (Истина)
 
-* False
+* False (Ложь)
 
 
 [horizontal]
@@ -394,14 +394,14 @@ AWS S3 Java client will attempt to determine the correct content type if one has
 .*Communications Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout (Время ожидания)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The amount of time to wait in order to establish a connection to AWS or receive data from AWS before timing out.
+*DESCRIPTION (Описание):*:: Количество времени для ожидания, чтобы установить соединение с AWS или получить данные от AWS до истечения времени ожидания.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -411,14 +411,14 @@ AWS S3 Java client will attempt to determine the correct content type if one has
 .Expiration Time Rule
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Expiration Time Rule
+*DISPLAY NAME (Отображаемое наименование):*:: Expiration Time Rule (Время истечения правила)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: 
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -428,14 +428,14 @@ AWS S3 Java client will attempt to determine the correct content type if one has
 .Fullcontrol User List
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: FullControl User List
+*DISPLAY NAME (Отображаемое наименование):*:: FullControl User List (Список пользователей с полным контролем)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A comma-separated list of Amazon User ID's or E-mail addresses that specifies who should have Full Control for an object
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -445,14 +445,14 @@ AWS S3 Java client will attempt to determine the correct content type if one has
 .Read Permission User List
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Read Permission User List
+*DISPLAY NAME (Отображаемое наименование):*:: Read Permission User List (Список пользователей с правами чтения)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A comma-separated list of Amazon User ID's or E-mail addresses that specifies who should have Read Access for an object
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -462,14 +462,14 @@ AWS S3 Java client will attempt to determine the correct content type if one has
 .Write Permission User List
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Write Permission User List
+*DISPLAY NAME (Отображаемое наименование):*:: Write Permission User List (Список пользователей с правом записи)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A comma-separated list of Amazon User ID's or E-mail addresses that specifies who should have Write Access for an object
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -479,14 +479,14 @@ AWS S3 Java client will attempt to determine the correct content type if one has
 .Read Acl User List
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Read ACL User List
+*DISPLAY NAME (Отображаемое наименование):*:: Read ACL User List (Список пользователей с правами доступа для чтения)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A comma-separated list of Amazon User ID's or E-mail addresses that specifies who should have permissions to read the Access Control List for an object
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -496,14 +496,14 @@ AWS S3 Java client will attempt to determine the correct content type if one has
 .Write Acl User List
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Write ACL User List
+*DISPLAY NAME (Отображаемое наименование):*:: Write ACL User List (Список пользователей с правом изменения списка управления доступом)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A comma-separated list of Amazon User ID's or E-mail addresses that specifies who should have permissions to change the Access Control List for an object
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -513,14 +513,14 @@ AWS S3 Java client will attempt to determine the correct content type if one has
 .Owner
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Owner
+*DISPLAY NAME (Отображаемое наименование):*:: Владелец (Owner)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Amazon ID to use for the object's owner
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -530,14 +530,14 @@ AWS S3 Java client will attempt to determine the correct content type if one has
 .Canned-Acl
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Canned ACL
+*DISPLAY NAME (Отображаемое наименование):*:: Canned ACL (Контроль доступа по умолчанию)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Amazon Canned ACL for an object, one of: BucketOwnerFullControl, BucketOwnerRead, LogDeliveryWrite, AuthenticatedRead, PublicReadWrite, PublicRead, Private; will be ignored if any other ACL/permission/owner property is specified
+*DESCRIPTION (Описание):*:: Amazon Canned ACL для объекта, один из: BucketOwnerFullControl, BucketOwnerRead, LogDeliveryWrite, AuthenticatedRead, PublicReadWrite, PublicRead, Private; будет проигнорировано, если указано какое-либо другое ACL/разрешение/владельца
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -547,14 +547,14 @@ AWS S3 Java client will attempt to determine the correct content type if one has
 .Ssl Context Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (Сервис контекста SSL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies an optional SSL Context Service that, if provided, will be used to create connections
+*DESCRIPTION (Описание):*:: Указывает необязательный сервис контекста SSL, если он предоставлен, будет использоваться для создания подключений
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -564,14 +564,14 @@ AWS S3 Java client will attempt to determine the correct content type if one has
 .Endpoint Override Url
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Endpoint Override URL
+*DISPLAY NAME (Отображаемое наименование):*:: Endpoint Override URL (URL конечной точки для переопределения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Endpoint URL to use instead of the AWS default including scheme, host, port, and path. The AWS libraries select an endpoint URL based on the AWS region, but this property overrides the selected endpoint URL, allowing use with other S3-compatible endpoints.
+*DESCRIPTION (Описание):*:: URL конечной точки, которую следует использовать вместо AWS по умолчанию, включая схему, хост, порт и путь. Библиотеки AWS выбирают URL-адрес конечной точки на основе региона AWS, но это свойство переопределяет выбранный URL-адрес конечной точки, позволяя использовать его с другими S3-совместимыми конечными точками.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -581,27 +581,27 @@ AWS S3 Java client will attempt to determine the correct content type if one has
 .Signer Override
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Signer Override
+*DISPLAY NAME (Отображаемое наименование):*:: Signer Override (Переопределение подписчика)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The AWS S3 library uses Signature Version 4 by default but this property allows you to specify the Version 2 signer to support older S3-compatible services or even to plug in your own custom signer implementation.
+*DESCRIPTION (Описание):*:: Библиотека AWS S3 по умолчанию использует Signature Version 4, но это свойство позволяет указать версию 2 подписчика для поддержки старых служб S3-совместимых или даже реализовать собственную пользовательскую реализацию подписчика.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Default Signature
+* Default Signature (По умолчанию)
 
-* Signature Version 4
+* Signature Version 4 (Версия подписи 4)
 
-* Signature Version 2
+* Signature Version 2 (Версия подписи 2)
 
-* Custom Signature
+* Custom Signature (Собственная подпись)
 
 
 [horizontal]
@@ -610,14 +610,14 @@ AWS S3 Java client will attempt to determine the correct content type if one has
 .*Custom-Signer-Class-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Custom Signer Class Name
+*DISPLAY NAME (Отображаемое наименование):*:: Custom Signer Class Name (Название класса подписи)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Fully qualified class name of the custom signer class. The signer must implement com.amazonaws.auth.Signer interface.
+*DESCRIPTION (Описание):*:: Полное квалифицированное имя класса подписи. Подписчик должен реализовывать интерфейс com.amazonaws.auth.Signer.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -627,14 +627,14 @@ AWS S3 Java client will attempt to determine the correct content type if one has
 .Custom-Signer-Module-Location
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Custom Signer Module Location
+*DISPLAY NAME (Отображаемое наименование):*:: Custom Signer Module Location (Название модуля подписи)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Comma-separated list of paths to files and/or directories which contain the custom signer's JAR file and its dependencies (if any).
+*DESCRIPTION (Описание):*:: Список, разделенных запятыми путей к файлам и/или директориям, содержащих JAR-файл подписчика и его зависимости (если они есть).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -644,14 +644,14 @@ AWS S3 Java client will attempt to determine the correct content type if one has
 .*Multipart Threshold*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Multipart Threshold
+*DISPLAY NAME (Отображаемое наименование):*:: Multipart Threshold (Пороговое значение для перехода от API PutS3Object к API PutS3MultipartUpload)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the file size threshold for switch from the PutS3Object API to the PutS3MultipartUpload API.  Flow files bigger than this limit will be sent using the stateful multipart process. The valid range is 50MB to 5GB.
+*DESCRIPTION (Описание):*:: Указывает размер файла, ниже которого будет использоваться API PutS3Object, а выше - API PutS3MultipartUpload. Файлы больше этого предела будут отправляться с помощью состоятельного мультипартийного процесса. Допустимый диапазон значений: 50MB до 5GB.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -661,14 +661,14 @@ AWS S3 Java client will attempt to determine the correct content type if one has
 .*Multipart Part Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Multipart Part Size
+*DISPLAY NAME (Отображаемое наименование):*:: Multipart Part Size (Размер частичного загрузки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the part size for use when the PutS3Multipart Upload API is used. Flow files will be broken into chunks of this size for the upload process, but the last part sent can be smaller since it is not padded. The valid range is 50MB to 5GB.
+*DESCRIPTION (Описание):*:: Указывает размер части для использования при использовании API PutS3Multipart Upload. Потоки файлов будут разбиваться на части размером этого размера для процесса загрузки, но последняя отправленная часть может быть меньше, так как она не дополнена. Допустимый диапазон: 50MB до 5GB.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -678,14 +678,14 @@ AWS S3 Java client will attempt to determine the correct content type if one has
 .*Multipart Upload Ageoff Interval*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Multipart Upload AgeOff Interval
+*DISPLAY NAME (Отображаемое наименование):*:: Multipart Upload AgeOff Interval (Интервал для оценки существования мультипартных загрузок в AWS S3)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the interval at which existing multipart uploads in AWS S3 will be evaluated for ageoff.  When processor is triggered it will initiate the ageoff evaluation if this interval has been exceeded.
+*DESCRIPTION (Описание):*:: Указывает интервал, по истечении которого существующие мультичастичные загрузки в AWS S3 будут оцениваться на возраст. Когда процессор активируется, он инициирует оценку возраста, если этот интервал превышен.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -695,14 +695,14 @@ AWS S3 Java client will attempt to determine the correct content type if one has
 .*Multipart Upload Max Age Threshold*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Multipart Upload Max Age Threshold
+*DISPLAY NAME (Отображаемое наименование):*:: Multipart Upload Max Age Threshold (Максимальный возраст для существующих мультипартовых загрузок)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the maximum age for existing multipart uploads in AWS S3.  When the ageoff process occurs, any upload older than this threshold will be aborted.
+*DESCRIPTION (Описание):*:: Указывает максимальный возраст для существующих мультипартовых загрузок в AWS S3. Когда происходит процесс очистки, любая загрузка старше этого порога будет прервана.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -712,14 +712,14 @@ AWS S3 Java client will attempt to determine the correct content type if one has
 .*S3-Temporary-Directory-Multipart*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Temporary Directory Multipart State
+*DISPLAY NAME (Отображаемое наименование):*:: Temporary Directory Multipart State (Временная директория мультипартного состояния)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Directory in which, for multipart uploads, the processor will locally save the state tracking the upload ID and parts uploaded which must both be provided to complete the upload.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -729,14 +729,14 @@ AWS S3 Java client will attempt to determine the correct content type if one has
 .Use-Chunked-Encoding
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Use Chunked Encoding
+*DISPLAY NAME (Отображаемое наименование):*:: Use Chunked Encoding (Использовать кукированное кодирование)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Enables / disables chunked encoding for upload requests. Set it to false only if your endpoint does not support chunked uploading.
+*DESCRIPTION (Описание):*:: Включает или отключает кукированное кодирование для запросов на загрузку. Установите его в false только если ваш endpoint не поддерживает кукированную загрузку.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -754,14 +754,14 @@ AWS S3 Java client will attempt to determine the correct content type if one has
 .Use-Path-Style-Access
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Use Path Style Access
+*DISPLAY NAME (Отображаемое наименование):*:: Use Path Style Access (Использовать стиль пути)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Path-style access can be enforced by setting this property to true. Set it to true if your endpoint does not support virtual-hosted-style requests, only path-style requests.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -779,14 +779,14 @@ AWS S3 Java client will attempt to determine the correct content type if one has
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: HTTP + AuthN
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 

@@ -9,7 +9,7 @@
 Certificate, ECDSA, Ed25519, Key, PEM, PKCS1, PKCS8, RSA, SSL, TLS, X.509
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -22,25 +22,25 @@ Certificate, ECDSA, Ed25519, Key, PEM, PKCS1, PKCS8, RSA, SSL, TLS, X.509
 .*Tls Protocol*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: TLS Protocol
+*DISPLAY NAME (Отображаемое наименование):*:: TLS Protocol (Протокол TLS)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: TLS protocol version required for negotiating encrypted communications.
+*DESCRIPTION (Описание):*:: Требуемая версия протокола TLS для переговоров по зашифрованным коммуникациям.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* TLS: Negotiate latest TLS protocol version based on platform supported versions 
+* TLS (Протокол TLS): Переговор последней версии протокола TLS на основе поддерживаемых платформой версий 
 
-* TLSv1.3: Require TLSv1.3 protocol version 
+* TLSv1.3 (Протокол TLSv1.3): Требуется версия протокола TLSv1.3 
 
-* TLSv1.2: Require TLSv1.2 protocol version 
+* TLSv1.2 (Протокол TLSv1.2): Требуется версия протокола TLSv1.2 
 
 
 [horizontal]
@@ -49,14 +49,14 @@ Certificate, ECDSA, Ed25519, Key, PEM, PKCS1, PKCS8, RSA, SSL, TLS, X.509
 .*Private Key Source*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Private Key Source
+*DISPLAY NAME (Отображаемое наименование):*:: Private Key Source (Источник ключа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Source of information for loading Private Key and Certificate Chain
+*DESCRIPTION (Описание):*:: Источник информации для загрузки приватного ключа и цепочки сертификатов
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -76,14 +76,14 @@ Certificate, ECDSA, Ed25519, Key, PEM, PKCS1, PKCS8, RSA, SSL, TLS, X.509
 .*Private Key*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Private Key
+*DISPLAY NAME (Отображаемое наименование):*:: Private Key (Закрытый ключ)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: PEM Private Key encoded using either PKCS1 or PKCS8. Supported algorithms include ECDSA, Ed25519, and RSA
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -93,14 +93,14 @@ Certificate, ECDSA, Ed25519, Key, PEM, PKCS1, PKCS8, RSA, SSL, TLS, X.509
 .*Private Key Location*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Private Key Location
+*DISPLAY NAME (Отображаемое наименование):*:: Private Key Location (Расположение закрытого ключа)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: PEM Private Key file location encoded using either PKCS1 or PKCS8. Supported algorithms include ECDSA, Ed25519, and RSA
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -110,14 +110,14 @@ Certificate, ECDSA, Ed25519, Key, PEM, PKCS1, PKCS8, RSA, SSL, TLS, X.509
 .*Certificate Chain*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Certificate Chain
+*DISPLAY NAME (Отображаемое наименование):*:: Certificate Chain (Цепочка сертификатов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: PEM X.509 Certificate Chain associated with Private Key starting with standard BEGIN CERTIFICATE header
+*DESCRIPTION (Описание):*:: PEM X.509 Certificate Chain, связанный с приватным ключом, начинающийся со стандартного заголовка BEGIN CERTIFICATE
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -127,14 +127,14 @@ Certificate, ECDSA, Ed25519, Key, PEM, PKCS1, PKCS8, RSA, SSL, TLS, X.509
 .*Certificate Chain Location*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Certificate Chain Location
+*DISPLAY NAME (Отображаемое наименование):*:: Certificate Chain Location (Расположение файла PEM X.509 Certificate Chain, связанного с приватным ключом, начинающегося со стандартного заголовка BEGIN CERTIFICATE)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: PEM X.509 Certificate Chain file location associated with Private Key starting with standard BEGIN CERTIFICATE header
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -144,23 +144,23 @@ Certificate, ECDSA, Ed25519, Key, PEM, PKCS1, PKCS8, RSA, SSL, TLS, X.509
 .*Certificate Authorities Source*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Certificate Authorities Source
+*DISPLAY NAME (Отображаемое наименование):*:: Certificate Authorities Source (Источник сертификатов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Source of information for loading trusted Certificate Authorities
+*DESCRIPTION (Описание):*:: Источник информации для загрузки доверенных сертификатов
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Properties: Load trusted Certificate Authorities from configured properties 
+* Properties (Свойства): Загрузить доверенные сертификаты из настроенных свойств 
 
-* System: Load trusted Certificate Authorities from the default system location 
+* System (Система): Загрузить доверенные сертификаты из стандартного расположения системы 
 
 
 [horizontal]
@@ -169,14 +169,14 @@ Certificate, ECDSA, Ed25519, Key, PEM, PKCS1, PKCS8, RSA, SSL, TLS, X.509
 .*Certificate Authorities*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Certificate Authorities
+*DISPLAY NAME (Отображаемое наименование):*:: Certificate Authorities (Сертификаты удостоверяющих центров)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: PEM X.509 Certificate Authorities trusted for verifying peers in TLS communications containing one or more standard certificates
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -196,6 +196,17 @@ Certificate, ECDSA, Ed25519, Key, PEM, PKCS1, PKCS8, RSA, SSL, TLS, X.509
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|The App ID field from the AMQP Message
+
+|===
 
 
 

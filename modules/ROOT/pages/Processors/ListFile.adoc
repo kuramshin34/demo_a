@@ -1,13 +1,13 @@
 = ListFile 2.2.0
 
-Retrieves a listing of files from the input directory. For each file listed, creates a FlowFile that represents the file so that it can be fetched in conjunction with FetchFile. This Processor is designed to run on Primary Node only in a cluster when 'Input Directory Location' is set to 'Remote'. If the primary node changes, the new Primary Node will pick up where the previous node left off without duplicating all the data. When 'Input Directory Location' is 'Local', the 'Execution' mode can be anything, and synchronization won't happen. Unlike GetFile, this Processor does not delete any data from the local filesystem.
+Извлекает список файлов из входной директории. Для каждого файла, перечисленного в списке, создается FlowFile, которое представляет собой файл для дальнейшей выборки вместе с FetchFile. Этот процессор предназначен для запуска только на основном узле в кластере, если 'Расположение директории ввода' установлено в 'Remote'. Если основной узел изменяется, новый основной узел продолжит работу с места остановки предыдущего узла без дублирования всех данных. Когда 'Расположение директории ввода' установлено в 'Local', режим выполнения может быть любым, и синхронизация не будет происходить. В отличие от GetFile, этот процессор не удаляет никаких данных с локальной файловой системы.
 
 [horizontal]
 *Tags* (Ключевые слова):
 file, filesystem, get, ingest, list, source
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ FORBIDDEN (Обязательно)
 .*Input Directory*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Input Directory
+*DISPLAY NAME (Отображаемое наименование):*:: Input Directory (Входная директория)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The input directory from which files to pull files
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,25 +37,25 @@ FORBIDDEN (Обязательно)
 .*Listing-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Listing Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Listing Strategy (Стратегия перечисления)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specify how to determine new/updated entities. See each strategy descriptions for detail.
+*DESCRIPTION (Описание):*:: Укажите, как определить новые или обновленные сущности. Подробнее о каждой стратегии см. в их описаниях.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Tracking Timestamps: This strategy tracks the latest timestamp of listed entity to determine new/updated entities. Since it only tracks few timestamps, it can manage listing state efficiently. However, any newly added, or updated entity having timestamp older than the tracked latest timestamp can not be picked by this strategy. For example, such situation can happen in a file system if a file with old timestamp is copied or moved into the target directory without its last modified timestamp being updated. Also may miss files when multiple subdirectories are being written at the same time while listing is running. 
+* Tracking Timestamps (Отслеживание временных меток): Эта стратегия отслеживает последнюю временную метку перечисленной сущности для определения новых или обновленных сущностей. Поскольку она отслеживает только несколько временных меток, она может эффективно управлять состоянием перечисления. Однако любая новая или обновленная сущность с временной меткой старше отслеживаемой последней временной метки не будет выбрана этой стратегией. Например, такая ситуация может возникнуть в файловой системе, если файл с устаревшей временной меткой скопирован или перемещен в целевую директорию без обновления его последней модификации. Также та стратегия может пропустить файлы при одновременной записи нескольких поддиректорий, когда перечисление все еще выполняется. 
 
-* Tracking Entities: This strategy tracks information of all the listed entities within the latest 'Entity Tracking Time Window' to determine new/updated entities. This strategy can pick entities having old timestamp that can be missed with 'Tracking Timestamps'. Works even when multiple subdirectories are being written at the same time while listing is running. However additional DistributedMapCache controller service is required and more JVM heap memory is used. See the description of 'Entity Tracking Time Window' property for further details on how it works. 
+* Tracking Entities (Отслеживание сущностей): Эта стратегия отслеживает информацию обо всех перечисленных сущностях в пределах последнего 'Entity Tracking Time Window' для определения новых или обновленных сущностей. Эта стратегия может выбрать сущности с устаревшей временной меткой, которые были пропущены стратегией 'Tracking Timestamps'. Работает даже при одновременной записи нескольких поддиректорий, когда перечисление все еще выполняется. Однако требует дополнительного сервиса контроллера DistributedMapCache и использует больше памяти JVM. Подробнее о работе свойства 'Entity Tracking Time Window' см. 
 
-* No Tracking: This strategy lists an entity without any tracking. The same entity will be listed each time on executing this processor. It is recommended to change the default run schedule value. Any property that related to the persisting state will be disregarded. 
+* No Tracking (Без отслеживания): Эта стратегия перечисляет сущность без какого-либо отслеживания. Одна и та же сущность будет перечисляться каждый раз при выполнении этого процессора. Рекомендуется изменить значение默认ного расписания запуска. Любые свойства, связанные с сохранением состояния, будут игнорироваться. 
 
 
 [horizontal]
@@ -64,14 +64,14 @@ FORBIDDEN (Обязательно)
 .*Recurse Subdirectories*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Recurse Subdirectories
+*DISPLAY NAME (Отображаемое наименование):*:: Recurse Subdirectories (Рекурсивно перечислять поддиректории)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates whether to list files from subdirectories of the directory
+*DESCRIPTION (Описание):*:: Указывает, следует ли перечислять файлы из поддиректорий основной директории
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -89,14 +89,14 @@ FORBIDDEN (Обязательно)
 .Record-Writer
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Record Writer to use for creating the listing. If not specified, one FlowFile will be created for each entity that is listed. If the Record Writer is specified, all entities will be written to a single FlowFile instead of adding attributes to individual FlowFiles.
+*DESCRIPTION (Описание):*:: Указывает записыватель записей для создания списка. Если не указан, будет создан один FlowFile для каждой перечисленной сущности. Если указать записыватель записей, все сущности будут записаны в один FlowFile вместо добавления атрибутов к отдельным FlowFiles.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -106,23 +106,23 @@ FORBIDDEN (Обязательно)
 .*Input Directory Location*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Input Directory Location
+*DISPLAY NAME (Отображаемое наименование):*:: Input Directory Location (Расположение входной директории)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies where the Input Directory is located. This is used to determine whether state should be stored locally or across the cluster.
+*DESCRIPTION (Описание):*:: Указывает, где расположена входная директория. Это используется для определения того, должно ли состояние храниться локально или по всему кластеру.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Local: Input Directory is located on a local disk. State will be stored locally on each node in the cluster. 
+* Local (Локальный): Входная директория расположена на локальном диске. Состояние будет храниться локально на каждом узле в кластере. 
 
-* Remote: Input Directory is located on a remote system. State will be stored across the cluster so that the listing can be performed on Primary Node Only and another node can pick up where the last node left off, if the Primary Node changes 
+* Remote (Удаленный): Входная директория расположена на удаленной системе. Состояние будет храниться по всему кластеру, чтобы можно было выполнять перечисление только на основном узле, а другой узел может продолжить работу с места, где остановился предыдущий узел, если основной узел изменится. 
 
 
 [horizontal]
@@ -131,14 +131,14 @@ FORBIDDEN (Обязательно)
 .*File Filter*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: File Filter
+*DISPLAY NAME (Отображаемое наименование):*:: File Filter (Файловый фильтр)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Only files whose names match the given regular expression will be picked up
+*DESCRIPTION (Описание):*:: Будут захвачены только файлы, имена которых соответствуют данному регулярному выражению
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -148,14 +148,14 @@ FORBIDDEN (Обязательно)
 .Path Filter
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Path Filter
+*DISPLAY NAME (Отображаемое наименование):*:: Path Filter (Путь фильтра)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When Recurse Subdirectories is true, then only subdirectories whose path matches the given regular expression will be scanned
+*DESCRIPTION (Описание):*:: Когда Recurse Subdirectories установлен в true, только поддиректории, пути которых соответствуют заданному регулярному выражению, будут сканироваться
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -165,14 +165,14 @@ FORBIDDEN (Обязательно)
 .*Include File Attributes*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Include File Attributes
+*DISPLAY NAME (Отображаемое наименование):*:: Include File Attributes (Включать атрибуты файла)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Whether or not to include information such as the file's Last Modified Time and Owner as FlowFile Attributes. Depending on the File System being used, gathering this information can be expensive and as a result should be disabled. This is especially true of remote file shares.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -190,14 +190,14 @@ FORBIDDEN (Обязательно)
 .*Minimum File Age*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Minimum File Age
+*DISPLAY NAME (Отображаемое наименование):*:: Minimum File Age (Минимальный возраст файла)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The minimum age that a file must be in order to be pulled; any file younger than this amount of time (according to last modification date) will be ignored
+*DESCRIPTION (Описание):*:: Минимальный возраст, который файл должен иметь для того, чтобы быть извлеченным; любой файл моложе этого количества времени (согласно дате последнего изменения) будет проигнорирован
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -207,14 +207,14 @@ FORBIDDEN (Обязательно)
 .Maximum File Age
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum File Age
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum File Age (Максимальный возраст файла)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum age that a file must be in order to be pulled; any file older than this amount of time (according to last modification date) will be ignored
+*DESCRIPTION (Описание):*:: Максимальный возраст, который должен иметь файл для его извлечения; любые файлы старше этого времени (согласно дате последнего изменения) будут игнорироваться
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -224,14 +224,14 @@ FORBIDDEN (Обязательно)
 .*Minimum File Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Minimum File Size
+*DISPLAY NAME (Отображаемое наименование):*:: Minimum File Size (Минимальный размер файла)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The minimum size that a file must be in order to be pulled
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -241,14 +241,14 @@ FORBIDDEN (Обязательно)
 .Maximum File Size
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum File Size
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum File Size (Максимальный размер файла)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum size that a file can be in order to be pulled
+*DESCRIPTION (Описание):*:: The maximum size that a file can be in order to be pulled (Максимальный размер, который файл может иметь для извлечения)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -258,23 +258,23 @@ FORBIDDEN (Обязательно)
 .*Ignore Hidden Files*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Ignore Hidden Files
+*DISPLAY NAME (Отображаемое наименование):*:: Ignore Hidden Files (Игнорировать скрытые файлы)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates whether or not hidden files should be ignored
+*DESCRIPTION (Описание):*:: Указывает, следует ли игнорировать скрытые файлы
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (да)
 
-* false
+* false (нет)
 
 
 [horizontal]
@@ -283,27 +283,27 @@ FORBIDDEN (Обязательно)
 .*Target-System-Timestamp-Precision*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Target System Timestamp Precision
+*DISPLAY NAME (Отображаемое наименование):*:: Target System Timestamp Precision (Точность временной метки системы)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specify timestamp precision at the target system. Since this processor uses timestamp of entities to decide which should be listed, it is crucial to use the right timestamp precision.
+*DESCRIPTION (Описание):*:: Укажите точность временной метки в целевой системе. Поскольку этот процессор использует временные метки сущностей для определения того, какие из них должны быть перечислены, важно использовать правильную точность временной метки.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Auto Detect: Automatically detect time unit deterministically based on candidate entries timestamp. Please note that this option may take longer to list entities unnecessarily, if none of entries has a precise precision timestamp. E.g. even if a target system supports millis, if all entries only have timestamps without millis, such as '2017-06-16 09:06:34.000', then its precision is determined as 'seconds'. 
+* Auto Detect (Автоматически обнаружить единицу времени на основе кандидатов): Автоматически определить единицу времени детерминированно на основе временной метки входных данных. Следует отметить, что этот параметр может занять больше времени для перечисления сущностей, если ни одна из записей не имеет точной временной метки. Например, даже если целевая система поддерживает миллисекунды, но все записи имеют временные метки без миллисекунд, такие как '2017-06-16 09:06:34.000', точность определяется как 'секунды'. 
 
-* Milliseconds: This option provides the minimum latency for an entry from being available to being listed if target system supports millis, if not, use other options. 
+* Milliseconds (Миллисекунды): Этот параметр обеспечивает минимальную задержку для входа, чтобы быть доступным для перечисления, если целевая система поддерживает миллисекунды, в противном случае используйте другие параметры. 
 
-* Seconds: For a target system that does not have millis precision, but has in seconds. 
+* Seconds (Секунды): Для целевой системы, которая не поддерживает миллисекунды, но имеет точность в секундах. 
 
-* Minutes: For a target system that only supports precision in minutes. 
+* Minutes (Минуты): Для целевой системы, которая поддерживает только точность в минутах. 
 
 
 [horizontal]
@@ -312,14 +312,14 @@ FORBIDDEN (Обязательно)
 .Et-State-Cache
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Entity Tracking State Cache
+*DISPLAY NAME (Отображаемое наименование):*:: Entity Tracking State Cache (Состояние кэша отслеживания сущностей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Listed entities are stored in the specified cache storage so that this processor can resume listing across NiFi restart or in case of primary node change. 'Tracking Entities' strategy require tracking information of all listed entities within the last 'Tracking Time Window'. To support large number of entities, the strategy uses DistributedMapCache instead of managed state. Cache key format is 'ListedEntities::{processorId}(::{nodeId})'. If it tracks per node listed entities, then the optional '::{nodeId}' part is added to manage state separately. E.g. cluster wide cache key = 'ListedEntities::8dda2321-0164-1000-50fa-3042fe7d6a7b', per node cache key = 'ListedEntities::8dda2321-0164-1000-50fa-3042fe7d6a7b::nifi-node3' The stored cache content is Gzipped JSON string. The cache key will be deleted when target listing configuration is changed. Used by 'Tracking Entities' strategy.
+*DESCRIPTION (Описание):*:: Перечисленные сущности хранятся в указанном хранилище кэша, что позволяет этому процессору возобновить перечисление после перезапуска NiFi или изменения основного узла. Стратегия 'Отслеживание сущностей' требует отслеживания информации обо всех перечисленных сущностях в течение последнего 'Окна времени отслеживания'. Для поддержки большого количества сущностей стратегия использует DistributedMapCache вместо управляемого состояния. Формат ключа кэша имеет вид 'ListedEntities::{processorId}(::{nodeId})'. Если отслеживаются перечисленные сущности на узле, то к ключу добавляется необязательная часть '::{nodeId}' для управления состоянием отдельно. Например, глобальный ключ кэша = 'ListedEntities::8dda2321-0164-1000-50fa-3042fe7d6a7b', ключ кэша для узла = 'ListedEntities::8dda2321-0164-1000-50fa-3042fe7d6a7b::nifi-node3' Содержимое сжатой JSON строки хранится в кэше. Ключ будет удален, когда изменится конфигурация целевого перечисления. Используется стратегией 'Отслеживание сущностей'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -329,14 +329,14 @@ FORBIDDEN (Обязательно)
 .Et-Time-Window
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Entity Tracking Time Window
+*DISPLAY NAME (Отображаемое наименование):*:: Entity Tracking Time Window (Временное окно отслеживания сущности)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specify how long this processor should track already-listed entities. 'Tracking Entities' strategy can pick any entity whose timestamp is inside the specified time window. For example, if set to '30 minutes', any entity having timestamp in recent 30 minutes will be the listing target when this processor runs. A listed entity is considered 'new/updated' and a FlowFile is emitted if one of following condition meets: 1. does not exist in the already-listed entities, 2. has newer timestamp than the cached entity, 3. has different size than the cached entity. If a cached entity's timestamp becomes older than specified time window, that entity will be removed from the cached already-listed entities. Used by 'Tracking Entities' strategy.
+*DESCRIPTION (Описание):*:: Укажите, как долго этот процессор должен отслеживать уже занесенные в список сущности. Стратегия 'Отслеживание сущностей' может выбирать любую сущность, временная метка которой находится внутри указанного временного окна. Например, если установлено значение '30 минут', то любое существование со временной меткой в течение последних 30 минут будет целью занесения при выполнении этого процессора. Занесенная сущность считается 'новой/обновленной', и поток данных (FlowFile) испускается, если выполняется одно из следующих условий: 1. не существует в уже занесенных сущностях, 2. имеет более новую временную метку, чем кэшированная сущность, 3. имеет отличный размер от кэшированной сущности. Если временная метка кэшированной сущности становится старше указанного временного окна, эта сущность будет удалена из кэшированных уже занесенных сущностей. Используется стратегией 'Отслеживание сущностей'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -346,23 +346,23 @@ FORBIDDEN (Обязательно)
 .Et-Initial-Listing-Target
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Entity Tracking Initial Listing Target
+*DISPLAY NAME (Отображаемое наименование):*:: Entity Tracking Initial Listing Target (Целевая сущность для начального списка отслеживания)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specify how initial listing should be handled. Used by 'Tracking Entities' strategy.
+*DESCRIPTION (Описание):*:: Укажите, как следует обрабатывать начальный список. Используется стратегией 'Отслеживание Сущностей'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Tracking Time Window: Ignore entities having timestamp older than the specified 'Tracking Time Window' at the initial listing activity. 
+* Tracking Time Window (Окно отслеживания времени): Игнорировать сущности, имеющие временную метку старше указанного 'Окна отслеживания времени' при начальной активности списка. 
 
-* All Available: Regardless of entities timestamp, all existing entities will be listed at the initial listing activity. 
+* All Available (Все доступные): Независимо от временной метки сущностей, все существующие сущности будут перечислены при начальной активности списка. 
 
 
 [horizontal]
@@ -371,14 +371,14 @@ FORBIDDEN (Обязательно)
 .Et-Node-Identifier
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Entity Tracking Node Identifier
+*DISPLAY NAME (Отображаемое наименование):*:: Entity Tracking Node Identifier (Сущноcть Отслеживания Узла Идентификатор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The configured value will be appended to the cache key so that listing state can be tracked per NiFi node rather than cluster wide when tracking state is scoped to LOCAL. Used by 'Tracking Entities' strategy.
+*DESCRIPTION (Описание):*:: Настроенное значение будет добавлено к ключу кэша, что позволит отслеживать состояние на каждом узле NiFi, а не по всему кластеру, когда отслеживание состояния ограничено локальным. Используется стратегией 'Отслеживание Сущностей'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -388,14 +388,14 @@ FORBIDDEN (Обязательно)
 .*Track-Performance*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Track Performance
+*DISPLAY NAME (Отображаемое наименование):*:: Track Performance (Производительность отслеживания)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Whether or not the Processor should track the performance of disk access operations. If true, all accesses to disk will be recorded, including the file being accessed, the information being obtained, and how long it takes. This is then logged periodically at a DEBUG level. While the amount of data will be capped, this option may still consume a significant amount of heap (controlled by the 'Maximum Number of Files to Track' property), but it can be very useful for troubleshooting purposes if performance is poor is degraded.
+*DESCRIPTION (Описание):*:: Определяет, должен ли процессор отслеживать производительность операций доступа к диску. Если значение true, все операции доступа к диску будут записаны, включая файл, информацию, которую он получает, и время, затраченное на это. Эти данные периодически записываются на уровне DEBUG. Хотя объем данных будет ограничен, эта опция может все же потреблять значительный объем памяти (контролируется свойством 'Максимальное количество файлов для отслеживания'), но она может быть очень полезной для устранения неполадок, если производительность снижена.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -413,14 +413,14 @@ FORBIDDEN (Обязательно)
 .*Max-Performance-Metrics*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Number of Files to Track
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Number of Files to Track (Максимальное количество файлов для отслеживания)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If the 'Track Performance' property is set to 'true', this property indicates the maximum number of files whose performance metrics should be held onto. A smaller value for this property will result in less heap utilization, while a larger value may provide more accurate insights into how the disk access operations are performing
+*DESCRIPTION (Описание):*:: Если свойство 'Track Performance' установлено в 'true', это свойство указывает максимальное количество файлов, чьи показатели производительности должны быть сохранены. Меньшее значение для этого свойства приведет к меньшему использованию кучи, в то время как большее значение может предоставить более точные сведения о том, как работают операции доступа к диску
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -430,14 +430,14 @@ FORBIDDEN (Обязательно)
 .Max-Operation-Time
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Disk Operation Time
+*DISPLAY NAME (Отображаемое наименование):*:: Max Disk Operation Time (Максимальное время операции с диском)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum amount of time that any single disk operation is expected to take. If any disk operation takes longer than this amount of time, a warning bulletin will be generated for each operation that exceeds this amount of time.
+*DESCRIPTION (Описание):*:: Максимальное количество времени, которое ожидается для любой отдельной операции с диском. Если какая-либо операция с диском занимает больше этого времени, будет сгенерировано предупреждающее сообщение для каждой операции, которая превышает это время.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -447,14 +447,14 @@ FORBIDDEN (Обязательно)
 .Max-Listing-Time
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Directory Listing Time
+*DISPLAY NAME (Отображаемое наименование):*:: Max Directory Listing Time (Максимальное время перечисления директорий)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum amount of time that listing any single directory is expected to take. If the listing for the directory specified by the 'Input Directory' property, or the listing of any subdirectory (if 'Recurse' is set to true) takes longer than this amount of time, a warning bulletin will be generated for each directory listing that exceeds this amount of time.
+*DESCRIPTION (Описание):*:: Максимальное количество времени, которое ожидается для перечисления любой отдельной директории. Если перечисление указанной по свойству 'Input Directory' или перечисление любой поддиректории (если установлено 'Recurse' в true) занимает больше этого времени, будет сгенерировано предупреждение для каждого перечисления директорий, которое превышает это время.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -476,7 +476,7 @@ LOCAL
 
 CLUSTER
 
-|After performing a listing of files, the timestamp of the newest file is stored. This allows the Processor to list only files that have been added or modified after this date the next time that the Processor is run. Whether the state is stored with a Local or Cluster scope depends on the value of the <Input Directory Location> property.
+|После выполнения перечисления файлов сохраняется временная метка самого нового файла. Это позволяет процессору перечислять только файлы, добавленные или измененные после этой даты при следующем запуске процессора. Сохраняется состояние в локальной или кластерной области видимости в зависимости от значения свойства <Расположение директории ввода>.
 |===
 
 
@@ -492,7 +492,7 @@ CLUSTER
 |Наименование |Описание
 
 |`success`
-|All FlowFiles that are received are routed to success
+|Все FlowFiles, полученные на входе, направляются в success
 
 |===
 
@@ -507,34 +507,34 @@ CLUSTER
 |Наименование |Описание
 
 |`filename`
-|The name of the file that was read from filesystem.
+|Имя файла, прочитанного с файловой системы.
 
 |`path`
-|The path is set to the relative path of the file's directory on filesystem compared to the Input Directory property. For example, if Input Directory is set to /tmp, then files picked up from /tmp will have the path attribute set to "/". If the Recurse Subdirectories property is set to true and a file is picked up from /tmp/abc/1/2/3, then the path attribute will be set to "abc/1/2/3/".
+|Атрибут path устанавливается в относительный путь директории файла на файловой системе по сравнению со свойством 'Входная директория'. Например, если Входная директория установлена в '/tmp', то файлы, взятые из '/tmp', будут иметь атрибут path, равный '/'.' Если свойство 'Рекурс поддиректории' установлено в true и файл взят из '/tmp/abc/1/2/3', то атрибут path будет установлен в 'abc/1/2/3/'.
 
 |`absolute.path`
-|The absolute.path is set to the absolute path of the file's directory on filesystem. For example, if the Input Directory property is set to /tmp, then files picked up from /tmp will have the path attribute set to "/tmp/". If the Recurse Subdirectories property is set to true and a file is picked up from /tmp/abc/1/2/3, then the path attribute will be set to "/tmp/abc/1/2/3/".
+|Абсолютный путь к файлу на файловой системе устанавливается в абсолютный путь директории файла. Например, если свойство 'Входная директория' установлено в '/tmp', то файлы, взятые из '/tmp', будут иметь атрибут path, равный '/tmp/'. Если свойство 'Рекурс поддиректории' установлено в true и файл взят из '/tmp/abc/1/2/3', то атрибут path будет установлен в '/tmp/abc/1/2/3/'.
 
 |`file.owner`
-|The user that owns the file in filesystem
+|Пользователь, владеющий файлом на файловой системе
 
 |`file.group`
-|The group that owns the file in filesystem
+|Группа, владеющая файлом на файловой системе
 
 |`file.size`
-|The number of bytes in the file in filesystem
+|Количество байт в файле на файловой системе
 
 |`file.permissions`
-|The permissions for the file in filesystem. This is formatted as 3 characters for the owner, 3 for the group, and 3 for other users. For example rw-rw-r--
+|Разрешения для файла на файловой системе. Это форматируется как 3 символа для владельца, 3 для группы и 3 для других пользователей. Например rw-rw-r--
 
 |`file.lastModifiedTime`
-|The timestamp of when the file in filesystem was last modified as 'yyyy-MM-dd'T'HH:mm:ssZ'
+|Метка времени последнего изменения файла на файловой системе в формате 'yyyy-MM-dd'T'HH:mm:ssZ'
 
 |`file.lastAccessTime`
-|The timestamp of when the file in filesystem was last accessed as 'yyyy-MM-dd'T'HH:mm:ssZ'
+|Метка времени последнего доступа к файлу на файловой системе в формате 'yyyy-MM-dd'T'HH:mm:ssZ'
 
 |`file.creationTime`
-|The timestamp of when the file in filesystem was created as 'yyyy-MM-dd'T'HH:mm:ssZ'
+|Метка времени создания файла на файловой системе в формате 'yyyy-MM-dd'T'HH:mm:ssZ'
 
 |===
 

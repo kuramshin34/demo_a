@@ -1,13 +1,13 @@
 = ConsumeTwitter 2.2.0
 
-Streams tweets from Twitter's streaming API v2. The stream provides a sample stream or a search stream based on previously uploaded rules. This processor also provides a pass through for certain fields of the tweet to be returned as part of the response. See https://developer.twitter.com/en/docs/twitter-api/data-dictionary/introduction for more information regarding the Tweet object model.
+Поток твитов от Twitter API v2. Поток предоставляет образец поток или поисковый поток на основе ранее загруженных правил. Этот процессор также обеспечивает прохождение определенных полей твита в качестве части ответа. См. https://developer.twitter.com/en/docs/twitter-api/data-dictionary/introduction для получения дополнительной информации о модели объекта твита.
 
 [horizontal]
 *Tags* (Ключевые слова):
 json, social media, status, tweets, twitter
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,23 +20,23 @@ FORBIDDEN (Обязательно)
 .*Stream-Endpoint*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Stream Endpoint
+*DISPLAY NAME (Отображаемое наименование):*:: Stream Endpoint (Поток)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The source from which the processor will consume Tweets.
+*DESCRIPTION (Описание):*:: Источник, из которого процессор будет потреблять Твиты.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Sample Stream: Streams about one percent of all Tweets. https://developer.twitter.com/en/docs/twitter-api/tweets/volume-streams/api-reference/get-tweets-sample-stream 
+* Sample Stream (Образец Потока): Поток один проценте всех Твитов. https://developer.twitter.com/en/docs/twitter-api/tweets/volume-streams/api-reference/get-tweets-sample-stream 
 
-* Search Stream: The search stream produces Tweets that match filtering rules configured on Twitter services. At least one well-formed filtering rule must be configured. https://developer.twitter.com/en/docs/twitter-api/tweets/filtered-stream/api-reference/get-tweets-search-stream 
+* Search Stream (Поисковый Поток): Поисковый поток создает Твиты, которые соответствуют настроенным правилам фильтрации на сервисах Twitter. Должно быть настроено хотя бы одно правильно отформатированное правило фильтрации. https://developer.twitter.com/en/docs/twitter-api/tweets/filtered-stream/api-reference/get-tweets-search-stream 
 
 
 [horizontal]
@@ -45,14 +45,14 @@ FORBIDDEN (Обязательно)
 .*Base-Path*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Base Path
+*DISPLAY NAME (Отображаемое наименование):*:: Base Path (Базовый путь)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The base path that the processor will use for making HTTP requests. The default value should be sufficient for most use cases.
+*DESCRIPTION (Описание):*:: Базовый путь, который будет использоваться процессором для создания HTTP-запросов. Значение по умолчанию должно быть достаточным для большинства случаев использования.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -62,14 +62,14 @@ FORBIDDEN (Обязательно)
 .*Bearer-Token*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Bearer Token
+*DISPLAY NAME (Отображаемое наименование):*:: Bearer Token (Маркер Bearer)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Bearer Token provided by Twitter.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -79,14 +79,14 @@ FORBIDDEN (Обязательно)
 .*Queue-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Queue Size
+*DISPLAY NAME (Отображаемое наименование):*:: Queue Size (Размер очереди)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Maximum size of internal queue for streamed messages
+*DESCRIPTION (Описание):*:: Максимальный размер внутренней очереди для потоковых сообщений
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -96,14 +96,14 @@ FORBIDDEN (Обязательно)
 .*Batch-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Batch Size
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Size (Максимальный размер числа Твитов для записи в один поток)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum size of the number of Tweets to be written to a single FlowFile. Will write fewer Tweets based on the number available in the queue at the time of processor invocation.
+*DESCRIPTION (Описание):*:: Максимальный размер числа Tweets, которые будут записываться в один FlowFile. Будет записывать меньше Tweets в зависимости от количества доступных в очереди на момент вызова процессора.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -113,14 +113,14 @@ FORBIDDEN (Обязательно)
 .*Backoff-Attempts*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Backoff Attempts
+*DISPLAY NAME (Отображаемое наименование):*:: Backoff Attempts (Попытки отключения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The number of reconnection tries the processor will attempt in the event of a disconnection of the stream for any reason, before throwing an exception. To start a stream after this exception occur and the connection is fixed, please stop and restart the processor. If the valueof this property is 0, then backoff will never occur and the processor will always need to be restartedif the stream fails.
+*DESCRIPTION (Описание):*:: Количество переподключений, которые процессор попытается осуществить в случае отключения потока по любой причине, прежде чем выбросит исключение. Чтобы начать поток после возникновения этого исключения и устранения проблемы с подключением, необходимо остановить и перезапустить процессор. Если значение этого свойства равно 0, то отключение никогда не будет происходить, и процессор всегда потребуется перезапустить, если поток прекратит свою работу.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -130,14 +130,14 @@ FORBIDDEN (Обязательно)
 .*Backoff-Time*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Backoff Time
+*DISPLAY NAME (Отображаемое наименование):*:: Backoff Time (Время отдыха перед повторным запросом нового потока, если текущий выходит из строя по какой-либо причине)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The duration to backoff before requesting a new stream ifthe current one fails for any reason. Will increase by factor of 2 every time a restart fails
+*DESCRIPTION (Описание):*:: The duration to backoff before requesting a new stream if the current one fails for any reason. Will increase by factor of 2 every time a restart fails
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -147,14 +147,14 @@ FORBIDDEN (Обязательно)
 .*Maximum-Backoff-Time*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Backoff Time
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Backoff Time (Максимальное время отдыха)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum duration to backoff to start attempting a new stream.It is recommended that this number be much higher than the 'Backoff Time' property
+*DESCRIPTION (Описание):*:: Максимальная продолжительность, на которую следует отложить попытку начать новый поток. Рекомендуется, чтобы это число было значительно выше свойства 'Backoff Time'
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -164,14 +164,14 @@ FORBIDDEN (Обязательно)
 .*Connect-Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Connect Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Connect Timeout (Время ожидания подключения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum time in which client should establish a connection with the Twitter API before a time out. Setting the value to 0 disables connection timeouts.
+*DESCRIPTION (Описание):*:: Максимальное время, в течение которого клиент должен установить соединение с API Twitter до таймаута. Установка значения в 0 отключает таймауты подключения.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -181,14 +181,14 @@ FORBIDDEN (Обязательно)
 .*Read-Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Read Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Read Timeout (Время ожидания)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum time of inactivity between receiving tweets from Twitter through the API before a timeout. Setting the value to 0 disables read timeouts.
+*DESCRIPTION (Описание):*:: Максимальное время бездействия между получением твитов от Twitter через API перед тем, как наступит таймаут. Установка значения в 0 отключает таймауты чтения.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -198,14 +198,14 @@ FORBIDDEN (Обязательно)
 .*Backfill-Minutes*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Backfill Minutes
+*DISPLAY NAME (Отображаемое наименование):*:: Backfill Minutes (Число минут (до 5 минут) потоковоых данных, которые должны быть запрошены после отключения. Доступно только для проектов с академическим доступом к исследованиям.)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The number of minutes (up to 5 minutes) of streaming data to be requested after a disconnect. Only available for project with academic research access. See https://developer.twitter.com/en/docs/twitter-api/tweets/filtered-stream/integrate/recovery-and-redundancy-features
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -215,14 +215,14 @@ FORBIDDEN (Обязательно)
 .Tweet-Fields
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Tweet Fields
+*DISPLAY NAME (Отображаемое наименование):*:: Tweet Fields (Поля твита)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A comma-separated list of tweet fields to be returned as part of the tweet. Refer to https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/tweet for proper usage. Possible field values include: attachments, author_id, context_annotations, conversation_id, created_at, entities, geo, id, in_reply_to_user_id, lang, non_public_metrics, organic_metrics, possibly_sensitive, promoted_metrics, public_metrics, referenced_tweets, reply_settings, source, text, withheld
+*DESCRIPTION (Описание):*:: Список полей твитов, разделенных запятыми, которые будут возвращены вместе с твитом. См. https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/tweet для правильного использования. Возможные значения полей включают: attachments, author_id, context_annotations, conversation_id, created_at, entities, geo, id, in_reply_to_user_id, lang, non_public_metrics, organic_metrics, possibly_sensitive, promoted_metrics, public_metrics, referenced_tweets, reply_settings, source, text, withheld
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -232,14 +232,14 @@ FORBIDDEN (Обязательно)
 .User-Fields
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: User Fields
+*DISPLAY NAME (Отображаемое наименование):*:: User Fields (Пользовательские поля)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A comma-separated list of user fields to be returned as part of the tweet. Refer to https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/user for proper usage. Possible field values include: created_at, description, entities, id, location, name, pinned_tweet_id, profile_image_url, protected, public_metrics, url, username, verified, withheld
+*DESCRIPTION (Описание):*:: Список, разделенный запятыми пользовательских полей, которые будут возвращены вместе с твитом. См. https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/user для правильного использования. Возможные значения полей включают: created_at, description, entities, id, location, name, pinned_tweet_id, profile_image_url, protected, public_metrics, url, username, verified, withheld
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -249,14 +249,14 @@ FORBIDDEN (Обязательно)
 .Media-Fields
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Media Fields
+*DISPLAY NAME (Отображаемое наименование):*:: Media Fields (Медиа Поля)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A comma-separated list of media fields to be returned as part of the tweet. Refer to https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/media for proper usage. Possible field values include: alt_text, duration_ms, height, media_key, non_public_metrics, organic_metrics, preview_image_url, promoted_metrics, public_metrics, type, url, width
+*DESCRIPTION (Описание):*:: Список полей медиа, разделенных запятыми, которые будут возвращены вместе с твитом. См. https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/media для правильного использования. Возможные значения полей включают: alt_text, duration_ms, height, media_key, non_public_metrics, organic_metrics, preview_image_url, promoted_metrics, public_metrics, type, url, width
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -266,14 +266,14 @@ FORBIDDEN (Обязательно)
 .Poll-Fields
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Poll Fields
+*DISPLAY NAME (Отображаемое наименование):*:: Poll Fields (Поля опроса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A comma-separated list of poll fields to be returned as part of the tweet. Refer to https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/poll for proper usage. Possible field values include: duration_minutes, end_datetime, id, options, voting_status
+*DESCRIPTION (Описание):*:: Список полей опроса, разделенных запятыми, которые будут возвращены вместе с твитом. См. https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/poll для правильного использования. Возможные значения полей включают: duration_minutes, end_datetime, id, options, voting_status
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -283,14 +283,14 @@ FORBIDDEN (Обязательно)
 .Place-Fields
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Place Fields
+*DISPLAY NAME (Отображаемое наименование):*:: Place Fields (Поля места)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A comma-separated list of place fields to be returned as part of the tweet. Refer to https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/place for proper usage. Possible field values include: contained_within, country, country_code, full_name, geo, id, name, place_type
+*DESCRIPTION (Описание):*:: Список полей мест, разделенных запятыми, которые будут возвращены вместе с твитом. См. https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/place для правильного использования. Возможные значения полей включают: contained_within, country, country_code, full_name, geo, id, name, place_type
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -300,14 +300,14 @@ FORBIDDEN (Обязательно)
 .Expansions
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Expansions
+*DISPLAY NAME (Отображаемое наименование):*:: Expansions (Расширения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A comma-separated list of expansions for objects in the returned tweet. See https://developer.twitter.com/en/docs/twitter-api/expansions for proper usage. Possible field values include: author_id, referenced_tweets.id, referenced_tweets.id.author_id, entities.mentions.username, attachments.poll_ids, attachments.media_keys ,in_reply_to_user_id, geo.place_id
+*DESCRIPTION (Описание):*:: Список, разделенный запятыми расширений для объектов в возвращаемом твитте. См. https://developer.twitter.com/en/docs/twitter-api/expansions для правильного использования. Возможные значения поля включают: author_id, referenced_tweets.id, referenced_tweets.id.author_id, entities.mentions.username, attachments.poll_ids, attachments.media_keys, in_reply_to_user_id, geo.place_id
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -331,7 +331,7 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`success`
-|FlowFiles containing an array of one or more Tweets
+|FlowFiles содержащие массив одного или нескольких твитов
 
 |===
 
@@ -346,10 +346,10 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`mime.type`
-|The MIME Type set to application/json
+|MIME-тип установлен в application/json
 
 |`tweets`
-|The number of Tweets in the FlowFile
+|Количество твитов в FlowFile
 
 |===
 

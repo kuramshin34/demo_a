@@ -1,13 +1,13 @@
 = JndiJmsConnectionFactoryProvider 2.2.0
 
-Provides a service to lookup an existing JMS ConnectionFactory using the Java Naming and Directory Interface (JNDI).
+Предоставляет сервис для поиска существующей фабрики соединений JMS с использованием Java Naming and Directory Interface (JNDI).
 
 [horizontal]
 *Tags* (Ключевые слова):
 integration, jms, jndi, messaging, publish, queue, subscribe, topic
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ integration, jms, jndi, messaging, publish, queue, subscribe, topic
 .*Java.Naming.Factory.Initial*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: JNDI Initial Context Factory Class
+*DISPLAY NAME (Отображаемое наименование):*:: JNDI Initial Context Factory Class (...)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The fully qualified class name of the JNDI Initial Context Factory Class (java.naming.factory.initial).
+*DESCRIPTION (Описание):*:: Полное имя класса фабрики начального контекста JNDI (java.naming.factory.initial).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ integration, jms, jndi, messaging, publish, queue, subscribe, topic
 .*Java.Naming.Provider.Url*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: JNDI Provider URL
+*DISPLAY NAME (Отображаемое наименование):*:: JNDI Provider URL (URL поставщика JNDI)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The URL of the JNDI Provider to use as the value for java.naming.provider.url. See additional details documentation for allowed URL schemes.
+*DESCRIPTION (Описание):*:: URL поставщика JNDI, который будет использоваться в качестве значения для java.naming.provider.url. См. дополнительные сведения в документации для разрешенных схем URL.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ integration, jms, jndi, messaging, publish, queue, subscribe, topic
 .*Connection.Factory.Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: JNDI Name of the Connection Factory
+*DISPLAY NAME (Отображаемое наименование):*:: JNDI Name of the Connection Factory (Имя JNDI фабрики соединений)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the JNDI Object to lookup for the Connection Factory.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ integration, jms, jndi, messaging, publish, queue, subscribe, topic
 .Naming.Factory.Libraries
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: JNDI / JMS Client Libraries
+*DISPLAY NAME (Отображаемое наименование):*:: JNDI / JMS Client Libraries (Имена фабрик для библиотек)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies jar files and/or directories to add to the ClassPath in order to load the JNDI / JMS client libraries. This should be a comma-separated list of files, directories, and/or URLs. If a directory is given, any files in that directory will be included, but subdirectories will not be included (i.e., it is not recursive).
+*DESCRIPTION (Описание):*:: Указывает файлы jar и/или директории, которые нужно добавить в ClassPath для загрузки библиотек JNDI / JMS. Это должен быть список, разделенный запятыми, из файлов, директорий и/или URL-адресов. Если указана директория, будут включены любые файлы в этой директории, но поддиректории не будут включены (то есть они не рекурсивны).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ integration, jms, jndi, messaging, publish, queue, subscribe, topic
 .Java.Naming.Security.Principal
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: JNDI Principal
+*DISPLAY NAME (Отображаемое наименование):*:: JNDI Principal (JNDI-главный)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Principal to use when authenticating with JNDI (java.naming.security.principal).
+*DESCRIPTION (Описание):*:: Главной пользователь, используемый при аутентификации с JNDI (java.naming.security.principal).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ integration, jms, jndi, messaging, publish, queue, subscribe, topic
 .Java.Naming.Security.Credentials
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: JNDI Credentials
+*DISPLAY NAME (Отображаемое наименование):*:: JNDI Credentials (JNDI учетные данные)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Credentials to use when authenticating with JNDI (java.naming.security.credentials).
+*DESCRIPTION (Описание):*:: Учетные данные, которые следует использовать при аутентификации с JNDI (java.naming.security.credentials).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -128,7 +128,7 @@ integration, jms, jndi, messaging, publish, queue, subscribe, topic
 |Наименование |Описание |Значение |Ограничения языка выражений
 
 |`The name of a JNDI Initial Context environment variable.`
-|In order to perform a JNDI Lookup, an Initial Context must be established. When this is done, an Environment can be established for the context. Any dynamic/user-defined property that is added to this Controller Service will be added as an Environment configuration/variable to this Context.
+|Для выполнения поиска JNDI необходимо установить начальный контекст. Когда это будет сделано, можно установить окружение для контекста. Любая динамически/пользовательски добавленная свойство к этому сервису контроллера будет добавлено как конфигурация/переменная окружения для этого Контекста.
 |`The value of the JNDI Initial Context environment variable.`
 |
 
@@ -145,6 +145,17 @@ integration, jms, jndi, messaging, publish, queue, subscribe, topic
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

@@ -1,13 +1,13 @@
 = PutSplunk 2.2.0
 
-Sends logs to Splunk Enterprise over TCP, TCP + TLS/SSL, or UDP. If a Message Delimiter is provided, then this processor will read messages from the incoming FlowFile based on the delimiter, and send each message to Splunk. If a Message Delimiter is not provided then the content of the FlowFile will be sent directly to Splunk as if it were a single message.
+Отправляет логи в Splunk Enterprise через TCP, TCP + TLS/SSL или UDP. Если указать разделитель сообщений, то процессор прочитает сообщения из FlowFile на основе разделителя и отправит каждое сообщение в Splunk. Если разделитель не указан, то содержимое FlowFile будет отправлено прямо в Splunk как одно сообщение.
 
 [horizontal]
 *Tags* (Ключевые слова):
 logs, splunk, tcp, udp
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Hostname*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hostname
+*DISPLAY NAME (Отображаемое наименование):*:: Hostname (Хост)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Destination hostname or IP address
+*DESCRIPTION (Описание):*:: Destination hostname or IP address (Адрес хоста или IP-адрес назначения)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Port*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Port
+*DISPLAY NAME (Отображаемое наименование):*:: Port (Порт)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Destination port number
+*DESCRIPTION (Описание):*:: Номер конечного порта
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Max Size Of Socket Send Buffer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Size of Socket Send Buffer
+*DISPLAY NAME (Отображаемое наименование):*:: Max Size of Socket Send Buffer (Максимальный размер буфера отправки сокета)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum size of the socket send buffer that should be used. This is a suggestion to the Operating System to indicate how big the socket buffer should be. If this value is set too low, the buffer may fill up before the data can be read, and incoming data will be dropped.
+*DESCRIPTION (Описание):*:: Максимальный размер буфера отправки сокета, который следует использовать. Это рекомендация для операционной системы указать, насколько большой должен быть сокетный буфер. Если это значение установлено слишком низким, буфер может заполниться до того, как данные могут быть прочитаны, и входящие данные будут отброшены.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .*Idle Connection Expiration*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Idle Connection Expiration
+*DISPLAY NAME (Отображаемое наименование):*:: Idle Connection Expiration (Время ожидания бездействия соединения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The amount of time a connection should be held open without being used before closing the connection. A value of 0 seconds will disable this feature.
+*DESCRIPTION (Описание):*:: Количество времени, в течение которого соединение должно оставаться открытым без использования, прежде чем закроется соединение. Значение 0 секунд отключит эту функцию.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ REQUIRED (Обязательно)
 .Timeout
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Timeout (таймаут)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The timeout for connecting to and communicating with the destination. Does not apply to UDP
+*DESCRIPTION (Описание):*:: Таймаут для подключения и обмена данными с пунктом назначения. Не применяется к UDP
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ REQUIRED (Обязательно)
 .*Character Set*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Символьный набор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the character set of the data being sent.
+*DESCRIPTION (Описание):*:: Указывает символьный набор данных, отправляемых.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -122,23 +122,23 @@ REQUIRED (Обязательно)
 .*Protocol*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Protocol
+*DISPLAY NAME (Отображаемое наименование):*:: Protocol (Протокол)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The protocol for communication.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* TCP
+* TCP (Transmission Control Protocol)
 
-* UDP
+* UDP (User Datagram Protocol)
 
 
 [horizontal]
@@ -147,14 +147,14 @@ REQUIRED (Обязательно)
 .Message Delimiter
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Message Delimiter
+*DISPLAY NAME (Отображаемое наименование):*:: Message Delimiter (Сообщение-разделитель)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the delimiter to use for splitting apart multiple messages within a single FlowFile. If not specified, the entire content of the FlowFile will be used as a single message. If specified, the contents of the FlowFile will be split on this delimiter and each section sent as a separate message. Note that if messages are delimited and some messages for a given FlowFile are transferred successfully while others are not, the messages will be split into individual FlowFiles, such that those messages that were successfully sent are routed to the 'success' relationship while other messages are sent to the 'failure' relationship.
+*DESCRIPTION (Описание):*:: Указывает разделитель для разбиения нескольких сообщений в одном FlowFile. Если не указан, весь контент FlowFile будет использоваться как одно сообщение. Если указано, контент FlowFile будет разбит по этому разделителю, и каждая часть будет отправлена как отдельное сообщение. Обратите внимание, что если сообщения разделены и некоторые сообщения для данного FlowFile передаются успешно, а другие — нет, сообщения будут разделены на отдельные FlowFiles, так что те, которые были успешно отправлены, будут направлены в отношение 'success', а остальные — в отношение 'failure'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -164,14 +164,14 @@ REQUIRED (Обязательно)
 .Ssl Context Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (SSL Контекст Сервиса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the SSL Context Service to enable TLS socket communication
+*DESCRIPTION (Описание):*:: Указывает службу SSL Context для включения коммуникации с использованием TLS-сокетов
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -195,16 +195,27 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|FlowFiles that are sent successfully to the destination are sent out this relationship.
+|FlowFiles, которые успешно отправлены в пункт назначения, выходят по этому отношению.
 
 |`failure`
-|FlowFiles that failed to send to the destination are sent out this relationship.
+|FlowFiles, которые не удалось отправить в пункт назначения, выходят по этому отношению.
 
 |===
 
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

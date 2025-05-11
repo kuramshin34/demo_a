@@ -1,13 +1,13 @@
 = ListenTrapSNMP 2.2.0
 
-Receives information from SNMP Agent and outputs a FlowFile with information in attributes and without any content
+Принимает информацию от агента SNMP и выводит FlowFile с информацией в атрибутах без содержимого
 
 [horizontal]
 *Tags* (Ключевые слова):
 listen, snmp, trap
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ FORBIDDEN (Обязательно)
 .*Snmp-Manager-Port*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SNMP Manager Port
+*DISPLAY NAME (Отображаемое наименование):*:: SNMP Manager Port (Менеджер SNMP порт)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The port where the SNMP Manager listens to the incoming traps.
+*DESCRIPTION (Описание):*:: Порт, на котором слушает менеджер SNMP входящие трапы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,25 +37,25 @@ FORBIDDEN (Обязательно)
 .*Snmp-Version*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SNMP Version
+*DISPLAY NAME (Отображаемое наименование):*:: SNMP Версия
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Three significant versions of SNMP have been developed and deployed. SNMPv1 is the original version of the protocol. More recent versions, SNMPv2c and SNMPv3, feature improvements in performance, flexibility and security.
+*DESCRIPTION (Описание):*:: Разработаны и развернуты три значимые версии SNMP. SNMPv1 - это оригинальная версия протокола. Более поздние версии, SNMPv2c и SNMPv3, характеризуются улучшениями в производительности, гибкости и безопасности.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* v1: SNMP version 1 
+* v1: Версия SNMP 1 
 
-* v2c: SNMP version 2c 
+* v2c: Версия SNMP 2c 
 
-* v3: SNMP version 3 with improved security 
+* v3: Улучшенная версия SNMP с повышенной безопасностью 
 
 
 [horizontal]
@@ -64,14 +64,14 @@ FORBIDDEN (Обязательно)
 .*Snmp-Community*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SNMP Community
+*DISPLAY NAME (Отображаемое наименование):*:: SNMP Community (Сообщество)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: SNMPv1 and SNMPv2 use communities to establish trust between managers and agents. Most agents support three community names, one each for read-only, read-write and trap. These three community strings control different types of activities. The read-only community applies to get requests. The read-write community string applies to set requests. The trap community string applies to receipt of traps.
+*DESCRIPTION (Описание):*:: SNMPv1 и SNMPv2 используют сообщества для установления доверия между управляющими и агентами. Большинство агентов поддерживает три имени сообществ, одно для чтения, одно для записи и одно для получения трапов. Эти три строки сообщества контролируют разные типы действий. Сообщество только для чтения применяется к запросам get. Строка сообщества для чтения-записи применяется к запросам set. Строка сообщества трапа применяется к получению трапов.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -81,25 +81,25 @@ FORBIDDEN (Обязательно)
 .*Snmp-Security-Level*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SNMP Security Level
+*DISPLAY NAME (Отображаемое наименование):*:: SNMP Security Level (Уровень безопасности SNMP)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: SNMP version 3 provides extra security with User Based Security Model (USM). The three levels of security is 1. Communication without authentication and encryption (NoAuthNoPriv). 2. Communication with authentication and without encryption (AuthNoPriv). 3. Communication with authentication and encryption (AuthPriv).
+*DESCRIPTION (Описание):*:: SNMP версии 3 обеспечивает дополнительную безопасность с помощью модели пользовательской безопасности (USM). Три уровня безопасности: 1. Обмен без аутентификации и шифрования (NoAuthNoPriv). 2. Обмен с аутентификацией и без шифрования (AuthNoPriv). 3. Обмен с аутентификацией и шифрованием (AuthPriv).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* noAuthNoPriv: Communication without authentication and privacy. 
+* noAuthNoPriv: Обмен без аутентификации и конфиденциальности. 
 
-* authNoPriv: Communication with authentication and without privacy. 
+* authNoPriv: Обмен с аутентификацией и без конфиденциальности. 
 
-* authPriv: Communication with authentication and privacy. 
+* authPriv: Обмен с аутентификацией и шифрованием. 
 
 
 [horizontal]
@@ -108,25 +108,25 @@ FORBIDDEN (Обязательно)
 .*Snmp-Usm-Users-Source*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: USM Users Source
+*DISPLAY NAME (Отображаемое наименование):*:: USM Users Source (Источник пользователей USM)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The ways to provide USM User data
+*DESCRIPTION (Описание):*:: Способы предоставления данных о пользователях USM
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Json Content: The JSON containing the USM users 
+* Json Content (Контент JSON): JSON, содержащий пользователей USM 
 
-* Json File Path: The path of the JSON file containing the USM users 
+* Json File Path (Путь к файлу JSON): Путь к JSON-файлу, содержащему пользователей USM 
 
-* Security Names: In case of noAuthNoPriv security level - the list of security names separated by commas 
+* Security Names (Имена безопасности): В случае уровня безопасности noAuthNoPriv - список имен безопасности, разделенных запятыми 
 
 
 [horizontal]
@@ -135,14 +135,14 @@ FORBIDDEN (Обязательно)
 .Snmp-Usm-Users-File-Path
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: USM Users JSON File Path
+*DISPLAY NAME (Отображаемое наименование):*:: USM Users JSON File Path (Путь к файлу JSON с учетными данными пользователей SNMPv3)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The path of the json file containing the user credentials for SNMPv3. Check Usage for more details.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -152,14 +152,14 @@ FORBIDDEN (Обязательно)
 .Snmp-Usm-Users-Json-Content
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: USM Users JSON content
+*DISPLAY NAME (Отображаемое наименование):*:: USM Users JSON content (JSON содержащий учетные данные пользователей для SNMPv3)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The JSON containing the user credentials for SNMPv3. Check Usage for more details.
+*DESCRIPTION (Описание):*:: JSON, содержащий учетные данные пользователей для SNMPv3. Проверьте Использование для получения дополнительной информации.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -169,14 +169,14 @@ FORBIDDEN (Обязательно)
 .Snmp-Usm-Security-Names
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SNMP Users Security Names
+*DISPLAY NAME (Отображаемое наименование):*:: SNMP Users Security Names (Имена пользователей безопасности SNMP)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Security names listed separated by commas in SNMPv3. Check Usage for more details.
+*DESCRIPTION (Описание):*:: Безопасные имена, перечисленные через запятую в SNMPv3. Проверьте использование для получения дополнительных сведений.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -200,10 +200,10 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`success`
-|All FlowFiles that are received from the SNMP agent are routed to this relationship
+|Все FlowFiles, полученные от агента SNMP, направляются в это отношение
 
 |`failure`
-|All FlowFiles that cannot received from the SNMP agent are routed to this relationship
+|Все FlowFiles, которые не могут быть получены от агента SNMP, направляются в это отношение
 
 |===
 
@@ -218,7 +218,7 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`snmp$*`
-|Attributes retrieved from the SNMP response. It may include: snmp$errorIndex, snmp$errorStatus, snmp$errorStatusText, snmp$nonRepeaters, snmp$requestID, snmp$type, snmp$variableBindings
+|Атрибуты, полученные из ответа SNMP. Это может включать: snmp$errorIndex, snmp$errorStatus, snmp$errorStatusText, snmp$nonRepeaters, snmp$requestID, snmp$type, snmp$variableBindings
 
 |===
 

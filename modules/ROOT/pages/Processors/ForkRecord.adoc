@@ -1,13 +1,13 @@
 = ForkRecord 2.2.0
 
-This processor allows the user to fork a record into multiple records. The user must specify at least one Record Path, as a dynamic property, pointing to a field of type ARRAY containing RECORD objects. The processor accepts two modes: 'split' and 'extract'. In both modes, there is one record generated per element contained in the designated array. In the 'split' mode, each generated record will preserve the same schema as given in the input but the array will contain only one element. In the 'extract' mode, the element of the array must be of record type and will be the generated record. Additionally, in the 'extract' mode, it is possible to specify if each generated record should contain all the fields of the parent records from the root level to the extracted record. This assumes that the fields to add in the record are defined in the schema of the Record Writer controller service. See examples in the additional details documentation of this processor.
+Этот процессор позволяет пользователю разветвить запись на несколько записей. Пользователь должен указать по крайней мере один путь записи (Record Path), как динамическое свойство, указывая на поле типа ARRAY, содержащее объекты RECORD. Процессор принимает два режима: 'split' и 'extract'. В обоих режимах генерируется одна запись на элемент, содержащийся в назначенном массиве. В режиме 'split' каждая сгенерированная запись будет иметь тот же схема, что и указано во входном потоке, но массив будет содержать только один элемент. В режиме 'extract' элемент массива должен быть записного типа и станет генерируемой записью. Кроме того, в режиме 'extract' возможно указать, что каждая сгенерированная запись будет содержать все поля родительских записей от корневого уровня до извлеченной записи. Это предполагает, что поля, которые нужно добавить в запись, определены в схеме Record Writer контроллер-сервис. См. примеры в дополнительных деталях документации этого процессора.
 
 [horizontal]
 *Tags* (Ключевые слова):
 array, content, event, fork, record, stream
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Record-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Записыватель данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for reading incoming data
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера для использования при чтении входящих данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Record-Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для записи записей
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,23 +54,23 @@ REQUIRED (Обязательно)
 .*Fork-Mode*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Mode
+*DISPLAY NAME (Отображаемое наименование):*:: Mode (Режим)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the forking mode of the processor
+*DESCRIPTION (Описание):*:: Указывает режим форки процессора
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Extract: Generated records will be the elements of the array 
+* Extract (Извлечь): Сгенерированные записи будут элементами массива 
 
-* Split: Generated records will preserve the input schema and will contain a one-element array 
+* Split (Разделить): Сгенерированные записи сохранят входной схему и будут содержать один элемент массива 
 
 
 [horizontal]
@@ -79,14 +79,14 @@ REQUIRED (Обязательно)
 .*Include-Parent-Fields*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Include Parent Fields
+*DISPLAY NAME (Отображаемое наименование):*:: Include Parent Fields (Включить поля родителей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: This parameter is only valid with the 'extract' mode. If set to true, all the fields from the root level to the given array will be added as fields of each element of the array to fork.
+*DESCRIPTION (Описание):*:: Этот параметр действителен только с режимом 'extract'. Если установлен в true, все поля на корневом уровне до заданного массива будут добавлены в качестве полей каждого элемента массива для разветвления.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -156,9 +156,6 @@ REQUIRED (Обязательно)
 
 |`mime.type`
 |The MIME Type indicated by the Record Writer
-
-|`<Attributes from Record Writer>`
-|Any Attribute that the configured Record Writer returns will be added to the FlowFile.
 
 |===
 

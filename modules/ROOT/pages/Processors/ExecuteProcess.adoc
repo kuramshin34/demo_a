@@ -1,13 +1,13 @@
 = ExecuteProcess 2.2.0
 
-Runs an operating system command specified by the user and writes the output of that command to a FlowFile. If the command is expected to be long-running, the Processor can output the partial data on a specified interval. When this option is used, the output is expected to be in textual format, as it typically does not make sense to split binary data on arbitrary time-based intervals.
+Запускает указанную операционную системную команду пользователем и записывает вывод этой команды в FlowFile. Если команда ожидается как долгое время, процессор может выводить частичные данные с заданным интервалом. Когда используется этот параметр, предполагается, что вывод будет текстовым форматом, так как обычно не имеет смысла делить двоичные данные на произвольные временные интервалы.
 
 [horizontal]
 *Tags* (Ключевые слова):
 command, external, invoke, process, script, source
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ FORBIDDEN (Обязательно)
 .*Command*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Command
+*DISPLAY NAME (Отображаемое наименование):*:: Command (Команда)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the command to be executed; if just the name of an executable is provided, it must be in the user's environment PATH.
+*DESCRIPTION (Описание):*:: Указывает команду для выполнения; если указано только имя исполняемого файла, оно должно находиться в PATH пользователя.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ FORBIDDEN (Обязательно)
 .Command Arguments
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Command Arguments
+*DISPLAY NAME (Отображаемое наименование):*:: Command Arguments (Аргументы команды)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The arguments to supply to the executable delimited by white space. White space can be escaped by enclosing it in double-quotes.
+*DESCRIPTION (Описание):*:: Аргументы, которые нужно передать исполняемому файлу, разделенные пробелами. Пробелы можно экранировать, заключив их в двойные кавычки.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ FORBIDDEN (Обязательно)
 .Batch Duration
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Batch Duration
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Duration (Период пакета)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If the process is expected to be long-running and produce textual output, a batch duration can be specified so that the output will be captured for this amount of time and a FlowFile will then be sent out with the results and a new FlowFile will be started, rather than waiting for the process to finish before sending out the results
+*DESCRIPTION (Описание):*:: Если процесс ожидается длительным и производит текстовый вывод, можно указать период пакета, чтобы результаты были захвачены в течение этого времени, после чего будет отправлен FlowFile с результатами, и начнется новый FlowFile, а не дождаться завершения процесса перед отправкой результатов
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,23 +71,23 @@ FORBIDDEN (Обязательно)
 .Redirect Error Stream
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Redirect Error Stream
+*DISPLAY NAME (Отображаемое наименование):*:: Redirect Error Stream (Перенаправление потока ошибок)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true will redirect any error stream output of the process to the output stream. This is particularly helpful for processes which write extensively to the error stream or for troubleshooting.
+*DESCRIPTION (Описание):*:: Если true, будет перенаправлять любой выходной поток ошибок процесса в основной поток вывода. Это особенно полезно для процессов, которые интенсивно пишут в поток ошибок или для устранения неполадок.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -96,14 +96,14 @@ FORBIDDEN (Обязательно)
 .Working Directory
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Working Directory
+*DISPLAY NAME (Отображаемое наименование):*:: Working Directory (Рабочая директория)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The directory to use as the current working directory when executing the command
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -113,14 +113,14 @@ FORBIDDEN (Обязательно)
 .*Argument Delimiter*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Argument Delimiter
+*DISPLAY NAME (Отображаемое наименование):*:: Argument Delimiter (Аргумент-разделитель)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Delimiter to use to separate arguments for a command [default: space]. Must be a single character.
+*DESCRIPTION (Описание):*:: Разделитель для разделения аргументов команды [по умолчанию: пробел]. Должен быть одиночным символом.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -130,14 +130,14 @@ FORBIDDEN (Обязательно)
 .Output Mime Type
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Output MIME Type
+*DISPLAY NAME (Отображаемое наименование):*:: Output MIME Type (Тип данных вывода)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the value to set for the "mime.type" attribute. This property is ignored if 'Batch Duration' is set.
+*DESCRIPTION (Описание):*:: Указывает значение, которое нужно установить для атрибута "mime.type". Это свойство игнорируется, если установлен параметр 'Batch Duration'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -153,7 +153,7 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание |Значение |Ограничения языка выражений
 
 |`An environment variable name`
-|These environment variables are passed to the process spawned by this Processor
+|Эти переменные окружения передаются процессу, запущенному этим процессором
 |`An environment variable value`
 |
 
@@ -172,7 +172,7 @@ FORBIDDEN (Обязательно)
 |Требуемые права |Объяснение
 
 |
-|Provides operator the ability to execute arbitrary code assuming all permissions that NiFi has.
+|Предоставляет оператору возможность выполнять произвольный код, принимая все разрешения, которые есть у NiFi.
 
 |===
 
@@ -185,7 +185,7 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`success`
-|All created FlowFiles are routed to this relationship
+|Все созданные FlowFiles направляются в это отношение
 
 |===
 
@@ -200,13 +200,13 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`command`
-|Executed command
+|Выполненная команда
 
 |`command.arguments`
-|Arguments of the command
+|Аргументы команды
 
 |`mime.type`
-|Sets the MIME type of the output if the 'Output MIME Type' property is set and 'Batch Duration' is not set
+|Устанавливает MIME-тип вывода, если свойство 'Output MIME Type' установлено и не задан 'Batch Duration'
 
 |===
 

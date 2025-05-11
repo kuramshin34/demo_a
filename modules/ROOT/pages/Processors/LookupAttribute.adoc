@@ -1,13 +1,13 @@
 = LookupAttribute 2.2.0
 
-Lookup attributes from a lookup service
+Поиск атрибутов из сервиса поиска
 
 [horizontal]
 *Tags* (Ключевые слова):
-Attribute Expression Language, attributes, cache, enrich, join, lookup
+Attribute Expression Language, атрибуты, кэш, обогащение, объединение, поиск
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Lookup-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Lookup Service
+*DISPLAY NAME (Отображаемое наименование):*:: Lookup Service (Поисковый сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The lookup service to use for attribute lookups
+*DESCRIPTION (Описание):*:: The lookup service to use for attribute lookups (Сервис поиска для поиска атрибутов)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Include-Empty-Values*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Include Empty Values
+*DISPLAY NAME (Отображаемое наименование):*:: Include Empty Values (Включить пустые значения)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Include null or blank values for keys that are null or blank
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -67,9 +67,9 @@ REQUIRED (Обязательно)
 |===
 |Наименование |Описание |Значение |Ограничения языка выражений
 
-|`The name of the attribute to add to the FlowFile`
-|Adds a FlowFile attribute specified by the dynamic property's key with the value found in the lookup service using the the dynamic property's value
-|`The name of the key or property to retrieve from the lookup service`
+|`Имя атрибута для добавления в FlowFile`
+|Добавляет атрибут FlowFile, указанный динамическим свойством с ключом и значением, найденным в сервисе поиска с использованием значения динамического свойства
+|`Имя ключа или свойства для получения из сервиса поиска`
 |
 
 |===
@@ -89,19 +89,30 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`failure`
-|FlowFiles with failing lookups are routed to this relationship
+|FlowFiles с неудачными поисками направляются в это отношение
 
 |`unmatched`
-|FlowFiles with missing lookups are routed to this relationship
+|FlowFiles с отсутствующими поисками направляются в это отношение
 
 |`matched`
-|FlowFiles with matching lookups are routed to this relationship
+|FlowFiles с совпадающими поисками направляются в это отношение
 
 |===
 
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

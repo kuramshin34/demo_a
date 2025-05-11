@@ -1,13 +1,13 @@
 = RestLookupService 2.2.0
 
-Use a REST service to look up values.
+Используйте REST сервис для поиска значений.
 
 [horizontal]
 *Tags* (Ключевые слова):
 http, json, lookup, rest, xml
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  True (Да) 
@@ -20,14 +20,14 @@ http, json, lookup, rest, xml
 .*Rest-Lookup-Url*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: URL
+*DISPLAY NAME (Отображаемое наименование):*:: URL (URL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The URL for the REST endpoint. Expression language is evaluated against the lookup key/value pairs, not flowfile attributes.
+*DESCRIPTION (Описание):*:: URL для REST-ендовой точки. Язык выражений оценивается по ключам/значениям поиска, а не атрибутам FlowFile.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ http, json, lookup, rest, xml
 .*Rest-Lookup-Record-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Читатель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The record reader to use for loading the payload and handling it as a record set.
+*DESCRIPTION (Описание):*:: Читатель записей для загрузки полезной нагрузки и обработки её как набора записей.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ http, json, lookup, rest, xml
 .Rest-Lookup-Record-Path
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Path
+*DISPLAY NAME (Отображаемое наименование):*:: Record Path (Путь записи)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: An optional record path that can be used to define where in a record to get the real data to merge into the record set to be enriched. See documentation for examples of when this might be useful.
+*DESCRIPTION (Описание):*:: Необязательный путь записи, который можно использовать для определения того, где в записи получить реальные данные для объединения в набор записей, чтобы улучшить. См. документацию для примеров, когда это может быть полезно.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,23 +71,23 @@ http, json, lookup, rest, xml
 .*Rest-Lookup-Response-Handling-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Response Handling Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Response Handling Strategy (Стратегия обработки ответов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Whether to return all responses or throw errors for unsuccessful HTTP status codes.
+*DESCRIPTION (Описание):*:: Определяет, следует ли возвращать все ответы или выбрасывать ошибки для неудачных HTTP-статус кодов.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Returned: Successful and unsuccessful HTTP responses are returned. 
+* Returned (Возвращенные): Успешные и неудачные HTTP-ответы возвращаются. 
 
-* Evaluated: Successful HTTP responses are returned and unsuccessful HTTP responses generate an exception. 
+* Evaluated (Оцененные): Успешные HTTP-ответы возвращаются, а неудачные HTTP-ответы генерируют исключение. 
 
 
 [horizontal]
@@ -96,14 +96,14 @@ http, json, lookup, rest, xml
 .Rest-Lookup-Ssl-Context-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (Сервис контекста SSL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The SSL Context Service used to provide client certificate information for TLS/SSL connections.
+*DESCRIPTION (Описание):*:: Сервис контекста SSL, используемый для предоставления информации о клиентских сертификатах для подключений TLS/SSL.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -113,25 +113,25 @@ http, json, lookup, rest, xml
 .*Rest-Lookup-Authentication-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Authentication Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Authentication Strategy (Стратегия аутентификации)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Authentication strategy to use with REST service.
+*DESCRIPTION (Описание):*:: Стратегия аутентификации для использования с REST сервисом.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* None: No Authentication 
+* None (Нет): Без аутентификации 
 
-* Basic: Basic Authentication 
+* Basic (Базовая): Базовая аутентификация 
 
-* OAuth2: OAuth2 Authentication 
+* OAuth2 (OAuth2): Аутентификация OAuth2 
 
 
 [horizontal]
@@ -140,14 +140,14 @@ http, json, lookup, rest, xml
 .*Rest-Lookup-Oauth2-Access-Token-Provider*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: OAuth2 Access Token Provider
+*DISPLAY NAME (Отображаемое наименование):*:: OAuth2 Access Token Provider (...)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Enables managed retrieval of OAuth2 Bearer Token applied to HTTP requests using the Authorization Header.
+*DESCRIPTION (Описание):*:: Позволяет управляемо получать токен OAuth2 Bearer, применяемый к HTTP-запросам с использованием заголовка Authorization.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -157,14 +157,14 @@ http, json, lookup, rest, xml
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: SOCKS, HTTP + AuthN In case of SOCKS, it is not guaranteed that the selected SOCKS Version will be used by the processor.
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: SOCKS, HTTP + AuthN В случае использования SOCKS, не гарантируется, что выбранная версия SOCKS будет использоваться процессором.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -174,14 +174,14 @@ http, json, lookup, rest, xml
 .Rest-Lookup-Basic-Auth-Username
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Basic Authentication Username
+*DISPLAY NAME (Отображаемое наименование):*:: Basic Authentication Username (Базовое имя пользователя для аутентификации)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The username to be used by the client to authenticate against the Remote URL.  Cannot include control characters (0-31), ':', or DEL (127).
+*DESCRIPTION (Описание):*:: Имя пользователя, которое будет использоваться клиентом для аутентификации по удаленному URL. Не может включать управляющие символы (0-31), ':', или DEL (127).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -191,14 +191,14 @@ http, json, lookup, rest, xml
 .Rest-Lookup-Basic-Auth-Password
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Basic Authentication Password
+*DISPLAY NAME (Отображаемое наименование):*:: Basic Authentication Password (Базовый пароль аутентификации)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The password to be used by the client to authenticate against the Remote URL.
+*DESCRIPTION (Описание):*:: Пароль, который клиент будет использовать для аутентификации по удаленному URL.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -208,14 +208,14 @@ http, json, lookup, rest, xml
 .Rest-Lookup-Digest-Auth
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Use Digest Authentication
+*DISPLAY NAME (Отображаемое наименование):*:: Use Digest Authentication (Использовать аутентификацию Digest)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Whether to communicate with the website using Digest Authentication. 'Basic Authentication Username' and 'Basic Authentication Password' are used for authentication.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -233,14 +233,14 @@ http, json, lookup, rest, xml
 .*Rest-Lookup-Connection-Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Connection Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Connection Timeout (Время ожидания подключения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Max wait time for connection to remote service.
+*DESCRIPTION (Описание):*:: Максимальное время ожидания для установления соединения с удаленным сервисом.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -250,14 +250,14 @@ http, json, lookup, rest, xml
 .*Rest-Lookup-Read-Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Read Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Read Timeout (Время ожидания ответа от удаленного сервиса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Max wait time for response from remote service.
+*DESCRIPTION (Описание):*:: Максимальное время ожидания ответа от удаленного сервиса.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -273,7 +273,7 @@ http, json, lookup, rest, xml
 |Наименование |Описание |Значение |Ограничения языка выражений
 
 |`*`
-|All dynamic properties are added as HTTP headers with the name as the header name and the value as the header value.
+|Все динамические свойства добавляются как HTTP заголовки с именем в качестве имени заголовка и значением в качестве значения заголовка.
 |`*`
 |
 
@@ -290,6 +290,17 @@ http, json, lookup, rest, xml
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

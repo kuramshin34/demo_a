@@ -1,13 +1,13 @@
 = PutSplunkHTTP 2.2.0
 
-Sends flow file content to the specified Splunk server over HTTP or HTTPS. Supports HEC Index Acknowledgement.
+Отправляет содержимое flow file на указанный сервер Splunk по протоколу HTTP или HTTPS. Поддерживает подтверждение индекса HEC.
 
 [horizontal]
 *Tags* (Ключевые слова):
 http, logs, splunk
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Scheme*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Scheme
+*DISPLAY NAME (Отображаемое наименование):*:: Scheme (Схема)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The scheme for connecting to Splunk.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -45,14 +45,14 @@ REQUIRED (Обязательно)
 .*Hostname*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hostname
+*DISPLAY NAME (Отображаемое наименование):*:: Hostname (Хост)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The ip address or hostname of the Splunk server.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -62,14 +62,14 @@ REQUIRED (Обязательно)
 .*Port*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: HTTP Event Collector Port
+*DISPLAY NAME (Отображаемое наименование):*:: HTTP Event Collector Port (HTTP Event Collector Порт)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The HTTP Event Collector HTTP Port Number.
+*DESCRIPTION (Описание):*:: The HTTP Event Collector HTTP Port Number. (Номер порта HTTP для коллектора событий HTTP)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -79,27 +79,27 @@ REQUIRED (Обязательно)
 .Security Protocol
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Security Protocol
+*DISPLAY NAME (Отображаемое наименование):*:: Security Protocol (Безопасный протокол)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The security protocol to use for communicating with Splunk.
+*DESCRIPTION (Описание):*:: Протокол безопасности для обмена информацией с Splunk.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* TLSv1_2
+* TLSv1_2 (TLS версии 1.2)
 
-* TLSv1_1
+* TLSv1_1 (TLS версии 1.1)
 
-* TLSv1
+* TLSv1 (TLS версии 1)
 
-* SSLv3
+* SSLv3 (SSL версия 3)
 
 
 [horizontal]
@@ -108,14 +108,14 @@ REQUIRED (Обязательно)
 .Owner
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Owner
+*DISPLAY NAME (Отображаемое наименование):*:: Owner (Владелец)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The owner to pass to Splunk.
+*DESCRIPTION (Описание):*:: Владелец, которого нужно передать Splunk.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -125,14 +125,14 @@ REQUIRED (Обязательно)
 .Token
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: HTTP Event Collector Token
+*DISPLAY NAME (Отображаемое наименование):*:: HTTP Event Collector Token (HTTP Event Collector Токен)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: HTTP Event Collector token starting with the string Splunk. For example 'Splunk 1234578-abcd-1234-abcd-1234abcd'
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -142,14 +142,14 @@ REQUIRED (Обязательно)
 .Username
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Username
+*DISPLAY NAME (Отображаемое наименование):*:: Username (Имя пользователя)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The username to authenticate to Splunk.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -159,14 +159,14 @@ REQUIRED (Обязательно)
 .Password
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Password
+*DISPLAY NAME (Отображаемое наименование):*:: Password (Пароль)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The password to authenticate to Splunk.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -176,14 +176,14 @@ REQUIRED (Обязательно)
 .*Request-Channel*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Splunk Request Channel
+*DISPLAY NAME (Отображаемое наименование):*:: Splunk Request Channel (Запросный канал)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Identifier of the used request channel.
+*DESCRIPTION (Описание):*:: Идентификатор используемого запросного канала.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -193,14 +193,14 @@ REQUIRED (Обязательно)
 .Source
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Source
+*DISPLAY NAME (Отображаемое наименование):*:: Source (Источник)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: User-defined event source. Sets a default for all events when unspecified.
+*DESCRIPTION (Описание):*:: Пользовательское событие источника. Устанавливает значение по умолчанию для всех событий, если оно не указано.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -210,14 +210,14 @@ REQUIRED (Обязательно)
 .Source-Type
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Source Type
+*DISPLAY NAME (Отображаемое наименование):*:: Source Type (Тип источника)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: User-defined event sourcetype. Sets a default for all events when unspecified.
+*DESCRIPTION (Описание):*:: Пользовательский тип источника событий. Устанавливает значение по умолчанию для всех событий, если не указан.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -227,14 +227,14 @@ REQUIRED (Обязательно)
 .Host
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Host
+*DISPLAY NAME (Отображаемое наименование):*:: Host (Хост)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specify with the host query string parameter. Sets a default for all events when unspecified.
+*DESCRIPTION (Описание):*:: Укажите с помощью строки запроса параметра host. Устанавливает значение по умолчанию для всех событий, если не указано иначе.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -244,14 +244,14 @@ REQUIRED (Обязательно)
 .Index
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Index
+*DISPLAY NAME (Отображаемое наименование):*:: Index (Индекс)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Index name. Specify with the index query string parameter. Sets a default for all events when unspecified.
+*DESCRIPTION (Описание):*:: Имя индекса. Укажите с помощью параметра строки запроса index. При отсутствии указания устанавливает значение по умолчанию для всех событий.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -261,14 +261,14 @@ REQUIRED (Обязательно)
 .Content-Type
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Content Type
+*DISPLAY NAME (Отображаемое наименование):*:: Content Type (Тип содержимого)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The media type of the event sent to Splunk. If not set, "mime.type" flow file attribute will be used. In case of neither of them is specified, this information will not be sent to the server.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -278,14 +278,14 @@ REQUIRED (Обязательно)
 .*Character-Set*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Множество символов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the character set.
+*DESCRIPTION (Описание):*:: Название множества символов.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -306,7 +306,7 @@ REQUIRED (Обязательно)
 
 
 |MEMORY
-|An instance of this component can cause high usage of this system resource.  Multiple instances or high concurrency settings may result a degradation of performance.
+|Экземпляр этого компонента может вызвать высокое использование системного ресурса. Множественные экземпляры или высокие настройки конкоррентности могут привести к снижению производительности.
 
 |===
 
@@ -321,10 +321,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|FlowFiles that are sent successfully to the destination are sent to this relationship.
+|FlowFiles, успешно отправленные в пункт назначения, передаются по этому отношению.
 
 |`failure`
-|FlowFiles that failed to send to the destination are sent to this relationship.
+|FlowFiles, которые не удалось отправить в пункт назначения, передаются по этому отношению.
 
 |===
 
@@ -337,7 +337,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`mime.type`
-|Uses as value for HTTP Content-Type header if set.
+|Используется в качестве значения для заголовка HTTP Content-Type, если установлено.
 
 |===
 
@@ -350,10 +350,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`splunk.acknowledgement.id`
-|The indexing acknowledgement id provided by Splunk.
+|Идентификатор подтверждения индекса, предоставленный Splunk.
 
 |`splunk.responded.at`
-|The time of the response of put request for Splunk.
+|Время ответа put-запроса для Splunk.
 
 |===
 

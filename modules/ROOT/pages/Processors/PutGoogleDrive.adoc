@@ -1,13 +1,13 @@
 = PutGoogleDrive 2.2.0
 
-Writes the contents of a FlowFile as a file in Google Drive.
+Записывает содержимое FlowFile в виде файла в Google Drive.
 
 [horizontal]
 *Tags* (Ключевые слова):
 drive, google, put, storage
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Gcp-Credentials-Provider-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service
+*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service (...)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Controller Service used to obtain Google Cloud Platform credentials.
+*DESCRIPTION (Описание):*:: Сервис контроллера, используемый для получения учетных данных Google Cloud Platform.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Folder-Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Folder ID
+*DISPLAY NAME (Отображаемое наименование):*:: Folder ID (Идентификатор папки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The ID of the shared folder. Please see Additional Details to set up access to Google Drive and obtain Folder ID.
+*DESCRIPTION (Описание):*:: Идентификатор общей папки. Пожалуйста, обратитесь к дополнительным сведениям для настройки доступа к Google Drive и получения идентификатора папки.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*File-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Filename
+*DISPLAY NAME (Отображаемое наименование):*:: Filename (Имя файла)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the file to upload to the specified Google Drive folder.
+*DESCRIPTION (Описание):*:: Имя файла для загрузки в указанную папку Google Drive.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,25 +71,25 @@ REQUIRED (Обязательно)
 .*Conflict-Resolution-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Conflict Resolution Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Conflict Resolution Strategy (Стратегия разрешения конфликтов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates what should happen when a file with the same name already exists in the specified Google Drive folder.
+*DESCRIPTION (Описание):*:: Указывает, что должно произойти, если файл с тем же именем уже существует в указанной папке Google Drive.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* fail: Handle file conflict as failure. 
+* fail: Обработать конфликт как неудачу. 
 
-* ignore: Ignore conflict, do not change the original file. 
+* ignore: Игнорировать конфликт, не изменять исходный файл. 
 
-* replace: Replace existing file in case of conflict. 
+* replace: Заменить существующий файл в случае конфликта. 
 
 
 [horizontal]
@@ -98,14 +98,14 @@ REQUIRED (Обязательно)
 .Chunked-Upload-Threshold
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Chunked Upload Threshold
+*DISPLAY NAME (Отображаемое наименование):*:: Chunked Upload Threshold (Максимальный размер содержимого, которое загружается за один раз)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum size of the content which is uploaded at once. FlowFiles larger than this threshold are uploaded in chunks.
+*DESCRIPTION (Описание):*:: Максимальный размер содержимого, которое загружается за один раз. Если FlowFiles превышают этот порог, они загружаются частями.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -115,14 +115,14 @@ REQUIRED (Обязательно)
 .Chunked-Upload-Size
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Chunked Upload Size
+*DISPLAY NAME (Отображаемое наименование):*:: Chunked Upload Size (Размер чанка)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Defines the size of a chunk. Used when a FlowFile's size exceeds 'Chunked Upload Threshold' and content is uploaded in smaller chunks. Minimum allowed chunk size is 256 KB, maximum allowed chunk size is 1 GB.
+*DESCRIPTION (Описание):*:: Определяет размер чанка. Используется, когда размер FlowFile превышает 'Chunked Upload Threshold' и содержимое загружается в меньших частях. Минимальный допустимый размер чанка — 256 КБ, максимальный — 1 ГБ.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -132,14 +132,14 @@ REQUIRED (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: HTTP + AuthN
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -163,10 +163,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Files that have been successfully written to Google Drive are transferred to this relationship.
+|Файлы, успешно записанные в Google Drive, передаются по этому отношению.
 
 |`failure`
-|Files that could not be written to Google Drive for some reason are transferred to this relationship.
+|Файлы, которые по какой-либо причине не удалось записать в Google Drive, передаются по этому отношению.
 
 |===
 
@@ -179,7 +179,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`filename`
-|Uses the FlowFile's filename as the filename for the Google Drive object.
+|Использует имя файла FlowFile в качестве имени файла для объекта Google Drive.
 
 |===
 
@@ -192,25 +192,25 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`drive.id`
-|The id of the file
+|Идентификатор файла
 
 |`filename`
-|The name of the file
+|Имя файла
 
 |`mime.type`
-|The MIME type of the file
+|MIME-тип файла
 
 |`drive.size`
-|The size of the file
+|Размер файла
 
 |`drive.timestamp`
-|The last modified time or created time (whichever is greater) of the file. The reason for this is that the original modified date of a file is preserved when uploaded to Google Drive. 'Created time' takes the time when the upload occurs. However uploaded files can still be modified later.
+|Время последнего изменения или создания (в зависимости от того, что больше). Причина в том, что оригинальная дата изменения файла сохраняется при загрузке в Google Drive. 'Created time' берет время при загрузке. Однако загруженные файлы могут быть изменены позже.
 
 |`error.code`
-|The error code returned by Google Drive
+|Код ошибки, возвращенный Google Drive
 
 |`error.message`
-|The error message returned by Google Drive
+|Сообщение об ошибке, возвращенное Google Drive
 
 |===
 

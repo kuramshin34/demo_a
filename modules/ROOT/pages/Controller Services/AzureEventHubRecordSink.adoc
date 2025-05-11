@@ -1,13 +1,13 @@
 = AzureEventHubRecordSink 2.2.0
 
-Format and send Records to Azure Event Hubs
+Формат и отправка записей в Azure Event Hubs
 
 [horizontal]
 *Tags* (Ключевые слова):
 azure, record, sink
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,27 +20,27 @@ azure, record, sink
 .*Service Bus Endpoint*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Service Bus Endpoint
+*DISPLAY NAME (Отображаемое наименование):*:: Service Bus Endpoint (Конечная точка службы)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Provides the domain for connecting to Azure Event Hubs
+*DESCRIPTION (Описание):*:: Предоставляет домен для подключения к Azure Event Hubs
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Azure: Default Service Bus Endpoint 
+* Azure (Azure): По умолчанию конечная точка Service Bus 
 
-* Azure China: China Service Bus Endpoint 
+* Azure China (Китайский Azure): Конечная точка Service Bus в Китае 
 
-* Azure Germany: Germany Service Bus Endpoint 
+* Azure Germany (Немецкий Azure): Конечная точка Service Bus в Германии 
 
-* Azure US Government: United States Government Endpoint 
+* Azure US Government (Государственный сектор США): Конечная точка Service Bus для государственного сектора США 
 
 
 [horizontal]
@@ -49,14 +49,14 @@ azure, record, sink
 .*Event Hub Namespace*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Event Hub Namespace
+*DISPLAY NAME (Отображаемое наименование):*:: Event Hub Namespace (Пространство имен для событий)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Provides provides the host for connecting to Azure Event Hubs
+*DESCRIPTION (Описание):*:: Предоставляет хост для подключения к Azure Event Hubs
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -66,14 +66,14 @@ azure, record, sink
 .*Event Hub Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Event Hub Name
+*DISPLAY NAME (Отображаемое наименование):*:: Event Hub Name (Имя Event Hub)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Provides the Event Hub Name for connections
+*DESCRIPTION (Описание):*:: Предоставляет имя Event Hub для подключений
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -83,23 +83,23 @@ azure, record, sink
 .*Transport Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Transport Type
+*DISPLAY NAME (Отображаемое наименование):*:: Transport Type (Тип транспорта)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Advanced Message Queuing Protocol Transport Type for communication with Azure Event Hubs
+*DESCRIPTION (Описание):*:: Advanced Message Queuing Protocol Transport Type for communication with Azure Event Hubs (Тип транспорта для обмена сообщениями с Azure Event Hubs)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* AMQP: AMQP over TCP on ports 5671 and 5672 
+* AMQP (АМКП): AMQP over TCP on ports 5671 and 5672 (АМКП через TCP на портах 5671 и 5672) 
 
-* AMQP_WEB_SOCKETS: AMQP over HTTPS with WebSockets on port 443 
+* AMQP_WEB_SOCKETS (АМКП по вебсокетам): AMQP over HTTPS with WebSockets on port 443 (АМКП через HTTPS с использованием вебсокетов на порту 443) 
 
 
 [horizontal]
@@ -108,14 +108,14 @@ azure, record, sink
 .*Record-Sink-Record-Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records.
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для использования при записи записей.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -125,23 +125,23 @@ azure, record, sink
 .*Authentication Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Authentication Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Authentication Strategy (Стратегия аутентификации)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Strategy for authenticating to Azure Event Hubs
+*DESCRIPTION (Описание):*:: Strategy for authenticating to Azure Event Hubs (Стратегия для аутентификации в Azure Event Hubs)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Shared Access Key: Azure Event Hub shared access key 
+* Shared Access Key (Общий доступный ключ): Azure Event Hub shared access key (Общий доступный ключ для Azure Event Hub) 
 
-* Default Azure Credential: The Default Azure Credential will read credentials from standard environment variables and will also attempt to read Managed Identity credentials when running in Microsoft Azure environments 
+* Default Azure Credential (По умолчанию учетные данные Azure): The Default Azure Credential will read credentials from standard environment variables and will also attempt to read Managed Identity credentials when running in Microsoft Azure environments (По умолчанию учетные данные Azure будут читать учетные данные из стандартных переменных среды и также попытаются прочитать учетные данные управляемого удостоверения при выполнении в средах Microsoft Azure) 
 
 
 [horizontal]
@@ -150,14 +150,14 @@ azure, record, sink
 .Shared Access Policy
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Shared Access Policy
+*DISPLAY NAME (Отображаемое наименование):*:: Shared Access Policy (Политика общего доступа)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the shared access policy. This policy must have Send claims
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -167,14 +167,14 @@ azure, record, sink
 .Shared Access Policy Key
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Shared Access Policy Key
+*DISPLAY NAME (Отображаемое наименование):*:: Shared Access Policy Key (Ключ политики общего доступа)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The primary or secondary key of the shared access policy
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -184,14 +184,14 @@ azure, record, sink
 .Partition Key
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Partition Key
+*DISPLAY NAME (Отображаемое наименование):*:: Partition Key (Раздельный ключ)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A hint for Azure Event Hub message broker how to distribute messages across one or more partitions
+*DESCRIPTION (Описание):*:: Подсказка для брокера сообщений Azure Event Hub, как распределять сообщения по одному или нескольким разделам
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -211,6 +211,17 @@ azure, record, sink
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

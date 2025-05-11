@@ -1,13 +1,13 @@
 = ExcelReader 2.2.0
 
-Parses a Microsoft Excel document returning each row in each sheet as a separate record. This reader allows for inferring a schema from all the required sheets or providing an explicit schema for interpreting the values.See Controller Service's Usage for further documentation. This reader is currently only capable of processing .xlsx (XSSF 2007 OOXML file format) Excel documents and not older .xls (HSSF '97(-2007) file format) documents.
+Парсит Microsoft Excel документ, возвращая каждую строку из каждого листа в отдельную запись. Этот читатель позволяет выводить схему на основе всех необходимых листов или предоставлять явную схему для интерпретации значений. См. документацию по Controller Service для дальнейших сведений. Этот читатель в настоящее время способен обрабатывать только документы Microsoft Excel .xlsx (формат файла OOXML XSSF 2007) и не старые документы .xls (формат файла HSSF '97(-2007)).
 
 [horizontal]
 *Tags* (Ключевые слова):
 cell, excel, parse, reader, record, row, spreadsheet, values, xlsx
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,29 +20,29 @@ cell, excel, parse, reader, record, row, spreadsheet, values, xlsx
 .*Schema-Access-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy (Стратегия доступа к схеме)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how to obtain the schema that is to be used for interpreting the data.
+*DESCRIPTION (Описание):*:: Определяет, как получить схему для интерпретации данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Use 'Schema Name' Property: The name of the Schema to use is specified by the 'Schema Name' Property. The value of this property is used to lookup the Schema in the configured Schema Registry service. 
+* Использовать свойство 'Имя схемы': Имя схемы, которое указывается свойством 'Имя схемы'. Значение этого свойства используется для поиска схемы в настроенной службе реестра схем. 
 
-* Use 'Schema Text' Property: The text of the Schema itself is specified by the 'Schema Text' Property. The value of this property must be a valid Avro Schema. If Expression Language is used, the value of the 'Schema Text' property must be valid after substituting the expressions. 
+* Использовать свойство 'Текст схемы': Сам текст схемы указывается свойством 'Текст схемы'. Значение этого свойства должно быть допустимой Avro-схемой. Если используется Expression Language, значение свойства 'Текст схемы' должно быть действительным после подстановки выражений. 
 
-* Schema Reference Reader: The schema reference information will be provided through a configured Schema Reference Reader service implementation. 
+* Читатель ссылки на схему: Информация о ссылке на схему будет предоставлена через реализованную конфигурируемую службу читателя ссылок на схему. 
 
-* Use Starting Row: The configured first row of the Excel file is a header line that contains the names of the columns. The schema will be derived by using the column names in the header and the following 10 rows to determine the type(s) of each column 
+* Использовать начальную строку: Настроенная первая строка Excel-файла является заголовочной линией, содержащей названия столбцов. Схема будет получена с использованием имен столбцов в заголовке и следующих 10 строк для определения типа(ов) каждого столбца. 
 
-* Infer Schema: The Schema of the data will be inferred automatically when the data is read. See component Usage and Additional Details for information about how the schema is inferred. 
+* Вывести схему: Схема данных будет автоматически выведена при чтении данных. См. раздел 'Использование и дополнительные детали' для получения информации о том, как выводится схема. 
 
 
 [horizontal]
@@ -51,14 +51,14 @@ cell, excel, parse, reader, record, row, spreadsheet, values, xlsx
 .Schema-Registry
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry (Реестър на схеми)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for the Schema Registry
+*DESCRIPTION (Описание):*:: Определя контролера за услуга, който да се използва за реестра на схемите
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -68,14 +68,14 @@ cell, excel, parse, reader, record, row, spreadsheet, values, xlsx
 .Schema-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Name
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Name (Схема имени)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the name of the schema to lookup in the Schema Registry property
+*DESCRIPTION (Описание):*:: Указывает имя схемы для поиска в свойстве Реестра схем
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -85,14 +85,14 @@ cell, excel, parse, reader, record, row, spreadsheet, values, xlsx
 .Schema-Version
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Version
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Version (Схема версии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the version of the schema to lookup in the Schema Registry. If not specified then the latest version of the schema will be retrieved.
+*DESCRIPTION (Описание):*:: Указывает версию схемы для поиска в Реестре схем. Если не указано, будет получена последняя версия схемы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -102,14 +102,14 @@ cell, excel, parse, reader, record, row, spreadsheet, values, xlsx
 .Schema-Branch
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Branch
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Branch (Схема ветки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the name of the branch to use when looking up the schema in the Schema Registry property. If the chosen Schema Registry does not support branching, this value will be ignored.
+*DESCRIPTION (Описание):*:: Указывает имя ветки, которую следует использовать при поиске схемы в свойстве Схемарегистр. Если выбранная Схемарегистр не поддерживает ветвление, это значение будет проигнорировано.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -119,14 +119,14 @@ cell, excel, parse, reader, record, row, spreadsheet, values, xlsx
 .Schema-Text
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Text
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Text (Схема текста)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The text of an Avro-formatted Schema
+*DESCRIPTION (Описание):*:: Текст Avro-формамата схемы
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -136,14 +136,14 @@ cell, excel, parse, reader, record, row, spreadsheet, values, xlsx
 .*Schema-Reference-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Reader (Ссылочный читатель схемы)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Service implementation responsible for reading FlowFile attributes or content to determine the Schema Reference Identifier
+*DESCRIPTION (Описание):*:: Сервис реализации, отвечающий за чтение атрибутов или содержимого FlowFile для определения идентификатора ссылки на схему
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -153,14 +153,14 @@ cell, excel, parse, reader, record, row, spreadsheet, values, xlsx
 .*Starting Row*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Starting Row
+*DISPLAY NAME (Отображаемое наименование):*:: Starting Row (Начальная строка)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The row number of the first row to start processing (One based). Use this to skip over rows of data at the top of a worksheet that are not part of the dataset. When using the 'Use Starting Row' strategy this should be the column header row.
+*DESCRIPTION (Описание):*:: Номер строки, с которой начинается обработка (одна начальная). Используйте это для пропуска строк данных вверху листа, которые не являются частью набора данных. При использовании стратегии 'Use Starting Row' это должна быть строка с заголовком столбца.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -170,14 +170,14 @@ cell, excel, parse, reader, record, row, spreadsheet, values, xlsx
 .Required Sheets
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Required Sheets
+*DISPLAY NAME (Отображаемое наименование):*:: Required Sheets (Необходимые листы)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Comma-separated list of Excel document sheet names whose rows should be extracted from the excel document. If this property is left blank then all the rows from all the sheets will be extracted from the Excel document. The list of names is case sensitive. Any sheets not specified in this value will be ignored. An exception will be thrown if a specified sheet(s) are not found.
+*DESCRIPTION (Описание):*:: Список имен Excel документов, строки которых должны быть извлечены из электронного документа. Если это свойство оставить пустым, то будут извлечены все строки со всех листов. Список имен чувствителен к регистру. Любые указанные в этом значении листы, не найденные, будут проигнорированы. Исключение будет выброшено, если указанный(е) лист(ы) не будут найдены.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -187,23 +187,23 @@ cell, excel, parse, reader, record, row, spreadsheet, values, xlsx
 .*Protection Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Protection Type
+*DISPLAY NAME (Отображаемое наименование):*:: Protection Type (Тип защиты)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether an Excel spreadsheet is protected by a password or not.
+*DESCRIPTION (Описание):*:: Указывает, защищена ли электронная таблица паролем или нет.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Unprotected: An Excel spreadsheet not protected by a password 
+* Unprotected (Незащищенный): Электронная таблица, не защищенная паролем 
 
-* Password Protected: An Excel spreadsheet protected by a password 
+* Password Protected (Защищенный паролем): Электронная таблица, защищенная паролем 
 
 
 [horizontal]
@@ -212,14 +212,14 @@ cell, excel, parse, reader, record, row, spreadsheet, values, xlsx
 .*Password*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Password
+*DISPLAY NAME (Отображаемое наименование):*:: Password (Пароль)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The password for a password protected Excel spreadsheet
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -229,14 +229,14 @@ cell, excel, parse, reader, record, row, spreadsheet, values, xlsx
 .Date Format
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Date Format
+*DISPLAY NAME (Отображаемое наименование):*:: Date Format (Формат даты)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the format to use when reading/writing Date fields. If not specified, Date fields will be assumed to be number of milliseconds since epoch (Midnight, Jan 1, 1970 GMT). If specified, the value must match the Java java.time.format.DateTimeFormatter format (for example, MM/dd/yyyy for a two-digit month, followed by a two-digit day, followed by a four-digit year, all separated by '/' characters, as in 01/01/2017).
+*DESCRIPTION (Описание):*:: Указывает формат, который следует использовать при чтении или записи полей Date. Если не указан, поля Date будут считаться количеством миллисекунд от начала эпохи (полночь, 1 января 1970 г., GMT). Если указано, значение должно соответствовать формату Java java.time.format.DateTimeFormatter (например, MM/dd/yyyy для двузначного месяца, затем двузначного дня и четырехзначного года, все разделенные символами '/' как в 01/01/2017).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -246,14 +246,14 @@ cell, excel, parse, reader, record, row, spreadsheet, values, xlsx
 .Time Format
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Time Format
+*DISPLAY NAME (Отображаемое наименование):*:: Time Format (Формат времени)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the format to use when reading/writing Time fields. If not specified, Time fields will be assumed to be number of milliseconds since epoch (Midnight, Jan 1, 1970 GMT). If specified, the value must match the Java java.time.format.DateTimeFormatter format (for example, HH:mm:ss for a two-digit hour in 24-hour format, followed by a two-digit minute, followed by a two-digit second, all separated by ':' characters, as in 18:04:15).
+*DESCRIPTION (Описание):*:: Указывает формат, который следует использовать при чтении/записи полей Time. Если не указано, поля Time будут считаться количеством миллисекунд с эпохи (Полночь, 1 января 1970 г., GMT). Если указано, значение должно соответствовать формату Java java.time.format.DateTimeFormatter (например, HH:mm:ss для двузначного часа в 24-часовом формате, за которым следуют двузначная минута и двузначная секунда, все разделённые символами ':' как в 18:04:15).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -263,14 +263,14 @@ cell, excel, parse, reader, record, row, spreadsheet, values, xlsx
 .Timestamp Format
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Timestamp Format
+*DISPLAY NAME (Отображаемое наименование):*:: Формат Timestamp (Timestamp Format)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the format to use when reading/writing Timestamp fields. If not specified, Timestamp fields will be assumed to be number of milliseconds since epoch (Midnight, Jan 1, 1970 GMT). If specified, the value must match the Java java.time.format.DateTimeFormatter format (for example, MM/dd/yyyy HH:mm:ss for a two-digit month, followed by a two-digit day, followed by a four-digit year, all separated by '/' characters; and then followed by a two-digit hour in 24-hour format, followed by a two-digit minute, followed by a two-digit second, all separated by ':' characters, as in 01/01/2017 18:04:15).
+*DESCRIPTION (Описание):*:: Указывает формат, который следует использовать при чтении или записи полей Timestamp. Если не указан, поля Timestamp будут считаться количеством миллисекунд с начала эпохи (Полночь 1 января 1970 г., GMT). Если указано, значение должно соответствовать формату Java java.time.format.DateTimeFormatter (например, MM/dd/yyyy HH:mm:ss для двузначного месяца, затем двузначного дня, затем четырехзначного года, все разделенные '/' символами; а затем следует двузначный час в 24-часовом формате, за которым следуют двузначные минуты и секунды, все разделенные ':' символами, как в 01/01/2017 18:04:15).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -290,6 +290,17 @@ cell, excel, parse, reader, record, row, spreadsheet, values, xlsx
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

@@ -1,13 +1,13 @@
 = LogAttribute 2.2.0
 
-Emits attributes of the FlowFile at the specified log level
+Излучает атрибуты FlowFile в указанном уровне журнала
 
 [horizontal]
 *Tags* (Ключевые слова):
 attributes, logging
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Log Level*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Log Level
+*DISPLAY NAME (Отображаемое наименование):*:: Log Level (Уровень логирования)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Log Level to use when logging the Attributes
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -51,14 +51,14 @@ REQUIRED (Обязательно)
 .*Log Payload*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Log Payload
+*DISPLAY NAME (Отображаемое наименование):*:: Log Payload (Лог-нагрузка)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true, the FlowFile's payload will be logged, in addition to its attributes; otherwise, just the Attributes will be logged.
+*DESCRIPTION (Описание):*:: Если true, то нагрузка FlowFile будет записана в журнал, кроме её атрибутов; в противном случае, будут записаны только атрибуты.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -76,14 +76,14 @@ REQUIRED (Обязательно)
 .Attributes To Log
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Attributes to Log
+*DISPLAY NAME (Отображаемое наименование):*:: Attributes to Log (Атрибуты для логирования)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A comma-separated list of Attributes to Log. If not specified, all attributes will be logged unless `Attributes to Log by Regular Expression` is modified. There's an AND relationship between the two properties.
+*DESCRIPTION (Описание):*:: Список атрибутов, разделенных запятыми, которые будут записаны в журнал. Если не указан, будут записаны все атрибуты, если только не изменена настройка `Attributes to Log by Regular Expression`.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -93,14 +93,14 @@ REQUIRED (Обязательно)
 .Attributes-To-Log-Regex
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Attributes to Log by Regular Expression
+*DISPLAY NAME (Отображаемое наименование):*:: Attributes to Log by Regular Expression (Атрибуты для логирования по регулярному выражению)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A regular expression indicating the Attributes to Log. If not specified, all attributes will be logged unless `Attributes to Log` is modified. There's an AND relationship between the two properties.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -110,14 +110,14 @@ REQUIRED (Обязательно)
 .Attributes To Ignore
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Attributes to Ignore
+*DISPLAY NAME (Отображаемое наименование):*:: Attributes to Ignore (Атрибуты для игнорирования)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A comma-separated list of Attributes to ignore. If not specified, no attributes will be ignored unless `Attributes to Ignore by Regular Expression` is modified. There's an OR relationship between the two properties.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -127,14 +127,14 @@ REQUIRED (Обязательно)
 .Attributes-To-Ignore-Regex
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Attributes to Ignore by Regular Expression
+*DISPLAY NAME (Отображаемое наименование):*:: Attributes to Ignore by Regular Expression (Атрибуты для игнорирования по регулярному выражению)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A regular expression indicating the Attributes to Ignore. If not specified, no attributes will be ignored unless `Attributes to Ignore` is modified. There's an OR relationship between the two properties.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -144,14 +144,14 @@ REQUIRED (Обязательно)
 .*Log Flowfile Properties*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Log FlowFile Properties
+*DISPLAY NAME (Отображаемое наименование):*:: Log FlowFile Properties (Записывать свойства FlowFile)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether or not to log FlowFile "properties", such as Entry Date, Lineage Start Date, and content size
+*DESCRIPTION (Описание):*:: Указывает, следует ли вести журнал свойств FlowFile, таких как Дата входа, Дата начала Линейности и размер содержимого
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -169,23 +169,23 @@ REQUIRED (Обязательно)
 .*Output Format*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Output Format
+*DISPLAY NAME (Отображаемое наименование):*:: Формат вывода (Output Format)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the format to use for logging FlowFile attributes
+*DESCRIPTION (Описание):*:: Указывает формат для ведения журнала атрибутов FlowFile. Этот параметр позволяет пользователю определить, как будут отображаться атрибуты в логах.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Line per Attribute: Each FlowFile attribute will be logged using a single line for the attribute name and another line for the attribute value. This format is often most advantageous when looking at the attributes of a single FlowFile. 
+* По строке на атрибут (Line per Attribute): Каждый атрибут FlowFile будет записан в отдельной строке для имени атрибута и другой строки для значения атрибута. Этот формат часто наиболее выгоден при просмотре атрибутов одного FlowFile. 
 
-* Single Line: All FlowFile attribute names and values will be logged on a single line. This format is often most advantageous when comparing logs from multiple FlowFiles. 
+* Одна строка (Single Line): Все имена и значения атрибутов FlowFile будут записаны в одну строку. Этот формат наиболее выгоден при сравнении логов из нескольких FlowFiles. 
 
 
 [horizontal]
@@ -194,14 +194,14 @@ REQUIRED (Обязательно)
 .Log Prefix
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Log prefix
+*DISPLAY NAME (Отображаемое наименование):*:: Log prefix (Префикс журнала)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Log prefix appended to the log lines. It helps to distinguish the output of multiple LogAttribute processors.
+*DESCRIPTION (Описание):*:: Префикс, добавляемый к строкам журнала. Он помогает отличать вывод нескольких LogAttribute процессоров.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -211,14 +211,14 @@ REQUIRED (Обязательно)
 .*Character-Set*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Множество символов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the CharacterSet to use
+*DESCRIPTION (Описание):*:: Название множества символов для использования
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -242,13 +242,24 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|All FlowFiles are routed to this relationship
+|Все FlowFiles направляются в это отношение
 
 |===
 
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

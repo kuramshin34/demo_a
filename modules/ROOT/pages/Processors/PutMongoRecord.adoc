@@ -1,13 +1,13 @@
 = PutMongoRecord 2.2.0
 
-This processor is a record-aware processor for inserting/upserting data into MongoDB. It uses a configured record reader and schema to read an incoming record set from the body of a flowfile and then inserts/upserts batches of those records into a configured MongoDB collection. This processor does not support deletes. The number of documents to insert/upsert at a time is controlled by the "Batch Size" configuration property. This value should be set to a reasonable size to ensure that MongoDB is not overloaded with too many operations at once.
+Этот процессор является записывающим процессором для вставки/обновления данных в MongoDB. Он использует настроенного читателя записей и схему для чтения входящего набора записей из тела потока и затем вставляет/обновляет пакеты этих записей в настроенную коллекцию MongoDB. Этот процессор не поддерживает удаления. Количество документов, которые будут вставляться/обновляться за один раз, контролируется конфигурационным свойством "Batch Size". Это значение должно быть установлено в разумный размер, чтобы обеспечить, что MongoDB не перегружается слишком многими операциями одновременно.
 
 [horizontal]
 *Tags* (Ключевые слова):
 insert, mongodb, put, record, update, upsert
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .Mongo-Client-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Client Service
+*DISPLAY NAME (Отображаемое наименование):*:: Client Service (Клиент Сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If configured, this property will use the assigned client service for connection pooling.
+*DESCRIPTION (Описание):*:: Если настроено, это свойство будет использовать назначенный клиентский сервис для пула соединений.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Mongo Database Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Mongo Database Name
+*DISPLAY NAME (Отображаемое наименование):*:: Mongo Database Name (Имя базы данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the database to use
+*DESCRIPTION (Описание):*:: Имя базы данных, которую следует использовать
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Mongo Collection Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Mongo Collection Name
+*DISPLAY NAME (Отображаемое наименование):*:: Mongo Collection Name (Имя коллекции)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the collection to use
+*DESCRIPTION (Описание):*:: Имя коллекции для использования
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .*Record-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Чтец записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for parsing incoming data and determining the data's schema
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера для использования при разборе входящих данных и определении схемы данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ REQUIRED (Обязательно)
 .*Insert_Count*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Batch Size
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Size (Размер партии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The number of records to group together for one single insert/upsert operation against MongoDB.
+*DESCRIPTION (Описание):*:: Количество записей, которые следует сгруппировать вместе для одной операции вставки/обновления в MongoDB.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,23 +105,23 @@ REQUIRED (Обязательно)
 .*Ordered*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Ordered
+*DISPLAY NAME (Отображаемое наименование):*:: Ordered (Выполнять упорядоченные или неупорядоченные операции)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Perform ordered or unordered operations
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* True
+* True (Истина)
 
-* False
+* False (Ложь)
 
 
 [horizontal]
@@ -130,17 +130,17 @@ REQUIRED (Обязательно)
 .*Bypass-Validation*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Bypass Validation
+*DISPLAY NAME (Отображаемое наименование):*:: Bypass Validation (Обход проверки схемы документов)
 
 [horizontal]
-*DESCRIPTION (Описание):*::         Enable or disable bypassing document schema validation during insert or update operations.
-        Bypassing document validation is a Privilege Action in MongoDB.
-        Enabling this property can result in authorization errors for users with limited privileges.
+*DESCRIPTION (Описание):*::         Включает или отключает обход проверки схемы документа во время операций вставки или обновления.
+        Обход проверки документов является привилегированным действием в MongoDB.
+        Включение этого свойства может привести к ошибкам авторизации для пользователей с ограниченными правами доступа.
 
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -158,14 +158,14 @@ REQUIRED (Обязательно)
 .Update-Key-Fields
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Update Key Fields
+*DISPLAY NAME (Отображаемое наименование):*:: Update Key Fields (Обновление полей ключей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Comma separated list of fields based on which to identify documents that need to be updated. If this property is set NiFi will attempt an upsert operation on all documents. If this property is not set all documents will be inserted.
+*DESCRIPTION (Описание):*:: Список, разделенный запятыми, полей на основе которых идентифицируются документы, которые необходимо обновить. Если это свойство установлено, NiFi попытается выполнить операцию upsert для всех документов. Если это свойство не задано, будут вставлены все документы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -175,25 +175,25 @@ REQUIRED (Обязательно)
 .Update-Mode
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Update Mode
+*DISPLAY NAME (Отображаемое наименование):*:: Update Mode (Режим обновления)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Choose between updating a single document or multiple documents per incoming record.
+*DESCRIPTION (Описание):*:: Выберите между обновлением одного документа или нескольких документов на основе входящего записи.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Update One: Updates only the first document that matches the query. 
+* Update One (Обновить Один): Обновляет только первый документ, соответствующий запросу. 
 
-* Update Many: Updates every document that matches the query. 
+* Update Many (Обновить Многие): Обновляет каждый документ, соответствующий запросу. 
 
-* Use 'mongodb.update.mode' FlowFile attribute.: Use the value of the 'mongodb.update.mode' attribute of the incoming FlowFile. Acceptable values are 'one' and 'many'. 
+* Use 'mongodb.update.mode' FlowFile attribute (Использовать атрибут 'mongodb.update.mode' FlowFile): Используйте значение атрибута 'mongodb.update.mode' входящего FlowFile. Допустимые значения: 'one' и 'many'. 
 
 
 [horizontal]
@@ -216,10 +216,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|All FlowFiles that are written to MongoDB are routed to this relationship
+|Все FlowFiles, записанные в MongoDB, направляются по этому отношению
 
 |`failure`
-|All FlowFiles that cannot be written to MongoDB are routed to this relationship
+|Все FlowFiles, которые не могут быть записаны в MongoDB, направляются по этому отношению
 
 |===
 
@@ -232,7 +232,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`mongodb.update.mode`
-|Configurable parameter for controlling update mode on a per-flowfile basis. Acceptable values are 'one' and 'many' and controls whether a single incoming record should update a single or multiple Mongo documents.
+|Настраиваемый параметр для управления режимом обновления на уровне потока. Принимаемые значения: 'one' и 'many', контролируя, должен ли один входящий запрос обновить один или несколько документов Mongo.
 
 |===
 

@@ -1,13 +1,13 @@
 = AttributeRollingWindow 2.2.0
 
-Track a Rolling Window based on evaluating an Expression Language expression on each FlowFile and add that value to the processor's state. Each FlowFile will be emitted with the count of FlowFiles and total aggregate value of values processed in the current time window.
+Отслеживает скользящее окно на основе оценки выражения языка выражений (Expression Language) для каждого FlowFile и добавляет это значение в состояние процессора. Каждый FlowFile будет испускаться с количеством FlowFiles и общей агрегированной стоимостью значений, обработанных в текущем временном окне.
 
 [horizontal]
 *Tags* (Ключевые слова):
 Attribute Expression Language, data science, rolling, state, window
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Value To Track*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Value to track
+*DISPLAY NAME (Отображаемое наименование):*:: Значение для отслеживания
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The expression on which to evaluate each FlowFile. The result of the expression will be added to the rolling window value.
+*DESCRIPTION (Описание):*:: Выражение, по которому следует оценить каждый FlowFile. Результат выражения будет добавлен в значение скользящего окна.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Time Window*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Time window
+*DISPLAY NAME (Отображаемое наименование):*:: Time window (Временное окно)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The time window on which to calculate the rolling window.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .Sub-Window Length
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Sub-window length
+*DISPLAY NAME (Отображаемое наименование):*:: Sub-window length (Длина подокна)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When set, values will be batched into sub-windows of the set length. This allows for much larger length total windows to be set but sacrifices some precision. If this is not set (or is 0) then each value is stored in state with the timestamp of when it was received. After the length of time stated in Time window elaspes the value will be removed. If this is set, values will be batched together every X amount of time (where X is the time period set for this property) and removed all at once.
+*DESCRIPTION (Описание):*:: Когда установлено, значения будут сгруппированы в подокна заданной длины. Это позволяет установить гораздо большие общие окна, но при этом ухудшается точность. Если это не установлено (или равно 0), каждое значение хранится в состоянии с временным штампом его получения. После истечения времени, указанного в окне Time elaspes, значение будет удалено. Если это установлено, значения будут группироваться вместе каждые X единиц времени (где X — период времени для этого свойства) и удаляться одновременно.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -81,7 +81,7 @@ REQUIRED (Обязательно)
 |
 LOCAL
 
-|Store the values backing the rolling window. This includes storing the individual values and their time-stamps or the batches of values and their counts.
+|Хранит значения, лежащие в основе скользящего окна. Это включает хранение отдельных значений и их временных меток или пакетов значений и их количества.
 |===
 
 
@@ -97,13 +97,13 @@ LOCAL
 |Наименование |Описание
 
 |`failure`
-|When a FlowFile fails for a reason other than failing to set state it is routed here.
+|Когда FlowFile не обрабатывается из-за причин, отличных от сбоя при установке состояния, он направляется сюда.
 
 |`success`
-|All FlowFiles are successfully processed are routed here
+|Все FlowFiles успешно обрабатываются и направляются сюда.
 
 |`set state fail`
-|When state fails to save when processing a FlowFile, the FlowFile is routed here.
+|Когда сохранение состояния не удается при обработке FlowFile, FlowFile направляется сюда.
 
 |===
 
@@ -118,19 +118,19 @@ LOCAL
 |Наименование |Описание
 
 |`rolling_window_value`
-|The rolling window value (sum of all the values stored).
+|Значение скользящего окна (сумма всех значений, сохраненных).
 
 |`rolling_window_count`
-|The count of the number of FlowFiles seen in the rolling window.
+|Количество FlowFiles, увиденных в скользящем окне.
 
 |`rolling_window_mean`
-|The mean of the FlowFiles seen in the rolling window.
+|Среднее значение FlowFiles, увиденных в скользящем окне.
 
 |`rolling_window_variance`
-|The variance of the FlowFiles seen in the rolling window.
+|Дисперсия FlowFiles, увиденных в скользящем окне.
 
 |`rolling_window_stddev`
-|The standard deviation (positive square root of the variance) of the FlowFiles seen in the rolling window.
+|Стандартное отклонение (положительный квадратный корень из дисперсии) FlowFiles, увиденных в скользящем окне.
 
 |===
 

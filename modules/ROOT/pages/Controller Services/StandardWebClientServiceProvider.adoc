@@ -1,13 +1,13 @@
 = StandardWebClientServiceProvider 2.2.0
 
-Web Client Service Provider with support for configuring standard HTTP connection properties
+Веб-клиентский сервис-провайдер с поддержкой настройки стандартных свойств HTTP-соединения
 
 [horizontal]
 *Tags* (Ключевые слова):
-Client, HTTP, Web
+Клиент, HTTP, Веб
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ Client, HTTP, Web
 .*Connect-Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Connect Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Connect Timeout (Максимальное время ожидания до сбоя при первоначальном соединении с сокетом)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Maximum amount of time to wait before failing during initial socket connection
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ Client, HTTP, Web
 .*Read-Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Read Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Read Timeout (Время ожидания)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Maximum amount of time to wait before failing while reading socket responses
+*DESCRIPTION (Описание):*:: Максимальное количество времени для ожидания до сбоя при чтении ответов сокета
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ Client, HTTP, Web
 .*Write-Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Write Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Write Timeout (Максимальное время ожидания до сбоя при записи запросов на сокет)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Maximum amount of time to wait before failing while writing socket requests
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,23 +71,23 @@ Client, HTTP, Web
 .*Redirect-Handling-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Redirect Handling Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Redirect Handling Strategy (Стратегия обработки перенаправлений)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Handling strategy for responding to HTTP 301 or 302 redirects received with a Location header
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* FOLLOWED
+* FOLLOWED (Следует за перенаправлением)
 
-* IGNORED
+* IGNORED (Игнорировать)
 
 
 [horizontal]
@@ -96,14 +96,14 @@ Client, HTTP, Web
 .Ssl-Context-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (Сервис контекста SSL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: SSL Context Service overrides system default TLS settings for HTTPS communication
+*DESCRIPTION (Описание):*:: Сервис контекста SSL переопределяет системные настройки по умолчанию для HTTPS-коммуникации
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -113,14 +113,14 @@ Client, HTTP, Web
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests.
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера конфигурации прокси для проксирования сетевых запросов.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -140,6 +140,17 @@ Client, HTTP, Web
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

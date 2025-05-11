@@ -1,15 +1,13 @@
 = GetFileResource 2.2.0
 
-This processor creates FlowFiles with the content of the configured File Resource. GetFileResource
-is useful for load testing, configuration, and simulation.
-
+Этот процессор создает FlowFiles с содержимым настроенного ресурса файла. GetFileResource полезен для тестирования загрузки, конфигурации и симуляции.
 
 [horizontal]
 *Tags* (Ключевые слова):
 file, generate, load, test
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -22,14 +20,14 @@ FORBIDDEN (Обязательно)
 .*File Resource*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: File Resource
+*DISPLAY NAME (Отображаемое наименование):*:: File Resource (Файл Ресурса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Location of the File Resource (Local File or URL). This file will be used as content of the generated FlowFiles.
+*DESCRIPTION (Описание):*:: Расположение файла ресурса (локальный файл или URL). Этот файл будет использоваться в качестве содержимого сгенерированных FlowFiles.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -39,14 +37,14 @@ FORBIDDEN (Обязательно)
 .Mime Type
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: MIME Type
+*DISPLAY NAME (Отображаемое наименование):*:: MIME Type (Тип MIME)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the value to set for the [mime.type] attribute.
+*DESCRIPTION (Описание):*:: Указывает значение, которое нужно установить для атрибута [mime.type].
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -62,7 +60,7 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание |Значение |Ограничения языка выражений
 
 |`Generated FlowFile attribute name`
-|Specifies an attribute on generated FlowFiles defined by the Dynamic Property's key and value.
+|Указывает атрибут на генерируемых FlowFiles, определяемый ключом и значением динамического свойства.
 |`Generated FlowFile attribute value`
 |
 
@@ -81,10 +79,10 @@ FORBIDDEN (Обязательно)
 |Требуемые права |Объяснение
 
 |
-|Provides operator the ability to read from any file that NiFi has access to.
+|Оператор может читать из любого файла, к которому у NiFi есть доступ.
 
 |
-|File Resource can reference resources over HTTP/HTTPS
+|Ресурс файла может ссылаться на ресурсы по HTTP/HTTPS
 
 |===
 
@@ -112,10 +110,10 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`mime.type`
-|Sets the MIME type of the output if the 'MIME Type' property is set
+|Устанавливает MIME-тип вывода, если установлено свойство 'MIME Type'
 
 |`Dynamic property key`
-|Value for the corresponding dynamic property, if any is set
+|Значение для соответствующего динамического свойства, если оно задано
 
 |===
 

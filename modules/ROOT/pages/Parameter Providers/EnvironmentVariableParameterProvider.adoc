@@ -1,13 +1,13 @@
 = EnvironmentVariableParameterProvider 2.2.0
 
-Fetches parameters from environment variables
+Извлекает параметры из переменных окружения
 
 [horizontal]
 *Tags* (Ключевые слова):
 environment, variable
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ environment, variable
 .*Parameter-Group-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Parameter Group Name
+*DISPLAY NAME (Отображаемое наименование):*:: Parameter Group Name (Группа параметров)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the parameter group that will be fetched.  This indicates the name of the Parameter Context that may receive the fetched parameters.
+*DESCRIPTION (Описание):*:: The name of the parameter group that will be fetched. This indicates the name of the Parameter Context that may receive the fetched parameters.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,25 +37,25 @@ environment, variable
 .*Environment-Variable-Inclusion-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Environment Variable Inclusion Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Environment Variable Inclusion Strategy (Стратегия включения переменных окружения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates how Environment Variables should be included
+*DESCRIPTION (Описание):*:: Указывает, как должны быть включены переменные окружения
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Include All: All Environment Variables will be included 
+* Include All (Включить все): Будут включены все переменные окружения 
 
-* Comma-Separated: List comma-separated Environment Variable names to include 
+* Comma-Separated (Разделенные запятыми): Перечислите имена переменных окружения через запятую для включения 
 
-* Regular Expression: Include Environment Variable names that match a Regular Expression 
+* Regular Expression (Регулярное выражение): Включите имена переменных окружения, соответствующих регулярному выражению 
 
 
 [horizontal]
@@ -64,14 +64,14 @@ environment, variable
 .Include-Environment-Variables
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Include Environment Variables
+*DISPLAY NAME (Отображаемое наименование):*:: Include Environment Variables (Включить переменные окружения)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies environment variable names that should be included from the fetched environment variables.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -93,7 +93,7 @@ environment, variable
 |Требуемые права |Объяснение
 
 |
-|Provides operator the ability to read environment variables, which may contain environment credentials.
+|Позволяет оператору читать переменные окружения, которые могут содержать учетные данные окружения.
 
 |===
 
@@ -102,6 +102,17 @@ environment, variable
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

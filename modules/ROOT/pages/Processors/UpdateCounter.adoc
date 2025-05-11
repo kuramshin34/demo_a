@@ -1,13 +1,13 @@
 = UpdateCounter 2.2.0
 
-This processor allows users to set specific counters and key points in their flow. It is useful for debugging and basic counting functions.
+Этот процессор позволяет пользователям устанавливать конкретные счетчики и ключевые точки в своем потоке. Он полезен для отладки и базовых функций подсчета.
 
 [horizontal]
 *Tags* (Ключевые слова):
 counter, debug, instrumentation
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Counter-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Counter Name
+*DISPLAY NAME (Отображаемое наименование):*:: Counter Name (Счетчик имени)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the counter you want to set the value of - supports expression language like ${counterName}
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Delta*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Delta
+*DISPLAY NAME (Отображаемое наименование):*:: Delta (Дельта)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Adjusts the counter by the specified delta for each flow file received. May be a positive or negative integer.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -68,7 +68,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Counter was updated/retrieved
+|Счетчик был обновлен/получен
 
 |===
 
@@ -81,7 +81,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`counterName`
-|The name of the counter to update/get.
+|Имя счетчика для обновления/получения.
 
 |===
 

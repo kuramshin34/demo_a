@@ -1,13 +1,13 @@
 = CopyAzureBlobStorage_v12 2.2.0
 
-Copies a blob in Azure Blob Storage from one account/container to another. The processor uses Azure Blob Storage client library v12.
+Копирует большой двоичный объект в хранилище Azure Blob из одного аккаунта/контейнера в другой. Процессор использует библиотеку клиента Azure Blob Storage версии 12.
 
 [horizontal]
 *Tags* (Ключевые слова):
 azure, blob, cloud, microsoft, storage
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Source Storage Credentials*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Source Storage Credentials
+*DISPLAY NAME (Отображаемое наименование):*:: Source Storage Credentials (Источник учетных данных хранилища)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Credentials Service used to obtain Azure Blob Storage Credentials to read Source Blob information
+*DESCRIPTION (Описание):*:: Сервис учетных данных, используемый для получения учетных данных Azure Blob Storage для чтения информации о источнике большого двоичного объекта
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Source Container Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Source Container Name
+*DISPLAY NAME (Отображаемое наименование):*:: Source Container Name (Источник контейнера)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Name of the Azure storage container that will be copied
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Source Blob Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Source Blob Name
+*DISPLAY NAME (Отображаемое наименование):*:: Source Blob Name (Источник имени большого двоичного объекта)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The full name of the source blob
+*DESCRIPTION (Описание):*:: Полное имя источника большого двоичного объекта
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .*Storage-Credentials-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Destination Storage Credentials
+*DISPLAY NAME (Отображаемое наименование):*:: Destination Storage Credentials (Назначение хранилища учетных данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Controller Service used to obtain Azure Blob Storage Credentials.
+*DESCRIPTION (Описание):*:: Контроллер сервиса, используемый для получения учетных данных Azure Blob Storage.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ REQUIRED (Обязательно)
 .Container-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Destination Container Name
+*DISPLAY NAME (Отображаемое наименование):*:: Destination Container Name (Назначение контейнера)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Name of the Azure storage container destination defaults to the Source Container Name when not specified
+*DESCRIPTION (Описание):*:: Имя целевого Azure хранилища контейнера по умолчанию принимает имя исходного контейнера, если не указано иное
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ REQUIRED (Обязательно)
 .Blob-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Destination Blob Name
+*DISPLAY NAME (Отображаемое наименование):*:: Destination Blob Name (Название назначаемого боба)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The full name of the destination blob defaults to the Source Blob Name when not specified
+*DESCRIPTION (Описание):*:: Полное название назначаемого боба по умолчанию принимает название исходного боба, если оно не указано
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -122,25 +122,25 @@ REQUIRED (Обязательно)
 .*Conflict-Resolution-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Conflict Resolution Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Conflict Resolution Strategy (Стратегия разрешения конфликтов)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies whether an existing blob will have its contents replaced upon conflict.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* fail: Fail if the blob already exists 
+* fail (неудача): Fail if the blob already exists 
 
-* ignore: Ignore if the blob already exists; the 'azure.error' attribute will be set to the value 'BLOB_ALREADY_EXISTS' 
+* ignore (игнорировать): Ignore if the blob already exists; the 'azure.error' attribute will be set to the value 'BLOB_ALREADY_EXISTS' 
 
-* replace: Replace blob contents if the blob already exist 
+* replace (заменить): Replace blob contents if the blob already exist 
 
 
 [horizontal]
@@ -149,14 +149,14 @@ REQUIRED (Обязательно)
 .*Create-Container*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Create Container
+*DISPLAY NAME (Отображаемое наименование):*:: Create Container (Создать контейнер)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether to check if the container exists and to automatically create it if it does not. Permission to list containers is required. If false, this check is not made, but the Put operation will fail if the container does not exist.
+*DESCRIPTION (Описание):*:: Указывает, следует ли проверять, существует ли контейнер, и автоматически создавать его, если он не существует. Для списка контейнеров требуется разрешение. Если значение равно false, эта проверка не выполняется, но операция Put завершится ошибкой, если контейнер не существует.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -174,14 +174,14 @@ REQUIRED (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: SOCKS, HTTP In case of SOCKS, it is not guaranteed that the selected SOCKS Version will be used by the processor.
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: SOCKS, HTTP В случае использования SOCKS, не гарантируется, что выбранная версия SOCKS будет использоваться процессором.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -205,10 +205,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|All successfully processed FlowFiles are routed to this relationship
+|Все успешно обработанные FlowFiles направляются в это отношение
 
 |`failure`
-|Unsuccessful operations will be transferred to the failure relationship.
+|Неуспешные операции будут переданы в отношение неудачи.
 
 |===
 
@@ -223,37 +223,37 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`azure.container`
-|The name of the Azure Blob Storage container
+|Имя контейнера большого двоичного объекта в хранилище Azure Blob
 
 |`azure.blobname`
-|The name of the blob on Azure Blob Storage
+|Имя большого двоичного объекта на хранилище Azure Blob
 
 |`azure.primaryUri`
-|Primary location of the blob
+|Основное расположение большого двоичного объекта
 
 |`azure.etag`
-|ETag of the blob
+|ETag большого двоичного объекта
 
 |`azure.blobtype`
-|Type of the blob (either BlockBlob, PageBlob or AppendBlob)
+|Тип большого двоичного объекта (либо BlockBlob, PageBlob или AppendBlob)
 
 |`mime.type`
-|MIME Type of the content
+|MIME-тип содержимого
 
 |`lang`
-|Language code for the content
+|Код языка для содержимого
 
 |`azure.timestamp`
-|Timestamp of the blob
+|Метка времени большого двоичного объекта
 
 |`azure.length`
-|Length of the blob
+|Длина большого двоичного объекта
 
 |`azure.error.code`
-|Error code reported during blob operation
+|Код ошибки, сообщенный при операции с большим двоичным объектом
 
 |`azure.ignored`
-|When Conflict Resolution Strategy is 'ignore', this property will be true/false depending on whether the blob was ignored.
+|Если Стратегия разрешения конфликтов 'ignore', это свойство будет равно true/false в зависимости от того, был ли большой двоичный объект проигнорирован.
 
 |===
 

@@ -1,13 +1,13 @@
 = PutBigQuery 2.2.0
 
-Writes the contents of a FlowFile to a Google BigQuery table. The processor is record based so the schema that is used is driven by the RecordReader. Attributes that are not matched to the target schema are skipped. Exactly once delivery semantics are achieved via stream offsets.
+Записывает содержимое FlowFile в таблицу Google BigQuery. Процессор основан на записях, поэтому схема, используемая для этого, зависит от RecordReader. Атрибуты, которые не соответствуют целевой схеме, пропускаются. Семантика доставки 'точно один раз' достигается через смещения потока.
 
 [horizontal]
 *Tags* (Ключевые слова):
 bigquery, bq, google, google cloud
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Gcp Credentials Provider Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service
+*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service (Google Cloud Platform Учебный класс для получения учетных данных)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Controller Service used to obtain Google Cloud Platform credentials.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Gcp-Project-Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Project ID
+*DISPLAY NAME (Отображаемое наименование):*:: Project ID (Проектный идентификатор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Google Cloud Project ID
+*DESCRIPTION (Описание):*:: Google Cloud Project ID (Идентификатор проекта в Google Cloud)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Bigquery-Api-Endpoint*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: BigQuery API Endpoint
+*DISPLAY NAME (Отображаемое наименование):*:: BigQuery API Endpoint (Большой запрос API конечная точка)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Can be used to override the default BigQuery endpoint. Default is bigquerystorage.googleapis.com:443. Format must be hostname:port.
+*DESCRIPTION (Описание):*:: Может использоваться для переопределения默认ного BigQuery конечной точки. По умолчанию это bigquerystorage.googleapis.com:443. Формат должен быть hostname:port.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .*Bq.Dataset*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Dataset
+*DISPLAY NAME (Отображаемое наименование):*:: Dataset (Набор данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: BigQuery dataset name (Note - The dataset must exist in GCP)
+*DESCRIPTION (Описание):*:: Имя набора данных BigQuery (Примечание - Набор данных должен существовать в GCP)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ REQUIRED (Обязательно)
 .*Bq.Table.Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Table Name
+*DISPLAY NAME (Отображаемое наименование):*:: Table Name (Таблица)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: BigQuery table name
+*DESCRIPTION (Описание):*:: BigQuery table name (Имя таблицы в BigQuery)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ REQUIRED (Обязательно)
 .*Bq.Record.Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Чтец записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for parsing incoming data.
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для использования при разборе входящих данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -122,23 +122,23 @@ REQUIRED (Обязательно)
 .*Bq.Transfer.Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Transfer Type
+*DISPLAY NAME (Отображаемое наименование):*:: Transfer Type (Тип передачи)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Defines the preferred transfer type streaming or batching
+*DESCRIPTION (Описание):*:: Defines the preferred transfer type streaming or batching (определяет предпочтительный тип передачи, используя стратегию обработки записей в режиме потоковой передачи или пакетной обработки)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* STREAM: Use streaming record handling strategy 
+* STREAM (Потоковая передача): Use streaming record handling strategy (Использовать стратегию обработки записей в режиме потоковой передачи) 
 
-* BATCH: Use batching record handling strategy 
+* BATCH (Пакетная обработка): Use batching record handling strategy (Использовать стратегию пакетной обработки записей) 
 
 
 [horizontal]
@@ -147,14 +147,14 @@ REQUIRED (Обязательно)
 .*Bq.Append.Record.Count*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Append Record Count
+*DISPLAY NAME (Отображаемое наименование):*:: Append Record Count (Количество записей для добавления в поток записи за один раз)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The number of records to be appended to the write stream at once. Applicable for both batch and stream types
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -164,14 +164,14 @@ REQUIRED (Обязательно)
 .*Gcp-Retry-Count*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Number of retries
+*DISPLAY NAME (Отображаемое наименование):*:: Number of retries (Количество повторных попыток)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: How many retry attempts should be made before routing to the failure relationship.
+*DESCRIPTION (Описание):*:: How many retry attempts should be made before routing to the failure relationship. (Сколько повторных попыток следует предпринять перед тем, как передать управление в связанное отношение отказа)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -181,14 +181,14 @@ REQUIRED (Обязательно)
 .*Bq.Skip.Invalid.Rows*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Skip Invalid Rows
+*DISPLAY NAME (Отображаемое наименование):*:: Skip Invalid Rows (Пропускать недопустимые строки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Sets whether to insert all valid rows of a request, even if invalid rows exist. If not set the entire insert request will fail if it contains an invalid row.
+*DESCRIPTION (Описание):*:: Устанавливает, следует ли вставлять все допустимые строки запроса, даже если существуют недопустимые строки. Если не установлено, весь запрос на вставку потерпит неудачу, если он содержит недопустимую строку.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -198,14 +198,14 @@ REQUIRED (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: HTTP + AuthN
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -229,10 +229,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|FlowFiles are routed to this relationship after a successful Google BigQuery operation.
+|FlowFiles передаются в это отношение после успешной операции Google BigQuery.
 
 |`failure`
-|FlowFiles are routed to this relationship if the Google BigQuery operation fails.
+|FlowFiles передаются в это отношение, если операция Google BigQuery завершается неудачей.
 
 |===
 
@@ -247,7 +247,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`bq.records.count`
-|Number of records successfully inserted
+|Количество успешно вставленных записей
 
 |===
 

@@ -1,13 +1,13 @@
 = UDPEventRecordSink 2.2.0
 
-Format and send Records as UDP Datagram Packets to a configurable destination
+Форматирует и отправляет записи как UDP-пакеты с конфигурируемым назначением
 
 [horizontal]
 *Tags* (Ключевые слова):
-UDP, event, record, sink
+UDP, событие, запись, приемник
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ UDP, event, record, sink
 .*Hostname*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hostname
+*DISPLAY NAME (Отображаемое наименование):*:: Hostname (Хост)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Destination hostname or IP address
+*DESCRIPTION (Описание):*:: Destination hostname or IP address (Конечный хост или IP-адрес)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ UDP, event, record, sink
 .*Port*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Port
+*DISPLAY NAME (Отображаемое наименование):*:: Port (Порт)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Destination port number
+*DESCRIPTION (Описание):*:: Номер конечного порта
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ UDP, event, record, sink
 .*Record-Sink-Record-Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records.
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для использования при записи записей.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ UDP, event, record, sink
 .*Sender-Threads*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Sender Threads
+*DISPLAY NAME (Отображаемое наименование):*:: Sender Threads (Отправитель потоков)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Number of worker threads allocated for handling socket communication
+*DESCRIPTION (Описание):*:: Количество рабочих потоков, выделенных для обработки коммуникации по сокету
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -98,6 +98,17 @@ UDP, event, record, sink
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

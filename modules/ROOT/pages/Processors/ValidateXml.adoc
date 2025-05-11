@@ -1,13 +1,13 @@
 = ValidateXml 2.2.0
 
-Validates XML contained in a FlowFile. By default, the XML is contained in the FlowFile content. If the 'XML Source Attribute' property is set, the XML to be validated is contained in the specified attribute. It is not recommended to use attributes to hold large XML documents; doing so could adversely affect system performance. Full schema validation is performed if the processor is configured with the XSD schema details. Otherwise, the only validation performed is to ensure the XML syntax is correct and well-formed, e.g. all opening tags are properly closed.
+Проверяет содержимое XML в файле потока данных. По умолчанию XML находится в содержимом файла потока. Если свойство 'XML Source Attribute' установлено, то XML для проверки находится в указанном атрибуте. Рекомендуется не использовать атрибуты для хранения больших объемов данных; иначе это может отрицательно сказаться на производительности системы. Полное схематическое подтверждение выполняется, если процессор настроен с деталями XSD-схемы. В противном случае проверяется только правильность синтаксиса XML и корректность разметки, например, все открывающие теги закрыты.
 
 [horizontal]
 *Tags* (Ключевые слова):
 schema, validation, xml, xsd
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .Schema File
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema File
+*DISPLAY NAME (Отображаемое наименование):*:: Schema File (Схема файла)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The file path or URL to the XSD Schema file that is to be used for validation. If this property is blank, only XML syntax/structure will be validated.
+*DESCRIPTION (Описание):*:: Путь к файлу или URL схемы XSD, которая будет использоваться для валидации. Если это свойство пустое, будет проверяться только синтаксис/структура XML.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .Xml Source Attribute
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: XML Source Attribute
+*DISPLAY NAME (Отображаемое наименование):*:: XML Source Attribute (Источник атрибута XML)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the attribute containing XML to be validated. If this property is blank, the FlowFile content will be validated.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -65,7 +65,7 @@ REQUIRED (Обязательно)
 
 
 |MEMORY
-|While this processor supports processing XML within attributes, it is strongly discouraged to hold large amounts of data in attributes. In general, attribute values should be as small as possible and hold no more than a couple hundred characters.
+|Хотя этот процессор поддерживает обработку XML в атрибутах, сильно не рекомендуется хранить большие объемы данных в атрибутах. Как правило, значения атрибутов должны быть как можно меньше и содержать не более нескольких сотен символов.
 
 |===
 
@@ -78,7 +78,7 @@ REQUIRED (Обязательно)
 |Требуемые права |Объяснение
 
 |
-|Schema configuration can reference resources over HTTP
+|Конфигурация схемы может ссылаться на ресурсы по протоколу HTTP
 
 |===
 
@@ -91,10 +91,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`valid`
-|FlowFiles that are successfully validated against the schema, if provided, or verified to be well-formed XML are routed to this relationship
+|Файлы потока, успешно прошедшие проверку по схеме (при наличии), или подтвержденные как правильно размеченный XML, направляются в это отношение
 
 |`invalid`
-|FlowFiles that are not valid according to the specified schema or contain invalid XML are routed to this relationship
+|Файлы потока, не соответствующие указанной схеме или содержащие недопустимый XML, направляются в это отношение
 
 |===
 
@@ -109,7 +109,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`validatexml.invalid.error`
-|If the flow file is routed to the invalid relationship the attribute will contain the error message resulting from the validation failure.
+|Если файл потока направляется в отношение 'недействительный', атрибут будет содержать сообщение об ошибке, возникшей в результате сбоя проверки.
 
 |===
 

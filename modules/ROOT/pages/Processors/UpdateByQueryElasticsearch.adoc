@@ -1,13 +1,13 @@
 = UpdateByQueryElasticsearch 2.2.0
 
-Update documents in an Elasticsearch index using a query. The query can be loaded from a flowfile body or from the Query parameter. The loaded Query can contain any JSON accepted by Elasticsearch's _update_by_query API, for example a "query" object to identify what documents are to be updated, plus a "script" to define the updates to perform.
+Обновляет документы в индексе Elasticsearch с использованием запроса. Запрос может быть загружен из тела flowfile или из параметра Query. Загруженный запрос может содержать любой JSON, принимаемый API Elasticsearch для _update_by_query, например объект "запроса" для идентификации документов, которые нужно обновить, плюс скрипт для определения выполняемых обновлений.
 
 [horizontal]
 *Tags* (Ключевые слова):
 elastic, elasticsearch, elasticsearch5, elasticsearch6, elasticsearch7, elasticsearch8, query, update
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-ALLOWED (Обязательно)
+ALLOWED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,23 +20,23 @@ ALLOWED (Обязательно)
 .*El-Rest-Query-Definition-Style*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Query Definition Style
+*DISPLAY NAME (Отображаемое наименование):*:: Query Definition Style (Определение запроса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: How the JSON Query will be defined for use by the processor.
+*DESCRIPTION (Описание):*:: Как будет определяться JSON Query для использования процессором.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* FULL_QUERY: Provide the full Query. 
+* FULL_QUERY: Предоставить полный запрос. 
 
-* BUILD_QUERY: Build the Query from separate JSON objects. 
+* BUILD_QUERY: Создать запрос из отдельных JSON объектов. 
 
 
 [horizontal]
@@ -45,14 +45,14 @@ ALLOWED (Обязательно)
 .El-Rest-Query
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Query
+*DISPLAY NAME (Отображаемое наименование):*:: Query (Запрос)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A query in JSON syntax, not Lucene syntax. Ex: {"query":{"match":{"somefield":"somevalue"}}}. If this parameter is not set, the query will be read from the flowfile content. If the query (property and flowfile content) is empty, a default empty JSON Object will be used, which will result in a "match_all" query in Elasticsearch.
+*DESCRIPTION (Описание):*:: Запрос в формате JSON, а не Lucene. Например: {"query":{"match":{"somefield":"somevalue"}}}. Если этот параметр не установлен, запрос будет считан из содержимого flowfile. Если запрос (свойство и содержимое flowfile) пуст, будет использован default пустой JSON Object, что приведет к "match_all" запросу в Elasticsearch.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -62,14 +62,14 @@ ALLOWED (Обязательно)
 .El-Rest-Query-Clause
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Query Clause
+*DISPLAY NAME (Отображаемое наименование):*:: Query Clause (Предложение запроса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A "query" clause in JSON syntax, not Lucene syntax. Ex: {"match":{"somefield":"somevalue"}}. If the query is empty, a default JSON Object will be used, which will result in a "match_all" query in Elasticsearch.
+*DESCRIPTION (Описание):*:: Предложение запроса в синтаксисе JSON, а не Lucene. Например: {"match":{"somefield":"somevalue"}}. Если запрос пуст, будет использован дефолтный объект JSON, что приведет к "match_all" запросу в Elasticsearch.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -79,14 +79,14 @@ ALLOWED (Обязательно)
 .El-Rest-Script
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Script
+*DISPLAY NAME (Отображаемое наименование):*:: Script (Скрипт)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A "script" to execute during the operation, in JSON syntax. Ex: {"source": "ctx._source.count++", "lang": "painless"}
+*DESCRIPTION (Описание):*:: Скрипт для выполнения во время операции, в синтаксисе JSON. Например: {"source": "ctx._source.count++", "lang": "painless"}
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -96,14 +96,14 @@ ALLOWED (Обязательно)
 .El-Query-Attribute
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Query Attribute
+*DISPLAY NAME (Отображаемое наименование):*:: Query Attribute (Запрос атрибута)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If set, the executed query will be set on each result flowfile in the specified attribute.
+*DESCRIPTION (Описание):*:: Если установлено, выполненный запрос будет установлен в каждый результат потока в указанном атрибуте.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -113,14 +113,14 @@ ALLOWED (Обязательно)
 .*El-Rest-Fetch-Index*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Index
+*DISPLAY NAME (Отображаемое наименование):*:: Index (Индекс)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the index to use.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -130,14 +130,14 @@ ALLOWED (Обязательно)
 .El-Rest-Type
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Type
+*DISPLAY NAME (Отображаемое наименование):*:: Тип
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The type of this document (used by Elasticsearch for indexing and searching).
+*DESCRIPTION (Описание):*:: Тип этого документа (используется Elasticsearch для индексирования и поиска).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -147,14 +147,14 @@ ALLOWED (Обязательно)
 .*Max Json Field String Length*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max JSON Field String Length
+*DISPLAY NAME (Отображаемое наименование):*:: Max JSON Field String Length (Максимальная длина строкового значения при парсинге JSON документа или атрибута)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The maximum allowed length of a string value when parsing a JSON document or attribute.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -164,14 +164,14 @@ ALLOWED (Обязательно)
 .*El-Rest-Client-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Client Service
+*DISPLAY NAME (Отображаемое наименование):*:: Client Service (Клиентская служба)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: An Elasticsearch client service to use for running queries.
+*DESCRIPTION (Описание):*:: An Elasticsearch client service to use for running queries. (Служба клиента Elasticsearch для выполнения запросов.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -187,7 +187,7 @@ ALLOWED (Обязательно)
 |Наименование |Описание |Значение |Ограничения языка выражений
 
 |`The name of a URL query parameter to add`
-|Adds the specified property name/value as a query parameter in the Elasticsearch URL used for processing. These parameters will override any matching parameters in the query request body
+|Добавляет указанное свойство имя/значение в виде параметра запроса в URL, используемый для обработки. Эти параметры переопределят любой соответствующий параметр в запросе тела запроса.
 |`The value of the URL query parameter`
 |
 
@@ -208,13 +208,13 @@ ALLOWED (Обязательно)
 |Наименование |Описание
 
 |`failure`
-|If the "by query" operation fails, and a flowfile was read, it will be sent to this relationship.
+|Если операция "по запросу" завершается с ошибкой, и был прочитан flowfile, он будет отправлен в эту связь.
 
 |`success`
-|If the "by query" operation succeeds, and a flowfile was read, it will be sent to this relationship.
+|Если операция "по запросу" успешно выполняется, и был прочитан flowfile, он будет отправлен в эту связь.
 
 |`retry`
-|All flowfiles that fail due to server/cluster availability go to this relationship.
+|Все flowfiles, которые из-за недоступности сервера/кластера терпят неудачу, перенаправляются в эту связь.
 
 |===
 
@@ -229,10 +229,10 @@ ALLOWED (Обязательно)
 |Наименование |Описание
 
 |`elasticsearch.update.took`
-|The amount of time that it took to complete the update operation in ms.
+|Количество времени, затраченное на выполнение операции обновления в миллисекундах.
 
 |`elasticsearch.update.error`
-|The error message provided by Elasticsearch if there is an error running the update.
+|Сообщение об ошибке, предоставленное Elasticsearch при возникновении ошибки выполнения обновления.
 
 |===
 

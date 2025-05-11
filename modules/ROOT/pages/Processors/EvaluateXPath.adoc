@@ -1,13 +1,13 @@
 = EvaluateXPath 2.2.0
 
-Evaluates one or more XPaths against the content of a FlowFile. The results of those XPaths are assigned to FlowFile Attributes or are written to the content of the FlowFile itself, depending on configuration of the Processor. XPaths are entered by adding user-defined properties; the name of the property maps to the Attribute Name into which the result will be placed (if the Destination is flowfile-attribute; otherwise, the property name is ignored). The value of the property must be a valid XPath expression. If the XPath evaluates to more than one node and the Return Type is set to 'nodeset' (either directly, or via 'auto-detect' with a Destination of 'flowfile-content'), the FlowFile will be unmodified and will be routed to failure. If the XPath does not evaluate to a Node, the FlowFile will be routed to 'unmatched' without having its contents modified. If Destination is flowfile-attribute and the expression matches nothing, attributes will be created with empty strings as the value, and the FlowFile will always be routed to 'matched'
+Оценивает один или несколько XPaths относительно содержимого FlowFile. Результаты этих XPaths назначаются атрибутам FlowFile или записываются в само содержимое FlowFile в зависимости от конфигурации процессора. XPaths вводятся с помощью добавления пользовательских свойств; имя свойства соответствует имени атрибута, в который будет помещен результат (если назначение — flowfile-attribute; в противном случае имя свойства игнорируется). Значение свойства должно быть допустимым выражением XPath. Если XPath оценивается более чем одним узлом, и возвращаемый тип установлен в 'nodeset' (либо непосредственно, либо через 'auto-detect' с назначением 'flowfile-content'), FlowFile останется неизменным, и будет направлен в failure. Если XPath не оценивается ни к одному узлу, FlowFile будет направлен в 'unmatched' без изменения содержимого. Если назначение — flowfile-attribute, а выражение не соответствует ни одному узлу, будут созданы атрибуты со значениями в виде пустых строк, и FlowFile всегда будет направлен в 'matched'.
 
 [horizontal]
 *Tags* (Ключевые слова):
 XML, XPath, evaluate
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,23 +20,23 @@ REQUIRED (Обязательно)
 .*Destination*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Destination
+*DISPLAY NAME (Отображаемое наименование):*:: Destination (Назначение)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates whether the results of the XPath evaluation are written to the FlowFile content or a FlowFile attribute; if using attribute, must specify the Attribute Name property. If set to flowfile-content, only one XPath may be specified, and the property name is ignored.
+*DESCRIPTION (Описание):*:: Указывает, записываются ли результаты оценки XPath в содержимое FlowFile или атрибут FlowFile; если используется атрибут, необходимо указать свойство 'Имя атрибута'. Если установлено значение 'flowfile-content', можно указать только одно XPath, и имя свойства игнорируется.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* flowfile-content
+* flowfile-content (содержимое FlowFile)
 
-* flowfile-attribute
+* flowfile-attribute (атрибут FlowFile)
 
 
 [horizontal]
@@ -45,14 +45,14 @@ REQUIRED (Обязательно)
 .*Return Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Return Type
+*DISPLAY NAME (Отображаемое наименование):*:: Return Type (Тип возвращаемого значения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates the desired return type of the Xpath expressions.  Selecting 'auto-detect' will set the return type to 'nodeset' for a Destination of 'flowfile-content', and 'string' for a Destination of 'flowfile-attribute'.
+*DESCRIPTION (Описание):*:: Указывает желаемый тип возврата для выражений Xpath. Выбор 'auto-detect' установит тип возврата в 'nodeset' для назначения 'flowfile-content', и 'string' для назначения 'flowfile-attribute'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -72,14 +72,14 @@ REQUIRED (Обязательно)
 .*Validate Dtd*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Allow DTD
+*DISPLAY NAME (Отображаемое наименование):*:: Allow DTD (Разрешить объявление типа документа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Allow embedded Document Type Declaration in XML. This feature should be disabled to avoid XML entity expansion vulnerabilities.
+*DESCRIPTION (Описание):*:: Разрешает встраивание объявления типа документа в XML. Эта функция должна быть отключена, чтобы избежать уязвимостей, связанных с расширением сущностей XML.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -103,7 +103,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание |Значение |Ограничения языка выражений
 
 |`A FlowFile attribute(if <Destination> is set to 'flowfile-attribute'`
-|If <Destination>='flowfile-attribute' then the FlowFile attribute is set to the result of the XPath Expression.  If <Destination>='flowfile-content' then the FlowFile content is set to the result of the XPath Expression.
+|Если <Destination>='flowfile-attribute', то атрибут FlowFile устанавливается в результат выражения XPath. Если <Destination>='flowfile-content', то содержимое FlowFile устанавливается в результат выражения XPath.
 |`An XPath expression`
 |
 
@@ -121,7 +121,7 @@ REQUIRED (Обязательно)
 
 
 |MEMORY
-|Processing requires reading the entire FlowFile into memory
+|Обработка требует чтения всего FlowFile в память.
 
 |===
 
@@ -136,13 +136,13 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`failure`
-|FlowFiles are routed to this relationship when the XPath cannot be evaluated against the content of the FlowFile; for instance, if the FlowFile is not valid XML, or if the Return Type is 'nodeset' and the XPath evaluates to multiple nodes
+|FlowFiles направляются в эту связь, когда XPath не может быть оценен относительно содержимого FlowFile; например, если FlowFile не является допустимым XML, или если возвращаемый тип установлен в 'nodeset', а XPath оценивается более чем одним узлом.
 
 |`unmatched`
-|FlowFiles are routed to this relationship when the XPath does not match the content of the FlowFile and the Destination is set to flowfile-content
+|FlowFiles направляются в эту связь, когда XPath не соответствует содержимому FlowFile и назначение установлено в flowfile-content.
 
 |`matched`
-|FlowFiles are routed to this relationship when the XPath is successfully evaluated and the FlowFile is modified as a result
+|FlowFiles направляются в эту связь, когда XPath успешно оценивается, и FlowFile изменяется как результат.
 
 |===
 
@@ -157,7 +157,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`user-defined`
-|This processor adds user-defined attributes if the <Destination> property is set to flowfile-attribute.
+|Этот процессор добавляет пользовательские атрибуты, если свойство <Destination> установлено в flowfile-attribute.
 
 |===
 

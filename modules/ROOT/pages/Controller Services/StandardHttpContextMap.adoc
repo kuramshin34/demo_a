@@ -1,13 +1,13 @@
 = StandardHttpContextMap 2.2.0
 
-Provides the ability to store and retrieve HTTP requests and responses external to a Processor, so that multiple Processors can interact with the same HTTP request.
+Предоставляет возможность хранения и извлечения HTTP-запросов и ответов вне процессора, таким образом, чтобы несколько процессоров могли взаимодействовать с одним и тем же HTTP-запросом.
 
 [horizontal]
 *Tags* (Ключевые слова):
 http, request, response
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ http, request, response
 .*Maximum Outstanding Requests*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Outstanding Requests
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Outstanding Requests (Максимальное количество ожидающих запросов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum number of HTTP requests that can be outstanding at any one time. Any attempt to register an additional HTTP Request will cause an error
+*DESCRIPTION (Описание):*:: Максимальное количество HTTP-запросов, которые могут быть активны одновременно. Любая попытка зарегистрировать дополнительный HTTP-запрос приведет к ошибке
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ http, request, response
 .*Request Expiration*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Request Expiration
+*DISPLAY NAME (Отображаемое наименование):*:: Request Expiration (Срок действия запроса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how long an HTTP Request should be left unanswered before being evicted from the cache and being responded to with a Service Unavailable status code
+*DESCRIPTION (Описание):*:: Указывает, как долго HTTP-запрос должен оставаться без ответа перед тем, как быть исключенным из кэша и ответом с кодом состояния Service Unavailable
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -64,6 +64,17 @@ http, request, response
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

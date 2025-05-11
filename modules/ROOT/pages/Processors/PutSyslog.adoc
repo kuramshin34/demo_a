@@ -1,13 +1,13 @@
 = PutSyslog 2.2.0
 
-Sends Syslog messages to a given host and port over TCP or UDP. Messages are constructed from the "Message ___" properties of the processor which can use expression language to generate messages from incoming FlowFiles. The properties are used to construct messages of the form: (<PRIORITY>)(VERSION )(TIMESTAMP) (HOSTNAME) (BODY) where version is optional.  The constructed messages are checked against regular expressions for RFC5424 and RFC3164 formatted messages. The timestamp can be an RFC5424 timestamp with a format of "yyyy-MM-dd'T'HH:mm:ss.SZ" or "yyyy-MM-dd'T'HH:mm:ss.S+hh:mm", or it can be an RFC3164 timestamp with a format of "MMM d HH:mm:ss". If a message is constructed that does not form a valid Syslog message according to the above description, then it is routed to the invalid relationship. Valid messages are sent to the Syslog server and successes are routed to the success relationship, failures routed to the failure relationship.
+Отправляет сообщения Syslog на заданный хост и порт по протоколу TCP или UDP. Сообщения конструируются из свойств "Message ___" процессора, которые могут использовать язык выражений для генерации сообщений из входящих FlowFiles. Свойства используются для построения сообщений вида: (<PRIORITY>)(VERSION )(TIMESTAMP) (HOSTNAME) (BODY), где версия является необязательной. Созданные сообщения проверяются на регулярные выражения для форматов сообщений RFC5424 и RFC3164. Временная метка может быть временной меткой RFC5424 с форматом "yyyy-MM-dd'T'HH:mm:ss.SZ" или "yyyy-MM-dd'T'HH:mm:ss.S+hh:mm", или она может быть временной меткой RFC3164 с форматом "MMM d HH:mm:ss". Если сообщение, построенное по описанному выше описанию, не является допустимым сообщением Syslog, то оно направляется в отношение invalid. Допустимые сообщения отправляются на сервер Syslog, а успешные — в отношение success, неудачные — в отношение failure.
 
 [horizontal]
 *Tags* (Ключевые слова):
 logs, put, syslog, tcp, udp
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Hostname*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hostname
+*DISPLAY NAME (Отображаемое наименование):*:: Hostname (Хост)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The IP address or hostname of the Syslog server.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,23 +37,23 @@ REQUIRED (Обязательно)
 .*Protocol*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Protocol
+*DISPLAY NAME (Отображаемое наименование):*:: Protocol (Протокол)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The protocol for Syslog communication.
+*DESCRIPTION (Описание):*:: Протокол для обмена данными Syslog.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* TCP
+* TCP (TCP)
 
-* UDP
+* UDP (UDP)
 
 
 [horizontal]
@@ -62,14 +62,14 @@ REQUIRED (Обязательно)
 .*Port*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Port
+*DISPLAY NAME (Отображаемое наименование):*:: Port (Порт)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The port for Syslog communication. Note that Expression language is not evaluated per FlowFile.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -79,14 +79,14 @@ REQUIRED (Обязательно)
 .*Max Size Of Socket Send Buffer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Size of Socket Send Buffer
+*DISPLAY NAME (Отображаемое наименование):*:: Max Size of Socket Send Buffer (Максимальный размер буфера отправки сокета)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum size of the socket send buffer that should be used. This is a suggestion to the Operating System to indicate how big the socket buffer should be. If this value is set too low, the buffer may fill up before the data can be read, and incoming data will be dropped.
+*DESCRIPTION (Описание):*:: Максимальный размер буфера отправки сокета, который следует использовать. Это рекомендация для операционной системы указать, насколько большой должен быть буфер сокета. Если это значение установлено слишком низким, буфер может заполниться до того, как данные могут быть прочитаны, и входящие данные будут отброшены.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -96,14 +96,14 @@ REQUIRED (Обязательно)
 .Ssl Context Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (Услуга контекста SSL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Controller Service to use in order to obtain an SSL Context. If this property is set, syslog messages will be sent over a secure connection.
+*DESCRIPTION (Описание):*:: Контроллерская услуга для получения контекста SSL. Если это свойство установлено, сообщения syslog будут отправляться по защищенному соединению.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -113,14 +113,14 @@ REQUIRED (Обязательно)
 .*Idle Connection Expiration*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Idle Connection Expiration
+*DISPLAY NAME (Отображаемое наименование):*:: Idle Connection Expiration (Время ожидания закрытия неиспользуемого соединения)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The amount of time a connection should be held open without being used before closing the connection.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -130,14 +130,14 @@ REQUIRED (Обязательно)
 .Timeout
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Timeout (Время ожидания)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The timeout for connecting to and communicating with the syslog server. Does not apply to UDP. Note that Expression language is not evaluated per FlowFile.
+*DESCRIPTION (Описание):*:: Таймаут для подключения и обмена данными с сервером syslog. Не применяется к UDP. Обратите внимание, что язык выражений не оценивается для каждого потока.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -147,14 +147,14 @@ REQUIRED (Обязательно)
 .*Batch Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Batch Size
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Size (Размер партии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The number of incoming FlowFiles to process in a single execution of this processor.
+*DESCRIPTION (Описание):*:: Количество входящих FlowFiles для обработки за один выполнение этого процессора.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -164,14 +164,14 @@ REQUIRED (Обязательно)
 .*Character Set*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Символьный набор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the character set of the Syslog messages. Note that Expression language is not evaluated per FlowFile.
+*DESCRIPTION (Описание):*:: Указывает символьный набор сообщений Syslog. Обратите внимание, что язык выражений не оценивается для каждого потока.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -181,14 +181,14 @@ REQUIRED (Обязательно)
 .*Message Priority*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Message Priority
+*DISPLAY NAME (Отображаемое наименование):*:: Message Priority (Приоритет сообщений)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The priority for the Syslog messages, excluding < >.
+*DESCRIPTION (Описание):*:: Приоритет для Syslog сообщений, исключая < >.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -198,14 +198,14 @@ REQUIRED (Обязательно)
 .Message Version
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Message Version
+*DISPLAY NAME (Отображаемое наименование):*:: Message Version (Сообщение Версия)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The version for the Syslog messages.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -215,14 +215,14 @@ REQUIRED (Обязательно)
 .*Message Timestamp*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Message Timestamp
+*DISPLAY NAME (Отображаемое наименование):*:: Message Timestamp (Временная метка сообщения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The timestamp for the Syslog messages. The timestamp can be an RFC5424 timestamp with a format of "yyyy-MM-dd'T'HH:mm:ss.SZ" or "yyyy-MM-dd'T'HH:mm:ss.S+hh:mm", " or it can be an RFC3164 timestamp with a format of "MMM d HH:mm:ss".
+*DESCRIPTION (Описание):*:: Временная метка для сообщений Syslog. Временная метка может иметь формат RFC5424 с форматом "yyyy-MM-dd'T'HH:mm:ss.SZ" или "yyyy-MM-dd'T'HH:mm:ss.S+hh:mm", либо она может быть временной меткой в формате RFC3164 с форматом "MMM d HH:mm:ss".
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -232,14 +232,14 @@ REQUIRED (Обязательно)
 .*Message Hostname*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Message Hostname
+*DISPLAY NAME (Отображаемое наименование):*:: Message Hostname (Сообщение Хостнейм)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The hostname for the Syslog messages.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -249,14 +249,14 @@ REQUIRED (Обязательно)
 .*Message Body*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Message Body
+*DISPLAY NAME (Отображаемое наименование):*:: Message Body (Тело сообщения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The body for the Syslog messages.
+*DESCRIPTION (Описание):*:: Тело для сообщений Syslog.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -280,19 +280,30 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`failure`
-|FlowFiles that failed to send to Syslog are sent out this relationship.
+|FlowFiles, которые не удалось отправить в Syslog, отправляются по этому отношению.
 
 |`success`
-|FlowFiles that are sent successfully to Syslog are sent out this relationship.
+|FlowFiles, которые успешно отправлены в Syslog, отправляются по этому отношению.
 
 |`invalid`
-|FlowFiles that do not form a valid Syslog message are sent out this relationship.
+|FlowFiles, которые не образуют допустимое сообщение Syslog, отправляются по этому отношению.
 
 |===
 
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

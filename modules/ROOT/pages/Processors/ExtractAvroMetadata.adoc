@@ -1,13 +1,13 @@
 = ExtractAvroMetadata 2.2.0
 
-Extracts metadata from the header of an Avro datafile.
+Извлекает метаданные из заголовка файла Avro.
 
 [horizontal]
 *Tags* (Ключевые слова):
 avro, metadata, schema
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Fingerprint Algorithm*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Fingerprint Algorithm
+*DISPLAY NAME (Отображаемое наименование):*:: Алгоритм отпечатка
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The algorithm used to generate the schema fingerprint. Available choices are based on the Avro recommended practices for fingerprint generation.
+*DESCRIPTION (Описание):*:: Алгоритм, используемый для генерации отпечатка схемы. Доступные варианты основаны на рекомендациях Avro по созданию отпечатков.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -47,14 +47,14 @@ REQUIRED (Обязательно)
 .Metadata Keys
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Metadata Keys
+*DISPLAY NAME (Отображаемое наименование):*:: Metadata Keys (Ключи метаданных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A comma-separated list of keys indicating key/value pairs to extract from the Avro file header. The key 'avro.schema' can be used to extract the full schema in JSON format, and 'avro.codec' can be used to extract the codec name if one exists.
+*DESCRIPTION (Описание):*:: Список ключей, разделенных запятыми, указывающих пары ключ/значение для извлечения из заголовка Avro-файла. Ключ 'avro.schema' можно использовать для извлечения полной схемы в формате JSON, а ключ 'avro.codec' можно использовать для извлечения имени кодека, если он существует.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -64,14 +64,14 @@ REQUIRED (Обязательно)
 .*Count Items*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Count Items
+*DISPLAY NAME (Отображаемое наименование):*:: Count Items (Подсчет элементов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true the number of items in the datafile will be counted and stored in a FlowFile attribute 'item.count'. The counting is done by reading blocks and getting the number of items for each block, thus avoiding de-serializing. The items being counted will be the top-level items in the datafile. For example, with a schema of type record the items will be the records, and for a schema of type Array the items will be the arrays (not the number of entries in each array).
+*DESCRIPTION (Описание):*:: Если true, количество элементов в файле данных будет подсчитано и сохранено в атрибуте FlowFile 'item.count'. Подсчет выполняется путем чтения блоков и получения количества элементов для каждого блока, тем самым избегая десериализации. Элементы, которые будут подсчитаны, будут верхнеуровневыми элементами в файле данных. Например, при схеме типа record элементы будут записями, а для схемы типа Array - массивами (не количество записей в каждом массиве).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -103,10 +103,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|A FlowFile is routed to this relationship after metadata has been extracted.
+|Поток файлов перенаправляется в это отношение после извлечения метаданных.
 
 |`failure`
-|A FlowFile is routed to this relationship if it cannot be parsed as Avro or metadata cannot be extracted for any reason
+|Поток файлов перенаправляется в это отношение, если он не может быть проанализирован как Avro или для какой-либо другой причины метаданные извлечь не удается.
 
 |===
 
@@ -121,16 +121,16 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`schema.type`
-|The type of the schema (i.e. record, enum, etc.).
+|Тип схемы (т.е. запись, перечисление и т.д.).
 
 |`schema.name`
-|Contains the name when the type is a record, enum or fixed, otherwise contains the name of the primitive type.
+|Содержит имя, если тип — это запись, перечисление или фиксированный, в противном случае содержит имя примитивного типа.
 
 |`schema.fingerprint`
-|The result of the Fingerprint Algorithm as a Hex string.
+|Результат алгоритма Fingerprint в виде шестнадцатеричной строки.
 
 |`item.count`
-|The total number of items in the datafile, only written if Count Items is set to true.
+|Общее количество элементов в файле данных, записывается только если установлено значение Count Items равное true.
 
 |===
 

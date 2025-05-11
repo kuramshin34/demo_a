@@ -1,13 +1,13 @@
 = VerifyContentMAC 2.2.0
 
-Calculates a Message Authentication Code using the provided Secret Key and compares it with the provided MAC property
+Вычисляет аутентификационный код сообщения (Message Authentication Code, MAC) с использованием предоставленного секретного ключа и сравнивает его с предоставленным свойством mac.
 
 [horizontal]
 *Tags* (Ключевые слова):
 Authentication, HMAC, MAC, Signing
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,23 +20,23 @@ REQUIRED (Обязательно)
 .*Mac-Algorithm*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Message Authentication Code Algorithm
+*DISPLAY NAME (Отображаемое наименование):*:: Message Authentication Code Algorithm (Функция аутентификации сообщений, вычисленная по хэшу)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Hashed Message Authentication Code Function
+*DESCRIPTION (Описание):*:: Hashed Message Authentication Code Function (Функция аутентификации сообщений, вычисленная по хэшу)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* HmacSHA256
+* HmacSHA256 (HMAC с использованием алгоритма SHA-256)
 
-* HmacSHA512
+* HmacSHA512 (HMAC с использованием алгоритма SHA-512)
 
 
 [horizontal]
@@ -45,23 +45,23 @@ REQUIRED (Обязательно)
 .*Message-Authentication-Code-Encoding*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Message Authentication Code Encoding
+*DISPLAY NAME (Отображаемое наименование):*:: Message Authentication Code Encoding (Кодирование сообщения аутентификации)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Encoding of the Message Authentication Code
+*DESCRIPTION (Описание):*:: Кодирование сообщения аутентификации
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* HEXADECIMAL
+* HEXADECIMAL (HEXADECIMAL)
 
-* BASE64
+* BASE64 (BASE64)
 
 
 [horizontal]
@@ -70,14 +70,14 @@ REQUIRED (Обязательно)
 .*Message-Authentication-Code*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Message Authentication Code
+*DISPLAY NAME (Отображаемое наименование):*:: Message Authentication Code (Сообщение об аутентификации)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The MAC to compare with the calculated value
+*DESCRIPTION (Описание):*:: MAC для сравнения с рассчитанным значением
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -87,25 +87,25 @@ REQUIRED (Обязательно)
 .*Secret-Key-Encoding*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Secret Key Encoding
+*DISPLAY NAME (Отображаемое наименование):*:: Secret Key Encoding (Кодирование секретного ключа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Encoding of the Secret Key
+*DESCRIPTION (Описание):*:: Encoding of the Secret Key (Кодирование секретного ключа)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* UTF8
+* UTF8 (UTF-8)
 
-* HEXADECIMAL
+* HEXADECIMAL (шестнадцатеричный)
 
-* BASE64
+* BASE64 (Base64)
 
 
 [horizontal]
@@ -114,14 +114,14 @@ REQUIRED (Обязательно)
 .*Secret-Key*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Secret Key
+*DISPLAY NAME (Отображаемое наименование):*:: Secret Key (Секретный ключ)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Secret key to calculate the hash
+*DESCRIPTION (Описание):*:: Секретный ключ для вычисления хеша
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -145,10 +145,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Signature Verification Succeeded
+|Проверка подписи прошла успешно
 
 |`failure`
-|Signature Verification Failed
+|Проверка подписи не удалась
 
 |===
 
@@ -163,13 +163,13 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`mac.calculated`
-|Calculated Message Authentication Code encoded by the selected encoding
+|Вычисленный аутентификационный код сообщения, закодированный выбранным кодированием
 
 |`mac.encoding`
-|The Encoding of the Hashed Message Authentication Code
+|Кодирование хэшированного аутентификационного кода сообщения
 
 |`mac.algorithm`
-|Hashed Message Authentication Code Algorithm
+|Алгоритм хэширования аутентификационного кода сообщения
 
 |===
 

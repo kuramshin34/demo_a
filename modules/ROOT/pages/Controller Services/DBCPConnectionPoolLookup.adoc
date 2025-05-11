@@ -7,7 +7,7 @@ Provides a DBCPService that can be used to dynamically select another DBCPServic
 connection, database, dbcp, jdbc, pooling, store
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 

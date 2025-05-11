@@ -1,13 +1,13 @@
 = RedisDistributedMapCacheClientService 2.2.0
 
-An implementation of DistributedMapCacheClient that uses Redis as the backing cache. This service relies on the WATCH, MULTI, and EXEC commands in Redis, which are not fully supported when Redis is clustered. As a result, this service can only be used with a Redis Connection Pool that is configured for standalone or sentinel mode. Sentinel mode can be used to provide high-availability configurations.
+Реализация DistributedMapCacheClient, использующая Redis в качестве backing cache. Этот сервис полагается на команды WATCH, MULTI и EXEC в Redis, которые не полностью поддерживаются при кластеризации Redis. В результате этот сервис может быть использован только с пулом соединений Redis, настроенным для режима standalone или sentinel. Режим sentinel можно использовать для обеспечения конфигураций высокой доступности.
 
 [horizontal]
 *Tags* (Ключевые слова):
 cache, distributed, map, redis
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ cache, distributed, map, redis
 .*Redis-Connection-Pool*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Redis Connection Pool
+*DISPLAY NAME (Отображаемое наименование):*:: Redis Connection Pool (Редис Коннекшн Пул)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: 
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ cache, distributed, map, redis
 .*Redis-Cache-Ttl*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: TTL
+*DISPLAY NAME (Отображаемое наименование):*:: TTL (Время жизни)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates how long the data should exist in Redis. Setting '0 secs' would mean the data would exist forever
+*DESCRIPTION (Описание):*:: Указывает, как долго данные должны существовать в Redis. Установка '0 сек' означала бы, что данные будут существовать вечно
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -64,6 +64,17 @@ cache, distributed, map, redis
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

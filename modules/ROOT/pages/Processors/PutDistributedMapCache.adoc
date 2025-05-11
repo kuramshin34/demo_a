@@ -1,13 +1,13 @@
 = PutDistributedMapCache 2.2.0
 
-Gets the content of a FlowFile and puts it to a distributed map cache, using a cache key computed from FlowFile attributes. If the cache already contains the entry and the cache update strategy is 'keep original' the entry is not replaced.'
+Получает содержимое FlowFile и помещает его в распределенный кэш-карту, используя ключ кэша, вычисляемый из атрибутов FlowFile. Если кэш уже содержит запись, и стратегия обновления кэша 'keep original', то запись не заменяется.
 
 [horizontal]
 *Tags* (Ключевые слова):
 cache, distributed, map, put
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Cache Entry Identifier*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Cache Entry Identifier
+*DISPLAY NAME (Отображаемое наименование):*:: Cache Entry Identifier (Идентификатор записи кэша)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A FlowFile attribute, or the results of an Attribute Expression Language statement, which will be evaluated against a FlowFile in order to determine the cache key
+*DESCRIPTION (Описание):*:: Атрибут FlowFile или результат выражения языка Attribute Expression Language, которое будет оцениваться относительно FlowFile для определения ключа кэша
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Distributed Cache Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Distributed Cache Service
+*DISPLAY NAME (Отображаемое наименование):*:: Distributed Cache Service (Распределенный кэш-сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Controller Service that is used to cache flow files
+*DESCRIPTION (Описание):*:: Сервис контроллера, используемый для кэширования потоков данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,23 +54,23 @@ REQUIRED (Обязательно)
 .*Cache Update Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Cache update strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Cache update strategy (Стратегия обновления кэша)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Determines how the cache is updated if the cache already contains the entry
+*DESCRIPTION (Описание):*:: Определяет, как обновляется кэш, если он уже содержит запись
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Replace if present: Adds the specified entry to the cache, replacing any value that is currently set. 
+* Replace if present (Заменить, если существует): Добавляет указанную запись в кэш, заменяя любое значение, которое в настоящее время установлено. 
 
-* Keep original: Adds the specified entry to the cache, if the key does not exist. 
+* Keep original (Сохранить оригинал): Добавляет указанную запись в кэш, если ключ не существует. 
 
 
 [horizontal]
@@ -79,14 +79,14 @@ REQUIRED (Обязательно)
 .Max Cache Entry Size
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max cache entry size
+*DISPLAY NAME (Отображаемое наименование):*:: Max cache entry size (Максимальный размер кэш-записи)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The maximum amount of data to put into cache
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -110,10 +110,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Any FlowFile that is successfully inserted into cache will be routed to this relationship
+|Любой FlowFile, успешно вставленный в кэш, будет направлен по этому отношению
 
 |`failure`
-|Any FlowFile that cannot be inserted into the cache will be routed to this relationship
+|Любой FlowFile, который не может быть вставлен в кэш, будет направлен по этому отношению
 
 |===
 
@@ -128,7 +128,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`cached`
-|All FlowFiles will have an attribute 'cached'. The value of this attribute is true, is the FlowFile is cached, otherwise false.
+|Все FlowFiles будут иметь атрибут 'cached'. Значение этого атрибута равно true, если FlowFile кэширован, в противном случае false.
 
 |===
 

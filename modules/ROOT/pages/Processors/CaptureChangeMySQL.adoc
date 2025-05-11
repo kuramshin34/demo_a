@@ -1,13 +1,13 @@
 = CaptureChangeMySQL 2.2.0
 
-Retrieves Change Data Capture (CDC) events from a MySQL database. CDC Events include INSERT, UPDATE, DELETE operations. Events are output as either a group of a specified number of events (the default is 1 so each event becomes its own flow file) or grouped as a full transaction (BEGIN to COMMIT). All events are ordered by the time at which the operation occurred. NOTE: If the processor is stopped before the specified number of events have been written to a flow file, the partial flow file will be output in order to maintain the consistency of the event stream.
+Извлекает события изменения данных (Change Data Capture, CDC) из базы данных MySQL. События CDC включают операции INSERT, UPDATE и DELETE. События выводятся группами указанного количества событий по умолчанию (1, так что каждое событие становится отдельным потоком данных) или группируются как полная транзакция (BEGIN до COMMIT). Все события упорядочены по времени выполнения операции. Примечание: Если процессор останавливается до того, как в поток данных будет записано указанное количество событий, частичный поток данных будет выведен, чтобы обеспечить согласованность потока событий.
 
 [horizontal]
 *Tags* (Ключевые слова):
 cdc, event, jdbc, mysql, sql, transaction
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -17,34 +17,34 @@ FORBIDDEN (Обязательно)
 == Properties (Свойства)
 
 
-.*Capture-Change-Mysql-Hosts*
+.Capture-Change-Mysql-Hosts
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: MySQL Nodes
+*DISPLAY NAME (Отображаемое наименование):*:: MySQL Узлы
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A list of hostname (and optional port) entries corresponding to nodes in a MySQL cluster. The entries should be comma separated using a colon (if the port is to be specified) such as host1:port,host2:port,....  For example mysql.myhost.com:3306. The port need not be specified, when omitted the default MySQL port value of 3306 will be used. This processor will attempt to connect to the hosts in the list in order. If one node goes down and failover is enabled for the cluster, then the processor will connect to the active node (assuming its node entry is specified in this property).
+*DESCRIPTION (Описание):*:: Список имен хостов (и необязательный порт) записей, соответствующих узлам в кластере MySQL. Записи должны быть разделены запятыми с двоеточием (если необходимо указать порт), например host1:port,host2:port,... Например mysql.myhost.com:3306. Порт не обязательно указывать, если он не указан, будет использоваться значение порта по умолчанию 3306. Этот процессор попытается подключиться к хостам в списке в порядке. Если один из узлов выходит из строя и для кластера включена отработка отказа, то процессор подключится к активному узлу (предполагая, что его запись указана в этом свойстве).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
-*REQUIRED (Обязательный параметр):*::  True (Да) 
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
 ************************************************
 .*Capture-Change-Mysql-Driver-Class*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: MySQL Driver Class Name
+*DISPLAY NAME (Отображаемое наименование):*:: MySQL Driver Class Name (Имя класса драйвера MySQL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The class name of the MySQL database driver class
+*DESCRIPTION (Описание):*:: The class name of the MySQL database driver class (Имя класса базы данных MySQL драйвера)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ FORBIDDEN (Обязательно)
 .Capture-Change-Mysql-Driver-Locations
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: MySQL Driver Location(s)
+*DISPLAY NAME (Отображаемое наименование):*:: MySQL Driver Location(s) (Местоположение драйвера MySQL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Comma-separated list of files/folders and/or URLs containing the MySQL driver JAR and its dependencies (if any). For example '/var/tmp/mysql-connector-java-5.1.38-bin.jar'
+*DESCRIPTION (Описание):*:: Список, разделенный запятыми, файлов/папок и/или URL-адресов, содержащих JAR-файл и его зависимости для MySQL драйвера (если таковые имеются). Например '/var/tmp/mysql-connector-java-5.1.38-bin.jar'
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ FORBIDDEN (Обязательно)
 .Capture-Change-Mysql-Username
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Username
+*DISPLAY NAME (Отображаемое наименование):*:: Username (Имя пользователя)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Username to access the MySQL cluster
+*DESCRIPTION (Описание):*:: Имя пользователя для доступа к MySQL кластеру
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ FORBIDDEN (Обязательно)
 .Capture-Change-Mysql-Password
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Password
+*DISPLAY NAME (Отображаемое наименование):*:: Password (Пароль)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Password to access the MySQL cluster
+*DESCRIPTION (Описание):*:: Пароль для доступа к MySQL кластеру
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -105,23 +105,23 @@ FORBIDDEN (Обязательно)
 .*Events-Per-Flowfile-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Event Processing Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Event Processing Strategy (Стратегия обработки событий)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies the strategy to use when writing events to FlowFile(s), such as 'Max Events Per FlowFile'
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Max Events Per FlowFile: This strategy causes at most the number of events specified in the 'Number of Events Per FlowFile' property to be written per FlowFile. If the processor is stopped before the specified number of events has been written (or the event queue becomes empty), the fewer number of events will still be written as a FlowFile before stopping. 
+* Max Events Per FlowFile (Максимальное количество событий на FlowFile): This strategy causes at most the number of events specified in the 'Number of Events Per FlowFile' property to be written per FlowFile. If the processor is stopped before the specified number of events has been written (or the event queue becomes empty), the fewer number of events will still be written as a FlowFile before stopping. 
 
-* One Transaction Per FlowFile: This strategy causes each event from a transaction (from BEGIN to COMMIT) to be written to a FlowFile 
+* One Transaction Per FlowFile (Одна транзакция на FlowFile): This strategy causes each event from a transaction (from BEGIN to COMMIT) to be written to a FlowFile 
 
 
 [horizontal]
@@ -130,14 +130,14 @@ FORBIDDEN (Обязательно)
 .*Number-Of-Events-Per-Flowfile*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Events Per FlowFile
+*DISPLAY NAME (Отображаемое наименование):*:: Events Per FlowFile (События на файл)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how many events should be written to a single FlowFile. If the processor is stopped before the specified number of events has been written,the events will still be written as a FlowFile before stopping.
+*DESCRIPTION (Описание):*:: Указывает, сколько событий должно быть записано в один FlowFile. Если процессор останавливается до того, как будет записано указанное количество событий, события все равно будут записаны как FlowFile перед остановкой.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -147,14 +147,14 @@ FORBIDDEN (Обязательно)
 .Capture-Change-Mysql-Server-Id
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Server ID
+*DISPLAY NAME (Отображаемое наименование):*:: Server ID (Идентификатор сервера)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The client connecting to the MySQL replication group is actually a simplified replica (server), and the Server ID value must be unique across the whole replication group (i.e. different from any other Server ID being used by any primary or replica). Thus, each instance of CaptureChangeMySQL must have a Server ID unique across the replication group. If the Server ID is not specified, it defaults to 65535.
+*DESCRIPTION (Описание):*:: Клиент, подключающийся к группе MySQL репликации, является упрощённой репликой (сервером), и значение Server ID должно быть уникальным в рамках всей репликационной группы (то есть отличаться от любых других Server ID, используемых ни для одного из основного или вторичного серверов). Таким образом, каждый экземпляр CaptureChangeMySQL должен иметь уникальный Server ID в рамках репликационной группы. Если Server ID не указан, он по умолчанию устанавливается в 65535.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -164,14 +164,14 @@ FORBIDDEN (Обязательно)
 .Capture-Change-Mysql-Db-Name-Pattern
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Database/Schema Name Pattern
+*DISPLAY NAME (Отображаемое наименование):*:: Database/Schema Name Pattern (Шаблон имени базы данных/схемы)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A regular expression (regex) for matching databases (or schemas, depending on your RDBMS' terminology) against the list of CDC events. The regex must match the database name as it is stored in the RDBMS. If the property is not set, the database name will not be used to filter the CDC events. NOTE: DDL events, even if they affect different databases, are associated with the database used by the session to execute the DDL. This means if a connection is made to one database, but the DDL is issued against another, then the connected database will be the one matched against the specified pattern.
+*DESCRIPTION (Описание):*:: Регулярное выражение (regex) для сопоставления баз данных (или схем, в зависимости от терминологии вашей СУБД) списку событий CDC. Регулярное выражение должно соответствовать имени базы данных так, как оно хранится в СУБД. Если свойство не установлено, имя базы данных не будет использоваться для фильтрации событий CDC. Примечание: даже если DDL-события влияют на разные базы данных, они связаны с базой данных, используемой сессией для выполнения DDL. Это означает, что если подключение установлено к одной базе данных, но DDL выдается в другой, то подключенная база данных будет той, которая сопоставляется с указанным шаблоном.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -181,14 +181,14 @@ FORBIDDEN (Обязательно)
 .Capture-Change-Mysql-Name-Pattern
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Table Name Pattern
+*DISPLAY NAME (Отображаемое наименование):*:: Table Name Pattern (Шаблон имени таблицы)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A regular expression (regex) for matching CDC events affecting matching tables. The regex must match the table name as it is stored in the database. If the property is not set, no events will be filtered based on table name.
+*DESCRIPTION (Описание):*:: Регулярное выражение (regex) для сопоставления событий CDC, влияющих на соответствующие таблицы. Регулярное выражение должно соответствовать имени таблицы, как оно хранится в базе данных. Если свойство не установлено, события не будут отфильтрованы по имени таблицы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -198,14 +198,14 @@ FORBIDDEN (Обязательно)
 .*Capture-Change-Mysql-Max-Wait-Time*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Wait Time
+*DISPLAY NAME (Отображаемое наименование):*:: Max Wait Time (Максимальное время ожидания для установления соединения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum amount of time allowed for a connection to be established, zero means there is effectively no limit.
+*DESCRIPTION (Описание):*:: Максимальное количество времени, разрешенное для установления соединения, ноль означает, что ограничений нет.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -215,14 +215,14 @@ FORBIDDEN (Обязательно)
 .Capture-Change-Mysql-Dist-Map-Cache-Client
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Distributed Map Cache Client - unused
+*DISPLAY NAME (Отображаемое наименование):*:: Distributed Map Cache Client - unused (Распределенный кэш карты - неиспользуемый)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: This is a legacy property that is no longer used to store table information, the processor will handle the table information (column names, types, etc.)
+*DESCRIPTION (Описание):*:: Это устаревшее свойство, которое больше не используется для хранения информации о таблицах, процессор будет обрабатывать информацию о таблицах (названия столбцов, типы и т.д.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -232,14 +232,14 @@ FORBIDDEN (Обязательно)
 .*Capture-Change-Mysql-Retrieve-All-Records*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Retrieve All Records
+*DISPLAY NAME (Отображаемое наименование):*:: Retrieve All Records (Извлечь все записи)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether to get all available CDC events, regardless of the current binlog filename and/or position. If binlog filename and position values are present in the processor's State, this property's value is ignored. This allows for 4 different configurations: 1) If binlog data is available in processor State, that is used to determine the start location and the value of Retrieve All Records is ignored. 2) If no binlog data is in processor State, then Retrieve All Records set to true means start at the beginning of the binlog history. 3) If no binlog data is in processor State and Initial Binlog Filename/Position are not set, then Retrieve All Records set to false means start at the end of the binlog history. 4) If no binlog data is in processor State and Initial Binlog Filename/Position are set, then Retrieve All Records set to false means start at the specified initial binlog file/position. To reset the behavior, clear the processor state (refer to the State Management section of the processor's documentation).
+*DESCRIPTION (Описание):*:: Указывает, следует ли получить все доступные события CDC, независимо от текущего имени файла бинога и/или позиции. Если в состоянии процессора присутствуют значения имени файла бинога и позиции, значение этого свойства игнорируется. Это позволяет настроить 4 различных конфигурации: 1) Если бинлог-данные доступны в состоянии процессора, они используются для определения начального положения, и значение Retrieve All Records игнорируется. 2) Если бинлог-данных нет в состоянии процессора, то установка Retrieve All Records в true означает начало с начала истории бинога. 3) Если бинлог-данных нет в состоянии процессора и Initial Binlog Filename/Position не установлены, то установка Retrieve All Records в false означает начало с конца истории бинога. 4) Если бинлог-данных нет в состоянии процессора и Initial Binlog Filename/Position установлены, то установка Retrieve All Records в false означает начало с указанного начального файла бинога/позиции. Для сброса поведения откройте состояние процессора (обратитесь к разделу State Management документации процессора).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -257,14 +257,14 @@ FORBIDDEN (Обязательно)
 .*Capture-Change-Mysql-Include-Begin-Commit*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Include Begin/Commit Events
+*DISPLAY NAME (Отображаемое наименование):*:: Include Begin/Commit Events (Включить события BEGIN или COMMIT)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether to emit events corresponding to a BEGIN or COMMIT event in the binary log. Set to true if the BEGIN/COMMIT events are necessary in the downstream flow, otherwise set to false, which suppresses generation of these events and can increase flow performance.
+*DESCRIPTION (Описание):*:: Указывает, следует ли выпускать события, соответствующие событию BEGIN или COMMIT в двоичном журнале. Установите значение true, если необходимы события BEGIN/COMMIT в downstream flow, иначе установите false, что подавляет генерацию этих событий и может увеличить производительность потока.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -282,14 +282,14 @@ FORBIDDEN (Обязательно)
 .*Capture-Change-Mysql-Include-Ddl-Events*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Include DDL Events
+*DISPLAY NAME (Отображаемое наименование):*:: Include DDL Events (Включить события DDL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether to emit events corresponding to Data Definition Language (DDL) events such as ALTER TABLE, TRUNCATE TABLE, e.g. in the binary log. Set to true if the DDL events are desired/necessary in the downstream flow, otherwise set to false, which suppresses generation of these events and can increase flow performance.
+*DESCRIPTION (Описание):*:: Указывает, следует ли испускать события, соответствующие языку определений данных (DDL), таким как ALTER TABLE, TRUNCATE TABLE и т.д., в двоичном логе. Установите значение true, если необходимы/необходимы события DDL в потоке ниже, в противном случае установите значение false, что подавляет генерацию этих событий и может увеличить производительность потока.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -307,14 +307,14 @@ FORBIDDEN (Обязательно)
 .Capture-Change-Mysql-Init-Seq-Id
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Initial Sequence ID
+*DISPLAY NAME (Отображаемое наименование):*:: Initial Sequence ID (Начальный идентификатор последовательности)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies an initial sequence identifier to use if this processor's State does not have a current sequence identifier. If a sequence identifier is present in the processor's State, this property is ignored. Sequence identifiers are monotonically increasing integers that record the order of flow files generated by the processor. They can be used with the EnforceOrder processor to guarantee ordered delivery of CDC events.
+*DESCRIPTION (Описание):*:: Указывает начальный идентификатор последовательности, который следует использовать, если состояние этого процессора не имеет текущего идентификатора последовательности. Если идентификатор последовательности присутствует в состоянии процессора, это свойство игнорируется. Идентификаторы последовательностей являются монотонно возрастающими целыми числами, которые регистрируют порядок потоков данных, генерируемых процессором. Они могут быть использованы с процессором EnforceOrder для обеспечения упорядоченной доставки событий CDC.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -324,14 +324,14 @@ FORBIDDEN (Обязательно)
 .Capture-Change-Mysql-Init-Binlog-Filename
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Initial Binlog Filename
+*DISPLAY NAME (Отображаемое наименование):*:: Initial Binlog Filename (Начальное имя бинарного файла)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies an initial binlog filename to use if this processor's State does not have a current binlog filename. If a filename is present in the processor's State or "Use GTID" property is set to false, this property is ignored. This can be used along with Initial Binlog Position to "skip ahead" if previous events are not desired. Note that NiFi Expression Language is supported, but this property is evaluated when the processor is configured, so FlowFile attributes may not be used. Expression Language is supported to enable the use of the environment properties.
+*DESCRIPTION (Описание):*:: Указывает начальное имя бинарного файла для использования, если состояние этого процессора не имеет текущего имени бинарного файла. Если в состоянии процессора или свойстве "Использовать GTID" установлено значение false, это свойство игнорируется. Это может быть использовано вместе с Initial Binlog Position для пропуска предыдущих событий, если они не нужны. Обратите внимание, что поддерживается язык выражений NiFi, но это свойство оценивается при настройке процессора, поэтому атрибуты FlowFile могут не использоваться. Поддерживается язык выражений для включения использования переменных окружения.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -341,14 +341,14 @@ FORBIDDEN (Обязательно)
 .Capture-Change-Mysql-Init-Binlog-Position
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Initial Binlog Position
+*DISPLAY NAME (Отображаемое наименование):*:: Initial Binlog Position (Начальная позиция бинарного лога)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies an initial offset into a binlog (specified by Initial Binlog Filename) to use if this processor's State does not have a current binlog filename. If a filename is present in the processor's State or "Use GTID" property is false, this property is ignored. This can be used along with Initial Binlog Filename to "skip ahead" if previous events are not desired. Note that NiFi Expression Language is supported, but this property is evaluated when the processor is configured, so FlowFile attributes may not be used. Expression Language is supported to enable the use of the environment properties.
+*DESCRIPTION (Описание):*:: Указывает начальное смещение в бинарном логе (указанном по Initial Binlog Filename) для использования, если состояние этого процессора не имеет текущего имени файла бинарного лога. Если имя файла присутствует в состоянии процессора или свойство "Use GTID" равно false, это свойство игнорируется. Это может быть использовано вместе с Initial Binlog Filename для пропуска событий, если не нужны предыдущие события. Обратите внимание, что поддерживается язык выражений NiFi, но это свойство оценивается при настройке процессора, поэтому атрибуты FlowFile не могут быть использованы. Поддерживается язык выражений для включения использования переменных окружения.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -358,14 +358,14 @@ FORBIDDEN (Обязательно)
 .*Capture-Change-Mysql-Use-Gtid*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Use Binlog GTID
+*DISPLAY NAME (Отображаемое наименование):*:: Use Binlog GTID (Использовать бинарный лог с GTID)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether to use Global Transaction ID (GTID) for binlog tracking. If set to true, processor's state of binlog file name and position is ignored. The main benefit of using GTID is to have much reliable failover than using binlog filename/position.
+*DESCRIPTION (Описание):*:: Указывает, следует ли использовать глобальный идентификатор транзакции (GTID) для отслеживания бинарного лога. Если установлено в true, состояние процессора имен файла и позиции бинарного лога игнорируются. Основное преимущество использования GTID заключается в более надежном откате по сравнению с использованием имени файла/позиции бинарного лога.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -383,14 +383,14 @@ FORBIDDEN (Обязательно)
 .Capture-Change-Mysql-Init-Gtid
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Initial Binlog GTID
+*DISPLAY NAME (Отображаемое наименование):*:: Initial Binlog GTID (Начальный бинлог GTID)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies an initial GTID to use if this processor's State does not have a current GTID. If a GTID is present in the processor's State or "Use GTID" property is set to false, this property is ignored. This can be used to "skip ahead" if previous events are not desired. Note that NiFi Expression Language is supported, but this property is evaluated when the processor is configured, so FlowFile attributes may not be used. Expression Language is supported to enable the use of the environment properties.
+*DESCRIPTION (Описание):*:: Указывает начальный GTID для использования, если состояние этого процессора не имеет текущего GTID. Если в состоянии процессора или свойстве "Использовать GTID" установлено значение false, это свойство игнорируется. Это может быть использовано для пропуска событий, если не нужны предыдущие события. Обратите внимание, что поддерживается язык выражений NiFi, но это свойство оценивается при настройке процессора, поэтому атрибуты FlowFile не могут быть использованы. Поддерживается язык выражений для включения использования переменных окружения.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -400,27 +400,27 @@ FORBIDDEN (Обязательно)
 .*Ssl Mode*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Mode
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Mode (Режим SSL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: SSL Mode used when SSL Context Service configured supporting certificate verification options
+*DESCRIPTION (Описание):*:: Режим SSL, используемый при настройке службы контекста SSL, поддерживающего опции проверки сертификата
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* DISABLED: Connect without TLS 
+* DISABLED (Отключено): Подключение без использования TLS 
 
-* PREFERRED: Connect with TLS when server support enabled, otherwise connect without TLS 
+* PREFERRED (Предпочтительно): Подключение с использованием TLS, если сервер поддерживает его, в противном случае подключение без TLS 
 
-* REQUIRED: Connect with TLS or fail when server support not enabled 
+* REQUIRED (Требуется): Подключение с использованием TLS или отказ при отсутствии поддержки сервера 
 
-* VERIFY_IDENTITY: Connect with TLS or fail when server support not enabled. Verify server hostname matches presented X.509 certificate names or fail when not matched 
+* VERIFY_IDENTITY (Проверка идентичности): Подключение с использованием TLS или отказ при отсутствии поддержки сервера. Проверка соответствия имени хоста, указанного в сертификате X.509, или отказ при несоответствии 
 
 
 [horizontal]
@@ -429,14 +429,14 @@ FORBIDDEN (Обязательно)
 .Ssl Context Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (SSL Контекст Сервиса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: SSL Context Service supporting encrypted socket communication
+*DESCRIPTION (Описание):*:: SSL Context Service поддерживающий зашифрованный сокетный обмен
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -456,7 +456,7 @@ FORBIDDEN (Обязательно)
 |
 CLUSTER
 
-|Information such as a 'pointer' to the current CDC event in the database is stored by this processor, such that it can continue from the same location if restarted.
+|Информация, такая как 'указатель' на текущее событие CDC в базе данных, хранится этим процессором, так что он может продолжить с того же места при перезапуске.
 |===
 
 
@@ -470,7 +470,7 @@ CLUSTER
 |Требуемые права |Объяснение
 
 |
-|Database Driver Location can reference resources over HTTP
+|Расположение драйвера базы данных может ссылаться на ресурсы по протоколу HTTP
 
 |===
 
@@ -483,7 +483,7 @@ CLUSTER
 |Наименование |Описание
 
 |`success`
-|Successfully created FlowFile from SQL query result set.
+|Успешно создан поток данных из результата набора запросов SQL.
 
 |===
 
@@ -498,13 +498,13 @@ CLUSTER
 |Наименование |Описание
 
 |`cdc.sequence.id`
-|A sequence identifier (i.e. strictly increasing integer value) specifying the order of the CDC event flow file relative to the other event flow file(s).
+|Идентификатор последовательности (то есть строго возрастающее целочисленное значение), указывающий порядок потока данных событий относительно других потоков данных событий.
 
 |`cdc.event.type`
-|A string indicating the type of CDC event that occurred, including (but not limited to) 'begin', 'insert', 'update', 'delete', 'ddl' and 'commit'.
+|Строка, указывающая на тип события CDC, которое произошло, включая (но не ограничиваясь) 'begin', 'insert', 'update', 'delete', 'ddl' и 'commit'.
 
 |`mime.type`
-|The processor outputs flow file content in JSON format, and sets the mime.type attribute to application/json
+|Процессор выводит содержимое потока данных в формате JSON, а атрибуту mime.type устанавливается значение application/json
 
 |===
 

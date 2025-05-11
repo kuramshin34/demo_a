@@ -1,13 +1,13 @@
 = RouteHL7 2.2.0
 
-Routes incoming HL7 data according to user-defined queries. To add a query, add a new property to the processor. The name of the property will become a new relationship for the processor, and the value is an HL7 Query Language query. If a FlowFile matches the query, a copy of the FlowFile will be routed to the associated relationship.
+Маршрутизирует входящие данные HL7 в соответствии с пользовательскими запросами. Чтобы добавить запрос, добавьте новую свойство к процессору. Имя этого свойства станет новой связью для процессора, а значение - запросом на языке запросов HL7. Если FlowFile соответствует запросу, будет направлен копию FlowFile в соответствующую связь.
 
 [horizontal]
 *Tags* (Ключевые слова):
-HL7, Health Level 7, healthcare, route
+HL7, Health Level 7, здоровье, маршрутизация
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Character Encoding*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Encoding
+*DISPLAY NAME (Отображаемое наименование):*:: Character Encoding (Кодировка символов)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Character Encoding that is used to encode the HL7 data
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 

@@ -1,13 +1,13 @@
 = EnforceOrder 2.2.0
 
-Enforces expected ordering of FlowFiles that belong to the same data group within a single node.  Although PriorityAttributePrioritizer can be used on a connection to ensure that flow files going through that connection are in priority order, depending on error-handling, branching, and other flow designs, it is possible for FlowFiles to get out-of-order. EnforceOrder can be used to enforce original ordering for those FlowFiles. [IMPORTANT] In order to take effect of EnforceOrder, FirstInFirstOutPrioritizer should be used at EVERY downstream relationship UNTIL the order of FlowFiles physically get FIXED by operation such as MergeContent or being stored to the final destination.
+Принудительно обеспечивает ожидаемый порядок FlowFiles, принадлежащих к той же группе данных в рамках одного узла. Хотя PriorityAttributePrioritizer может использоваться для привязки к соединению, чтобы обеспечить порядок flow files на основе приоритета, в зависимости от обработки ошибок, разветвления и других дизайнов потока, возможно, что FlowFiles могут стать неправильным порядком. EnforceOrder может использоваться для принудительного соблюдения первоначального порядка для этих FlowFiles. [ВАЖНО] Для того чтобы EnforceOrder вступило в силу, необходимо использовать FirstInFirstOutPrioritizer на ВСЕХ нижестоящих отношениях ДО ТЕХ ПОР, пока порядок FlowFiles физически не будет устранен операцией, такой как MergeContent или сохранение в конечное место назначения.
 
 [horizontal]
 *Tags* (Ключевые слова):
 order, sort
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Group-Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Group Identifier
+*DISPLAY NAME (Отображаемое наименование):*:: Group Identifier (Групповой идентификатор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: EnforceOrder is capable of multiple ordering groups. 'Group Identifier' is used to determine which group a FlowFile belongs to. This property will be evaluated with each incoming FlowFile. If evaluated result is empty, the FlowFile will be routed to failure.
+*DESCRIPTION (Описание):*:: EnforceOrder может управлять несколькими группами упорядочения. 'Group Identifier' используется для определения, к какой группе относится FlowFile. Это свойство будет оцениваться с каждым поступающим FlowFile. Если оценка оказывается пустой, FlowFile будет направлен в сбое.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Order-Attribute*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Order Attribute
+*DISPLAY NAME (Отображаемое наименование):*:: Order Attribute (Порядок атрибута)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A name of FlowFile attribute whose value will be used to enforce order of FlowFiles within a group. If a FlowFile does not have this attribute, or its value is not an integer, the FlowFile will be routed to failure.
+*DESCRIPTION (Описание):*:: Имя FlowFile атрибута, значение которого будет использоваться для обеспечения порядка FlowFiles в группе. Если FlowFile не имеет этого атрибута или его значение не является целым числом, FlowFile будет направлен в сбой.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Initial-Order*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Initial Order
+*DISPLAY NAME (Отображаемое наименование):*:: Initial Order (Начальный порядок)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When the first FlowFile of a group arrives, initial target order will be computed and stored in the managed state. After that, target order will start being tracked by EnforceOrder and stored in the state management store. If Expression Language is used but evaluated result was not an integer, then the FlowFile will be routed to failure, and initial order will be left unknown until consecutive FlowFiles provide a valid initial order.
+*DESCRIPTION (Описание):*:: Когда приходит первый FlowFile группы, будет вычислен и сохранён в управляемом состоянии начальный целевой порядок. После этого целевой порядок начнет отслеживаться с помощью EnforceOrder и храниться в хранилище управления состояниями. Если используется язык выражений, но результат оценки не был целым числом, то FlowFile будет направлен в сбой, и начальный порядок останется неизвестен до тех пор, пока последующие FlowFiles предоставят действительный начальный порядок.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .Maximum-Order
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Order
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Order (Максимальный порядок)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If specified, any FlowFiles that have larger order will be routed to failure. This property is computed only once for a given group. After a maximum order is computed, it will be persisted in the state management store and used for other FlowFiles belonging to the same group. If Expression Language is used but evaluated result was not an integer, then the FlowFile will be routed to failure, and maximum order will be left unknown until consecutive FlowFiles provide a valid maximum order.
+*DESCRIPTION (Описание):*:: Если указано, то любой FlowFiles с большим порядком будет направлен в сбое. Это свойство вычисляется только один раз для заданной группы. После вычисления максимального порядка он сохраняется в хранилище управления состоянием и используется для других FlowFiles, принадлежащих той же группе. Если используется язык выражений, но результат оценки не был целым числом, то FlowFile будет направлен в сбое, и максимальный порядок останется неизвестен до тех пор, пока последующие FlowFiles предоставят действительный максимальный порядок.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ REQUIRED (Обязательно)
 .*Batch-Count*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Batch Count
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Count (Количество пакетных операций)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum number of FlowFiles that EnforceOrder can process at an execution.
+*DESCRIPTION (Описание):*:: Максимальное количество FlowFiles, которые EnforceOrder может обработать при выполнении.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ REQUIRED (Обязательно)
 .*Wait-Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Wait Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Wait Timeout (Ожидание таймаута)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates the duration after which waiting FlowFiles will be routed to the 'overtook' relationship.
+*DESCRIPTION (Описание):*:: Указывает продолжительность, по истечении которой ожидающие FlowFiles будут направлены в отношение 'перехвачено'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -122,14 +122,14 @@ REQUIRED (Обязательно)
 .*Inactive-Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Inactive Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Inactive Timeout (Период после которого состояние неактивной группы будет очищено из управляемого состояния)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates the duration after which state for an inactive group will be cleared from managed state. Group is determined as inactive if any new incoming FlowFile has not seen for a group for specified duration. Inactive Timeout must be longer than Wait Timeout. If a FlowFile arrives late after its group is already cleared, it will be treated as a brand new group, but will never match the order since expected preceding FlowFiles are already gone. The FlowFile will eventually timeout for waiting and routed to 'overtook'. To avoid this, group states should be kept long enough, however, shorter duration would be helpful for reusing the same group identifier again.
+*DESCRIPTION (Описание):*:: Указывает продолжительность, по истечении которой состояние для неактивной группы будет удалено из управляемого состояния. Группа считается неактивной, если за указанный период новые входящие FlowFile не поступали. Если FlowFile приходит поздно после того, как группа уже была очищена, она будет рассмотрена как новая группа, но никогда не сможет соответствовать порядку, так как ожидаемые предшествующие FlowFile уже исчезли. FlowFile в конечном итоге перейдет в режим ожидания и будет направлен в 'overtook'. Чтобы избежать этого, состояние групп следует хранить достаточно долго, однако более короткая продолжительность может быть полезной для повторного использования того же идентификатора группы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -149,7 +149,7 @@ REQUIRED (Обязательно)
 |
 LOCAL
 
-|EnforceOrder uses following states per ordering group: '<groupId>.target' is a order number which is being waited to arrive next. When a FlowFile with a matching order arrives, or a FlowFile overtakes the FlowFile being waited for because of wait timeout, target order will be updated to (FlowFile.order + 1). '<groupId>.max is the maximum order number for a group. '<groupId>.updatedAt' is a timestamp when the order of a group was updated last time. These managed states will be removed automatically once a group is determined as inactive, see 'Inactive Timeout' for detail.
+|EnforceOrder использует следующие состояния для каждой группы упорядочения: '<groupId>.target' - это номер порядка, на который ожидается прибытие следующего. Когда FlowFile с соответствующим порядком прибывает или FlowFile перемещается вперед FlowFile, ожидаемого из-за таймаута ожидания, цельный порядок будет обновлен до (FlowFile.order + 1). '<groupId>.max - это максимальный номер порядка для группы. '<groupId>.updatedAt' - это временная метка последнего обновления порядка группы. Эти управляемые состояния будут автоматически удалены, как только группа будет определена как неактивная, см. 'Inactive Timeout' для деталей.
 |===
 
 
@@ -165,19 +165,19 @@ LOCAL
 |Наименование |Описание
 
 |`overtook`
-|A FlowFile that waited for preceding FlowFiles longer than Wait Timeout and overtook those FlowFiles, will be routed to this relationship.
+|FlowFile, который ждал предшествующих FlowFiles дольше, чем Wait Timeout, и переместился вперед этих FlowFiles, будет направлен в это отношение.
 
 |`failure`
-|A FlowFiles which does not have required attributes, or fails to compute those will be routed to this relationship
+|FlowFiles, которые не имеют необходимых атрибутов или терпят неудачу при вычислении их, будут направлены в это отношение
 
 |`success`
-|A FlowFile with a matching order number will be routed to this relationship.
+|FlowFile с соответствующим номером порядка будет направлен в это отношение.
 
 |`skipped`
-|A FlowFile that has an order younger than current, which means arrived too late and skipped, will be routed to this relationship.
+|FlowFile, который имеет заказ младше текущего, что означает его прибытие слишком поздно и был пропущен, будет направлен в это отношение.
 
 |`wait`
-|A FlowFile with non matching order will be routed to this relationship
+|FlowFile с несоответствующим порядком будет направлен в это отношение
 
 |===
 
@@ -192,16 +192,16 @@ LOCAL
 |Наименование |Описание
 
 |`EnforceOrder.startedAt`
-|All FlowFiles going through this processor will have this attribute. This value is used to determine wait timeout.
+|Все FlowFiles, проходящие через этот процессор, будут иметь этот атрибут. Это значение используется для определения таймаута ожидания.
 
 |`EnforceOrder.result`
-|All FlowFiles going through this processor will have this attribute denoting which relationship it was routed to.
+|Все FlowFiles, проходящие через этот процессор, будут иметь этот атрибут, обозначающий, в какое отношение был направлен.
 
 |`EnforceOrder.detail`
-|FlowFiles routed to 'failure' or 'skipped' relationship will have this attribute describing details.
+|FlowFiles, направленные в 'failure' или 'skipped' отношение, будут иметь этот атрибут, описывающий детали.
 
 |`EnforceOrder.expectedOrder`
-|FlowFiles routed to 'wait' or 'skipped' relationship will have this attribute denoting expected order when the FlowFile was processed.
+|FlowFiles, направленные в 'wait' или 'skipped' отношение, будут иметь этот атрибут, обозначающий ожидаемый порядок при обработке FlowFile.
 
 |===
 

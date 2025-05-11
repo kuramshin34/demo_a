@@ -1,13 +1,13 @@
 = ListenUDP 2.2.0
 
-Listens for Datagram Packets on a given port. The default behavior produces a FlowFile per datagram, however for higher throughput the Max Batch Size property may be increased to specify the number of datagrams to batch together in a single FlowFile. This processor can be restricted to listening for datagrams from  a specific remote host and port by specifying the Sending Host and Sending Host Port properties, otherwise it will listen for datagrams from all hosts and ports.
+Прослушивает пакеты датаграмм на заданном порту. По умолчанию поведение состоит в том, чтобы производить FlowFile для каждой датаграммы, однако для повышения пропускной способности можно увеличить свойство Max Batch Size, чтобы указать количество датаграмм, которые следует объединить в один FlowFile. Этот процессор может быть ограничен слушанием датаграмм от конкретного удаленного хоста и порта, указав свойства Отправляющий хост и Порт отправителя, в противном случае он будет прослушивать датаграммы от всех хостов и портов.
 
 [horizontal]
 *Tags* (Ключевые слова):
 ingest, listen, source, udp
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ FORBIDDEN (Обязательно)
 .Local Network Interface
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Local Network Interface
+*DISPLAY NAME (Отображаемое наименование):*:: Local Network Interface (Локальный сетевой интерфейс)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of a local network interface to be used to restrict listening to a specific LAN.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ FORBIDDEN (Обязательно)
 .*Port*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Port
+*DISPLAY NAME (Отображаемое наименование):*:: Port (Порт)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The port to listen on for communication.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ FORBIDDEN (Обязательно)
 .*Receive Buffer Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Receive Buffer Size
+*DISPLAY NAME (Отображаемое наименование):*:: Receive Buffer Size (Размер буфера приема)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The size of each buffer used to receive messages. Adjust this value appropriately based on the expected size of the incoming messages.
+*DESCRIPTION (Описание):*:: Размер каждого буфера, используемого для приема сообщений. Настройте это значение в зависимости от ожидаемого размера поступающих сообщений.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ FORBIDDEN (Обязательно)
 .*Max Size Of Message Queue*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Size of Message Queue
+*DISPLAY NAME (Отображаемое наименование):*:: Max Size of Message Queue (Максимальный размер внутренней очереди, используемой для буферизации сообщений, передаваемых из нижележащего канала в процессор.)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The maximum size of the internal queue used to buffer messages being transferred from the underlying channel to the processor. Setting this value higher allows more messages to be buffered in memory during surges of incoming messages, but increases the total memory used by the processor.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ FORBIDDEN (Обязательно)
 .*Max Size Of Socket Buffer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Size of Socket Buffer
+*DISPLAY NAME (Отображаемое наименование):*:: Max Size of Socket Buffer (Максимальный размер буфера сокета)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum size of the socket buffer that should be used. This is a suggestion to the Operating System to indicate how big the socket buffer should be. If this value is set too low, the buffer may fill up before the data can be read, and incoming data will be dropped.
+*DESCRIPTION (Описание):*:: Максимальный размер буфера сокета, который следует использовать. Это рекомендация для операционной системы указать, насколько большой должен быть буфер сокета. Если это значение установлено слишком низким, буфер может заполниться до того, как данные могут быть прочитаны, и поступающие данные будут отброшены.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ FORBIDDEN (Обязательно)
 .*Character Set*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Символьный набор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the character set of the received data.
+*DESCRIPTION (Описание):*:: Указывает символьный набор полученных данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -122,14 +122,14 @@ FORBIDDEN (Обязательно)
 .*Max Batch Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Batch Size
+*DISPLAY NAME (Отображаемое наименование):*:: Max Batch Size (Максимальный размер пакета)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The maximum number of messages to add to a single FlowFile. If multiple messages are available, they will be concatenated along with the <Message Delimiter> up to this configured maximum number of messages
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -139,14 +139,14 @@ FORBIDDEN (Обязательно)
 .*Message Delimiter*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Batching Message Delimiter
+*DISPLAY NAME (Отображаемое наименование):*:: Batching Message Delimiter (Delimiter между сообщениями)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the delimiter to place between messages when multiple messages are bundled together (see <Max Batch Size> property).
+*DESCRIPTION (Описание):*:: Указывает разделитель, который следует разместить между сообщениями при их группировке вместе (см. <Максимальный размер партии> свойство).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -156,14 +156,14 @@ FORBIDDEN (Обязательно)
 .Sending Host
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Sending Host
+*DISPLAY NAME (Отображаемое наименование):*:: Sending Host (IP или имя удаленного узла. Будут приниматься только датаграммы от указанного порта отправителя на этом хосте и этого хоста. Улучшает производительность. Может быть системной свойством или переменной окружения.)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: IP, or name, of a remote host. Only Datagrams from the specified Sending Host Port and this host will be accepted. Improves Performance. May be a system property or an environment variable.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -173,14 +173,14 @@ FORBIDDEN (Обязательно)
 .Sending Host Port
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Sending Host Port
+*DISPLAY NAME (Отображаемое наименование):*:: Sending Host Port (Порт узла-отправителя)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Port being used by remote host to send Datagrams. Only Datagrams from the specified Sending Host and this port will be accepted. Improves Performance. May be a system property or an environment variable.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -204,7 +204,7 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Messages received successfully will be sent out this relationship.
+|Сообщения, полученные успешно, будут отправлены по этому отношению.
 
 |===
 
@@ -219,10 +219,10 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`udp.sender`
-|The sending host of the messages.
+|Хост, отправляющий сообщения.
 
 |`udp.port`
-|The sending port the messages were received.
+|Порт, на который были получены сообщения.
 
 |===
 

@@ -7,7 +7,7 @@ A processor that runs an aggregation query whenever a flowfile is received.
 aggregate, aggregation, mongo
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-ALLOWED (Обязательно)
+ALLOWED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ ALLOWED (Обязательно)
 .Mongo-Client-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Client Service
+*DISPLAY NAME (Отображаемое наименование):*:: Client Service (Клиент Сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If configured, this property will use the assigned client service for connection pooling.
+*DESCRIPTION (Описание):*:: Если настроено, это свойство будет использовать назначенный клиентский сервис для пула соединений.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ ALLOWED (Обязательно)
 .*Mongo Database Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Mongo Database Name
+*DISPLAY NAME (Отображаемое наименование):*:: Mongo Database Name (Имя базы данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the database to use
+*DESCRIPTION (Описание):*:: Имя базы данных, которую следует использовать
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ ALLOWED (Обязательно)
 .*Mongo Collection Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Mongo Collection Name
+*DISPLAY NAME (Отображаемое наименование):*:: Mongo Collection Name (Имя коллекции)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the collection to use
+*DESCRIPTION (Описание):*:: Имя коллекции для использования
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ ALLOWED (Обязательно)
 .*Mongo-Charset*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Набор символов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the character set of the document data.
+*DESCRIPTION (Описание):*:: Указывает набор символов данных документа.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ ALLOWED (Обязательно)
 .*Mongo-Agg-Query*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Query
+*DISPLAY NAME (Отображаемое наименование):*:: Query (Запрос)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The aggregation query to be executed.
+*DESCRIPTION (Описание):*:: Агрегационный запрос, который будет выполнен.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ ALLOWED (Обязательно)
 .*Allow-Disk-Use*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Allow Disk Use
+*DISPLAY NAME (Отображаемое наименование):*:: Allow Disk Use (Разрешить использование диска)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Set this to true to enable writing data to temporary files to prevent exceeding the maximum memory use limit during aggregation pipeline staged when handling large datasets.
+*DESCRIPTION (Описание):*:: Установите это значение в true, чтобы разрешить запись данных во временные файлы для предотвращения превышения предела максимального использования памяти при обработке больших наборов данных в агрегационной конвейерной стадии.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -130,23 +130,23 @@ ALLOWED (Обязательно)
 .*Json-Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: JSON Type
+*DISPLAY NAME (Отображаемое наименование):*:: JSON Type (Тип JSON)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: By default, MongoDB's Java driver returns "extended JSON". Some of the features of this variant of JSON may cause problems for other JSON parsers that expect only standard JSON types and conventions. This configuration setting  controls whether to use extended JSON or provide a clean view that conforms to standard JSON.
+*DESCRIPTION (Описание):*:: По умолчанию, драйвер Java для MongoDB возвращает "расширенный JSON". Некоторые из функций этого варианта JSON могут вызвать проблемы для других парсеров JSON, которые ожидают только стандартные типы и соглашения. Это настройка контролирует использование расширенного JSON или предоставление чистого вида, соответствующего стандартному JSON.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Extended JSON: Use MongoDB's "extended JSON". This is the JSON generated with toJson() on a MongoDB Document from the Java driver 
+* Extended JSON (Расширенный JSON): Использовать расширенный JSON, который генерирует MongoDB с помощью toJson() на документе MongoDB из драйвера Java. 
 
-* Standard JSON: Generate a JSON document that conforms to typical JSON conventions instead of Mongo-specific conventions. 
+* Standard JSON (Стандартный JSON): Создать JSON-документ, соответствующий обычным соглашениям JSON вместо специфичных для Mongo конвенций. 
 
 
 [horizontal]
@@ -155,14 +155,14 @@ ALLOWED (Обязательно)
 .Mongo-Query-Attribute
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Query Output Attribute
+*DISPLAY NAME (Отображаемое наименование):*:: Query Output Attribute (Выходной атрибут запроса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If set, the query will be written to a specified attribute on the output flowfiles.
+*DESCRIPTION (Описание):*:: Если установлено, запрос будет записан в указанный атрибут на выходном потоке.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -172,14 +172,14 @@ ALLOWED (Обязательно)
 .Batch Size
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Batch Size
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Size (Размер партии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The number of elements returned from the server in one batch.
+*DESCRIPTION (Описание):*:: Количество элементов, возвращаемых с сервера за один пакет.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -189,14 +189,14 @@ ALLOWED (Обязательно)
 .Results-Per-Flowfile
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Results Per FlowFile
+*DISPLAY NAME (Отображаемое наименование):*:: Results Per FlowFile (Результаты на поток)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: How many results to put into a flowfile at once. The whole body will be treated as a JSON array of results.
+*DESCRIPTION (Описание):*:: Сколько результатов помещать в один поток. Весь тело будет рассматриваться как JSON-массив результатов.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -206,14 +206,14 @@ ALLOWED (Обязательно)
 .Mongo-Date-Format
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Date Format
+*DISPLAY NAME (Отображаемое наименование):*:: Date Format (Формат даты)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The date format string to use for formatting Date fields that are returned from Mongo. It is only applied when the JSON output format is set to Standard JSON.
+*DESCRIPTION (Описание):*:: Строка формата даты, которая будет использоваться для форматирования полей Date, возвращаемых из Mongo. Применяется только в том случае, если формат вывода JSON установлен на Стандартный JSON.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -250,6 +250,17 @@ ALLOWED (Обязательно)
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|The App ID field from the AMQP Message
+
+|===
 
 
 

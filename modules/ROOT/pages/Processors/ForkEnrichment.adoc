@@ -7,7 +7,7 @@ Used in conjunction with the JoinEnrichment processor, this processor is respons
 enrich, fork, join, record
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 

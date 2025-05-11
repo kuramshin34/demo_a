@@ -1,13 +1,13 @@
 = SyslogReader 2.2.0
 
-Attempts to parses the contents of a Syslog message in accordance to RFC5424 and RFC3164. In the case of RFC5424 formatted messages, structured data is not supported, and will be returned as part of the message.Note: Be mindfull that RFC3164 is informational and a wide range of different implementations are present in the wild.
+Пытается анализировать содержимое сообщения Syslog в соответствии с RFC5424 и RFC3164. В случае сообщений, отформатированных по RFC5424, поддержка структурированных данных не поддерживается и будет возвращена как часть сообщения. Обратите внимание, что RFC3164 является информационным, и в дикой природе присутствует широкий спектр различных реализаций.
 
 [horizontal]
 *Tags* (Ключевые слова):
 logfiles, logs, parse, reader, record, syslog, text
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ logfiles, logs, parse, reader, record, syslog, text
 .*Character Set*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Символьный набор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies which character set of the Syslog messages
+*DESCRIPTION (Описание):*:: Указывает, какой символьный набор сообщений Syslog
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,23 +37,23 @@ logfiles, logs, parse, reader, record, syslog, text
 .*Syslog-5424-Reader-Raw-Message*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Raw message
+*DISPLAY NAME (Отображаемое наименование):*:: Raw message (Сообщение в сыром виде)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true, the record will have a _raw field containing the raw message
+*DESCRIPTION (Описание):*:: Если true, запись будет иметь поле _raw, содержащее исходное сообщение
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -72,6 +72,17 @@ logfiles, logs, parse, reader, record, syslog, text
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

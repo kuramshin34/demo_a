@@ -1,13 +1,13 @@
 = StandardAsanaClientProviderService 2.2.0
 
-Common service to authenticate with Asana, and to work on a specified workspace.
+Общий сервис для аутентификации с Asana и работы в указанном рабочем пространстве.
 
 [horizontal]
 *Tags* (Ключевые слова):
-asana, authentication, service
+asana, аутентификация, сервис
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ asana, authentication, service
 .*Asana-Api-Url*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: API URL
+*DISPLAY NAME (Отображаемое наименование):*:: API URL (URL базы данных Asana API)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Base URL of Asana API. Leave it as default, unless you have your own Asana instance serving on a different URL. (typical for on-premise installations)
+*DESCRIPTION (Описание):*:: Базовый URL Asana API. Оставьте его по умолчанию, если не используете собственный экземпляр Asana на другом URL-адресе. (типично для установки на предприятие)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ asana, authentication, service
 .*Asana-Personal-Access-Token*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Personal Access Token
+*DISPLAY NAME (Отображаемое наименование):*:: Personal Access Token (Персональный токен доступа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Similarly to entering your username/password into a website, when you access your Asana data via the API you need to authenticate. Personal Access Token (PAT) is an authentication mechanism for accessing the API. You can generate a PAT from the Asana developer console. Refer to Asana Authentication Quick Start for detailed instructions on getting started.
+*DESCRIPTION (Описание):*:: Подобно вводу вашего имени пользователя/пароля на веб-сайте, при доступе к данным Asana через API необходимо проходить аутентификацию. Personal Access Token (PAT) - это механизм аутентификации для доступа к API. Вы можете сгенерировать PAT из консоли разработчика Asana. См. руководство по началу работы с аутентификацией в Asana для получения подробных инструкций.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -54,14 +54,14 @@ asana, authentication, service
 .*Asana-Workspace-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Workspace
+*DISPLAY NAME (Отображаемое наименование):*:: Workspace (Рабочее пространство)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specify which Asana workspace to use. Case sensitive. A workspace is the highest-level organizational unit in Asana. All projects and tasks have an associated workspace. An organization is a special kind of workspace that represents a company. In an organization, you can group your projects into teams.
+*DESCRIPTION (Описание):*:: Укажите, какое Asana рабочее пространство использовать. Чувствительно к регистру. Рабочее пространство является высшим уровнем организационной единицы в Asana. Все проекты и задачи имеют ассоциированное рабочее пространство. Организация — это особый вид рабочего пространства, представляющего собой компанию. В организации вы можете сгруппировать свои проекты в команды.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -81,6 +81,17 @@ asana, authentication, service
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

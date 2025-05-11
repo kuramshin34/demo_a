@@ -1,13 +1,13 @@
 = ReplaceText 2.2.0
 
-Updates the content of a FlowFile by searching for some textual value in the FlowFile content (via Regular Expression/regex, or literal value) and replacing the section of the content that matches with some alternate value. It can also be used to append or prepend text to the contents of a FlowFile.
+Обновляет содержимое FlowFile, ищя значения в тексте (регулярное выражение/regex или литеральное значение) и заменяя его на другой текст. Также может использоваться для добавления или вставки текста в содержимое FlowFile.
 
 [horizontal]
 *Tags* (Ключевые слова):
-Change, Modify, Regex, Regular Expression, Replace, Text, Update
+Изменение, Модификация, Регулярное выражение, Regex, Замена, Текст, Обновление
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,33 +20,33 @@ REQUIRED (Обязательно)
 .*Replacement Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Replacement Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Replacement Strategy (Стратегия замены)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The strategy for how and what to replace within the FlowFile's text content.
+*DESCRIPTION (Описание):*:: Стратегия для того, как и что следует заменить в текстовом контенте FlowFile.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Prepend: Insert the Replacement Value at the beginning of the FlowFile or the beginning of each line (depending on the Evaluation Mode). For "Line-by-Line" Evaluation Mode, the value will be prepended to each line. Similarly, for "First-Line", "Last-Line", "Except-Last-Line" and "Except-First-Line" Evaluation Modes,the value will be prepended to header alone, footer alone, all lines except header and all lines except footer respectively. For "Entire Text" evaluation mode,the value will be prepended to the entire text. 
+* Prepend (Вставить в начало): Вставить значение замены в начало FlowFile или в начало каждой строки (в зависимости от режима оценки). Для режима оценки "Построчно" значение будет добавлено к каждой строке. Соответственно, для режимов оценки "Первая строка", "Последняя строка", "За исключением последней строки" и "За исключением первой строки" значение будет добавлено к заголовку отдельно, к подвале отдельно, ко всем строкам за исключением заголовка и ко всем строкам за исключением подвала соответственно. Для режима оценки "Целое текста" значение будет добавлено ко всему тексту. 
 
-* Append: Insert the Replacement Value at the end of the FlowFile or the end of each line (depending on the Evaluation Mode). For "Line-by-Line" Evaluation Mode, the value will be appended to each line. Similarly, for "First-Line", "Last-Line", "Except-Last-Line" and "Except-First-Line" Evaluation Modes,the value will be appended to header alone, footer alone, all lines except header and all lines except footer respectively. For "Entire Text" evaluation mode,the value will be appended to the entire text. 
+* Append (Вставить в конец): Вставить значение замены в конец FlowFile или в конец каждой строки (в зависимости от режима оценки). Для режима оценки "Построчно" значение будет добавлено к каждой строке. Соответственно, для режимов оценки "Первая строка", "Последняя строка", "За исключением последней строки" и "За исключением первой строки" значение будет добавлено к заголовку отдельно, к подвале отдельно, ко всем строкам за исключением заголовка и ко всем строкам за исключением подвала соответственно. Для режима оценки "Целое текста" значение будет добавлено ко всему тексту. 
 
-* Surround: Prepends text before the start of the FlowFile (or the start of each line, depending on the configuration of the Evaluation Mode property) as well as appending text to the end of the FlowFile (or the end of each line, depending on the configuration of the Evaluation Mode property) 
+* Surround (Обернуть): Добавляет текст перед началом FlowFile (или перед каждой строкой, в зависимости от конфигурации свойства режима оценки) а также добавляет текст в конец FlowFile (или в конец каждой строки, в зависимости от конфигурации свойства режима оценки) 
 
-* Regex Replace: Interpret the Search Value as a Regular Expression and replace all matches with the Replacement Value. The Replacement Value may reference Capturing Groups used in the Search Value by using a dollar-sign followed by the Capturing Group number, such as $1 or $2. If the Search Value is set to .* then everything is replaced without even evaluating the Regular Expression. 
+* Regex Replace (Заменить по регулярному выражению): Интерпретировать значение поиска как регулярное выражение и заменить все вхождения на значение замены. Значение замены может ссылаться на захваченные группы, используя знак доллара, за которым следует номер захваченной группы (например, $1 или $2). Если значение поиска установлено как .*, то все заменяется без оценки регулярного выражения. 
 
-* Literal Replace: Search for all instances of the Search Value and replace the matches with the Replacement Value. 
+* Literal Replace (Литеральная замена): Найти все экземпляры значения поиска и заменить их на значение замены. 
 
-* Always Replace: Always replaces the entire line or the entire contents of the FlowFile (depending on the value of the <Evaluation Mode> property) and does not bother searching for any value. When this strategy is chosen, the <Search Value> property is ignored. 
+* Always Replace (Всегда заменить): Всегда заменяет весь текст или целую строку FlowFile (в зависимости от значения свойства <Режим оценки>) и не занимается поиском какого-либо значения. Когда выбирается эта стратегия, свойство <Значение поиска> пропускается. 
 
-* Substitute Variables: Substitute variable references (specified in ${var} form) using FlowFile attributes for looking up the replacement value by variable name. When this strategy is chosen, both the <Search Value> and <Replacement Value> properties are ignored. 
+* Substitute Variables (Заменить переменные): Замените ссылки на переменные (указанные в формате ${var}) с использованием атрибутов FlowFile для поиска значения замены по имени переменной. Когда выбирается эта стратегия, оба свойства <Значение поиска> и <Значение замены> пропускаются. 
 
 
 [horizontal]
@@ -55,14 +55,14 @@ REQUIRED (Обязательно)
 .*Regular Expression*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Search Value
+*DISPLAY NAME (Отображаемое наименование):*:: Search Value (Поисковое значение)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Search Value to search for in the FlowFile content. Only used for 'Literal Replace' and 'Regex Replace' matching strategies
+*DESCRIPTION (Описание):*:: Значение поиска, которое нужно найти в содержимом FlowFile. Используется только для стратегий 'Literal Replace' и 'Regex Replace'
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -72,14 +72,14 @@ REQUIRED (Обязательно)
 .*Replacement Value*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Replacement Value
+*DISPLAY NAME (Отображаемое наименование):*:: Replacement Value (Значение для замены)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The value to insert using the 'Replacement Strategy'. Using "Regex Replace" back-references to Regular Expression capturing groups are supported, but back-references that reference capturing groups that do not exist in the regular expression will be treated as literal value. Back References may also be referenced using the Expression Language, as '$1', '$2', etc. The single-tick marks MUST be included, as these variables are not "Standard" attribute names (attribute names must be quoted unless they contain only numbers, letters, and _).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -89,14 +89,14 @@ REQUIRED (Обязательно)
 .*Text To Prepend*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Text to Prepend
+*DISPLAY NAME (Отображаемое наименование):*:: Text to Prepend (Текст для добавления в начало потока, или каждую строку, в зависимости от установленного значения свойства Evaluation Mode)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The text to prepend to the start of the FlowFile, or each line, depending on the configured value of the Evaluation Mode property
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -106,14 +106,14 @@ REQUIRED (Обязательно)
 .*Text To Append*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Text to Append
+*DISPLAY NAME (Отображаемое наименование):*:: Text to Append (Текст для добавления)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The text to append to the end of the FlowFile, or each line, depending on the configured value of the Evaluation Mode property
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -123,57 +123,57 @@ REQUIRED (Обязательно)
 .*Character Set*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Символьный набор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Character Set in which the file is encoded
+*DESCRIPTION (Описание):*:: The Character Set in which the file is encoded (Символьный набор, в котором закодирован файл)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *REQUIRED (Обязательный параметр):*::  True (Да) 
 ************************************************
-.*Maximum Buffer Size*
+.Maximum Buffer Size
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Buffer Size
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Buffer Size (Максимальный размер буфера)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the maximum amount of data to buffer (per file or per line, depending on the Evaluation Mode) in order to apply the replacement. If 'Entire Text' (in Evaluation Mode) is selected and the FlowFile is larger than this value, the FlowFile will be routed to 'failure'. In 'Line-by-Line' Mode, if a single line is larger than this value, the FlowFile will be routed to 'failure'. A default value of 1 MB is provided, primarily for 'Entire Text' mode. In 'Line-by-Line' Mode, a value such as 8 KB or 16 KB is suggested. This value is ignored if the <Replacement Strategy> property is set to one of: Append, Prepend, Always Replace
+*DESCRIPTION (Описание):*:: Указывает максимальное количество данных для буферизации (на файл или на строку, в зависимости от режима оценки) с целью применения замены. Если выбран 'Entire Text' (в режиме оценки) и FlowFile больше этого значения, FlowFile будет направлен в 'failure'. В режиме 'Line-by-Line', если одна строка превышает это значение, FlowFile будет направлен в 'failure'. Поставляется значение по умолчанию 1 MB, в основном для режима 'Entire Text'. В режиме 'Line-by-Line' рекомендуется значение, например, 8 KB или 16 KB. Это значение игнорируется, если свойство <Replacement Strategy> установлено в один из: Append, Prepend, Always Replace
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
-*REQUIRED (Обязательный параметр):*::  True (Да) 
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
 ************************************************
 .*Evaluation Mode*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Evaluation Mode
+*DISPLAY NAME (Отображаемое наименование):*:: Evaluation Mode (Режим оценки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Run the 'Replacement Strategy' against each line separately (Line-by-Line) or buffer the entire file into memory (Entire Text) and run against that.
+*DESCRIPTION (Описание):*:: Запускать 'Стратегию замены' по отдельным строкам (Построчно) или буферизовать всю файл в память (Весь текст) и запустить против него.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Line-by-Line
+* Line-by-Line (Построчно)
 
-* Entire text
+* Entire text (Весь текст)
 
 
 [horizontal]
@@ -182,29 +182,29 @@ REQUIRED (Обязательно)
 .Line-By-Line Evaluation Mode
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Line-by-Line Evaluation Mode
+*DISPLAY NAME (Отображаемое наименование):*:: Line-by-Line Evaluation Mode (Режим оценки построчно)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Run the 'Replacement Strategy' against each line separately (Line-by-Line) for all lines in the FlowFile, First Line (Header) alone, Last Line (Footer) alone, Except the First Line (Header) or Except the Last Line (Footer).
+*DESCRIPTION (Описание):*:: Запускает стратегию 'Replacement Strategy' отдельно для каждой строки (построчно) для всех строк в FlowFile, первая строка (заголовок) отдельно, последняя строка (нижний колонтитул) отдельно, за исключением первой строки (заголовка) или за исключением последней строки (нижнего колонтитула).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* All
+* All (Все)
 
-* First-Line
+* First-Line (Первая строка)
 
-* Last-Line
+* Last-Line (Последняя строка)
 
-* Except-First-Line
+* Except-First-Line (За исключением первой строки)
 
-* Except-Last-Line
+* Except-Last-Line (За исключением последней строки)
 
 
 [horizontal]
@@ -224,7 +224,7 @@ REQUIRED (Обязательно)
 
 
 |MEMORY
-|An instance of this component can cause high usage of this system resource.  Multiple instances or high concurrency settings may result a degradation of performance.
+|Экземпляр этого компонента может вызвать высокое использование системного ресурса. Множественные экземпляры или настройки высокой конкоррентности могут привести к снижению производительности.
 
 |===
 
@@ -239,16 +239,27 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|FlowFiles that have been successfully processed are routed to this relationship. This includes both FlowFiles that had text replaced and those that did not.
+|FlowFiles, которые были успешно обработаны, направляются в это отношение. Включает как FlowFiles, где текст заменен, так и те, в которых он не был изменён.
 
 |`failure`
-|FlowFiles that could not be updated are routed to this relationship
+|FlowFiles, которые не могли быть обновлены, направляются в это отношение
 
 |===
 
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 
@@ -257,7 +268,7 @@ REQUIRED (Обязательно)
 
 
 
-=== Append text to the end of every line in a FlowFile
+=== Добавить текст в конец каждой строки в FlowFile
 
 
 NOTE: 
@@ -265,9 +276,9 @@ NOTE:
 
 
 Ключевые слова::
-raw text
-append
-line
+сырой текст
+добавление
+строка
 
 
 
@@ -283,7 +294,7 @@ We can also use Expression Language. So to insert the filename at the end of eve
 ====
 
 
-=== Prepend text to the beginning of every line in a FlowFile
+=== Добавить текст в начало каждой строки в FlowFile
 
 
 NOTE: 
@@ -291,9 +302,9 @@ NOTE:
 
 
 Ключевые слова::
-raw text
-prepend
-line
+сырой текст
+вставка в начало
+строка
 
 
 
@@ -309,7 +320,7 @@ We can also use Expression Language. So to insert the filename at the beginning 
 ====
 
 
-=== Replace every occurrence of a literal string in the FlowFile with a different value
+=== Заменить каждое вхождение литеральной строки в FlowFile на другой текст
 
 
 NOTE: 
@@ -317,10 +328,10 @@ NOTE:
 
 
 Ключевые слова::
-replace
-string
-text
-literal
+замена
+строка
+текст
+литерал
 
 
 
@@ -336,7 +347,7 @@ For example, to replace the word "spider" with "arachnid" we set "Search Value" 
 ====
 
 
-=== Transform every occurrence of a literal string in a FlowFile
+=== Преобразовать каждое вхождение литеральной строки в FlowFile
 
 
 NOTE: 
@@ -344,9 +355,9 @@ NOTE:
 
 
 Ключевые слова::
-replace
-transform
-raw text
+замена
+преобразование
+сырой текст
 
 
 
@@ -358,12 +369,11 @@ raw text
 "Replacement Value" is set to a NiFi Expression Language expression that references `$1` (in quotes to escape the reference name).
 
 For example, if we wanted to lowercase any occurrence of WOLF, TIGER, or LION, we would use a "Search Value" of `(WOLF|TIGER|LION)` and a "Replacement Value" of `${'$1':toLower()}`.
-If we want to replace any identifier with a hash of that identifier, we might use a "Search Value" of `identifier: (.*)` and a "Replacement Value" of `identifier: ${'$1':hash('sha256')}`
 
 ====
 
 
-=== Completely replace the contents of a FlowFile to a specific text
+=== Полностью заменить содержимое FlowFile на конкретный текст
 
 
 NOTE: 
@@ -371,8 +381,8 @@ NOTE:
 
 
 Ключевые слова::
-replace
-raw text
+замена
+сырой текст
 
 
 

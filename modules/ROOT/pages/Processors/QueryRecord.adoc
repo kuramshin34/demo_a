@@ -1,13 +1,13 @@
 = QueryRecord 2.2.0
 
-Evaluates one or more SQL queries against the contents of a FlowFile. The result of the SQL query then becomes the content of the output FlowFile. This can be used, for example, for field-specific filtering, transformation, and row-level filtering. Columns can be renamed, simple calculations and aggregations performed, etc. The Processor is configured with a Record Reader Controller Service and a Record Writer service so as to allow flexibility in incoming and outgoing data formats. The Processor must be configured with at least one user-defined property. The name of the Property is the Relationship to route data to, and the value of the Property is a SQL SELECT statement that is used to specify how input data should be transformed/filtered. The SQL statement must be valid ANSI SQL and is powered by Apache Calcite. If the transformation fails, the original FlowFile is routed to the 'failure' relationship. Otherwise, the data selected will be routed to the associated relationship. If the Record Writer chooses to inherit the schema from the Record, it is important to note that the schema that is inherited will be from the ResultSet, rather than the input Record. This allows a single instance of the QueryRecord processor to have multiple queries, each of which returns a different set of columns and aggregations. As a result, though, the schema that is derived will have no schema name, so it is important that the configured Record Writer not attempt to write the Schema Name as an attribute if inheriting the Schema from the Record. See the Processor Usage documentation for more information.
+Оценивает один или несколько SQL-запросов против содержимого FlowFile. Результат запроса становится содержимым выходного FlowFile. Это может быть использовано, например, для фильтрации, преобразования и строкового уровня фильтрации полей. Столбцы могут быть переименованы, выполнены простые расчеты и агрегации и т.д. Процессор настраивается с помощью сервиса контроллера Record Reader и Record Writer для обеспечения гибкости в форматах данных входящих и исходящих данных. Процессор должен быть настроен по крайней мере с одним пользовательским свойством. Имя свойства — это Relationship для маршрутизации данных, а значение свойства — SQL SELECT-заявление, которое используется для указания того, как должны быть преобразованы/отфильтрованы входные данные. SQL-заявление должно быть допустимым ANSI SQL и питается Apache Calcite. Если трансформация не удалась, исходный FlowFile направляется в отношение 'failure'. В противном случае данные, выбранные будут направлены в соответствующее отношение. Если Record Writer решает унаследовать схему от Record, важно помнить, что наследуемая схема будет из ResultSet, а не из входного Record. Это позволяет одному экземпляру процессора QueryRecord иметь несколько запросов, каждый из которых возвращает разные наборы столбцов и агрегации. В результате производная схема будет без имени схемы, поэтому важно, чтобы настроенный Record Writer не пытался записывать имя схемы в виде атрибута, если унаследует схему от Record. Более подробная информация доступна в документации по использованию процессора.
 
 [horizontal]
 *Tags* (Ключевые слова):
 aggregate, avro, calcite, csv, etl, filter, json, logs, modify, query, record, route, select, sql, text, transform, update
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Record-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Чтец записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for parsing incoming data and determining the data's schema
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера для использования при разборе входящих данных и определении схемы данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Record-Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing results to a FlowFile
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для использования при записи результатов в FlowFile
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Include-Zero-Record-Flowfiles*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Include Zero Record FlowFiles
+*DISPLAY NAME (Отображаемое наименование):*:: Include Zero Record FlowFiles (Включить FlowFile с нулевыми записями)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When running the SQL statement against an incoming FlowFile, if the result has no data, this property specifies whether or not a FlowFile will be sent to the corresponding relationship
+*DESCRIPTION (Описание):*:: При выполнении SQL-операции над входящим FlowFile, если результат не содержит данных, это свойство указывает, будет ли отправлен FlowFile в соответствующую связь
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -79,14 +79,14 @@ REQUIRED (Обязательно)
 .*Dbf-Default-Precision*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Default Decimal Precision
+*DISPLAY NAME (Отображаемое наименование):*:: Default Decimal Precision (По умолчанию Десятичная Точность)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When a DECIMAL/NUMBER value is written as a 'decimal' Avro logical type, a specific 'precision' denoting number of available digits is required. Generally, precision is defined by column data type definition or database engines default. However undefined precision (0) can be returned from some database engines. 'Default Decimal Precision' is used when writing those undefined precision numbers.
+*DESCRIPTION (Описание):*:: Когда значение DECIMAL/NUMBER записывается как логический тип Avro 'decimal', требуется особая точность, обозначающая количество доступных цифр. Обычно точность определяется определением типа данных столбца или значением по умолчанию движка базы данных. Однако неопределенная точность (0) может быть возвращена некоторыми движками баз данных. 'Default Decimal Precision' используется при записи таких чисел с неопределенной точностью.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -96,14 +96,14 @@ REQUIRED (Обязательно)
 .*Dbf-Default-Scale*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Default Decimal Scale
+*DISPLAY NAME (Отображаемое наименование):*:: Default Decimal Scale (По умолчанию Десятичный Масштаб)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When a DECIMAL/NUMBER value is written as a 'decimal' Avro logical type, a specific 'scale' denoting number of available decimal digits is required. Generally, scale is defined by column data type definition or database engines default. However when undefined precision (0) is returned, scale can also be uncertain with some database engines. 'Default Decimal Scale' is used when writing those undefined numbers. If a value has more decimals than specified scale, then the value will be rounded-up, e.g. 1.53 becomes 2 with scale 0, and 1.5 with scale 1.
+*DESCRIPTION (Описание):*:: Когда значение DECIMAL/NUMBER, записанное как 'decimal' логический тип Avro, требуется определённый 'scale', обозначающий количество доступных десятичных цифр. Обычно масштаб определяется определением типа данных столбца или стандартным значением движка базы данных. Однако, когда возвращается неопределённая точность (0), масштаб также может быть неопределённым с некоторыми движками баз данных. 'Default Decimal Scale' используется при записи таких неопределённых чисел. Если значение имеет больше десятичных цифр, чем указанный масштаб, то значение будет округлено вверх, например, 1.53 станет 2 с масштабом 0, а 1.5 с масштабом 1.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -140,7 +140,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`failure`
-|If a FlowFile fails processing for any reason (for example, the SQL statement contains columns not present in input data), the original FlowFile it will be routed to this relationship
+|If a FlowFile fails processing for any reason (for example, the SQL statement contains columns not present in input data), the original FlowFile will be routed to this relationship
 
 |`original`
 |The original FlowFile is routed to this relationship
@@ -202,10 +202,9 @@ The name of the property should be a short description of the data to keep.
 Its value is a SQL statement that selects all columns from a table named `FLOW_FILE` for relevant rows.
 The WHERE clause selects the data to keep. I.e., it is the exact opposite of what we want to remove.
 It is recommended to always quote column names using double-quotes in order to avoid conflicts with SQL keywords.
-For example, to remove records where either the name is George OR the age is less than 18, we would add a   property named "adults not george" with a value that selects records where the name is not George AND the age is greater than or equal to 18.   So the value would be `SELECT * FROM FLOWFILE WHERE "name" <> 'George' AND "age" >= 18`
+For example, to remove records where either the name is George OR the age is less than 18, we would add a property named "adults not george" with a value that selects records where the name is not George AND the age is greater than or equal to 18. So the value would be `SELECT * FROM FLOWFILE WHERE "name" <> 'George' AND "age" >= 18`
 
 Adding this property now gives us a new Relationship whose name is the same as the property name. So, the "adults not george" Relationship should be connected to the next Processor in our flow.
-
 ====
 
 
@@ -237,14 +236,13 @@ The name of the property should be a short description of the data to keep.
 Its value is a SQL statement that selects all columns from a table named `FLOW_FILE` for relevant rows.
 The WHERE clause selects the data to keep.
 It is recommended to always quote column names using double-quotes in order to avoid conflicts with SQL keywords.
-For example, to keep only records where the person is an adult (aged 18 or older), add a property named "adults"   with a value that is a SQL statement that selects records where the age is at least 18.   So the value would be `SELECT * FROM FLOWFILE WHERE "age" >= 18`
+For example, to keep only records where the person is an adult (aged 18 or older), add a property named "adults" with a value that is a SQL statement that selects records where the age is at least 18. So the value would be `SELECT * FROM FLOWFILE WHERE "age" >= 18`
 
 Adding this property now gives us a new Relationship whose name is the same as the property name. So, the "adults" Relationship should be connected to the next Processor in our flow.
-
 ====
 
 
-=== Keep only specific fields in a a Record, where the names of the fields to keep are known
+=== Keep only specific fields in a Record, where the names of the fields to keep are known
 
 
 NOTE: 
@@ -270,13 +268,11 @@ sql
 
 One additional property should be added.
 The name of the property should be a short description of the data to keep, such as `relevant fields`.
-Its value is a SQL statement that selects the desired columns from a table named `FLOW_FILE` for relevant rows.
-There is no WHERE clause.
+Its value is a SQL statement that selects the desired columns from a table named `FLOW_FILE`. No WHERE clause.
 It is recommended to always quote column names using double-quotes in order to avoid conflicts with SQL keywords.
-For example, to keep only the `name`, `age`, and `address` fields, add a property named `relevant fields`   with a value of `SELECT "name", "age", "address" FROM FLOWFILE`
+For example, to keep only the `name`, `age`, and `address` fields, add a property named `relevant fields` with a value of `SELECT "name", "age", "address" FROM FLOWFILE`
 
 Adding this property now gives us a new Relationship whose name is the same as the property name. So, the `relevant fields` Relationship should be connected to the next Processor in our flow.
-
 ====
 
 
@@ -306,11 +302,6 @@ Its value is a SQL statement that selects all columns from a table named `FLOW_F
 It is recommended to always quote column names using double-quotes in order to avoid conflicts with SQL keywords.
 
 A new outbound relationship is created for each property that is added. The name of the relationship is the same as the property name.
-
-For example, to route data based on whether or not it is a large transaction, we would add two properties:
-`small transaction` would have a value such as `SELECT * FROM FLOWFILE WHERE transactionTotal < 100`
-`large transaction` would have a value of `SELECT * FROM FLOWFILE WHERE transactionTotal >= 100`
-
 ====
 
 

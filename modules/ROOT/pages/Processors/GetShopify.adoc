@@ -1,13 +1,13 @@
 = GetShopify 2.2.0
 
-Retrieves objects from a custom Shopify store. The processor yield time must be set to the account's rate limit accordingly.
+Извлекает объекты из пользовательского магазина Shopify. Время ожидания процессора должно быть установлено в соответствии с лимитом скорости учетной записи.
 
 [horizontal]
 *Tags* (Ключевые слова):
 shopify
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ FORBIDDEN (Обязательно)
 .*Store-Domain*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Store Domain
+*DISPLAY NAME (Отображаемое наименование):*:: Store Domain (Домен магазина)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The domain of the Shopify store, e.g. nifistore.myshopify.com
+*DESCRIPTION (Описание):*:: Домен магазина Shopify, например, nifistore.myshopify.com
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ FORBIDDEN (Обязательно)
 .*Access-Token*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Access Token
+*DISPLAY NAME (Отображаемое наименование):*:: Access Token (Маркер доступа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Access Token to authenticate requests
+*DESCRIPTION (Описание):*:: Токен для аутентификации запросов
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -54,14 +54,14 @@ FORBIDDEN (Обязательно)
 .*Api-Version*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: API Version
+*DISPLAY NAME (Отображаемое наименование):*:: API Version (Версия API)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Shopify REST API version
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,35 +71,35 @@ FORBIDDEN (Обязательно)
 .*Object-Category*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Object Category
+*DISPLAY NAME (Отображаемое наименование):*:: Object Category (Объект категории)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Shopify object category
+*DESCRIPTION (Описание):*:: Shopify объект категории
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Customers: Query a Customer resource 
+* Customers (Клиенты): Запросить ресурс Клиента 
 
-* Discounts: Query a Discount resource 
+* Discounts (Скидки): Запросить ресурс Скидки 
 
-* Inventory: Query an Inventory resource 
+* Inventory (Инвентарь): Запросить ресурс Инвентаря 
 
-* Online Store: Query an Online Store resource 
+* Online Store (Онлайн-магазин): Запросить ресурс Онлайн-магазина 
 
-* Orders: Query an Order resource 
+* Orders (Заказы): Запросить ресурс Заказа 
 
-* Products: Query a Product resource 
+* Products (Продукты): Запросить ресурс Продукта 
 
-* Sales Channels: Query a Sales Channel resource 
+* Sales Channels (Каналы продаж): Запросить ресурс Канала продаж 
 
-* Store Properties: Query a Store Property resource 
+* Store Properties (Свойства магазина): Запросить ресурс Свойств Магазина 
 
 
 [horizontal]
@@ -108,21 +108,21 @@ FORBIDDEN (Обязательно)
 .*Customers*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Customer Category
+*DISPLAY NAME (Отображаемое наименование):*:: Customer Category (Категория клиентов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Customer resource to query
+*DESCRIPTION (Описание):*:: Ресурс клиентов для запроса
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Customers: The Customer resource stores information about a shop's customers, such as their contact details, their order history, and whether they've agreed to receive email marketing. 
+* Customers (Клиенты): Ресурс Клиента хранит информацию о покупателях магазина, такую как их контактные данные, история заказов и согласие на получение email-маркетинга. 
 
 
 [horizontal]
@@ -131,21 +131,21 @@ FORBIDDEN (Обязательно)
 .*Discounts*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Discount Category
+*DISPLAY NAME (Отображаемое наименование):*:: Discount Category (Скидка)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Discount resource to query
+*DESCRIPTION (Описание):*:: Resource для запроса скидок
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Price Rules: The PriceRule resource can be used to get discounts using conditions 
+* Price Rules (Правила цены): Ресурс PriceRule можно использовать для получения скидок с условиями 
 
 
 [horizontal]
@@ -154,21 +154,21 @@ FORBIDDEN (Обязательно)
 .*Inventory*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Inventory Category
+*DISPLAY NAME (Отображаемое наименование):*:: Inventory Category (Категория инвентаря)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Inventory resource to query
+*DESCRIPTION (Описание):*:: Inventory resource to query (Ресурс инвентаря для запроса)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Locations: A location represents a geographical location where your stores, pop-up stores, headquarters and warehouses exist. 
+* Locations (Локации): A location represents a geographical location where your stores, pop-up stores, headquarters and warehouses exist. (Локация представляет собой географическое местоположение, где у вас есть магазины, поп-ап магазины, штаб-квартира и склады.) 
 
 
 [horizontal]
@@ -177,31 +177,31 @@ FORBIDDEN (Обязательно)
 .*Online_Store*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Online Store Category
+*DISPLAY NAME (Отображаемое наименование):*:: Online Store Category (Онлайн-магазин категория)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Online Store resource to query
+*DESCRIPTION (Описание):*:: Ресурс онлайн-магазина для запроса
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Blogs: Shopify shops come with a built-in blogging engine, allowing a shop to have one or more blogs. 
+* Blogs (Блоги): Магазин Shopify поставляется с встроенным блогом, позволяя магазину иметь один или несколько блогов. 
 
-* Comments: A comment is a reader's response to an article in a blog. 
+* Comments (Комментарии): Комментарий — это ответ читателя на статью в блоге. 
 
-* Pages: Shopify stores come with a tool for creating basic HTML web pages. 
+* Pages (Страницы): Магазин Shopify поставляется с инструментом для создания базовых HTML-веб страниц. 
 
-* Redirects: A redirect causes a visitor on a specific path on the shop's site to be automatically sent to a different location. 
+* Redirects (Перенаправления): Перенаправление отправляет посетителя на конкретный путь на сайте магазина автоматически в другое место. 
 
-* Script Tags: The ScriptTag resource represents remote JavaScript code that is loaded into the pages of a shop's storefront or the order status page of checkout. 
+* Script Tags (Теги скриптов): Ресурс ScriptTag представляет удаленный JavaScript код, который загружается на страницы интернет-магазина или страницу статуса заказа во время оформления. 
 
-* Themes: A theme controls the look and feel of a Shopify online store. 
+* Themes (Темы): Тема контролирует внешний вид и чувствовать онлайн-магазина Shopify. 
 
 
 [horizontal]
@@ -210,25 +210,25 @@ FORBIDDEN (Обязательно)
 .*Orders*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Order Category
+*DISPLAY NAME (Отображаемое наименование):*:: Order Category (Категория заказа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Order resource to query
+*DESCRIPTION (Описание):*:: Resource для запроса заказов
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Abandoned Checkouts: A checkout is considered abandoned after the customer has added contact information, but before the customer has completed their purchase. 
+* Abandoned Checkouts (Отказные чеки): Чек считается отказным, если клиент предоставил контактную информацию, но не завершил покупку. 
 
-* Draft Orders: Merchants can use draft orders to create orders on behalf of their customers. 
+* Draft Orders (Черновики заказов): Merchants can use draft orders to create orders on behalf of their customers. 
 
-* Orders: An order is a customer's request to purchase one or more products from a shop. 
+* Orders (Заказы): An order is a customer's request to purchase one or more products from a shop. 
 
 
 [horizontal]
@@ -237,27 +237,27 @@ FORBIDDEN (Обязательно)
 .*Product*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Product Category
+*DISPLAY NAME (Отображаемое наименование):*:: Product Category (Продукты)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Product resource to query
+*DESCRIPTION (Описание):*:: Resource для запроса продуктов
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Collects: Collects are meant for managing the relationship between products and custom collections. 
+* Collects (Сборы): Сборы предназначены для управления отношениями между продуктами и пользовательскими коллекциями. 
 
-* Custom Collections: A custom collection is a grouping of products that a merchant can create to make their store easier to browse.  
+* Custom Collections (Пользовательские Коллекции): Пользовательская коллекция — это группировка продуктов, которую продавец может создать для упрощения обзора магазина. 
 
-* Products: Get products in a merchant's store  
+* Products (Продукты): Получить продукты в магазине продавца 
 
-* Smart Collections: A smart collection is a grouping of products defined by rules that are set by the merchant. 
+* Smart Collections (Умные Коллекции): Умная коллекция — это группировка продуктов, определенная правилами, установленными продавцом. 
 
 
 [horizontal]
@@ -266,23 +266,23 @@ FORBIDDEN (Обязательно)
 .*Sales_Channels*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Sales Channel Category
+*DISPLAY NAME (Отображаемое наименование):*:: Sales Channel Category (Категория каналов продаж)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Sales Channel resource to query
+*DESCRIPTION (Описание):*:: Ресурс канала продаж для запроса
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Collection Listings: A CollectionListing resource represents a product collection that a merchant has made available to your sales channel. 
+* Collection Listings (Список коллекций): Ресурс CollectionListing представляет собой коллекцию продуктов, которую продавец сделал доступным для вашего канала продаж. 
 
-* Product Listings: A ProductListing resource represents a Product which is available to your sales channel. 
+* Product Listings (Список товаров): Ресурс ProductListing представляет собой продукт, который доступен для вашего канала продаж. 
 
 
 [horizontal]
@@ -291,27 +291,27 @@ FORBIDDEN (Обязательно)
 .*Store_Properties*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Store Property Category
+*DISPLAY NAME (Отображаемое наименование):*:: Store Property Category (Категория свойств магазина)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Store Property resource to query
+*DESCRIPTION (Описание):*:: Ресурс свойств магазина для запроса
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Countries: The Country resource represents the tax rates applied to orders from the different countries where a shop sells its products. 
+* Countries (Страны): Ресурс Country представляет собой налоговые ставки, применяемые к заказам из различных стран, в которых магазин продаёт свои продукты. 
 
-* Currencies: Merchants who use Shopify Payments can allow customers to pay in their local currency on the online store. 
+* Currencies (Валюты): Торговцы, использующие Shopify Payments, могут позволить клиентам оплатить заказ в их местной валюте через онлайн-магазин. 
 
-* Policies: Policy resource can be used to access the policies that a merchant has configured for their shop, such as their refund and privacy policies. 
+* Policies (Политики): Ресурс Policy можно использовать для доступа к политикам, которые продавец настроил для своего магазина, таким как их возврат товаров и политика конфиденциальности. 
 
-* Shipping Zones: ShippingZone resource can be used to view shipping zones and their countries, provinces, and shipping rates. 
+* Shipping Zones (Зоны доставки): Ресурс ShippingZone можно использовать для просмотра зон доставки и их стран, провинций и ставок доставки. 
 
 
 [horizontal]
@@ -320,14 +320,14 @@ FORBIDDEN (Обязательно)
 .Result-Limit
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Result Limit
+*DISPLAY NAME (Отображаемое наименование):*:: Result Limit (Ограничение результатов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum number of results to request for each invocation of the Processor
+*DESCRIPTION (Описание):*:: Максимальное количество результатов для запроса при каждом вызове Processora
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -337,14 +337,14 @@ FORBIDDEN (Обязательно)
 .*Is-Incremental*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Incremental Loading
+*DISPLAY NAME (Отображаемое наименование):*:: Incremental Loading (Инкрементная загрузка)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The processor can incrementally load the queried objects so that each object is queried exactly once. For each query, the processor queries objects which were created or modified after the previous run time but before the current time.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -362,14 +362,14 @@ FORBIDDEN (Обязательно)
 .Incremental-Delay
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Incremental Delay
+*DISPLAY NAME (Отображаемое наименование):*:: Incremental Delay (Приращение задержки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The ending timestamp of the time window will be adjusted earlier by the amount configured in this property. For example, with a property value of 10 seconds, an ending timestamp of 12:30:45 would be changed to 12:30:35. Set this property to avoid missing objects when the clock of your local machines and Shopify servers' clock are not in sync.
+*DESCRIPTION (Описание):*:: Конечная отметка времени окна будет корректироваться назад на величину, указанную в этом свойстве. Например, при значении свойства 10 секунд конечная отметка времени 12:30:45 изменится на 12:30:35. Установите это свойство, чтобы избежать пропуска объектов при несинхронизации часов ваших локальных машин и серверов Shopify.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -379,14 +379,14 @@ FORBIDDEN (Обязательно)
 .Incremental-Initial-Start-Time
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Incremental Initial Start Time
+*DISPLAY NAME (Отображаемое наименование):*:: Incremental Initial Start Time (Начало времени для первого запроса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: This property specifies the start time when running the first request. Represents an ISO 8601-encoded date and time string. For example, 3:50 pm on September 7, 2019 in the time zone of UTC (Coordinated Universal Time) is represented as "2019-09-07T15:50:00Z".
+*DESCRIPTION (Описание):*:: Это свойство указывает время начала при выполнении первого запроса. Представляет собой строку в формате ISO 8601, кодирующую дату и время. Например, в 3:50 вечера 7 сентября 2019 года в часовом поясе UTC (Всемирное координированное время) это будет представлено как "2019-09-07T15:50:00Z".
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -396,14 +396,14 @@ FORBIDDEN (Обязательно)
 .*Web-Client-Service-Provider*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Web Client Service Provider
+*DISPLAY NAME (Отображаемое наименование):*:: Web Client Service Provider (Веб-клиентский сервис-провайдер)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Controller service for HTTP client operations
+*DESCRIPTION (Описание):*:: Контроллерский сервис для операций HTTP клиента
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -423,7 +423,7 @@ FORBIDDEN (Обязательно)
 |
 CLUSTER
 
-|For a few resources the processor supports incremental loading. The list of the resources with the supported parameters can be found in the additional details.
+|Для нескольких ресурсов процессор поддерживает инкрементную загрузку. Список ресурсов с поддерживаемыми параметрами можно найти в дополнительных деталях.
 |===
 
 
@@ -439,7 +439,7 @@ CLUSTER
 |Наименование |Описание
 
 |`success`
-|For FlowFiles created as a result of a successful query.
+|Для FlowFiles, созданных в результате успешного запроса.
 
 |===
 
@@ -454,7 +454,7 @@ CLUSTER
 |Наименование |Описание
 
 |`mime.type`
-|Sets the MIME type to application/json
+|Устанавливает тип MIME в application/json
 
 |===
 

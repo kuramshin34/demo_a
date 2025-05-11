@@ -1,13 +1,13 @@
 = MapCacheClientService 2.2.0
 
-Provides the ability to communicate with a MapCacheServer. This can be used in order to share a Map between nodes in a NiFi cluster
+Предоставляет возможность взаимодействия с MapCacheServer. Это может быть использовано для совместного использования карты между узлами в кластере NiFi
 
 [horizontal]
 *Tags* (Ключевые слова):
 cache, cluster, distributed, map, state
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ cache, cluster, distributed, map, state
 .*Server Hostname*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Server Hostname
+*DISPLAY NAME (Отображаемое наименование):*:: Server Hostname (Имя сервера)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the server that is running the DistributedMapCacheServer service
+*DESCRIPTION (Описание):*:: Имя сервера, на котором работает служба DistributedMapCacheServer
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ cache, cluster, distributed, map, state
 .*Server Port*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Server Port
+*DISPLAY NAME (Отображаемое наименование):*:: Server Port (Порт на удаленном сервере, который будет использоваться при взаимодействии с DistributedMapCacheServer)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The port on the remote server that is to be used when communicating with the DistributedMapCacheServer service
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ cache, cluster, distributed, map, state
 .Ssl Context Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (SSL Контекст Сервиса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If specified, indicates the SSL Context Service that is used to communicate with the remote server. If not specified, communications will not be encrypted
+*DESCRIPTION (Описание):*:: Если указано, указывает службу SSL-контекста, которая используется для взаимодействия с удаленным сервером. Если не указано, коммуникации не будут зашифрованы
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ cache, cluster, distributed, map, state
 .*Communications Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout (Время ожидания при обмене данными с удаленным сервером)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies how long to wait when communicating with the remote server before determining that there is a communications failure if data cannot be sent or received
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -98,6 +98,17 @@ cache, cluster, distributed, map, state
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

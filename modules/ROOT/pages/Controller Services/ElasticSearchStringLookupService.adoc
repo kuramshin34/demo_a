@@ -1,13 +1,13 @@
 = ElasticSearchStringLookupService 2.2.0
 
-Lookup a string value from Elasticsearch Server associated with the specified document ID. The coordinates that are passed to the lookup must contain the key 'id'.
+Ищет строковое значение в Elasticsearch Server, связанном с указанным идентификатором документа. Координаты, передаваемые для поиска, должны содержать ключ 'id'.
 
 [horizontal]
 *Tags* (Ключевые слова):
-elasticsearch, enrich, key, lookup, value
+elasticsearch, улучшение, ключ, поиск, значение
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ elasticsearch, enrich, key, lookup, value
 .*El-Rest-Client-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Client Service
+*DISPLAY NAME (Отображаемое наименование):*:: Client Service (Клиентская служба)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: An ElasticSearch client service to use for running queries.
+*DESCRIPTION (Описание):*:: An ElasticSearch client service to use for running queries. (Служба клиента ElasticSearch для выполнения запросов.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ elasticsearch, enrich, key, lookup, value
 .*El-Lookup-Index*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Index
+*DISPLAY NAME (Отображаемое наименование):*:: Index (Имя индекса для чтения)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the index to read from
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ elasticsearch, enrich, key, lookup, value
 .El-Lookup-Type
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Type
+*DISPLAY NAME (Отображаемое наименование):*:: Тип
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The type of this document (used by Elasticsearch for indexing and searching)
+*DESCRIPTION (Описание):*:: Тип этого документа (используется Elasticsearch для индексирования и поиска)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -81,6 +81,17 @@ elasticsearch, enrich, key, lookup, value
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|The App ID field from the AMQP Message
+
+|===
 
 
 

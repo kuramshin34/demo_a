@@ -1,13 +1,13 @@
 = ConvertRecord 2.2.0
 
-Converts records from one data format to another using configured Record Reader and Record Write Controller Services. The Reader and Writer must be configured with "matching" schemas. By this, we mean the schemas must have the same field names. The types of the fields do not have to be the same if a field value can be coerced from one type to another. For instance, if the input schema has a field named "balance" of type double, the output schema can have a field named "balance" with a type of string, double, or float. If any field is present in the input that is not present in the output, the field will be left out of the output. If any field is specified in the output schema but is not present in the input data/schema, then the field will not be present in the output or will have a null value, depending on the writer.
+Конвертирует записи из одного формата данных в другой, используя настроенные сервисы контроллеров Record Reader и Record Writer. Читатель и писатель должны быть настроены с совпадающими схемами. Это означает, что у схем должны быть одинаковые имена полей. Типы полей не обязательно должны быть одинаковыми, если значение поля может быть приведено от одного типа к другому. Например, если входная схема имеет поле с именем "balance" типа double, то выходная схема может иметь поле с именем "balance" типа string, double или float. Если какое-либо поле присутствует во входных данных/схеме, но отсутствует в выходных, это поле будет исключено из выходных данных. Если в спецификации выходной схемы указано какое-либо поле, которое не присутствует ни в одних входных данных/схемах, то такое поле не будет присутствовать в выходных данных или будет иметь значение null, в зависимости от настроек записи.
 
 [horizontal]
 *Tags* (Ключевые слова):
 avro, convert, csv, freeform, generic, json, log, logs, record, schema, text
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Record Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for reading incoming data
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для использования при чтении входящих данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Record Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для использования при записи записей
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Include Zero Record Flowfiles*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Include Zero Record FlowFiles
+*DISPLAY NAME (Отображаемое наименование):*:: Include Zero Record FlowFiles (Включить нулевой записи поток файлов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When converting an incoming FlowFile, if the conversion results in no data, this property specifies whether or not a FlowFile will be sent to the corresponding relationship
+*DESCRIPTION (Описание):*:: При преобразовании входящего потока файлов, если преобразование не дает данных, это свойство указывает, будет ли отправляться FlowFile в соответствующую связь
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -93,10 +93,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|FlowFiles that are successfully transformed will be routed to this relationship
+|Поток файлов, успешно преобразованных в это отношение
 
 |`failure`
-|If a FlowFile cannot be transformed from the configured input format to the configured output format, the unchanged FlowFile will be routed to this relationship
+|Если поток файлов не может быть преобразован из настроенного входного формата в настроенный выходной формат, неизмененный поток файлов будет направлен в это отношение
 
 |===
 
@@ -111,13 +111,13 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`mime.type`
-|Sets the mime.type attribute to the MIME Type specified by the Record Writer
+|Устанавливает атрибут mime.type в указанный MIME-тип записи
 
 |`record.count`
-|The number of records in the FlowFile
+|Количество записей в потоке файлов
 
 |`record.error.message`
-|This attribute provides on failure the error message encountered by the Reader or Writer.
+|При ошибке предоставляет сообщение об ошибке, которое встретилось у читателя или писателя.
 
 |===
 
@@ -128,7 +128,7 @@ REQUIRED (Обязательно)
 
 
 
-=== Convert data from one record-oriented format to another
+=== Конвертировать данные из одного формата записей в другой
 
 
 NOTE: 
@@ -141,8 +141,8 @@ NOTE:
 
 .Конфигурация
 ====
-The Record Reader should be configured according to the incoming data format.
-The Record Writer should be configured according to the desired output format.
+Настройка Record Reader должна соответствовать входящему формату данных.
+Настройка Record Writer должна соответствовать желаемому выходному формату.
 ====
 
 

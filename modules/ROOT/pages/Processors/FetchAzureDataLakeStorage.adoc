@@ -1,13 +1,13 @@
 = FetchAzureDataLakeStorage 2.2.0
 
-Fetch the specified file from Azure Data Lake Storage
+Извлекает указанный файл из Azure Data Lake Storage
 
 [horizontal]
 *Tags* (Ключевые слова):
 adlsgen2, azure, cloud, datalake, microsoft, storage
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Adls-Credentials-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: ADLS Credentials
+*DISPLAY NAME (Отображаемое наименование):*:: ADLS Credentials (Услуга учетных данных ADLS)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Controller Service used to obtain Azure Credentials.
+*DESCRIPTION (Описание):*:: Контроллер сервиса, используемый для получения учетных данных Azure.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Filesystem-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Filesystem Name
+*DISPLAY NAME (Отображаемое наименование):*:: Filesystem Name (Файловая система)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Name of the Azure Storage File System (also called Container). It is assumed to be already existing.
+*DESCRIPTION (Описание):*:: Имя файловой системы Azure Storage (также называемой контейнером). Предполагается, что она уже существует.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Directory-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Directory Name
+*DISPLAY NAME (Отображаемое наименование):*:: Directory Name (Имя каталога)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Name of the Azure Storage Directory. The Directory Name cannot contain a leading '/'. The root directory can be designated by the empty string value. In case of the PutAzureDataLakeStorage processor, the directory will be created if not already existing.
+*DESCRIPTION (Описание):*:: Имя Azure Storage каталога. Имя каталога не может начинаться с '/'. Корневой каталог можно обозначить пустым значением строки. В случае процессора PutAzureDataLakeStorage, если каталог не существует, он будет создан.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .*File-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: File Name
+*DISPLAY NAME (Отображаемое наименование):*:: File Name (Имя файла)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The filename
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ REQUIRED (Обязательно)
 .Range-Start
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Range Start
+*DISPLAY NAME (Отображаемое наименование):*:: Range Start (Начало диапазона)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The byte position at which to start reading from the object. An empty value or a value of zero will start reading at the beginning of the object.
+*DESCRIPTION (Описание):*:: Байт, с которого начинать чтение из объекта. Пустое значение или значение ноль начнут чтение с начала объекта.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ REQUIRED (Обязательно)
 .Range-Length
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Range Length
+*DISPLAY NAME (Отображаемое наименование):*:: Range Length (Длина диапазона)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The number of bytes to download from the object, starting from the Range Start. An empty value or a value that extends beyond the end of the object will read to the end of the object.
+*DESCRIPTION (Описание):*:: Количество байтов для загрузки из объекта, начиная с Range Start. Пустое значение или значение, выходящее за пределы объекта, прочитает до конца объекта.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -122,14 +122,14 @@ REQUIRED (Обязательно)
 .Number-Of-Retries
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Number of Retries
+*DISPLAY NAME (Отображаемое наименование):*:: Number of Retries (Количество автоматических повторов)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The number of automatic retries to perform if the download fails.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -139,14 +139,14 @@ REQUIRED (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: SOCKS, HTTP In case of SOCKS, it is not guaranteed that the selected SOCKS Version will be used by the processor.
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: SOCKS, HTTP В случае использования SOCKS, не гарантируется, что выбранная версия SOCKS будет использоваться процессором.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -170,10 +170,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Files that have been successfully written to Azure storage are transferred to this relationship
+|Файлы, успешно записанные в Azure storage, передаются по этому отношению
 
 |`failure`
-|Files that could not be written to Azure storage for some reason are transferred to this relationship
+|Файлы, которые не удалось записать в Azure storage по какой-либо причине, передаются по этому отношению
 
 |===
 
@@ -188,13 +188,13 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`azure.datalake.storage.statusCode`
-|The HTTP error code (if available) from the failed operation
+|Код ошибки HTTP (если доступен) из неудавшейся операции
 
 |`azure.datalake.storage.errorCode`
-|The Azure Data Lake Storage moniker of the failed operation
+|Мономер Azure Data Lake Storage неудавшейся операции
 
 |`azure.datalake.storage.errorMessage`
-|The Azure Data Lake Storage error message from the failed operation
+|Сообщение об ошибке Azure Data Lake Storage из неудавшейся операции
 
 |===
 
@@ -205,7 +205,7 @@ REQUIRED (Обязательно)
 == Варианты использования, включающие другие компоненты
 
 
-=== Retrieve all files in an Azure DataLake Storage directory
+=== Получить все файлы в директории Azure DataLake Storage
 
 
 NOTE: 

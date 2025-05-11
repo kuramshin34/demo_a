@@ -1,13 +1,13 @@
 = JsonRecordSetWriter 2.2.0
 
-Writes the results of a RecordSet as either a JSON Array or one JSON object per line. If using Array output, then even if the RecordSet consists of a single row, it will be written as an array with a single element. If using One Line Per Object output, the JSON objects cannot be pretty-printed.
+Записывает результаты RecordSet как JSON массив или один объект на строку. Если используется вывод в виде массива, даже если RecordSet состоит из одной строки, он будет записан как массив с одним элементом. Если используется вывод 'один объект на строку', JSON-объекты не будут красиво отформатированы.
 
 [horizontal]
 *Tags* (Ключевые слова):
 json, record, recordset, resultset, row, serialize, writer
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,27 +20,27 @@ json, record, recordset, resultset, row, serialize, writer
 .*Schema Write Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Write Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Write Strategy (Стратегия записи схемы)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how the schema for a Record should be added to the data.
+*DESCRIPTION (Описание):*:: Указывает, как должна быть добавлена схема для записи в данные.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Do Not Write Schema: Do not add any schema-related information to the FlowFile. 
+* Не записывать схему (Do Not Write Schema): Не добавлять никакой информации, связанной со схемой, в поток данных. 
 
-* Set 'schema.name' Attribute: The FlowFile will be given an attribute named 'schema.name' and this attribute will indicate the name of the schema in the Schema Registry. Note that ifthe schema for a record is not obtained from a Schema Registry, then no attribute will be added. 
+* Установить атрибут 'schema.name' (Set 'schema.name' Attribute): Потоку данных будет присвоен атрибут с именем 'schema.name', который укажет на имя схемы в Реестре схем. Обратите внимание, что если схема для записи не получается из Реестра схем, то атрибут не будет добавлен. 
 
-* Set 'avro.schema' Attribute: The FlowFile will be given an attribute named 'avro.schema' and this attribute will contain the Avro Schema that describes the records in the FlowFile. The contents of the FlowFile need not be Avro, but the text of the schema will be used. 
+* Установить атрибут 'avro.schema' (Set 'avro.schema' Attribute): Потоку данных будет присвоен атрибут с именем 'avro.schema', который будет содержать Avro-схему, описывающую записи в потоке данных. Содержимое потока данных не обязательно должно быть Avro, но текст схемы будет использован. 
 
-* Schema Reference Writer: The schema reference information will be written through a configured Schema Reference Writer service implementation. 
+* Schema Reference Writer (Писатель ссылок на схему): Информация о ссылке на схему будет записана через реализованный конфигурацией сервис Писателя ссылок на схему. 
 
 
 [horizontal]
@@ -49,14 +49,14 @@ json, record, recordset, resultset, row, serialize, writer
 .Schema-Cache
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Cache
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Cache (Схема кэш)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies a Schema Cache to add the Record Schema to so that Record Readers can quickly lookup the schema.
+*DESCRIPTION (Описание):*:: Указывает схему кэша для добавления записи схемы, чтобы записи читатели могли быстро осуществлять поиск схемы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -66,14 +66,14 @@ json, record, recordset, resultset, row, serialize, writer
 .*Schema Reference Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Writer (Схема Референс Витър)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Service implementation responsible for writing FlowFile attributes or content header with Schema reference information
+*DESCRIPTION (Описание):*:: Сервис реализации, отвечающий за запись атрибутов FlowFile или содержимого заголовка с информацией о ссылке на схему
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -83,25 +83,25 @@ json, record, recordset, resultset, row, serialize, writer
 .*Schema-Access-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy (Стратегия доступа к схеме)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how to obtain the schema that is to be used for interpreting the data.
+*DESCRIPTION (Описание):*:: Определяет, как получить схему для интерпретации данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Inherit Record Schema: The schema used to write records will be the same schema that was given to the Record when the Record was created. 
+* Inherit Record Schema (Наследовать схему записи): Схема, используемая для записи записей, будет той же самой схемой, которая была дана записи при её создании. 
 
-* Use 'Schema Name' Property: The name of the Schema to use is specified by the 'Schema Name' Property. The value of this property is used to lookup the Schema in the configured Schema Registry service. 
+* Use 'Schema Name' Property (Использовать свойство 'Имя схемы'): Имя используемой схемы указывается свойством 'Имя схемы'. Значение этого свойства используется для поиска схемы в настроенном сервисе реестра схем. 
 
-* Use 'Schema Text' Property: The text of the Schema itself is specified by the 'Schema Text' Property. The value of this property must be a valid Avro Schema. If Expression Language is used, the value of the 'Schema Text' property must be valid after substituting the expressions. 
+* Use 'Schema Text' Property (Использовать свойство 'Текст схемы'): Сам текст схемы указывается свойством 'Текст схемы'. Значение этого свойства должно быть допустимой Avro Schema. Если используется Expression Language, значение свойства 'Текст схемы' должно быть действительным после замены выражений. 
 
 
 [horizontal]
@@ -110,14 +110,14 @@ json, record, recordset, resultset, row, serialize, writer
 .Schema-Registry
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry (Реестър на схеми)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for the Schema Registry
+*DESCRIPTION (Описание):*:: Определя контролера за услуга, който да се използва за реестра на схемите
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -127,14 +127,14 @@ json, record, recordset, resultset, row, serialize, writer
 .Schema-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Name
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Name (Схема имени)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the name of the schema to lookup in the Schema Registry property
+*DESCRIPTION (Описание):*:: Указывает имя схемы для поиска в свойстве Реестра схем
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -144,14 +144,14 @@ json, record, recordset, resultset, row, serialize, writer
 .Schema-Version
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Version
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Version (Схема версии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the version of the schema to lookup in the Schema Registry. If not specified then the latest version of the schema will be retrieved.
+*DESCRIPTION (Описание):*:: Указывает версию схемы для поиска в Реестре схем. Если не указано, будет получена последняя версия схемы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -161,14 +161,14 @@ json, record, recordset, resultset, row, serialize, writer
 .Schema-Branch
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Branch
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Branch (Схема ветки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the name of the branch to use when looking up the schema in the Schema Registry property. If the chosen Schema Registry does not support branching, this value will be ignored.
+*DESCRIPTION (Описание):*:: Указывает имя ветки, которую следует использовать при поиске схемы в свойстве Схемарегистр. Если выбранная Схемарегистр не поддерживает ветвление, это значение будет проигнорировано.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -178,14 +178,14 @@ json, record, recordset, resultset, row, serialize, writer
 .Schema-Text
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Text
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Text (Схема текста)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The text of an Avro-formatted Schema
+*DESCRIPTION (Описание):*:: Текст Avro-формамата схемы
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -195,14 +195,14 @@ json, record, recordset, resultset, row, serialize, writer
 .*Schema-Reference-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Reader (Ссылочный читатель схемы)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Service implementation responsible for reading FlowFile attributes or content to determine the Schema Reference Identifier
+*DESCRIPTION (Описание):*:: Сервис реализации, отвечающий за чтение атрибутов или содержимого FlowFile для определения идентификатора ссылки на схему
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -212,14 +212,14 @@ json, record, recordset, resultset, row, serialize, writer
 .Date Format
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Date Format
+*DISPLAY NAME (Отображаемое наименование):*:: Date Format (Формат даты)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the format to use when reading/writing Date fields. If not specified, Date fields will be assumed to be number of milliseconds since epoch (Midnight, Jan 1, 1970 GMT). If specified, the value must match the Java java.time.format.DateTimeFormatter format (for example, MM/dd/yyyy for a two-digit month, followed by a two-digit day, followed by a four-digit year, all separated by '/' characters, as in 01/01/2017).
+*DESCRIPTION (Описание):*:: Указывает формат, который следует использовать при чтении или записи полей Date. Если не указан, поля Date будут считаться количеством миллисекунд от начала эпохи (полночь, 1 января 1970 г., GMT). Если указано, значение должно соответствовать формату Java java.time.format.DateTimeFormatter (например, MM/dd/yyyy для двузначного месяца, затем двузначного дня и четырехзначного года, все разделенные символами '/' как в 01/01/2017).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -229,14 +229,14 @@ json, record, recordset, resultset, row, serialize, writer
 .Time Format
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Time Format
+*DISPLAY NAME (Отображаемое наименование):*:: Time Format (Формат времени)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the format to use when reading/writing Time fields. If not specified, Time fields will be assumed to be number of milliseconds since epoch (Midnight, Jan 1, 1970 GMT). If specified, the value must match the Java java.time.format.DateTimeFormatter format (for example, HH:mm:ss for a two-digit hour in 24-hour format, followed by a two-digit minute, followed by a two-digit second, all separated by ':' characters, as in 18:04:15).
+*DESCRIPTION (Описание):*:: Указывает формат, который следует использовать при чтении/записи полей Time. Если не указано, поля Time будут считаться количеством миллисекунд с эпохи (Полночь, 1 января 1970 г., GMT). Если указано, значение должно соответствовать формату Java java.time.format.DateTimeFormatter (например, HH:mm:ss для двузначного часа в 24-часовом формате, за которым следуют двузначная минута и двузначная секунда, все разделённые символами ':' как в 18:04:15).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -246,14 +246,14 @@ json, record, recordset, resultset, row, serialize, writer
 .Timestamp Format
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Timestamp Format
+*DISPLAY NAME (Отображаемое наименование):*:: Формат Timestamp (Timestamp Format)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the format to use when reading/writing Timestamp fields. If not specified, Timestamp fields will be assumed to be number of milliseconds since epoch (Midnight, Jan 1, 1970 GMT). If specified, the value must match the Java java.time.format.DateTimeFormatter format (for example, MM/dd/yyyy HH:mm:ss for a two-digit month, followed by a two-digit day, followed by a four-digit year, all separated by '/' characters; and then followed by a two-digit hour in 24-hour format, followed by a two-digit minute, followed by a two-digit second, all separated by ':' characters, as in 01/01/2017 18:04:15).
+*DESCRIPTION (Описание):*:: Указывает формат, который следует использовать при чтении или записи полей Timestamp. Если не указан, поля Timestamp будут считаться количеством миллисекунд с начала эпохи (Полночь 1 января 1970 г., GMT). Если указано, значение должно соответствовать формату Java java.time.format.DateTimeFormatter (например, MM/dd/yyyy HH:mm:ss для двузначного месяца, затем двузначного дня, затем четырехзначного года, все разделенные '/' символами; а затем следует двузначный час в 24-часовом формате, за которым следуют двузначные минуты и секунды, все разделенные ':' символами, как в 01/01/2017 18:04:15).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -263,14 +263,14 @@ json, record, recordset, resultset, row, serialize, writer
 .*Pretty Print Json*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Pretty Print JSON
+*DISPLAY NAME (Отображаемое наименование):*:: Pretty Print JSON (Красивый печать JSON)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether or not the JSON should be pretty printed
+*DESCRIPTION (Описание):*:: Указывает, должен ли быть JSON отформатирован красиво
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -288,25 +288,25 @@ json, record, recordset, resultset, row, serialize, writer
 .*Suppress-Nulls*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Suppress Null Values
+*DISPLAY NAME (Отображаемое наименование):*:: Suppress Null Values (Удерживать нулевые значения)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies how the writer should handle a null field
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Never Suppress: Fields that are missing (present in the schema but not in the record), or that have a value of null, will be written out as a null value 
+* Never Suppress (Никогда не удерживать): Fields that are missing (present in the schema but not in the record), or that have a value of null, will be written out as a null value 
 
-* Always Suppress: Fields that are missing (present in the schema but not in the record), or that have a value of null, will not be written out 
+* Always Suppress (Всегда удерживать): Fields that are missing (present in the schema but not in the record), or that have a value of null, will not be written out 
 
-* Suppress Missing Values: When a field has a value of null, it will be written out. However, if a field is defined in the schema and not present in the record, the field will not be written out. 
+* Suppress Missing Values (Удерживать отсутствующие значения): When a field has a value of null, it will be written out. However, if a field is defined in the schema and not present in the record, the field will not be written out. 
 
 
 [horizontal]
@@ -315,14 +315,14 @@ json, record, recordset, resultset, row, serialize, writer
 .*Allow Scientific Notation*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Allow Scientific Notation
+*DISPLAY NAME (Отображаемое наименование):*:: Allow Scientific Notation (Разрешить научную нотацию)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies whether or not scientific notation should be used when writing numbers
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -340,23 +340,23 @@ json, record, recordset, resultset, row, serialize, writer
 .*Output-Grouping*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Output Grouping
+*DISPLAY NAME (Отображаемое наименование):*:: Output Grouping (Группировка вывода)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how the writer should output the JSON records (as an array or one object per line, e.g.) Note that if 'One Line Per Object' is selected, then Pretty Print JSON must be false.
+*DESCRIPTION (Описание):*:: Указывает, как писатель должен выводить JSON записи (как массив или один объект в строке, например). Следует отметить, что если выбран 'Один объект на строку', то форматирование JSON должно быть ложным.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Array: Output records as a JSON array 
+* Array (Массив): Вывод записей в виде массива JSON 
 
-* One Line Per Object: Output records with one JSON object per line, delimited by a newline character 
+* One Line Per Object (Один объект на строку): Вывод записей с одним объектом JSON на строку, разделенных символом новой строки 
 
 
 [horizontal]
@@ -365,33 +365,33 @@ json, record, recordset, resultset, row, serialize, writer
 .*Compression-Format*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Compression Format
+*DISPLAY NAME (Отображаемое наименование):*:: Compression Format (Формат сжатия)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The compression format to use. Valid values are: GZIP, BZIP2, ZSTD, XZ-LZMA2, LZMA, Snappy, and Snappy Framed
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* none
+* none (нет)
 
-* gzip
+* gzip (gzip)
 
-* bzip2
+* bzip2 (bzip2)
 
-* xz-lzma2
+* xz-lzma2 (XZ-LZMA2)
 
-* snappy
+* snappy (Snappy)
 
-* snappy framed
+* snappy framed (Snappy Framed)
 
-* zstd
+* zstd (ZSTD)
 
 
 [horizontal]
@@ -400,39 +400,39 @@ json, record, recordset, resultset, row, serialize, writer
 .*Compression-Level*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Compression Level
+*DISPLAY NAME (Отображаемое наименование):*:: Compression Level (Уровень сжатия)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The compression level to use; this is valid only when using GZIP compression. A lower value results in faster processing but less compression; a value of 0 indicates no compression but simply archiving
+*DESCRIPTION (Описание):*:: Уровень сжатия для использования; это актуально только при использовании сжатия GZIP. Меньшее значение приводит к более быстрой обработке, но менее эффективному сжатию; значение 0 указывает на отсутствие сжатия, а простое архивирование
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* 0
+* 0 (Нуль)
 
-* 1
+* 1 (Один)
 
-* 2
+* 2 (Два)
 
-* 3
+* 3 (Три)
 
-* 4
+* 4 (Четыре)
 
-* 5
+* 5 (Пять)
 
-* 6
+* 6 (Шесть)
 
-* 7
+* 7 (Семь)
 
-* 8
+* 8 (Восемь)
 
-* 9
+* 9 (Девять)
 
 
 [horizontal]
@@ -451,6 +451,17 @@ json, record, recordset, resultset, row, serialize, writer
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

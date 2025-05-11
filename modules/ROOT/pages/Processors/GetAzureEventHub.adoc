@@ -1,13 +1,13 @@
 = GetAzureEventHub 2.2.0
 
-Receives messages from Microsoft Azure Event Hubs without reliable checkpoint tracking. In clustered environment, GetAzureEventHub processor instances work independently and all cluster nodes process all messages (unless running the processor in Primary Only mode). ConsumeAzureEventHub offers the recommended approach to receiving messages from Azure Event Hubs. This processor creates a thread pool for connections to Azure Event Hubs.
+Принимает сообщения из Microsoft Azure Event Hubs без надежной отслеживаемости контрольных точек. В кластерной среде GetAzureEventHub процессоры работают независимо, и все узлы кластера обрабатывают все сообщения (если не запущен в режиме Primary Only). ConsumeAzureEventHub предлагает рекомендуемый подход к получению сообщений из Azure Event Hubs. Этот процессор создает пул потоков для подключений к Azure Event Hubs.
 
 [horizontal]
 *Tags* (Ключевые слова):
 azure, cloud, eventhub, events, microsoft, streaming, streams
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ FORBIDDEN (Обязательно)
 .*Event Hub Namespace*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Event Hub Namespace
+*DISPLAY NAME (Отображаемое наименование):*:: Event Hub Namespace (Пространство имен Event Hubs)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Namespace of Azure Event Hubs prefixed to Service Bus Endpoint domain
+*DESCRIPTION (Описание):*:: Пространство имен Azure Event Hubs, префикс которого добавляется к доменному имени Service Bus Endpoint
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ FORBIDDEN (Обязательно)
 .*Event Hub Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Event Hub Name
+*DISPLAY NAME (Отображаемое наименование):*:: Event Hub Name (Имя концентратора событий)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Name of Azure Event Hubs source
+*DESCRIPTION (Описание):*:: Название источника Azure Event Hubs
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,27 +54,27 @@ FORBIDDEN (Обязательно)
 .*Service Bus Endpoint*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Service Bus Endpoint
+*DISPLAY NAME (Отображаемое наименование):*:: Service Bus Endpoint (Служба обмена сообщениями)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: To support namespaces not in the default windows.net domain.
+*DESCRIPTION (Описание):*:: Для поддержки пространств имен, не входящих в домен windows.net по умолчанию.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Azure: Servicebus endpoint for general use 
+* Azure: Конечная точка служебной шины для общего использования 
 
-* Azure China: Servicebus endpoint for China 
+* Azure China: Конечная точка служебной шины для Китая 
 
-* Azure Germany: Servicebus endpoint for Germany 
+* Azure Germany: Конечная точка служебной шины для Германии 
 
-* Azure US Government: Servicebus endpoint for US Government 
+* Azure US Government: Конечная точка служебной шины для правительства США 
 
 
 [horizontal]
@@ -83,23 +83,23 @@ FORBIDDEN (Обязательно)
 .*Transport Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Transport Type
+*DISPLAY NAME (Отображаемое наименование):*:: Transport Type (Тип транспорта)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Advanced Message Queuing Protocol Transport Type for communication with Azure Event Hubs
+*DESCRIPTION (Описание):*:: Advanced Message Queuing Protocol Transport Type for communication with Azure Event Hubs (Тип транспорта для обмена сообщениями с Azure Event Hubs)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* AMQP: AMQP over TCP on ports 5671 and 5672 
+* AMQP (АМКП): AMQP over TCP on ports 5671 and 5672 (АМКП через TCP на портах 5671 и 5672) 
 
-* AMQP_WEB_SOCKETS: AMQP over HTTPS with WebSockets on port 443 
+* AMQP_WEB_SOCKETS (АМКП по вебсокетам): AMQP over HTTPS with WebSockets on port 443 (АМКП через HTTPS с использованием вебсокетов на порту 443) 
 
 
 [horizontal]
@@ -108,14 +108,14 @@ FORBIDDEN (Обязательно)
 .Shared Access Policy Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Shared Access Policy Name
+*DISPLAY NAME (Отображаемое наименование):*:: Shared Access Policy Name (Имя политики общего доступа)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the shared access policy. This policy must have Listen claims.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -125,14 +125,14 @@ FORBIDDEN (Обязательно)
 .Shared Access Policy Primary Key
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Shared Access Policy Key
+*DISPLAY NAME (Отображаемое наименование):*:: Shared Access Policy Key (Ключ политики общего доступа)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The key of the shared access policy. Either the primary or the secondary key can be used.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -142,14 +142,14 @@ FORBIDDEN (Обязательно)
 .*Use-Managed-Identity*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Use Azure Managed Identity
+*DISPLAY NAME (Отображаемое наименование):*:: Use Azure Managed Identity (Использовать управляемую идентичность Azure)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Choose whether or not to use the managed identity of Azure VM/VMSS
+*DESCRIPTION (Описание):*:: Choose whether or not to use the managed identity of Azure VM/VMSS (Выберите, следует ли использовать управляемую идентичность Azure VM/VMSS)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -167,14 +167,14 @@ FORBIDDEN (Обязательно)
 .*Event Hub Consumer Group*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Consumer Group
+*DISPLAY NAME (Отображаемое наименование):*:: Consumer Group (Группа потребителей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the consumer group to use when pulling events
+*DESCRIPTION (Описание):*:: Имя группы потребителей, которое следует использовать при извлечении событий
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -184,14 +184,14 @@ FORBIDDEN (Обязательно)
 .Event Hub Message Enqueue Time
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Message Enqueue Time
+*DISPLAY NAME (Отображаемое наименование):*:: Message Enqueue Time (Время постановки сообщения в очередь для событийного хаба)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A timestamp (ISO-8601 Instant) formatted as YYYY-MM-DDThhmmss.sssZ (2016-01-01T01:01:01.000Z) from which messages should have been enqueued in the Event Hub to start reading from
+*DESCRIPTION (Описание):*:: Метка времени (ISO-8601 Instant) в формате YYYY-MM-DDThhmmss.sssZ (2016-01-01T01:01:01.000Z), с которого должны быть получены сообщения из Event Hub для начала чтения
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -201,14 +201,14 @@ FORBIDDEN (Обязательно)
 .Partition Recivier Fetch Size
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Partition Receiver Fetch Size
+*DISPLAY NAME (Отображаемое наименование):*:: Partition Receiver Fetch Size (Размер получения приемника раздела)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The number of events that a receiver should fetch from an Event Hubs partition before returning. The default is 100
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -218,14 +218,14 @@ FORBIDDEN (Обязательно)
 .Partition Receiver Timeout (Millseconds)
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Partition Receiver Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Partition Receiver Timeout (Время ожидания получения размера раздела)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The amount of time in milliseconds a Partition Receiver should wait to receive the Fetch Size before returning. The default is 60000
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -235,14 +235,14 @@ FORBIDDEN (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: HTTP + AuthN
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -266,7 +266,7 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Any FlowFile that is successfully received from the event hub will be transferred to this Relationship.
+|Любой FlowFile, успешно полученный из событийного хаба, будет передан в это отношение.
 
 |===
 
@@ -281,22 +281,22 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`eventhub.enqueued.timestamp`
-|The time (in milliseconds since epoch, UTC) at which the message was enqueued in the event hub
+|Время (в миллисекундах с эпохи Unix, UTC) в которое сообщение было поставлено в очередь в событийном хабе
 
 |`eventhub.offset`
-|The offset into the partition at which the message was stored
+|Смещение в разделе, где хранится сообщение
 
 |`eventhub.sequence`
-|The Azure sequence number associated with the message
+|Номер последовательности Azure, связанный с сообщением
 
 |`eventhub.name`
-|The name of the event hub from which the message was pulled
+|Имя событийного хаба, из которого было получено сообщение
 
 |`eventhub.partition`
-|The name of the event hub partition from which the message was pulled
+|Имя раздела событийного хаба, из которого было получено сообщение
 
 |`eventhub.property.*`
-|The application properties of this message. IE: 'application' would be 'eventhub.property.application'
+|Приложения свойства этого сообщения. Например: 'application' будет 'eventhub.property.application'
 
 |===
 

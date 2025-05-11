@@ -1,13 +1,13 @@
 = HandleHttpResponse 2.2.0
 
-Sends an HTTP Response to the Requestor that generated a FlowFile. This Processor is designed to be used in conjunction with the HandleHttpRequest in order to create a web service.
+Отправляет ответ HTTP запросчику, который сгенерировал FlowFile. Этот процессор предназначен для использования в сочетании с HandleHttpRequest для создания веб-сервиса.
 
 [horizontal]
 *Tags* (Ключевые слова):
 egress, http, https, response, web service
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Http Status Code*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: HTTP Status Code
+*DISPLAY NAME (Отображаемое наименование):*:: HTTP Status Code (Код состояния HTTP)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The HTTP Status Code to use when responding to the HTTP Request. See Section 10 of RFC 2616 for more information.
+*DESCRIPTION (Описание):*:: Код состояния HTTP, который следует использовать при ответе на запрос HTTP. Более подробную информацию можно найти в разделе 10 RFC 2616.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Http Context Map*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: HTTP Context Map
+*DISPLAY NAME (Отображаемое наименование):*:: HTTP Context Map (HTTP Контекстная карта)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The HTTP Context Map Controller Service to use for caching the HTTP Request Information
+*DESCRIPTION (Описание):*:: Контроллер сервиса HTTP Context Map для использования кэширования информации о запросе HTTP
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .Attributes To Add To The Http Response (Regex)
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Attributes to add to the HTTP Response (Regex)
+*DISPLAY NAME (Отображаемое наименование):*:: Attributes to add to the HTTP Response (Regex) (Атрибуты для добавления в HTTP-ответ (Регулярное выражение))
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Regular Expression that determines the names of FlowFile attributes that should be added to the HTTP response
+*DESCRIPTION (Описание):*:: Specifies the Regular Expression that determines the names of FlowFile attributes that should be added to the HTTP response (Указывает регулярное выражение, которое определяет имена атрибутов FlowFile, которые должны быть добавлены в HTTP-ответ)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -114,7 +114,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`http.context.identifier`
-|The value of this attribute is used to lookup the HTTP Response so that the proper message can be sent back to the requestor. If this attribute is missing, the FlowFile will be routed to 'failure.'
+|The value of this attribute is used to lookup the HTTP Response so that the proper message can be sent back to the requestor. If this attribute is missing, the FlowFile will be routed to 'failure'.
 
 |`http.request.uri`
 |Value of the URI requested by the client. Used for provenance event.

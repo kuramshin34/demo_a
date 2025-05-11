@@ -1,13 +1,13 @@
 = RedisConnectionPoolService 2.2.0
 
-A service that provides connections to Redis.
+Сервис, предоставляющий подключения к Redis.
 
 [horizontal]
 *Tags* (Ключевые слова):
 cache, redis
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,25 +20,25 @@ cache, redis
 .*Redis Mode*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Redis Mode
+*DISPLAY NAME (Отображаемое наименование):*:: Redis Mode (Режим)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The type of Redis being communicated with - standalone, sentinel, or clustered.
+*DESCRIPTION (Описание):*:: Тип Redis, с которым происходит взаимодействие - standalone, sentinel или clustered.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Standalone: A single standalone Redis instance. 
+* Standalone (Стандартный): Одиночный экземпляр Redis. 
 
-* Sentinel: Redis Sentinel which provides high-availability. Described further at https://redis.io/topics/sentinel 
+* Sentinel (Наблюдатель): Redis Sentinel, обеспечивающий высокую доступность. Описан дальше по ссылке https://redis.io/topics/sentinel 
 
-* Cluster: Clustered Redis which provides sharding and replication. Described further at https://redis.io/topics/cluster-spec 
+* Cluster (Кластер): Кольцевой Redis, обеспечивающий шардинг и репликацию. Описан дальше по ссылке https://redis.io/topics/cluster-spec 
 
 
 [horizontal]
@@ -47,14 +47,14 @@ cache, redis
 .*Connection String*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Connection String
+*DISPLAY NAME (Отображаемое наименование):*:: Connection String (Соединительная строка)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The connection string for Redis. In a standalone instance this value will be of the form hostname:port. In a sentinel instance this value will be the comma-separated list of sentinels, such as host1:port1,host2:port2,host3:port3. In a clustered instance this value will be the comma-separated list of cluster masters, such as host1:port,host2:port,host3:port.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -64,14 +64,14 @@ cache, redis
 .*Database Index*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Database Index
+*DISPLAY NAME (Отображаемое наименование):*:: Database Index (База данных индекс)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The database index to be used by connections created from this connection pool. See the databases property in redis.conf, by default databases 0-15 will be available.
+*DESCRIPTION (Описание):*:: Индекс базы данных, используемой подключениями, созданными из этого пула подключений. См. свойство databases в redis.conf, по умолчанию будут доступны базы данных 0-15.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -81,14 +81,14 @@ cache, redis
 .*Communication Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Communication Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Communication Timeout (Время ожидания)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The timeout to use when attempting to communicate with Redis.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -98,14 +98,14 @@ cache, redis
 .*Cluster Max Redirects*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Cluster Max Redirects
+*DISPLAY NAME (Отображаемое наименование):*:: Cluster Max Redirects (Максимальное количество перенаправлений при кластеризации)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The maximum number of redirects that can be performed when clustered.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -115,14 +115,14 @@ cache, redis
 .Sentinel Master
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Sentinel Master
+*DISPLAY NAME (Отображаемое наименование):*:: Sentinel Master (Мастер Сентинела)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the sentinel master, require when Mode is set to Sentinel
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -132,14 +132,14 @@ cache, redis
 .Username
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Username
+*DISPLAY NAME (Отображаемое наименование):*:: Username (Имя пользователя)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The username used to authenticate to the Redis server.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -149,14 +149,14 @@ cache, redis
 .Password
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Password
+*DISPLAY NAME (Отображаемое наименование):*:: Password (Пароль)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The password used to authenticate to the Redis server. See the 'requirepass' property in redis.conf.
+*DESCRIPTION (Описание):*:: Пароль, используемый для аутентификации на сервере Redis. См. свойство 'requirepass' в redis.conf.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -166,14 +166,14 @@ cache, redis
 .Sentinel Username
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Sentinel Username
+*DISPLAY NAME (Отображаемое наименование):*:: Sentinel Username (Имя пользователя)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The username used to authenticate to the Redis sentinel server.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -183,14 +183,14 @@ cache, redis
 .Sentinel Password
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Sentinel Password
+*DISPLAY NAME (Отображаемое наименование):*:: Sentinel Password (Пароль для аутентификации на сервере Sentinel)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The password used to authenticate to the Redis Sentinel server. See the 'requirepass' and 'sentinel sentinel-pass' properties in sentinel.conf.
+*DESCRIPTION (Описание):*:: Пароль, используемый для аутентификации на сервере Redis Sentinel. См. свойства 'requirepass' и 'sentinel sentinel-pass' в файле sentinel.conf.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -200,14 +200,14 @@ cache, redis
 .Ssl Context Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (Сервис контекста SSL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If specified, this service will be used to create an SSL Context that will be used to secure communications; if not specified, communications will not be secure
+*DESCRIPTION (Описание):*:: Если указан, этот сервис будет использоваться для создания SSL-контекста, который будет использоваться для защиты коммуникаций; если не указан, коммуникации не будут защищены
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -217,14 +217,14 @@ cache, redis
 .*Pool - Max Total*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Pool - Max Total
+*DISPLAY NAME (Отображаемое наименование):*:: Pool - Max Total (Пул - Максимальное общее количество)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum number of connections that can be allocated by the pool (checked out to clients, or idle awaiting checkout). A negative value indicates that there is no limit.
+*DESCRIPTION (Описание):*:: Максимальное число подключений, которые могут быть выделены пулом (выданных клиентам или простаивающих в ожидании выдачи). Отрицательное значение указывает на отсутствие ограничения.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -234,14 +234,14 @@ cache, redis
 .*Pool - Max Idle*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Pool - Max Idle
+*DISPLAY NAME (Отображаемое наименование):*:: Pool - Max Idle (Пулл - Максимальное количество бездействующих)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum number of idle connections that can be held in the pool, or a negative value if there is no limit.
+*DESCRIPTION (Описание):*:: Максимальное количество бездействующих соединений, которые могут быть удерживаемы в пуле, или отрицательное значение, если ограничений нет.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -251,14 +251,14 @@ cache, redis
 .*Pool - Min Idle*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Pool - Min Idle
+*DISPLAY NAME (Отображаемое наименование):*:: Pool - Min Idle (Пул - Мин Идл)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The target for the minimum number of idle connections to maintain in the pool. If the configured value of Min Idle is greater than the configured value for Max Idle, then the value of Max Idle will be used instead.
+*DESCRIPTION (Описание):*:: Целевой минимум количества поддерживаемых в пуле неактивных соединений. Если настроенное значение Min Idle больше, чем настроенное значение Max Idle, то будет использовано значение Max Idle.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -268,14 +268,14 @@ cache, redis
 .*Pool - Block When Exhausted*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Pool - Block When Exhausted
+*DISPLAY NAME (Отображаемое наименование):*:: Pool - Block When Exhausted (Пула - Блокировать при исчерпании)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Whether or not clients should block and wait when trying to obtain a connection from the pool when the pool has no available connections. Setting this to false means an error will occur immediately when a client requests a connection and none are available.
+*DESCRIPTION (Описание):*:: Следует ли клиентам блокировать и ждать, когда пытаются получить соединение из пула, если в пуле нет доступных соединений. Установка этого значения в false означает, что при запросе соединения клиентом и отсутствии доступных соединений произойдет ошибка сразу же.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -293,14 +293,14 @@ cache, redis
 .*Pool - Max Wait Time*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Pool - Max Wait Time
+*DISPLAY NAME (Отображаемое наименование):*:: Pool - Max Wait Time (Время ожидания в пуле)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The amount of time to wait for an available connection when Block When Exhausted is set to true.
+*DESCRIPTION (Описание):*:: Количество времени для ожидания доступного подключения, когда установлено Block When Exhausted равное true.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -310,14 +310,14 @@ cache, redis
 .*Pool - Min Evictable Idle Time*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Pool - Min Evictable Idle Time
+*DISPLAY NAME (Отображаемое наименование):*:: Pool - Min Evictable Idle Time (Время простоя в пуле до вытеснения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The minimum amount of time an object may sit idle in the pool before it is eligible for eviction.
+*DESCRIPTION (Описание):*:: Минимальное количество времени, которое объект может находиться бездействуя в пуле перед тем, как он станет кандидатом на удаление.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -327,14 +327,14 @@ cache, redis
 .*Pool - Time Between Eviction Runs*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Pool - Time Between Eviction Runs
+*DISPLAY NAME (Отображаемое наименование):*:: Pool - Time Between Eviction Runs (Время между запусками очистки пула)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The amount of time between attempting to evict idle connections from the pool.
+*DESCRIPTION (Описание):*:: Количество времени между попытками изгнания бездействующих подключений из пула.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -344,14 +344,14 @@ cache, redis
 .*Pool - Num Tests Per Eviction Run*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Pool - Num Tests Per Eviction Run
+*DISPLAY NAME (Отображаемое наименование):*:: Pool - Num Tests Per Eviction Run (Число соединений для тестирования на каждой попытке исключения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The number of connections to tests per eviction attempt. A negative value indicates to test all connections.
+*DESCRIPTION (Описание):*:: Количество подключений, которые необходимо протестировать при каждой попытке исключить. Отрицательное значение указывает на тестирование всех соединений.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -361,14 +361,14 @@ cache, redis
 .*Pool - Test On Create*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Pool - Test On Create
+*DISPLAY NAME (Отображаемое наименование):*:: Pool - Test On Create (Пулл - Тест При Создании)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Whether or not connections should be tested upon creation.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -386,14 +386,14 @@ cache, redis
 .*Pool - Test On Borrow*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Pool - Test On Borrow
+*DISPLAY NAME (Отображаемое наименование):*:: Pool - Test On Borrow (Пула - Тест При Возврате)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Whether or not connections should be tested upon borrowing from the pool.
+*DESCRIPTION (Описание):*:: Следует ли проверять соединения при взятии из пула.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -411,14 +411,14 @@ cache, redis
 .*Pool - Test On Return*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Pool - Test On Return
+*DISPLAY NAME (Отображаемое наименование):*:: Pool - Test On Return (Пулл - Тест Он Ретурн)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Whether or not connections should be tested upon returning to the pool.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -436,14 +436,14 @@ cache, redis
 .*Pool - Test While Idle*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Pool - Test While Idle
+*DISPLAY NAME (Отображаемое наименование):*:: Pool - Test While Idle (Пулл - Тест Во время бездействия)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Whether or not connections should be tested while idle.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -471,6 +471,17 @@ cache, redis
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

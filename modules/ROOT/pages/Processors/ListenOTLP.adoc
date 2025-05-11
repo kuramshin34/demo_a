@@ -1,13 +1,13 @@
 = ListenOTLP 2.2.0
 
-Collect OpenTelemetry messages over HTTP or gRPC. Supports standard Export Service Request messages for logs, metrics, and traces. Implements OpenTelemetry OTLP Specification 1.0.0 with OTLP/gRPC and OTLP/HTTP. Provides protocol detection using the HTTP Content-Type header.
+Собирать сообщения OpenTelemetry по протоколу HTTP или gRPC. Поддерживает стандартные сообщения службы экспорта для журналов, метрик и трассировок. Реализует спецификацию OpenTelemetry OTLP 1.0.0 с использованием OTLP/gRPC и OTLP/HTTP. Предоставляет обнаружение протокола с использованием заголовка HTTP Content-Type.
 
 [horizontal]
 *Tags* (Ключевые слова):
 OTLP, OTel, OpenTelemetry, logs, metrics, telemetry, traces
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ FORBIDDEN (Обязательно)
 .*Address*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Address
+*DISPLAY NAME (Отображаемое наименование):*:: Address (Адрес)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Internet Protocol Address on which to listen for OTLP Export Service Requests. The default value enables listening on all addresses.
+*DESCRIPTION (Описание):*:: Интернет-протокольный адрес, на котором будет прослушиваться запросы экспорта OTLP. Значение по умолчанию включает прослушивание всех адресов.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ FORBIDDEN (Обязательно)
 .*Port*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Port
+*DISPLAY NAME (Отображаемое наименование):*:: Port (Порт)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: TCP port number on which to listen for OTLP Export Service Requests over HTTP and gRPC
+*DESCRIPTION (Описание):*:: TCP-порт, на котором будет прослушиваться OTLP Экспортная Служба Запросов по протоколу HTTP и gRPC
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ FORBIDDEN (Обязательно)
 .*Ssl Context Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (SSL Контекст Сервиса)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: SSL Context Service enables TLS communication for HTTPS
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,25 +71,25 @@ FORBIDDEN (Обязательно)
 .*Client Authentication*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Client Authentication
+*DISPLAY NAME (Отображаемое наименование):*:: Client Authentication (Клиентская аутентификация)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Client authentication policy for TLS communication with HTTPS
+*DESCRIPTION (Описание):*:: Политика клиентской аутентификации для TLS-коммуникации с HTTPS
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* WANT
+* WANT (ЖЕЛАНИЕ)
 
-* REQUIRED
+* REQUIRED (ТРЕБОВАНИЕ)
 
-* NONE
+* NONE (НИКАК)
 
 
 [horizontal]
@@ -98,14 +98,14 @@ FORBIDDEN (Обязательно)
 .*Worker Threads*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Worker Threads
+*DISPLAY NAME (Отображаемое наименование):*:: Worker Threads (Рабочие потоки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Number of threads responsible for decoding and queuing incoming OTLP Export Service Requests
+*DESCRIPTION (Описание):*:: Количество потоков, ответственных за декодирование и очередь входящих запросов OTLP Export Service
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -115,14 +115,14 @@ FORBIDDEN (Обязательно)
 .*Queue Capacity*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Queue Capacity
+*DISPLAY NAME (Отображаемое наименование):*:: Queue Capacity (Максимальное количество элементов ресурса OTLP-запросов, которые могут быть получены и помещены в очередь)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Maximum number of OTLP request resource elements that can be received and queued
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -132,14 +132,14 @@ FORBIDDEN (Обязательно)
 .*Batch Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Batch Size
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Size (Размер партии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Maximum number of OTLP request resource elements included in each FlowFile produced
+*DESCRIPTION (Описание):*:: Максимальное количество элементов ресурса OTLP-запроса, включенных в каждый произведенный FlowFile
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -163,7 +163,7 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Export Service Requests containing OTLP Telemetry
+|Сообщения службы экспорта, содержащие OTLP телеметрию
 
 |===
 
@@ -178,13 +178,13 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`mime.type`
-|Content-Type set to application/json
+|Content-Type установлен в application/json
 
 |`resource.type`
-|OpenTelemetry Resource Type: LOGS, METRICS, or TRACES
+|Тип ресурса OpenTelemetry: ЖУРНАЛЫ, МЕТРИКИ или ТРАССЫ
 
 |`resource.count`
-|Count of resource elements included in messages
+|Количество элементов ресурса, включённых в сообщения
 
 |===
 

@@ -1,13 +1,13 @@
 = SetCacheServer 2.2.0
 
-Provides a set (collection of unique values) cache that can be accessed over a socket. Interaction with this service is typically accomplished via a DistributedSetCacheClient service.
+Предоставляет кэш набора (коллекцию уникальных значений), который может быть доступен по сокету. Взаимодействие с этим сервисом обычно осуществляется через службу DistributedSetCacheClient.
 
 [horizontal]
 *Tags* (Ключевые слова):
-cache, distinct, distributed, server, set
+кэш, отличительный, распределенный, сервер, набор
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ cache, distinct, distributed, server, set
 .*Port*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Port
+*DISPLAY NAME (Отображаемое наименование):*:: Port (Порт)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The port to listen on for incoming connections
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ cache, distinct, distributed, server, set
 .*Maximum Cache Entries*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Cache Entries
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Cache Entries (Максимальное количество записей кэша)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum number of cache entries that the cache can hold
+*DESCRIPTION (Описание):*:: The maximum number of cache entries that the cache can hold (Максимальное количество записей, которые может содержать кэш)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,25 +54,25 @@ cache, distinct, distributed, server, set
 .*Eviction Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Eviction Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Eviction Strategy (Стратегия вытеснения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Determines which strategy should be used to evict values from the cache to make room for new entries
+*DESCRIPTION (Описание):*:: Определяет, какую стратегию следует использовать для вытеснения значений из кэша с целью освобождения места для новых записей
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Least Frequently Used
+* Least Frequently Used (Наименее часто используемые)
 
-* Least Recently Used
+* Least Recently Used (Наименее давно используемые)
 
-* First In, First Out
+* First In, First Out (Первым вошел — первым вышел)
 
 
 [horizontal]
@@ -81,14 +81,14 @@ cache, distinct, distributed, server, set
 .Persistence Directory
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Persistence Directory
+*DISPLAY NAME (Отображаемое наименование):*:: Persistence Directory (Каталог постоянного хранения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If specified, the cache will be persisted in the given directory; if not specified, the cache will be in-memory only
+*DESCRIPTION (Описание):*:: Если указано, кэш будет сохраняться в указанном каталоге; если не указано, кэш будет храниться только в памяти
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -98,14 +98,14 @@ cache, distinct, distributed, server, set
 .Ssl Context Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (Сервис контекста SSL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If specified, this service will be used to create an SSL Context that will be used to secure communications; if not specified, communications will not be secure
+*DESCRIPTION (Описание):*:: Если указан, этот сервис будет использоваться для создания SSL-контекста, который будет использоваться для защиты коммуникаций; если не указан, коммуникации не будут защищены
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -115,14 +115,14 @@ cache, distinct, distributed, server, set
 .Maximum-Read-Size
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Read Size
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Read Size (Максимальный размер чтения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum number of network bytes to read for a single cache item
+*DESCRIPTION (Описание):*:: The maximum number of network bytes to read for a single cache item (Максимальное количество сетевых байт для чтения одного элемента кэша)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -142,6 +142,17 @@ cache, distinct, distributed, server, set
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

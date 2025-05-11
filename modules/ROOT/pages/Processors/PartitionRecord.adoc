@@ -1,13 +1,13 @@
 = PartitionRecord 2.2.0
 
-Splits, or partitions, record-oriented data based on the configured fields in the data. One or more properties must be added. The name of the property is the name of an attribute to add. The value of the property is a RecordPath to evaluate against each Record. Two records will go to the same outbound FlowFile only if they have the same value for each of the given RecordPaths. Because we know that all records in a given output FlowFile have the same value for the fields that are specified by the RecordPath, an attribute is added for each field. See Additional Details on the Usage page for more information and examples.
+Разделяет или разбивает данные, ориентированные на запись, на основе настроенных полей в данных. Необходимо добавить одно или несколько свойств. Имя свойства должно быть именем атрибута для добавления. Значение свойства — это путь записи, который оценивается по каждой записи. Два потока будут направлены в один исходящий FlowFile только в том случае, если у них одинаковое значение для каждого из заданных путей записи. Поскольку мы знаем, что все записи в данном исходящем потоке имеют одинаковое значение для полей, которые указаны путем записи, добавляется атрибут для каждого поля. Более подробную информацию см. на странице Использования.
 
 [horizontal]
 *Tags* (Ключевые слова):
 bin, group, organize, partition, record, recordpath, rpath, segment, split
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Record-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Записыватель данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for reading incoming data
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера для использования при чтении входящих данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Record-Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для записи записей
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -119,9 +119,6 @@ REQUIRED (Обязательно)
 |`segment.original.filename `
 |The filename of the parent FlowFile
 
-|`<dynamic property name>`
-|For each dynamic property that is added, an attribute may be added to the FlowFile. See the description for Dynamic Properties for more information.
-
 |===
 
 
@@ -131,7 +128,7 @@ REQUIRED (Обязательно)
 
 
 
-=== Separate records into separate FlowFiles so that all of the records in a FlowFile have the same value for a given field or set of fields.
+=== Разделить записи на отдельные потоки, чтобы все записи в потоке имели одинаковое значение для данного поля или набора полей.
 
 
 NOTE: 
@@ -159,11 +156,10 @@ Choose a RecordWriter that writes the data in the desired output format.
 Add a single additional property. The name of the property should describe the type of data that is being used to partition the data. The property's value should be a RecordPath that specifies which output FlowFile the Record belongs to.
 
 For example, if we want to separate records based on their `transactionType` field, we could add a new property named `transactionType`. The value of the property might be `/transaction/type`. An input FlowFile will then be separated into as few FlowFiles as possible such that each output FlowFile has the same value for the `transactionType` field.
-
 ====
 
 
-=== Separate records based on whether or not they adhere to a specific criteria
+=== Разделить записи на основе того, соответствуют ли они определенным критериям
 
 
 NOTE: 
@@ -191,7 +187,6 @@ Choose a RecordWriter that writes the data in the desired output format.
 Add a single additional property. The name of the property should describe the criteria. The property's value should be a RecordPath that returns `true` if the Record meets the criteria or `false` otherwise.
 
 For example, if we want to separate records based on whether or not they have a transaction total of more than $1,000 we could add a new property named `largeTransaction` with a value of `/transaction/total > 1000`. This will create two FlowFiles. In the first, all records will have a total over `1000`. In the second, all records will have a transaction less than or equal to 1000. Each FlowFile will have an attribute named `largeTransaction` with a value of `true` or `false`.
-
 ====
 
 

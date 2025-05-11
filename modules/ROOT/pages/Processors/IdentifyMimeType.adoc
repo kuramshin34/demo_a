@@ -1,13 +1,13 @@
 = IdentifyMimeType 2.2.0
 
-Attempts to identify the MIME Type used for a FlowFile. If the MIME Type can be identified, an attribute with the name 'mime.type' is added with the value being the MIME Type. If the MIME Type cannot be determined, the value will be set to 'application/octet-stream'. In addition, the attribute 'mime.extension' will be set if a common file extension for the MIME Type is known. If the MIME Type detected is of type text/*, attempts to identify the charset used and an attribute with the name 'mime.charset' is added with the value being the charset.
+Пытается определить используемый MIME тип для FlowFile. Если MIME тип может быть определен, в атрибут с именем 'mime.type' добавляется значение, которое является MIME типом. Если MIME тип не может быть определен, значение будет установлено как 'application/octet-stream'. Кроме того, если известно общее расширение файла для MIME типа, в атрибут с именем 'mime.extension' будет добавлено это расширение.
 
 [horizontal]
 *Tags* (Ключевые слова):
 MIME, bzip2, compression, file, gzip, identify, mime.type, zip
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Use-Filename-In-Detection*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Use Filename In Detection
+*DISPLAY NAME (Отображаемое наименование):*:: Use Filename In Detection (Использовать имя файла для обнаружения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true will pass the filename to Tika to aid in detection.
+*DESCRIPTION (Описание):*:: Если true, передаст имя файла Tika для улучшения обнаружения.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -45,25 +45,25 @@ REQUIRED (Обязательно)
 .*Config-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Config Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Config Strategy (Конфигурационная стратегия)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Select the loading strategy for MIME Type configuration to be used.
+*DESCRIPTION (Описание):*:: Выберите стратегию загрузки для конфигурации MIME-типов, которая будет использоваться.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Preset: Use default NiFi MIME Types. 
+* Preset (Предустановленный): Используйте стандартные MIME-типы NiFi. 
 
-* Replace: Use config MIME Types only. 
+* Replace (Заменить): Используйте только настроенные MIME-типы. 
 
-* Merge: Use config together with default NiFi MIME Types. 
+* Merge (Объединить): Используйте настроенные вместе со стандартными MIME-типами NiFi. 
 
 
 [horizontal]
@@ -72,14 +72,14 @@ REQUIRED (Обязательно)
 .Config-Body
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Config Body
+*DISPLAY NAME (Отображаемое наименование):*:: Config Body (Тело конфигурационного файла)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Body of MIME type config file. Only one of Config File or Config Body may be used.
+*DESCRIPTION (Описание):*:: Тело MIME типа конфигурационного файла. Допускается использование только одного из файлов конфигурации или тела конфигурации.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -89,14 +89,14 @@ REQUIRED (Обязательно)
 .Config-File
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Config File
+*DISPLAY NAME (Отображаемое наименование):*:: Config File (Конфигурационный файл)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Path to MIME type config file. Only one of Config File or Config Body may be used.
+*DESCRIPTION (Описание):*:: Путь к файлу конфигурации MIME типа. Допускается использовать только один из Config File или Config Body.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -120,7 +120,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|All FlowFiles are routed to success
+|Все FlowFile направляются в success
 
 |===
 
@@ -135,13 +135,13 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`mime.type`
-|This Processor sets the FlowFile's mime.type attribute to the detected MIME Type. If unable to detect the MIME Type, the attribute's value will be set to application/octet-stream
+|Этот процессор устанавливает атрибут mime.type FlowFile в обнаруженный MIME тип. Если не удается определить MIME тип, значение атрибута будет установлено как application/octet-stream
 
 |`mime.extension`
-|This Processor sets the FlowFile's mime.extension attribute to the file extension associated with the detected MIME Type. If there is no correlated extension, the attribute's value will be empty
+|Этот процессор устанавливает атрибут mime.extension FlowFile в расширение файла, связанное с обнаруженным MIME типом. Если такого коррелированного расширения нет, значение атрибута будет пустым
 
 |`mime.charset`
-|This Processor sets the FlowFile's mime.charset attribute to the detected charset. If unable to detect the charset or the detected MIME type is not of type text/*, the attribute will not be set
+|Этот процессор устанавливает атрибут mime.charset FlowFile в обнаруженный charset. Если не удается определить charset или обнаруженный MIME тип не является текстовым, атрибут не будет установлен
 
 |===
 

@@ -1,13 +1,13 @@
 = CountText 2.2.0
 
-Counts various metrics on incoming text. The requested results will be recorded as attributes. The resulting flowfile will not have its content modified.
+Подсчитывает различные метрики на входящем тексте. Запрошенные результаты будут записаны как атрибуты. Содержимое потока файлов не будет изменено.
 
 [horizontal]
 *Tags* (Ключевые слова):
 character, count, line, text, word
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Text-Line-Count*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Count Lines
+*DISPLAY NAME (Отображаемое наименование):*:: Count Lines (Подсчет строк)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If enabled, will count the number of lines present in the incoming text.
+*DESCRIPTION (Описание):*:: Если включено, будет подсчитывать количество строк в поступающем тексте.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -45,14 +45,14 @@ REQUIRED (Обязательно)
 .*Text-Line-Nonempty-Count*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Count Non-Empty Lines
+*DISPLAY NAME (Отображаемое наименование):*:: Count Non-Empty Lines (Подсчет непустых строк)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If enabled, will count the number of lines that contain a non-whitespace character present in the incoming text.
+*DESCRIPTION (Описание):*:: Если включено, будет подсчитывать количество строк, содержащих ненулевой символ в поступающем тексте.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -70,14 +70,14 @@ REQUIRED (Обязательно)
 .*Text-Word-Count*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Count Words
+*DISPLAY NAME (Отображаемое наименование):*:: Count Words (Подсчет слов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If enabled, will count the number of words (alphanumeric character groups bounded by whitespace) present in the incoming text. Common logical delimiters [_-.] do not bound a word unless 'Split Words on Symbols' is true.
+*DESCRIPTION (Описание):*:: Если включено, будет подсчитывать количество слов (групп алфаноumeric символов, ограниченных пробелом). Общие логические разделители [_-.] не ограничивают слово, если 'Разделять слова по символам' установлено в true.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -95,14 +95,14 @@ REQUIRED (Обязательно)
 .*Text-Character-Count*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Count Characters
+*DISPLAY NAME (Отображаемое наименование):*:: Count Characters (Считать символы)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If enabled, will count the number of characters (including whitespace and symbols, but not including newlines and carriage returns) present in the incoming text.
+*DESCRIPTION (Описание):*:: Если включено, будет подсчитывать количество символов (включая пробелы и символы, но не включая символы новой строки и возврата каретки) в поступающем тексте.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -120,14 +120,14 @@ REQUIRED (Обязательно)
 .*Split-Words-On-Symbols*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Split Words on Symbols
+*DISPLAY NAME (Отображаемое наименование):*:: Split Words on Symbols (Слова на символах)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If enabled, the word count will identify strings separated by common logical delimiters [ _ - . ] as independent words (ex. split-words-on-symbols = 4 words).
+*DESCRIPTION (Описание):*:: Если включено, подсчет слов определит строки, разделенные общими логическими делителями [ _ - . ] как независимые слова (например, split-words-on-symbols = 4 слова).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -145,31 +145,31 @@ REQUIRED (Обязательно)
 .*Character-Encoding*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Encoding
+*DISPLAY NAME (Отображаемое наименование):*:: Character Encoding (Кодировка символов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies a character encoding to use.
+*DESCRIPTION (Описание):*:: Указывает кодировку символов для использования.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* ISO-8859-1
+* ISO-8859-1 (ISO-8859-1)
 
-* UTF-8
+* UTF-8 (UTF-8)
 
-* UTF-16
+* UTF-16 (UTF-16)
 
-* UTF-16LE
+* UTF-16LE (UTF-16LE)
 
-* UTF-16BE
+* UTF-16BE (UTF-16BE)
 
-* US-ASCII
+* US-ASCII (US-ASCII)
 
 
 [horizontal]
@@ -178,14 +178,14 @@ REQUIRED (Обязательно)
 .*Ajust-Immediately*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Call Immediate Adjustment
+*DISPLAY NAME (Отображаемое наименование):*:: Call Immediate Adjustment (Вызов немедленной корректировки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true, the counter will be updated immediately, without regard to whether the ProcessSession is commit or rolled back;otherwise, the counter will be incremented only if and when the ProcessSession is committed.
+*DESCRIPTION (Описание):*:: Если true, счетчик будет обновляться немедленно, вне зависимости от того, был ли ProcessSession зафиксирован или откачен; в противном случае счетчик будет увеличиваться только если и когда ProcessSession зафиксирован.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -217,10 +217,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|The flowfile contains the original content with one or more attributes added containing the respective counts
+|Поток файлов содержит исходное содержимое с одним или несколькими атрибутами, содержащими соответствующие подсчеты
 
 |`failure`
-|If the flowfile text cannot be counted for some reason, the original file will be routed to this destination and nothing will be routed elsewhere
+|Если текст потока файлов не может быть подсчитан по какой-то причине, исходный файл будет направлен в эту цель, и ничего больше не будет направляться.
 
 |===
 
@@ -235,16 +235,16 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`text.line.count`
-|The number of lines of text present in the FlowFile content
+|Количество строк текста, присутствующих в содержимом потока файлов
 
 |`text.line.nonempty.count`
-|The number of lines of text (with at least one non-whitespace character) present in the original FlowFile
+|Количество строк текста (с хотя бы одним непробельным символом) в исходном потоке файлов
 
 |`text.word.count`
-|The number of words present in the original FlowFile
+|Количество слов, присутствующих в исходном потоке файлов
 
 |`text.character.count`
-|The number of characters (given the specified character encoding) present in the original FlowFile
+|Количество символов (в соответствии с указанной кодировкой символов) в исходном потоке файлов
 
 |===
 

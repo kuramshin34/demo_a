@@ -1,13 +1,13 @@
 = RestrictBackpressureSettings 2.2.0
 
-This rule will generate a violation if backpressure settings of a connection exceed configured thresholds. Improper configuration of backpressure settings can lead to decreased performance because of excessive swapping and can fill up the content repository with too much in-flight data.
+Это правило создаст нарушение, если настройки обратной связи для подключения превысят заданные пороговые значения. Неправильная настройка параметров обратной связи может привести к снижению производительности из-за чрезмерного обмена данными и заполнению репозитория содержимого большим количеством в полёте данных.
 
 [horizontal]
 *Tags* (Ключевые слова):
 backpressure, connection
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ backpressure, connection
 .*Minimum Backpressure Object Count Threshold*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Minimum Backpressure Object Count Threshold
+*DISPLAY NAME (Отображаемое наименование):*:: Minimum Backpressure Object Count Threshold (Минимальное количество объектов для порога давления на соединениях)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: This is the minimum value that should be set for the Object Count backpressure setting on connections. This can be used to prevent a user from setting a value of 0 which disables backpressure based on count.
+*DESCRIPTION (Описание):*:: Это минимальное значение, которое следует установить для настройки порога давления по количеству объектов. Это может быть использовано для предотвращения пользователю установки значения 0, что отключает давление на основе количества.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ backpressure, connection
 .*Maximum Backpressure Object Count Threshold*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Backpressure Object Count Threshold
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Backpressure Object Count Threshold (Максимальное количество объектов для настройки обратной связи)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: This is the maximum value that should be set for the Object Count backpressure setting on connections. This can be used to prevent a user from setting a very high value that may be leading to a lot of swapping.
+*DESCRIPTION (Описание):*:: Это максимальное значение, которое следует установить для настройки количества объектов при обратной связи на соединениях. Это может быть использовано для предотвращения пользователю установки очень высокого значения, которое может приводить к большому обмене данными.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ backpressure, connection
 .*Minimum Backpressure Data Size Threshold*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Minimum Backpressure Data Size Threshold
+*DISPLAY NAME (Отображаемое наименование):*:: Minimum Backpressure Data Size Threshold (Минимальный порог размера данных для обратной связи на соединениях)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: This is the minimum value that should be set for the Data Size backpressure setting on connections. This can be used to prevent a user from setting a value of 0 which disables backpressure based on size.
+*DESCRIPTION (Описание):*:: Это минимальное значение, которое следует установить для настройки обратного давления по размеру данных на соединениях. Это может быть использовано для предотвращения пользователю установки значения 0, что отключает обратное давление на основе размера.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ backpressure, connection
 .*Maximum Backpressure Data Size Threshold*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Backpressure Data Size Threshold
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Backpressure Data Size Threshold (Максимальный порог размера данных для обратной давления)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: This is the maximum value that should be set for the Data Size backpressure setting on connections. This can be used to prevent a user from setting a very high value that may be filling up the content repo.
+*DESCRIPTION (Описание):*:: Это максимальное значение, которое следует установить для настройки обратного давления по размеру данных на соединениях. Это может быть использовано для предотвращения пользователю установки слишком высокого значения, которое может заполнить репозиторий контента.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -98,6 +98,17 @@ backpressure, connection
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|The App ID field from the AMQP Message
+
+|===
 
 
 

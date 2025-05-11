@@ -1,13 +1,13 @@
 = ValidateJson 2.2.0
 
-Validates the contents of FlowFiles against a configurable JSON Schema. See json-schema.org for specification standards. This Processor does not support input containing multiple JSON objects, such as newline-delimited JSON. If the input FlowFile contains newline-delimited JSON, only the first line will be validated.
+Проверяет содержимое FlowFiles по настраиваемой схеме JSON. См. json-schema.org для стандартов спецификации. Этот процессор не поддерживает входной контент, содержащий несколько объектов JSON, таких как новая строка, разделенная переносом. Если поток файлов содержит новую строку, разделенную переносом JSON, будет проверена только первая строка.
 
 [horizontal]
 *Tags* (Ключевые слова):
 JSON, schema, validation
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,23 +20,23 @@ REQUIRED (Обязательно)
 .*Schema Access Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Схема доступа (Strategy)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how to obtain the schema that is to be used for interpreting the data.
+*DESCRIPTION (Описание):*:: Определяет, как получить схему для интерпретации данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Schema Name Property: The name of the Schema to use is specified by the 'Schema Name' Property. The value of this property is used to lookup the Schema in the configured JSON Schema Registry Service. 
+* Имя свойства схемы (Schema Name Property): Имя схемы, которое указывается свойством 'Имя схемы'. Значение этого свойства используется для поиска схемы в настроенном сервисе реестра JSON схем. 
 
-* JSON Schema Property: A URL or file path to the JSON schema or the actual JSON schema is specified by the 'JSON Schema' Property. No matter how the JSON schema is specified, it must be a valid JSON schema 
+* Свойство JSON-схемы (JSON Schema Property): URL или путь к файлу JSON-схемы указывается свойством 'JSON-схема'. Независимо от того, как задана JSON-схема, она должна быть действительной JSON-схемой. 
 
 
 [horizontal]
@@ -45,14 +45,14 @@ REQUIRED (Обязательно)
 .*Schema Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Name
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Name (Схема имени)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the name of the schema to lookup in the Schema Registry property
+*DESCRIPTION (Описание):*:: Указывает имя схемы для поиска в свойстве Реестра схем
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -62,14 +62,14 @@ REQUIRED (Обязательно)
 .*Json Schema Registry*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: JSON Schema Registry
+*DISPLAY NAME (Отображаемое наименование):*:: JSON Schema Registry (Реестър на JSON схеми)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for the JSON Schema Registry
+*DESCRIPTION (Описание):*:: Определя контролера за услуга, който да се използва за JSON Schema Registry
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -79,14 +79,14 @@ REQUIRED (Обязательно)
 .*Json Schema*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: JSON Schema
+*DISPLAY NAME (Отображаемое наименование):*:: JSON Schema (Схема JSON)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A URL or file path to the JSON schema or the actual JSON schema content
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -96,29 +96,29 @@ REQUIRED (Обязательно)
 .*Json Schema Version*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: JSON Schema Version
+*DISPLAY NAME (Отображаемое наименование):*:: JSON Schema Version (Версия схемы JSON)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The JSON schema specification
+*DESCRIPTION (Описание):*:: Спецификация JSON схемы
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Draft 4: Draft Version 4 
+* Draft 4 (Черновик 4): Версия черновика 4 
 
-* Draft 6: Draft Version 6 
+* Draft 6 (Черновик 6): Версия черновика 6 
 
-* Draft 7: Draft Version 7 
+* Draft 7 (Черновик 7): Версия черновика 7 
 
-* Draft 2019-09: Draft Version 2019-09 
+* Draft 2019-09 (Черновик 2019-09): Версия черновика 2019-09 
 
-* Draft 2020-12: Draft Version 2020-12 
+* Draft 2020-12 (Черновик 2020-12): Версия черновика 2020-12 
 
 
 [horizontal]
@@ -127,14 +127,14 @@ REQUIRED (Обязательно)
 .*Max String Length*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max String Length
+*DISPLAY NAME (Отображаемое наименование):*:: Max String Length (Максимальная длина строки)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The maximum allowed length of a string value when parsing the JSON document
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -155,7 +155,7 @@ REQUIRED (Обязательно)
 
 
 |MEMORY
-|Validating JSON requires reading FlowFile content into memory
+|Проверка JSON требует чтения содержимого потока файлов в память
 
 |===
 
@@ -168,7 +168,7 @@ REQUIRED (Обязательно)
 |Требуемые права |Объяснение
 
 |
-|Schema configuration can reference resources over HTTP
+|Конфигурация схемы может ссылаться на ресурсы по протоколу HTTP
 
 |===
 
@@ -181,13 +181,13 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`failure`
-|FlowFiles that cannot be read as JSON are routed to this relationship
+|Потоки файлов, которые не могут быть прочитаны как JSON, направляются в эту связь
 
 |`invalid`
-|FlowFiles that are not valid according to the specified schema are routed to this relationship
+|Потоки файлов, которые не соответствуют указанной схеме, направляются в эту связь
 
 |`valid`
-|FlowFiles that are successfully validated against the schema are routed to this relationship
+|Потоки файлов, успешно прошедшие проверку по схеме, направляются в эту связь
 
 |===
 
@@ -202,7 +202,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`json.validation.errors`
-|If the flow file is routed to the invalid relationship , this attribute will contain the error message resulting from the validation failure.
+|Если поток файлов направляется в связь invalid, этот атрибут будет содержать сообщение об ошибке, возникшей в результате провала проверки.
 
 |===
 

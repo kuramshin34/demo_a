@@ -1,13 +1,13 @@
 = RemoveRecordField 2.2.0
 
-Modifies the contents of a FlowFile that contains Record-oriented data (i.e. data that can be read via a RecordReader and written by a RecordWriter) by removing selected fields. This Processor requires that at least one user-defined Property be added. The name of the property is ignored by the processor, but could be a meaningful identifier for the user. The value of the property should indicate a RecordPath that determines the field to be removed. The processor executes the removal in the order in which these properties are added to the processor. Set the "Record Writer" to "Inherit Record Schema" in order to use the updated Record Schema modified when removing Fields.
+Изменяет содержимое FlowFile, содержащего данные в формате Record (то есть данные, которые могут быть прочитаны с помощью RecordReader и записаны с помощью RecordWriter), путем удаления выбранных полей. Этот процессор требует наличия по крайней мере одного пользовательского свойства, имя которого игнорируется процессором, но может быть значимым идентификатором для пользователя. Значение свойства должно указывать на RecordPath поля, которое будет удалено. Процессор выполняет удаление в порядке добавления этих свойств к процессору. Установите "Record Writer" в "Inherit Record Schema", чтобы использовать обновленную схему записи, модифицированную при удалении полей.
 
 [horizontal]
 *Tags* (Ключевые слова):
 avro, csv, delete, freeform, generic, json, record, remove, schema, text, update
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Record Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for reading incoming data
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для использования при чтении входящих данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Record Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для использования при записи записей
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -60,7 +60,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание |Значение |Ограничения языка выражений
 
 |`A description of the field to remove`
-|Any field that matches the RecordPath set as the value will be removed.
+|Любое поле, соответствующее установленному RecordPath, будет удалено.
 |`A RecordPath to the field to be removed.`
 |
 
@@ -81,10 +81,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|FlowFiles that are successfully transformed will be routed to this relationship
+|FlowFiles, которые успешно преобразованы, будут направлены в эту связь
 
 |`failure`
-|If a FlowFile cannot be transformed from the configured input format to the configured output format, the unchanged FlowFile will be routed to this relationship
+|Если FlowFile не может быть преобразован из конфигурируемого входного формата в конфигурируемый выходной формат, неизмененный FlowFile будет направлен в эту связь
 
 |===
 
@@ -99,7 +99,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`record.error.message`
-|This attribute provides on failure the error message encountered by the Reader or Writer.
+|Это атрибут предоставляет сообщение об ошибке при сбое Reader или Writer.
 
 |===
 
@@ -110,7 +110,7 @@ REQUIRED (Обязательно)
 
 
 
-=== Remove one or more fields from a Record, where the names of the fields to remove are known.
+=== Удалить одно или несколько полей из записи, где имена удаляемых полей известны.
 
 
 NOTE: 
@@ -130,14 +130,14 @@ recordpath
 
 .Конфигурация
 ====
-Configure the Record Reader according to the incoming data format.
-Configure the Record Writer according to the desired output format.
+Настройте Record Reader в соответствии с входящим форматом данных.
+Настройте Record Writer в соответствии с желаемым выходным форматом.
 
-For each field that you want to remove, add a single new property to the Processor.
-The name of the property can be anything but it's recommended to use a brief description of the field.
-The value of the property is a RecordPath that matches the field to remove.
+Для каждого поля, которое вы хотите удалить, добавьте одно новое свойство к процессору.
+Имя свойства может быть любым, но рекомендуется использовать краткую характеристику поля.
+Значение свойства — это RecordPath, соответствующий удаляемому полю.
 
-For example, to remove the `name` and `email` fields, add two Properties:
+Например, чтобы удалить поля `name` и `email`, добавьте два свойства:
 `name` = `/name`
 `email` = `/email`
 

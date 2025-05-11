@@ -1,13 +1,13 @@
 = LogMessage 2.2.0
 
-Emits a log message at the specified log level
+Излучает сообщение журнала с указанным уровнем детализации
 
 [horizontal]
 *Tags* (Ключевые слова):
 attributes, logging
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Log-Level*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Log Level
+*DISPLAY NAME (Отображаемое наименование):*:: Log Level (Уровень логирования)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Log Level to use when logging the message: [trace, debug, info, warn, error]
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .Log-Prefix
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Log prefix
+*DISPLAY NAME (Отображаемое наименование):*:: Log prefix (Префикс журнала)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Log prefix appended to the log lines. It helps to distinguish the output of multiple LogMessage processors.
+*DESCRIPTION (Описание):*:: Префикс, добавляемый к строкам журнала. Он помогает отличать вывод нескольких LogMessage процессоров.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .Log-Message
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Log message
+*DISPLAY NAME (Отображаемое наименование):*:: Log message (Лог сообщение)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The log message to emit
+*DESCRIPTION (Описание):*:: The log message to emit (Сообщение журнала для выпуска)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -85,7 +85,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|All FlowFiles are routed to this relationship
+|Все FlowFiles направляются в это отношение
 
 |===
 

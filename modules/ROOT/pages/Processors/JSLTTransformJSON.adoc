@@ -1,13 +1,13 @@
 = JSLTTransformJSON 2.2.0
 
-Applies a JSLT transformation to the FlowFile JSON payload. A new FlowFile is created with transformed content and is routed to the 'success' relationship. If the JSLT transform fails, the original FlowFile is routed to the 'failure' relationship.
+Применяет преобразование JSLT к содержимому FlowFile в формате JSON. Создается новый FlowFile с преобразованным содержимым и направляется в отношение 'success'. Если преобразование JSLT завершается неудачно, исходный FlowFile направляется в отношение 'failure'.
 
 [horizontal]
 *Tags* (Ключевые слова):
 jslt, json, transform
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Jslt-Transform-Transformation*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: JSLT Transformation
+*DISPLAY NAME (Отображаемое наименование):*:: JSLT Transformation (JSLT Преобразование)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: JSLT Transformation for transform of JSON data. Any NiFi Expression Language present will be evaluated first to get the final transform to be applied. The JSLT Tutorial provides an overview of supported expressions: https://github.com/schibsted/jslt/blob/master/tutorial.md
+*DESCRIPTION (Описание):*:: JSLT Transformation для преобразования данных JSON. Любые выражения языка NiFi будут оценены первыми, чтобы получить окончательное применяемое преобразование. JSLT Tutorial предоставляет обзор поддерживаемых выражений: https://github.com/schibsted/jslt/blob/master/tutorial.md
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,23 +37,23 @@ REQUIRED (Обязательно)
 .*Jslt-Transform-Transformation-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Transformation Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Transformation Strategy (Стратегия преобразования)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Whether to apply the JSLT transformation to the entire FlowFile contents or each JSON object in the root-level array
+*DESCRIPTION (Описание):*:: Определяет, следует ли применять JSLT-преобразование ко всему содержимому FlowFile или к каждому JSON-объекту в корневом массиве
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Entire FlowFile: Apply transformation to entire FlowFile content JSON 
+* Entire FlowFile (Вся FlowFile): Применить преобразование ко всему содержимому FlowFile в формате JSON 
 
-* Each JSON Object: Apply transformation each JSON Object in an array 
+* Each JSON Object (Каждый JSON-объект): Применить преобразование к каждому JSON-объекту в массиве 
 
 
 [horizontal]
@@ -62,14 +62,14 @@ REQUIRED (Обязательно)
 .*Jslt-Transform-Pretty_Print*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Pretty Print
+*DISPLAY NAME (Отображаемое наименование):*:: Pretty Print (Форматирование с отступами)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Apply pretty-print formatting to the output of the JSLT transform
+*DESCRIPTION (Описание):*:: Применить форматирование с отступами к выводу JSLT трансформации
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -87,14 +87,14 @@ REQUIRED (Обязательно)
 .*Jslt-Transform-Cache-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Transform Cache Size
+*DISPLAY NAME (Отображаемое наименование):*:: Transform Cache Size (Размер кэша преобразований)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Compiling a JSLT Transform can be fairly expensive. Ideally, this will be done only once. However, if the Expression Language is used in the transform, we may need a new Transform for each FlowFile. This value controls how many of those Transforms we cache in memory in order to avoid having to compile the Transform each time.
+*DESCRIPTION (Описание):*:: Компиляция JSLT Transform может быть довольно затратной. Идеально, это должно быть сделано только один раз. Однако, если в трансформации используется Expression Language, нам может понадобиться новый Transform для каждого FlowFile. Это значение контролирует, сколько из этих преобразований мы кэшируем в памяти, чтобы избежать перекомпиляции Transform каждый раз.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -104,14 +104,14 @@ REQUIRED (Обязательно)
 .*Jslt-Transform-Result-Filter*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Transform Result Filter
+*DISPLAY NAME (Отображаемое наименование):*:: Transform Result Filter (Преобразование результата фильтра)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A filter for output JSON results using a JSLT expression. This property supports changing the default filter, which removes JSON objects with null values, empty objects and empty arrays from the output JSON. This JSLT must return true for each JSON object to be included and false for each object to be removed. Using a filter value of "true" to disables filtering.
+*DESCRIPTION (Описание):*:: Фильтр для вывода JSON результатов с использованием выражения JSLT. Это свойство поддерживает изменение фильтра по умолчанию, который удаляет объекты JSON с нулевыми значениями, пустыми объектами и массивами из выходных JSON результатов. Это JSLT должно возвращать true для каждого включаемого в вывод JSON объекта и false для каждого удаляемого объекта. Использование значения фильтра "true" отключает фильтрацию.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -132,7 +132,7 @@ REQUIRED (Обязательно)
 
 
 |MEMORY
-|An instance of this component can cause high usage of this system resource.  Multiple instances or high concurrency settings may result a degradation of performance.
+|Экземпляр этого компонента может вызвать высокое использование системного ресурса. Множественные экземпляры или настройки высокой конкоррентности могут привести к снижению производительности.
 
 |===
 
@@ -147,10 +147,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|The FlowFile with transformed content will be routed to this relationship
+|FlowFile с преобразованным содержимым будет направлен в это отношение
 
 |`failure`
-|If a FlowFile fails processing for any reason (for example, the FlowFile is not valid JSON), it will be routed to this relationship
+|Если FlowFile не обрабатывается по какой-либо причине (например, содержимое не является допустимым JSON), оно будет направлено в это отношение
 
 |===
 
@@ -165,7 +165,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`mime.type`
-|Always set to application/json
+|Всегда устанавливается в application/json
 
 |===
 

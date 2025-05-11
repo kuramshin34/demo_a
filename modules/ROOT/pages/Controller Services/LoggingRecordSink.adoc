@@ -1,13 +1,13 @@
 = LoggingRecordSink 2.2.0
 
-Provides a RecordSinkService that can be used to log records to the application log (nifi-app.log, e.g.) using the specified writer for formatting.
+Предоставляет сервис RecordSinkService, который можно использовать для логирования записей в журнал приложения (например, nifi-app.log) с помощью указанного форматировщика.
 
 [horizontal]
 *Tags* (Ключевые слова):
 log, record, sink
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ log, record, sink
 .*Record-Sink-Record-Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records.
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для использования при записи записей.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ log, record, sink
 .*Logsink-Log-Level*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Log Level
+*DISPLAY NAME (Отображаемое наименование):*:: Log Level (Уровень логирования)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Log Level at which to log records (INFO, DEBUG, e.g.)
+*DESCRIPTION (Описание):*:: Уровень логирования, при котором записывать записи (INFO, DEBUG и т.д.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -82,6 +82,17 @@ log, record, sink
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

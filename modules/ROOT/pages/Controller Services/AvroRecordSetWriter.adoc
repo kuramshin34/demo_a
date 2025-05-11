@@ -1,13 +1,13 @@
 = AvroRecordSetWriter 2.2.0
 
-Writes the contents of a RecordSet in Binary Avro format.
+Записывает содержимое RecordSet в двоичном формате Avro.
 
 [horizontal]
 *Tags* (Ключевые слова):
 avro, record, recordset, result, row, serializer, set, writer
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,29 +20,29 @@ avro, record, recordset, result, row, serializer, set, writer
 .*Schema Write Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Write Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Write Strategy (Стратегия записи схемы)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how the schema for a Record should be added to the data.
+*DESCRIPTION (Описание):*:: Указывает, как должна быть добавлена схема для записи в данные.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Embed Avro Schema: The FlowFile will have the Avro schema embedded into the content, as is typical with Avro 
+* Embed Avro Schema (Встроить схему Avro): FlowFile будет иметь встроенную схему Avro в содержимое, как это обычно бывает с Avro 
 
-* Do Not Write Schema: Do not add any schema-related information to the FlowFile. 
+* Do Not Write Schema (Не записывать никакую схемную информацию): Не добавлять никакой информации, связанной со схемами в FlowFile. 
 
-* Set 'schema.name' Attribute: The FlowFile will be given an attribute named 'schema.name' and this attribute will indicate the name of the schema in the Schema Registry. Note that ifthe schema for a record is not obtained from a Schema Registry, then no attribute will be added. 
+* Set 'schema.name' Attribute (Установить атрибут 'schema.name'): FlowFile будет иметь атрибут с именем 'schema.name', который укажет на имя схемы в Реестре схем. Обратите внимание, что если схема для записи не получается из реестра схем, то атрибут не будет добавлен. 
 
-* Set 'avro.schema' Attribute: The FlowFile will be given an attribute named 'avro.schema' and this attribute will contain the Avro Schema that describes the records in the FlowFile. The contents of the FlowFile need not be Avro, but the text of the schema will be used. 
+* Set 'avro.schema' Attribute (Установить атрибут 'avro.schema'): FlowFile будет иметь атрибут с именем 'avro.schema', который будет содержать Avro-схему, описывающую записи в FlowFile. Содержимое FlowFile не обязательно должно быть Avro, но текст схемы будет использован. 
 
-* Schema Reference Writer: The schema reference information will be written through a configured Schema Reference Writer service implementation. 
+* Schema Reference Writer (Писатель ссылок на схему): Информация о ссылке на схему будет записана через реализованный конфигурацией сервис Schema Reference Writer. 
 
 
 [horizontal]
@@ -51,14 +51,14 @@ avro, record, recordset, result, row, serializer, set, writer
 .Schema-Cache
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Cache
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Cache (Схема кэш)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies a Schema Cache to add the Record Schema to so that Record Readers can quickly lookup the schema.
+*DESCRIPTION (Описание):*:: Указывает схему кэша для добавления записи схемы, чтобы записи читатели могли быстро осуществлять поиск схемы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -68,14 +68,14 @@ avro, record, recordset, result, row, serializer, set, writer
 .*Schema Reference Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Writer (Схема Референс Витър)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Service implementation responsible for writing FlowFile attributes or content header with Schema reference information
+*DESCRIPTION (Описание):*:: Сервис реализации, отвечающий за запись атрибутов FlowFile или содержимого заголовка с информацией о ссылке на схему
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -85,25 +85,25 @@ avro, record, recordset, result, row, serializer, set, writer
 .*Schema-Access-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy (Стратегия доступа к схеме)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how to obtain the schema that is to be used for interpreting the data.
+*DESCRIPTION (Описание):*:: Определяет, как получить схему для интерпретации данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Inherit Record Schema: The schema used to write records will be the same schema that was given to the Record when the Record was created. 
+* Inherit Record Schema (Наследовать схему записи): Схема, используемая для записи записей, будет той же самой схемой, которая была дана записи при её создании. 
 
-* Use 'Schema Name' Property: The name of the Schema to use is specified by the 'Schema Name' Property. The value of this property is used to lookup the Schema in the configured Schema Registry service. 
+* Use 'Schema Name' Property (Использовать свойство 'Имя схемы'): Имя используемой схемы указывается свойством 'Имя схемы'. Значение этого свойства используется для поиска схемы в настроенном сервисе реестра схем. 
 
-* Use 'Schema Text' Property: The text of the Schema itself is specified by the 'Schema Text' Property. The value of this property must be a valid Avro Schema. If Expression Language is used, the value of the 'Schema Text' property must be valid after substituting the expressions. 
+* Use 'Schema Text' Property (Использовать свойство 'Текст схемы'): Сам текст схемы указывается свойством 'Текст схемы'. Значение этого свойства должно быть допустимой Avro Schema. Если используется Expression Language, значение свойства 'Текст схемы' должно быть действительным после замены выражений. 
 
 
 [horizontal]
@@ -112,14 +112,14 @@ avro, record, recordset, result, row, serializer, set, writer
 .Schema-Registry
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry (Реестър на схеми)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for the Schema Registry
+*DESCRIPTION (Описание):*:: Определя контролера за услуга, който да се използва за реестра на схемите
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -129,14 +129,14 @@ avro, record, recordset, result, row, serializer, set, writer
 .Schema-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Name
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Name (Схема имени)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the name of the schema to lookup in the Schema Registry property
+*DESCRIPTION (Описание):*:: Указывает имя схемы для поиска в свойстве Реестра схем
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -146,14 +146,14 @@ avro, record, recordset, result, row, serializer, set, writer
 .Schema-Version
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Version
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Version (Схема версии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the version of the schema to lookup in the Schema Registry. If not specified then the latest version of the schema will be retrieved.
+*DESCRIPTION (Описание):*:: Указывает версию схемы для поиска в Реестре схем. Если не указано, будет получена последняя версия схемы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -163,14 +163,14 @@ avro, record, recordset, result, row, serializer, set, writer
 .Schema-Branch
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Branch
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Branch (Схема ветки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the name of the branch to use when looking up the schema in the Schema Registry property. If the chosen Schema Registry does not support branching, this value will be ignored.
+*DESCRIPTION (Описание):*:: Указывает имя ветки, которую следует использовать при поиске схемы в свойстве Схемарегистр. Если выбранная Схемарегистр не поддерживает ветвление, это значение будет проигнорировано.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -180,14 +180,14 @@ avro, record, recordset, result, row, serializer, set, writer
 .Schema-Text
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Text
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Text (Схема текста)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The text of an Avro-formatted Schema
+*DESCRIPTION (Описание):*:: Текст Avro-формамата схемы
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -197,14 +197,14 @@ avro, record, recordset, result, row, serializer, set, writer
 .*Schema-Reference-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Reader (Ссылочный читатель схемы)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Service implementation responsible for reading FlowFile attributes or content to determine the Schema Reference Identifier
+*DESCRIPTION (Описание):*:: Сервис реализации, отвечающий за чтение атрибутов или содержимого FlowFile для определения идентификатора ссылки на схему
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -214,29 +214,29 @@ avro, record, recordset, result, row, serializer, set, writer
 .*Compression-Format*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Compression Format
+*DISPLAY NAME (Отображаемое наименование):*:: Compression Format (Формат сжатия)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Compression type to use when writing Avro files. Default is None.
+*DESCRIPTION (Описание):*:: Тип сжатия для использования при записи файлов Avro. По умолчанию - None.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* BZIP2
+* BZIP2 (BZIP2)
 
-* DEFLATE
+* DEFLATE (DEFLATE)
 
-* NONE
+* NONE (None)
 
-* SNAPPY
+* SNAPPY (SNAPPY)
 
-* LZO
+* LZO (LZO)
 
 
 [horizontal]
@@ -245,37 +245,37 @@ avro, record, recordset, result, row, serializer, set, writer
 .*Cache-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Cache Size
+*DISPLAY NAME (Отображаемое наименование):*:: Cache Size (Размер кэша)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how many Schemas should be cached
-
-
-[horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
-[horizontal]
-*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
-
-[horizontal]
-*REQUIRED (Обязательный параметр):*::  True (Да) 
-************************************************
-.*Encoder-Pool-Size*
-************************************************
-[horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Encoder Pool Size
-
-[horizontal]
-*DESCRIPTION (Описание):*:: Avro Writers require the use of an Encoder. Creation of Encoders is expensive, but once created, they can be reused. This property controls the maximum number of Encoders that can be pooled and reused. Setting this value too small can result in degraded performance, but setting it higher can result in more heap being used. This property is ignored if the Avro Writer is configured with a Schema Write Strategy of 'Embed Avro Schema'.
+*DESCRIPTION (Описание):*:: Указывает, сколько схем должно быть кэшировано
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *REQUIRED (Обязательный параметр):*::  True (Да) 
 ************************************************
+.Encoder-Pool-Size
+************************************************
+[horizontal]
+*DISPLAY NAME (Отображаемое наименование):*:: Encoder Pool Size (Размер пула кодировщиков)
+
+[horizontal]
+*DESCRIPTION (Описание):*:: Для работы Avro Writers требуется использование кодировщика. Создание кодировщиков является дорогостоящей операцией, но один раз созданные кодировщики могут быть повторно использованы. Это свойство контролирует максимальное количество кодировщиков, которые могут быть зарезервированы и переиспользованы. Установка этого значения слишком маленьким может привести к снижению производительности, но установка его выше может привести к использованию большего объема памяти. Это свойство игнорируется, если Avro Writer настроен с использованием стратегии записи схемы 'Embed Avro Schema'.
+
+
+[horizontal]
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
+[horizontal]
+*SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
+
+[horizontal]
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
+************************************************
 
 
 
@@ -289,6 +289,17 @@ avro, record, recordset, result, row, serializer, set, writer
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

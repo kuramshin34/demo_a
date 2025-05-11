@@ -1,13 +1,13 @@
 = PutDatabaseRecord 2.2.0
 
-The PutDatabaseRecord processor uses a specified RecordReader to input (possibly multiple) records from an incoming flow file. These records are translated to SQL statements and executed as a single transaction. If any errors occur, the flow file is routed to failure or retry, and if the records are transmitted successfully, the incoming flow file is routed to success.  The type of statement executed by the processor is specified via the Statement Type property, which accepts some hard-coded values such as INSERT, UPDATE, and DELETE, as well as 'Use statement.type Attribute', which causes the processor to get the statement type from a flow file attribute.  IMPORTANT: If the Statement Type is UPDATE, then the incoming records must not alter the value(s) of the primary keys (or user-specified Update Keys). If such records are encountered, the UPDATE statement issued to the database may do nothing (if no existing records with the new primary key values are found), or could inadvertently corrupt the existing data (by changing records for which the new values of the primary keys exist).
+The PutDatabaseRecord processor uses a specified RecordReader to input (possibly multiple) records from an incoming flow file. These records are translated to SQL statements and executed as a single transaction. If any errors occur, the flow file is routed to failure or retry, and if the records are transmitted successfully, the incoming flow file is routed to success. The type of statement executed by the processor is specified via the Statement Type property, which accepts some hard-coded values such as INSERT, UPDATE, and DELETE, as well as 'Use statement.type Attribute', which causes the processor to get the statement type from a flow file attribute. IMPORTANT: If the Statement Type is UPDATE, then the incoming records must not alter the value(s) of the primary keys (or user-specified Update Keys). If such records are encountered, the UPDATE statement issued to the database may do nothing (if no existing records with the new primary key values are found), or could inadvertently corrupt the existing data (by changing records for which the new values of the primary keys exist).
 
 [horizontal]
 *Tags* (Ключевые слова):
 database, delete, insert, jdbc, put, record, sql, update
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Put-Db-Record-Record-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Чтец записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for parsing incoming data and determining the data's schema.
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для использования при разборе входящих данных и определении схемы данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,40 +37,38 @@ REQUIRED (Обязательно)
 .*Db-Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Database Type
+*DISPLAY NAME (Отображаемое наименование):*:: Database Type (Тип базы данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Database Type for generating statements specific to a particular service or vendor.
-The Generic Type supports most cases but selecting a specific type enables optimal processing
-or additional features.
-
+*DESCRIPTION (Описание):*:: Тип базы данных для генерации операторов, специфичных для определенного сервиса или поставщика.
+Общий тип поддерживает большинство случаев, но выбор конкретного типа позволяет оптимизировать обработку или предоставить дополнительные функции.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Database Dialect Service: Requires configuring a Database Dialect Service for SQL statements 
+* Database Dialect Service (Сервис диалект базы данных): Требует настройки сервиса диалект базы данных для операторов SQL 
 
-* Generic: Generates ANSI SQL 
+* Generic (Общий): Генерирует ANSI SQL 
 
-* Oracle: Generates Oracle compliant SQL 
+* Oracle (Oracle): Генерирует совместимый с Oracle SQL 
 
-* Oracle 12+: Generates Oracle compliant SQL for version 12 or greater 
+* Oracle 12+ (Oracle 12+) : Генерирует совместимый с Oracle SQL для версии 12 или выше 
 
-* MS SQL 2012+: Generates MS SQL Compatible SQL, for version 2012 or greater 
+* MS SQL 2012+ (MS SQL 2012+): Генерирует совместимый с MS SQL Compatible SQL для версии 2012 или выше 
 
-* MS SQL 2008: Generates MS SQL Compatible SQL for version 2008 
+* MS SQL 2008 (MS SQL 2008): Генерирует совместимый с MS SQL Compatible SQL для версии 2008 
 
-* MySQL: Generates MySQL compatible SQL 
+* MySQL (MySQL): Генерирует совместимый с MySQL SQL 
 
-* PostgreSQL: Generates PostgreSQL compatible SQL 
+* PostgreSQL (PostgreSQL): Генерирует совместимый с PostgreSQL SQL 
 
-* Phoenix: Generates Phoenix compliant SQL 
+* Phoenix (Phoenix): Генерирует совместимый с Phoenix SQL 
 
 
 [horizontal]
@@ -79,14 +77,14 @@ or additional features.
 .*Database Dialect Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Database Dialect Service
+*DISPLAY NAME (Отображаемое наименование):*:: Database Dialect Service (База данных Диалект Сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Database Dialect Service for generating statements specific to a particular service or vendor.
+*DESCRIPTION (Описание):*:: База данных Диалект Сервис для генерации заявлений, специфичных для определенной службы или поставщика.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -96,33 +94,33 @@ or additional features.
 .*Put-Db-Record-Statement-Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Statement Type
+*DISPLAY NAME (Отображаемое наименование):*:: Statement Type (Тип оператора SQL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the type of SQL Statement to generate. Please refer to the database documentation for a description of the behavior of each operation. Please note that some Database Types may not support certain Statement Types. If 'Use statement.type Attribute' is chosen, then the value is taken from the statement.type attribute in the FlowFile. The 'Use statement.type Attribute' option is the only one that allows the 'SQL' statement type. If 'SQL' is specified, the value of the field specified by the 'Field Containing SQL' property is expected to be a valid SQL statement on the target database, and will be executed as-is.
+*DESCRIPTION (Описание):*:: Указывает тип SQL-оператора для генерации. Пожалуйста, обратитесь к документации базы данных для описания поведения каждой операции. Обратите внимание, что некоторые Типы База Данных могут не поддерживать определенные Типы Операторов. Если выбран параметр 'Use statement.type Attribute', то значение берётся из атрибута statement.type в FlowFile. Единственным параметром, который позволяет использовать тип оператора 'SQL', является 'Use statement.type Attribute'. Если указано 'SQL', ожидается, что значение поля, указанного свойством 'Field Containing SQL', будет допустимым SQL-оператором для целевой базы данных и будет выполнено как есть.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* UPDATE
+* UPDATE (Обновить)
 
-* INSERT
+* INSERT (Вставить)
 
-* UPSERT
+* UPSERT (Обновить или Вставить)
 
-* INSERT_IGNORE
+* INSERT_IGNORE (Вставить, если не существует)
 
-* DELETE
+* DELETE (Удалить)
 
-* Use statement.type Attribute
+* Use statement.type Attribute (Использовать атрибут statement.type)
 
-* Use Record Path
+* Use Record Path (Использовать путь записи)
 
 
 [horizontal]
@@ -131,14 +129,14 @@ or additional features.
 .*Statement Type Record Path*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Statement Type Record Path
+*DISPLAY NAME (Отображаемое наименование):*:: Statement Type Record Path (Тип заявления Record Path)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies a RecordPath to evaluate against each Record in order to determine the Statement Type. The RecordPath should equate to either INSERT, UPDATE, UPSERT, or DELETE. (Debezium style operation types are also supported: "r" and "c" for INSERT, "u" for UPDATE, and "d" for DELETE)
+*DESCRIPTION (Описание):*:: Указывает путь к RecordPath для оценки каждого Record в порядке определения типа заявления. Путь RecordPath должен быть равен INSERT, UPDATE, UPSERT или DELETE. (Также поддерживаются типы операций Debezium: "r" и "c" для INSERT, "u" для UPDATE и "d" для DELETE)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -148,14 +146,14 @@ or additional features.
 .Data Record Path
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Data Record Path
+*DISPLAY NAME (Отображаемое наименование):*:: Data Record Path (Путь данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If specified, this property denotes a RecordPath that will be evaluated against each incoming Record and the Record that results from evaluating the RecordPath will be sent to the database instead of sending the entire incoming Record. If not specified, the entire incoming Record will be published to the database.
+*DESCRIPTION (Описание):*:: Если указано, это свойство обозначает путь записи, который будет оценен для каждого входящего записи и запись, полученная в результате оценки пути записи, будет отправлена в базу данных вместо отправки всей входящей записи. Если не указано, вся входящая запись будет опубликована в базе данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -165,14 +163,14 @@ or additional features.
 .*Put-Db-Record-Dcbp-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Database Connection Pooling Service
+*DISPLAY NAME (Отображаемое наименование):*:: Database Connection Pooling Service (База данных Сервис Подключения Пула)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Controller Service that is used to obtain a connection to the database for sending records.
+*DESCRIPTION (Описание):*:: Контроллер Сервис, используемый для получения подключения к базе данных для отправки записей.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -182,14 +180,14 @@ or additional features.
 .Put-Db-Record-Catalog-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Catalog Name
+*DISPLAY NAME (Отображаемое наименование):*:: Catalog Name (Название каталога)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the catalog that the statement should update. This may not apply for the database that you are updating. In this case, leave the field empty. Note that if the property is set and the database is case-sensitive, the catalog name must match the database's catalog name exactly.
+*DESCRIPTION (Описание):*:: Имя каталога, которое должно быть обновлено в заявлении. Это может не относиться к базе данных, которую вы обновляете. В этом случае оставьте поле пустым. Обратите внимание, что если свойство установлено и база данных чувствительна к регистру, имя каталога должно точно соответствовать имени каталога базы данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -199,14 +197,14 @@ or additional features.
 .Put-Db-Record-Schema-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Name
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Name (Имя схемы)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the schema that the table belongs to. This may not apply for the database that you are updating. In this case, leave the field empty. Note that if the property is set and the database is case-sensitive, the schema name must match the database's schema name exactly.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -216,14 +214,14 @@ or additional features.
 .*Put-Db-Record-Table-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Table Name
+*DISPLAY NAME (Отображаемое наименование):*:: Table Name (Таблица)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the table that the statement should affect. Note that if the database is case-sensitive, the table name must match the database's table name exactly.
+*DESCRIPTION (Описание):*:: Имя таблицы, которую должно затронуть утверждение. Обратите внимание, что если база данных чувствительна к регистру, имя таблицы должно точно соответствовать имени таблицы в базе данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -233,25 +231,25 @@ or additional features.
 .*Put-Db-Record-Binary-Format*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Binary String Format
+*DISPLAY NAME (Отображаемое наименование):*:: Binary String Format (Формат строки бинарных данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The format to be applied when decoding string values to binary.
+*DESCRIPTION (Описание):*:: Формат, который следует применять при декодировании текстовых значений в двоичный формат.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* UTF-8: String values for binary columns contain the original value as text via UTF-8 character encoding 
+* UTF-8 (UTF-8): Строковые значения для бинарных столбцов содержат исходное значение в виде текста с кодировкой UTF-8 
 
-* Hexadecimal: String values for binary columns contain the original value in hexadecimal format 
+* Hexadecimal (Шестнадцатеричный): Строковые значения для бинарных столбцов содержат исходное значение в шестнадцатеричном формате 
 
-* Base64: String values for binary columns contain the original value in Base64 encoded format 
+* Base64 (Base64): Строковые значения для бинарных столбцов содержат исходное значение в кодировке Base64 
 
 
 [horizontal]
@@ -260,14 +258,14 @@ or additional features.
 .Put-Db-Record-Translate-Field-Names
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Translate Field Names
+*DISPLAY NAME (Отображаемое наименование):*:: Translate Field Names (Перевести поля имени)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true, the Processor will attempt to translate field names into the appropriate column names for the table specified. If false, the field names must match the column names exactly, or the column will not be updated
+*DESCRIPTION (Описание):*:: Если true, процессор попытается перевести имена полей в соответствующие названия столбцов для указанной таблицы. Если false, имена полей должны точно совпадать с названиями столбцов, иначе столбец не будет обновлен
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -285,29 +283,29 @@ or additional features.
 .*Column Name Translation Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Column Name Translation Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Column Name Translation Strategy (Стратегия перевода имен столбцов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The strategy used to normalize table column name. Column Name will be uppercased to do case-insensitive matching irrespective of strategy
+*DESCRIPTION (Описание):*:: Стратегия, используемая для нормализации имен табличных столбцов. Имена столбцов будут приводиться к верхнему регистру для осуществления нечувствительного к регистру сопоставления независимо от стратегии
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Remove Underscore: Underscores '_' will be removed from column names Ex: 'Pics_1_23' becomes 'PICS123' 
+* Remove Underscore (Удалить подчеркивание): Подчеркивания '_' будут удалены из имен столбцов. Пример: 'Pics_1_23' станет 'PICS123' 
 
-* Remove Space: Spaces will be removed from column names Ex. 'User Name' becomes 'USERNAME' 
+* Remove Space (Удалить пробел): Пробелы будут удалены из имен столбцов. Пример: 'User Name' станет 'USERNAME' 
 
-* Remove Underscores and Spaces: Spaces and Underscores will be removed from column names Ex. 'User_1 Name' becomes 'USER1NAME' 
+* Remove Underscores and Spaces (Удалить подчеркивание и пробел): Пробелы и подчеркивания будут удалены из имен столбцов. Пример: 'User_1 Name' станет 'USER1NAME' 
 
-* Remove Regular Expression Characters: Remove Regular Expression Characters Ex. 'user-id' becomes USERID ,total(estimated) become TOTALESTIMATED 
+* Remove Regular Expression Characters (Удалить символы регулярного выражения): Будут удалены все символы, соответствующие этому регулярному выражению. Пример 1: '\d' будет удалять все цифры; пример 2: '[^a-zA-Z0-9_]' будет удалять специальные символы, кроме подчеркивания 
 
-* Regular Expression: Remove characters matching this Regular Expression from the column names Ex.1. '\d' will  Remove all numbers 2. '[^a-zA-Z0-9_]' will remove special characters except underscore 
+* Regular Expression (Регулярное выражение): Будут удалены все символы, соответствующие этому регулярному выражению. Пример 1: '\d' будет удалять все цифры; пример 2: '[^a-zA-Z0-9_]' будет удалять специальные символы, кроме подчеркивания 
 
 
 [horizontal]
@@ -316,14 +314,14 @@ or additional features.
 .*Column Name Translation Pattern*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Column Name Translation Pattern
+*DISPLAY NAME (Отображаемое наименование):*:: Column Name Translation Pattern (Имя столбца будет нормализовано с использованием этого регулярного выражения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Column name will be normalized with this regular expression
+*DESCRIPTION (Описание):*:: Столбец будет иметь имя, которое будет нормализовано с использованием этого регулярного выражения
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -333,23 +331,23 @@ or additional features.
 .Put-Db-Record-Unmatched-Field-Behavior
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Unmatched Field Behavior
+*DISPLAY NAME (Отображаемое наименование):*:: Unmatched Field Behavior (Поведение поведения несоответствующего поля)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If an incoming record has a field that does not map to any of the database table's columns, this property specifies how to handle the situation
+*DESCRIPTION (Описание):*:: Если входящий запись имеет поле, которое не сопоставляется ни с одним из столбцов базы данных, это свойство указывает, как следует обрабатывать такую ситуацию
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Ignore Unmatched Fields: Any field in the document that cannot be mapped to a column in the database is ignored 
+* Ignore Unmatched Fields (Игнорировать несоответствующие поля): Любое поле в документе, которое не может быть сопоставлено с колонкой в базе данных, игнорируется 
 
-* Fail on Unmatched Fields: If the document has any field that cannot be mapped to a column in the database, the FlowFile will be routed to the failure relationship 
+* Fail on Unmatched Fields (Неудача при неугодных полях): Если документ имеет какое-либо поле, которое не может быть сопоставлено с колонкой в базе данных, поток будет направлен в отношение провала 
 
 
 [horizontal]
@@ -358,25 +356,25 @@ or additional features.
 .Put-Db-Record-Unmatched-Column-Behavior
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Unmatched Column Behavior
+*DISPLAY NAME (Отображаемое наименование):*:: Unmatched Column Behavior (Поведение при несоответствии столбцов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If an incoming record does not have a field mapping for all of the database table's columns, this property specifies how to handle the situation
+*DESCRIPTION (Описание):*:: Если входящий запись не имеет сопоставления полей для всех столбцов базы данных, это свойство указывает, как следует обрабатывать такую ситуацию
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Ignore Unmatched Columns: Any column in the database that does not have a field in the document will be assumed to not be required.  No notification will be logged 
+* Ignore Unmatched Columns (Игнорировать несоответствующие столбцы): Любой столбец в базе данных, который не имеет поля в документе, будет считаться незаполненным. Не будет записано никаких уведомлений. 
 
-* Warn on Unmatched Columns: Any column in the database that does not have a field in the document will be assumed to not be required.  A warning will be logged 
+* Warn on Unmatched Columns (Предупреждать о несоответствующих столбцах): Любой столбец в базе данных, который не имеет поля в документе, будет считаться незаполненным. Будет записано предупреждение. 
 
-* Fail on Unmatched Columns: A flow will fail if any column in the database that does not have a field in the document.  An error will be logged 
+* Fail on Unmatched Columns (Ошибка при несоответствующих столбцах): Поток завершится с ошибкой, если какой-либо столбец в базе данных не имеет поля в документе. Будет записано сообщение об ошибке. 
 
 
 [horizontal]
@@ -385,14 +383,14 @@ or additional features.
 .Put-Db-Record-Update-Keys
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Update Keys
+*DISPLAY NAME (Отображаемое наименование):*:: Update Keys (Обновление ключей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A comma-separated list of column names that uniquely identifies a row in the database for UPDATE statements. If the Statement Type is UPDATE and this property is not set, the table's Primary Keys are used. In this case, if no Primary Key exists, the conversion to SQL will fail if Unmatched Column Behaviour is set to FAIL. This property is ignored if the Statement Type is INSERT
+*DESCRIPTION (Описание):*:: Список имен столбцов, разделенных запятыми, которые однозначно идентифицируют строку в базе данных для операторов UPDATE. Если тип оператора установлен на UPDATE, а это свойство не задано, используются первичные ключи таблицы. В этом случае, если первичного ключа нет, преобразование в SQL завершится ошибкой, если поведение для неподходящих столбцов установлено на FAIL. Это свойство игнорируется, если тип оператора установлен на INSERT.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -402,14 +400,14 @@ or additional features.
 .Delete Keys
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Delete Keys
+*DISPLAY NAME (Отображаемое наименование):*:: Delete Keys (Удалить Ключи)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A comma-separated list of column names that uniquely identifies a row in the database for DELETE statements. If the Statement Type is DELETE and this property is not set, the table's columns are used. This property is ignored if the Statement Type is not DELETE
+*DESCRIPTION (Описание):*:: Список имен столбцов, разделенных запятыми, которые однозначно идентифицируют строку в базе данных для операций DELETE. Если тип оператора является DELETE, а это свойство не установлено, используются столбцы таблицы. Это свойство игнорируется, если тип оператора не является DELETE
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -419,14 +417,14 @@ or additional features.
 .Put-Db-Record-Field-Containing-Sql
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Field Containing SQL
+*DISPLAY NAME (Отображаемое наименование):*:: Field Containing SQL (Поле, содержащее SQL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If the Statement Type is 'SQL' (as set in the statement.type attribute), this field indicates which field in the record(s) contains the SQL statement to execute. The value of the field must be a single SQL statement. If the Statement Type is not 'SQL', this field is ignored.
+*DESCRIPTION (Описание):*:: Если тип утверждения 'SQL' (как установлено в атрибуте statement.type), это поле указывает, какое поле в записи(ях) содержит выполняемый SQL-запрос. Значение поля должно быть одиночным SQL-запросом. Если тип утверждения не 'SQL', это поле игнорируется.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -436,14 +434,14 @@ or additional features.
 .*Put-Db-Record-Allow-Multiple-Statements*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Allow Multiple SQL Statements
+*DISPLAY NAME (Отображаемое наименование):*:: Allow Multiple SQL Statements (Разрешить несколько операторов SQL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If the Statement Type is 'SQL' (as set in the statement.type attribute), this field indicates whether to split the field value by a semicolon and execute each statement separately. If any statement causes an error, the entire set of statements will be rolled back. If the Statement Type is not 'SQL', this field is ignored.
+*DESCRIPTION (Описание):*:: Если тип оператора 'SQL' (как установлено в атрибуте statement.type), это поле указывает, следует ли разбивать значение поля на части по символу точка с запятой и выполнять каждый оператор отдельно. Если какой-либо оператор приводит к ошибке, вся группа операторов будет отменена. Если тип оператора не 'SQL', это поле игнорируется.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -461,14 +459,14 @@ or additional features.
 .Put-Db-Record-Quoted-Identifiers
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Quote Column Identifiers
+*DISPLAY NAME (Отображаемое наименование):*:: Quote Column Identifiers (Цитирование столбцов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Enabling this option will cause all column names to be quoted, allowing you to use reserved words as column names in your tables.
+*DESCRIPTION (Описание):*:: Включение этой опции приведет к тому, что все имена столбцов будут заключены в кавычки, позволяя использовать зарезервированные слова в качестве имен столбцов в ваших таблицах.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -486,14 +484,14 @@ or additional features.
 .Put-Db-Record-Quoted-Table-Identifiers
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Quote Table Identifiers
+*DISPLAY NAME (Отображаемое наименование):*:: Quote Table Identifiers (Цитирование табличных идентификаторов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Enabling this option will cause the table name to be quoted to support the use of special characters in the table name.
+*DESCRIPTION (Описание):*:: Включение этой опции приведет к цитированию имени таблицы для поддержки использования специальных символов в имени таблицы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -511,14 +509,14 @@ or additional features.
 .*Put-Db-Record-Query-Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Wait Time
+*DISPLAY NAME (Отображаемое наименование):*:: Max Wait Time (Максимальное время ожидания)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum amount of time allowed for a running SQL statement , zero means there is no limit. Max time less than 1 second will be equal to zero.
+*DESCRIPTION (Описание):*:: Максимальное количество времени, разрешенное для выполнения SQL-операции, ноль означает отсутствие ограничений. Максимальное время менее одной секунды будет равно нулю.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -528,14 +526,14 @@ or additional features.
 .*Rollback-On-Failure*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Rollback On Failure
+*DISPLAY NAME (Отображаемое наименование):*:: Rollback On Failure (Спецификация способа обработки ошибок)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specify how to handle error. By default (false), if an error occurs while processing a FlowFile, the FlowFile will be routed to 'failure' or 'retry' relationship based on error type, and processor can continue with next FlowFile. Instead, you may want to rollback currently processed FlowFiles and stop further processing immediately. In that case, you can do so by enabling this 'Rollback On Failure' property.  If enabled, failed FlowFiles will stay in the input relationship without penalizing it and being processed repeatedly until it gets processed successfully or removed by other means. It is important to set adequate 'Yield Duration' to avoid retrying too frequently.
+*DESCRIPTION (Описание):*:: Укажите, как обрабатывать ошибки. По умолчанию (false), если во время обработки FlowFile возникает ошибка, FlowFile будет направлен в 'failure' или 'retry' relationship в зависимости от типа ошибки, и процессор может продолжить с следующим FlowFile. Вместо этого вы можете отменить текущие обработанные FlowFiles и немедленно остановить дальнейшую обработку. В этом случае вы можете включить эту 'Rollback On Failure' свойство. Если оно включено, неудачные FlowFiles останутся в input relationship без штрафа и будут повторно обрабатываться до тех пор, пока не будет успешно обработано или удалено другими способами. Важно установить соответствующую 'Yield Duration', чтобы избежать чрезмерного повтора.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -553,14 +551,14 @@ or additional features.
 .*Table-Schema-Cache-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Table Schema Cache Size
+*DISPLAY NAME (Отображаемое наименование):*:: Table Schema Cache Size (Размер кэша схемы таблицы)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how many Table Schemas should be cached
+*DESCRIPTION (Описание):*:: Указывает, сколько схем таблиц должно быть закэшировано
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -570,14 +568,14 @@ or additional features.
 .Put-Db-Record-Max-Batch-Size
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Batch Size
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Batch Size (Максимальный размер пакета)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies maximum number of sql statements to be included in each batch sent to the database. Zero means the batch size is not limited, and all statements are put into a single batch which can cause high memory usage issues for a very large number of statements.
+*DESCRIPTION (Описание):*:: Указывает максимальное количество SQL-операторов, включаемых в каждый пакет, отправляемый в базу данных. Ноль означает, что размер пакета не ограничен, и все операторы помещаются в один пакет, что может вызвать проблемы с использованием большого количества операторов из-за высокого потребления памяти.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -587,14 +585,14 @@ or additional features.
 .Database-Session-Autocommit
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Database Session AutoCommit
+*DISPLAY NAME (Отображаемое наименование):*:: Database Session AutoCommit (База данных Сессия Автокоммит)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The autocommit mode to set on the database connection being used. If set to false, the operation(s) will be explicitly committed or rolled back (based on success or failure respectively). If set to true, the driver/database automatically handles the commit/rollback.
+*DESCRIPTION (Описание):*:: Режим автокомита, который нужно установить на используемом базовом соединении. Если установлено значение false, операции будут явно зафиксированы или откачены (в зависимости от успешности или неудачи). Если установлено значение true, драйвер/база данных автоматически обрабатывает фиксацию/откат.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 

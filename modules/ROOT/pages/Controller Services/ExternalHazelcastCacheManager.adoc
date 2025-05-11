@@ -1,13 +1,13 @@
 = ExternalHazelcastCacheManager 2.2.0
 
-A service that provides cache instances backed by Hazelcast running outside of NiFi.
+Сервис, предоставляющий экземпляры кэша, поддерживаемые Hazelcast и работающие вне NiFi.
 
 [horizontal]
 *Tags* (Ключевые слова):
 cache, hazelcast
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ cache, hazelcast
 .*Hazelcast-Cluster-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Cluster Name
+*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Cluster Name (Имя кластера Hazelcast)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Name of the Hazelcast cluster.
+*DESCRIPTION (Описание):*:: Имя кластера Hazelcast.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ cache, hazelcast
 .*Hazelcast-Server-Address*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Server Address
+*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Server Address (Адрес сервера Hazelcast)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Addresses of one or more the Hazelcast instances, using {host:port} format, separated by comma.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ cache, hazelcast
 .*Hazelcast-Retry-Backoff-Initial*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Initial Backoff
+*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Initial Backoff (Начальная задержка повтора)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The amount of time the client waits before it tries to reestablish connection for the first time.
+*DESCRIPTION (Описание):*:: Количество времени, которое клиент ждет перед тем, как попытается восстановить соединение в первый раз.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ cache, hazelcast
 .*Hazelcast-Retry-Backoff-Maximum*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Maximum Backoff
+*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Maximum Backoff (Максимальное время ожидания перед повторным установлением соединения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum amount of time the client waits before it tries to reestablish connection.
+*DESCRIPTION (Описание):*:: The maximum amount of time the client waits before it tries to reestablish connection. (Максимальное количество времени, в течение которого клиент ждет перед попыткой восстановить соединение.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ cache, hazelcast
 .*Hazelcast-Retry-Backoff-Multiplier*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Backoff Multiplier
+*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Backoff Multiplier (Множитель экспоненциального отступа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A multiplier by which the wait time is increased before each attempt to reestablish connection.
+*DESCRIPTION (Описание):*:: Множитель, на который увеличивается время ожидания перед каждой попыткой восстановить соединение.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ cache, hazelcast
 .*Hazelcast-Connection-Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Connection Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Hazelcast Connection Timeout (Время ожидания подключения)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The maximum amount of time the client tries to connect or reconnect before giving up.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -132,6 +132,17 @@ cache, hazelcast
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

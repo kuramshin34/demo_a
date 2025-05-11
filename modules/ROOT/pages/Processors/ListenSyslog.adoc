@@ -1,13 +1,13 @@
 = ListenSyslog 2.2.0
 
-Listens for Syslog messages being sent to a given port over TCP or UDP. Incoming messages are checked against regular expressions for RFC5424 and RFC3164 formatted messages. The format of each message is: (<PRIORITY>)(VERSION )(TIMESTAMP) (HOSTNAME) (BODY) where version is optional. The timestamp can be an RFC5424 timestamp with a format of "yyyy-MM-dd'T'HH:mm:ss.SZ" or "yyyy-MM-dd'T'HH:mm:ss.S+hh:mm", or it can be an RFC3164 timestamp with a format of "MMM d HH:mm:ss". If an incoming messages matches one of these patterns, the message will be parsed and the individual pieces will be placed in FlowFile attributes, with the original message in the content of the FlowFile. If an incoming message does not match one of these patterns it will not be parsed and the syslog.valid attribute will be set to false with the original message in the content of the FlowFile. Valid messages will be transferred on the success relationship, and invalid messages will be transferred on the invalid relationship.
+Прослушивает сообщения Syslog, отправленные на заданный порт по протоколу TCP или UDP. Входящие сообщения проверяются на соответствие регулярным выражениям для форматов RFC5424 и RFC3164. Формат каждого сообщения: (<PRIORITY>)(VERSION )(TIMESTAMP) (HOSTNAME) (BODY), где версия является необязательной. Временная метка может быть временной отметкой RFC5424 в формате "yyyy-MM-dd'T'HH:mm:ss.SZ" или "yyyy-MM-dd'T'HH:mm:ss.S+hh:mm", или она может быть временной меткой RFC3164 в формате "MMM d HH:mm:ss". Если входящее сообщение соответствует одному из этих шаблонов, оно будет проанализировано, а отдельные части будут размещены в атрибутах FlowFile, а оригинальное сообщение — в содержимом FlowFile. Если входящее сообщение не соответствует одному из этих шаблонов, оно не будет проанализировано, и атрибут syslog.valid будет установлен в false с оригинальным сообщением в содержимом FlowFile. Допустимые сообщения будут переданы по отношению успеха, а недопустимые — по отношению к недопустимому.
 
 [horizontal]
 *Tags* (Ключевые слова):
 listen, logs, syslog, tcp, udp
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,23 +20,23 @@ FORBIDDEN (Обязательно)
 .*Protocol*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Protocol
+*DISPLAY NAME (Отображаемое наименование):*:: Protocol (Протокол)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The protocol for Syslog communication.
+*DESCRIPTION (Описание):*:: Протокол для обмена данными Syslog.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* TCP
+* TCP (TCP)
 
-* UDP
+* UDP (UDP)
 
 
 [horizontal]
@@ -45,14 +45,14 @@ FORBIDDEN (Обязательно)
 .*Port*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Port
+*DISPLAY NAME (Отображаемое наименование):*:: Port (Порт)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The port for Syslog communication. Note that Expression language is not evaluated per FlowFile.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -62,14 +62,14 @@ FORBIDDEN (Обязательно)
 .Local Network Interface
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Local Network Interface
+*DISPLAY NAME (Отображаемое наименование):*:: Local Network Interface (Локальный сетевой интерфейс)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of a local network interface to be used to restrict listening to a specific LAN.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -79,23 +79,23 @@ FORBIDDEN (Обязательно)
 .*Socket-Keep-Alive*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Socket Keep Alive
+*DISPLAY NAME (Отображаемое наименование):*:: Socket Keep Alive (TCP сокет с поддержкой keep alive)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Whether or not to have TCP socket keep alive turned on. Timing details depend on operating system properties.
+*DESCRIPTION (Описание):*:: Будет ли включена поддержка TCP сокета с keep alive. Детали времени зависят от свойств операционной системы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -104,14 +104,14 @@ FORBIDDEN (Обязательно)
 .Ssl Context Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (Контекст безопасных соединений)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Controller Service to use in order to obtain an SSL Context. If this property is set, syslog messages will be received over a secure connection.
+*DESCRIPTION (Описание):*:: Контроллерный сервис для получения контекста SSL. Если это свойство установлено, сообщения syslog будут приниматься по защищенному соединению.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -121,25 +121,25 @@ FORBIDDEN (Обязательно)
 .Client Auth
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Client Auth
+*DISPLAY NAME (Отображаемое наименование):*:: Client Auth (Клиентское подтверждение)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The client authentication policy to use for the SSL Context. Only used if an SSL Context Service is provided.
+*DESCRIPTION (Описание):*:: Политика аутентификации клиента для использования в SSL контексте. Используется только если предоставлен сервис SSL контекста.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* WANT
+* WANT (ЖЕЛАНИЕ)
 
-* REQUIRED
+* REQUIRED (ТРЕБОВАНИЕ)
 
-* NONE
+* NONE (НИКАКОЙ)
 
 
 [horizontal]
@@ -148,14 +148,14 @@ FORBIDDEN (Обязательно)
 .*Receive Buffer Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Receive Buffer Size
+*DISPLAY NAME (Отображаемое наименование):*:: Receive Buffer Size (Размер буфера приема)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The size of each buffer used to receive Syslog messages. Adjust this value appropriately based on the expected size of the incoming Syslog messages. When UDP is selected each buffer will hold one Syslog message. When TCP is selected messages are read from an incoming connection until the buffer is full, or the connection is closed. 
+*DESCRIPTION (Описание):*:: Размер каждого буфера, используемого для приема сообщений Syslog. Настройте это значение в зависимости от ожидаемого размера поступающих сообщений Syslog. Когда выбран UDP, каждый буфер удерживает одно сообщение Syslog. При выборе TCP сообщения считываются из входящего подключения до заполнения буфера или закрытия соединения.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -165,14 +165,14 @@ FORBIDDEN (Обязательно)
 .*Max Size Of Message Queue*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Size of Message Queue
+*DISPLAY NAME (Отображаемое наименование):*:: Max Size of Message Queue (Максимальный размер внутренней очереди, используемой для буферизации сообщений, передаваемых из нижележащего канала в процессор.)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The maximum size of the internal queue used to buffer messages being transferred from the underlying channel to the processor. Setting this value higher allows more messages to be buffered in memory during surges of incoming messages, but increases the total memory used by the processor.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -182,14 +182,14 @@ FORBIDDEN (Обязательно)
 .*Max Size Of Socket Buffer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Size of Socket Buffer
+*DISPLAY NAME (Отображаемое наименование):*:: Max Size of Socket Buffer (Максимальный размер буфера сокета)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum size of the socket buffer that should be used. This is a suggestion to the Operating System to indicate how big the socket buffer should be. If this value is set too low, the buffer may fill up before the data can be read, and incoming data will be dropped.
+*DESCRIPTION (Описание):*:: Максимальный размер буфера сокета, который следует использовать. Это рекомендация для операционной системы указать, насколько большой должен быть буфер сокета. Если это значение установлено слишком низким, буфер может заполниться до того, как данные могут быть прочитаны, и поступающие данные будут отброшены.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -199,14 +199,14 @@ FORBIDDEN (Обязательно)
 .*Max Number Of Tcp Connections*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Number of TCP Connections
+*DISPLAY NAME (Отображаемое наименование):*:: Max Number of TCP Connections (Максимальное количество одновременных соединений для приема сообщений Syslog в режиме TCP)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The maximum number of concurrent connections to accept Syslog messages in TCP mode.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -216,14 +216,14 @@ FORBIDDEN (Обязательно)
 .*Max Batch Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Batch Size
+*DISPLAY NAME (Отображаемое наименование):*:: Max Batch Size (Максимальный размер пакета)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The maximum number of Syslog events to add to a single FlowFile. If multiple events are available, they will be concatenated along with the <Message Delimiter> up to this configured maximum number of messages
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -233,14 +233,14 @@ FORBIDDEN (Обязательно)
 .*Message Delimiter*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Message Delimiter
+*DISPLAY NAME (Отображаемое наименование):*:: Message Delimiter (Сообщение-разделитель)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the delimiter to place between Syslog messages when multiple messages are bundled together (see <Max Batch Size> property).
+*DESCRIPTION (Описание):*:: Указывает разделитель, который следует размещать между Syslog сообщениями при их группировке вместе (см. <Максимальный размер партии> свойство).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -250,14 +250,14 @@ FORBIDDEN (Обязательно)
 .*Parse Messages*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Parse Messages
+*DISPLAY NAME (Отображаемое наименование):*:: Parse Messages (Обрабатывать Сообщения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates if the processor should parse the Syslog messages. If set to false, each outgoing FlowFile will only contain the sender, protocol, and port, and no additional attributes.
+*DESCRIPTION (Описание):*:: Указывает, должен ли процессор анализировать сообщения Syslog. Если установлено значение false, каждый исходящий FlowFile будет содержать только отправителя, протокол и порт, и не будет дополнительных атрибутов.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -275,14 +275,14 @@ FORBIDDEN (Обязательно)
 .*Character Set*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Символьный набор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the character set of the Syslog messages. Note that Expression language is not evaluated per FlowFile.
+*DESCRIPTION (Описание):*:: Указывает символьный набор сообщений Syslog. Обратите внимание, что язык выражений не оценивается для каждого потока.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -306,10 +306,10 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Syslog messages that match one of the expected formats will be sent out this relationship as a FlowFile per message.
+|Сообщения Syslog, соответствующие одному из ожидаемых форматов, будут отправлены по этому отношению как FlowFile на сообщение.
 
 |`invalid`
-|Syslog messages that do not match one of the expected formats will be sent out this relationship as a FlowFile per message.
+|Сообщения Syslog, которые не соответствуют одному из ожидаемых форматов, будут отправлены по этому отношению как FlowFile на сообщение.
 
 |===
 
@@ -324,40 +324,40 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`syslog.priority`
-|The priority of the Syslog message.
+|Приоритет сообщения Syslog.
 
 |`syslog.severity`
-|The severity of the Syslog message derived from the priority.
+|Степень важности сообщения Syslog, полученная из приоритета.
 
 |`syslog.facility`
-|The facility of the Syslog message derived from the priority.
+|Фабрика сообщения Syslog, полученная из приоритета.
 
 |`syslog.version`
-|The optional version from the Syslog message.
+|Необязательная версия из сообщения Syslog.
 
 |`syslog.timestamp`
-|The timestamp of the Syslog message.
+|Временная метка сообщения Syslog.
 
 |`syslog.hostname`
-|The hostname or IP address of the Syslog message.
+|Хостнейм или IP-адрес сообщения Syslog.
 
 |`syslog.sender`
-|The hostname of the Syslog server that sent the message.
+|Хостнейм сервера, отправившего сообщение Syslog.
 
 |`syslog.body`
-|The body of the Syslog message, everything after the hostname.
+|Тело сообщения Syslog, все после хостнейма.
 
 |`syslog.valid`
-|An indicator of whether this message matched the expected formats. If this value is false, the other attributes will be empty and only the original message will be available in the content.
+|Показатель того, соответствует ли это сообщение одному из ожидаемых форматов. Если это значение равно false, другие атрибуты будут пустыми, и единственным доступным в содержимом будет оригинальное сообщение.
 
 |`syslog.protocol`
-|The protocol over which the Syslog message was received.
+|Протокол, по которому было получено сообщение Syslog.
 
 |`syslog.port`
-|The port over which the Syslog message was received.
+|Порт, по которому было получено сообщение Syslog.
 
 |`mime.type`
-|The mime.type of the FlowFile which will be text/plain for Syslog messages.
+|Тип mime сообщения FlowFile, который будет text/plain для сообщений Syslog.
 
 |===
 

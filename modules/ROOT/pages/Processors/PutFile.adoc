@@ -1,13 +1,13 @@
 = PutFile 2.2.0
 
-Writes the contents of a FlowFile to the local file system
+Записывает содержимое FlowFile в локальную файловую систему
 
 [horizontal]
 *Tags* (Ключевые слова):
 archive, copy, files, filesystem, local, put
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Directory*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Directory
+*DISPLAY NAME (Отображаемое наименование):*:: Directory (Каталог)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The directory to which files should be written. You may use expression language such as /aa/bb/${path}
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,25 +37,25 @@ REQUIRED (Обязательно)
 .*Conflict Resolution Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Conflict Resolution Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Conflict Resolution Strategy (Стратегия разрешения конфликтов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates what should happen when a file with the same name already exists in the output directory
+*DESCRIPTION (Описание):*:: Указывает, что должно произойти, если файл с тем же именем уже существует в выходной директории
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* replace
+* replace (заменить)
 
-* ignore
+* ignore (игнорировать)
 
-* fail
+* fail (неуспех)
 
 
 [horizontal]
@@ -64,14 +64,14 @@ REQUIRED (Обязательно)
 .*Create Missing Directories*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Create Missing Directories
+*DISPLAY NAME (Отображаемое наименование):*:: Create Missing Directories (Создание отсутствующих директорий)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true, then missing destination directories will be created. If false, flowfiles are penalized and sent to failure.
+*DESCRIPTION (Описание):*:: Если true, то будут созданы недостающие целевые директории. Если false, потоки данных штрафуются и направляются в сбойный поток.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -89,14 +89,14 @@ REQUIRED (Обязательно)
 .Maximum File Count
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum File Count
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum File Count (Максимальное количество файлов)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies the maximum number of files that can exist in the output directory
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -106,14 +106,14 @@ REQUIRED (Обязательно)
 .Last Modified Time
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Last Modified Time
+*DISPLAY NAME (Отображаемое наименование):*:: Last Modified Time (Время последней модификации)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Sets the lastModifiedTime on the output file to the value of this attribute.  Format must be yyyy-MM-dd'T'HH:mm:ssZ.  You may also use expression language such as ${file.lastModifiedTime}.
+*DESCRIPTION (Описание):*:: Устанавливает lastModifiedTime в выходном файле на значение этого атрибута. Формат должен быть yyyy-MM-dd'T'HH:mm:ssZ. Вы также можете использовать язык выражений, например ${file.lastModifiedTime}.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -123,14 +123,14 @@ REQUIRED (Обязательно)
 .Permissions
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Permissions
+*DISPLAY NAME (Отображаемое наименование):*:: Permissions (Разрешения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Sets the permissions on the output file to the value of this attribute.  Format must be either UNIX rwxrwxrwx with a - in place of denied permissions (e.g. rw-r--r--) or an octal number (e.g. 644).  You may also use expression language such as ${file.permissions}.
+*DESCRIPTION (Описание):*:: Устанавливает разрешения на выходной файл в соответствии со значением этого атрибута. Формат должен быть либо UNIX rwxrwxrwx, где запрещенные разрешения обозначаются символом - (например, rw-r--r--) или восьмеричным числом (например, 644). Вы также можете использовать язык выражений, например ${file.permissions}.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -140,14 +140,14 @@ REQUIRED (Обязательно)
 .Owner
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Owner
+*DISPLAY NAME (Отображаемое наименование):*:: Владелец
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Sets the owner on the output file to the value of this attribute.  You may also use expression language such as ${file.owner}. Note on many operating systems Nifi must be running as a super-user to have the permissions to set the file owner.
+*DESCRIPTION (Описание):*:: Устанавливает владельца в выходном файле на значение этого атрибута. Вы также можете использовать язык выражений, например ${file.owner}. Обратите внимание, что на многих операционных системах для Nifi должно быть запущено с правами суперпользователя, чтобы иметь разрешения на установку владельца файла.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -157,14 +157,14 @@ REQUIRED (Обязательно)
 .Group
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Group
+*DISPLAY NAME (Отображаемое наименование):*:: Group (Группа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Sets the group on the output file to the value of this attribute.  You may also use expression language such as ${file.group}.
+*DESCRIPTION (Описание):*:: Устанавливает группу в выходном файле на значение этого атрибута. Вы также можете использовать язык выражений, например ${file.group}.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -186,7 +186,7 @@ REQUIRED (Обязательно)
 |Требуемые права |Объяснение
 
 |
-|Provides operator the ability to write to any file that NiFi has access to.
+|Предоставляет оператору возможность записывать в любой файл, к которому у NiFi есть доступ.
 
 |===
 
@@ -199,10 +199,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Files that have been successfully written to the output directory are transferred to this relationship
+|Файлы, успешно записанные в выходной каталог, передаются по этому отношению
 
 |`failure`
-|Files that could not be written to the output directory for some reason are transferred to this relationship
+|Файлы, которые не удалось записать в выходной каталог по какой-либо причине, передаются по этому отношению
 
 |===
 
@@ -215,7 +215,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`filename`
-|The filename to use when writing the FlowFile to disk.
+|Имя файла для использования при записи FlowFile на диск.
 
 |===
 

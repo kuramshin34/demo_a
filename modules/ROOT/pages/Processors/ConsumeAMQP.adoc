@@ -1,13 +1,13 @@
 = ConsumeAMQP 2.2.0
 
-Consumes AMQP Messages from an AMQP Broker using the AMQP 0.9.1 protocol. Each message that is received from the AMQP Broker will be emitted as its own FlowFile to the 'success' relationship.
+Потребляет сообщения AMQP из брокера AMQP с использованием протокола AMQP 0.9.1. Каждое полученное сообщение будет выпущено как отдельный FlowFile в отношение 'success'.
 
 [horizontal]
 *Tags* (Ключевые слова):
 amqp, consume, get, message, rabbit, receive
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,56 +20,48 @@ FORBIDDEN (Обязательно)
 .*Queue*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Queue
+*DISPLAY NAME (Отображаемое наименование):*:: Queue (Очередь)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the existing AMQP Queue from which messages will be consumed. Usually pre-defined by AMQP administrator. 
+*DESCRIPTION (Описание):*:: Имя существующей очереди AMQP, из которой будут потребляться сообщения. Обычно определяется администратором AMQP. 
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *REQUIRED (Обязательный параметр):*::  True (Да) 
 ************************************************
-.*Auto.Acknowledge*
+.Auto.Acknowledge
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Auto-Acknowledge Messages
+*DISPLAY NAME (Отображаемое наименование):*:: Auto-Acknowledge Messages (Автоматическое подтверждение сообщений)
 
 [horizontal]
-*DESCRIPTION (Описание):*::  If false (Non-Auto-Acknowledge), the messages will be acknowledged by the processor after transferring the FlowFiles to success and committing the NiFi session. Non-Auto-Acknowledge mode provides 'at-least-once' delivery semantics. If true (Auto-Acknowledge), messages that are delivered to the AMQP Client will be auto-acknowledged by the AMQP Broker just after sending them out. This generally will provide better throughput but will also result in messages being lost upon restart/crash of the AMQP Broker, NiFi or the processor. Auto-Acknowledge mode provides 'at-most-once' delivery semantics and it is recommended only if loosing messages is acceptable.
+*DESCRIPTION (Описание):*:: Если значение равно false (Неавтоматическое подтверждение), сообщения будут подтверждены процессором после передачи FlowFiles в успешную и завершения сессии NiFi. Неавтоматическое подтверждение обеспечивает семантику 'по крайней мере один раз'. Если значение равно true (Автоматическое подтверждение), сообщения, доставленные к AMQP Клиенту, будут автоматически подтверждены брокером AMQP сразу после их отправки. Это обычно обеспечивает лучшую пропускную способность, но также приведет к потере сообщений при перезапуске/сбое брокера AMQP, NiFi или процессора. Автоматическое подтверждение обеспечивает семантику 'по крайней мере один раз' и рекомендуется только в том случае, если потеря сообщений является приемлемой.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
-*ALLOWABLE VALUES (Допустимые значения):*::
-
-* true
-
-* false
-
-
-[horizontal]
-*REQUIRED (Обязательный параметр):*::  True (Да) 
+*REQUIRED (Обязательный параметр):*::  False (Нет) 
 ************************************************
 .*Batch.Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Batch Size
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Size (Размер партии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum number of messages that should be processed in a single session. Once this many messages have been received (or once no more messages are readily available), the messages received will be transferred to the 'success' relationship and the messages will be acknowledged to the AMQP Broker. Setting this value to a larger number could result in better performance, particularly for very small messages, but can also result in more messages being duplicated upon sudden restart of NiFi.
+*DESCRIPTION (Описание):*:: Максимальное количество сообщений, которые должны быть обработаны в одной сессии. Как только будет получено это число сообщений (или пока не будет доступно больше сообщений), принятые сообщения будут переданы в отношение 'успех', и сообщения будут подтверждены брокеру AMQP. Увеличение этого значения может повысить производительность, особенно для очень маленьких сообщений, но также может привести к дублированию большего количества сообщений при внезапном перезапуске NiFi.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -79,14 +71,14 @@ FORBIDDEN (Обязательно)
 .*Prefetch.Count*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Prefetch Count
+*DISPLAY NAME (Отображаемое наименование):*:: Prefetch Count (Максимальное количество неподтвержденных сообщений для потребителя)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum number of unacknowledged messages for the consumer. If consumer has this number of unacknowledged messages, AMQP broker will no longer send new messages until consumer acknowledges some of the messages already delivered to it.Allowed values: from 0 to 65535. 0 means no limit
+*DESCRIPTION (Описание):*:: Максимальное количество неподтвержденных сообщений для потребителя. Если у потребителя такое количество неподтвержденных сообщений, брокер AMQP перестанет отправлять новые сообщения до тех пор, пока потребитель не подтвердит некоторое из уже доставленных ему сообщений. Допустимые значения: от 0 до 65535. Значение 0 означает отсутствие ограничений
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -96,25 +88,25 @@ FORBIDDEN (Обязательно)
 .*Header.Format*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Header Output Format
+*DISPLAY NAME (Отображаемое наименование):*:: Header Output Format (Формат вывода заголовков)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Defines how to output headers from the received message
+*DESCRIPTION (Описание):*:: Определяет, как выводить заголовки из полученного сообщения
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Comma-Separated String: Put all headers as a string with the specified separator in the attribute 'amqp$headers'. 
+* Comma-Separated String (Строка с разделителем): Поместите все заголовки в виде строки с указанным разделителем в атрибут 'amqp$headers'. 
 
-* JSON String: Format all headers as JSON string and output in the attribute 'amqp$headers'. It will include keys with null value as well. 
+* JSON String (Строка JSON): Отформатируйте все заголовки как строку JSON и выведите в атрибут 'amqp$headers'. Включает ключи с нулевым значением. 
 
-* FlowFile Attributes: Put each header as attribute of the flow file with a prefix specified in the properties 
+* FlowFile Attributes (Атрибуты FlowFile): Поместите каждый заголовок в виде атрибута потока файлов с указанным префиксом в свойствах 
 
 
 [horizontal]
@@ -123,14 +115,14 @@ FORBIDDEN (Обязательно)
 .*Header.Key.Prefix*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Header Key Prefix
+*DISPLAY NAME (Отображаемое наименование):*:: Header Key Prefix (Префикс ключа заголовка)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Text to be prefixed to header keys as the are added to the FlowFile attributes. Processor will append '.' to the value of this property
+*DESCRIPTION (Описание):*:: Текст, который будет добавляться к ключам заголовков при их добавлении в атрибуты FlowFile. Обработчик будет добавлять '.' к значению этого свойства
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -140,14 +132,14 @@ FORBIDDEN (Обязательно)
 .Header.Separator
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Header Separator
+*DISPLAY NAME (Отображаемое наименование):*:: Header Separator (Разделитель)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The character that is used to separate key-value for header in String. The value must be only one character.
+*DESCRIPTION (Описание):*:: Символ, используемый для разделения ключа и значения в заголовке строки. Значение должно состоять только из одного символа.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -157,14 +149,14 @@ FORBIDDEN (Обязательно)
 .Remove.Curly.Braces
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Remove Curly Braces
+*DISPLAY NAME (Отображаемое наименование):*:: Remove Curly Braces (Удалить фигурные скобки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true Remove Curly Braces, Curly Braces in the header will be automatically remove.
+*DESCRIPTION (Описание):*:: Если true, удаляются фигурные скобки в заголовке.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -182,14 +174,14 @@ FORBIDDEN (Обязательно)
 .Brokers
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Brokers
+*DISPLAY NAME (Отображаемое наименование):*:: Brokers (брокеры)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A comma-separated list of known AMQP Brokers in the format <host>:<port> (e.g., localhost:5672). If this is set, Host Name and Port are ignored. Only include hosts from the same AMQP cluster.
+*DESCRIPTION (Описание):*:: Список, разделенный запятыми известных AMQP брокеров в формате <хост>:<порт> (например, localhost:5672). Если это установлено, игнорируются Имя хоста и Порт. Включайте только хосты из одного AMQP кластера.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -199,14 +191,14 @@ FORBIDDEN (Обязательно)
 .Host Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Host Name
+*DISPLAY NAME (Отображаемое наименование):*:: Host Name (Имя хоста)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Network address of AMQP broker (e.g., localhost). If Brokers is set, then this property is ignored.
+*DESCRIPTION (Описание):*:: Сетевой адрес брокера AMQP (например, localhost). Если установлены Brokers, то это свойство игнорируется.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -216,14 +208,14 @@ FORBIDDEN (Обязательно)
 .Port
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Port
+*DISPLAY NAME (Отображаемое наименование):*:: Port (Порт)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Numeric value identifying Port of AMQP broker (e.g., 5671). If Brokers is set, then this property is ignored.
+*DESCRIPTION (Описание):*:: Числовой идентификатор порта брокера AMQP (например, 5671). Если установлены брокеры, то это свойство игнорируется.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -233,14 +225,14 @@ FORBIDDEN (Обязательно)
 .Virtual Host
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Virtual Host
+*DISPLAY NAME (Отображаемое наименование):*:: Virtual Host (Виртуальный узел)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Virtual Host name which segregates AMQP system for enhanced security.
+*DESCRIPTION (Описание):*:: Имя виртуального узла, которое сегментирует AMQP систему для повышения безопасности.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -250,14 +242,14 @@ FORBIDDEN (Обязательно)
 .User Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: User Name
+*DISPLAY NAME (Отображаемое наименование):*:: User Name (Имя пользователя)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: User Name used for authentication and authorization.
+*DESCRIPTION (Описание):*:: User Name используется для аутентификации и авторизации.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -267,14 +259,14 @@ FORBIDDEN (Обязательно)
 .Password
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Password
+*DISPLAY NAME (Отображаемое наименование):*:: Password (Пароль)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Password used for authentication and authorization.
+*DESCRIPTION (Описание):*:: Пароль, используемый для аутентификации и авторизации.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -284,21 +276,21 @@ FORBIDDEN (Обязательно)
 .*Amqp Version*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: AMQP Version
+*DISPLAY NAME (Отображаемое наименование):*:: AMQP Version (Версия AMQP)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: AMQP Version. Currently only supports AMQP v0.9.1.
+*DESCRIPTION (Описание):*:: Версия AMQP. В настоящее время поддерживается только версия AMQP v0.9.1.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* 0.9.1
+* 0.9.1 (Версия 0.9.1)
 
 
 [horizontal]
@@ -307,14 +299,14 @@ FORBIDDEN (Обязательно)
 .Ssl-Context-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (SSL Контекст Сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The SSL Context Service used to provide client certificate information for TLS/SSL connections.
+*DESCRIPTION (Описание):*:: The SSL Context Service used to provide client certificate information for TLS/SSL connections. (Сервис контекста SSL, используемый для предоставления информации о клиентских сертификатах для подключений TLS/SSL.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -324,14 +316,14 @@ FORBIDDEN (Обязательно)
 .Cert-Authentication
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Use Client Certificate Authentication
+*DISPLAY NAME (Отображаемое наименование):*:: Use Client Certificate Authentication (Использовать аутентификацию с помощью сертификата клиента)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Authenticate using the SSL certificate rather than user name/password.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -363,7 +355,7 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`success`
-|All FlowFiles that are received from the AMQP queue are routed to this relationship
+|Все FlowFiles, полученные из очереди AMQP, направляются в это отношение
 
 |===
 
@@ -378,55 +370,55 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`amqp$appId`
-|The App ID field from the AMQP Message
+|Поле идентификатора приложения из AMQP Message
 
 |`amqp$contentEncoding`
-|The Content Encoding reported by the AMQP Message
+|Кодировка содержимого, отчетнуя в AMQP Message
 
 |`amqp$contentType`
-|The Content Type reported by the AMQP Message
+|Тип контента, отчетный в AMQP Message
 
 |`amqp$headers`
-|The headers present on the AMQP Message. Added only if processor is configured to output this attribute.
+|Заголовки, присутствующие в сообщении AMQP. Добавляются только если процессор настроен для вывода этого атрибута.
 
 |`<Header Key Prefix>.<attribute>`
-|Each message header will be inserted with this attribute name, if processor is configured to output headers as attribute
+|Каждый заголовок сообщения будет вставлен с именем этого атрибута, если процессор настроен для вывода заголовков в виде атрибутов
 
 |`amqp$deliveryMode`
-|The numeric indicator for the Message's Delivery Mode
+|Числовой индикатор режима доставки сообщения
 
 |`amqp$priority`
-|The Message priority
+|Приоритет сообщения
 
 |`amqp$correlationId`
-|The Message's Correlation ID
+|Идентификатор корреляции в сообщении
 
 |`amqp$replyTo`
-|The value of the Message's Reply-To field
+|Значение поля Reply-To в сообщении
 
 |`amqp$expiration`
-|The Message Expiration
+|Срок действия сообщения
 
 |`amqp$messageId`
-|The unique ID of the Message
+|Уникальный ID сообщения
 
 |`amqp$timestamp`
-|The timestamp of the Message, as the number of milliseconds since epoch
+|Метка времени сообщения, в миллисекундах с эпохи
 
 |`amqp$type`
-|The type of message
+|Тип сообщения
 
 |`amqp$userId`
-|The ID of the user
+|Идентификатор пользователя
 
 |`amqp$clusterId`
-|The ID of the AMQP Cluster
+|Идентификатор кластера AMQP
 
 |`amqp$routingKey`
-|The routingKey of the AMQP Message
+|Маршрутизационный ключ сообщения AMQP
 
 |`amqp$exchange`
-|The exchange from which AMQP Message was received
+|Обмен, из которого получено сообщение AMQP
 
 |===
 

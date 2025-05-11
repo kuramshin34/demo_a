@@ -1,13 +1,13 @@
 = QuerySalesforceObject 2.2.0
 
-Retrieves records from a Salesforce sObject. Users can add arbitrary filter conditions by setting the 'Custom WHERE Condition' property. The processor can also run a custom query, although record processing is not supported in that case. Supports incremental retrieval: users can define a field in the 'Age Field' property that will be used to determine when the record was created. When this property is set the processor will retrieve new records. Incremental loading and record-based processing are only supported in property-based queries. It's also possible to define an initial cutoff value for the age, filtering out all older records even for the first run. In case of 'Property Based Query' this processor should run on the Primary Node only. FlowFile attribute 'record.count' indicates how many records were retrieved and written to the output. The processor can accept an optional input FlowFile and reference the FlowFile attributes in the query. When 'Include Deleted Records' is true, the processor will include deleted records (soft-deletes) in the results by using the 'queryAll' API. The 'IsDeleted' field will be automatically included in the results when querying deleted records.
+Извлекает записи из объекта Salesforce sObject. Пользователи могут добавлять произвольные условия фильтра, задав свойство 'Custom WHERE Condition'. Процессор также может выполнять пользовательский запрос, хотя обработка записей в этом случае не поддерживается. Поддерживает инкрементное извлечение: пользователи могут определить поле в свойстве 'Age Field', которое будет использоваться для определения времени создания записи. Когда это свойство установлено, процессор будет получать новые записи. Инкрементная загрузка и обработка записей на основе свойств поддерживается только в свойственных для запроса. Также возможно определить начальное значение отсечки для возраста, фильтруя все более старые записи даже для первого запуска. В случае 'Property Based Query' этот процессор должен выполняться только на основном узле. Атрибут FlowFile 'record.count' указывает, сколько записей было извлечено и записано в выходные данные. Процессор может принимать необязательный входной FlowFile и использовать атрибуты FlowFile в запросе. Когда 'Include Deleted Records' установлен в true, процессор включит удаленные записи (мягкие удаления) в результаты с использованием API 'queryAll'. Поле 'IsDeleted' будет автоматически включено в результаты при запросе удаленных записей.
 
 [horizontal]
 *Tags* (Ключевые слова):
 query, salesforce, sobject, soql
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-ALLOWED (Обязательно)
+ALLOWED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ ALLOWED (Обязательно)
 .*Salesforce-Url*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Salesforce Instance URL
+*DISPLAY NAME (Отображаемое наименование):*:: Salesforce Instance URL (URL экземпляра Salesforce)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The URL of the Salesforce instance including the domain without additional path information, such as https://MyDomainName.my.salesforce.com
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ ALLOWED (Обязательно)
 .*Salesforce-Api-Version*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: API Version
+*DISPLAY NAME (Отображаемое наименование):*:: API Version (Версия API)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The version number of the Salesforce REST API appended to the URL after the services/data path. See Salesforce documentation for supported versions
+*DESCRIPTION (Описание):*:: Номер версии Salesforce REST API, добавляемый к URL после пути services/data. См. документацию Salesforce о поддерживаемых версиях
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,23 +54,23 @@ ALLOWED (Обязательно)
 .*Query-Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Query Type
+*DISPLAY NAME (Отображаемое наименование):*:: Query Type (Тип запроса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Choose to provide the query by parameters or a full custom query.
+*DESCRIPTION (Описание):*:: Выберите, чтобы предоставить запрос по параметрам или полный настраиваемый запрос.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Property Based Query: Provide query by properties. 
+* Property Based Query (Запрос на основе свойств): Предоставить запрос по свойствам. 
 
-* Custom Query: Provide custom SOQL query. 
+* Custom Query (Настраиваемый запрос): Предоставить настраиваемый SOQL запрос. 
 
 
 [horizontal]
@@ -79,14 +79,14 @@ ALLOWED (Обязательно)
 .*Custom-Soql-Query*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Custom SOQL Query
+*DISPLAY NAME (Отображаемое наименование):*:: Custom SOQL Query (Настраиваемый запрос SOQL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specify the SOQL query to run.
+*DESCRIPTION (Описание):*:: Укажите запрос SOQL для выполнения.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -96,14 +96,14 @@ ALLOWED (Обязательно)
 .*Sobject-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: sObject Name
+*DISPLAY NAME (Отображаемое наименование):*:: sObject Name (Объект Salesforce для запроса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Salesforce sObject to be queried
+*DESCRIPTION (Описание):*:: The Salesforce sObject to be queried (Объект Salesforce, который будет запрашиваться)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -113,14 +113,14 @@ ALLOWED (Обязательно)
 .Field-Names
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Field Names
+*DISPLAY NAME (Отображаемое наименование):*:: Field Names (Поля имен)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Comma-separated list of field names requested from the sObject to be queried. When this field is left empty, all fields are queried.
+*DESCRIPTION (Описание):*:: Список полей, разделенных запятыми, которые запрашиваются из sObject для последующего запроса. Когда это поле остается пустым, запрашиваются все поля.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -130,14 +130,14 @@ ALLOWED (Обязательно)
 .*Record-Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Service used for writing records returned from the Salesforce REST API
+*DESCRIPTION (Описание):*:: Сервис, используемый для записи записей, возвращаемых через Salesforce REST API
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -147,14 +147,14 @@ ALLOWED (Обязательно)
 .Age-Field
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Age Field
+*DISPLAY NAME (Отображаемое наименование):*:: Age Field (Возрастное поле)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of a TIMESTAMP field that will be used to filter records using a bounded time window.The processor will return only those records with a timestamp value newer than the timestamp recorded after the last processor run.
+*DESCRIPTION (Описание):*:: Имя поля TIMESTAMP, которое будет использоваться для фильтрации записей с использованием ограниченного временного окна. Обработчик вернет только те записи, у которых значение timestamp новое по сравнению со значением, записанным после последнего запуска процессора.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -164,14 +164,14 @@ ALLOWED (Обязательно)
 .Initial-Age-Filter
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Initial Age Start Time
+*DISPLAY NAME (Отображаемое наименование):*:: Initial Age Start Time (Начальное время запуска возраста)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: This property specifies the start time that the processor applies when running the first query.
+*DESCRIPTION (Описание):*:: Это свойство указывает начальное время, когда процессор применяется при выполнении первого запроса.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -181,14 +181,14 @@ ALLOWED (Обязательно)
 .Age-Delay
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Age Delay
+*DISPLAY NAME (Отображаемое наименование):*:: Age Delay (Возрастная задержка)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The ending timestamp of the time window will be adjusted earlier by the amount configured in this property. For example, with a property value of 10 seconds, an ending timestamp of 12:30:45 would be changed to 12:30:35.
+*DESCRIPTION (Описание):*:: Конечная временная метка окна будет корректироваться назад на величину, указанную в этом свойстве. Например, при значении свойства 10 секунд конечная временная метка 12:30:45 изменится на 12:30:35.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -198,14 +198,14 @@ ALLOWED (Обязательно)
 .Custom-Where-Condition
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Custom WHERE Condition
+*DISPLAY NAME (Отображаемое наименование):*:: Custom WHERE Condition (Настраиваемое условие)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A custom expression to be added in the WHERE clause of the query
+*DESCRIPTION (Описание):*:: A custom expression to be added in the WHERE clause of the query (Настраиваемое выражение для добавления в предложение WHERE запроса)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -215,14 +215,14 @@ ALLOWED (Обязательно)
 .*Include-Deleted-Records*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Include Deleted Records
+*DISPLAY NAME (Отображаемое наименование):*:: Include Deleted Records (Включить удаленные записи)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true, the processor will include deleted records (IsDeleted = true) in the query results. When enabled, the processor will use the 'queryAll' API.
+*DESCRIPTION (Описание):*:: Если true, процессор включит удаленные записи (IsDeleted = true) в результаты запроса. Когда это включено, процессор будет использовать API 'queryAll'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -240,14 +240,14 @@ ALLOWED (Обязательно)
 .*Read-Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Read Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Read Timeout (Время ожидания чтения ответа от Salesforce REST API)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Maximum time allowed for reading a response from the Salesforce REST API
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -257,23 +257,23 @@ ALLOWED (Обязательно)
 .*Create-Zero-Record-Files*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Create Zero Record FlowFiles
+*DISPLAY NAME (Отображаемое наименование):*:: Create Zero Record FlowFiles (Создать нулевой поток файлов записей)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies whether or not to create a FlowFile when the Salesforce REST API does not return any records
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -282,14 +282,14 @@ ALLOWED (Обязательно)
 .*Oauth2-Access-Token-Provider*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: OAuth2 Access Token Provider
+*DISPLAY NAME (Отображаемое наименование):*:: OAuth2 Access Token Provider (OAuth2 Поставщик токенов доступа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Service providing OAuth2 Access Tokens for authenticating using the HTTP Authorization Header
+*DESCRIPTION (Описание):*:: Сервис, предоставляющий OAuth2 Access Tokens для аутентификации с использованием заголовка HTTP Authorization
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -309,7 +309,7 @@ ALLOWED (Обязательно)
 |
 CLUSTER
 
-|When 'Age Field' is set, after performing a query the time of execution is stored. Subsequent queries will be augmented with an additional condition so that only records that are newer than the stored execution time (adjusted with the optional value of 'Age Delay') will be retrieved. State is stored across the cluster so that this Processor can be run on Primary Node only and if a new Primary Node is selected, the new node can pick up where the previous node left off, without duplicating the data.
+|Когда установлено поле 'Age Field', после выполнения запроса время выполнения сохраняется. Последующие запросы будут дополнены дополнительным условием, чтобы получать только те записи, которые были созданы после сохраненного времени выполнения (скорректированного с помощью опционального значения 'Age Delay'). Состояние хранится в кластере, чтобы этот процессор мог выполняться только на основном узле, и если выбран новый основной узел, новый узел сможет продолжить работу с того места, где остановился предыдущий узел, без дублирования данных.
 |===
 
 
@@ -325,13 +325,13 @@ CLUSTER
 |Наименование |Описание
 
 |`failure`
-|The input flowfile gets sent to this relationship when the query fails.
+|Входной flowfile отправляется в эту связь при неудачном запросе.
 
 |`success`
-|For FlowFiles created as a result of a successful query.
+|Для FlowFiles, созданных в результате успешного запроса.
 
 |`original`
-|The input flowfile gets sent to this relationship when the query succeeds.
+|Входной flowfile отправляется в эту связь при успешном запросе.
 
 |===
 
@@ -346,13 +346,13 @@ CLUSTER
 |Наименование |Описание
 
 |`mime.type`
-|Sets the mime.type attribute to the MIME Type specified by the Record Writer.
+|Устанавливает атрибут mime.type в указанный MIME-тип записью Writer.
 
 |`record.count`
-|Sets the number of records in the FlowFile.
+|Устанавливает количество записей в FlowFile.
 
 |`total.record.count`
-|Sets the total number of records in the FlowFile.
+|Устанавливает общее количество записей в FlowFile.
 
 |===
 

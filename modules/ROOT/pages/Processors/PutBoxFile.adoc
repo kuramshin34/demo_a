@@ -1,13 +1,13 @@
 = PutBoxFile 2.2.0
 
-Puts content to a Box folder.
+Помещает содержимое в папку Box.
 
 [horizontal]
 *Tags* (Ключевые слова):
 box, put, storage
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Box-Client-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Box Client Service
+*DISPLAY NAME (Отображаемое наименование):*:: Box Client Service (Клиент сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Controller Service used to obtain a Box API connection.
+*DESCRIPTION (Описание):*:: Контроллер Сервис, используемый для получения соединения с API Box.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Box-Folder-Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Folder ID
+*DISPLAY NAME (Отображаемое наименование):*:: Folder ID (ID папки, в которую загружается файл)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The ID of the folder where the file is uploaded. Please see Additional Details to obtain Folder ID.
+*DESCRIPTION (Описание):*:: Идентификатор папки, куда загружается файл. Пожалуйста, обратитесь к дополнительным деталям для получения идентификатора папки.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .Subfolder-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Subfolder Name
+*DISPLAY NAME (Отображаемое наименование):*:: Subfolder Name (Название подпапки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name (path) of the subfolder where files are uploaded. The subfolder name is relative to the folder specified by 'Folder ID'. Example: subFolder, subFolder1/subfolder2
+*DESCRIPTION (Описание):*:: Имя (путь) подпапки, в которую загружаются файлы. Имя подпапки относительно папки, указанной по 'Folder ID'. Пример: subFolder, subFolder1/subfolder2
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .*Create-Folder*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Create Subfolder
+*DISPLAY NAME (Отображаемое наименование):*:: Create Subfolder (Создать подпапку)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether to check if the subfolder exists and to automatically create it if it does not. Permission to list folders is required. 
+*DESCRIPTION (Описание):*:: Указывает, следует ли проверять, существует ли подпапка, и автоматически создавать её, если она не существует. Необходимо разрешение на просмотр папок.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -96,14 +96,14 @@ REQUIRED (Обязательно)
 .*File-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Filename
+*DISPLAY NAME (Отображаемое наименование):*:: Filename (Имя файла)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the file to upload to the specified Box folder.
+*DESCRIPTION (Описание):*:: Имя файла для загрузки в указанную папку Box.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -113,25 +113,25 @@ REQUIRED (Обязательно)
 .*Conflict-Resolution-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Conflict Resolution Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Conflict Resolution Strategy (Стратегия разрешения конфликтов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates what should happen when a file with the same name already exists in the specified Box folder.
+*DESCRIPTION (Описание):*:: Указывает, что должно произойти, если файл с тем же именем уже существует в указанной папке Box.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* fail: Handle file conflict as failure. 
+* fail: Обработать конфликт как неудачу. 
 
-* ignore: Ignore conflict, do not change the original file. 
+* ignore: Игнорировать конфликт, не изменять исходный файл. 
 
-* replace: Replace existing file in case of conflict. 
+* replace: Заменить существующий файл в случае конфликта. 
 
 
 [horizontal]
@@ -140,14 +140,14 @@ REQUIRED (Обязательно)
 .Chunked-Upload-Threshold
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Chunked Upload Threshold
+*DISPLAY NAME (Отображаемое наименование):*:: Chunked Upload Threshold (Максимальный размер содержимого, которое загружается за один раз)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum size of the content which is uploaded at once. FlowFiles larger than this threshold are uploaded in chunks. Chunked upload is allowed for files larger than 20 MB. It is recommended to use chunked upload for files exceeding 50 MB.
+*DESCRIPTION (Описание):*:: Максимальный размер содержимого, которое загружается за один раз. Если FlowFiles превышают этот порог, то они загружаются частями. Поддержка пакетной загрузки разрешена для файлов больше 20 МБ. Рекомендуется использовать пакетную загрузку для файлов, размер которых превышает 50 МБ.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -171,10 +171,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Files that have been successfully written to Box are transferred to this relationship.
+|Файлы, успешно записанные в Box, передаются по этому отношению.
 
 |`failure`
-|Files that could not be written to Box for some reason are transferred to this relationship.
+|Файлы, которые не удалось записать в Box по какой-либо причине, передаются по этому отношению.
 
 |===
 
@@ -187,7 +187,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`filename`
-|Uses the FlowFile's filename as the filename for the Box object.
+|Использует имя файла FlowFile в качестве имени файла для объекта Box.
 
 |===
 
@@ -200,25 +200,25 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`box.id`
-|The id of the file
+|Идентификатор файла
 
 |`filename`
-|The name of the file
+|Имя файла
 
 |`path`
-|The folder path where the file is located
+|Путь к папке, где расположен файл
 
 |`box.size`
-|The size of the file
+|Размер файла
 
 |`box.timestamp`
-|The last modified time of the file
+|Время последней модификации файла
 
 |`error.code`
-|The error code returned by Box
+|Код ошибки, возвращенный Box
 
 |`error.message`
-|The error message returned by Box
+|Сообщение об ошибке, возвращенное Box
 
 |===
 

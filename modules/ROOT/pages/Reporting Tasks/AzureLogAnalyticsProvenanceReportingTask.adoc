@@ -1,13 +1,13 @@
 = AzureLogAnalyticsProvenanceReportingTask 2.2.0
 
-Publishes Provenance events to to a Azure Log Analytics workspace.
+Опубликовывает события происхождения в рабочую область Azure Log Analytics.
 
 [horizontal]
 *Tags* (Ключевые слова):
 azure, log analytics, provenace, reporting
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ azure, log analytics, provenace, reporting
 .*Log Analytics Workspace Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Log Analytics Workspace Id
+*DISPLAY NAME (Отображаемое наименование):*:: Log Analytics Workspace Id (Идентификатор рабочей области Log Analytics)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Log Analytics Workspace Id
+*DESCRIPTION (Описание):*:: Идентификатор рабочей области Log Analytics
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -37,14 +37,14 @@ azure, log analytics, provenace, reporting
 .Log Analytics Custom Log Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Log Analytics Custom Log Name
+*DISPLAY NAME (Отображаемое наименование):*:: Log Analytics Custom Log Name (Название пользовательского журнала анализа данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Log Analytics Custom Log Name
+*DESCRIPTION (Описание):*:: Название пользовательского журнала анализа данных в Log Analytics
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ azure, log analytics, provenace, reporting
 .*Log Analytics Workspace Key*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Log Analytics Workspace Key
+*DISPLAY NAME (Отображаемое наименование):*:: Log Analytics Workspace Key (Рабочая область ключ аналитики)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Azure Log Analytic Worskspace Key
+*DESCRIPTION (Описание):*:: Azure Log Analytic Worskspace Key (Ключ рабочей области анализа журналов Azure)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -71,14 +71,14 @@ azure, log analytics, provenace, reporting
 .*Application Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Application ID
+*DISPLAY NAME (Отображаемое наименование):*:: Application ID (Приложение ИД)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Application ID to be included in the metrics sent to Azure Log Analytics WS
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ azure, log analytics, provenace, reporting
 .*Instance Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Instance ID
+*DISPLAY NAME (Отображаемое наименование):*:: Instance ID (Идентификатор экземпляра)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Id of this NiFi instance to be included in the metrics sent to Azure Log Analytics WS
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ azure, log analytics, provenace, reporting
 .Job Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Job Name
+*DISPLAY NAME (Отображаемое наименование):*:: Job Name (Работа)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the exporting job
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -122,14 +122,14 @@ azure, log analytics, provenace, reporting
 .Log Analytics Url Endpoint Format
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Log Analytics URL Endpoint Format
+*DISPLAY NAME (Отображаемое наименование):*:: Log Analytics URL Endpoint Format (Формат URL-адреса конечной точки Log Analytics)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Log Analytics URL Endpoint Format
+*DESCRIPTION (Описание):*:: Формат URL-адреса конечной точки Log Analytics
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -139,14 +139,14 @@ azure, log analytics, provenace, reporting
 .S2s-Prov-Task-Event-Filter
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Event Type to Include
+*DISPLAY NAME (Отображаемое наименование):*:: Event Type to Include (Тип события для включения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Comma-separated list of event types that will be used to filter the provenance events sent by the reporting task. Available event types are [CREATE, RECEIVE, FETCH, SEND, UPLOAD, REMOTE_INVOCATION, DOWNLOAD, DROP, EXPIRE, FORK, JOIN, CLONE, CONTENT_MODIFIED, ATTRIBUTES_MODIFIED, ROUTE, ADDINFO, REPLAY, UNKNOWN]. If no filter is set, all the events are sent. If multiple filters are set, the filters are cumulative.
+*DESCRIPTION (Описание):*:: Список типов событий, разделенных запятыми, которые будут использоваться для фильтрации происходящих событий. Доступные типы событий: [CREATE, RECEIVE, FETCH, SEND, UPLOAD, REMOTE_INVOCATION, DOWNLOAD, DROP, EXPIRE, FORK, JOIN, CLONE, CONTENT_MODIFIED, ATTRIBUTES_MODIFIED, ROUTE, ADDINFO, REPLAY, UNKNOWN]. Если фильтр не установлен, отправляются все события. Если установлено несколько фильтров, они являются кумулятивными.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -156,14 +156,14 @@ azure, log analytics, provenace, reporting
 .S2s-Prov-Task-Event-Filter-Exclude
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Event Type to Exclude
+*DISPLAY NAME (Отображаемое наименование):*:: Event Type to Exclude (Событие для исключения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Comma-separated list of event types that will be used to exclude the provenance events sent by the reporting task. Available event types are [CREATE, RECEIVE, FETCH, SEND, UPLOAD, REMOTE_INVOCATION, DOWNLOAD, DROP, EXPIRE, FORK, JOIN, CLONE, CONTENT_MODIFIED, ATTRIBUTES_MODIFIED, ROUTE, ADDINFO, REPLAY, UNKNOWN]. If no filter is set, all the events are sent. If multiple filters are set, the filters are cumulative. If an event type is included in Event Type to Include and excluded here, then the exclusion takes precedence and the event will not be sent.
+*DESCRIPTION (Описание):*:: Список, разделенный запятыми типов событий, которые будут использоваться для исключения событий происхождения, отправляемых задачей. Доступные типы событий: [CREATE, RECEIVE, FETCH, SEND, UPLOAD, REMOTE_INVOCATION, DOWNLOAD, DROP, EXPIRE, FORK, JOIN, CLONE, CONTENT_MODIFIED, ATTRIBUTES_MODIFIED, ROUTE, ADDINFO, REPLAY, UNKNOWN]. Если фильтр не установлен, отправляются все события. Если установлено несколько фильтров, они суммируются. Если тип события включен в Event Type to Include и здесь исключен, то исключение имеет приоритет, и событие не будет отправлено.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -173,14 +173,14 @@ azure, log analytics, provenace, reporting
 .S2s-Prov-Task-Type-Filter
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Component Type to Include
+*DISPLAY NAME (Отображаемое наименование):*:: Component Type to Include (Тип компонента для включения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Regular expression to filter the provenance events based on the component type. Only the events matching the regular expression will be sent. If no filter is set, all the events are sent. If multiple filters are set, the filters are cumulative.
+*DESCRIPTION (Описание):*:: Регулярное выражение для фильтрации событий происхождения на основе типа компонента. Будут отправляться только те события, которые соответствуют регулярному выражению. Если не установлен фильтр, будут отправлены все события. Если установлено несколько фильтров, они являются кумулятивными.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -190,14 +190,14 @@ azure, log analytics, provenace, reporting
 .S2s-Prov-Task-Type-Filter-Exclude
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Component Type to Exclude
+*DISPLAY NAME (Отображаемое наименование):*:: Component Type to Exclude (Компонентный тип для исключения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Regular expression to exclude the provenance events based on the component type. The events matching the regular expression will not be sent. If no filter is set, all the events are sent. If multiple filters are set, the filters are cumulative. If a component type is included in Component Type to Include and excluded here, then the exclusion takes precedence and the event will not be sent.
+*DESCRIPTION (Описание):*:: Регулярное выражение для исключения событий происхождения на основе компонентного типа. События, соответствующие регулярному выражению, не будут отправлены. Если фильтр не установлен, отправляются все события. Если установлено несколько фильтров, они суммируются. Если компонентный тип включен здесь и в Component Type to Include, то исключение имеет приоритет, и событие не будет отправлено.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -207,14 +207,14 @@ azure, log analytics, provenace, reporting
 .S2s-Prov-Task-Id-Filter
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Component ID to Include
+*DISPLAY NAME (Отображаемое наименование):*:: Component ID to Include (Компонентный идентификатор для включения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Comma-separated list of component UUID that will be used to filter the provenance events sent by the reporting task. If no filter is set, all the events are sent. If multiple filters are set, the filters are cumulative.
+*DESCRIPTION (Описание):*:: Список UUID компонентов, разделенных запятыми, которые будут использоваться для фильтрации событий происхождения, отправляемых задачей отчета. Если не установлен фильтр, все события отправляются. Если установлено несколько фильтров, они являются кумулятивными.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -224,14 +224,14 @@ azure, log analytics, provenace, reporting
 .S2s-Prov-Task-Id-Filter-Exclude
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Component ID to Exclude
+*DISPLAY NAME (Отображаемое наименование):*:: Component ID to Exclude (Компонентный идентификатор для исключения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Comma-separated list of component UUID that will be used to exclude the provenance events sent by the reporting task. If no filter is set, all the events are sent. If multiple filters are set, the filters are cumulative. If a component UUID is included in Component ID to Include and excluded here, then the exclusion takes precedence and the event will not be sent.
+*DESCRIPTION (Описание):*:: Список UUID компонентов, которые будут использоваться для исключения событий происхождения, отправляемых задачей. Если фильтр не установлен, все события отправляются. Если установлено несколько фильтров, они суммируются. Если UUID компонента включен здесь и в Component ID to Include, то исключение имеет приоритет, и событие не будет отправлено.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -241,14 +241,14 @@ azure, log analytics, provenace, reporting
 .S2s-Prov-Task-Name-Filter
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Component Name to Include
+*DISPLAY NAME (Отображаемое наименование):*:: Component Name to Include (Компонент для включения по имени)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Regular expression to filter the provenance events based on the component name. Only the events matching the regular expression will be sent. If no filter is set, all the events are sent. If multiple filters are set, the filters are cumulative.
+*DESCRIPTION (Описание):*:: Регулярное выражение для фильтрации событий происхождения на основе имени компонента. Будут отправлены только те события, которые соответствуют регулярному выражению. Если не задан фильтр, будут отправлены все события. Если установлено несколько фильтров, они являются кумулятивными.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -258,14 +258,14 @@ azure, log analytics, provenace, reporting
 .S2s-Prov-Task-Name-Filter-Exclude
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Component Name to Exclude
+*DISPLAY NAME (Отображаемое наименование):*:: Component Name to Exclude (Компонент для исключения по имени)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Regular expression to exclude the provenance events based on the component name. The events matching the regular expression will not be sent. If no filter is set, all the events are sent. If multiple filters are set, the filters are cumulative. If a component name is included in Component Name to Include and excluded here, then the exclusion takes precedence and the event will not be sent.
+*DESCRIPTION (Описание):*:: Регулярное выражение для исключения событий происхождения на основе имени компонента. События, соответствующие регулярному выражению, не будут отправлены. Если фильтр не установлен, отправляются все события. Если установлено несколько фильтров, они суммируются. Если имя компонента включено в Component Name to Include и здесь, то исключение имеет приоритет, и событие не будет отправлено.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -275,23 +275,23 @@ azure, log analytics, provenace, reporting
 .*Start-Position*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Start Position
+*DISPLAY NAME (Отображаемое наименование):*:: Start Position (Начальная позиция)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If the Reporting Task has never been run, or if its state has been reset by a user, specifies where in the stream of Provenance Events the Reporting Task should start
+*DESCRIPTION (Описание):*:: Если отчетная задача никогда не запускалась или ее состояние было сброшено пользователем, указывает, где в потоке событий происхождения должна начинаться отчетная задача
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Beginning of Stream: Start reading provenance Events from the beginning of the stream (the oldest event first) 
+* Beginning of Stream (Начало потока): Начать чтение событий происхождения с начала потока (сначала самые старые события) 
 
-* End of Stream: Start reading provenance Events from the end of the stream, ignoring old events 
+* End of Stream (Конец потока): Начать чтение событий происхождения с конца потока, игнорируя старые события 
 
 
 [horizontal]
@@ -300,14 +300,14 @@ azure, log analytics, provenace, reporting
 .*Include-Null-Values*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Include Null Values
+*DISPLAY NAME (Отображаемое наименование):*:: Include Null Values (Включать ли значения null в записи)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Indicate if null values should be included in records. Default will be false
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -325,14 +325,14 @@ azure, log analytics, provenace, reporting
 .*Platform*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Platform
+*DISPLAY NAME (Отображаемое наименование):*:: Platform (Платформа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The value to use for the platform field in each event.
+*DESCRIPTION (Описание):*:: Значение для использования в поле платформы каждого события.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -342,14 +342,14 @@ azure, log analytics, provenace, reporting
 .*Instance Url*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Instance URL
+*DISPLAY NAME (Отображаемое наименование):*:: Instance URL (URL экземпляра)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The URL of this instance to use in the Content URI of each event.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -359,14 +359,14 @@ azure, log analytics, provenace, reporting
 .*Batch Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Batch Size
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Size (Размер партии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how many records to send in a single batch, at most.
+*DESCRIPTION (Описание):*:: Указывает, сколько записей следует отправлять в одной партии, максимум.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -386,6 +386,17 @@ azure, log analytics, provenace, reporting
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

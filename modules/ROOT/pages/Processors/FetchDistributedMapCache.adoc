@@ -1,13 +1,13 @@
 = FetchDistributedMapCache 2.2.0
 
-Computes cache key(s) from FlowFile attributes, for each incoming FlowFile, and fetches the value(s) from the Distributed Map Cache associated with each key. If configured without a destination attribute, the incoming FlowFile's content is replaced with the binary data received by the Distributed Map Cache. If there is no value stored under that key then the flow file will be routed to 'not-found'. Note that the processor will always attempt to read the entire cached value into memory before placing it in it's destination. This could be potentially problematic if the cached value is very large.
+Вычисляет ключ(и) кэша из атрибутов FlowFile, для каждого входящего FlowFile, и получает значение(я) из распределенного кэша карт (Distributed Map Cache), связанного с каждым ключом. Если не настроен на запись атрибута назначения, содержимое входящего FlowFile заменяется двоичными данными, полученными из распределенного кэша карт. Если под этим ключом ничего не хранится, поток будет направлен в 'not-found'. Обратите внимание, что процессор всегда пытается прочитать всё кэшированное значение в память перед его размещением в назначении. Это может быть потенциально проблематично, если кэшированное значение очень велико.
 
 [horizontal]
 *Tags* (Ключевые слова):
 cache, distributed, fetch, map
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Cache Entry Identifier*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Cache Entry Identifier
+*DISPLAY NAME (Отображаемое наименование):*:: Cache Entry Identifier (Идентификатор записи кэша)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A comma-delimited list of FlowFile attributes, or the results of Attribute Expression Language statements, which will be evaluated against a FlowFile in order to determine the value(s) used to identify duplicates; it is these values that are cached. NOTE: Only a single Cache Entry Identifier is allowed unless Put Cache Value In Attribute is specified. Multiple cache lookups are only supported when the destination is a set of attributes (see the documentation for 'Put Cache Value In Attribute' for more details including naming convention.
+*DESCRIPTION (Описание):*:: Список атрибутов FlowFile, разделенных запятыми, или результаты утверждений языка выражений Attribute Expression Language, которые будут оцениваться по отношению к FlowFile для определения значения (значений), используемых для идентификации дубликатов; именно эти значения кэшируются. Примечание: Допускается только один Идентификатор записи кэша, если не указано 'Put Cache Value In Attribute'. Множественный поиск в кэше поддерживается только при назначении набора атрибутов (см. документацию по 'Put Cache Value In Attribute' для более подробной информации, включая соглашение о наименовании).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Distributed Cache Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Distributed Cache Service
+*DISPLAY NAME (Отображаемое наименование):*:: Distributed Cache Service (Распределенный кэш-сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Controller Service that is used to get the cached values.
+*DESCRIPTION (Описание):*:: Сервис контроллера, используемый для получения кэшированных значений.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .Put Cache Value In Attribute
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Put Cache Value In Attribute
+*DISPLAY NAME (Отображаемое наименование):*:: Put Cache Value In Attribute (Поместить значение кэша в атрибут)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If set, the cache value received will be put into an attribute of the FlowFile instead of a the content of theFlowFile. The attribute key to put to is determined by evaluating value of this property. If multiple Cache Entry Identifiers are selected, multiple attributes will be written, using the evaluated value of this property, appended by a period (.) and the name of the cache entry identifier.
+*DESCRIPTION (Описание):*:: Если установлено, полученное значение кэша будет помещено в атрибут потока файлов вместо содержимого FlowFile. Ключ атрибута, куда будет помещено значение, определяется оценкой значения этого свойства. Если выбраны несколько идентификаторов записей кэша, будут записаны несколько атрибутов, используя оцененное значение этого свойства, с добавлением точки (.) и названием идентификатора записи кэша.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .Max Length To Put In Attribute
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Length To Put In Attribute
+*DISPLAY NAME (Отображаемое наименование):*:: Максимальная длина для вставки в атрибут (Max Length To Put In Attribute)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If routing the cache value to an attribute of the FlowFile (by setting the "Put Cache Value in attribute" property), the number of characters put to the attribute value will be at most this amount. This is important because attributes are held in memory and large attributes will quickly cause out of memory issues. If the output goes longer than this value, it will be truncated to fit. Consider making this smaller if able.
+*DESCRIPTION (Описание):*:: Если маршрутизация значения кэша в атрибут потока (установка свойства "Put Cache Value in attribute"), количество символов, помещаемых в значение атрибута, будет не более этого количества. Это важно, так как атрибуты хранятся в памяти, и большие атрибуты быстро вызовут проблемы с переполнением памяти. Если выходные данные превышают это значение, они будут усечены для вписывания.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ REQUIRED (Обязательно)
 .Character Set
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Символьный набор)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Character Set in which the cached value is encoded. This will only be used when routing to an attribute.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -119,13 +119,13 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`failure`
-|If unable to communicate with the cache or if the cache entry is evaluated to be blank, the FlowFile will be penalized and routed to this relationship
+|Если не удается взаимодействовать с кэшем или если кэш входит оценивается как пустой, FlowFile будет наказан и направлен в это отношение
 
 |`success`
-|If the cache was successfully communicated with it will be routed to this relationship
+|Если кэш был успешно взаимодействован, он будет направлен в это отношение
 
 |`not-found`
-|If a FlowFile's Cache Entry Identifier was not found in the cache, it will be routed to this relationship
+|Если идентификатор записи FlowFile в кэше не найден в кэше, он будет направлен в это отношение
 
 |===
 
@@ -140,7 +140,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`user-defined`
-|If the 'Put Cache Value In Attribute' property is set then whatever it is set to will become the attribute key and the value would be whatever the response was from the Distributed Map Cache. If multiple cache entry identifiers are selected, multiple attributes will be written, using the evaluated value of this property, appended by a period (.) and the name of the cache entry identifier. For example, if the Cache Entry Identifier property is set to 'id,name', and the user-defined property is named 'fetched', then two attributes will be written, fetched.id and fetched.name, containing their respective values.
+|Если свойство 'Put Cache Value In Attribute' установлено, то что бы это ни было станет ключом атрибута и значение будет ответом из распределенного кэша карт. Если выбраны несколько идентификаторов записи кэша, будут записаны несколько атрибутов, используя оцененное значение этого свойства, со значением, разделенным точкой (.) и именем идентификатора записи кэша. Например, если свойство 'Cache Entry Identifier' установлено в 'id,name', а свойство user-defined называется 'fetched', будут записаны два атрибута: fetched.id и fetched.name, содержащие свои значения.
 
 |===
 

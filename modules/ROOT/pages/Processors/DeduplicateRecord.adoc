@@ -1,13 +1,13 @@
 = DeduplicateRecord 2.2.0
 
-This processor de-duplicates individual records within a record set. It can operate on a per-file basis using an in-memory hashset or bloom filter. When configured with a distributed map cache, it de-duplicates records across multiple files.
+Этот процессор удаляет дубликаты записей в наборе записей. Он может работать по одному файлу, используя хеш-множество или фильтр Блума в памяти. При настройке с распределенным кэшем карт он удаляет дубликаты записей между несколькими файлами.
 
 [horizontal]
 *Tags* (Ключевые слова):
 change, dedupe, distinct, dupe, duplicate, filter, hash, modify, record, replace, text, unique, update
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,23 +20,23 @@ REQUIRED (Обязательно)
 .*Deduplication-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Deduplication Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Deduplication Strategy (Стратегия для обнаружения и направления дубликатов записей)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The strategy to use for detecting and routing duplicate records. The option for detecting duplicates across a single FlowFile operates in-memory, whereas detection spanning multiple FlowFiles utilises a distributed map cache.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Single File
+* Single File (Один файл)
 
-* Multiple Files
+* Multiple Files (Несколько файлов)
 
 
 [horizontal]
@@ -45,14 +45,14 @@ REQUIRED (Обязательно)
 .Distributed-Map-Cache
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Distributed Map Cache client
+*DISPLAY NAME (Отображаемое наименование):*:: Distributed Map Cache client (Распределенный кэш карты клиент)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: This property is required when the deduplication strategy is set to 'multiple files.' The map cache will for each record, atomically check whether the cache key exists and if not, set it.
+*DESCRIPTION (Описание):*:: Это свойство обязательно, если стратегия дедупликации установлена в 'multiple files'. Для каждого записи карта будет атомарно проверять, существует ли кэш-ключ и если нет, то установить его.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -62,14 +62,14 @@ REQUIRED (Обязательно)
 .Cache-Identifier
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Cache Identifier
+*DISPLAY NAME (Отображаемое наименование):*:: Cache Identifier (Кэш идентификатор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: An optional expression language field that overrides the record's computed cache key. This field has an additional attribute available: ${record.hash.value}, which contains the cache key derived from dynamic properties (if set) or record fields.
+*DESCRIPTION (Описание):*:: Необязательное выражение языка, которое переопределяет ключ кэша записи. Это поле имеет доступное дополнительное свойство: ${record.hash.value}, которое содержит ключ кэша, полученный из динамических свойств (если установлено) или полей записи.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -79,14 +79,14 @@ REQUIRED (Обязательно)
 .*Put-Cache-Identifier*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Cache the Entry Identifier
+*DISPLAY NAME (Отображаемое наименование):*:: Cache the Entry Identifier (Кэшировать идентификатор записи)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: For each record, check whether the cache identifier exists in the distributed map cache. If it doesn't exist and this property is true, put the identifier to the cache.
+*DESCRIPTION (Описание):*:: Для каждой записи проверьте, существует ли в распределенном кэше карты идентификатор кэша. Если он не существует и это свойство истинно, добавьте идентификатор в кэш.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -104,14 +104,14 @@ REQUIRED (Обязательно)
 .*Record-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Записыватель данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for reading incoming data
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера для использования при чтении входящих данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -121,14 +121,14 @@ REQUIRED (Обязательно)
 .*Record-Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для записи записей
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -138,14 +138,14 @@ REQUIRED (Обязательно)
 .*Include-Zero-Record-Flowfiles*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Include Zero Record FlowFiles
+*DISPLAY NAME (Отображаемое наименование):*:: Include Zero Record FlowFiles (Включить нулевые записи FlowFile)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If a FlowFile sent to either the duplicate or non-duplicate relationships contains no records, a value of `false` in this property causes the FlowFile to be dropped. Otherwise, the empty FlowFile is emitted.
+*DESCRIPTION (Описание):*:: Если поток файлов, отправленный в какую-либо из связей дубликата или не дубликата, не содержит записей, значение `false` в этом свойстве приведет к отбрасыванию FlowFile. В противном случае пустой поток файлов будет выпущен.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -163,25 +163,25 @@ REQUIRED (Обязательно)
 .*Record-Hashing-Algorithm*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Hashing Algorithm
+*DISPLAY NAME (Отображаемое наименование):*:: Record Hashing Algorithm (Запись Алгоритм Хеширования)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The algorithm used to hash the cache key.
+*DESCRIPTION (Описание):*:: Алгоритм, используемый для хеширования кэш-ключа.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* None: Do not use a hashing algorithm. The value of resolved RecordPaths will be combined with a delimiter (~) to form the unique cache key. This may use significantly more storage depending on the size and shape or your data. 
+* None (Не использовать алгоритм хеширования): Не используйте алгоритм хеширования. Значение разрешенных RecordPaths будет объединено с разделителем (~) для формирования уникального кэш-ключа. Это может значительно увеличить потребление хранилища в зависимости от размера и структуры ваших данных. 
 
-* SHA-256: SHA-256 cryptographic hashing algorithm. 
+* SHA-256 (Алгоритм хеширования SHA-256): Криптографический алгоритм хеширования SHA-256. 
 
-* SHA-512: SHA-512 cryptographic hashing algorithm. 
+* SHA-512 (Алгоритм хеширования SHA-512): Криптографический алгоритм хеширования SHA-512. 
 
 
 [horizontal]
@@ -190,23 +190,23 @@ REQUIRED (Обязательно)
 .*Filter-Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Filter Type
+*DISPLAY NAME (Отображаемое наименование):*:: Filter Type (Тип фильтра)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The filter used to determine whether a record has been seen before based on the matching RecordPath criteria. If hash set is selected, a Java HashSet object will be used to deduplicate all encountered records. If the bloom filter option is selected, a bloom filter will be used. The bloom filter option is less memory intensive, but has a chance of having false positives.
+*DESCRIPTION (Описание):*:: Фильтр, используемый для определения, была ли записи ранее видена на основе критериев сопоставления RecordPath. Если выбран хэш-сет, будет использоваться объект Java HashSet для дедупликации всех встреченных записей. Если выбран параметр блум-фильтр, будет использован блум-фильтр. Параметр блум-фильтр менее ресурсоемкий по памяти, но может давать ложные срабатывания.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* HashSet: Exactly matches records seen before with 100% accuracy at the expense of more storage usage. Stores the filter data in a single cache entry in the distributed cache, and is loaded entirely into memory during duplicate detection. This filter is preferred for small to medium data sets and offers high performance, being loaded into memory when this processor is running. 
+* HashSet (Хэш-сет): Точно совпадает с ранее встреченными записями с 100% точностью, за счет большего использования памяти. Хранит данные фильтра в одной записи кэша, распределенного кэша, и полностью загружается в память во время обнаружения дубликатов. Этот фильтр предпочтителен для небольших до средних наборов данных и предлагает высокую производительность, загружаясь в память при работе этого процессора. 
 
-* BloomFilter: Space-efficient data structure ideal for large data sets using probability to determine if a record was seen previously. False positive matches are possible, but false negatives are not – in other words, a query returns either "possibly in the set" or "definitely not in the set". You should use this option if the FlowFile content is large and you can tolerate some duplication in the data. Uses constant storage space regardless of the record set size. 
+* BloomFilter (Блум-фильтр): Эффективно использует пространство для структуры данных, идеальной для больших наборов данных, использующих вероятность для определения, была ли записи ранее видена. Возможны ложные срабатывания (false positives), но нет ложных отрицаний – другими словами, запрос возвращает либо "возможно в множестве", или "определённо не в множестве". Следует использовать этот параметр, если содержимое FlowFile большое и можно допустить дублирование данных. Использует постоянное пространство хранения вне зависимости от размера набора записей. 
 
 
 [horizontal]
@@ -215,14 +215,14 @@ REQUIRED (Обязательно)
 .*Filter-Capacity-Hint*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Filter Capacity Hint
+*DISPLAY NAME (Отображаемое наименование):*:: Filter Capacity Hint (Оценка общего количества уникальных записей для обработки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: An estimation of the total number of unique records to be processed. The more accurate this number is will lead to fewer false negatives on a BloomFilter.
+*DESCRIPTION (Описание):*:: Оценка общего числа уникальных записей, которые будут обработаны. Чем точнее это число, тем меньше ложных отрицаний можно ожидать на BloomFilter.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -232,14 +232,14 @@ REQUIRED (Обязательно)
 .Bloom-Filter-Certainty
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Bloom Filter Certainty
+*DISPLAY NAME (Отображаемое наименование):*:: Bloom Filter Certainty (Определенность Блума)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The desired false positive probability when using the BloomFilter type. Using a value of .05 for example, guarantees a five-percent probability that the result is a false positive. The closer to 1 this value is set, the more precise the result at the expense of more storage space utilization.
+*DESCRIPTION (Описание):*:: Желаемая вероятность ложных срабатываний при использовании типа BloomFilter. Используя значение .05, например, гарантируется пятипроцентная вероятность того, что результат будет ложным срабатыванием. Чем ближе к 1 установлено это значение, тем более точно результат при увеличении использования пространства для хранения.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -254,9 +254,9 @@ REQUIRED (Обязательно)
 |===
 |Наименование |Описание |Значение |Ограничения языка выражений
 
-|`Name of the property.`
-|A record's cache key is generated by combining the name of each dynamic property with its evaluated record value (as specified by the corresponding RecordPath).
-|`A valid RecordPath to the record field to be included in the cache key used for deduplication.`
+|`Название свойства.`
+|Ключ кэша записи генерируется путем объединения имени каждого динамического свойства с его оцененным значением (в соответствии с указанным RecordPath).
+|`Допустимый RecordPath к полю записи, которое будет включено в ключ кэша, используемый для удаления дубликатов.`
 |
 
 |===
@@ -273,10 +273,10 @@ REQUIRED (Обязательно)
 
 
 |MEMORY
-|The HashSet filter type will grow memory space proportionate to the number of unique records processed. The BloomFilter type will use constant memory regardless of the number of records processed.
+|Тип HashSet фильтра будет расти в памяти пропорционально количеству уникальных записей, обработанных процессором. Тип BloomFilter будет использовать постоянный объем памяти независимо от количества обработанных записей.
 
 |CPU
-|If a more advanced hash algorithm is chosen, the amount of time required to hash any particular record could increase substantially.
+|Если выбран более сложный алгоритм хеширования, время, необходимое для хеширования любой конкретной записи, может значительно увеличиться.
 
 |===
 
@@ -291,16 +291,16 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`non-duplicate`
-|Records not found in the cache are routed to this relationship.
+|Записи, не найденные в кэше, направляются по этому отношению.
 
 |`duplicate`
-|Records detected as duplicates are routed to this relationship.
+|Записи, признанные дубликатами, направляются по этому отношению.
 
 |`failure`
-|If unable to communicate with the cache, the FlowFile will be penalized and routed to this relationship
+|Если не удается взаимодействовать с кэшем, FlowFile будет оштрафован и направлен по этому отношению
 
 |`original`
-|The original input FlowFile is sent to this relationship unless a fatal error occurs.
+|Исходный входной FlowFile отправляется по этому отношению, если не возникнет смертельная ошибка.
 
 |===
 
@@ -315,7 +315,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`record.count`
-|Number of records written to the destination FlowFile.
+|Количество записей, записанных в целевой FlowFile.
 
 |===
 

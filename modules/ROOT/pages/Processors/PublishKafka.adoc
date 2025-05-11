@@ -1,13 +1,13 @@
 = PublishKafka 2.2.0
 
-Sends the contents of a FlowFile as either a message or as individual records to Apache Kafka using the Kafka Producer API. The messages to send may be individual FlowFiles, may be delimited using a user-specified delimiter (such as a new-line), or may be record-oriented data that can be read by the configured Record Reader. The complementary NiFi processor for fetching messages is ConsumeKafka. To produce a kafka tombstone message while using PublishStrategy.USE_WRAPPER, simply set the value of a record to 'null'.
+Отправляет содержимое FlowFile в Apache Kafka, используя API Producer Kafka. Сообщения для отправки могут быть отдельными FlowFile, разделены с помощью пользовательского разделителя (например, новая строка), или представлять собой ориентированные на запись данные, которые могут бть прочитаны конфигурируемым Record Reader. Соответствующий процессор для получения сообщений в NiFi — ConsumeKafka. Для отправки Kafka tombstone-сообщения при использовании PublishStrategy.USE_WRAPPER, просто установите значение записи в 'null'.
 
 [horizontal]
 *Tags* (Ключевые слова):
 Apache, Kafka, Message, PubSub, Put, Record, Send, avro, csv, json, logs
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Kafka Connection Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Kafka Connection Service
+*DISPLAY NAME (Отображаемое наименование):*:: Kafka Connection Service (Kafka Connection Service)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Provides connections to Kafka Broker for publishing Kafka Records
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Topic Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Topic Name
+*DISPLAY NAME (Отображаемое наименование):*:: Topic Name (Тема)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Name of the Kafka Topic to which the Processor publishes Kafka Records
+*DESCRIPTION (Описание):*:: Имя Kafka топика, в который процессор публикует записи Kafka
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,23 +54,23 @@ REQUIRED (Обязательно)
 .*Failure Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Failure Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Failure Strategy (Стратегия сбоя)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies how the processor handles a FlowFile if it is unable to publish the data to Kafka
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Route to Failure: When unable to publish records to Kafka, the FlowFile will be routed to the failure relationship. 
+* Route to Failure (Маршрутизация к сбою): When unable to publish records to Kafka, the FlowFile will be routed to the failure relationship. 
 
-* Rollback: When unable to publish records to Kafka, the FlowFile will be placed back on the queue so that it will be retried. For flows where FlowFile ordering is important, this strategy can be used along with ensuring that the each processor uses only a single Concurrent Task. 
+* Rollback (Откат): When unable to publish records to Kafka, the FlowFile will be placed back on the queue so that it will be retried. For flows where FlowFile ordering is important, this strategy can be used along with ensuring that the each processor uses only a single Concurrent Task. 
 
 
 [horizontal]
@@ -79,25 +79,25 @@ REQUIRED (Обязательно)
 .*Acks*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Delivery Guarantee
+*DISPLAY NAME (Отображаемое наименование):*:: Гарантия доставки (Delivery Guarantee)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the requirement for guaranteeing that a message is sent to Kafka. Corresponds to Kafka Client acks property.
+*DESCRIPTION (Описание):*:: Указывает на необходимость обеспечения гарантии того, что сообщение отправлено в Kafka. Соответствует свойству клиента acks Kafka.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Guarantee Replicated Delivery: FlowFile will be routed to failure unless the message is replicated to the appropriate number of Kafka Nodes according to the Topic configuration 
+* Гарантия реплицированной доставки (Guarantee Replicated Delivery): FlowFile будет направлен в сбое, если сообщение не будет реплицировано на необходимое количество узлов Kafka в соответствии с конфигурацией топика. 
 
-* Guarantee Single Node Delivery: FlowFile will be routed to success if the message is received by a single Kafka node, whether or not it is replicated. This is faster than <Guarantee Replicated Delivery> but can result in data loss if a Kafka node crashes 
+* Гарантия одноузловой доставки (Guarantee Single Node Delivery): FlowFile будет направлен в успешный результат, если сообщение получено хотя бы одним узлом Kafka, независимо от того, реплицировано ли оно. Это быстрее, чем <Гарантия реплицированной доставки>, но может привести к потере данных, если узел Kafka сломается. 
 
-* Best Effort: FlowFile will be routed to success after successfully sending the content to a Kafka node, without waiting for any acknowledgment from the node at all. This provides the best performance but may result in data loss. 
+* Лучшие усилия (Best Effort): FlowFile будет направлен в успешный результат после успешной отправки содержимого на узел Kafka, без ожидания какого-либо подтверждения от узла. Это обеспечивает лучшую производительность, но может привести к потере данных. 
 
 
 [horizontal]
@@ -106,14 +106,14 @@ REQUIRED (Обязательно)
 .*Compression.Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Compression Type
+*DISPLAY NAME (Отображаемое наименование):*:: Compression Type (Стратегия сжатия)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the compression strategy for records sent to Kafka. Corresponds to Kafka Client compression.type property.
+*DESCRIPTION (Описание):*:: Указывает стратегию сжатия для записей, отправляемых в Kafka. Соответствует свойству compression.type клиента Kafka.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -135,14 +135,14 @@ REQUIRED (Обязательно)
 .*Max.Request.Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Request Size
+*DISPLAY NAME (Отображаемое наименование):*:: Max Request Size (Максимальный размер запроса)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The maximum size of a request in bytes. Corresponds to Kafka Client max.request.size property.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -152,14 +152,14 @@ REQUIRED (Обязательно)
 .*Transactions Enabled*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Transactions Enabled
+*DISPLAY NAME (Отображаемое наименование):*:: Transactions Enabled (Поддержка транзакций)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether to provide transactional guarantees when communicating with Kafka. If there is a problem sending data to Kafka, and this property is set to false, then the messages that have already been sent to Kafka will continue on and be delivered to consumers. If this is set to true, then the Kafka transaction will be rolled back so that those messages are not available to consumers. Setting this to true requires that the [Delivery Guarantee] property be set to [Guarantee Replicated Delivery.]
+*DESCRIPTION (Описание):*:: Указывает, следует ли обеспечивать гарантии транзакций при взаимодействии с Kafka. Если возникает проблема при отправке данных в Kafka, и это свойство установлено в false, то сообщения, уже отправленные в Kafka, продолжат доставку потребителюм. Если оно установлено в true, транзакция в Kafka будет отменена, что приведет к недоступности этих сообщений для потребителей. Установка этого значения в true требует, чтобы свойство [Delivery Guarantee] было установлено на [Guarantee Replicated Delivery.]
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -177,14 +177,14 @@ REQUIRED (Обязательно)
 .Transactional Id Prefix
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Transactional ID Prefix
+*DISPLAY NAME (Отображаемое наименование):*:: Transactional ID Prefix (Префикс идентификатора транзакции)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the KafkaProducer config transactional.id will be a generated UUID and will be prefixed with the configured string.
+*DESCRIPTION (Описание):*:: Указывает конфигурационный параметр KafkaProducer transactional.id, который будет сгенерирован в виде UUID и будет иметь префикс, заданный в настройках.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -194,25 +194,25 @@ REQUIRED (Обязательно)
 .*Partitioner.Class*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Partitioner Class
+*DISPLAY NAME (Отображаемое наименование):*:: Partitioner Class (Класс Partitioner)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies which class to use to compute a partition id for a message. Corresponds to Kafka Client partitioner.class property.
+*DESCRIPTION (Описание):*:: Указывает, какой класс использовать для вычисления идентификатора раздела сообщения. Соответствует свойству Kafka Client partitioner.class.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* RoundRobinPartitioner: Messages will be assigned partitions in a round-robin fashion, sending the first message to Partition 1, the next Partition to Partition 2, and so on, wrapping as necessary. 
+* RoundRobinPartitioner (RoundRobinPartitioner): Сообщения будут назначаться разделам в циклической последовательности, отправляя первое сообщение в раздел 1, следующее в раздел 2 и так далее, заворачивая при необходимости. 
 
-* DefaultPartitioner: The default partitioning strategy will choose the sticky partition that changes when the batch is full (See KIP-480 for details about sticky partitioning). 
+* DefaultPartitioner (По умолчанию Partitioner): Стратегия разделения по умолчанию выберет липкий раздел, который меняется, когда пакет заполнен (см. KIP-480 для более подробной информации о липком разделении). 
 
-* Expression Language Partitioner: Interprets the <Partition> property as Expression Language that will be evaluated against each FlowFile. This Expression will be evaluated once against the FlowFile, so all Records in a given FlowFile will go to the same partition. 
+* Expression Language Partitioner (Разделить по выражению): Интерпретирует свойство <Partition> как выражение языка, которое будет оцениваться для каждого FlowFile. Это выражение будет оценено только один раз против FlowFile, поэтому все записи в данном FlowFile отправятся в один и тот же раздел. 
 
 
 [horizontal]
@@ -221,14 +221,14 @@ REQUIRED (Обязательно)
 .Partition
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Partition
+*DISPLAY NAME (Отображаемое наименование):*:: Partition (Раздел)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Kafka Partition destination for Records.
+*DESCRIPTION (Описание):*:: Указывает назначение Kafka Partition для записей.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -238,14 +238,14 @@ REQUIRED (Обязательно)
 .Message Demarcator
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Message Demarcator
+*DISPLAY NAME (Отображаемое наименование):*:: Message Demarcator (Маркер сообщения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the string (interpreted as UTF-8) to use for demarcating multiple messages within a single FlowFile. If not specified, the entire content of the FlowFile will be used as a single message. If specified, the contents of the FlowFile will be split on this delimiter and each section sent as a separate Kafka message. To enter special character such as 'new line' use CTRL+Enter or Shift+Enter, depending on your OS.
+*DESCRIPTION (Описание):*:: Указывает строку (интерпретируемую как UTF-8) для разделения нескольких сообщений в одном FlowFile. Если не указано, весь контент FlowFile будет использоваться как одно сообщение. Если указано, содержимое FlowFile будет разделено по этому разделителю, и каждая часть будет отправлена как отдельное Kafka-сообщение. Для ввода специальных символов, таких как 'новая строка', используйте CTRL+Enter или Shift+Enter в зависимости от вашей операционной системы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -255,14 +255,14 @@ REQUIRED (Обязательно)
 .Record Reader
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Записыватель записей)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Record Reader to use for incoming FlowFiles
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -272,14 +272,14 @@ REQUIRED (Обязательно)
 .Record Writer
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Record Writer to use in order to serialize the data before sending to Kafka
+*DESCRIPTION (Описание):*:: Используйте Record Writer для сериализации данных перед отправкой в Kafka
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -289,23 +289,23 @@ REQUIRED (Обязательно)
 .*Publish Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Publish Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Publish Strategy (Стратегия публикации)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The format used to publish the incoming FlowFile record to Kafka.
+*DESCRIPTION (Описание):*:: Формат, используемый для публикации входящего записи FlowFile в Kafka.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Use Content as Record Value: Write only the FlowFile content to the Kafka Record value. 
+* Use Content as Record Value (Использовать содержимое как значение записи): Записывать только содержимое FlowFile в значение Kafka записи. 
 
-* Use Wrapper: Write the Kafka Record key, value, headers, and metadata into the Kafka Record value.  (See processor usage for more information.) 
+* Use Wrapper (Использовать обертку): Записать ключ, значение, заголовки и метаданные в Kafka Record value.  (См. использование процессора для получения дополнительной информации.) 
 
 
 [horizontal]
@@ -314,14 +314,14 @@ REQUIRED (Обязательно)
 .Message Key Field
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Message Key Field
+*DISPLAY NAME (Отображаемое наименование):*:: Message Key Field (Сообщение Ключевое Поле)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of a field in the Input Records that should be used as the Key for the Kafka message.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -331,14 +331,14 @@ REQUIRED (Обязательно)
 .Flowfile Attribute Header Pattern
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: FlowFile Attribute Header Pattern
+*DISPLAY NAME (Отображаемое наименование):*:: FlowFile Attribute Header Pattern (Шаблон заголовка атрибута FlowFile)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A Regular Expression that is matched against all FlowFile attribute names. Any attribute whose name matches the pattern will be added to the Kafka messages as a Header. If not specified, no FlowFile attributes will be added as headers.
+*DESCRIPTION (Описание):*:: Регулярное выражение, которое сопоставляется со всеми именами атрибутов FlowFile. Любой атрибут, имя которого соответствует шаблону, будет добавлен в сообщения Kafka в качестве заголовка. Если не указано, никакие атрибуты FlowFile не будут добавляться как заголовки.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -348,14 +348,14 @@ REQUIRED (Обязательно)
 .*Header Encoding*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Header Encoding
+*DISPLAY NAME (Отображаемое наименование):*:: Header Encoding (Кодировка заголовка)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: For any attribute that is added as a Kafka Record Header, this property indicates the Character Encoding to use for serializing the headers.
+*DESCRIPTION (Описание):*:: Для любого атрибута, добавленного в качестве заголовка Kafka Record, это свойство указывает кодировку символов для сериализации заголовков.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -365,14 +365,14 @@ REQUIRED (Обязательно)
 .Kafka Key
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Kafka Key
+*DISPLAY NAME (Отображаемое наименование):*:: Kafka Key (Ключ)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Key to use for the Message. If not specified, the FlowFile attribute 'kafka.key' is used as the message key, if it is present.Beware that setting Kafka key and demarcating at the same time may potentially lead to many Kafka messages with the same key.Normally this is not a problem as Kafka does not enforce or assume message and key uniqueness. Still, setting the demarcator and Kafka key at the same time poses a risk of data loss on Kafka. During a topic compaction on Kafka, messages will be deduplicated based on this key.
+*DESCRIPTION (Описание):*:: Ключ, который следует использовать для сообщения. Если не указан, в качестве ключа сообщения будет использовано значение атрибута FlowFile 'kafka.key', если оно присутствует. Обратите внимание, что установка ключа Kafka и демаркирование одновременно может потенциально привести к множеству сообщений Kafka с одним и тем же ключом. Как правило, это не является проблемой, так как Kafka не принудительно контролирует или предполагает уникальность сообщений и ключей. Тем не менее, установка демаркатора и ключа Kafka одновременно представляет риск потери данных при компакции темы на Kafka. Во время компакции темы на Kafka сообщения будут устраняться на основе этого ключа.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -382,25 +382,25 @@ REQUIRED (Обязательно)
 .*Kafka Key Attribute Encoding*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Kafka Key Attribute Encoding
+*DISPLAY NAME (Отображаемое наименование):*:: Kafka Key Attribute Encoding (Кодирование атрибута ключа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: FlowFiles that are emitted have an attribute named 'kafka.key'. This property dictates how the value of the attribute should be encoded.
+*DESCRIPTION (Описание):*:: FlowFiles, которые испускаются, имеют атрибут с именем 'kafka.key'. Это свойство определяет, как значение атрибута должно быть закодировано.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* UTF-8 Encoded: The key is interpreted as a UTF-8 Encoded string. 
+* UTF-8 Encoded (Кодированный в UTF-8): Ключ интерпретируется как строка, закодированная в UTF-8. 
 
-* Hex Encoded: The key is interpreted as arbitrary binary data and is encoded using hexadecimal characters with uppercase letters 
+* Hex Encoded (Шестнадцатеричное кодирование): Ключ интерпретируется как произвольные двоичные данные и кодируется с использованием шестнадцатеричных символов с заглавными буквами. 
 
-* Do Not Add Key as Attribute: The key will not be added as an Attribute 
+* Do Not Add Key as Attribute (Не добавлять ключ как атрибут): Ключ не будет добавлен в качестве атрибута. 
 
 
 [horizontal]
@@ -409,14 +409,14 @@ REQUIRED (Обязательно)
 .Record Key Writer
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Key Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Key Writer (Записыватель ключа записи)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Record Key Writer to use for outgoing FlowFiles
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -426,23 +426,23 @@ REQUIRED (Обязательно)
 .*Record Metadata Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Metadata Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Record Metadata Strategy (Стратегия метаданных записи)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether the Record's metadata (topic and partition) should come from the Record's metadata field or if it should come from the configured Topic Name and Partition / Partitioner class properties
+*DESCRIPTION (Описание):*:: Указывает, должны ли метаданные записи (тема и раздел) поступать из поля метаданных записи или если они должны определяться на основе конфигурируемых свойств 'Topic Name' и 'Partition / Partitioner class'
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Metadata From Record: The Kafka Record's Topic and Partition will be determined by looking at the /metadata/topic and /metadata/partition fields of the Record, respectively. If these fields are invalid or not present, the Topic Name and Partition/Partitioner class properties of the processor will be considered. 
+* Metadata From Record (Метаданные из записи): Тема и раздел Kafka записи будут определены путем просмотра полей /metadata/topic и /metadata/partition записи соответственно. Если эти поля недопустимы или отсутствуют, будут рассмотрены свойства 'Topic Name' и 'Partition / Partitioner class' процессора. 
 
-* Use Configured Values: The Kafka Record's Topic will be determined using the 'Topic Name' processor property. The partition will be determined using the 'Partition' and 'Partitioner class' properties. 
+* Use Configured Values (Использовать настроенные значения): Тема записи Kafka будет определена с использованием свойства 'Topic Name' процессора. Раздел будет определен с использованием свойств 'Partition' и 'Partitioner class'. 
 
 
 [horizontal]
@@ -465,10 +465,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|FlowFiles for which all content was sent to Kafka.
+|FlowFiles для которых все содержимое было отправлено в Kafka.
 
 |`failure`
-|Any FlowFile that cannot be sent to Kafka will be routed to this Relationship
+|Любой FlowFile, который не может быть отправлен в Kafka, будет направлен в это отношение
 
 |===
 
@@ -481,7 +481,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`kafka.tombstone`
-|If this attribute is set to 'true', if the processor is not configured with a demarcator and if the FlowFile's content is null, then a tombstone message with zero bytes will be sent to Kafka.
+|Если это атрибут установлен в 'true', если процессор не настроен с разделителем и если содержимое FlowFile равно null, то будет отправлено tombstone-сообщение с нулевыми байтами в Kafka.
 
 |===
 
@@ -494,7 +494,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`msg.count`
-|The number of messages that were sent to Kafka for this FlowFile. This attribute is added only to FlowFiles that are routed to success.
+|Количество сообщений, которые были отправлены в Kafka для этого FlowFile. Этот атрибут добавляется только к FlowFiles, направленным в success.
 
 |===
 

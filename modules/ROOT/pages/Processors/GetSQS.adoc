@@ -1,13 +1,13 @@
 = GetSQS 2.2.0
 
-Fetches messages from an Amazon Simple Queuing Service Queue
+Извлекает сообщения из очереди Amazon Simple Queuing Service
 
 [horizontal]
 *Tags* (Ключевые слова):
 AWS, Amazon, Fetch, Get, Poll, Queue, SQS
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ FORBIDDEN (Обязательно)
 .*Queue Url*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Queue URL
+*DISPLAY NAME (Отображаемое наименование):*:: Queue URL (URL очереди для получения сообщений)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The URL of the queue to get messages from
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,109 +37,109 @@ FORBIDDEN (Обязательно)
 .*Region*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Region
+*DISPLAY NAME (Отображаемое наименование):*:: Region (Регион)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: 
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* AWS GovCloud (US-East): AWS Region Code : us-gov-east-1 
+* AWS GovCloud (US-East) (AWS Реестр правительственных облаков (Восток США)): AWS Region Code : us-gov-east-1 
 
-* AWS GovCloud (US-West): AWS Region Code : us-gov-west-1 
+* AWS GovCloud (US-West) (AWS Реестр правительственных облаков (Запад США)): AWS Region Code : us-gov-west-1 
 
-* Africa (Cape Town): AWS Region Code : af-south-1 
+* Africa (Cape Town) (Африка (Кап Стивенс)): AWS Region Code : af-south-1 
 
-* Asia Pacific (Hong Kong): AWS Region Code : ap-east-1 
+* Asia Pacific (Hong Kong) (Азиатско-Тихоокеанский регион (Гонконг)): AWS Region Code : ap-east-1 
 
-* Asia Pacific (Hyderabad): AWS Region Code : ap-south-2 
+* Asia Pacific (Hyderabad) (Азиатско-Тихоокеанский регион (Хайдерабад)): AWS Region Code : ap-south-2 
 
-* Asia Pacific (Jakarta): AWS Region Code : ap-southeast-3 
+* Asia Pacific (Jakarta) (Азиатско-Тихоокеанский регион (Джакарта)): AWS Region Code : ap-southeast-3 
 
-* Asia Pacific (Malaysia): AWS Region Code : ap-southeast-5 
+* Asia Pacific (Malaysia) (Азиатско-Тихоокеанский регион (Малайзия)): AWS Region Code : ap-southeast-5 
 
-* Asia Pacific (Melbourne): AWS Region Code : ap-southeast-4 
+* Asia Pacific (Melbourne) (Азиатско-Тихоокеанский регион (Мельбурн)): AWS Region Code : ap-southeast-4 
 
-* Asia Pacific (Mumbai): AWS Region Code : ap-south-1 
+* Asia Pacific (Mumbai) (Азиатско-Тихоокеанский регион (Мумбаи)): AWS Region Code : ap-south-1 
 
-* Asia Pacific (Osaka): AWS Region Code : ap-northeast-3 
+* Asia Pacific (Osaka) (Азиатско-Тихоокеанский регион (Осака)): AWS Region Code : ap-northeast-3 
 
-* Asia Pacific (Seoul): AWS Region Code : ap-northeast-2 
+* Asia Pacific (Seoul) (Азиатско-Тихоокеанский регион (Сеул)): AWS Region Code : ap-northeast-2 
 
-* Asia Pacific (Singapore): AWS Region Code : ap-southeast-1 
+* Asia Pacific (Singapore) (Азиатско-Тихоокеанский регион (Сингапур)): AWS Region Code : ap-southeast-1 
 
-* Asia Pacific (Sydney): AWS Region Code : ap-southeast-2 
+* Asia Pacific (Sydney) (Азиатско-Тихоокеанский регион (Сидней)): AWS Region Code : ap-southeast-2 
 
-* Asia Pacific (Thailand): AWS Region Code : ap-southeast-7 
+* Asia Pacific (Thailand) (Азиатско-Тихоокеанский регион (Таиланд)): AWS Region Code : ap-southeast-7 
 
-* Asia Pacific (Tokyo): AWS Region Code : ap-northeast-1 
+* Asia Pacific (Tokyo) (Азиатско-Тихоокеанский регион (Токио)): AWS Region Code : ap-northeast-1 
 
-* Canada (Central): AWS Region Code : ca-central-1 
+* Canada (Central) (Канада (Центральный)): AWS Region Code : ca-central-1 
 
-* Canada West (Calgary): AWS Region Code : ca-west-1 
+* Canada West (Calgary) (Канада (Калгари)): AWS Region Code : ca-west-1 
 
-* China (Beijing): AWS Region Code : cn-north-1 
+* China (Beijing) (Китай (Пекин)): AWS Region Code : cn-north-1 
 
-* China (Ningxia): AWS Region Code : cn-northwest-1 
+* China (Ningxia) (Китай (Нингxia)): AWS Region Code : cn-northwest-1 
 
-* EU ISOE West: AWS Region Code : eu-isoe-west-1 
+* EU ISOE West (Европа (Западный ИСОЕ)): AWS Region Code : eu-isoe-west-1 
 
-* Europe (Frankfurt): AWS Region Code : eu-central-1 
+* Europe (Frankfurt) (Европа (Франкфурт)): AWS Region Code : eu-central-1 
 
-* Europe (Ireland): AWS Region Code : eu-west-1 
+* Europe (Ireland) (Европа (Ирландия)): AWS Region Code : eu-west-1 
 
-* Europe (London): AWS Region Code : eu-west-2 
+* Europe (London) (Европа (Лондон)): AWS Region Code : eu-west-2 
 
-* Europe (Milan): AWS Region Code : eu-south-1 
+* Europe (Milan) (Европа (Милан)): AWS Region Code : eu-south-1 
 
-* Europe (Paris): AWS Region Code : eu-west-3 
+* Europe (Paris) (Европа (Париж)): AWS Region Code : eu-west-3 
 
-* Europe (Spain): AWS Region Code : eu-south-2 
+* Europe (Spain) (Европа (Испания)): AWS Region Code : eu-south-2 
 
-* Europe (Stockholm): AWS Region Code : eu-north-1 
+* Europe (Stockholm) (Европа (Стокгольм)): AWS Region Code : eu-north-1 
 
-* Europe (Zurich): AWS Region Code : eu-central-2 
+* Europe (Zurich) (Европа (Цюрих)): AWS Region Code : eu-central-2 
 
-* Israel (Tel Aviv): AWS Region Code : il-central-1 
+* Israel (Tel Aviv) (Израиль (Тель-Авив)): AWS Region Code : il-central-1 
 
-* Mexico (Central): AWS Region Code : mx-central-1 
+* Mexico (Central) (Мексика (Центральный)): AWS Region Code : mx-central-1 
 
-* Middle East (Bahrain): AWS Region Code : me-south-1 
+* Middle East (Bahrain) (Средний Восток (Бахрейн)): AWS Region Code : me-south-1 
 
-* Middle East (UAE): AWS Region Code : me-central-1 
+* Middle East (UAE) (Средний Восток (ОАЭ)): AWS Region Code : me-central-1 
 
-* South America (Sao Paulo): AWS Region Code : sa-east-1 
+* South America (Sao Paulo) (Южная Америка (Сан-Паулу)): AWS Region Code : sa-east-1 
 
-* US East (N. Virginia): AWS Region Code : us-east-1 
+* US East (N. Virginia) (Восток США (Вирджиния Северная)): AWS Region Code : us-east-1 
 
-* US East (Ohio): AWS Region Code : us-east-2 
+* US East (Ohio) (Восток США (Огайо)): AWS Region Code : us-east-2 
 
-* US ISO East: AWS Region Code : us-iso-east-1 
+* US ISO East (США, ИСО Восток): AWS Region Code : us-iso-east-1 
 
-* US ISO WEST: AWS Region Code : us-iso-west-1 
+* US ISO WEST (США, ИСО Запад): AWS Region Code : us-iso-west-1 
 
-* US ISOB East (Ohio): AWS Region Code : us-isob-east-1 
+* US ISOB East (Ohio) (США, Восток ИСОБ (Огайо)): AWS Region Code : us-isob-east-1 
 
-* US West (N. California): AWS Region Code : us-west-1 
+* US West (N. California) (Запад США (Северная Калифорния)): AWS Region Code : us-west-1 
 
-* US West (Oregon): AWS Region Code : us-west-2 
+* US West (Oregon) (Запад США (Орегон)): AWS Region Code : us-west-2 
 
-* aws-cn-global: AWS Region Code : aws-cn-global 
+* aws-cn-global (Глобальный aws-cn): AWS Region Code : aws-cn-global 
 
-* aws-global: AWS Region Code : aws-global 
+* aws-global (Глобальный aws-global): AWS Region Code : aws-global 
 
-* aws-iso-b-global: AWS Region Code : aws-iso-b-global 
+* aws-iso-b-global (Глобальный aws-iso-b-global): AWS Region Code : aws-iso-b-global 
 
-* aws-iso-global: AWS Region Code : aws-iso-global 
+* aws-iso-global (Глобальный aws-iso-global): AWS Region Code : aws-iso-global 
 
-* aws-us-gov-global: AWS Region Code : aws-us-gov-global 
+* aws-us-gov-global (Глобальный aws-us-gov-global): AWS Region Code : aws-us-gov-global 
 
 
 [horizontal]
@@ -148,14 +148,14 @@ FORBIDDEN (Обязательно)
 .*Aws Credentials Provider Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: AWS Credentials Provider Service
+*DISPLAY NAME (Отображаемое наименование):*:: AWS Credentials Provider Service (...)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Controller Service that is used to obtain AWS credentials provider
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -165,14 +165,14 @@ FORBIDDEN (Обязательно)
 .Ssl Context Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (Сервис контекста SSL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies an optional SSL Context Service that, if provided, will be used to create connections
+*DESCRIPTION (Описание):*:: Указывает необязательный сервис контекста SSL, если он предоставлен, будет использоваться для создания подключений
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -182,14 +182,14 @@ FORBIDDEN (Обязательно)
 .*Auto Delete Messages*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Auto Delete Messages
+*DISPLAY NAME (Отображаемое наименование):*:: Auto Delete Messages (Автоматическое удаление сообщений)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether the messages should be automatically deleted by the processors once they have been received.
+*DESCRIPTION (Описание):*:: Указывает, должны ли сообщения автоматически удаляться процессорами после их получения.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -207,14 +207,14 @@ FORBIDDEN (Обязательно)
 .*Batch Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Batch Size
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Size (Размер партии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum number of messages to send in a single network request
+*DESCRIPTION (Описание):*:: Максимальное количество сообщений, которые можно отправить в одной сетевой запросе
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -224,14 +224,14 @@ FORBIDDEN (Обязательно)
 .*Communications Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout (Коммуникационный таймаут)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: 
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -241,14 +241,14 @@ FORBIDDEN (Обязательно)
 .Endpoint Override Url
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Endpoint Override URL
+*DISPLAY NAME (Отображаемое наименование):*:: Endpoint Override URL (URL конечной точки для переопределения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Endpoint URL to use instead of the AWS default including scheme, host, port, and path. The AWS libraries select an endpoint URL based on the AWS region, but this property overrides the selected endpoint URL, allowing use with other S3-compatible endpoints.
+*DESCRIPTION (Описание):*:: URL конечной точки, которую следует использовать вместо AWS по умолчанию, включая схему, хост, порт и путь. Библиотеки AWS выбирают URL-адрес конечной точки на основе региона AWS, но это свойство переопределяет выбранный URL-адрес конечной точки, позволяя использовать его с другими S3-совместимыми конечными точками.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -258,365 +258,203 @@ FORBIDDEN (Обязательно)
 .*Character Set*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Символьный набор)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Character Set that should be used to encode the textual content of the SQS message
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Big5
+* Big5 (Big5)
 
-* Big5-HKSCS
+* Big5-HKSCS (Big5-HKSCS)
 
-* CESU-8
+* CESU-8 (CESU-8)
 
-* EUC-JP
+* EUC-JP (EUC-JP)
 
-* EUC-KR
+* EUC-KR (EUC-KR)
 
-* GB18030
+* GB18030 (GB18030)
 
-* GB2312
+* GB2312 (GB2312)
 
-* GBK
+* GBK (GBK)
 
-* IBM-Thai
+* IBM-Thai (IBM-Thai)
 
-* IBM00858
+* IBM00858 (IBM00858)
 
-* IBM01140
+* IBM01140 (IBM01140)
 
-* IBM01141
+* IBM01141 (IBM01141)
 
-* IBM01142
+* IBM01142 (IBM01142)
 
-* IBM01143
+* IBM01143 (IBM01143)
 
-* IBM01144
+* IBM01144 (IBM01144)
 
-* IBM01145
+* IBM01145 (IBM01145)
 
-* IBM01146
+* IBM01146 (IBM01146)
 
-* IBM01147
+* IBM01147 (IBM01147)
 
-* IBM01148
+* IBM01148 (IBM01148)
 
-* IBM01149
+* IBM01149 (IBM01149)
 
-* IBM037
+* IBM037 (IBM037)
 
-* IBM1026
+* IBM1026 (IBM1026)
 
-* IBM1047
+* IBM1047 (IBM1047)
 
-* IBM273
+* IBM273 (IBM273)
 
-* IBM277
+* IBM277 (IBM277)
 
-* IBM278
+* IBM278 (IBM278)
 
-* IBM280
+* IBM280 (IBM280)
 
-* IBM284
+* IBM284 (IBM284)
 
-* IBM285
+* IBM285 (IBM285)
 
-* IBM290
+* IBM290 (IBM290)
 
-* IBM297
+* IBM297 (IBM297)
 
-* IBM420
+* IBM420 (IBM420)
 
-* IBM424
+* IBM424 (IBM424)
 
-* IBM437
+* IBM437 (IBM437)
 
-* IBM500
+* IBM500 (IBM500)
 
-* IBM775
+* IBM775 (IBM775)
 
-* IBM850
+* IBM850 (IBM850)
 
-* IBM852
+* IBM852 (IBM852)
 
-* IBM855
+* IBM855 (IBM855)
 
-* IBM857
+* IBM857 (IBM857)
 
-* IBM860
+* IBM860 (IBM860)
 
-* IBM861
+* IBM861 (IBM861)
 
-* IBM862
+* IBM862 (IBM862)
 
-* IBM863
+* IBM863 (IBM863)
 
-* IBM864
+* IBM864 (IBM864)
 
-* IBM865
+* IBM865 (IBM865)
 
-* IBM866
+* IBM866 (IBM866)
 
-* IBM868
+* IBM868 (IBM868)
 
-* IBM869
+* IBM869 (IBM869)
 
-* IBM870
+* IBM870 (IBM870)
 
-* IBM871
+* IBM871 (IBM871)
 
-* IBM918
+* IBM918 (IBM918)
 
-* ISO-2022-CN
+* ISO-2022-CN (ISO-2022-CN)
 
-* ISO-2022-JP
+* ISO-2022-JP (ISO-2022-JP)
 
-* ISO-2022-JP-2
+* ISO-2022-JP-2 (ISO-2022-JP-2)
 
-* ISO-2022-KR
+* ISO-2022-KR (ISO-2022-KR)
 
-* ISO-8859-1
+* ISO-8859-1 (ISO-8859-1)
 
-* ISO-8859-13
+* ISO-8859-13 (ISO-8859-13)
 
-* ISO-8859-15
+* ISO-8859-15 (ISO-8859-15)
 
-* ISO-8859-16
+* ISO-8859-16 (ISO-8859-16)
 
-* ISO-8859-2
+* ISO-8859-2 (ISO-8859-2)
 
-* ISO-8859-3
+* ISO-8859-3 (ISO-8859-3)
 
-* ISO-8859-4
+* ISO-8859-4 (ISO-8859-4)
 
-* ISO-8859-5
+* ISO-8859-5 (ISO-8859-5)
 
-* ISO-8859-6
+* ISO-8859-6 (ISO-8859-6)
 
-* ISO-8859-7
+* ISO-8859-7 (ISO-8859-7)
 
-* ISO-8859-8
+* ISO-8859-8 (ISO-8859-8)
 
-* ISO-8859-9
+* ISO-8859-9 (ISO-8859-9)
 
-* JIS_X0201
+* JIS_X0201 (JIS_X0201)
 
-* JIS_X0212-1990
+* JIS_X0212-1990 (JIS_X0212-1990)
 
-* KOI8-R
+* KOI8-R (KOI8-R)
 
-* KOI8-U
+* KOI8-U (KOI8-U)
 
-* Shift_JIS
+* Shift_JIS (Shift_JIS)
 
-* TIS-620
+* TIS-620 (TIS-620)
 
-* US-ASCII
+* US-ASCII (US-ASCII)
 
-* UTF-16
+* UTF-16 (UTF-16)
 
-* UTF-16BE
+* UTF-16BE (UTF-16BE)
 
-* UTF-16LE
+* UTF-16LE (UTF-16LE)
 
-* UTF-32
+* UTF-32 (UTF-32)
 
-* UTF-32BE
+* UTF-32BE (UTF-32BE)
 
-* UTF-32LE
+* UTF-32LE (UTF-32LE)
 
-* UTF-8
+* UTF-8 (UTF-8)
 
-* windows-1250
+* windows-1250 (windows-1250)
 
-* windows-1251
+* windows-1251 (windows-1251)
 
-* windows-1252
+* windows-1252 (windows-1252)
 
-* windows-1253
+* windows-1253 (windows-1253)
 
-* windows-1254
+* windows-1254 (windows-1254)
 
-* windows-1255
+* windows-1255 (windows-1255)
 
-* windows-1256
+* windows-1256 (windows-1256)
 
-* windows-1257
+* windows-1257 (windows-1257)
 
-* windows-1258
+* windows-1258 (windows-1258)
 
-* windows-31j
-
-* x-Big5-HKSCS-2001
-
-* x-Big5-Solaris
-
-* x-euc-jp-linux
-
-* x-EUC-TW
-
-* x-eucJP-Open
-
-* x-IBM1006
-
-* x-IBM1025
-
-* x-IBM1046
-
-* x-IBM1097
-
-* x-IBM1098
-
-* x-IBM1112
-
-* x-IBM1122
-
-* x-IBM1123
-
-* x-IBM1124
-
-* x-IBM1129
-
-* x-IBM1166
-
-* x-IBM1364
-
-* x-IBM1381
-
-* x-IBM1383
-
-* x-IBM29626C
-
-* x-IBM300
-
-* x-IBM33722
-
-* x-IBM737
-
-* x-IBM833
-
-* x-IBM834
-
-* x-IBM856
-
-* x-IBM874
-
-* x-IBM875
-
-* x-IBM921
-
-* x-IBM922
-
-* x-IBM930
-
-* x-IBM933
-
-* x-IBM935
-
-* x-IBM937
-
-* x-IBM939
-
-* x-IBM942
-
-* x-IBM942C
-
-* x-IBM943
-
-* x-IBM943C
-
-* x-IBM948
-
-* x-IBM949
-
-* x-IBM949C
-
-* x-IBM950
-
-* x-IBM964
-
-* x-IBM970
-
-* x-ISCII91
-
-* x-ISO-2022-CN-CNS
-
-* x-ISO-2022-CN-GB
-
-* x-iso-8859-11
-
-* x-JIS0208
-
-* x-JISAutoDetect
-
-* x-Johab
-
-* x-MacArabic
-
-* x-MacCentralEurope
-
-* x-MacCroatian
-
-* x-MacCyrillic
-
-* x-MacDingbat
-
-* x-MacGreek
-
-* x-MacHebrew
-
-* x-MacIceland
-
-* x-MacRoman
-
-* x-MacRomania
-
-* x-MacSymbol
-
-* x-MacThai
-
-* x-MacTurkish
-
-* x-MacUkraine
-
-* x-MS932_0213
-
-* x-MS950-HKSCS
-
-* x-MS950-HKSCS-XP
-
-* x-mswin-936
-
-* x-PCK
-
-* x-SJIS_0213
-
-* x-UTF-16LE-BOM
-
-* X-UTF-32BE-BOM
-
-* X-UTF-32LE-BOM
-
-* x-windows-50220
-
-* x-windows-50221
-
-* x-windows-874
-
-* x-windows-949
-
-* x-windows-950
-
-* x-windows-iso2022jp
+* windows-31j (windows-31j)
 
 
 [horizontal]
@@ -625,14 +463,14 @@ FORBIDDEN (Обязательно)
 .*Visibility Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Visibility Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Visibility Timeout (Видимость таймаут)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The amount of time after a message is received but not deleted that the message is hidden from other consumers
+*DESCRIPTION (Описание):*:: Количество времени после получения сообщения, но до его удаления, в течение которого оно скрыто от других потребителей
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -642,14 +480,14 @@ FORBIDDEN (Обязательно)
 .*Receive Message Wait Time*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Receive Message Wait Time
+*DISPLAY NAME (Отображаемое наименование):*:: Receive Message Wait Time (Время ожидания получения сообщения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum amount of time to wait on a long polling receive call. Setting this to a value of 1 second or greater will reduce the number of SQS requests and decrease fetch latency at the cost of a constantly active thread.
+*DESCRIPTION (Описание):*:: Максимальное время ожидания на вызов долгого получения сообщений. Установка этого значения в 1 секунду или больше уменьшит количество запросов SQS и снизит задержку извлечения, но потребует постоянно активного потока.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -659,14 +497,14 @@ FORBIDDEN (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: HTTP + AuthN
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -690,7 +528,7 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`success`
-|FlowFiles are routed to success relationship
+|Поток файлов направляется в отношение успеха
 
 |===
 
@@ -705,16 +543,16 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`hash.value`
-|The MD5 sum of the message
+|MD5 сумма сообщения
 
 |`hash.algorithm`
 |MD5
 
 |`sqs.message.id`
-|The unique identifier of the SQS message
+|Уникальный идентификатор SQS сообщения
 
 |`sqs.receipt.handle`
-|The SQS Receipt Handle that is to be used to delete the message from the queue
+|Обработчик получения SQS, который должен быть использован для удаления сообщения из очереди
 
 |===
 

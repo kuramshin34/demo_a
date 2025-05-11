@@ -1,13 +1,13 @@
 = SplitJson 2.2.0
 
-Splits a JSON File into multiple, separate FlowFiles for an array element specified by a JsonPath expression. Each generated FlowFile is comprised of an element of the specified array and transferred to relationship 'split,' with the original file transferred to the 'original' relationship. If the specified JsonPath is not found or does not evaluate to an array element, the original file is routed to 'failure' and no files are generated.
+Разделяет файл JSON на несколько отдельных FlowFiles для элемента массива, указанного выражением JsonPath. Каждый сгенерированный FlowFile состоит из элемента указанного массива и передается по отношению 'split', в то время как исходный файл передается в отношение 'original'. Если указанный JsonPath не найден или не оценивается как элемент массива, исходный файл направляется в 'failure' и не создаются новые файлы.
 
 [horizontal]
 *Tags* (Ключевые слова):
 json, jsonpath, split
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Jsonpath Expression*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: JsonPath Expression
+*DISPLAY NAME (Отображаемое наименование):*:: JsonPath Expression (Выражение JsonPath)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A JsonPath expression that indicates the array element to split into JSON/scalar fragments.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,23 +37,23 @@ REQUIRED (Обязательно)
 .*Null Value Representation*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Null Value Representation
+*DISPLAY NAME (Отображаемое наименование):*:: Null Value Representation (Представление значения null)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates the desired representation of JSON Path expressions resulting in a null value.
+*DESCRIPTION (Описание):*:: Указывает желаемое представление выражений JSON Path, результатом которых является значение null.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* the string 'null'
+* the string 'null' (строка 'null')
 
-* empty string
+* empty string (пустая строка)
 
 
 [horizontal]
@@ -62,14 +62,14 @@ REQUIRED (Обязательно)
 .*Max String Length*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max String Length
+*DISPLAY NAME (Отображаемое наименование):*:: Max String Length (Максимальная длина строки)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The maximum allowed length of a string value when parsing the JSON document
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -90,7 +90,7 @@ REQUIRED (Обязательно)
 
 
 |MEMORY
-|The entirety of the FlowFile's content (as a JsonNode object) is read into memory, in addition to all of the generated FlowFiles representing the split JSON. If many splits are generated due to the size of the JSON, or how the JSON is configured to be split, a two-phase approach may be necessary to avoid excessive use of memory.
+|Весь контент FlowFile (как объект JsonNode) считывается в память, а также все сгенерированные FlowFiles, представляющие собой разделенный JSON. Если генерируется много разбиений из-за размера JSON или способа его настройки для разбиения, может потребоваться двухфазный подход для избежания чрезмерного использования памяти.
 
 |===
 
@@ -105,13 +105,13 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`failure`
-|If a FlowFile fails processing for any reason (for example, the FlowFile is not valid JSON or the specified path does not exist), it will be routed to this relationship
+|Если FlowFile не обрабатывается по какой-либо причине (например, файл FlowFile не является допустимым JSON или указанный путь не существует), он будет направлен в это отношение
 
 |`original`
-|The original FlowFile that was split into segments. If the FlowFile fails processing, nothing will be sent to this relationship
+|Исходный FlowFile, который был разделен на сегменты. Если FlowFile не обрабатывается, ничего не отправляется в это отношение
 
 |`split`
-|All segments of the original FlowFile will be routed to this relationship
+|Все сегменты исходного FlowFile будут направлены в это отношение
 
 |===
 
@@ -126,16 +126,16 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`fragment.identifier`
-|All split FlowFiles produced from the same parent FlowFile will have the same randomly generated UUID added for this attribute
+|Все разбитые FlowFiles, произведенные из одного родительского FlowFile, будут иметь добавленный случайно сгенерированный UUID для этого атрибута
 
 |`fragment.index`
-|A one-up number that indicates the ordering of the split FlowFiles that were created from a single parent FlowFile
+|Одноувеличивающее число, указывающее порядок разбитых FlowFiles, созданных из одного родительского FlowFile
 
 |`fragment.count`
-|The number of split FlowFiles generated from the parent FlowFile
+|Количество разбитых FlowFiles, сгенерированных из родительского FlowFile
 
 |`segment.original.filename `
-|The filename of the parent FlowFile
+|Имя файла родительского FlowFile
 
 |===
 

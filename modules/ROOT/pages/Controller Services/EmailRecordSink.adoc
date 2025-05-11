@@ -1,13 +1,13 @@
 = EmailRecordSink 2.2.0
 
-Provides a RecordSinkService that can be used to send records in email using the specified writer for formatting.
+Предоставляет сервис RecordSinkService, который можно использовать для отправки записей по электронной почте с помощью указанного модуля записи для форматирования.
 
 [horizontal]
 *Tags* (Ключевые слова):
 email, record, send, sink, smtp, write
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ email, record, send, sink, smtp, write
 .*From*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: From
+*DISPLAY NAME (Отображаемое наименование):*:: From (Отправитель)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Email address to use as the sender. Comma separated sequence of addresses following RFC822 syntax.
+*DESCRIPTION (Описание):*:: Указывает адрес электронной почты для использования в качестве отправителя. Последовательность, разделенная запятыми, адресов, следующих синтаксису RFC822.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ email, record, send, sink, smtp, write
 .To
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: To
+*DISPLAY NAME (Отображаемое наименование):*:: To (Получатели для включения в строку To электронной почты. Разделенная запятыми последовательность адресов, следующих синтаксису RFC822.)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The recipients to include in the To-Line of the email. Comma separated sequence of addresses following RFC822 syntax.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ email, record, send, sink, smtp, write
 .Cc
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: CC
+*DISPLAY NAME (Отображаемое наименование):*:: CC (Копия)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The recipients to include in the CC-Line of the email. Comma separated sequence of addresses following RFC822 syntax.
+*DESCRIPTION (Описание):*:: Получатели, включаемые в строку копии электронной почты. Последовательность адресов, разделенных запятыми, следуя синтаксису RFC822.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ email, record, send, sink, smtp, write
 .Bcc
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: BCC
+*DISPLAY NAME (Отображаемое наименование):*:: BCC (Копия скрытого получателя)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The recipients to include in the BCC-Line of the email. Comma separated sequence of addresses following RFC822 syntax.
+*DESCRIPTION (Описание):*:: Получатели, включаемые в строку BCC электронной почты. Последовательность адресов, разделенных запятыми, следующая RFC822 синтаксису.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ email, record, send, sink, smtp, write
 .*Subject*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Subject
+*DISPLAY NAME (Отображаемое наименование):*:: Subject (Предмет)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The email subject
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ email, record, send, sink, smtp, write
 .*Smtp-Hostname*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SMTP Hostname
+*DISPLAY NAME (Отображаемое наименование):*:: SMTP Hostname (SMTP Хостнейм)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The hostname of the SMTP Server that is used to send Email Notifications
+*DESCRIPTION (Описание):*:: The hostname of the SMTP Server that is used to send Email Notifications (Хостнейм сервера SMTP, используемого для отправки электронных уведомлений)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -122,14 +122,14 @@ email, record, send, sink, smtp, write
 .*Smtp-Port*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SMTP Port
+*DISPLAY NAME (Отображаемое наименование):*:: SMTP Port (Порт для SMTP коммуникаций)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Port used for SMTP communications
+*DESCRIPTION (Описание):*:: The Port used for SMTP communications (Порт, используемый для SMTP коммуникаций)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -139,14 +139,14 @@ email, record, send, sink, smtp, write
 .*Smtp-Auth*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SMTP Auth
+*DISPLAY NAME (Отображаемое наименование):*:: SMTP Auth (SMTP Аутентификация)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Flag indicating whether authentication should be used
+*DESCRIPTION (Описание):*:: Флаг, указывающий, должна ли использоваться аутентификация
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -156,14 +156,14 @@ email, record, send, sink, smtp, write
 .Smtp-Username
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SMTP Username
+*DISPLAY NAME (Отображаемое наименование):*:: SMTP Username (Логин для SMTP учетной записи)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Username for the SMTP account
+*DESCRIPTION (Описание):*:: Логин для SMTP учетной записи
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -173,14 +173,14 @@ email, record, send, sink, smtp, write
 .Smtp-Password
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SMTP Password
+*DISPLAY NAME (Отображаемое наименование):*:: SMTP Password (Пароль для SMTP учетной записи)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Password for the SMTP account
+*DESCRIPTION (Описание):*:: Password for the SMTP account (Пароль для учетной записи SMTP)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -190,14 +190,14 @@ email, record, send, sink, smtp, write
 .*Smtp-Starttls*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SMTP STARTTLS
+*DISPLAY NAME (Отображаемое наименование):*:: SMTP STARTTLS (Флаг, указывающий, должно ли быть включено STARTTLS. Если сервер не поддерживает STARTTLS, соединение продолжается без использования TLS)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Flag indicating whether STARTTLS should be enabled. If the server does not support STARTTLS, the connection continues without the use of TLS
+*DESCRIPTION (Описание):*:: Флаг, указывающий, должно ли быть включено STARTTLS. Если сервер не поддерживает STARTTLS, соединение продолжается без использования TLS
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -207,14 +207,14 @@ email, record, send, sink, smtp, write
 .*Smtp-Ssl*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SMTP SSL
+*DISPLAY NAME (Отображаемое наименование):*:: SMTP SSL (SMTP SSL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Flag indicating whether SSL should be enabled
+*DESCRIPTION (Описание):*:: Флаг, указывающий, должно ли быть включено SSL
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -224,14 +224,14 @@ email, record, send, sink, smtp, write
 .*Smtp-Xmailer-Header*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SMTP X-Mailer Header
+*DISPLAY NAME (Отображаемое наименование):*:: SMTP X-Mailer Header (SMTP Заголовок для отправки почты)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: X-Mailer used in the header of the outgoing email
+*DESCRIPTION (Описание):*:: X-Mailer, используемый в заголовке исходящего email
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -241,14 +241,14 @@ email, record, send, sink, smtp, write
 .*Record-Sink-Record-Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records.
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для использования при записи записей.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -268,6 +268,17 @@ email, record, send, sink, smtp, write
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

@@ -1,13 +1,13 @@
 = FetchAzureBlobStorage_v12 2.2.0
 
-Retrieves the specified blob from Azure Blob Storage and writes its content to the content of the FlowFile. The processor uses Azure Blob Storage client library v12.
+Извлекает указанный большой двоичный объект из Azure Blob Storage и записывает его содержимое в поток данных FlowFile. Процессор использует библиотеку клиента Azure Blob Storage версии 12.
 
 [horizontal]
 *Tags* (Ключевые слова):
 azure, blob, cloud, microsoft, storage
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Storage-Credentials-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Storage Credentials
+*DISPLAY NAME (Отображаемое наименование):*:: Storage Credentials (Хранилище учетных данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Controller Service used to obtain Azure Blob Storage Credentials.
+*DESCRIPTION (Описание):*:: Контроллер сервис, используемый для получения учетных данных Azure Blob Storage.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Container-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Container Name
+*DISPLAY NAME (Отображаемое наименование):*:: Container Name (Контейнер)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Name of the Azure storage container. In case of PutAzureBlobStorage processor, container can be created if it does not exist.
+*DESCRIPTION (Описание):*:: Имя контейнера Azure хранения. В случае PutAzureBlobStorage процессора, контейнер может быть создан, если он не существует.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Blob-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Blob Name
+*DISPLAY NAME (Отображаемое наименование):*:: Blob Name (Название боба)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The full name of the blob
+*DESCRIPTION (Описание):*:: Полное название боба
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .Range-Start
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Range Start
+*DISPLAY NAME (Отображаемое наименование):*:: Range Start (Начало диапазона)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The byte position at which to start reading from the blob. An empty value or a value of zero will start reading at the beginning of the blob.
+*DESCRIPTION (Описание):*:: Байт-позиция, с которой начинать чтение из бобла. Пустое значение или значение ноль приведут к началу чтения из бобла.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ REQUIRED (Обязательно)
 .Range-Length
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Range Length
+*DISPLAY NAME (Отображаемое наименование):*:: Range Length (Длина диапазона)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The number of bytes to download from the blob, starting from the Range Start. An empty value or a value that extends beyond the end of the blob will read to the end of the blob.
+*DESCRIPTION (Описание):*:: Количество байтов для загрузки из большого двоичного объекта, начиная с Range Start. Пустое значение или значение, выходящее за пределы большого двоичного объекта, прочитает до конца большого двоичного объекта.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ REQUIRED (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: SOCKS, HTTP In case of SOCKS, it is not guaranteed that the selected SOCKS Version will be used by the processor.
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: SOCKS, HTTP В случае использования SOCKS, не гарантируется, что выбранная версия SOCKS будет использоваться процессором.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -122,23 +122,23 @@ REQUIRED (Обязательно)
 .*Client-Side Encryption Key Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Client-Side Encryption Key Type
+*DISPLAY NAME (Отображаемое наименование):*:: Client-Side Encryption Key Type (Тип ключа для клиентской стороны шифрования)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies the key type to use for client-side encryption.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* NONE: Client-Side Encryption disabled 
+* NONE: Client-Side Encryption disabled (Отключено шифрование на клиентской стороне) 
 
-* LOCAL: Client-Side Encryption enabled using local key 
+* LOCAL: Client-Side Encryption enabled using local key (Включено шифрование на клиентской стороне с использованием локального ключа) 
 
 
 [horizontal]
@@ -147,14 +147,14 @@ REQUIRED (Обязательно)
 .*Client-Side Encryption Key Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Client-Side Encryption Key ID
+*DISPLAY NAME (Отображаемое наименование):*:: Client-Side Encryption Key ID (Идентификатор ключа для клиентской стороны шифрования)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the ID of the key to use for client-side encryption.
+*DESCRIPTION (Описание):*:: Указывает идентификатор ключа, который следует использовать для клиентского шифрования.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -164,14 +164,14 @@ REQUIRED (Обязательно)
 .*Client-Side Encryption Local Key*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Client-Side Encryption Local Key
+*DISPLAY NAME (Отображаемое наименование):*:: Client-Side Encryption Local Key (Локальный ключ клиентской стороны шифрования)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When using local client-side encryption, this is the raw key, encoded in hexadecimal
+*DESCRIPTION (Описание):*:: При использовании локального клиентского шифрования это первичный ключ, закодированный в шестнадцатеричном формате
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -195,10 +195,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|All successfully processed FlowFiles are routed to this relationship
+|Все успешно обработанные FlowFiles направляются в это отношение
 
 |`failure`
-|Unsuccessful operations will be transferred to the failure relationship.
+|Неуспешные операции будут переданы в отношение сбоя.
 
 |===
 
@@ -213,31 +213,31 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`azure.container`
-|The name of the Azure Blob Storage container
+|Имя контейнера Azure Blob Storage
 
 |`azure.blobname`
-|The name of the blob on Azure Blob Storage
+|Имя большого двоичного объекта на Azure Blob Storage
 
 |`azure.primaryUri`
-|Primary location of the blob
+|Основное расположение большого двоичного объекта
 
 |`azure.etag`
-|ETag of the blob
+|ETag большого двоичного объекта
 
 |`azure.blobtype`
-|Type of the blob (either BlockBlob, PageBlob or AppendBlob)
+|Тип большого двоичного объекта (либо BlockBlob, PageBlob, либо AppendBlob)
 
 |`mime.type`
-|MIME Type of the content
+|MIME-тип содержимого
 
 |`lang`
-|Language code for the content
+|Код языка для содержимого
 
 |`azure.timestamp`
-|Timestamp of the blob
+|Метка времени большого двоичного объекта
 
 |`azure.length`
-|Length of the blob
+|Длина большого двоичного объекта
 
 |===
 
@@ -248,7 +248,7 @@ REQUIRED (Обязательно)
 == Варианты использования, включающие другие компоненты
 
 
-=== Retrieve all files in an Azure Blob Storage container
+=== Получить все файлы в контейнере Azure Blob Storage
 
 
 NOTE: 

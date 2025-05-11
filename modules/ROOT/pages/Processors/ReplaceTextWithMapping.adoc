@@ -1,13 +1,13 @@
 = ReplaceTextWithMapping 2.2.0
 
-Updates the content of a FlowFile by evaluating a Regular Expression against it and replacing the section of the content that matches the Regular Expression with some alternate value provided in a mapping file.
+Обновляет содержимое FlowFile, оценивая регулярное выражение и заменяя соответствующую часть содержимого на значение из файла отображения.
 
 [horizontal]
 *Tags* (Ключевые слова):
 Change, Mapping, Modify, Regex, Regular Expression, Replace, Text, Update
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Regular Expression*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Regular Expression
+*DISPLAY NAME (Отображаемое наименование):*:: Regular Expression (Регулярное выражение)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Regular Expression to search for in the FlowFile content
+*DESCRIPTION (Описание):*:: Регулярное выражение для поиска в содержимом FlowFile
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Matching Group*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Matching Group
+*DISPLAY NAME (Отображаемое наименование):*:: Matching Group (Соответствующая группа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The number of the matching group of the provided regex to replace with the corresponding value from the mapping file (if it exists).
+*DESCRIPTION (Описание):*:: Количество соответствующей группы предоставленного регулярного выражения, которое будет заменено соответствующим значением из файла отображения (если он существует).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Mapping File*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Mapping File
+*DISPLAY NAME (Отображаемое наименование):*:: Mapping File (Файл сопоставлений)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the file (including the full path) containing the Mappings.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .*Mapping File Refresh Interval*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Mapping File Refresh Interval
+*DISPLAY NAME (Отображаемое наименование):*:: Mapping File Refresh Interval (Период обновления файла сопоставлений)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The polling interval to check for updates to the mapping file. The default is 60s.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ REQUIRED (Обязательно)
 .*Character Set*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Символьный набор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Character Set in which the file is encoded
+*DESCRIPTION (Описание):*:: The Character Set in which the file is encoded (Символьный набор, в котором закодирован файл)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ REQUIRED (Обязательно)
 .*Maximum Buffer Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Buffer Size
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Buffer Size (Максимальный размер буфера)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the maximum amount of data to buffer (per file) in order to apply the regular expressions. If a FlowFile is larger than this value, the FlowFile will be routed to 'failure'
+*DESCRIPTION (Описание):*:: Указывает максимальное количество данных для буферизации (на файл) с целью применения регулярных выражений. Если FlowFile больше этого значения, он будет направлен в 'failure'
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -136,10 +136,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|FlowFiles that have been successfully updated are routed to this relationship, as well as FlowFiles whose content does not match the given Regular Expression
+|Поток файлов, которые были успешно обновлены, направляются в это отношение, а также поток файлов, содержимое которых не соответствует заданному регулярному выражению.
 
 |`failure`
-|FlowFiles that could not be updated are routed to this relationship
+|Поток файлов, которые не могли быть обновлены, направляются в это отношение.
 
 |===
 

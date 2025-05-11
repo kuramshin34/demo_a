@@ -1,13 +1,13 @@
 = ListenWebSocket 2.2.0
 
-Acts as a WebSocket server endpoint to accept client connections. FlowFiles are transferred to downstream relationships according to received message types as the WebSocket server configured with this processor receives client requests
+Действует как конечная точка сервера WebSocket для приема клиентских подключений. Передача FlowFiles происходит в соответствии с типами полученных сообщений, как только этот процессор, настроенный с данным процессором, получает запросы от клиента
 
 [horizontal]
 *Tags* (Ключевые слова):
-WebSocket, consume, listen, subscribe
+WebSocket, потреблять, слушать, подписаться
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ FORBIDDEN (Обязательно)
 .*Websocket-Server-Controller-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: WebSocket Server ControllerService
+*DISPLAY NAME (Отображаемое наименование):*:: WebSocket Server ControllerService (WebSocket Сервер Контроллер Сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A WebSocket SERVER Controller Service which can accept WebSocket requests.
+*DESCRIPTION (Описание):*:: A WebSocket SERVER Controller Service which can accept WebSocket requests. (Сервис контроллера WebSocket, который может принимать запросы WebSocket)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ FORBIDDEN (Обязательно)
 .*Server-Url-Path*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Server URL Path
+*DISPLAY NAME (Отображаемое наименование):*:: Server URL Path (Путь к серверу)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The WetSocket URL Path on which this processor listens to. Must starts with '/', e.g. '/example'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -68,16 +68,16 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`binary message`
-|The WebSocket binary message output
+|Выход бинарного сообщения WebSocket.
 
 |`text message`
-|The WebSocket text message output
+|Выход текстового сообщения WebSocket.
 
 |`disconnected`
-|The WebSocket session is disconnected
+|Сессия WebSocket разорвана.
 
 |`connected`
-|The WebSocket session is established
+|Установлена сессия WebSocket.
 
 |===
 
@@ -92,22 +92,22 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`websocket.controller.service.id`
-|WebSocket Controller Service id.
+|Идентификатор сервиса контроллера WebSocket.
 
 |`websocket.session.id`
-|Established WebSocket session id.
+|Идентификатор установленной сессии WebSocket.
 
 |`websocket.endpoint.id`
-|WebSocket endpoint id.
+|Идентификатор конечной точки WebSocket.
 
 |`websocket.local.address`
-|WebSocket server address.
+|Адрес сервера WebSocket.
 
 |`websocket.remote.address`
-|WebSocket client address.
+|Адрес клиента WebSocket.
 
 |`websocket.message.type`
-|TEXT or BINARY.
+|TEXT или BINARY.
 
 |===
 

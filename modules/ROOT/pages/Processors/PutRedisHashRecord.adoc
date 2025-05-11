@@ -1,13 +1,13 @@
 = PutRedisHashRecord 2.2.0
 
-Puts record field data into Redis using a specified hash value, which is determined by a RecordPath to a field in each record containing the hash value. The record fields and values are stored as key/value pairs associated by the hash value. NOTE: Neither the evaluated hash value nor any of the field values can be null. If the hash value is null, the FlowFile will be routed to failure. For each of the field values, if the value is null that field will be not set in Redis.
+Помещает данные полей записи в Redis, используя указанное значение хеша, которое определяется путем RecordPath к полю в каждой записи, содержащей значение хеша. Поля и значения записи хранятся как пары ключ/значение, связанные по хешу. Примечание: Ни одно из оцененных значений хеша, ни значения каких-либо полей не могут быть нулевыми. Если значение хеша равно null, FlowFile будет направлен в сбой. Для каждого значения поля, если оно равно null, соответствующее поле не будет установлено в Redis.
 
 [horizontal]
 *Tags* (Ключевые слова):
 hash, put, record, redis
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Record-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Чтец записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for parsing incoming data and determining the data's schema
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера для использования при разборе входящих данных и определении схемы данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Redis-Connection-Pool*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Redis Connection Pool
+*DISPLAY NAME (Отображаемое наименование):*:: Redis Connection Pool (Редис Коннекшн Пул)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: 
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Hash-Value-Record-Path*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hash Value Record Path
+*DISPLAY NAME (Отображаемое наименование):*:: Hash Value Record Path (Хэш Значение Записи Путь)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies a RecordPath to evaluate against each Record in order to determine the hash value associated with all the record fields/values (see 'hset' in Redis documentation for more details). The RecordPath must point at exactly one field or an error will occur.
+*DESCRIPTION (Описание):*:: Указывает путь записи для оценки каждой записи в порядке определения хэш-значения, связанного со всеми полями/значениями записи (см. 'hset' в документации Redis для получения дополнительных сведений). Путь записи должен указывать ровно на одно поле или будет возникать ошибка.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .*Data-Record-Path*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Data Record Path
+*DISPLAY NAME (Отображаемое наименование):*:: Data Record Path (Путь к записи данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: This property denotes a RecordPath that will be evaluated against each incoming Record and the Record that results from evaluating the RecordPath will be sent to Redis instead of sending the entire incoming Record. The property defaults to the root '/' which corresponds to a 'flat' record (all fields/values at the top level of  the Record.
+*DESCRIPTION (Описание):*:: Это свойство обозначает путь RecordPath, который будет оцениваться для каждой входящей записи и запись, полученная в результате оценки пути RecordPath, будет отправлена в Redis вместо отправки всей входящей записи. Свойство по умолчанию установлено в корень '/' (соответствует 'плоской' записи, все поля/значения на верхнем уровне записи).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ REQUIRED (Обязательно)
 .*Charset*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Символьный набор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the character set to use when storing record field values as strings. All fields will be converted to strings using this character set before being stored in Redis.
+*DESCRIPTION (Описание):*:: Указывает символьный набор для использования при хранении значений полей записи в виде строк. Все поля будут преобразованы в строки с использованием этого символьного набора перед сохранением в Redis.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -119,10 +119,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|FlowFiles having all Records stored in Redis will be routed to this relationship
+|FlowFiles с сохраненными всеми записями в Redis будут направлены по этому отношению
 
 |`failure`
-|FlowFiles containing Records with processing errors will be routed to this relationship
+|FlowFiles, содержащие записи с ошибками обработки, будут направлены по этому отношению
 
 |===
 
@@ -137,7 +137,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`redis.success.record.count`
-|Number of records written to Redis
+|Количество записей, записанных в Redis
 
 |===
 

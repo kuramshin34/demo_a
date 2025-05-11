@@ -1,13 +1,13 @@
 = KerberosTicketCacheUserService 2.2.0
 
-Provides a mechanism for creating a KerberosUser from a principal and ticket cache that other components are able to use in order to perform authentication using Kerberos. By encapsulating this information into a Controller Service and allowing other components to make use of it an administrator is able to choose which users are allowed to use which ticket caches and principals. This provides a more robust security model for multi-tenant use cases.
+Предоставляет механизм создания KerberosUser из принципала и кэша билетов, которые другие компоненты могут использовать для выполнения аутентификации с помощью Kerberos. Заключая эту информацию в сервис контроллера и позволяя другим компонентам его использовать, администратор может выбирать, какие пользователи могут использовать какие кэши билетов и принципалы. Это обеспечивает более надежную модель безопасности для мульти-клиентных сценариев.
 
 [horizontal]
 *Tags* (Ключевые слова):
 Authentication, Cache, Credentials, Kerberos, Principal, Security, Ticket
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ Authentication, Cache, Credentials, Kerberos, Principal, Security, Ticket
 .*Kerberos Principal*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Kerberos Principal
+*DISPLAY NAME (Отображаемое наименование):*:: Kerberos Principal (Kerberos-главный)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Kerberos principal to authenticate as. Requires nifi.kerberos.krb5.file to be set in your nifi.properties
+*DESCRIPTION (Описание):*:: Kerberos-главный для аутентификации. Требуется установка nifi.kerberos.krb5.file в ваших nifi.properties
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ Authentication, Cache, Credentials, Kerberos, Principal, Security, Ticket
 .*Kerberos Ticket Cache File*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Kerberos Ticket Cache File
+*DISPLAY NAME (Отображаемое наименование):*:: Kerberos Ticket Cache File (Файл кэша билета Kerberos)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Kerberos ticket cache associated with the principal.
+*DESCRIPTION (Описание):*:: Kerberos ticket cache, связанный с принципалом.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -66,7 +66,7 @@ Authentication, Cache, Credentials, Kerberos, Principal, Security, Ticket
 |Требуемые права |Объяснение
 
 |
-|Allows user to define a ticket cache and principal that can then be used by other components.
+|Позволяет пользователю определить кэш билетов и принципал, которые затем могут быть использованы другими компонентами.
 
 |===
 
@@ -75,6 +75,17 @@ Authentication, Cache, Credentials, Kerberos, Principal, Security, Ticket
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

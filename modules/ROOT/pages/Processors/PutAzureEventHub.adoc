@@ -1,13 +1,13 @@
 = PutAzureEventHub 2.2.0
 
-Send FlowFile contents to Azure Event Hubs
+Отправка содержимого FlowFile в Azure Event Hubs
 
 [horizontal]
 *Tags* (Ключевые слова):
 azure, cloud, eventhub, events, microsoft, streaming, streams
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Event Hub Namespace*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Event Hub Namespace
+*DISPLAY NAME (Отображаемое наименование):*:: Event Hub Namespace (Пространство имен Event Hubs)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Namespace of Azure Event Hubs prefixed to Service Bus Endpoint domain
+*DESCRIPTION (Описание):*:: Пространство имен Azure Event Hubs, префикс которого добавляется к доменному имени Service Bus Endpoint
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Event Hub Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Event Hub Name
+*DISPLAY NAME (Отображаемое наименование):*:: Event Hub Name (Имя концентратора событий)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Name of Azure Event Hubs destination
+*DESCRIPTION (Описание):*:: Название назначения Azure Event Hubs
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,27 +54,27 @@ REQUIRED (Обязательно)
 .*Service Bus Endpoint*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Service Bus Endpoint
+*DISPLAY NAME (Отображаемое наименование):*:: Service Bus Endpoint (Служба обмена сообщениями)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: To support namespaces not in the default windows.net domain.
+*DESCRIPTION (Описание):*:: Для поддержки пространств имен, не входящих в домен windows.net по умолчанию.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Azure: Servicebus endpoint for general use 
+* Azure: Конечная точка служебной шины для общего использования 
 
-* Azure China: Servicebus endpoint for China 
+* Azure China: Конечная точка служебной шины для Китая 
 
-* Azure Germany: Servicebus endpoint for Germany 
+* Azure Germany: Конечная точка служебной шины для Германии 
 
-* Azure US Government: Servicebus endpoint for US Government 
+* Azure US Government: Конечная точка служебной шины для правительства США 
 
 
 [horizontal]
@@ -83,23 +83,23 @@ REQUIRED (Обязательно)
 .*Transport Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Transport Type
+*DISPLAY NAME (Отображаемое наименование):*:: Transport Type (Тип транспорта)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Advanced Message Queuing Protocol Transport Type for communication with Azure Event Hubs
+*DESCRIPTION (Описание):*:: Advanced Message Queuing Protocol Transport Type for communication with Azure Event Hubs (Тип транспорта для обмена сообщениями с Azure Event Hubs)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* AMQP: AMQP over TCP on ports 5671 and 5672 
+* AMQP (АМКП): AMQP over TCP on ports 5671 and 5672 (АМКП через TCP на портах 5671 и 5672) 
 
-* AMQP_WEB_SOCKETS: AMQP over HTTPS with WebSockets on port 443 
+* AMQP_WEB_SOCKETS (АМКП по вебсокетам): AMQP over HTTPS with WebSockets on port 443 (АМКП через HTTPS с использованием вебсокетов на порту 443) 
 
 
 [horizontal]
@@ -108,14 +108,14 @@ REQUIRED (Обязательно)
 .Shared Access Policy Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Shared Access Policy Name
+*DISPLAY NAME (Отображаемое наименование):*:: Shared Access Policy Name (Имя политики общего доступа)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the shared access policy. This policy must have Send claims.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -125,14 +125,14 @@ REQUIRED (Обязательно)
 .Shared Access Policy Primary Key
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Shared Access Policy Key
+*DISPLAY NAME (Отображаемое наименование):*:: Shared Access Policy Key (Ключ политики общего доступа)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The key of the shared access policy. Either the primary or the secondary key can be used.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -142,14 +142,14 @@ REQUIRED (Обязательно)
 .*Use-Managed-Identity*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Use Azure Managed Identity
+*DISPLAY NAME (Отображаемое наименование):*:: Use Azure Managed Identity (Использовать управляемую идентичность Azure)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Choose whether or not to use the managed identity of Azure VM/VMSS
+*DESCRIPTION (Описание):*:: Choose whether or not to use the managed identity of Azure VM/VMSS (Выберите, следует ли использовать управляемую идентичность Azure VM/VMSS)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -167,14 +167,14 @@ REQUIRED (Обязательно)
 .Partitioning-Key-Attribute-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Partitioning Key Attribute Name
+*DISPLAY NAME (Отображаемое наименование):*:: Partitioning Key Attribute Name (Разделяющий ключ атрибута имени)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If specified, the value from argument named by this field will be used as a partitioning key to be used by event hub.
+*DESCRIPTION (Описание):*:: Если указано, значение из аргумента с именем, заданным этим полем, будет использоваться в качестве разделяющего ключа для использования событийным центром.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -184,14 +184,14 @@ REQUIRED (Обязательно)
 .*Max-Batch-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Batch Size
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Batch Size (Максимальный размер пакета)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Maximum number of FlowFiles processed for each Processor invocation
+*DESCRIPTION (Описание):*:: Максимальное количество FlowFiles, обрабатываемых при каждом вызове Processor
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -201,14 +201,14 @@ REQUIRED (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: HTTP + AuthN
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -229,7 +229,7 @@ REQUIRED (Обязательно)
 
 
 |MEMORY
-|The Processor buffers FlowFile contents in memory before sending
+|Процессор буферизует содержимое FlowFile в памяти перед отправкой
 
 |===
 
@@ -244,16 +244,27 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Any FlowFile that is successfully sent to the event hubs will be transferred to this Relationship.
+|Любой FlowFile, успешно отправленный в событийные центры, будет переданной по этому Relationship.
 
 |`failure`
-|Any FlowFile that could not be sent to the event hub will be transferred to this Relationship.
+|Любой FlowFile, который не удалось отправить в Event Hub, будет передан по этой Relationship.
 
 |===
 
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

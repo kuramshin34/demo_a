@@ -1,13 +1,13 @@
 = VolatileSchemaCache 2.2.0
 
-Provides a Schema Cache that evicts elements based on a Least-Recently-Used algorithm. This cache is not persisted, so any restart of NiFi will result in the cache being cleared. Additionally, the cache will be cleared any time that the Controller Service is stopped and restarted.
+Предоставляет кэш схем, который вытесняет элементы по алгоритму 'наименее недавно использованный'. Этот кэш не сохраняется, поэтому любой перезапуск NiFi приведет к очистке кэша. Кроме того, кэш будет очищен каждый раз, когда сервис контроллера останавливается и запускается снова.
 
 [horizontal]
 *Tags* (Ключевые слова):
-cache, record, schema
+кэш, запись, схема
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ cache, record, schema
 .*Max-Cache-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Cache Size
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Cache Size (Максимальный размер кэша)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum number of Schemas to cache.
+*DESCRIPTION (Описание):*:: The maximum number of Schemas to cache. (Максимальное количество схем для кэширования.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -47,6 +47,17 @@ cache, record, schema
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

@@ -1,13 +1,13 @@
 = PutElasticsearchRecord 2.2.0
 
-A record-aware Elasticsearch put processor that uses the official Elastic REST client libraries. Each Record within the FlowFile is converted into a document to be sent to the Elasticsearch _bulk APi. Multiple documents can be batched into each Request sent to Elasticsearch. Each document's Bulk operation can be configured using Record Path expressions.
+A record-aware Elasticsearch put processor that uses the official Elastic REST client libraries. Each Record within the FlowFile is converted into a document to be sent to the Elasticsearch _bulk API. Multiple documents can be batched into each request sent to Elasticsearch. Each document's Bulk operation can be configured using Record Path expressions.
 
 [horizontal]
 *Tags* (Ключевые слова):
 elasticsearch, elasticsearch5, elasticsearch6, elasticsearch7, elasticsearch8, index, json, put, record
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Put-Es-Record-Index-Op*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Index Operation
+*DISPLAY NAME (Отображаемое наименование):*:: Index Operation (Индексная Операция)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The type of the operation used to index (create, delete, index, update, upsert)
+*DESCRIPTION (Описание):*:: Тип операции, используемой для индексации (создание, удаление, индексирование, обновление, upsert)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*El-Rest-Fetch-Index*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Index
+*DISPLAY NAME (Отображаемое наименование):*:: Index (Индекс)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the index to use.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .El-Rest-Type
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Type
+*DISPLAY NAME (Отображаемое наименование):*:: Тип
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The type of this document (used by Elasticsearch for indexing and searching).
+*DESCRIPTION (Описание):*:: Тип этого документа (используется Elasticsearch для индексирования и поиска).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .Put-Es-Record-At-Timestamp
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: @timestamp Value
+*DISPLAY NAME (Отображаемое наименование):*:: @timestamp Value (Значение для поля @timestamp)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The value to use as the @timestamp field (required for Elasticsearch Data Streams)
+*DESCRIPTION (Описание):*:: Значение, которое следует использовать в качестве поля @timestamp (необходимо для Elasticsearch Data Streams)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ REQUIRED (Обязательно)
 .*Max Json Field String Length*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max JSON Field String Length
+*DISPLAY NAME (Отображаемое наименование):*:: Max JSON Field String Length (Максимальная длина строкового значения при парсинге JSON документа или атрибута)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The maximum allowed length of a string value when parsing a JSON document or attribute.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ REQUIRED (Обязательно)
 .*El-Rest-Client-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Client Service
+*DISPLAY NAME (Отображаемое наименование):*:: Client Service (Клиентская служба)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: An Elasticsearch client service to use for running queries.
+*DESCRIPTION (Описание):*:: An Elasticsearch client service to use for running queries. (Служба клиента Elasticsearch для выполнения запросов.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -122,14 +122,14 @@ REQUIRED (Обязательно)
 .*Put-Es-Record-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The record reader to use for reading incoming records from flowfiles.
+*DESCRIPTION (Описание):*:: Чтение входящих записей из потока с использованием указанного чтения записей.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -139,14 +139,14 @@ REQUIRED (Обязательно)
 .*Put-Es-Record-Batch-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Batch Size
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Size (Размер партии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The number of records to send over in a single batch.
+*DESCRIPTION (Описание):*:: Количество записей для отправки в одной партии.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -156,14 +156,14 @@ REQUIRED (Обязательно)
 .Put-Es-Record-Id-Path
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: ID Record Path
+*DISPLAY NAME (Отображаемое наименование):*:: ID Record Path (Путь записи ID)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A record path expression to retrieve the ID field for use with Elasticsearch. If left blank the ID will be automatically generated by Elasticsearch.
+*DESCRIPTION (Описание):*:: Выражение пути записи для получения поля ID, используемого с Elasticsearch. Если оставить пустым, то ID будет автоматически сгенерировано Elasticsearch.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -173,23 +173,23 @@ REQUIRED (Обязательно)
 .Put-Es-Record-Retain-Id-Field
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Retain ID (Record Path)
+*DISPLAY NAME (Отображаемое наименование):*:: Retain ID (Record Path) (Сохранять ID (Путь записи))
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Whether to retain the existing field used as the ID Record Path.
+*DESCRIPTION (Описание):*:: Определяет, следует ли сохранить существующее поле, используемое в качестве пути записи ID.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -198,14 +198,14 @@ REQUIRED (Обязательно)
 .Put-Es-Record-Index-Op-Path
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Index Operation Record Path
+*DISPLAY NAME (Отображаемое наименование):*:: Index Operation Record Path (Путь записи индекса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A record path expression to retrieve the Index Operation field for use with Elasticsearch. If left blank the Index Operation will be determined using the main Index Operation property.
+*DESCRIPTION (Описание):*:: Выражение пути записи для получения поля Index Operation для использования с Elasticsearch. Если оставить пустым, индексная операция будет определена с помощью основной свойства индексной операции.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -215,14 +215,14 @@ REQUIRED (Обязательно)
 .Put-Es-Record-Index-Record-Path
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Index Record Path
+*DISPLAY NAME (Отображаемое наименование):*:: Index Record Path (Путь записи индекса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A record path expression to retrieve the index field for use with Elasticsearch. If left blank the index will be determined using the main index property.
+*DESCRIPTION (Описание):*:: Выражение пути записи для получения поля индекса для использования с Elasticsearch. Если оставить пустым, индекс будет определен с помощью основной свойства индекса.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -232,14 +232,14 @@ REQUIRED (Обязательно)
 .Put-Es-Record-Type-Record-Path
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Type Record Path
+*DISPLAY NAME (Отображаемое наименование):*:: Type Record Path (Тип пути записи)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A record path expression to retrieve the type field for use with Elasticsearch. If left blank the type will be determined using the main type property.
+*DESCRIPTION (Описание):*:: Выражение пути записи для получения поля типа, используемого с Elasticsearch. Если оставить пустым, тип будет определен с помощью основной свойства типа.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -249,14 +249,14 @@ REQUIRED (Обязательно)
 .Put-Es-Record-At-Timestamp-Path
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: @timestamp Record Path
+*DISPLAY NAME (Отображаемое наименование):*:: @timestamp Record Path (Временная метка записи)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A RecordPath pointing to a field in the record(s) that contains the @timestamp for the document. If left blank the @timestamp will be determined using the main @timestamp property
+*DESCRIPTION (Описание):*:: A RecordPath указывающий на поле в записи(ах), содержащее @timestamp для документа. Если оставить пустым, временная метка будет определена с использованием основной свойства @timestamp
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -266,14 +266,14 @@ REQUIRED (Обязательно)
 .Put-Es-Record-Retain-At-Timestamp-Field
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Retain @timestamp (Record Path)
+*DISPLAY NAME (Отображаемое наименование):*:: Retain @timestamp (Record Path) (Сохранять поле @timestamp (Путь записи))
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Whether to retain the existing field used as the @timestamp Record Path.
+*DESCRIPTION (Описание):*:: Определяет, следует ли сохранять существующее поле, используемое в качестве пути записи @timestamp.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -291,14 +291,14 @@ REQUIRED (Обязательно)
 .Put-Es-Record-Script-Path
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Script Record Path
+*DISPLAY NAME (Отображаемое наименование):*:: Script Record Path (Путь записи скрипта)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A RecordPath pointing to a field in the record(s) that contains the script for the document update/upsert. Only applies to Update/Upsert operations. Field must be Map-type compatible (e.g. a Map or a Record) or a String parsable into a JSON Object
+*DESCRIPTION (Описание):*:: A RecordPath, указывающий на поле в записи(ях), содержащее скрипт для обновления/вставки документа. Применяется только к операциям Update/Upsert. Поле должно быть совместимо с типом Map (например, Map или Record) или строкой, которая может быть разобрана как JSON-объект
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -308,14 +308,14 @@ REQUIRED (Обязательно)
 .Put-Es-Record-Scripted-Upsert-Path
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Scripted Upsert Record Path
+*DISPLAY NAME (Отображаемое наименование):*:: Scripted Upsert Record Path (Скриптовый путь для обновления записи)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A RecordPath pointing to a field in the record(s) that contains the scripted_upsert boolean flag. Whether to add the scripted_upsert flag to the Upsert Operation. Forces Elasticsearch to execute the Script whether or not the document exists, defaults to false. If the Upsert Document provided (from FlowFile content) will be empty, but sure to set the Client Service controller service's Suppress Null/Empty Values to Never Suppress or no "upsert" doc will be, included in the request to Elasticsearch and the operation will not create a new document for the script to execute against, resulting in a "not_found" error
+*DESCRIPTION (Описание):*:: Запись, указывающая на поле в записи(ях), содержащее флаг scripted_upsert. Указывает, следует ли добавить флаг scripted_upsert в операцию обновления. Принудительно выполняет скрипт, даже если документ не существует, по умолчанию установлено значение false. Если предоставленный документ Upsert (из содержимого FlowFile) будет пустым, но убедитесь, что задано свойство Client Service controller service Suppress Null/Empty Values как Never Suppress или не будет включен "upsert" документ в запрос к Elasticsearch, и операция не создаст новый документ для выполнения скрипта, что приведет к ошибке "not_found".
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -325,14 +325,14 @@ REQUIRED (Обязательно)
 .Put-Es-Record-Dynamic-Templates-Path
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Dynamic Templates Record Path
+*DISPLAY NAME (Отображаемое наименование):*:: Dynamic Templates Record Path (Путь к записи шаблонов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A RecordPath pointing to a field in the record(s) that contains the dynamic_templates for the document. Field must be Map-type compatible (e.g. a Map or Record) or a String parsable into a JSON Object. Requires Elasticsearch 7+
+*DESCRIPTION (Описание):*:: A RecordPath указывающий на поле в записи(ах), содержащее dynamic_templates для документа. Поле должно быть совместимым с типом Map (например, Map или Record) или строкой, которая может быть разобрана как JSON Object. Требуется Elasticsearch 7+
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -342,14 +342,14 @@ REQUIRED (Обязательно)
 .Put-Es-Record-At-Timestamp-Date-Format
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Date Format
+*DISPLAY NAME (Отображаемое наименование):*:: Date Format (Формат даты)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the format to use when writing Date fields. If not specified, the default format 'yyyy-MM-dd' is used. If specified, the value must match the Java Simple Date Format (for example, MM/dd/yyyy for a two-digit month, followed by a two-digit day, followed by a four-digit year, all separated by '/' characters, as in 01/25/2017).
+*DESCRIPTION (Описание):*:: Указывает формат, который следует использовать при записи полей Date. Если не указан, будет использован формат 'yyyy-MM-dd'. Если указан, значение должно соответствовать формату Java Simple Date (например, MM/dd/yyyy для двузначного месяца, за которым следует двузначный день и четырехзначный год, разделенные символами '/' как в 01/25/2017).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -359,14 +359,14 @@ REQUIRED (Обязательно)
 .Put-Es-Record-At-Timestamp-Time-Format
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Time Format
+*DISPLAY NAME (Отображаемое наименование):*:: Time Format (Формат времени)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the format to use when writing Time fields. If not specified, the default format 'HH:mm:ss' is used. If specified, the value must match the Java Simple Date Format (for example, HH:mm:ss for a two-digit hour in 24-hour format, followed by a two-digit minute, followed by a two-digit second, all separated by ':' characters, as in 18:04:15).
+*DESCRIPTION (Описание):*:: Указывает формат, который следует использовать при записи полей Time. Если не указано, будет использован формат 'HH:mm:ss' по умолчанию. Если указан, значение должно соответствовать формату Java Simple Date (например, HH:mm:ss для двузначного часа в 24-часовом формате, за которым следуют двузначная минута и двузначная секунда, все разделенные символом ':' как в 18:04:15).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -376,14 +376,14 @@ REQUIRED (Обязательно)
 .Put-Es-Record-At-Timestamp-Timestamp-Format
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Timestamp Format
+*DISPLAY NAME (Отображаемое наименование):*:: Формат временной метки (Timestamp Format)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the format to use when writing Timestamp fields. If not specified, the default format 'yyyy-MM-dd HH:mm:ss' is used. If specified, the value must match the Java Simple Date Format (for example, MM/dd/yyyy HH:mm:ss for a two-digit month, followed by a two-digit day, followed by a four-digit year, all separated by '/' characters; and then followed by a two-digit hour in 24-hour format, followed by a two-digit minute, followed by a two-digit second, all separated by ':' characters, as in 01/25/2017 18:04:15).
+*DESCRIPTION (Описание):*:: Указывает формат, который следует использовать при записи полей временной метки. Если не указан, будет использоваться默认ный формат 'yyyy-MM-dd HH:mm:ss'. Если указано, значение должно соответствовать формату Java Simple Date (например, MM/dd/yyyy HH:mm:ss для двузначного месяца, за которым следует двузначный день, затем четырехзначный год, все разделенные '/' символами; а затем двузначный час в 24-часовом формате, за которым следуют двузначные минута и секунда, все разделенные ':' символами, как в 01/25/2017 18:04:15).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -393,14 +393,14 @@ REQUIRED (Обязательно)
 .Put-Es-Record-Log-Error-Responses
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Log Error Responses
+*DISPLAY NAME (Отображаемое наименование):*:: Log Error Responses (Запись ошибок в лог)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If this is enabled, errors will be logged to the NiFi logs at the error log level. Otherwise, they will only be logged if debug logging is enabled on NiFi as a whole. The purpose of this option is to give the user the ability to debug failed operations without having to turn on debug logging.
+*DESCRIPTION (Описание):*:: Если это включено, ошибки будут записываться в журналы NiFi на уровне ошибок. В противном случае они будут записаны только если включено весьма детальное логирование на NiFi. Цель этой опции — предоставить пользователю возможность отладки неудачных операций без необходимости включать весьма детальное логирование.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -418,14 +418,14 @@ REQUIRED (Обязательно)
 .Put-Es-Output-Error-Responses
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Output Error Responses
+*DISPLAY NAME (Отображаемое наименование):*:: Output Error Responses (Выход ошибочных ответов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If this is enabled, response messages from Elasticsearch marked as "error" will be output to the "error_responses" relationship.This does not impact the output of flowfiles to the "successful" or "errors" relationships
+*DESCRIPTION (Описание):*:: Если это включено, сообщения ответа от Elasticsearch, помеченные как "ошибка", будут выводиться в отношение "error_responses". Это не влияет на вывод flowfiles в отношения "успешно" или "ошибки"
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -443,14 +443,14 @@ REQUIRED (Обязательно)
 .*Put-Es-Record-Error-Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Result Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Result Record Writer (Результатный Записчик Записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The response from Elasticsearch will be examined for failed records and the failed records will be written to a record set with this record writer service and sent to the "errors" relationship. Successful records will be written to a record set with this record writer service and sent to the "successful" relationship.
+*DESCRIPTION (Описание):*:: Ответ от Elasticsearch будет проверен на наличие неудачных записей, и неудачные записи будут записаны в набор записей с этим сервисом записчика записей и отправлены в отношение "ошибки". Успешные записи будут записаны в набор записей с этим сервисом записчика записей и отправлены в отношение "успешный".
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -460,14 +460,14 @@ REQUIRED (Обязательно)
 .Put-Es-Not_Found-Is-Error
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Treat "Not Found" as Success
+*DISPLAY NAME (Отображаемое наименование):*:: Treat "Not Found" as Success (Обрабатывать "Не найдено" как успех)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: If true, "not_found" Elasticsearch Document associated Records will be routed to the "successful" relationship, otherwise to the "errors" relationship. If Output Error Responses is "true" then "not_found" responses from Elasticsearch will be sent to the error_responses relationship.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -485,14 +485,14 @@ REQUIRED (Обязательно)
 .Put-Es-Record-Bulk-Error-Groups
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Group Results by Bulk Error Type
+*DISPLAY NAME (Отображаемое наименование):*:: Group Results by Bulk Error Type (Сгруппировать результаты по типу массовых ошибок)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The errored records written to the "errors" relationship will be grouped by error type and the error related to the first record within the FlowFile added to the FlowFile as "elasticsearch.bulk.error". If "Treat "Not Found" as Success" is "false" then records associated with "not_found" Elasticsearch document responses will also be send to the "errors" relationship.
+*DESCRIPTION (Описание):*:: Записи с ошибками, записанные в "ошибки" будут сгруппированы по типу ошибки, и ошибка, связанная с первой записью в FlowFile, будет добавлена в FlowFile как "elasticsearch.bulk.error". Если "Рассматривать "Не найдено" как успех" имеет значение "false", то записи, связанные с ответами Elasticsearch на "not_found" также будут отправлены в "ошибки".
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 

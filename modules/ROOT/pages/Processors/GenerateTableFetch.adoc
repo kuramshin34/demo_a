@@ -1,18 +1,13 @@
 = GenerateTableFetch 2.2.0
 
-Generates SQL select queries that fetch "pages" of rows from a table. The partition size property, along with the table's row count, determine the size and number of pages and generated FlowFiles. In addition, incremental fetching can be achieved by setting Maximum-Value Columns, which causes the processor to track the columns' maximum values, thus only fetching rows whose columns' values exceed the observed maximums. This processor is intended to be run on the Primary Node only.
-
-This processor can accept incoming connections; the behavior of the processor is different whether incoming connections are provided:
-  - If no incoming connection(s) are specified, the processor will generate SQL queries on the specified processor schedule. Expression Language is supported for many fields, but no FlowFile attributes are available. However the properties will be evaluated using the Environment/System properties.
-  - If incoming connection(s) are specified and no FlowFile is available to a processor task, no work will be performed.
-  - If incoming connection(s) are specified and a FlowFile is available to a processor task, the FlowFile's attributes may be used in Expression Language for such fields as Table Name and others. However, the Max-Value Columns and Columns to Return fields must be empty or refer to columns that are available in each specified table.
+Генерирует SQL выборки, которые извлекают "страницы" строк из таблицы. Свойство размера раздела вместе с количеством строк таблицы определяет размер и количество страниц, а также сгенерированных FlowFiles. Кроме того, инкрементное получение можно достичь, установив Максимальные значения столбцов, что приводит к отслеживанию максимальных значений столбцов, таким образом извлекая только строки, значения столбцов которых превышают наблюдаемые максимумы. Этот процессор предназначен для запуска только на основном узле.
 
 [horizontal]
 *Tags* (Ключевые слова):
 database, fetch, generate, jdbc, query, select, sql
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-ALLOWED (Обязательно)
+ALLOWED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -25,14 +20,14 @@ ALLOWED (Обязательно)
 .*Database Connection Pooling Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Database Connection Pooling Service
+*DISPLAY NAME (Отображаемое наименование):*:: Database Connection Pooling Service (База данных Сервис Подключения Пула)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Controller Service that is used to obtain a connection to the database.
+*DESCRIPTION (Описание):*:: Контроллер Сервис, используемый для получения подключения к базе данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -42,40 +37,38 @@ ALLOWED (Обязательно)
 .*Db-Fetch-Db-Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Database Type
+*DISPLAY NAME (Отображаемое наименование):*:: Database Type (Тип базы данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Database Type for generating statements specific to a particular service or vendor.
-The Generic Type supports most cases but selecting a specific type enables optimal processing
-or additional features.
-
+*DESCRIPTION (Описание):*:: Тип базы данных для генерации операторов, специфичных для определенной службы или поставщика.
+Общий тип поддерживает большинство случаев, но выбор конкретного типа позволяет оптимизировать обработку или предоставлять дополнительные функции.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Database Dialect Service: Requires configuring a Database Dialect Service for SQL statements 
+* Database Dialect Service (Сервис диалект базы данных): Требует настройки сервиса диалект базы данных для операторов SQL 
 
-* Generic: Generates ANSI SQL 
+* Generic (Общий): Генерирует ANSI SQL 
 
-* Oracle: Generates Oracle compliant SQL 
+* Oracle (Oracle): Генерирует совместимый с Oracle SQL 
 
-* Oracle 12+: Generates Oracle compliant SQL for version 12 or greater 
+* Oracle 12+ (Oracle 12+): Генерирует совместимый с Oracle SQL для версии 12 или выше 
 
-* MS SQL 2012+: Generates MS SQL Compatible SQL, for version 2012 or greater 
+* MS SQL 2012+ (MS SQL 2012+): Генерирует совместимый с MS SQL Compatible SQL для версии 2012 или выше 
 
-* MS SQL 2008: Generates MS SQL Compatible SQL for version 2008 
+* MS SQL 2008 (MS SQL 2008): Генерирует совместимый с MS SQL Compatible SQL для версии 2008 
 
-* MySQL: Generates MySQL compatible SQL 
+* MySQL (MySQL): Генерирует совместимый с MySQL SQL 
 
-* PostgreSQL: Generates PostgreSQL compatible SQL 
+* PostgreSQL (PostgreSQL): Генерирует совместимый с PostgreSQL SQL 
 
-* Phoenix: Generates Phoenix compliant SQL 
+* Phoenix (Phoenix): Генерирует совместимый с Phoenix SQL 
 
 
 [horizontal]
@@ -84,14 +77,14 @@ or additional features.
 .*Database Dialect Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Database Dialect Service
+*DISPLAY NAME (Отображаемое наименование):*:: Database Dialect Service (База данных Диалект Сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Database Dialect Service for generating statements specific to a particular service or vendor.
+*DESCRIPTION (Описание):*:: База данных Диалект Сервис для генерации заявлений, специфичных для определенной службы или поставщика.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -101,14 +94,14 @@ or additional features.
 .*Table Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Table Name
+*DISPLAY NAME (Отображаемое наименование):*:: Table Name (Таблица)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the database table to be queried.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -118,14 +111,14 @@ or additional features.
 .Columns To Return
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Columns to Return
+*DISPLAY NAME (Отображаемое наименование):*:: Columns to Return (Столбцы для возврата)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A comma-separated list of column names to be used in the query. If your database requires special treatment of the names (quoting, e.g.), each name should include such treatment. If no column names are supplied, all columns in the specified table will be returned. NOTE: It is important to use consistent column names for a given table for incremental fetch to work properly.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -135,14 +128,14 @@ or additional features.
 .Maximum-Value Columns
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum-value Columns
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum-value Columns (Максимальные значения столбцов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A comma-separated list of column names. The processor will keep track of the maximum value for each column that has been returned since the processor started running. Using multiple columns implies an order to the column list, and each column's values are expected to increase more slowly than the previous columns' values. Thus, using multiple columns implies a hierarchical structure of columns, which is usually used for partitioning tables. This processor can be used to retrieve only those rows that have been added/updated since the last retrieval. Note that some JDBC types such as bit/boolean are not conducive to maintaining maximum value, so columns of these types should not be listed in this property, and will result in error(s) during processing. If no columns are provided, all rows from the table will be considered, which could have a performance impact. NOTE: It is important to use consistent max-value column names for a given table for incremental fetch to work properly.
+*DESCRIPTION (Описание):*:: Список имен столбцов, разделенных запятыми. Обработчик будет отслеживать максимальное значение для каждого столбца, возвращенного с момента запуска обработчика. Использование нескольких столбцов подразумевает порядок в списке столбцов, и значения каждого столбца ожидаются для увеличения более медленно, чем значения предыдущих столбцов. Таким образом, использование нескольких столбцов подразумевает иерархическую структуру столбцов, которая обычно используется для разделения таблиц. Этот процессор может быть использован для получения только тех строк, которые были добавлены/обновлены с момента последнего извлечения. Обратите внимание, что некоторые типы JDBC, такие как bit/boolean, не подходят для поддержания максимального значения, поэтому столбцы этих типов не должны быть включены в это свойство, и это приведет к ошибкам во время обработки. Если список столбцов не указан, будут рассмотрены все строки из таблицы, что может сказаться на производительности. Примечание: важно использовать согласованные имена столбцов max-value для данной таблицы, чтобы инкрементная выборка работала корректно.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -152,14 +145,14 @@ or additional features.
 .*Max Wait Time*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Wait Time
+*DISPLAY NAME (Отображаемое наименование):*:: Max Wait Time (Максимальное время ожидания для выполнения SQL-запроса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum amount of time allowed for a running SQL select query , zero means there is no limit. Max time less than 1 second will be equal to zero.
+*DESCRIPTION (Описание):*:: Максимальное количество времени, разрешенное для выполнения запроса SQL, где ноль означает отсутствие ограничений. Максимальное время менее одной секунды будет равно нулю.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -169,14 +162,14 @@ or additional features.
 .*Gen-Table-Fetch-Partition-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Partition Size
+*DISPLAY NAME (Отображаемое наименование):*:: Partition Size (Размер раздела)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The number of result rows to be fetched by each generated SQL statement. The total number of rows in the table divided by the partition size gives the number of SQL statements (i.e. FlowFiles) generated. A value of zero indicates that a single FlowFile is to be generated whose SQL statement will fetch all rows in the table.
+*DESCRIPTION (Описание):*:: Количество строк результатов, которые должны быть получены каждым сгенерированным SQL оператором. Общее количество строк в таблице, деленное на размер раздела, дает количество сгенерированных SQL операторов (т.е. FlowFiles). Значение ноль указывает на то, что должен быть сгенерирован один FlowFile, SQL-оператор которого запросит все строки в таблице.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -186,14 +179,14 @@ or additional features.
 .Gen-Table-Column-For-Val-Partitioning
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Column for Value Partitioning
+*DISPLAY NAME (Отображаемое наименование):*:: Column for Value Partitioning (Столбец для разделения значений)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of a column whose values will be used for partitioning. The default behavior is to use row numbers on the result set for partitioning into 'pages' to be fetched from the database, using an offset/limit strategy. However for certain databases, it can be more efficient under the right circumstances to use the column values themselves to define the 'pages'. This property should only be used when the default queries are not performing well, when there is no maximum-value column or a single maximum-value column whose type can be coerced to a long integer (i.e. not date or timestamp), and the column values are evenly distributed and not sparse, for best performance.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -203,14 +196,14 @@ or additional features.
 .Db-Fetch-Where-Clause
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Additional WHERE clause
+*DISPLAY NAME (Отображаемое наименование):*:: Additional WHERE clause (Дополнительный WHERE условие)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A custom clause to be added in the WHERE condition when building SQL queries.
+*DESCRIPTION (Описание):*:: A custom clause to be added in the WHERE condition when building SQL queries. (Кастомное условие для добавления в условие WHERE при построении SQL запросов.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -220,14 +213,14 @@ or additional features.
 .Gen-Table-Custom-Orderby-Column
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Custom ORDER BY Column
+*DISPLAY NAME (Отображаемое наименование):*:: Custom ORDER BY Column (Настраиваемый столбец для сортировки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of a column to be used for ordering the results if Max-Value Columns are not provided and partitioning is enabled. This property is ignored if either Max-Value Columns is set or Partition Size = 0. NOTE: If neither Max-Value Columns nor Custom ORDER BY Column is set, then depending on the the database/driver, the processor may report an error and/or the generated SQL may result in missing and/or duplicate rows. This is because without an explicit ordering, fetching each partition is done using an arbitrary ordering.
+*DESCRIPTION (Описание):*:: Имя колонки, используемой для сортировки результатов, если не заданы Max-Value Columns и включено разделение. Это свойство игнорируется, если установлены Max-Value Columns или Partition Size = 0. Примечание: Если ни Max-Value Columns, ни Custom ORDER BY Column не заданы, то в зависимости от базы данных/драйвера процессор может сообщить об ошибке и/или сгенерированный SQL может привести к пропуску и/или дубликатам строк. Это происходит потому, что без явного упорядочения каждая часть захватывается с использованием произвольного порядка.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -237,14 +230,14 @@ or additional features.
 .*Gen-Table-Output-Flowfile-On-Zero-Results*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Output Empty FlowFile on Zero Results
+*DISPLAY NAME (Отображаемое наименование):*:: Output Empty FlowFile on Zero Results (Вывод пустого FlowFile при отсутствии результатов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Depending on the specified properties, an execution of this processor may not result in any SQL statements generated. When this property is true, an empty FlowFile will be generated (having the parent of the incoming FlowFile if present) and transferred to the 'success' relationship. When this property is false, no output FlowFiles will be generated.
+*DESCRIPTION (Описание):*:: В зависимости от указанных свойств, выполнение этого процессора может не привести к генерации каких-либо SQL-заявлений. Когда это свойство истинно, будет сгенерирован пустой FlowFile (имеющий родителя входящего FlowFile, если он присутствует) и передан на отношение 'success'. Когда это свойство ложно, не будет сгенерировано никаких выходных FlowFiles.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -268,8 +261,8 @@ or additional features.
 |Наименование |Описание |Значение |Ограничения языка выражений
 
 |`initial.maxvalue.<max_value_column>`
-|Specifies an initial max value for max value columns. Properties should be added in the format `initial.maxvalue.<max_value_column>`. This value is only used the first time the table is accessed (when a Maximum Value Column is specified). In the case of incoming connections, the value is only used the first time for each table specified in the FlowFiles.
-|`Initial maximum value for the specified column`
+|Указывает начальное максимальное значение для столбцов с максимальными значениями. Свойства должны быть добавлены в формате `initial.maxvalue.<max_value_column>`. Это значение используется только при первом доступе к таблице (при указании Максимального значения столбца). В случае входящих подключений значение используется только при первом доступе для каждой таблицы, указанной в FlowFiles.
+|`Начальное максимальное значение для указанного столбца`
 |
 
 |===
@@ -285,7 +278,7 @@ or additional features.
 |
 CLUSTER
 
-|After performing a query on the specified table, the maximum values for the specified column(s) will be retained for use in future executions of the query. This allows the Processor to fetch only those records that have max values greater than the retained values. This can be used for incremental fetching, fetching of newly added rows, etc. To clear the maximum values, clear the state of the processor per the State Management documentation
+|После выполнения запроса к указанной таблице максимальные значения для указанных столбцов будут сохраняться для использования в последующих выполнениях запроса. Это позволяет процессору извлекать только те записи, которые имеют максимальные значения, превышающие сохраненные значения. Это может быть использовано для инкрементного получения, получения новых добавленных строк и т.д. Для очистки максимальных значений очистите состояние процессора в соответствии с документацией по управлению состояниями
 |===
 
 
@@ -301,10 +294,10 @@ CLUSTER
 |Наименование |Описание
 
 |`success`
-|Successfully created FlowFile from SQL query result set.
+|Успешно создан FlowFile из результата запроса SQL.
 
 |`failure`
-|This relationship is only used when SQL query execution (using an incoming FlowFile) failed. The incoming FlowFile will be penalized and routed to this relationship. If no incoming connection(s) are specified, this relationship is unused.
+|Эта связь используется только при выполнении запроса SQL (с использованием входящего FlowFile), которое завершилось ошибкой. Входящий FlowFile будет наказан, и он будет направлен в эту связь. Если не указано ни одного входящего подключения, эта связь не используется.
 
 |===
 
@@ -319,34 +312,34 @@ CLUSTER
 |Наименование |Описание
 
 |`generatetablefetch.sql.error`
-|If the processor has incoming connections, and processing an incoming FlowFile causes a SQL Exception, the FlowFile is routed to failure and this attribute is set to the exception message.
+|Если у процессора есть входящие подключения и обработка входящего FlowFile приводит к исключению SQL, FlowFile направляется в связь failure, а этому атрибуту задается сообщение об ошибке.
 
 |`generatetablefetch.tableName`
-|The name of the database table to be queried.
+|Имя базы данных таблицы для запроса.
 
 |`generatetablefetch.columnNames`
-|The comma-separated list of column names used in the query.
+|Список имен столбцов, используемых в запросе, разделенный запятыми.
 
 |`generatetablefetch.whereClause`
-|Where clause used in the query to get the expected rows.
+|Где предложение, используемое в запросе для получения ожидаемых строк.
 
 |`generatetablefetch.maxColumnNames`
-|The comma-separated list of column names used to keep track of data that has been returned since the processor started running.
+|Список имен столбцов, разделенных запятыми, используемый для отслеживания данных, возвращенных с момента запуска процессора.
 
 |`generatetablefetch.limit`
-|The number of result rows to be fetched by the SQL statement.
+|Количество строк результатов, которые будут извлечены оператором SQL.
 
 |`generatetablefetch.offset`
-|Offset to be used to retrieve the corresponding partition.
+|Смещение для использования при получении соответствующего раздела.
 
 |`fragment.identifier`
-|All FlowFiles generated from the same query result set will have the same value for the fragment.identifier attribute. This can then be used to correlate the results.
+|Все FlowFiles, сгенерированные из одного и того же результата запроса, будут иметь одинаковое значение атрибута fragment.identifier. Это может быть использовано для корреляции результатов.
 
 |`fragment.count`
-|This is the total number of  FlowFiles produced by a single ResultSet. This can be used in conjunction with the fragment.identifier attribute in order to know how many FlowFiles belonged to the same incoming ResultSet.
+|Это общее количество FlowFiles, произведенных одним и тем же ResultSet. Это может быть использовано в сочетании с атрибутом fragment.identifier для определения количества FlowFiles, принадлежащих тому же входящему ResultSet.
 
 |`fragment.index`
-|This is the position of this FlowFile in the list of outgoing FlowFiles that were all generated from the same execution. This can be used in conjunction with the fragment.identifier attribute to know which FlowFiles originated from the same execution and in what order  FlowFiles were produced
+|Это позиция этого FlowFile в списке исходящих FlowFiles, все из которых были сгенерированы из одного и того же выполнения. Это может быть использовано в сочетании с атрибутом fragment.identifier для определения порядка, в котором FlowFiles были произведены.
 
 |===
 

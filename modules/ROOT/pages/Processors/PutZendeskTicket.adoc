@@ -1,13 +1,13 @@
 = PutZendeskTicket 2.2.0
 
-Create Zendesk tickets using the Zendesk API.
+Создание тикетов в Zendesk с использованием API Zendesk.
 
 [horizontal]
 *Tags* (Ключевые слова):
 zendesk, ticket
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ zendesk, ticket
 .*Web-Client-Service-Provider*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Web Client Service Provider
+*DISPLAY NAME (Отображаемое наименование):*:: Web Client Service Provider (Веб-клиентский сервис-провайдер)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Controller service for HTTP client operations.
+*DESCRIPTION (Описание):*:: Контроллерский сервис для операций HTTP клиента.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ zendesk, ticket
 .*Zendesk-Subdomain*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Subdomain Name
+*DISPLAY NAME (Отображаемое наименование):*:: Subdomain Name (Поддомен)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Name of the Zendesk subdomain.
+*DESCRIPTION (Описание):*:: Имя поддомена Zendesk.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ zendesk, ticket
 .*Zendesk-User*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: User Name
+*DISPLAY NAME (Отображаемое наименование):*:: User Name (Пользователь)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Login user to Zendesk subdomain.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,23 +71,23 @@ zendesk, ticket
 .*Zendesk-Authentication-Type-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Authentication Type
+*DISPLAY NAME (Отображаемое наименование):*:: Authentication Type (Тип аутентификации)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Type of authentication to Zendesk API.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Password: Password of Zendesk login user. 
+* Password (Пароль): Password of Zendesk login user. 
 
-* Token: Authentication token generated in Zendesk Admin menu for API access. 
+* Token (Токен): Authentication token generated in Zendesk Admin menu for API access. 
 
 
 [horizontal]
@@ -96,14 +96,14 @@ zendesk, ticket
 .*Zendesk-Authentication-Value-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Authentication Credential
+*DISPLAY NAME (Отображаемое наименование):*:: Authentication Credential (Аутентификация учетных данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Password or authentication token for Zendesk login user.
+*DESCRIPTION (Описание):*:: Пароль или аутентификационный токен для входа пользователя Zendesk.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -113,14 +113,14 @@ zendesk, ticket
 .Zendesk-Record-Reader
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Читатель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for parsing incoming data and determining the data's schema.
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера для использования при разборе входящих данных и определении схемы данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -130,14 +130,14 @@ zendesk, ticket
 .*Zendesk-Comment-Body*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Comment Body
+*DISPLAY NAME (Отображаемое наименование):*:: Comment Body (Комментарий)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The content or the path to the comment body in the incoming record.
+*DESCRIPTION (Описание):*:: Содержимое или путь к телу комментария в поступающем записи.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -147,14 +147,14 @@ zendesk, ticket
 .Zendesk-Subject
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Subject
+*DISPLAY NAME (Отображаемое наименование):*:: Subject (Предмет)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The content or the path to the subject in the incoming record.
+*DESCRIPTION (Описание):*:: Содержимое или путь к предмету в поступающем записи.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -164,14 +164,14 @@ zendesk, ticket
 .Zendesk-Priority
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Priority
+*DISPLAY NAME (Отображаемое наименование):*:: Priority (Приоритет)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The content or the path to the priority in the incoming record.
+*DESCRIPTION (Описание):*:: Содержимое или путь к приоритету в поступающем записи.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -181,14 +181,14 @@ zendesk, ticket
 .Zendesk-Type
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Type
+*DISPLAY NAME (Отображаемое наименование):*:: Тип
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The content or the path to the type in the incoming record.
+*DESCRIPTION (Описание):*:: Содержимое или путь к типу в поступающем записи.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -204,7 +204,7 @@ zendesk, ticket
 |Наименование |Описание |Значение |Ограничения языка выражений
 
 |`The path in the request object to add. The value needs be a valid JsonPointer.`
-|Additional property to be added to the Zendesk request object.
+|Дополнительное свойство, которое будет добавлено в объект запроса Zendesk.
 |`The path in the incoming record to get the value from.`
 |
 
@@ -225,10 +225,10 @@ zendesk, ticket
 |Наименование |Описание
 
 |`success`
-|For FlowFiles created as a result of a successful HTTP request.
+|Для FlowFiles, созданных в результате успешного HTTP-запроса.
 
 |`failure`
-|A FlowFile is routed to this relationship if the operation failed and retrying the operation will also fail, such as an invalid data or schema.
+|FlowFile направляется в это отношение, если операция завершилась с ошибкой и повторная попытка операции также потерпит неудачу, например из-за неправильных данных или схемы.
 
 |===
 
@@ -243,13 +243,13 @@ zendesk, ticket
 |Наименование |Описание
 
 |`record.count`
-|The number of records processed.
+|Количество обработанных записей.
 
 |`error.code`
-|The error code of from the response.
+|Код ошибки из ответа.
 
 |`error.message`
-|The error message of from the response.
+|Сообщение об ошибке из ответа.
 
 |===
 

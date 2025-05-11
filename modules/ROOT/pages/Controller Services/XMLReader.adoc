@@ -1,13 +1,13 @@
 = XMLReader 2.2.0
 
-Reads XML content and creates Record objects. Records are expected in the second level of XML data, embedded in an enclosing root tag.
+Читает содержимое XML и создаёт объекты Record. Записи ожидаются на втором уровне данных в XML, заключённые в корневой тег.
 
 [horizontal]
 *Tags* (Ключевые слова):
 parser, reader, record, xml
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,27 +20,27 @@ parser, reader, record, xml
 .*Schema-Access-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy (Стратегия доступа к схеме)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how to obtain the schema that is to be used for interpreting the data.
+*DESCRIPTION (Описание):*:: Определяет, как получить схему для интерпретации данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Use 'Schema Name' Property: The name of the Schema to use is specified by the 'Schema Name' Property. The value of this property is used to lookup the Schema in the configured Schema Registry service. 
+* Использовать 'Свойство Имя Схемы' (Use 'Schema Name' Property): Имя схемы, которое указывается свойством 'Имя Схемы'. Значение этого свойства используется для поиска схемы в настроенном сервисе реестра схем. 
 
-* Use 'Schema Text' Property: The text of the Schema itself is specified by the 'Schema Text' Property. The value of this property must be a valid Avro Schema. If Expression Language is used, the value of the 'Schema Text' property must be valid after substituting the expressions. 
+* Использовать 'Свойство Текст Схемы' (Use 'Schema Text' Property): Текст самой схемы указывается свойством 'Текст Схемы'. Значение этого свойства должно быть допустимой Avro схемой. Если используется язык выражений, значение свойства 'Текст Схемы' должно быть действительным после замены выражений. 
 
-* Schema Reference Reader: The schema reference information will be provided through a configured Schema Reference Reader service implementation. 
+* Схема ссылки на чтение (Schema Reference Reader): Информация о ссылке на схему будет предоставлена через реализованный конфигурируемый сервис чтения ссылок на схемы. 
 
-* Infer Schema: The Schema of the data will be inferred automatically when the data is read. See component Usage and Additional Details for information about how the schema is inferred. 
+* Вывести схему (Infer Schema): Схема данных будет автоматически выведена при чтении данных. См. раздел 'Использование и дополнительные сведения' для получения информации о том, как выводится схема. 
 
 
 [horizontal]
@@ -49,14 +49,14 @@ parser, reader, record, xml
 .Schema-Registry
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry (Реестър на схеми)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for the Schema Registry
+*DESCRIPTION (Описание):*:: Определя контролера за услуга, който да се използва за реестра на схемите
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -66,14 +66,14 @@ parser, reader, record, xml
 .Schema-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Name
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Name (Схема имени)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the name of the schema to lookup in the Schema Registry property
+*DESCRIPTION (Описание):*:: Указывает имя схемы для поиска в свойстве Реестра схем
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -83,14 +83,14 @@ parser, reader, record, xml
 .Schema-Version
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Version
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Version (Схема версии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the version of the schema to lookup in the Schema Registry. If not specified then the latest version of the schema will be retrieved.
+*DESCRIPTION (Описание):*:: Указывает версию схемы для поиска в Реестре схем. Если не указано, будет получена последняя версия схемы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -100,14 +100,14 @@ parser, reader, record, xml
 .Schema-Branch
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Branch
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Branch (Схема ветки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the name of the branch to use when looking up the schema in the Schema Registry property. If the chosen Schema Registry does not support branching, this value will be ignored.
+*DESCRIPTION (Описание):*:: Указывает имя ветки, которую следует использовать при поиске схемы в свойстве Схемарегистр. Если выбранная Схемарегистр не поддерживает ветвление, это значение будет проигнорировано.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -117,14 +117,14 @@ parser, reader, record, xml
 .Schema-Text
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Text
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Text (Схема текста)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The text of an Avro-formatted Schema
+*DESCRIPTION (Описание):*:: Текст Avro-формамата схемы
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -134,14 +134,14 @@ parser, reader, record, xml
 .*Schema-Reference-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Reader (Ссылочный читатель схемы)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Service implementation responsible for reading FlowFile attributes or content to determine the Schema Reference Identifier
+*DESCRIPTION (Описание):*:: Сервис реализации, отвечающий за чтение атрибутов или содержимого FlowFile для определения идентификатора ссылки на схему
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -151,14 +151,14 @@ parser, reader, record, xml
 .Parse_Xml_Attributes
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Parse XML Attributes
+*DISPLAY NAME (Отображаемое наименование):*:: Parse XML Attributes (Разбор атрибутов XML)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When 'Schema Access Strategy' is 'Infer Schema' and this property is 'true' then XML attributes are parsed and added to the record as new fields. When the schema is inferred but this property is 'false', XML attributes and their values are ignored.
+*DESCRIPTION (Описание):*:: Когда 'Стратегия доступа к схеме' установлена в 'Инфер Схема' и это свойство равно 'true', то XML-атрибуты анализируются и добавляются в запись как новые поля. Когда схема инферируется, но это свойство равно 'false', XML-атрибуты и их значения игнорируются.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -176,14 +176,14 @@ parser, reader, record, xml
 .Schema-Inference-Cache
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Inference Cache
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Inference Cache (Схема Инференс Кеш)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies a Schema Cache to use when inferring the schema. If not populated, the schema will be inferred each time. However, if a cache is specified, the cache will first be consulted and if the applicable schema can be found, it will be used instead of inferring the schema.
+*DESCRIPTION (Описание):*:: Указывает схему кэш для использования при выводе схемы. Если не заполнено, схема будет выводиться каждый раз. Однако, если указана схема, кэш будет сначала проверен, и если найдена соответствующая схема, она будет использоваться вместо вывода схемы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -193,25 +193,25 @@ parser, reader, record, xml
 .*Record_Format*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Expect Records as Array
+*DISPLAY NAME (Отображаемое наименование):*:: Expect Records as Array (Ожидание записей в виде массива)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: This property defines whether the reader expects a FlowFile to consist of a single Record or a series of Records with a "wrapper element". Because XML does not provide for a way to read a series of XML documents from a stream directly, it is common to combine many XML documents by concatenating them and then wrapping the entire XML blob  with a "wrapper element". This property dictates whether the reader expects a FlowFile to consist of a single Record or a series of Records with a "wrapper element" that will be ignored.
+*DESCRIPTION (Описание):*:: Это свойство определяет, ожидает ли читатель FlowFile состоящую из одной записи или серию записей с элементом "обертки". Поскольку XML не предоставляет способа чтения серии документов XML непосредственно из потока, обычно комбинируют много XML-документов конкатенацией и заключают весь XML-блок в элемент "обертки". Это свойство указывает, ожидает ли читатель FlowFile состоящую из одной записи или серию записей с элементом "обертки", который будет игнорироваться.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* false: Each FlowFile will consist of a single record without any sort of "wrapper". 
+* false: Каждый FlowFile будет состоять из одной записи без какого-либо вида "обертки". 
 
-* true: Each FlowFile will consist of zero or more records. The outer-most XML element is expected to be a "wrapper" and will be ignored. 
+* true: Каждый FlowFile будет состоять из нуля или более записей. Ожидается, что внешний элемент XML будет являться "оберткой" и будет игнорироваться. 
 
-* Use attribute 'xml.stream.is.array': Whether to treat a FlowFile as a single Record or an array of multiple Records is determined by the value of the 'xml.stream.is.array' attribute. If the value of the attribute is 'true' (case-insensitive), then the XML Reader will treat the FlowFile as a series of Records with the outer element being ignored. If the value of the attribute is 'false' (case-insensitive), then the FlowFile is treated as a single Record and no wrapper element is assumed. If the attribute is missing or its value is anything other than 'true' or 'false', then an Exception will be thrown and no records will be parsed. 
+* Use attribute 'xml.stream.is.array': Является ли FlowFile обрабатываемым как одна запись или массивом нескольких записей, определяется значением атрибута 'xml.stream.is.array'. Если значение атрибута равно 'true' (без учета регистра), то XML Reader будет обрабатывать FlowFile как серию записей с игнорированием внешнего элемента. Если значение атрибута равно 'false' (без учета регистра), то FlowFile рассматривается как одна запись, и не предполагается наличие обертки. Если атрибут отсутствует или его значение не является ни 'true', ни 'false', будет выброшено исключение, и не будут разобраны записи. 
 
 
 [horizontal]
@@ -220,14 +220,14 @@ parser, reader, record, xml
 .Attribute_Prefix
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Attribute Prefix
+*DISPLAY NAME (Отображаемое наименование):*:: Attribute Prefix (Атрибут Префикс)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If this property is set, the name of attributes will be prepended with a prefix when they are added to a record.
+*DESCRIPTION (Описание):*:: Если это свойство установлено, имена атрибутов будут предваряться префиксом при добавлении в запись.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -237,14 +237,14 @@ parser, reader, record, xml
 .Content_Field_Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Field Name for Content
+*DISPLAY NAME (Отображаемое наименование):*:: Field Name for Content (Поле Имя для Содержимого)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If tags with content (e. g. <field>content</field>) are defined as nested records in the schema, the name of the tag will be used as name for the record and the value of this property will be used as name for the field. If tags with content shall be parsed together with attributes (e. g. <field attribute="123">content</field>), they have to be defined as records. In such a case, the name of the tag will be used as the name for the record and  the value of this property will be used as the name for the field holding the original content. The name of the attribute will be used to create a new record field, the content of which will be the value of the attribute. For more information, see the 'Additional Details...' section of the XMLReader controller service's documentation.
+*DESCRIPTION (Описание):*:: Если теги с содержимым (например, <поле>содержимое</поле>) определены как вложенные записи в схеме, то имя тега будет использоваться как имя для записи, а значение этого свойства будет использоваться как имя для поля. Если теги с содержимым должны быть проанализированы вместе с атрибутами (например, <поле attribute="123">содержимое</поле>), они должны быть определены как записи. В таком случае имя тега будет использоваться как имя для записи, а значение этого свойства будет использоваться как имя для поля, содержащего оригинальное содержимое. Имя атрибута будет использовано для создания нового поля записи, содержимое которого будет значением атрибута. Дополнительные сведения см. в разделе 'Дополнительные детали...' документации контроллера службы XMLReader.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -254,14 +254,14 @@ parser, reader, record, xml
 .Date Format
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Date Format
+*DISPLAY NAME (Отображаемое наименование):*:: Date Format (Формат даты)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the format to use when reading/writing Date fields. If not specified, Date fields will be assumed to be number of milliseconds since epoch (Midnight, Jan 1, 1970 GMT). If specified, the value must match the Java java.time.format.DateTimeFormatter format (for example, MM/dd/yyyy for a two-digit month, followed by a two-digit day, followed by a four-digit year, all separated by '/' characters, as in 01/01/2017).
+*DESCRIPTION (Описание):*:: Указывает формат, который следует использовать при чтении или записи полей Date. Если не указан, поля Date будут считаться количеством миллисекунд от начала эпохи (полночь, 1 января 1970 г., GMT). Если указано, значение должно соответствовать формату Java java.time.format.DateTimeFormatter (например, MM/dd/yyyy для двузначного месяца, затем двузначного дня и четырехзначного года, все разделенные символами '/' как в 01/01/2017).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -271,14 +271,14 @@ parser, reader, record, xml
 .Time Format
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Time Format
+*DISPLAY NAME (Отображаемое наименование):*:: Time Format (Формат времени)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the format to use when reading/writing Time fields. If not specified, Time fields will be assumed to be number of milliseconds since epoch (Midnight, Jan 1, 1970 GMT). If specified, the value must match the Java java.time.format.DateTimeFormatter format (for example, HH:mm:ss for a two-digit hour in 24-hour format, followed by a two-digit minute, followed by a two-digit second, all separated by ':' characters, as in 18:04:15).
+*DESCRIPTION (Описание):*:: Указывает формат, который следует использовать при чтении/записи полей Time. Если не указано, поля Time будут считаться количеством миллисекунд с эпохи (Полночь, 1 января 1970 г., GMT). Если указано, значение должно соответствовать формату Java java.time.format.DateTimeFormatter (например, HH:mm:ss для двузначного часа в 24-часовом формате, за которым следуют двузначная минута и двузначная секунда, все разделённые символами ':' как в 18:04:15).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -288,14 +288,14 @@ parser, reader, record, xml
 .Timestamp Format
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Timestamp Format
+*DISPLAY NAME (Отображаемое наименование):*:: Формат Timestamp (Timestamp Format)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the format to use when reading/writing Timestamp fields. If not specified, Timestamp fields will be assumed to be number of milliseconds since epoch (Midnight, Jan 1, 1970 GMT). If specified, the value must match the Java java.time.format.DateTimeFormatter format (for example, MM/dd/yyyy HH:mm:ss for a two-digit month, followed by a two-digit day, followed by a four-digit year, all separated by '/' characters; and then followed by a two-digit hour in 24-hour format, followed by a two-digit minute, followed by a two-digit second, all separated by ':' characters, as in 01/01/2017 18:04:15).
+*DESCRIPTION (Описание):*:: Указывает формат, который следует использовать при чтении или записи полей Timestamp. Если не указан, поля Timestamp будут считаться количеством миллисекунд с начала эпохи (Полночь 1 января 1970 г., GMT). Если указано, значение должно соответствовать формату Java java.time.format.DateTimeFormatter (например, MM/dd/yyyy HH:mm:ss для двузначного месяца, затем двузначного дня, затем четырехзначного года, все разделенные '/' символами; а затем следует двузначный час в 24-часовом формате, за которым следуют двузначные минуты и секунды, все разделенные ':' символами, как в 01/01/2017 18:04:15).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -315,6 +315,17 @@ parser, reader, record, xml
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

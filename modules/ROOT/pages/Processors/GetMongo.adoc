@@ -1,13 +1,13 @@
 = GetMongo 2.2.0
 
-Creates FlowFiles from documents in MongoDB loaded by a user-specified query.
+Создает FlowFiles из документов в MongoDB, загруженных пользовательским запросом.
 
 [horizontal]
 *Tags* (Ключевые слова):
 get, mongodb, read
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-ALLOWED (Обязательно)
+ALLOWED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ ALLOWED (Обязательно)
 .Mongo-Client-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Client Service
+*DISPLAY NAME (Отображаемое наименование):*:: Client Service (Клиент Сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If configured, this property will use the assigned client service for connection pooling.
+*DESCRIPTION (Описание):*:: Если настроено, это свойство будет использовать назначенный клиентский сервис для пула соединений.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ ALLOWED (Обязательно)
 .*Mongo Database Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Mongo Database Name
+*DISPLAY NAME (Отображаемое наименование):*:: Mongo Database Name (Имя базы данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the database to use
+*DESCRIPTION (Описание):*:: Имя базы данных, которую следует использовать
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ ALLOWED (Обязательно)
 .*Mongo Collection Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Mongo Collection Name
+*DISPLAY NAME (Отображаемое наименование):*:: Mongo Collection Name (Имя коллекции)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the collection to use
+*DESCRIPTION (Описание):*:: Имя коллекции для использования
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,23 +71,23 @@ ALLOWED (Обязательно)
 .*Json-Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: JSON Type
+*DISPLAY NAME (Отображаемое наименование):*:: JSON Type (Тип JSON)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: By default, MongoDB's Java driver returns "extended JSON". Some of the features of this variant of JSON may cause problems for other JSON parsers that expect only standard JSON types and conventions. This configuration setting  controls whether to use extended JSON or provide a clean view that conforms to standard JSON.
+*DESCRIPTION (Описание):*:: По умолчанию, драйвер Java для MongoDB возвращает "расширенный JSON". Некоторые из функций этого варианта JSON могут вызвать проблемы для других парсеров JSON, которые ожидают только стандартные типы и соглашения. Это настройка контролирует использование расширенного JSON или предоставление чистого вида, соответствующего стандартному JSON.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Extended JSON: Use MongoDB's "extended JSON". This is the JSON generated with toJson() on a MongoDB Document from the Java driver 
+* Extended JSON (Расширенный JSON): Использовать расширенный JSON, который генерирует MongoDB с помощью toJson() на документе MongoDB из драйвера Java. 
 
-* Standard JSON: Generate a JSON document that conforms to typical JSON conventions instead of Mongo-specific conventions. 
+* Standard JSON (Стандартный JSON): Создать JSON-документ, соответствующий обычным соглашениям JSON вместо специфичных для Mongo конвенций. 
 
 
 [horizontal]
@@ -96,23 +96,23 @@ ALLOWED (Обязательно)
 .*Use-Pretty-Printing*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Pretty Print Results JSON
+*DISPLAY NAME (Отображаемое наименование):*:: Pretty Print Results JSON (Выбор, следует ли форматировать JSON из результатов запроса) 
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Choose whether or not to pretty print the JSON from the results of the query. Choosing 'True' can greatly increase the space requirements on disk depending on the complexity of the JSON document
+*DESCRIPTION (Описание):*:: Выберите, нужно ли форматировать JSON из результатов запроса. Выбор 'True' может значительно увеличить требования к пространству на диске в зависимости от сложности документа JSON
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* True
+* True (Истина)
 
-* False
+* False (Ложь)
 
 
 [horizontal]
@@ -121,14 +121,14 @@ ALLOWED (Обязательно)
 .*Mongo-Charset*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Набор символов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the character set of the document data.
+*DESCRIPTION (Описание):*:: Указывает набор символов данных документа.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -138,14 +138,14 @@ ALLOWED (Обязательно)
 .Query
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Query
+*DISPLAY NAME (Отображаемое наименование):*:: Query (Запрос)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The selection criteria to do the lookup. If the field is left blank, it will look for input from an incoming connection from another processor to provide the query as a valid JSON document inside of the FlowFile's body. If this field is left blank and a timer is enabled instead of an incoming connection, that will result in a full collection fetch using a "{}" query.
+*DESCRIPTION (Описание):*:: Критерии выбора для поиска. Если поле остается пустым, будет искать ввод от другого процессора через подключение извне, предоставляя допустимый JSON-документ внутри тела FlowFile. Если это поле оставить пустым и включить таймер вместо входящего подключения, это приведет к полному получению данных с использованием запроса "{}".
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -155,14 +155,14 @@ ALLOWED (Обязательно)
 .Mongo-Query-Attribute
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Query Output Attribute
+*DISPLAY NAME (Отображаемое наименование):*:: Query Output Attribute (Выходной атрибут запроса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If set, the query will be written to a specified attribute on the output flowfiles.
+*DESCRIPTION (Описание):*:: Если установлено, запрос будет записан в указанный атрибут на выходном потоке.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -172,14 +172,14 @@ ALLOWED (Обязательно)
 .Projection
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Projection
+*DISPLAY NAME (Отображаемое наименование):*:: Projection (Проекция)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The fields to be returned from the documents in the result set; must be a valid BSON document
+*DESCRIPTION (Описание):*:: Поля, которые должны быть возвращены из документов в результирующем наборе; должно быть допустимым документом BSON
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -189,14 +189,14 @@ ALLOWED (Обязательно)
 .Sort
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Sort
+*DISPLAY NAME (Отображаемое наименование):*:: Sort (Сортировка)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The fields by which to sort; must be a valid BSON document
+*DESCRIPTION (Описание):*:: Поля по которым производится сортировка; должно быть допустимым документом BSON
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -206,14 +206,14 @@ ALLOWED (Обязательно)
 .Limit
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Limit
+*DISPLAY NAME (Отображаемое наименование):*:: Limit (Предел)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum number of elements to return
+*DESCRIPTION (Описание):*:: Максимальное количество элементов для возврата
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -223,14 +223,14 @@ ALLOWED (Обязательно)
 .Batch Size
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Batch Size
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Size (Размер партии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The number of elements to be returned from the server in one batch
+*DESCRIPTION (Описание):*:: Количество элементов, которые должны быть возвращены с сервера за один пакет
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -240,14 +240,14 @@ ALLOWED (Обязательно)
 .Results-Per-Flowfile
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Results Per FlowFile
+*DISPLAY NAME (Отображаемое наименование):*:: Results Per FlowFile (Результаты на поток)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: How many results to put into a FlowFile at once. The whole body will be treated as a JSON array of results.
+*DESCRIPTION (Описание):*:: Сколько результатов помещать в один FlowFile. Весь тело будет рассматриваться как JSON-массив результатов.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -257,14 +257,14 @@ ALLOWED (Обязательно)
 .Mongo-Date-Format
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Date Format
+*DISPLAY NAME (Отображаемое наименование):*:: Date Format (Формат даты)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The date format string to use for formatting Date fields that are returned from Mongo. It is only applied when the JSON output format is set to Standard JSON.
+*DESCRIPTION (Описание):*:: Строка формата даты, которая будет использоваться для форматирования полей Date, возвращаемых из Mongo. Применяется только в том случае, если формат вывода JSON установлен на Стандартный JSON.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -274,14 +274,14 @@ ALLOWED (Обязательно)
 .Get-Mongo-Send-Empty
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Send Empty Result
+*DISPLAY NAME (Отображаемое наименование):*:: Send Empty Result (Отправить пустой результат)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If a query executes successfully, but returns no results, send an empty JSON document signifying no result.
+*DESCRIPTION (Описание):*:: Если запрос выполняется успешно, но не возвращает результатов, отправьте пустой JSON-документ, указывающий на отсутствие результата.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -313,13 +313,13 @@ ALLOWED (Обязательно)
 |Наименование |Описание
 
 |`failure`
-|All input FlowFiles that are part of a failed query execution go here.
+|Все входные FlowFiles, которые являются частью выполнения запроса с ошибкой, здесь передаются.
 
 |`success`
-|All FlowFiles that have the results of a successful query execution go here.
+|Все FlowFiles, содержащие результаты успешного выполнения запроса, здесь передаются.
 
 |`original`
-|All input FlowFiles that are part of a successful query execution go here.
+|Все входные FlowFiles, которые являются частью успешного выполнения запроса, здесь передаются.
 
 |===
 
@@ -334,10 +334,10 @@ ALLOWED (Обязательно)
 |Наименование |Описание
 
 |`mongo.database.name`
-|The database where the results came from.
+|База данных, откуда взяты результаты.
 
 |`mongo.collection.name`
-|The collection where the results came from.
+|Коллекция, откуда взяты результаты.
 
 |===
 

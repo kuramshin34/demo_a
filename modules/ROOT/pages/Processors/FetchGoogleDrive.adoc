@@ -1,13 +1,13 @@
 = FetchGoogleDrive 2.2.0
 
-Fetches files from a Google Drive Folder. Designed to be used in tandem with ListGoogleDrive. Please see Additional Details to set up access to Google Drive.
+Извлекает файлы из папки Google Drive. Предназначен для использования в сочетании с ListGoogleDrive. Пожалуйста, ознакомьтесь с дополнительными деталями для настройки доступа к Google Drive.
 
 [horizontal]
 *Tags* (Ключевые слова):
 drive, fetch, google, storage
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Gcp-Credentials-Provider-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service
+*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service (...)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Controller Service used to obtain Google Cloud Platform credentials.
+*DESCRIPTION (Описание):*:: Сервис контроллера, используемый для получения учетных данных Google Cloud Platform.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Drive-File-Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: File ID
+*DISPLAY NAME (Отображаемое наименование):*:: File ID (Идентификатор файла)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Drive ID of the File to fetch. Please see Additional Details for information on how to obtain the Drive ID.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: HTTP + AuthN
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,33 +71,33 @@ REQUIRED (Обязательно)
 .*Google Doc Export Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Google Doc Export Type
+*DISPLAY NAME (Отображаемое наименование):*:: Google Doc Export Type (Тип экспорта Google Документов)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Google Documents cannot be downloaded directly from Google Drive but instead must be exported to a specified MIME Type. In the event that the incoming FlowFile's MIME Type indicates that the file is a Google Document, this property specifies the MIME Type to export the document to.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* PDF
+* PDF (PDF)
 
-* Plain Text
+* Plain Text (Простой Текст)
 
-* Microsoft Word
+* Microsoft Word (Майкрософт Ворд)
 
-* OpenDocument
+* OpenDocument (Открытый Документ)
 
-* Rich Text
+* Rich Text (Rich Текст)
 
-* Web Page (HTML)
+* Web Page (HTML) (Веб-страница (HTML))
 
-* EPUB
+* EPUB (EPUB)
 
 
 [horizontal]
@@ -106,31 +106,31 @@ REQUIRED (Обязательно)
 .*Google Spreadsheet Export Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Google Spreadsheet Export Type
+*DISPLAY NAME (Отображаемое наименование):*:: Google Spreadsheet Export Type (Тип экспорта Google Spreadsheet)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Google Spreadsheets cannot be downloaded directly from Google Drive but instead must be exported to a specified MIME Type. In the event that the incoming FlowFile's MIME Type indicates that the file is a Google Spreadsheet, this property specifies the MIME Type to export the spreadsheet to.
+*DESCRIPTION (Описание):*:: Google Spreadsheets не могут быть напрямую скачаны из Google Drive, вместо этого их необходимо экспортировать в указанный MIME тип. В случае, если MIME-тип входящего FlowFile указывает на то, что файл является Google Spreadsheet, эта свойство специфицирует MIME-тип для экспорта таблицы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* CSV (first sheet only): Comma-separated values. Only the first sheet will be exported. 
+* CSV (первый лист только) (Comma-separated values. Only the first sheet will be exported.)
 
-* Microsoft Excel
+* Microsoft Excel (Тип Microsoft Excel)
 
-* PDF
+* PDF (Тип PDF)
 
-* TSV (first sheet only): Tab-separate values. Only the first sheet will be exported. 
+* TSV (первый лист только) (Tab-separate values. Only the first sheet will be exported.)
 
-* Web Page (HTML)
+* Web Page (HTML) (Веб-страница (HTML))
 
-* OpenDocument Spreadsheet
+* OpenDocument Spreadsheet (Открытый документ таблицы)
 
 
 [horizontal]
@@ -139,33 +139,33 @@ REQUIRED (Обязательно)
 .*Google Presentation Export Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Google Presentation Export Type
+*DISPLAY NAME (Отображаемое наименование):*:: Google Presentation Export Type (Тип экспорта Google Presentation)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Google Presentations cannot be downloaded directly from Google Drive but instead must be exported to a specified MIME Type. In the event that the incoming FlowFile's MIME Type indicates that the file is a Google Presentation, this property specifies the MIME Type to export the presentation to.
+*DESCRIPTION (Описание):*:: Google Presentations не могут быть напрямую загружены из Google Drive, вместо этого их необходимо экспортировать в указанный MIME-тип. В случае, если MIME-тип входящего FlowFile указывает на то, что файл является Google Presentation, это свойство определяет MIME-тип для экспорта презентации.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* PDF
+* PDF (PDF)
 
-* Microsoft PowerPoint
+* Microsoft PowerPoint (Микрософт Повертеринг)
 
-* Plain Text
+* Plain Text (Простой текст)
 
-* OpenDocument Presentation
+* OpenDocument Presentation (Открытый документ Презентация)
 
-* PNG (first slide only)
+* PNG (только первый слайд)
 
-* JPEG (first slide only)
+* JPEG (только первый слайд)
 
-* SVG (first slide only): Scalable Vector Graphics. Only the first slide will be exported. 
+* SVG (только первый слайд): Scalable Vector Graphics. Only the first slide will be exported. 
 
 
 [horizontal]
@@ -174,27 +174,27 @@ REQUIRED (Обязательно)
 .*Google Drawing Export Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Google Drawing Export Type
+*DISPLAY NAME (Отображаемое наименование):*:: Google Drawing Export Type (Тип экспорта Google Drawing)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Google Drawings cannot be downloaded directly from Google Drive but instead must be exported to a specified MIME Type. In the event that the incoming FlowFile's MIME Type indicates that the file is a Google Drawing, this property specifies the MIME Type to export the drawing to.
+*DESCRIPTION (Описание):*:: Google Drawings не могут быть напрямую загружены из Google Drive, но вместо этого должны быть экспортированы в указанный MIME-тип. В случае, если входящий FlowFile имеет MIME-тип, указывающий на то, что файл является Google Drawing, это свойство специфицирует MIME-тип для экспорта рисунка.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* PDF
+* PDF (PDF)
 
-* PNG
+* PNG (PNG)
 
-* JPEG
+* JPEG (JPEG)
 
-* SVG
+* SVG (SVG)
 
 
 [horizontal]
@@ -217,10 +217,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|A FlowFile will be routed here for each successfully fetched File.
+|Поток файлов будет направлен сюда для каждого успешно извлеченного файла.
 
 |`failure`
-|A FlowFile will be routed here for each File for which fetch was attempted but failed.
+|Поток файлов будет направлен сюда для каждого файла, для которого была предпринята попытка извлечения, но это не удалось.
 
 |===
 
@@ -233,7 +233,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`drive.id`
-|The id of the file
+|Идентификатор файла
 
 |===
 
@@ -246,25 +246,25 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`drive.id`
-|The id of the file
+|Идентификатор файла
 
 |`filename`
-|The name of the file
+|Название файла
 
 |`mime.type`
-|The MIME type of the file
+|MIME тип файла
 
 |`drive.size`
-|The size of the file
+|Размер файла
 
 |`drive.timestamp`
-|The last modified time or created time (whichever is greater) of the file. The reason for this is that the original modified date of a file is preserved when uploaded to Google Drive. 'Created time' takes the time when the upload occurs. However uploaded files can still be modified later.
+|Время последнего изменения или создания (в зависимости от того, что больше) файла. Причина в том, что оригинальная дата изменения файла сохраняется при загрузке в Google Drive. 'Созданное время' берёт время при загрузке. Однако загруженные файлы могут быть изменены позже.
 
 |`error.code`
-|The error code returned by Google Drive
+|Код ошибки, возвращенный Google Drive
 
 |`error.message`
-|The error message returned by Google Drive
+|Сообщение об ошибке, возвращенное Google Drive
 
 |===
 
@@ -275,7 +275,7 @@ REQUIRED (Обязательно)
 == Варианты использования, включающие другие компоненты
 
 
-=== Retrieve all files in a Google Drive folder
+=== Получить все файлы в папке Google Drive
 
 
 NOTE: 

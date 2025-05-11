@@ -1,13 +1,13 @@
 = FlattenJson 2.2.0
 
-Provides the user with the ability to take a nested JSON document and flatten it into a simple key/value pair document. The keys are combined at each level with a user-defined separator that defaults to '.'. This Processor also allows to unflatten back the flattened json. It supports four kinds of flatten mode such as normal, keep-arrays, dot notation for MongoDB query and keep-primitive-arrays. Default flatten mode is 'keep-arrays'.
+Предоставляет пользователю возможность взять вложенный документ JSON и развернуть его в простую пару ключ/значение. Ключи объединяются на каждом уровне с разделителем, который по умолчанию равен '.'. Этот процессор также позволяет обратно развернуть JSON. Он поддерживает четыре вида режима развертки: нормальный, keep-arrays, точка для запроса MongoDB и keep-primitive-arrays. Режим развертки по умолчанию — 'keep-arrays'.
 
 [horizontal]
 *Tags* (Ключевые слова):
 flatten, json, unflatten
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .Flatten-Json-Separator
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Separator
+*DISPLAY NAME (Отображаемое наименование):*:: Separator (Разделитель)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The separator character used for joining keys. Must be a JSON-legal character.
+*DESCRIPTION (Описание):*:: Символ разделителя, используемый для объединения ключей. Должен быть допустимым символом в JSON.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,27 +37,27 @@ REQUIRED (Обязательно)
 .*Flatten-Mode*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Flatten Mode
+*DISPLAY NAME (Отображаемое наименование):*:: Flatten Mode (Режим сглаживания)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how json should be flattened/unflattened
+*DESCRIPTION (Описание):*:: Указывает, как JSON должен быть сглаженным или развернутым
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* normal: Flattens every objects into a single level json 
+* normal (нормальный): Сглаживает каждый объект на один уровень в JSON 
 
-* keep arrays: Flattens every objects and keep arrays format 
+* keep arrays (сохранять массивы): Сглаживает каждый объект и сохраняет формат массивов 
 
-* dot notation: Conforms to MongoDB dot notation to update also nested documents 
+* dot notation (нотация с точками): Соответствует нотации MongoDB для обновления также вложенных документов 
 
-* keep primitive arrays: Flattens every objects except arrays which contain only primitive types (strings, numbers, booleans and null) 
+* keep primitive arrays (сохранять массивы примитивов): Сглаживает каждый объект, кроме массивов, содержащих только примитивные типы данных (строки, числа, булевы и null) 
 
 
 [horizontal]
@@ -66,14 +66,14 @@ REQUIRED (Обязательно)
 .*Ignore-Reserved-Characters*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Ignore Reserved Characters
+*DISPLAY NAME (Отображаемое наименование):*:: Ignore Reserved Characters (Игнорировать зарезервированные символы)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true, reserved characters in keys will be ignored
+*DESCRIPTION (Описание):*:: Если true, зарезервированные символы в ключах будут игнорироваться
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -91,23 +91,23 @@ REQUIRED (Обязательно)
 .*Flatten-Json-Return-Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Return Type
+*DISPLAY NAME (Отображаемое наименование):*:: Return Type (Тип возвращаемого значения)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies the desired return type of json such as flatten/unflatten
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* flatten
+* flatten (сгладить)
 
-* unflatten
+* unflatten (возвратить в исходное состояние)
 
 
 [horizontal]
@@ -116,14 +116,14 @@ REQUIRED (Обязательно)
 .*Flatten-Json-Character-Set*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Символьный набор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Character Set in which file is encoded
+*DESCRIPTION (Описание):*:: The Character Set in which file is encoded (Символьный набор, в котором закодирован файл)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -133,14 +133,14 @@ REQUIRED (Обязательно)
 .*Flatten-Json-Pretty-Print-Json*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Pretty Print JSON
+*DISPLAY NAME (Отображаемое наименование):*:: Pretty Print JSON (Красивый печать JSON)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether or not resulted json should be pretty printed
+*DESCRIPTION (Описание):*:: Указывает, должен ли результирующий JSON быть красиво отформатированным
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -172,16 +172,27 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Successfully flattened/unflattened files go to this relationship.
+|Успешно развернутые/развернутые файлы переходят по этому отношению.
 
 |`failure`
-|Files that cannot be flattened/unflattened go to this relationship.
+|Файлы, которые не могут быть развернуты/развернуты, переходят по этому отношению.
 
 |===
 
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

@@ -1,13 +1,13 @@
 = UpdateAttribute 2.2.0
 
-Updates the Attributes for a FlowFile by using the Attribute Expression Language and/or deletes the attributes based on a regular expression
+Обновляет атрибуты для FlowFile с использованием языка выражений атрибутов и/или удаляет атрибуты на основе регулярного выражения
 
 [horizontal]
 *Tags* (Ключевые слова):
-Attribute Expression Language, attributes, delete, modification, state, update
+Attribute Expression Language, атрибуты, удалить, модификация, состояние, обновление
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .Delete Attributes Expression
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Delete Attributes Expression
+*DISPLAY NAME (Отображаемое наименование):*:: Delete Attributes Expression (Выражение для удаления атрибутов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Regular expression for attributes to be deleted from FlowFiles.  Existing attributes that match will be deleted regardless of whether they are updated by this processor.
+*DESCRIPTION (Описание):*:: Регулярное выражение для атрибутов, которые нужно удалить из FlowFiles. Существующие атрибуты, соответствующие этому выражению, будут удалены независимо от того, обновляются ли они этим процессором.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,23 +37,23 @@ REQUIRED (Обязательно)
 .*Store State*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Store State
+*DISPLAY NAME (Отображаемое наименование):*:: Store State (Состояние хранилища)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Select whether or not state will be stored. Selecting 'Stateless' will offer the default functionality of purely updating the attributes on a FlowFile in a stateless manner. Selecting a stateful option will not only store the attributes on the FlowFile but also in the Processors state. See the 'Stateful Usage' topic of the 'Additional Details' section of this processor's documentation for more information
+*DESCRIPTION (Описание):*:: Выберите, будет ли сохраняться состояние. Выбор 'Без сохранения состояния' предложит функциональность по обновлению атрибутов FlowFile в безынерционном режиме. Выбор опции с сохранением состояния не только сохранит атрибуты на FlowFile, но и в состоянии Processors. Более подробная информация об использовании в состоятельном режиме доступна в разделе 'Дополнительные сведения' по теме 'Stateful Usage'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Do not store state
+* Do not store state (Не сохранять состояние)
 
-* Store state locally
+* Store state locally (Локальное сохранение состояния)
 
 
 [horizontal]
@@ -62,14 +62,14 @@ REQUIRED (Обязательно)
 .Stateful Variables Initial Value
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Stateful Variables Initial Value
+*DISPLAY NAME (Отображаемое наименование):*:: Stateful Variables Initial Value (Начальное значение состоятельных переменных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If using state to set/reference variables then this value is used to set the initial value of the stateful variable. This will only be used in the @OnScheduled method when state does not contain a value for the variable. This is required if running statefully but can be empty if needed.
+*DESCRIPTION (Описание):*:: Если используется состояние для установки/ссылки на переменные, то это значение используется для установления начального значения состоятельной переменной. Это будет использоваться только в методе @OnScheduled при отсутствии значения состояния для переменной. Это требуется, если работа происходит в состоянии, но может быть пустым, если это необходимо.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -79,14 +79,14 @@ REQUIRED (Обязательно)
 .*Canonical-Value-Lookup-Cache-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Cache Value Lookup Cache Size
+*DISPLAY NAME (Отображаемое наименование):*:: Cache Value Lookup Cache Size (Кэш значений поиска)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how many canonical lookup values should be stored in the cache
+*DESCRIPTION (Описание):*:: Указывает, сколько канонических значений для поиска следует хранить в кэше
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -102,7 +102,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание |Значение |Ограничения языка выражений
 
 |`A FlowFile attribute to update`
-|Updates a FlowFile attribute specified by the Dynamic Property's key with the value specified by the Dynamic Property's value
+|Обновляет атрибут FlowFile, указанный ключом динамического свойства, со значением, указанным в значении динамического свойства
 |`The value to set it to`
 |
 
@@ -119,7 +119,7 @@ REQUIRED (Обязательно)
 |
 LOCAL
 
-|Gives the option to store values not only on the FlowFile but as stateful variables to be referenced in a recursive manner.
+|Позволяет сохранять значения не только в FlowFile, но также как переменные состояния для дальнейшего использования рекурсивно.
 |===
 
 
@@ -135,7 +135,7 @@ LOCAL
 |Наименование |Описание
 
 |`success`
-|All successful FlowFiles are routed to this relationship
+|Все успешные FlowFile направляются в это отношение
 
 |===
 
@@ -161,7 +161,7 @@ LOCAL
 
 
 
-=== Add a new FlowFile attribute
+=== Добавить новый атрибут FlowFile
 
 
 NOTE: 
@@ -180,11 +180,10 @@ Set "Store State" to "Do not store state".
 Add a new property. The name of the property will become the name of the newly added attribute.
 The value of the property will become the value of the newly added attribute. The value may use the NiFi Expression Language in order to reference other
 attributes or call Expression Language functions.
-
 ====
 
 
-=== Overwrite a FlowFile attribute with a new value
+=== Перезаписать атрибут FlowFile новым значением
 
 
 NOTE: 
@@ -203,13 +202,10 @@ Set "Store State" to "Do not store state".
 Add a new property. The name of the property will become the name of the attribute whose value will be overwritten.
 The value of the property will become the new value of the attribute. The value may use the NiFi Expression Language in order to reference other
 attributes or call Expression Language functions.
-
-For example, to change the `txId` attribute to the uppercase version of its current value, add a property named `txId` with a value of `${txId:toUpper()}`
-
 ====
 
 
-=== Rename a file
+=== Переименовать файл
 
 
 NOTE: 
@@ -230,7 +226,6 @@ Add a new property whose name is `filename` and whose value is the desired filen
 For example, to set the filename to `abc.txt`, add a property named `filename` with a value of `abc.txt`.
 To add the `txId` attribute as a prefix to the filename, add a property named `filename` with a value of `${txId}${filename}`.
 Or, to make the filename more readable, separate the txId from the rest of the filename with a hyphen by using a value of `${txId}-${filename}`.
-
 ====
 
 

@@ -1,13 +1,13 @@
 = SplitText 2.2.0
 
-Splits a text file into multiple smaller text files on line boundaries limited by maximum number of lines or total size of fragment. Each output split file will contain no more than the configured number of lines or bytes. If both Line Split Count and Maximum Fragment Size are specified, the split occurs at whichever limit is reached first. If the first line of a fragment exceeds the Maximum Fragment Size, that line will be output in a single split file which exceeds the configured maximum size limit. This component also allows one to specify that each split should include a header lines. Header lines can be computed by either specifying the amount of lines that should constitute a header or by using header marker to match against the read lines. If such match happens then the corresponding line will be treated as header. Keep in mind that upon the first failure of header marker match, no more matches will be performed and the rest of the data will be parsed as regular lines for a given split. If after computation of the header there are no more data, the resulting split will consists of only header lines.
+Разделяет текстовый файл на несколько меньших текстовых файлов по границам строк, ограниченных максимальным количеством строк или общей длиной фрагмента. Каждый выходной раздельный файл будет содержать не более заданного количества строк или байт. Если указаны и Линейное Разделение Счетчика Строк, и Максимальный Предел Размера Фрагмента, разделение происходит по тому из этих пределов, который будет достигнут первым. Если первая строка фрагмента превышает Максимальный Предел Размера Фрагмента, эта строка будет выведена в один раздельный файл, что превысит заданный максимальный размер лимита. Этот компонент также позволяет указать, что каждый раздел должен включать строки заголовка. Строки заголовка могут быть вычислены путем указания количества строк, которые должны составлять заголовок, или с использованием маркера заголовка для сопоставления с прочитанными строками. Если такое совпадение произойдет, соответствующая строка будет рассматриваться как заголовок. Следует помнить, что после первого неудачного сопоставления маркера заголовка никакие дальнейшие совпадения не будут выполняться, а оставшиеся данные будут анализироваться как обычные строки для данного раздела. Если после расчета заголовка больше нет данных, результирующий раздел будет состоять только из строк заголовка.
 
 [horizontal]
 *Tags* (Ключевые слова):
 split, text
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Line Split Count*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Line Split Count
+*DISPLAY NAME (Отображаемое наименование):*:: Line Split Count (Количество строк в каждом разбиении файла, исключая заголовочные строки)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The number of lines that will be added to each split file, excluding header lines. A value of zero requires Maximum Fragment Size to be set, and line count will not be considered in determining splits.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .Maximum Fragment Size
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Fragment Size
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Fragment Size (Максимальный размер фрагмента)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum size of each split file, including header lines. NOTE: in the case where a single line exceeds this property (including headers, if applicable), that line will be output in a split of its own which exceeds this Maximum Fragment Size setting.
+*DESCRIPTION (Описание):*:: Максимальный размер каждого разбитого файла, включая строки заголовка. Примечание: в случае, если одна строка превышает это свойство (включая заголовки, если применимо), эта строка будет выведена в отдельном разбиении, которое превышает установленный максимальный размер фрагмента.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Header Line Count*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Header Line Count
+*DISPLAY NAME (Отображаемое наименование):*:: Header Line Count (Количество строк в заголовке)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The number of lines that should be considered part of the header; the header lines will be duplicated to all split files
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .Header Line Marker Characters
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Header Line Marker Characters
+*DISPLAY NAME (Отображаемое наименование):*:: Header Line Marker Characters (Заголовочная строка Маркер Символов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The first character(s) on the line of the datafile which signifies a header line. This value is ignored when Header Line Count is non-zero. The first line not containing the Header Line Marker Characters and all subsequent lines are considered non-header
+*DESCRIPTION (Описание):*:: Первый символ(ы) в строке данного файла, который обозначает заголовковую строку. Это значение игнорируется, если счетчик заголовка не равен нулю. Первая строка, не содержащая символов заголовочной строки и все последующие строки считаются не заголовковыми
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ REQUIRED (Обязательно)
 .*Remove Trailing Newlines*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Remove Trailing Newlines
+*DISPLAY NAME (Отображаемое наименование):*:: Remove Trailing Newlines (Удалить конечные строки новой строки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Whether to remove newlines at the end of each split file. This should be false if you intend to merge the split files later. If this is set to 'true' and a FlowFile is generated that contains only 'empty lines' (i.e., consists only of \r and \n characters), the FlowFile will not be emitted. Note, however, that if header lines are specified, the resultant FlowFile will never be empty as it will consist of the header lines, so a FlowFile may be emitted that contains only the header lines.
+*DESCRIPTION (Описание):*:: Определяет, следует ли удалять символы новой строки в конце каждого разделенного файла. Это должно быть false, если вы планируете объединить эти файлы позже. Если это установлено в 'true' и создается FlowFile, который содержит только 'пустые строки' (то есть состоит только из символов \r и \n), такой FlowFile не будет выпущен. Однако следует отметить, что если указаны заголовочные строки, результирующий FlowFile никогда не будет пустым, поскольку он будет состоять из заголовочных строк, так что может быть выпущен FlowFile, который содержит только заголовочные строки.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -124,7 +124,7 @@ REQUIRED (Обязательно)
 
 
 |MEMORY
-|The FlowFile with its attributes is stored in memory, not the content of the FlowFile. If many splits are generated due to the size of the content, or how the content is configured to be split, a two-phase approach may be necessary to avoid excessive use of memory.
+|Поток с его атрибутами хранится в памяти, не содержимое потока. Если генерируется много разделов из-за размера содержимого или способа настройки разделения содержимого, может потребоваться двухфазный подход для предотвращения чрезмерного использования памяти.
 
 |===
 
@@ -139,13 +139,13 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`splits`
-|The split files will be routed to this destination when an input file is successfully split into 1 or more split files
+|Раздельные файлы будут направлены в это назначение при успешном разделении входного файла на один или более раздельных файлов
 
 |`original`
-|The original input file will be routed to this destination when it has been successfully split into 1 or more files
+|Исходный входной файл будет направлен в это назначение при успешном разделении на один или более файлов
 
 |`failure`
-|If a file cannot be split for some reason, the original file will be routed to this destination and nothing will be routed elsewhere
+|Если по какой-либо причине файл не может быть разделен, исходный файл будет направлен в это назначение, и ничего больше не будет направляться.
 
 |===
 
@@ -160,22 +160,22 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`text.line.count`
-|The number of lines of text from the original FlowFile that were copied to this FlowFile
+|Количество строк текста из исходного потока, скопированных в этот поток
 
 |`fragment.size`
-|The number of bytes from the original FlowFile that were copied to this FlowFile, including header, if applicable, which is duplicated in each split FlowFile
+|Количество байтов из исходного потока, скопированных в этот поток, включая заголовок, если применимо, который дублируется во всех разделенных файлах
 
 |`fragment.identifier`
-|All split FlowFiles produced from the same parent FlowFile will have the same randomly generated UUID added for this attribute
+|Все раздельные потоки, созданные из одного родительского потока, будут иметь добавленный случайно сгенерированный UUID для этого атрибута
 
 |`fragment.index`
-|A one-up number that indicates the ordering of the split FlowFiles that were created from a single parent FlowFile
+|Одноуказательное число, указывающее порядок разделенных потоков, созданных из одного родительского потока
 
 |`fragment.count`
-|The number of split FlowFiles generated from the parent FlowFile
+|Количество раздельных потоков, сгенерированных от родительского потока
 
 |`segment.original.filename `
-|The filename of the parent FlowFile
+|Имя файла родительского потока
 
 |===
 

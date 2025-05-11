@@ -1,13 +1,13 @@
 = ConsumeKafka 2.2.0
 
-Consumes messages from Apache Kafka Consumer API. The complementary NiFi processor for sending messages is PublishKafka. The Processor supports consumption of Kafka messages, optionally interpreted as NiFi records. Please note that, at this time (in read record mode), the Processor assumes that all records that are retrieved from a given partition have the same schema. For this mode, if any of the Kafka messages are pulled but cannot be parsed or written with the configured Record Reader or Record Writer, the contents of the message will be written to a separate FlowFile, and that FlowFile will be transferred to the 'parse.failure' relationship. Otherwise, each FlowFile is sent to the 'success' relationship and may contain many individual messages within the single FlowFile. A 'record.count' attribute is added to indicate how many messages are contained in the FlowFile. No two Kafka messages will be placed into the same FlowFile if they have different schemas, or if they have different values for a message header that is included by the <Headers to Add as Attributes> property.
+Потребляет сообщения от Apache Kafka Consumer API. Соответствующий процессор NiFi для отправки сообщений - PublishKafka. Процессор поддерживает потребление сообщений Kafka, при необходимости интерпретируемых как записи NiFi. Обратите внимание, что в настоящее время (в режиме чтения записей) процессор предполагает, что все записи, полученные из данной раздела, имеют одинаковую схему. Для этого режима, если какие-либо из Kafka сообщений не могут быть распарсены или записаны с настроенным читателем записей или пишущим записями, содержимое сообщения будет записано в отдельный FlowFile, и этот FlowFile будет передан в отношение 'parse.failure'. В противном случае каждый FlowFile отправляется в отношение 'success' и может содержать несколько индивидуальных сообщений в одном FlowFile. Добавляется атрибут 'record.count', указывающий, сколько сообщений содержится в FlowFile. Если два Kafka сообщения не могут быть помещены в один и тот же FlowFile из-за различных схем или значений заголовка сообщения, включенного свойством <Headers to Add as Attributes>, ни одно из этих сообщений не будет размещено в один FlowFile.
 
 [horizontal]
 *Tags* (Ключевые слова):
 Consume, Get, Ingest, Ingress, Kafka, PubSub, Record, Topic, avro, csv, json
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ FORBIDDEN (Обязательно)
 .*Kafka Connection Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Kafka Connection Service
+*DISPLAY NAME (Отображаемое наименование):*:: Kafka Connection Service (Kafka Connection Service)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Provides connections to Kafka Broker for publishing Kafka Records
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ FORBIDDEN (Обязательно)
 .*Group Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Group ID
+*DISPLAY NAME (Отображаемое наименование):*:: Group ID (Групповой идентификатор)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Kafka Consumer Group Identifier corresponding to Kafka group.id property
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,23 +54,23 @@ FORBIDDEN (Обязательно)
 .*Topic Format*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Topic Format
+*DISPLAY NAME (Отображаемое наименование):*:: Формат темы
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether the Topics provided are a comma separated list of names or a single regular expression
+*DESCRIPTION (Описание):*:: Указывает, предоставлены ли темы в виде полного имени темы или запятой разделенного списка имен
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* names: Topic is a full topic name or comma separated list of names 
+* names: Тема - это полное имя темы или запятой разделенный список имен 
 
-* pattern: Topic is a regular expression according to the Java Pattern syntax 
+* pattern: Тема - это регулярное выражение в соответствии с синтаксисом Java Pattern 
 
 
 [horizontal]
@@ -79,14 +79,14 @@ FORBIDDEN (Обязательно)
 .*Topics*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Topics
+*DISPLAY NAME (Отображаемое наименование):*:: Topics (Темы)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name or pattern of the Kafka Topics from which the Processor consumes Kafka Records. More than one can be supplied if comma separated.
+*DESCRIPTION (Описание):*:: Название или шаблон Kafka топиков, из которых процессор потребляет записи Kafka. Можно указать более одного, если разделены запятыми.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -96,25 +96,25 @@ FORBIDDEN (Обязательно)
 .*Auto.Offset.Reset*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Auto Offset Reset
+*DISPLAY NAME (Отображаемое наименование):*:: Auto Offset Reset (Автоматическая настройка смещения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Automatic offset configuration applied when no previous consumer offset found corresponding to Kafka auto.offset.reset property
+*DESCRIPTION (Описание):*:: Настройка смещения, применяемая автоматически, если не найден предыдущий смещение для свойства auto.offset.reset Kafka
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* earliest: Automatically reset the offset to the earliest offset 
+* earliest (первый): Автоматически сбросить смещение в самое первое 
 
-* latest: Automatically reset the offset to the latest offset 
+* latest (последний): Автоматически сбросить смещение в самое последнее 
 
-* none: Throw exception to the consumer if no previous offset found for the consumer group 
+* none (нет): Выбросить исключение для потребителя, если не найден предыдущий смещение для группы потребителей 
 
 
 [horizontal]
@@ -123,14 +123,14 @@ FORBIDDEN (Обязательно)
 .*Commit Offsets*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Commit Offsets
+*DISPLAY NAME (Отображаемое наименование):*:: Commit Offsets (Смещения фиксации)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether this Processor should commit the offsets to Kafka after receiving messages. Typically, this value should be set to true so that messages that are received are not duplicated. However, in certain scenarios, we may want to avoid committing the offsets, that the data can be processed and later acknowledged by PublishKafka in order to provide Exactly Once semantics.
+*DESCRIPTION (Описание):*:: Указывает, должен ли этот процессор зафиксировать смещения в Kafka после получения сообщений. Как правило, это значение следует установить в true, чтобы избежать дублирования полученных сообщений. Однако в определенных сценариях мы можем захотеть избежать фиксации смещений, что позволит данным быть обработанными позже и подтвержденными PublishKafka с целью обеспечения семантики 'точно один раз'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -148,14 +148,14 @@ FORBIDDEN (Обязательно)
 .*Max Uncommitted Time*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Uncommitted Time
+*DISPLAY NAME (Отображаемое наименование):*:: Max Uncommitted Time (Максимальное время без подтверждения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the maximum amount of time allowed to pass before offsets must be committed. This value impacts how often offsets will be committed. Committing offsets less often increases throughput but also increases the window of potential data duplication in the event of a rebalance or JVM restart between commits. This value is also related to maximum poll records and the use of a message demarcator. When using a message demarcator we can have far more uncommitted messages than when we're not as there is much less for us to keep track of in memory.
+*DESCRIPTION (Описание):*:: Указывает максимальное количество времени, разрешенное для пропуска до того, как должны быть зафиксированы смещения. Это значение влияет на частоту фиксации смещений. Фиксацию смещений реже увеличивает пропускную способность, но также увеличивает окно потенциального дублирования данных в случае перебалансировки или перезапуска JVM между фиксациями. Это значение также связано с максимальным количеством записей опроса и использованием демаркатора сообщений. При использовании демаркатора сообщений мы можем иметь гораздо больше неподтвержденных сообщений, чем когда этого не делаем, так как в памяти меньше для отслеживания.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -165,14 +165,14 @@ FORBIDDEN (Обязательно)
 .Header Name Pattern
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Header Name Pattern
+*DISPLAY NAME (Отображаемое наименование):*:: Header Name Pattern (Шаблон имени заголовка)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Regular Expression Pattern applied to Kafka Record Header Names for selecting Header Values to be written as FlowFile attributes
+*DESCRIPTION (Описание):*:: Регулярное выражение, применяемое к именам заголовков Kafka Record для выбора значений заголовков, которые будут записываться как атрибуты FlowFile
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -182,14 +182,14 @@ FORBIDDEN (Обязательно)
 .*Header Encoding*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Header Encoding
+*DISPLAY NAME (Отображаемое наименование):*:: Header Encoding (Кодировка заголовка)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Character encoding applied when reading Kafka Record Header values and writing FlowFile attributes
+*DESCRIPTION (Описание):*:: Character encoding applied when reading Kafka Record Header values and writing FlowFile attributes (Кодировка, применяемая при чтении значений заголовков Kafka Record и записи атрибутов FlowFile)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -199,25 +199,25 @@ FORBIDDEN (Обязательно)
 .*Processing Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Processing Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Processing Strategy (Стратегия обработки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Strategy for processing Kafka Records and writing serialized output to FlowFiles
+*DESCRIPTION (Описание):*:: Стратегия для обработки записей Kafka и записи сериализованного вывода в FlowFiles
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* FLOW_FILE: Write one FlowFile for each Kafka Record consumed 
+* FLOW_FILE (FLOW_FILE): Запись одного FlowFile для каждой потребленной записи Kafka 
 
-* DEMARCATOR: Write one FlowFile for each batch of Kafka Records consumed (optionally grouped by Kafka key) 
+* DEMARCATOR (ДЕМАРКАТОР): Запись одного FlowFile для каждой партии потребленных записей Kafka (необязательно сгруппированных по ключу Kafka) 
 
-* RECORD: Write one FlowFile containing multiple Kafka Records consumed and processed with Record Reader and Record Writer 
+* RECORD (ЗАПИСЬ): Запись одного FlowFile, содержащего несколько потребленных и обработанных записей Kafka с использованием Record Reader и Record Writer 
 
 
 [horizontal]
@@ -226,14 +226,14 @@ FORBIDDEN (Обязательно)
 .*Record Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Записыватель записей)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Record Reader to use for incoming Kafka messages
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -243,14 +243,14 @@ FORBIDDEN (Обязательно)
 .*Record Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Записыватель записей (Record Writer)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Record Writer to use in order to serialize the outgoing FlowFiles
+*DESCRIPTION (Описание):*:: Используйте записывателя записей для сериализации исходящих FlowFiles
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -260,23 +260,23 @@ FORBIDDEN (Обязательно)
 .*Output Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Output Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Output Strategy (Стратегия вывода)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The format used to output the Kafka Record into a FlowFile Record.
+*DESCRIPTION (Описание):*:: Формат, используемый для вывода записи Kafka в запись FlowFile.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Use Content as Value: Write only the Kafka Record value to the FlowFile record. 
+* Use Content as Value (Использовать содержимое как значение): Записывать только значение записи Kafka в запись FlowFile. 
 
-* Use Wrapper: Write the Kafka Record key, value, headers, and metadata into the FlowFile record. (See processor usage for more information.) 
+* Use Wrapper (Использовать обертку): Записать ключ, значение, заголовки и метаданные записи Kafka в запись FlowFile. (См. использование процессора для получения дополнительной информации.) 
 
 
 [horizontal]
@@ -285,25 +285,25 @@ FORBIDDEN (Обязательно)
 .*Key Attribute Encoding*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Key Attribute Encoding
+*DISPLAY NAME (Отображаемое наименование):*:: Key Attribute Encoding (Кодирование атрибута ключа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Encoding for value of configured FlowFile attribute containing Kafka Record Key.
+*DESCRIPTION (Описание):*:: Кодирование для значения настроенного атрибута FlowFile, содержащего ключ записи Kafka.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* UTF-8 Encoded: The key is interpreted as a UTF-8 Encoded string. 
+* UTF-8 Encoded (Кодированный в UTF-8): Ключ интерпретируется как строка, закодированная в UTF-8. 
 
-* Hex Encoded: The key is interpreted as arbitrary binary data and is encoded using hexadecimal characters with uppercase letters 
+* Hex Encoded (Шестнадцатеричное кодирование): Ключ интерпретируется как произвольные двоичные данные и кодируется с использованием шестнадцатеричных символов с заглавными буквами. 
 
-* Do Not Add Key as Attribute: The key will not be added as an Attribute 
+* Do Not Add Key as Attribute (Не добавлять ключ в качестве атрибута): Ключ не будет добавлен как атрибут. 
 
 
 [horizontal]
@@ -312,25 +312,25 @@ FORBIDDEN (Обязательно)
 .*Key Format*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Key Format
+*DISPLAY NAME (Отображаемое наименование):*:: Key Format (Формат ключа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how to represent the Kafka Record Key in the output FlowFile
+*DESCRIPTION (Описание):*:: Указывает, как представить ключ записи Kafka в выходном потоке FlowFile
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* String: Format the Kafka ConsumerRecord key as a UTF-8 string. 
+* String (Строка): Формат ConsumerRecord ключа как строки UTF-8. 
 
-* Byte Array: Format the Kafka ConsumerRecord key as a byte array. 
+* Byte Array (Массив байтов): Формат ConsumerRecord ключа как массива байтов. 
 
-* Record: Format the Kafka ConsumerRecord key as a record. 
+* Record (Запись): Формат ConsumerRecord ключа как записи. 
 
 
 [horizontal]
@@ -339,14 +339,14 @@ FORBIDDEN (Обязательно)
 .*Key Record Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Key Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Key Record Reader (Ключ Записи Читателя)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Record Reader to use for parsing the Kafka Record Key into a Record
+*DESCRIPTION (Описание):*:: Чтец записей для использования при разборе ключа Kafka записи в запись
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -356,14 +356,14 @@ FORBIDDEN (Обязательно)
 .*Message Demarcator*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Message Demarcator
+*DISPLAY NAME (Отображаемое наименование):*:: Message Demarcator (Маркер сообщения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Since KafkaConsumer receives messages in batches, this Processor has an option to output FlowFiles which contains all Kafka messages in a single batch for a given topic and partition and this property allows you to provide a string (interpreted as UTF-8) to use for demarcating apart multiple Kafka messages. This is an optional property and if not provided each Kafka message received will result in a single FlowFile which  time it is triggered. To enter special character such as 'new line' use CTRL+Enter or Shift+Enter depending on the OS
+*DESCRIPTION (Описание):*:: Поскольку KafkaConsumer получает сообщения пачками, этот процессор имеет параметр для вывода FlowFiles, которые содержат все Kafka-сообщения в одной пачке для заданной темы и раздела. Это свойство позволяет предоставить строку (интерпретируемую как UTF-8), которую следует использовать для разграничения нескольких Kafka-сообщений. Это необязательное свойство, и если оно не предоставлено, каждое полученное Kafka-сообщение приведет к отдельному FlowFile, которое будет создано при срабатывании. Для ввода специальных символов, таких как 'новая строка', используйте CTRL+Enter или Shift+Enter в зависимости от операционной системы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -373,14 +373,14 @@ FORBIDDEN (Обязательно)
 .*Separate By Key*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Separate By Key
+*DISPLAY NAME (Отображаемое наименование):*:: Separate By Key (Разделять по ключу)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When this property is enabled, two messages will only be added to the same FlowFile if both of the Kafka Messages have identical keys.
+*DESCRIPTION (Описание):*:: Когда это свойство включено, два сообщения будут добавлены в один поток только если оба Kafka-сообщения имеют идентичные ключи.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -412,7 +412,7 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`success`
-|FlowFiles containing one or more serialized Kafka Records
+|FlowFiles содержащие одну или несколько сериализованных записей Kafka
 
 |===
 
@@ -427,31 +427,31 @@ FORBIDDEN (Обязательно)
 |Наименование |Описание
 
 |`record.count`
-|The number of records received
+|Количество полученных записей
 
 |`mime.type`
-|The MIME Type that is provided by the configured Record Writer
+|Тип MIME, предоставляемый настроенным пишущим записями
 
 |`kafka.count`
-|The number of messages written if more than one
+|Количество записей, записанных, если их больше одного
 
 |`kafka.key`
-|The key of message if present and if single message. How the key is encoded depends on the value of the 'Key Attribute Encoding' property.
+|Ключ сообщения, если он присутствует и является единственным. Как закодирован ключ зависит от значения свойства 'Key Attribute Encoding'.
 
 |`kafka.offset`
-|The offset of the message in the partition of the topic.
+|Смещение сообщения в разделе темы.
 
 |`kafka.timestamp`
-|The timestamp of the message in the partition of the topic.
+|Временная метка сообщения в разделе темы.
 
 |`kafka.partition`
-|The partition of the topic the message or message bundle is from
+|Раздел темы, откуда получено сообщение или набор сообщений
 
 |`kafka.topic`
-|The topic the message or message bundle is from
+|Тема, откуда получено сообщение или набор сообщений
 
 |`kafka.tombstone`
-|Set to true if the consumed message is a tombstone message
+|Устанавливается в true, если потребляемое сообщение является 'сообщением-призраком'
 
 |===
 

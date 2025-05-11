@@ -1,13 +1,13 @@
 = HttpRecordSink 2.2.0
 
-Format and send Records to a configured uri using HTTP post. The Record Writer formats the records which are sent as the body of the HTTP post request. JsonRecordSetWriter is often used with this processor because many HTTP posts require a JSON body.
+Форматирует и отправляет записи в настроенный URI, используя HTTP POST. Записчик записей форматирует записи, которые отправляются как тело запроса HTTP POST. JsonRecordSetWriter часто используется с этим процессором, так как многие HTTP-POST требуют тела JSON.
 
 [horizontal]
 *Tags* (Ключевые слова):
 http, post, record, sink
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ http, post, record, sink
 .*Api Url*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: API URL
+*DISPLAY NAME (Отображаемое наименование):*:: API URL (URL, который получает HTTP-запросы)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The URL which receives the HTTP requests.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ http, post, record, sink
 .*Maximum Batch Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Batch Size
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Batch Size (Максимальный размер партии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the maximum number of records to send in the body of each HTTP request. Zero means the batch size is not limited, and all records are sent together in a single HTTP request.
+*DESCRIPTION (Описание):*:: Указывает максимальное количество записей, отправляемых в теле каждого HTTP-запроса. Ноль означает, что размер партии не ограничен, и все записи отправляются вместе в один HTTP-запрос.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ http, post, record, sink
 .*Record-Sink-Record-Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records.
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для использования при записи записей.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ http, post, record, sink
 .*Web Service Client Provider*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Web Service Client Provider
+*DISPLAY NAME (Отображаемое наименование):*:: Web Service Client Provider (Веб-сервисный клиентский провайдер)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Controller service to provide the HTTP client for sending the HTTP requests.
+*DESCRIPTION (Описание):*:: Контроллерский сервис для предоставления HTTP-клиента для отправки HTTP-запросов.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ http, post, record, sink
 .Oauth2 Access Token Provider
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: OAuth2 Access Token Provider
+*DISPLAY NAME (Отображаемое наименование):*:: OAuth2 Access Token Provider (OAuth2 сервис, предоставляющий токены доступа для HTTP-запросов)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: OAuth2 service that provides the access tokens for the HTTP requests.
+*DESCRIPTION (Описание):*:: OAuth2 сервис, который предоставляет токены доступа для HTTP-запросов.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -115,6 +115,17 @@ http, post, record, sink
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

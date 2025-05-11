@@ -1,13 +1,13 @@
 = SplitAvro 2.2.0
 
-Splits a binary encoded Avro datafile into smaller files based on the configured Output Size. The Output Strategy determines if the smaller files will be Avro datafiles, or bare Avro records with metadata in the FlowFile attributes. The output will always be binary encoded.
+Разделяет двоичный закодированный файл Avro на меньшие файлы на основе назначенного размера вывода. Стратегия выхода определяет, будут ли меньшие файлы представлять собой файлы Avro или простые записи Avro с метаданными в атрибутах FlowFile. Выход всегда двоично-закодированный.
 
 [horizontal]
 *Tags* (Ключевые слова):
 avro, split
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,21 +20,21 @@ REQUIRED (Обязательно)
 .*Split Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Split Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Split Strategy (Стратегия разделения входящего файла данных)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The strategy for splitting the incoming datafile. The Record strategy will read the incoming datafile by de-serializing each record.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Record: Split at Record boundaries 
+* Record (Запись): Split at Record boundaries 
 
 
 [horizontal]
@@ -43,14 +43,14 @@ REQUIRED (Обязательно)
 .*Output Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Output Size
+*DISPLAY NAME (Отображаемое наименование):*:: Output Size (Размер вывода)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The number of Avro records to include per split file. In cases where the incoming file has less records than the Output Size, or when the total number of records does not divide evenly by the Output Size, it is possible to get a split file with less records.
+*DESCRIPTION (Описание):*:: Количество Avro записей, включаемых в каждый разбитый файл. В случаях, когда входящий файл содержит меньше записей, чем размер вывода, или если общее количество записей не делится нацело на размер вывода, возможно получение разбитого файла с меньшим количеством записей.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -60,23 +60,23 @@ REQUIRED (Обязательно)
 .*Output Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Output Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Output Strategy (Стратегия вывода)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Determines the format of the output. Either Avro Datafile, or bare record. Bare record output is only intended for use with systems that already require it, and shouldn't be needed for normal use.
+*DESCRIPTION (Описание):*:: Определяет формат вывода. Либо формат объектного контейнера файла Avro, либо простой запись. Вывод простых записей предназначен только для использования в системах, которые уже требуют его, и не должен быть необходим для обычного использования.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Datafile: Avro's object container file format 
+* Datafile (Файл формата объекта Avro): Формат объектного контейнера файла Avro 
 
-* Bare Record: Bare Avro records 
+* Bare Record (Простая запись): Простые Avro записи 
 
 
 [horizontal]
@@ -85,14 +85,14 @@ REQUIRED (Обязательно)
 .*Transfer Metadata*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Transfer Metadata
+*DISPLAY NAME (Отображаемое наименование):*:: Transfer Metadata (Перенос метаданных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Whether or not to transfer metadata from the parent datafile to the children. If the Output Strategy is Bare Record, then the metadata will be stored as FlowFile attributes, otherwise it will be in the Datafile header.
+*DESCRIPTION (Описание):*:: Возможность переноса метаданных из родительского файла данных в дочерние. Если стратегия вывода - это простой запись, то метаданные будут храниться как атрибуты FlowFile, иначе они будут находиться в заголовке Datafile.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -121,7 +121,7 @@ REQUIRED (Обязательно)
 
 
 |MEMORY
-|An instance of this component can cause high usage of this system resource.  Multiple instances or high concurrency settings may result a degradation of performance.
+|Экземпляр этого компонента может вызвать высокое использование системного ресурса. Множественные экземпляры или высокие настройки конкоррентности могут привести к снижению производительности.
 
 |===
 
@@ -136,13 +136,13 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`failure`
-|If a FlowFile fails processing for any reason (for example, the FlowFile is not valid Avro), it will be routed to this relationship
+|Если FlowFile не обрабатывается по какой-либо причине (например, FlowFile не является допустимым Avro), он будет направлен в эту связь.
 
 |`original`
-|The original FlowFile that was split. If the FlowFile fails processing, nothing will be sent to this relationship
+|Исходный FlowFile, который был разделен. Если FlowFile не обрабатывается, ничего не будет отправлено в эту связь.
 
 |`split`
-|All new files split from the original FlowFile will be routed to this relationship
+|Все новые файлы, полученные из исходного FlowFile, будут направлены в эту связь.
 
 |===
 
@@ -157,16 +157,16 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`fragment.identifier`
-|All split FlowFiles produced from the same parent FlowFile will have the same randomly generated UUID added for this attribute
+|Все разделенные FlowFiles, произведенные из одного родительского FlowFile, будут иметь добавленный атрибут UUID с уникально сгенерированным значением.
 
 |`fragment.index`
-|A one-up number that indicates the ordering of the split FlowFiles that were created from a single parent FlowFile
+|Одноуказательный номер, указывающий порядок разделенных FlowFiles, созданных из одного родительского FlowFile.
 
 |`fragment.count`
-|The number of split FlowFiles generated from the parent FlowFile
+|Количество разделенных FlowFiles, сгенерированных из родительского FlowFile.
 
 |`segment.original.filename `
-|The filename of the parent FlowFile
+|Имя файла родительского FlowFile.
 
 |===
 

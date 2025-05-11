@@ -1,13 +1,13 @@
 = StandardFileResourceService 2.2.0
 
-Provides a file resource for other components. The file needs to be available locally by Nifi (e.g. local disk or mounted storage). NiFi needs to have read permission to the file.
+Предоставляет файловый ресурс для других компонентов. Файл должен быть доступен локально NiFi (например, локальный диск или смонтированное хранилище). NiFi должно иметь право на чтение файла.
 
 [horizontal]
 *Tags* (Ключевые слова):
 file, resource
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ file, resource
 .*File-Path*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: File Path
+*DISPLAY NAME (Отображаемое наименование):*:: File Path (Путь к файлу)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Path to a file that can be accessed locally.
+*DESCRIPTION (Описание):*:: Path to a file that can be accessed locally. (Путь к локальному файлу, доступному для использования).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -49,7 +49,7 @@ file, resource
 |Требуемые права |Объяснение
 
 |
-|Provides operator the ability to read from any file that NiFi has access to.
+|Предоставляет оператору возможность читать любой файл, к которому у NiFi есть доступ.
 
 |===
 
@@ -58,6 +58,17 @@ file, resource
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

@@ -1,13 +1,13 @@
 = GetAwsTranscribeJobStatus 2.2.0
 
-Retrieves the current status of an AWS Transcribe job.
+Извлекает текущий статус задания AWS Transcribe.
 
 [horizontal]
 *Tags* (Ключевые слова):
 AWS, Amazon, ML, Machine Learning, Transcribe
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ AWS, Amazon, ML, Machine Learning, Transcribe
 .*Awstaskid*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: AWS Task ID
+*DISPLAY NAME (Отображаемое наименование):*:: AWS Task ID (AWS Задача ID)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: 
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ AWS, Amazon, ML, Machine Learning, Transcribe
 .*Aws Credentials Provider Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: AWS Credentials Provider Service
+*DISPLAY NAME (Отображаемое наименование):*:: AWS Credentials Provider Service (...)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Controller Service that is used to obtain AWS credentials provider
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,109 +54,109 @@ AWS, Amazon, ML, Machine Learning, Transcribe
 .*Region*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Region
+*DISPLAY NAME (Отображаемое наименование):*:: Region (Регион)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: 
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* AWS GovCloud (US-East): AWS Region Code : us-gov-east-1 
+* AWS GovCloud (US-East) (AWS Реестр правительственных облаков (Восток США)): AWS Region Code : us-gov-east-1 
 
-* AWS GovCloud (US-West): AWS Region Code : us-gov-west-1 
+* AWS GovCloud (US-West) (AWS Реестр правительственных облаков (Запад США)): AWS Region Code : us-gov-west-1 
 
-* Africa (Cape Town): AWS Region Code : af-south-1 
+* Africa (Cape Town) (Африка (Кап Стивенс)): AWS Region Code : af-south-1 
 
-* Asia Pacific (Hong Kong): AWS Region Code : ap-east-1 
+* Asia Pacific (Hong Kong) (Азия Тихоокеанский восток (Гонконг)): AWS Region Code : ap-east-1 
 
-* Asia Pacific (Hyderabad): AWS Region Code : ap-south-2 
+* Asia Pacific (Hyderabad) (Азия Тихоокеанский восток (Хайдерабад)): AWS Region Code : ap-south-2 
 
-* Asia Pacific (Jakarta): AWS Region Code : ap-southeast-3 
+* Asia Pacific (Jakarta) (Азия Тихоокеанский восток (Джакарта)): AWS Region Code : ap-southeast-3 
 
-* Asia Pacific (Malaysia): AWS Region Code : ap-southeast-5 
+* Asia Pacific (Malaysia) (Азия Тихоокеанский восток (Малайзия)): AWS Region Code : ap-southeast-5 
 
-* Asia Pacific (Melbourne): AWS Region Code : ap-southeast-4 
+* Asia Pacific (Melbourne) (Азия Тихоокеанский восток (Мельбурн)): AWS Region Code : ap-southeast-4 
 
-* Asia Pacific (Mumbai): AWS Region Code : ap-south-1 
+* Asia Pacific (Mumbai) (Азия Тихоокеанский восток (Мумбаи)): AWS Region Code : ap-south-1 
 
-* Asia Pacific (Osaka): AWS Region Code : ap-northeast-3 
+* Asia Pacific (Osaka) (Азия Тихоокеанский восток (Осака)): AWS Region Code : ap-northeast-3 
 
-* Asia Pacific (Seoul): AWS Region Code : ap-northeast-2 
+* Asia Pacific (Seoul) (Азия Тихоокеанский восток (Сеул)): AWS Region Code : ap-northeast-2 
 
-* Asia Pacific (Singapore): AWS Region Code : ap-southeast-1 
+* Asia Pacific (Singapore) (Азия Тихоокеанский восток (Сингапур)): AWS Region Code : ap-southeast-1 
 
-* Asia Pacific (Sydney): AWS Region Code : ap-southeast-2 
+* Asia Pacific (Sydney) (Азия Тихоокеанский восток (Сидней)): AWS Region Code : ap-southeast-2 
 
-* Asia Pacific (Thailand): AWS Region Code : ap-southeast-7 
+* Asia Pacific (Thailand) (Азия Тихоокеанский восток (Таиланд)): AWS Region Code : ap-southeast-7 
 
-* Asia Pacific (Tokyo): AWS Region Code : ap-northeast-1 
+* Asia Pacific (Tokyo) (Азия Тихоокеанский восток (Токио)): AWS Region Code : ap-northeast-1 
 
-* Canada (Central): AWS Region Code : ca-central-1 
+* Canada (Central) (Канада (Центральный)): AWS Region Code : ca-central-1 
 
-* Canada West (Calgary): AWS Region Code : ca-west-1 
+* Canada West (Calgary) (Канада (Калгари)): AWS Region Code : ca-west-1 
 
-* China (Beijing): AWS Region Code : cn-north-1 
+* China (Beijing) (Китай (Пекин)): AWS Region Code : cn-north-1 
 
-* China (Ningxia): AWS Region Code : cn-northwest-1 
+* China (Ningxia) (Китай (Нингся)): AWS Region Code : cn-northwest-1 
 
-* EU ISOE West: AWS Region Code : eu-isoe-west-1 
+* EU ISOE West (Европа (Западный Изоэ)): AWS Region Code : eu-isoe-west-1 
 
-* Europe (Frankfurt): AWS Region Code : eu-central-1 
+* Europe (Frankfurt) (Европа (Франкфурт)): AWS Region Code : eu-central-1 
 
-* Europe (Ireland): AWS Region Code : eu-west-1 
+* Europe (Ireland) (Европа (Ирландия)): AWS Region Code : eu-west-1 
 
-* Europe (London): AWS Region Code : eu-west-2 
+* Europe (London) (Европа (Лондон)): AWS Region Code : eu-west-2 
 
-* Europe (Milan): AWS Region Code : eu-south-1 
+* Europe (Milan) (Европа (Милан)): AWS Region Code : eu-south-1 
 
-* Europe (Paris): AWS Region Code : eu-west-3 
+* Europe (Paris) (Европа (Париж)): AWS Region Code : eu-west-3 
 
-* Europe (Spain): AWS Region Code : eu-south-2 
+* Europe (Spain) (Европа (Испания)): AWS Region Code : eu-south-2 
 
-* Europe (Stockholm): AWS Region Code : eu-north-1 
+* Europe (Stockholm) (Европа (Стокгольм)): AWS Region Code : eu-north-1 
 
-* Europe (Zurich): AWS Region Code : eu-central-2 
+* Europe (Zurich) (Европа (Цюрих)): AWS Region Code : eu-central-2 
 
-* Israel (Tel Aviv): AWS Region Code : il-central-1 
+* Israel (Tel Aviv) (Израиль (Тель-Авив)): AWS Region Code : il-central-1 
 
-* Mexico (Central): AWS Region Code : mx-central-1 
+* Mexico (Central) (Мексика (Центральный)): AWS Region Code : mx-central-1 
 
-* Middle East (Bahrain): AWS Region Code : me-south-1 
+* Middle East (Bahrain) (Средний Восток (Бахрейн)): AWS Region Code : me-south-1 
 
-* Middle East (UAE): AWS Region Code : me-central-1 
+* Middle East (UAE) (Средний Восток (ОАЭ)): AWS Region Code : me-central-1 
 
-* South America (Sao Paulo): AWS Region Code : sa-east-1 
+* South America (Sao Paulo) (Южная Америка (Сан-Паулу)): AWS Region Code : sa-east-1 
 
-* US East (N. Virginia): AWS Region Code : us-east-1 
+* US East (N. Virginia) (США (Вирджиния Северная)): AWS Region Code : us-east-1 
 
-* US East (Ohio): AWS Region Code : us-east-2 
+* US East (Ohio) (США (Огайо)): AWS Region Code : us-east-2 
 
-* US ISO East: AWS Region Code : us-iso-east-1 
+* US ISO East (США (Изо Восток)): AWS Region Code : us-iso-east-1 
 
-* US ISO WEST: AWS Region Code : us-iso-west-1 
+* US ISO WEST (США (Изо Запад)): AWS Region Code : us-iso-west-1 
 
-* US ISOB East (Ohio): AWS Region Code : us-isob-east-1 
+* US ISOB East (Ohio) (США (Изо Восток Огайо)): AWS Region Code : us-isob-east-1 
 
-* US West (N. California): AWS Region Code : us-west-1 
+* US West (N. California) (США (Северная Калифорния)): AWS Region Code : us-west-1 
 
-* US West (Oregon): AWS Region Code : us-west-2 
+* US West (Oregon) (США (Орегон)): AWS Region Code : us-west-2 
 
-* aws-cn-global: AWS Region Code : aws-cn-global 
+* aws-cn-global (aws-cn-global): AWS Region Code : aws-cn-global 
 
-* aws-global: AWS Region Code : aws-global 
+* aws-global (aws-global): AWS Region Code : aws-global 
 
-* aws-iso-b-global: AWS Region Code : aws-iso-b-global 
+* aws-iso-b-global (aws-iso-b-global): AWS Region Code : aws-iso-b-global 
 
-* aws-iso-global: AWS Region Code : aws-iso-global 
+* aws-iso-global (aws-iso-global): AWS Region Code : aws-iso-global 
 
-* aws-us-gov-global: AWS Region Code : aws-us-gov-global 
+* aws-us-gov-global (aws-us-gov-global): AWS Region Code : aws-us-gov-global 
 
 
 [horizontal]
@@ -165,14 +165,14 @@ AWS, Amazon, ML, Machine Learning, Transcribe
 .*Communications Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout (Коммуникационный таймаут)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: 
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -182,14 +182,14 @@ AWS, Amazon, ML, Machine Learning, Transcribe
 .Ssl Context Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (Сервис контекста SSL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies an optional SSL Context Service that, if provided, will be used to create connections
+*DESCRIPTION (Описание):*:: Указывает необязательный сервис контекста SSL, если он предоставлен, будет использоваться для создания подключений
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -199,14 +199,14 @@ AWS, Amazon, ML, Machine Learning, Transcribe
 .Endpoint Override Url
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Endpoint Override URL
+*DISPLAY NAME (Отображаемое наименование):*:: Endpoint Override URL (URL конечной точки для переопределения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Endpoint URL to use instead of the AWS default including scheme, host, port, and path. The AWS libraries select an endpoint URL based on the AWS region, but this property overrides the selected endpoint URL, allowing use with other S3-compatible endpoints.
+*DESCRIPTION (Описание):*:: URL конечной точки, которую следует использовать вместо AWS по умолчанию, включая схему, хост, порт и путь. Библиотеки AWS выбирают URL-адрес конечной точки на основе региона AWS, но это свойство переопределяет выбранный URL-адрес конечной точки, позволяя использовать его с другими S3-совместимыми конечными точками.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -216,14 +216,14 @@ AWS, Amazon, ML, Machine Learning, Transcribe
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: HTTP + AuthN
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -247,19 +247,19 @@ AWS, Amazon, ML, Machine Learning, Transcribe
 |Наименование |Описание
 
 |`running`
-|The job is currently still being processed
+|Задание в данный момент все еще обрабатывается
 
 |`original`
-|Upon successful completion, the original FlowFile will be routed to this relationship.
+|При успешном завершении оригинальный FlowFile будет направлен к этому отношению.
 
 |`failure`
-|The job failed, the original FlowFile will be routed to this relationship.
+|Задание не удалось, оригинальный FlowFile будет направлен к этому отношению.
 
 |`success`
-|Job successfully finished. FlowFile will be routed to this relation.
+|Задание завершено успешно. FlowFile будет направлен к этому отношению.
 
 |`throttled`
-|Retrieving results failed for some reason, but the issue is likely to resolve on its own, such as Provisioned Throughput Exceeded or a Throttling failure. It is generally expected to retry this relationship.
+|Получение результатов не удалось по какой-то причине, но проблема, скорее всего, разрешится сама собой, например из-за Предоставленной Пропускной Способности или сбоя ограничения. Обычно ожидается повторная попытка этого отношения.
 
 |===
 
@@ -274,7 +274,7 @@ AWS, Amazon, ML, Machine Learning, Transcribe
 |Наименование |Описание
 
 |`outputLocation`
-|S3 path-style output location of the result.
+|Стиль пути S3 выходного расположения результата.
 
 |===
 

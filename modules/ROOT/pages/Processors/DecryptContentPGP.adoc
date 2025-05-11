@@ -1,13 +1,13 @@
 = DecryptContentPGP 2.2.0
 
-Decrypt contents of OpenPGP messages. Using the Packaged Decryption Strategy preserves OpenPGP encoding to support subsequent signature verification.
+Расшифровывает содержимое OpenPGP сообщений. Использование стратегии пакетной расшифровки сохраняет кодирование OpenPGP для поддержки последующей проверки подписи.
 
 [horizontal]
 *Tags* (Ключевые слова):
 Encryption, GPG, OpenPGP, PGP, RFC 4880
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Decryption-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Decryption Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Decryption Strategy (Шифрование)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Strategy for writing files to success after decryption
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -45,14 +45,14 @@ REQUIRED (Обязательно)
 .Passphrase
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Passphrase
+*DISPLAY NAME (Отображаемое наименование):*:: Passphrase (Парольная фраза)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Passphrase used for decrypting data encrypted with Password-Based Encryption
+*DESCRIPTION (Описание):*:: Парольная фраза, используемая для расшифровки данных, зашифрованных с помощью Password-Based Encryption
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -62,14 +62,14 @@ REQUIRED (Обязательно)
 .Private-Key-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Private Key Service
+*DISPLAY NAME (Отображаемое наименование):*:: Private Key Service (Сервис закрытого ключа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: PGP Private Key Service for decrypting data encrypted with Public Key Encryption
+*DESCRIPTION (Описание):*:: PGP Private Key Service для расшифровки данных, зашифрованных с использованием Public Key Encryption
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -93,10 +93,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Decryption Succeeded
+|Расшифровка прошла успешно
 
 |`failure`
-|Decryption Failed
+|Расшифровка не удалась
 
 |===
 
@@ -111,16 +111,16 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`pgp.literal.data.filename`
-|Filename from decrypted Literal Data
+|Имя файла из расшифрованных литеральных данных
 
 |`pgp.literal.data.modified`
-|Modified Date from decrypted Literal Data
+|Дата модификации из расшифрованных литеральных данных
 
 |`pgp.symmetric.key.algorithm.block.cipher`
-|Symmetric-Key Algorithm Block Cipher
+|Симметричный ключ алгоритм блока шифра
 
 |`pgp.symmetric.key.algorithm.id`
-|Symmetric-Key Algorithm Identifier
+|Идентификатор симметричного ключевого алгоритма
 
 |===
 

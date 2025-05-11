@@ -1,13 +1,13 @@
 = AzureCosmosDBClientService 2.2.0
 
-Provides a controller service that configures a connection to Cosmos DB (Core SQL API)  and provides access to that connection to other Cosmos DB-related components.
+Предоставляет сервис контроллера, который настраивает подключение к Cosmos DB (ядро SQL API) и предоставляет доступ к этому подключению другим компонентам, связанным с Cosmos DB.
 
 [horizontal]
 *Tags* (Ключевые слова):
 azure, cosmos, document, service
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ azure, cosmos, document, service
 .Azure-Cosmos-Db-Uri
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Cosmos DB URI
+*DISPLAY NAME (Отображаемое наименование):*:: Cosmos DB URI (URI базы данных Cosmos)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Cosmos DB URI, typically in the form of https://{databaseaccount}.documents.azure.com:443/ Note this host URL is for Cosmos DB with Core SQL API from Azure Portal (Overview->URI)
+*DESCRIPTION (Описание):*:: URI для Cosmos DB, обычно в форме https://{databaseaccount}.documents.azure.com:443/. Следует отметить, что этот узел URL-адреса предназначен для Cosmos DB с API Core SQL Azure Portal (Обзор->URI)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -37,14 +37,14 @@ azure, cosmos, document, service
 .Azure-Cosmos-Db-Key
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Cosmos DB Access Key
+*DISPLAY NAME (Отображаемое наименование):*:: Cosmos DB Access Key (Доступ к базе данных Cosmos)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Cosmos DB Access Key from Azure Portal (Settings->Keys). Choose a read-write key to enable database or container creation at run time
+*DESCRIPTION (Описание):*:: Ключ доступа к Cosmos DB из портала Azure (Settings->Keys). Выберите чтение и запись ключ для включения создания базы данных или контейнера во время выполнения
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -54,29 +54,29 @@ azure, cosmos, document, service
 .Azure-Cosmos-Db-Consistency-Level
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Cosmos DB Consistency Level
+*DISPLAY NAME (Отображаемое наименование):*:: Cosmos DB Consistency Level (Уровень согласованности)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Choose from five consistency levels on the consistency spectrum. Refer to Cosmos DB documentation for their differences
+*DESCRIPTION (Описание):*:: Выберите один из пяти уровней согласованности на спектре согласованности. Обратитесь к документации Cosmos DB для ознакомления с их различиями
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* STRONG
+* STRONG (Сильная)
 
-* BOUNDED_STALENESS
+* BOUNDED_STALENESS (Ограниченное устаревание)
 
-* SESSION
+* SESSION (Сессия)
 
-* CONSISTENT_PREFIX
+* CONSISTENT_PREFIX (Согласованный префикс)
 
-* EVENTUAL
+* EVENTUAL (В конечном итоге)
 
 
 [horizontal]
@@ -95,6 +95,17 @@ azure, cosmos, document, service
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

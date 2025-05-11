@@ -1,13 +1,13 @@
 = PutAzureBlobStorage_v12 2.2.0
 
-Puts content into a blob on Azure Blob Storage. The processor uses Azure Blob Storage client library v12.
+Отправляет содержимое в большой двоичный объект на Azure Blob Storage. Процессор использует библиотеку клиента Azure Blob Storage версии 12.
 
 [horizontal]
 *Tags* (Ключевые слова):
 azure, blob, cloud, microsoft, storage
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Storage-Credentials-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Storage Credentials
+*DISPLAY NAME (Отображаемое наименование):*:: Storage Credentials (Хранилище учетных данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Controller Service used to obtain Azure Blob Storage Credentials.
+*DESCRIPTION (Описание):*:: Контроллер сервис, используемый для получения учетных данных Azure Blob Storage.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Container-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Container Name
+*DISPLAY NAME (Отображаемое наименование):*:: Container Name (Контейнер)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Name of the Azure storage container. In case of PutAzureBlobStorage processor, container can be created if it does not exist.
+*DESCRIPTION (Описание):*:: Имя контейнера хранилища Azure. В случае PutAzureBlobStorage процессора, контейнер может быть создан, если он не существует.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Create-Container*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Create Container
+*DISPLAY NAME (Отображаемое наименование):*:: Create Container (Создать контейнер)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether to check if the container exists and to automatically create it if it does not. Permission to list containers is required. If false, this check is not made, but the Put operation will fail if the container does not exist.
+*DESCRIPTION (Описание):*:: Указывает, следует ли проверять, существует ли контейнер, и автоматически создавать его, если он не существует. Для списка контейнеров требуется разрешение. Если значение равно false, эта проверка не выполняется, но операция Put завершится ошибкой, если контейнер не существует.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -79,25 +79,25 @@ REQUIRED (Обязательно)
 .*Conflict-Resolution-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Conflict Resolution Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Conflict Resolution Strategy (Стратегия разрешения конфликтов)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies whether an existing blob will have its contents replaced upon conflict.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* fail: Fail if the blob already exists 
+* fail (неудача): Fail if the blob already exists 
 
-* ignore: Ignore if the blob already exists; the 'azure.error' attribute will be set to the value 'BLOB_ALREADY_EXISTS' 
+* ignore (игнорировать): Ignore if the blob already exists; the 'azure.error' attribute will be set to the value 'BLOB_ALREADY_EXISTS' 
 
-* replace: Replace blob contents if the blob already exist 
+* replace (заменить): Replace blob contents if the blob already exist 
 
 
 [horizontal]
@@ -106,14 +106,14 @@ REQUIRED (Обязательно)
 .*Blob-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Blob Name
+*DISPLAY NAME (Отображаемое наименование):*:: Blob Name (Название бобла)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The full name of the blob
+*DESCRIPTION (Описание):*:: Полное название бобла
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -123,23 +123,23 @@ REQUIRED (Обязательно)
 .*Resource Transfer Source*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Resource Transfer Source
+*DISPLAY NAME (Отображаемое наименование):*:: Resource Transfer Source (Источник ресурса для передачи)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The source of the content to be transferred
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* FlowFile Content: The content of the incoming FlowFile provides the source for transfer 
+* FlowFile Content (Содержимое FlowFile): The content of the incoming FlowFile provides the source for transfer 
 
-* File Resource Service: The File Resource Service provides the source for transfer 
+* File Resource Service (Сервис ресурса файлов): The File Resource Service provides the source for transfer 
 
 
 [horizontal]
@@ -148,14 +148,14 @@ REQUIRED (Обязательно)
 .*File Resource Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: File Resource Service
+*DISPLAY NAME (Отображаемое наименование):*:: File Resource Service (Файловый ресурс Сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: File Resource Service providing access to the local resource to be transferred
+*DESCRIPTION (Описание):*:: File Resource Service providing access to the local resource to be transferred (Файловый ресурс Сервис, предоставляющий доступ к локальному ресурсу для передачи)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -165,14 +165,14 @@ REQUIRED (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: SOCKS, HTTP In case of SOCKS, it is not guaranteed that the selected SOCKS Version will be used by the processor.
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: SOCKS, HTTP В случае использования SOCKS, не гарантируется, что выбранная версия SOCKS будет использоваться процессором.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -182,23 +182,23 @@ REQUIRED (Обязательно)
 .*Client-Side Encryption Key Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Client-Side Encryption Key Type
+*DISPLAY NAME (Отображаемое наименование):*:: Client-Side Encryption Key Type (Тип ключа для клиентской стороны шифрования)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Specifies the key type to use for client-side encryption.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* NONE: Client-Side Encryption disabled 
+* NONE: Client-Side Encryption disabled (Отключено шифрование на клиентской стороне) 
 
-* LOCAL: Client-Side Encryption enabled using local key 
+* LOCAL: Client-Side Encryption enabled using local key (Включено шифрование на клиентской стороне с использованием локального ключа) 
 
 
 [horizontal]
@@ -207,14 +207,14 @@ REQUIRED (Обязательно)
 .*Client-Side Encryption Key Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Client-Side Encryption Key ID
+*DISPLAY NAME (Отображаемое наименование):*:: Client-Side Encryption Key ID (Идентификатор ключа для клиентской стороны шифрования)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the ID of the key to use for client-side encryption.
+*DESCRIPTION (Описание):*:: Указывает идентификатор ключа, который следует использовать для клиентского шифрования.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -224,14 +224,14 @@ REQUIRED (Обязательно)
 .*Client-Side Encryption Local Key*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Client-Side Encryption Local Key
+*DISPLAY NAME (Отображаемое наименование):*:: Client-Side Encryption Local Key (Локальный ключ клиентской стороны шифрования)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When using local client-side encryption, this is the raw key, encoded in hexadecimal
+*DESCRIPTION (Описание):*:: При использовании локального клиентского шифрования это первичный ключ, закодированный в шестнадцатеричном формате
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -255,10 +255,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|All successfully processed FlowFiles are routed to this relationship
+|Все успешно обработанные FlowFiles направляются в это отношение
 
 |`failure`
-|Unsuccessful operations will be transferred to the failure relationship.
+|Неуспешные операции будут переданы в отношение неудачи.
 
 |===
 
@@ -273,37 +273,37 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`azure.container`
-|The name of the Azure Blob Storage container
+|Имя контейнера большого двоичного объекта Azure Blob Storage
 
 |`azure.blobname`
-|The name of the blob on Azure Blob Storage
+|Имя большого двоичного объекта на Azure Blob Storage
 
 |`azure.primaryUri`
-|Primary location of the blob
+|Основное расположение большого двоичного объекта
 
 |`azure.etag`
-|ETag of the blob
+|ETag большого двоичного объекта
 
 |`azure.blobtype`
-|Type of the blob (either BlockBlob, PageBlob or AppendBlob)
+|Тип большого двоичного объекта (либо BlockBlob, PageBlob, либо AppendBlob)
 
 |`mime.type`
-|MIME Type of the content
+|MIME-тип содержимого
 
 |`lang`
-|Language code for the content
+|Код языка для содержимого
 
 |`azure.timestamp`
-|Timestamp of the blob
+|Метка времени большого двоичного объекта
 
 |`azure.length`
-|Length of the blob
+|Длина большого двоичного объекта
 
 |`azure.error.code`
-|Error code reported during blob operation
+|Код ошибки, сообщенный при операции с большим двоичным объектом
 
 |`azure.ignored`
-|When Conflict Resolution Strategy is 'ignore', this property will be true/false depending on whether the blob was ignored.
+|Если Стратегия разрешения конфликтов 'ignore', это свойство будет равно true/false в зависимости от того, был ли большой двоичный объект проигнорирован.
 
 |===
 

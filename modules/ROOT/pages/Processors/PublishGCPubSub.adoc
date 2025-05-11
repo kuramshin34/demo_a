@@ -1,13 +1,13 @@
 = PublishGCPubSub 2.2.0
 
-Publishes the content of the incoming flowfile to the configured Google Cloud PubSub topic. The processor supports dynamic properties. If any dynamic properties are present, they will be sent along with the message in the form of 'attributes'.
+Опубликовывает содержимое входящего flowfile в настроенную тему Google Cloud PubSub. Процессор поддерживает динамические свойства. Если присутствуют динамические свойства, они будут отправлены вместе с сообщением в виде атрибутов.
 
 [horizontal]
 *Tags* (Ключевые слова):
 gcp, google, google-cloud, message, publish, pubsub
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Gcp Credentials Provider Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service
+*DISPLAY NAME (Отображаемое наименование):*:: GCP Credentials Provider Service (Google Cloud Platform Учебный класс для получения учетных данных)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Controller Service used to obtain Google Cloud Platform credentials.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .Gcp-Project-Id
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Project ID
+*DISPLAY NAME (Отображаемое наименование):*:: Project ID (Проектный идентификатор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Google Cloud Project ID
+*DESCRIPTION (Описание):*:: Google Cloud Project ID (Идентификатор проекта в Google Cloud)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Gcp-Pubsub-Topic*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Topic Name
+*DISPLAY NAME (Отображаемое наименование):*:: Topic Name (Тема)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Name of the Google Cloud PubSub Topic
+*DESCRIPTION (Описание):*:: Имя Google Cloud PubSub темы
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,23 +71,23 @@ REQUIRED (Обязательно)
 .*Message Derivation Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Message Derivation Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Message Derivation Strategy (Стратегия вывода сообщений)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The strategy used to publish the incoming FlowFile to the Google Cloud PubSub endpoint.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* FlowFile Oriented: Each incoming FlowFile is sent as a Google Cloud PubSub message 
+* FlowFile Oriented (Файловый ориентированный): Each incoming FlowFile is sent as a Google Cloud PubSub message 
 
-* Record Oriented: Each incoming FlowFile is parsed into NiFi records, which are each sent as a Google Cloud PubSub message 
+* Record Oriented (Запись ориентированная): Each incoming FlowFile is parsed into NiFi records, which are each sent as a Google Cloud PubSub message 
 
 
 [horizontal]
@@ -96,14 +96,14 @@ REQUIRED (Обязательно)
 .*Record Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Записыватель записей)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Record Reader to use for incoming FlowFiles
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -113,14 +113,14 @@ REQUIRED (Обязательно)
 .*Record Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Записыватель записей (Record Writer)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Record Writer to use in order to serialize the data before sending to GCPubSub endpoint
+*DESCRIPTION (Описание):*:: Используйте записывателя записей для сериализации данных перед отправкой в конечную точку GCPubSub
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -130,14 +130,14 @@ REQUIRED (Обязательно)
 .*Input Batch Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Input Batch Size
+*DISPLAY NAME (Отображаемое наименование):*:: Input Batch Size (Максимальное количество FlowFiles, обрабатываемых при каждом вызове Processor)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Maximum number of FlowFiles processed for each Processor invocation
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -147,14 +147,14 @@ REQUIRED (Обязательно)
 .*Maximum Message Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Maximum Message Size
+*DISPLAY NAME (Отображаемое наименование):*:: Maximum Message Size (Максимальный размер сообщения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum size of a Google PubSub message in bytes. Defaults to 1 MB (1048576 bytes)
+*DESCRIPTION (Описание):*:: Максимальный размер сообщения Google PubSub в байтах. По умолчанию установлен в 1 МБ (1048576 байт)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -164,14 +164,14 @@ REQUIRED (Обязательно)
 .*Gcp-Pubsub-Publish-Batch-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Batch Size Threshold
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Size Threshold (Пороговое значение размера партии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates the number of messages the cloud service should bundle together in a batch. If not set and left empty, only one message will be used in a batch
+*DESCRIPTION (Описание):*:: Указывает количество сообщений, которые облачная служба должна объединять вместе в одну партию. Если не установлено и не оставить пустым, то в пакете будет использовано только одно сообщение
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -181,14 +181,14 @@ REQUIRED (Обязательно)
 .*Gcp-Batch-Bytes*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Batch Bytes Threshold
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Bytes Threshold (Пороговое значение байт для пакета)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Publish request gets triggered based on this Batch Bytes Threshold property and the Batch Size Threshold property, whichever condition is met first.
+*DESCRIPTION (Описание):*:: Публикация запроса активируется на основе этого порогового значения свойства Batch Bytes Threshold и свойства Batch Size Threshold, в зависимости от того, какое условие будет выполнено первым.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -198,14 +198,14 @@ REQUIRED (Обязательно)
 .*Gcp-Pubsub-Publish-Batch-Delay*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Batch Delay Threshold
+*DISPLAY NAME (Отображаемое наименование):*:: Batch Delay Threshold (Пороговое значение задержки пакета)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates the delay threshold to use for batching. After this amount of time has elapsed (counting from the first element added), the elements will be wrapped up in a batch and sent. This value should not be set too high, usually on the order of milliseconds. Otherwise, calls might appear to never complete.
+*DESCRIPTION (Описание):*:: Указывает пороговую задержку для пакетной отправки. После истечения этого времени (отсчитывая от первого добавленного элемента), элементы будут обернуты в пакет и отправлены. Это значение не должно быть слишком высоким, как правило, порядка миллисекунд. В противном случае могут показаться неполадки.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -215,14 +215,14 @@ REQUIRED (Обязательно)
 .*Api-Endpoint*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: API Endpoint
+*DISPLAY NAME (Отображаемое наименование):*:: API Endpoint (API конечная точка)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Override the gRPC endpoint in the form of [host:port]
+*DESCRIPTION (Описание):*:: Переопределяет gRPC конечную точку в формате [хост:порт]
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -232,14 +232,14 @@ REQUIRED (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: HTTP + AuthN
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -255,7 +255,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание |Значение |Ограничения языка выражений
 
 |`Attribute name`
-|Attributes to be set for the outgoing Google Cloud PubSub message
+|Атрибуты для отправки в исходящее сообщение Google Cloud PubSub
 |`Value to be set to the attribute`
 |
 
@@ -273,7 +273,7 @@ REQUIRED (Обязательно)
 
 
 |MEMORY
-|The entirety of the FlowFile's content will be read into memory to be sent as a PubSub message.
+|Весь контент FlowFile будет прочитан в память для отправки как сообщение PubSub.
 
 |===
 
@@ -288,13 +288,13 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`failure`
-|FlowFiles are routed to this relationship if the Google Cloud Pub/Sub operation fails.
+|FlowFiles направляются в эту связь, если операция Google Cloud Pub/Sub завершается неудачей.
 
 |`success`
-|FlowFiles are routed to this relationship after a successful Google Cloud Pub/Sub operation.
+|FlowFiles направляются в эту связь после успешной операции Google Cloud Pub/Sub.
 
 |`retry`
-|FlowFiles are routed to this relationship if the Google Cloud Pub/Sub operation fails but attempting the operation again may succeed.
+|FlowFiles направляются в эту связь, если операция Google Cloud Pub/Sub завершается неудачей, но повторная попытка может оказаться успешной.
 
 |===
 
@@ -309,13 +309,13 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`gcp.pubsub.messageId`
-|ID of the pubsub message published to the configured Google Cloud PubSub topic
+|Идентификатор сообщения PubSub, опубликованного в настроенную тему Google Cloud PubSub.
 
 |`gcp.pubsub.count.records`
-|Count of pubsub messages published to the configured Google Cloud PubSub topic
+|Количество сообщений PubSub, опубликованных в настроенную тему Google Cloud PubSub.
 
 |`gcp.pubsub.topic`
-|Name of the Google Cloud PubSub topic the message was published to
+|Имя темы Google Cloud PubSub, в которую было опубликовано сообщение.
 
 |===
 

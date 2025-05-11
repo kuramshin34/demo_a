@@ -7,7 +7,7 @@ A record-based processor that encodes and decodes Geohashes from and to latitude
 geo, geohash, record
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,23 +20,23 @@ REQUIRED (Обязательно)
 .*Mode*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Mode
+*DISPLAY NAME (Отображаемое наименование):*:: Mode (Режим)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether to encode latitude/longitude to geohash or decode geohash to latitude/longitude
+*DESCRIPTION (Описание):*:: Указывает, следует ли кодировать широту/долготу в геohash или декодировать геohash в широту/долготу
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* ENCODE
+* ENCODE (Кодировать)
 
-* DECODE
+* DECODE (Декодировать)
 
 
 [horizontal]
@@ -45,14 +45,14 @@ REQUIRED (Обязательно)
 .*Record-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Record Reader (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the record reader service to use for reading incoming data
+*DESCRIPTION (Описание):*:: Указывает сервис чтения записей для использования при чтении входящих данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -62,14 +62,14 @@ REQUIRED (Обязательно)
 .*Record-Writer*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the record writer service to use for writing data
+*DESCRIPTION (Описание):*:: Указывает службу записывателя записей для записи данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -79,25 +79,25 @@ REQUIRED (Обязательно)
 .*Routing-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Routing Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Routing Strategy (Маршрутизация стратегия)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how to route flowfiles after encoding or decoding being performed. SKIP will enrich those records that can be enriched and skip the rest. The SKIP strategy will route a flowfile to failure only if unable to parse the data. Otherwise, it will route the enriched flowfile to success, and the original input to original. SPLIT will separate the records that have been enriched from those that have not and send them to matched, while unenriched records will be sent to unmatched; the original input flowfile will be sent to original. The SPLIT strategy will route a flowfile to failure only if unable to parse the data. REQUIRE will route a flowfile to success only if all of its records are enriched, and the original input will be sent to original. The REQUIRE strategy will route the original input flowfile to failure if any of its records cannot be enriched or unable to be parsed
+*DESCRIPTION (Описание):*:: Указывает, как маршрутизировать потоки данных после выполнения кодирования или декодирования. SKIP будет обогащать записи, которые могут быть обогащены, и пропускать остальные. Стратегия SKIP направит поток в сбое только если не удается распарсить данные. В противном случае он направит обогащенный поток в успех, а оригинальный ввод в оригинал. SPLIT отделит записи, которые были обогащены от тех, которые нет, и отправит их в соответствующие, в то время как незаобогащенные записи будут отправлены в неподходящие; оригинальный поток данных будет отправлен в оригинал. Стратегия SPLIT направит поток в сбое только если не удается распарсить данные. REQUIRE направит поток в успех только если все записи его обогащены, и оригинальный ввод будет отправлен в оригинал. Стратегия REQUIRE направит оригинальный входной поток в сбое, если любая из его записей не может быть обогащена или не может быть распарсена
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* SKIP
+* SKIP (Пропустить)
 
-* SPLIT
+* SPLIT (Разделить)
 
-* REQUIRE
+* REQUIRE (Требовать)
 
 
 [horizontal]
@@ -106,14 +106,14 @@ REQUIRED (Обязательно)
 .*Latitude-Record-Path*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Latitude Record Path
+*DISPLAY NAME (Отображаемое наименование):*:: Latitude Record Path (Широта Запись Путь)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: In the ENCODE mode, this property specifies the record path to retrieve the latitude values. Latitude values should be in the range of [-90, 90]; invalid values will be logged at warn level. In the DECODE mode, this property specifies the record path to put the latitude value
+*DESCRIPTION (Описание):*:: В режиме ENCODE это свойство указывает путь записи для получения значений широты. Широта должна находиться в диапазоне [-90, 90]; неверные значения будут записаны с уровнем предупреждения. В режиме DECODE это свойство указывает путь записи для размещения значения широты
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -123,14 +123,14 @@ REQUIRED (Обязательно)
 .*Longitude-Record-Path*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Longitude Record Path
+*DISPLAY NAME (Отображаемое наименование):*:: Longitude Record Path (Долгота Запись Пути)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: In the ENCODE mode, this property specifies the record path to retrieve the longitude values; Longitude values should be in the range of [-180, 180]; invalid values will be logged at warn level. In the DECODE mode, this property specifies the record path to put the longitude value
+*DESCRIPTION (Описание):*:: В режиме ENCODE это свойство указывает путь записи для получения значений долготы; Значения долготы должны находиться в диапазоне [-180, 180]; неверные значения будут записаны с уровнем предупреждения. В режиме DECODE это свойство указывает путь для размещения значения долготы
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -140,14 +140,14 @@ REQUIRED (Обязательно)
 .*Geohash-Record-Path*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Geohash Record Path
+*DISPLAY NAME (Отображаемое наименование):*:: Geohash Record Path (Геокод Запись Пути)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: In the ENCODE mode, this property specifies the record path to put the geohash value; in the DECODE mode, this property specifies the record path to retrieve the geohash value
+*DESCRIPTION (Описание):*:: В режиме ENCODE это свойство указывает путь записи геohash значения; в режиме DECODE это свойство указывает путь для получения геohash значения
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -157,25 +157,25 @@ REQUIRED (Обязательно)
 .*Geohash-Format*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Geohash Format
+*DISPLAY NAME (Отображаемое наименование):*:: Geohash Format (Геокод Формат)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: In the ENCODE mode, this property specifies the desired format for encoding geohash; in the DECODE mode, this property specifies the format of geohash provided
+*DESCRIPTION (Описание):*:: В режиме ENCODE это свойство указывает желаемый формат для кодирования геокода; в режиме DECODE это свойство указывает формат предоставленного геокода
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* BASE32
+* BASE32 (BASE32)
 
-* BINARY
+* BINARY (ДВОИЧНЫЙ)
 
-* LONG
+* LONG (ДЛИННЫЙ)
 
 
 [horizontal]
@@ -184,14 +184,14 @@ REQUIRED (Обязательно)
 .*Geohash-Level*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Geohash Level
+*DISPLAY NAME (Отображаемое наименование):*:: Geohash Level (Уровень точности геокода)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The integer precision level(1-12) desired for encoding geohash
+*DESCRIPTION (Описание):*:: Целочисленный уровень точности (от 1 до 12), желаемый для кодирования геокодом
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 

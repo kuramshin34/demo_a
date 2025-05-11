@@ -1,13 +1,13 @@
 = FetchSFTP 2.2.0
 
-Fetches the content of a file from a remote SFTP server and overwrites the contents of an incoming FlowFile with the content of the remote file.
+Извлекает содержимое файла с удаленного сервера SFTP и перезаписывает содержимое входящего FlowFile содержимым удаленного файла.
 
 [horizontal]
 *Tags* (Ключевые слова):
 fetch, files, get, ingest, input, remote, retrieve, sftp, source
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Hostname*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hostname
+*DISPLAY NAME (Отображаемое наименование):*:: Hostname (Хостнейм)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The fully-qualified hostname or IP address of the host to fetch the data from
+*DESCRIPTION (Описание):*:: Полное доменное имя или IP-адрес узла для получения данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Port*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Port
+*DISPLAY NAME (Отображаемое наименование):*:: Port (Порт)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The port to connect to on the remote host to fetch the data from
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Username*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Username
+*DISPLAY NAME (Отображаемое наименование):*:: Имя пользователя
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Username
+*DESCRIPTION (Описание):*:: Имя пользователя
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .Password
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Password
+*DISPLAY NAME (Отображаемое наименование):*:: Password (Пароль)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Password for the user account
+*DESCRIPTION (Описание):*:: Пароль для учетной записи пользователя
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -88,14 +88,14 @@ REQUIRED (Обязательно)
 .Private Key Path
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Private Key Path
+*DISPLAY NAME (Отображаемое наименование):*:: Private Key Path (Путь к файлу с приватным ключом)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The fully qualified path to the Private Key file
+*DESCRIPTION (Описание):*:: Полный квалифицированный путь к файлу с приватным ключом
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ REQUIRED (Обязательно)
 .Private Key Passphrase
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Private Key Passphrase
+*DISPLAY NAME (Отображаемое наименование):*:: Private Key Passphrase (Пароль для закрытого ключа)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Password for the private key
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -122,14 +122,14 @@ REQUIRED (Обязательно)
 .*Remote File*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Remote File
+*DISPLAY NAME (Отображаемое наименование):*:: Remote File (Удаленный файл)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The fully qualified filename on the remote system
+*DESCRIPTION (Описание):*:: Полное имя файла на удаленной системе
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -139,25 +139,25 @@ REQUIRED (Обязательно)
 .*Completion Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Completion Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Completion Strategy (Стратегия завершения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies what to do with the original file on the server once it has been pulled into NiFi. If the Completion Strategy fails, a warning will be logged but the data will still be transferred.
+*DESCRIPTION (Описание):*:: Указывает, что делать с исходным файлом на сервере после его извлечения в NiFi. Если стратегия завершения не удалась, будет залогировано предупреждение, но данные все равно будут переданы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* None: Leave the file as-is 
+* None (Ничего): Оставить файл без изменений 
 
-* Move File: Move the file to the directory specified by the <Move Destination Directory> property 
+* Move File (Переместить файл): Перенести файл в директорию, указанную свойством <Move Destination Directory> 
 
-* Delete File: Deletes the original file from the remote system 
+* Delete File (Удалить файл): Удаляет исходный файл с удаленной системы 
 
 
 [horizontal]
@@ -166,14 +166,14 @@ REQUIRED (Обязательно)
 .Move Destination Directory
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Move Destination Directory
+*DISPLAY NAME (Отображаемое наименование):*:: Move Destination Directory (Перемещение каталога назначения)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The directory on the remote server to move the original file to once it has been ingested into NiFi. This property is ignored unless the Completion Strategy is set to 'Move File'. The specified directory must already exist on the remote system if 'Create Directory' is disabled, or the rename will fail.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -183,14 +183,14 @@ REQUIRED (Обязательно)
 .Create Directory
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Create Directory
+*DISPLAY NAME (Отображаемое наименование):*:: Create Directory (Создать директорию)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Used when 'Completion Strategy' is 'Move File'. Specifies whether or not the remote directory should be created if it does not exist.
+*DESCRIPTION (Описание):*:: Используется, когда 'Стратегия завершения' установлена в 'Переместить файл'. Указывает, следует ли создавать удаленную директорию, если она не существует.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -208,14 +208,14 @@ REQUIRED (Обязательно)
 .Disable Directory Listing
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Disable Directory Listing
+*DISPLAY NAME (Отображаемое наименование):*:: Disable Directory Listing (Отключить список директорий)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Control how 'Move Destination Directory' is created when 'Completion Strategy' is 'Move File' and 'Create Directory' is enabled. If set to 'true', directory listing is not performed prior to create missing directories. By default, this processor executes a directory listing command to see target directory existence before creating missing directories. However, there are situations that you might need to disable the directory listing such as the following. Directory listing might fail with some permission setups (e.g. chmod 100) on a directory. Also, if any other SFTP client created the directory after this processor performed a listing and before a directory creation request by this processor is finished, then an error is returned because the directory already exists.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -233,14 +233,14 @@ REQUIRED (Обязательно)
 .*Connection Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Connection Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Connection Timeout (Время ожидания перед тайм-аутом при создании подключения)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Amount of time to wait before timing out while creating a connection
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -250,14 +250,14 @@ REQUIRED (Обязательно)
 .*Data Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Data Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Data Timeout (Время ожидания данных)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When transferring a file between the local and remote system, this value specifies how long is allowed to elapse without any data being transferred between systems
+*DESCRIPTION (Описание):*:: При передаче файла между локальной и удаленной системой это значение указывает, сколько времени разрешено проходить без передачи данных между системами
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -267,14 +267,14 @@ REQUIRED (Обязательно)
 .*Send Keep Alive On Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Send Keep Alive On Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Send Keep Alive On Timeout (Отправлять Keep Alive сообщение каждые 5 секунд до 5 раз в течение общего таймаута 25 секунд)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Send a Keep Alive message every 5 seconds up to 5 times for an overall timeout of 25 seconds.
+*DESCRIPTION (Описание):*:: Отправлять Keep Alive сообщение каждые 5 секунд до 5 раз для общего таймаута 25 секунд.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -292,14 +292,14 @@ REQUIRED (Обязательно)
 .Host Key File
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Host Key File
+*DISPLAY NAME (Отображаемое наименование):*:: Host Key File (Хост-ключевой файл)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If supplied, the given file will be used as the Host Key; otherwise, if 'Strict Host Key Checking' property is applied (set to true) then uses the 'known_hosts' and 'known_hosts2' files from ~/.ssh directory else no host key file will be used
+*DESCRIPTION (Описание):*:: Если указано, данный файл будет использоваться в качестве хост-ключа; в противном случае, если свойство 'Строгая проверка хост-ключей' (Strict Host Key Checking) применено и установлено в значение true, то будут использованы файлы 'known_hosts' и 'known_hosts2' из директории ~/.ssh; в противном случае не будет использоваться файл с хост-ключами
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -309,14 +309,14 @@ REQUIRED (Обязательно)
 .*Strict Host Key Checking*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Strict Host Key Checking
+*DISPLAY NAME (Отображаемое наименование):*:: Strict Host Key Checking (Строгая проверка хост-ключей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates whether or not strict enforcement of hosts keys should be applied
+*DESCRIPTION (Описание):*:: Указывает, должна ли быть применена строгая проверка хост-ключей
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -334,23 +334,23 @@ REQUIRED (Обязательно)
 .*Use Compression*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Use Compression
+*DISPLAY NAME (Отображаемое наименование):*:: Use Compression (Использовать сжатие)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates whether or not ZLIB compression should be used when transferring files
+*DESCRIPTION (Описание):*:: Указывает, следует ли использовать ZLIB-сжатие при передаче файлов
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -359,14 +359,14 @@ REQUIRED (Обязательно)
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: SOCKS + AuthN, HTTP + AuthN
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера конфигурации прокси для проксирования сетевых запросов. Поддерживаемые прокси: SOCKS + AuthN, HTTP + AuthN
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -376,14 +376,14 @@ REQUIRED (Обязательно)
 .*Fetchfiletransfer-Notfound-Loglevel*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Log level when file not found
+*DISPLAY NAME (Отображаемое наименование):*:: Log level when file not found (Уровень логирования при отсутствии файла)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Log level to use in case the file does not exist when the processor is triggered
+*DESCRIPTION (Описание):*:: Log level to use in case the file does not exist when the processor is triggered (Уровень логирования для использования, если файл не существует при срабатывании процессора)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -411,14 +411,14 @@ REQUIRED (Обязательно)
 .Ciphers Allowed
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Ciphers Allowed
+*DISPLAY NAME (Отображаемое наименование):*:: Ciphers Allowed (Разрешенные шифры)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A comma-separated list of Ciphers allowed for SFTP connections. Leave unset to allow all. Available options are: 3des-cbc, 3des-ctr, aes128-cbc, aes128-ctr, aes128-gcm@openssh.com, aes192-cbc, aes192-ctr, aes256-cbc, aes256-ctr, aes256-gcm@openssh.com, arcfour, arcfour128, arcfour256, blowfish-cbc, blowfish-ctr, cast128-cbc, cast128-ctr, chacha20-poly1305@openssh.com, idea-cbc, idea-ctr, serpent128-cbc, serpent128-ctr, serpent192-cbc, serpent192-ctr, serpent256-cbc, serpent256-ctr, twofish-cbc, twofish128-cbc, twofish128-ctr, twofish192-cbc, twofish192-ctr, twofish256-cbc, twofish256-ctr
+*DESCRIPTION (Описание):*:: Список разделенных запятыми допустимых шифров для SFTP подключений. Оставить без установки, чтобы разрешить все. Доступные варианты: 3des-cbc, 3des-ctr, aes128-cbc, aes128-ctr, aes128-gcm@openssh.com, aes192-cbc, aes192-ctr, aes256-cbc, aes256-ctr, aes256-gcm@openssh.com, arcfour, arcfour128, arcfour256, blowfish-cbc, blowfish-ctr, cast128-cbc, cast128-ctr, chacha20-poly1305@openssh.com, idea-cbc, idea-ctr, serpent128-cbc, serpent128-ctr, serpent192-cbc, serpent192-ctr, serpent256-cbc, serpent256-ctr, twofish-cbc, twofish128-cbc, twofish128-ctr, twofish192-cbc, twofish192-ctr, twofish256-cbc, twofish256-ctr
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -428,14 +428,14 @@ REQUIRED (Обязательно)
 .Key Algorithms Allowed
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Key Algorithms Allowed
+*DISPLAY NAME (Отображаемое наименование):*:: Key Algorithms Allowed (Допустимые алгоритмы ключей)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A comma-separated list of Key Algorithms allowed for SFTP connections. Leave unset to allow all. Available options are: ecdsa-sha2-nistp256, ecdsa-sha2-nistp256-cert-v01@openssh.com, ecdsa-sha2-nistp384, ecdsa-sha2-nistp384-cert-v01@openssh.com, ecdsa-sha2-nistp521, ecdsa-sha2-nistp521-cert-v01@openssh.com, rsa-sha2-256, rsa-sha2-512, ssh-dss, ssh-dss-cert-v01@openssh.com, ssh-ed25519, ssh-ed25519-cert-v01@openssh.com, ssh-rsa, ssh-rsa-cert-v01@openssh.com
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -445,14 +445,14 @@ REQUIRED (Обязательно)
 .Key Exchange Algorithms Allowed
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Key Exchange Algorithms Allowed
+*DISPLAY NAME (Отображаемое наименование):*:: Key Exchange Algorithms Allowed (Допустимые алгоритмы обмена ключами)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A comma-separated list of Key Exchange Algorithms allowed for SFTP connections. Leave unset to allow all. Available options are: curve25519-sha256, curve25519-sha256@libssh.org, diffie-hellman-group-exchange-sha1, diffie-hellman-group-exchange-sha256, diffie-hellman-group1-sha1, diffie-hellman-group14-sha1, diffie-hellman-group14-sha256, diffie-hellman-group14-sha256@ssh.com, diffie-hellman-group15-sha256, diffie-hellman-group15-sha256@ssh.com, diffie-hellman-group15-sha384@ssh.com, diffie-hellman-group15-sha512, diffie-hellman-group16-sha256, diffie-hellman-group16-sha384@ssh.com, diffie-hellman-group16-sha512, diffie-hellman-group16-sha512@ssh.com, diffie-hellman-group17-sha512, diffie-hellman-group18-sha512, diffie-hellman-group18-sha512@ssh.com, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, ext-info-c
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -462,14 +462,14 @@ REQUIRED (Обязательно)
 .Message Authentication Codes Allowed
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Message Authentication Codes Allowed
+*DISPLAY NAME (Отображаемое наименование):*:: Message Authentication Codes Allowed (Допустимые коды аутентификации сообщений)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A comma-separated list of Message Authentication Codes allowed for SFTP connections. Leave unset to allow all. Available options are: hmac-md5, hmac-md5-96, hmac-md5-96-etm@openssh.com, hmac-md5-etm@openssh.com, hmac-ripemd160, hmac-ripemd160-96, hmac-ripemd160-etm@openssh.com, hmac-ripemd160@openssh.com, hmac-sha1, hmac-sha1-96, hmac-sha1-96@openssh.com, hmac-sha1-etm@openssh.com, hmac-sha2-256, hmac-sha2-256-etm@openssh.com, hmac-sha2-512, hmac-sha2-512-etm@openssh.com
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -493,16 +493,16 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`not.found`
-|Any FlowFile for which we receive a 'Not Found' message from the remote server will be transferred to this Relationship.
+|Для любого FlowFile, для которого мы получаем сообщение 'Not Found' от удаленного сервера, будет применена эта связь.
 
 |`comms.failure`
-|Any FlowFile that could not be fetched from the remote server due to a communications failure will be transferred to this Relationship.
+|Для любого FlowFile, который не удалось извлечь с удаленного сервера из-за сбоя в коммуникации, будет применена эта связь.
 
 |`success`
-|All FlowFiles that are received are routed to success
+|Все FlowFiles, полученные входящим образом, направляются в success
 
 |`permission.denied`
-|Any FlowFile that could not be fetched from the remote server due to insufficient permissions will be transferred to this Relationship.
+|Для любого FlowFile, который не удалось извлечь с удаленного сервера из-за недостаточных прав доступа, будет применена эта связь.
 
 |===
 
@@ -517,22 +517,22 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`sftp.remote.host`
-|The hostname or IP address from which the file was pulled
+|Имя хоста или IP-адрес, с которого был извлечен файл
 
 |`sftp.remote.port`
-|The port that was used to communicate with the remote SFTP server
+|Порт, использованный для взаимодействия с удаленным сервером SFTP
 
 |`sftp.remote.filename`
-|The name of the remote file that was pulled
+|Имя удаленного файла, который был извлечен
 
 |`filename`
-|The filename is updated to point to the filename fo the remote file
+|Имя файла обновляется, чтобы указывать на имя удаленного файла
 
 |`path`
-|If the Remote File contains a directory name, that directory name will be added to the FlowFile using the 'path' attribute
+|Если Удаленный файл содержит имя каталога, это имя каталога будет добавлено в атрибут 'path' FlowFile
 
 |`fetch.failure.reason`
-|The name of the failure relationship applied when routing to any failure relationship
+|Имя связи применения в случае маршрутизации к любой связи по причине сбоя
 
 |===
 
@@ -543,7 +543,7 @@ REQUIRED (Обязательно)
 == Варианты использования, включающие другие компоненты
 
 
-=== Retrieve all files in a directory of an SFTP Server
+=== Получить все файлы в каталоге удаленного сервера SFTP
 
 
 NOTE: 

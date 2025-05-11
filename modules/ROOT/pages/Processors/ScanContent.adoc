@@ -1,13 +1,13 @@
 = ScanContent 2.2.0
 
-Scans the content of FlowFiles for terms that are found in a user-supplied dictionary. If a term is matched, the UTF-8 encoded version of the term will be added to the FlowFile using the 'matching.term' attribute
+Сканирует содержимое FlowFiles на наличие терминов, найденных в пользовательском словаре. Если термин найден, его UTF-8 кодированная версия будет добавлена в FlowFile с использованием атрибута 'matching.term'
 
 [horizontal]
 *Tags* (Ключевые слова):
 aho-corasick, byte sequence, content, dictionary, find, scan, search
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Dictionary File*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Dictionary File
+*DISPLAY NAME (Отображаемое наименование):*:: Dictionary File (Словарный файл)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The filename of the terms dictionary
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,23 +37,23 @@ REQUIRED (Обязательно)
 .*Dictionary Encoding*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Dictionary Encoding
+*DISPLAY NAME (Отображаемое наименование):*:: Dictionary Encoding (Словарное кодирование)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates how the dictionary is encoded. If 'text', dictionary terms are new-line delimited and UTF-8 encoded; if 'binary', dictionary terms are denoted by a 4-byte integer indicating the term length followed by the term itself
+*DESCRIPTION (Описание):*:: Указывает, как закодирован словарь. Если 'text', термины словаря разделены новой строкой и закодированы в UTF-8; если 'binary', термины словаря обозначаются 4-байтовым целым числом, указывающим длину термина, за которым следует сам термин
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* text
+* text (текст)
 
-* binary
+* binary (двоичный)
 
 
 [horizontal]
@@ -76,10 +76,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`matched`
-|FlowFiles that match at least one term in the dictionary are routed to this relationship
+|FlowFiles, содержащие хотя бы один термин из словаря, направляются в это отношение
 
 |`unmatched`
-|FlowFiles that do not match any term in the dictionary are routed to this relationship
+|FlowFiles, не содержащие ни одного термина из словаря, направляются в это отношение
 
 |===
 
@@ -94,7 +94,7 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`matching.term`
-|The term that caused the Processor to route the FlowFile to the 'matched' relationship; if FlowFile is routed to the 'unmatched' relationship, this attribute is not added
+|Термин, вызвавший передачу Processor FlowFile в отношение 'matched'; если FlowFile направляется в отношение 'unmatched', этот атрибут не добавляется
 
 |===
 

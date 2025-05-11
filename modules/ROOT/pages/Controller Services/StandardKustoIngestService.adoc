@@ -1,13 +1,13 @@
 = StandardKustoIngestService 2.2.0
 
-Sends batches of flowfile content or stream flowfile content to an Azure ADX cluster.
+Отправляет пакеты содержимого flowfile или потокового содержимого в кластер Azure ADX.
 
 [horizontal]
 *Tags* (Ключевые слова):
 ADX, Azure, Data, Explorer, Kusto, azure, ingest
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,23 +20,23 @@ ADX, Azure, Data, Explorer, Kusto, azure, ingest
 .*Authentication Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Authentication Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Authentication Strategy (Стратегия аутентификации)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Authentication method for access to Azure Data Explorer
+*DESCRIPTION (Описание):*:: Метод аутентификации для доступа к Azure Data Explorer
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Application Credentials: Azure Application Registration with Application Key 
+* Application Credentials (Приложения Кредиты): Azure Application Registration with Application Key 
 
-* Managed Identity: Azure Managed Identity 
+* Managed Identity (Управляемое удостоверение): Azure Managed Identity 
 
 
 [horizontal]
@@ -45,14 +45,14 @@ ADX, Azure, Data, Explorer, Kusto, azure, ingest
 .*Application Client Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Application Client ID
+*DISPLAY NAME (Отображаемое наименование):*:: Application Client ID (Идентификатор клиентского приложения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Azure Data Explorer Application Client Identifier for Authentication
+*DESCRIPTION (Описание):*:: Azure Data Explorer Application Client Identifier for Authentication (Идентификатор клиентского приложения для аутентификации в Azure Data Explorer)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -62,14 +62,14 @@ ADX, Azure, Data, Explorer, Kusto, azure, ingest
 .*Application Key*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Application Key
+*DISPLAY NAME (Отображаемое наименование):*:: Application Key (Приложение ключ)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Azure Data Explorer Application Key for Authentication
+*DESCRIPTION (Описание):*:: Azure Data Explorer Приложение ключ для аутентификации
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  True (Да) 
 
@@ -79,14 +79,14 @@ ADX, Azure, Data, Explorer, Kusto, azure, ingest
 .*Application Tenant Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Application Tenant ID
+*DISPLAY NAME (Отображаемое наименование):*:: Application Tenant ID (Идентификатор клиента приложения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Azure Data Explorer Application Tenant Identifier for Authentication
+*DESCRIPTION (Описание):*:: Azure Data Explorer Идентификатор клиента приложения для аутентификации
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -96,14 +96,14 @@ ADX, Azure, Data, Explorer, Kusto, azure, ingest
 .*Cluster Uri*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Cluster URI
+*DISPLAY NAME (Отображаемое наименование):*:: Cluster URI (URI кластера)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Azure Data Explorer Cluster URI
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -123,6 +123,17 @@ ADX, Azure, Data, Explorer, Kusto, azure, ingest
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

@@ -1,13 +1,13 @@
 = ListDatabaseTables 2.2.0
 
-Generates a set of flow files, each containing attributes corresponding to metadata about a table from a database connection. Once metadata about a table has been fetched, it will not be fetched again until the Refresh Interval (if set) has elapsed, or until state has been manually cleared.
+Генерирует набор потоковых файлов, каждый из которых содержит атрибуты, соответствующие метаданным о таблице из подключения к базе данных. После получения метаданных о таблице они больше не будут запрашиваться до истечения установленного интервала обновления или пока состояние вручную не будет очищено.
 
 [horizontal]
 *Tags* (Ключевые слова):
 database, jdbc, list, sql, table
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-FORBIDDEN (Обязательно)
+FORBIDDEN
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ FORBIDDEN (Обязательно)
 .*List-Db-Tables-Db-Connection*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Database Connection Pooling Service
+*DISPLAY NAME (Отображаемое наименование):*:: Database Connection Pooling Service (База данных Сервис пула соединений)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Controller Service that is used to obtain connection to database
+*DESCRIPTION (Описание):*:: The Controller Service that is used to obtain connection to database (Контроллер Сервис, используемый для получения подключения к базе данных)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ FORBIDDEN (Обязательно)
 .List-Db-Tables-Catalog
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Catalog
+*DISPLAY NAME (Отображаемое наименование):*:: Catalog (Каталог)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of a catalog from which to list database tables. The name must match the catalog name as it is stored in the database. If the property is not set, the catalog name will not be used to narrow the search for tables. If the property is set to an empty string, tables without a catalog will be listed.
+*DESCRIPTION (Описание):*:: Имя каталога, из которого нужно перечислить таблицы базы данных. Имя должно соответствовать имени каталога, как оно хранится в базе данных. Если свойство не установлено, имя каталога не будет использоваться для сужения поиска таблиц. Если свойство установлено пустой строкой, будут перечислены таблицы без каталога.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ FORBIDDEN (Обязательно)
 .List-Db-Tables-Schema-Pattern
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Pattern
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Pattern (Шаблон схемы)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A pattern for matching schemas in the database. Within a pattern, "%" means match any substring of 0 or more characters, and "_" means match any one character. The pattern must match the schema name as it is stored in the database. If the property is not set, the schema name will not be used to narrow the search for tables. If the property is set to an empty string, tables without a schema will be listed.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ FORBIDDEN (Обязательно)
 .List-Db-Tables-Name-Pattern
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Table Name Pattern
+*DISPLAY NAME (Отображаемое наименование):*:: Table Name Pattern (Шаблон имени таблицы)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A pattern for matching tables in the database. Within a pattern, "%" means match any substring of 0 or more characters, and "_" means match any one character. The pattern must match the table name as it is stored in the database. If the property is not set, all tables will be retrieved.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ FORBIDDEN (Обязательно)
 .List-Db-Tables-Types
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Table Types
+*DISPLAY NAME (Отображаемое наименование):*:: Table Types (Типы таблиц)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A comma-separated list of table types to include. For example, some databases support TABLE and VIEW types. If the property is not set, tables of all types will be returned.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ FORBIDDEN (Обязательно)
 .*List-Db-Include-Count*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Include Count
+*DISPLAY NAME (Отображаемое наименование):*:: Include Count (Включить счетчик)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Whether to include the table's row count as a flow file attribute. This affects performance as a database query will be generated for each table in the retrieved list.
+*DESCRIPTION (Описание):*:: Следует ли включать количество строк таблицы в качестве атрибута потока файлов. Это влияет на производительность, так как для каждой таблицы в полученном списке будет сгенерирован запрос к базе данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -130,14 +130,14 @@ FORBIDDEN (Обязательно)
 .Record-Writer
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Record Writer to use for creating the listing. If not specified, one FlowFile will be created for each entity that is listed. If the Record Writer is specified, all entities will be written to a single FlowFile instead of adding attributes to individual FlowFiles.
+*DESCRIPTION (Описание):*:: Указывает записыватель записей для создания списка. Если не указан, будет создан один FlowFile для каждой перечисленной сущности. Если указать записыватель записей, все сущности будут записаны в один FlowFile вместо добавления атрибутов к отдельным FlowFiles.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -147,14 +147,14 @@ FORBIDDEN (Обязательно)
 .*List-Db-Refresh-Interval*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Refresh Interval
+*DISPLAY NAME (Отображаемое наименование):*:: Refresh Interval (Период обновления)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The amount of time to elapse before resetting the processor state, thereby causing all current tables to be listed. During this interval, the processor may continue to run, but tables that have already been listed will not be re-listed. However new/added tables will be listed as the processor runs. A value of zero means the state will never be automatically reset, the user must Clear State manually.
+*DESCRIPTION (Описание):*:: Количество времени, которое должно пройти прежде чем сбросить состояние процессора, тем самым вызывая перечисление всех текущих таблиц. В течение этого интервала процессор может продолжать работать, но таблицы, которые уже были перечислены, не будут перечисляться снова. Однако новые или добавленные таблицы будут перечисляться по мере работы процессора. Значение 0 означает, что состояние никогда не будет автоматически сброшено, пользователь должен вручную очистить состояние.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -174,7 +174,7 @@ FORBIDDEN (Обязательно)
 |
 CLUSTER
 
-|After performing a listing of tables, the timestamp of the query is stored. This allows the Processor to not re-list tables the next time that the Processor is run. Specifying the refresh interval in the processor properties will indicate that when the processor detects the interval has elapsed, the state will be reset and tables will be re-listed as a result. This processor is meant to be run on the primary node only.
+|После выполнения перечисления таблиц сохраняется временная метка запроса. Это позволяет процессору не перечислять таблицы снова при следующем запуске процессора. Указание интервала обновления в свойствах процессора указывает на то, что когда процессор обнаруживает, что прошел установленный интервал, состояние будет сброшено, и таблицы будут перечислены снова в результате. Этот процессор предназначен для запуска только на основном узле.
 |===
 
 
@@ -190,7 +190,7 @@ CLUSTER
 |Наименование |Описание
 
 |`success`
-|All FlowFiles that are received are routed to success
+|Все потоковые файлы, полученные в процессор, направляются в success
 
 |===
 
@@ -205,25 +205,25 @@ CLUSTER
 |Наименование |Описание
 
 |`db.table.name`
-|Contains the name of a database table from the connection
+|Содержит имя таблицы базы данных из подключения
 
 |`db.table.catalog`
-|Contains the name of the catalog to which the table belongs (may be null)
+|Содержит имя каталога, к которому относится таблица (может быть null)
 
 |`db.table.schema`
-|Contains the name of the schema to which the table belongs (may be null)
+|Содержит имя схемы, к которой относится таблица (может быть null)
 
 |`db.table.fullname`
-|Contains the fully-qualifed table name (possibly including catalog, schema, etc.)
+|Содержит полное имя таблицы (возможно включая каталог, схему и т.д.)
 
 |`db.table.type`
-|Contains the type of the database table from the connection. Typical types are "TABLE", "VIEW", "SYSTEM TABLE", "GLOBAL TEMPORARY", "LOCAL TEMPORARY", "ALIAS", "SYNONYM"
+|Содержит тип базы данных таблицы из подключения. Типичные типы - "TABLE", "VIEW", "SYSTEM TABLE", "GLOBAL TEMPORARY", "LOCAL TEMPORARY", "ALIAS", "SYNONYM"
 
 |`db.table.remarks`
-|Contains the name of a database table from the connection
+|Содержит имя таблицы базы данных из подключения
 
 |`db.table.count`
-|Contains the number of rows in the table
+|Содержит количество строк в таблице
 
 |===
 
@@ -234,7 +234,7 @@ CLUSTER
 == Варианты использования, включающие другие компоненты
 
 
-=== Perform a full load of a database, retrieving all rows from all tables, or a specific set of tables.
+=== Выполнить полную загрузку базы данных, извлекая все строки со всех таблиц или определенный набор таблиц.
 
 
 NOTE: 

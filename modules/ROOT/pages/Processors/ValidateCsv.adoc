@@ -1,13 +1,13 @@
 = ValidateCsv 2.2.0
 
-Validates the contents of FlowFiles or a FlowFile attribute value against a user-specified CSV schema. Take a look at the additional documentation of this processor for some schema examples.
+Проверяет содержимое FlowFiles или значение атрибута FlowFile по указанной схеме CSV пользователя. Ознакомьтесь с дополнительной документацией этого процессора для нескольких примеров схем.
 
 [horizontal]
 *Tags* (Ключевые слова):
 csv, schema, validation
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .Validate-Csv-Schema
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema
+*DISPLAY NAME (Отображаемое наименование):*:: Schema (Схема)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The schema to be used for validation. Is expected a comma-delimited string representing the cell processors to apply. The following cell processors are allowed in the schema definition: [ParseBigDecimal, ParseBool, ParseChar, ParseDate, ParseDouble, ParseInt, ParseLong, Optional, DMinMax, Equals, ForbidSubStr, LMinMax, NotNull, Null, RequireHashCode, RequireSubStr, Strlen, StrMinMax, StrNotNullOrEmpty, StrRegEx, Unique, UniqueHashCode, IsIncludedIn]. Note: cell processors cannot be nested except with Optional. Schema is required if Header is false.
+*DESCRIPTION (Описание):*:: Схема для валидации. Ожидается строка, разделенная запятыми, представляющая применяемые к ячейкам процессоры. В схеме можно использовать следующие процессоры ячеек: [ParseBigDecimal, ParseBool, ParseChar, ParseDate, ParseDouble, ParseInt, ParseLong, Optional, DMinMax, Equals, ForbidSubStr, LMinMax, NotNull, Null, RequireHashCode, RequireSubStr, Strlen, StrMinMax, StrNotNullOrEmpty, StrRegEx, Unique, UniqueHashCode, IsIncludedIn]. Примечание: процессоры ячеек не могут быть вложенными, кроме случаев с Optional. Схема требуется, если Header равен false.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .Csv Source Attribute
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: CSV Source Attribute
+*DISPLAY NAME (Отображаемое наименование):*:: CSV Source Attribute (CSV Источник Атрибута)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the attribute containing CSV data to be validated. If this property is blank, the FlowFile content will be validated.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Validate-Csv-Header*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Header
+*DISPLAY NAME (Отображаемое наименование):*:: Header (Заголовок)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: True if the incoming flow file contains a header to ignore, false otherwise.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -79,14 +79,14 @@ REQUIRED (Обязательно)
 .*Validate-Csv-Delimiter*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Delimiter character
+*DISPLAY NAME (Отображаемое наименование):*:: Delimiter character (Символ-разделитель)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Character used as 'delimiter' in the incoming data. Example: ,
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -96,14 +96,14 @@ REQUIRED (Обязательно)
 .*Validate-Csv-Quote*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Quote character
+*DISPLAY NAME (Отображаемое наименование):*:: Кавычки (Quote character)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Character used as 'quote' in the incoming data. Example: "
+*DESCRIPTION (Описание):*:: Символ, используемый в качестве кавычек в поступающих данных. Пример: "
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -113,14 +113,14 @@ REQUIRED (Обязательно)
 .*Validate-Csv-Eol*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: End of line symbols
+*DISPLAY NAME (Отображаемое наименование):*:: End of line symbols (Символы конца строки)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Symbols used as 'end of line' in the incoming data. Example: \n
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -130,23 +130,23 @@ REQUIRED (Обязательно)
 .*Validate-Csv-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Validation strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Validation strategy (Стратегия валидации)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Strategy to apply when routing input files to output relationships.
+*DESCRIPTION (Описание):*:: Strategy to apply when routing input files to output relationships. (Стратегия применения при маршрутизации входных файлов к выходным отношениям.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Line by line validation: In case an error is found, the input CSV file will be split into two FlowFiles: one routed to the 'valid' relationship containing all the correct lines and one routed to the 'invalid' relationship containing all the incorrect lines. Take care if choosing this option while using Unique cell processors in schema definition:the first occurrence will be considered valid and the next ones as invalid. 
+* Line by line validation (Валидация построчно): In case an error is found, the input CSV file will be split into two FlowFiles: one routed to the 'valid' relationship containing all the correct lines and one routed to the 'invalid' relationship containing all the incorrect lines. Take care if choosing this option while using Unique cell processors in schema definition:the first occurrence will be considered valid and the next ones as invalid. 
 
-* FlowFile validation: As soon as an error is found in the CSV file, the validation will stop and the whole flow file will be routed to the 'invalid' relationship. This option offers best performances. 
+* FlowFile validation (Валидация FlowFile): As soon as an error is found in the CSV file, the validation will stop and the whole FlowFile will be routed to the 'invalid' relationship. This option offers best performances. 
 
 
 [horizontal]
@@ -155,14 +155,14 @@ REQUIRED (Обязательно)
 .*Validate-Csv-Violations*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Include all violations
+*DISPLAY NAME (Отображаемое наименование):*:: Include all violations (Включить все нарушения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true, the validation.error.message attribute would include the list of all the violations for the first invalid line. Note that setting this property to true would slightly decrease the performances as all columns would be validated. If false, a line is invalid as soon as a column is found violating the specified constraint and only this violation for the first invalid line will be included in the validation.error.message attribute.
+*DESCRIPTION (Описание):*:: Если true, атрибут validation.error.message включит список всех нарушений для первой неверной строки. Обратите внимание, что установка этого свойства в true немного снизит производительность, так как будут проверены все столбцы. Если false, строка считается недействительной, как только найден один столбец, нарушающий указанное ограничение, и в атрибуте validation.error.message будет включено только это нарушение для первой неверной строки.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -194,10 +194,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`valid`
-|FlowFiles that are successfully validated against the schema are routed to this relationship
+|FlowFiles, успешно прошедшие проверку по схеме, направляются в это отношение
 
 |`invalid`
-|FlowFiles that are not valid according to the specified schema, or no schema or CSV header can be identified, are routed to this relationship
+|FlowFiles, не соответствующие указанной схеме или отсутствие схемы и заголовка CSV, направляются в это отношение
 
 |===
 
@@ -212,16 +212,16 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`count.valid.lines`
-|If line by line validation, number of valid lines extracted from the source data
+|При проверке строка за строкой, количество валидных строк, извлеченных из исходных данных
 
 |`count.invalid.lines`
-|If line by line validation, number of invalid lines extracted from the source data
+|При проверке строка за строкой, количество невалидных строк, извлеченных из исходных данных
 
 |`count.total.lines`
-|If line by line validation, total number of lines in the source data
+|При проверке строка за строкой, общее количество строк в исходных данных
 
 |`validation.error.message`
-|For flow files routed to invalid, message of the first validation error
+|Для потоковых файлов, направленных в invalid, сообщение первой ошибки проверки
 
 |===
 

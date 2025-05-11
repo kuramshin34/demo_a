@@ -1,13 +1,13 @@
 = JettyWebSocketServer 2.2.0
 
-Implementation of WebSocketServerService. This service uses Jetty WebSocket server module to provide WebSocket session management throughout the application.
+Реализация сервиса WebSocketServerService. Этот сервис использует модуль сервера WebSocket Jetty для управления сессиями WebSocket в приложении.
 
 [horizontal]
 *Tags* (Ключевые слова):
 Jetty, WebSocket, server
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ Jetty, WebSocket, server
 .*Input-Buffer-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Input Buffer Size
+*DISPLAY NAME (Отображаемое наименование):*:: Input Buffer Size (Входной размер буфера)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The size of the input (read from network layer) buffer size.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ Jetty, WebSocket, server
 .*Max-Text-Message-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Text Message Size
+*DISPLAY NAME (Отображаемое наименование):*:: Max Text Message Size (Максимальный размер текстового сообщения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum size of a text message during parsing/generating.
+*DESCRIPTION (Описание):*:: The maximum size of a text message during parsing/generating. (Максимальный размер текстового сообщения при парсинге/генерации.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ Jetty, WebSocket, server
 .*Max-Binary-Message-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Binary Message Size
+*DISPLAY NAME (Отображаемое наименование):*:: Max Binary Message Size (Максимальный размер двоичного сообщения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The maximum size of a binary message during parsing/generating.
+*DESCRIPTION (Описание):*:: The maximum size of a binary message during parsing/generating. (Максимальный размер двоичного сообщения при анализе/генерации.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ Jetty, WebSocket, server
 .*Listen-Port*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Listen Port
+*DISPLAY NAME (Отображаемое наименование):*:: Listen Port (Порт)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The port number on which this WebSocketServer listens to.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ Jetty, WebSocket, server
 .Ssl-Context-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (Сервис контекста SSL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The SSL Context Service to use in order to secure the server. If specified, the server will accept only WSS requests; otherwise, the server will accept only WS requests
+*DESCRIPTION (Описание):*:: Сервис контекста SSL, который следует использовать для защиты сервера. Если указан, сервер будет принимать только запросы WSS; в противном случае, сервер будет принимать только запросы WS
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,25 +105,25 @@ Jetty, WebSocket, server
 .*Client-Authentication*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Client Authentication
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Client Authentication (Серверная проверка подлинности клиента)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies whether or not the Processor should authenticate client by its certificate. This value is ignored if the <SSL Context Service> Property is not specified or the SSL Context provided uses only a KeyStore and not a TrustStore.
+*DESCRIPTION (Описание):*:: Указывает, должен ли процессор аутентифицировать клиент по его сертификату. Это значение игнорируется, если не указано свойство <SSL Context Service> или SSL-контекст, предоставленный использует только хранилище ключей (KeyStore) и не использует хранилище доверия (TrustStore).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* No Authentication: Processor will not authenticate clients. Anyone can communicate with this Processor anonymously 
+* No Authentication (Без аутентификации): Процессор не будет аутентифицировать клиентов. Любой пользователь может взаимодействовать с этим процессором анонимно. 
 
-* Want Authentication: Processor will try to verify the client but if unable to verify will allow the client to communicate anonymously 
+* Want Authentication (Желательна аутентификация): Процессор попытается проверить клиента, но если не сможет этого сделать, позволит клиенту взаимодействовать анонимно. 
 
-* Need Authentication: Processor will reject communications from any client unless the client provides a certificate that is trusted by the TrustStore specified in the SSL Context Service 
+* Need Authentication (Требуется аутентификация): Процессор отклонит коммуникацию с любым клиентом, если тот не предоставит сертификат, признанный хранилищем доверия, указанным в свойстве SSL Context Service. 
 
 
 [horizontal]
@@ -132,14 +132,14 @@ Jetty, WebSocket, server
 .*Basic-Auth*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Enable Basic Authentication
+*DISPLAY NAME (Отображаемое наименование):*:: Enable Basic Authentication (Включить базовую аутентификацию)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If enabled, client connection requests are authenticated with Basic authentication using the specified Login Provider.
+*DESCRIPTION (Описание):*:: Если включено, запросы на подключение клиентов проверяются с использованием базовой аутентификации с помощью указанного поставщика входа.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -157,14 +157,14 @@ Jetty, WebSocket, server
 .Auth-Path-Spec
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Basic Authentication Path Spec
+*DISPLAY NAME (Отображаемое наименование):*:: Basic Authentication Path Spec (Базовая аутентификация пути спецификация)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specify a Path Spec to apply Basic Authentication.
+*DESCRIPTION (Описание):*:: Укажите спецификацию пути для применения базовой аутентификации.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -174,14 +174,14 @@ Jetty, WebSocket, server
 .Auth-Roles
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Basic Authentication Roles
+*DISPLAY NAME (Отображаемое наименование):*:: Basic Authentication Roles (Базовая аутентификация ролей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The authenticated user must have one of specified role. Multiple roles can be set as comma separated string. '*' represents any role and so does '**' any role including no role.
+*DESCRIPTION (Описание):*:: Аутентифицированный пользователь должен иметь одну из указанных ролей. Множественные роли можно задать в виде строки с разделителем-запятой. '*' обозначает любую роль, а '**' — любую роль, включая отсутствие роли.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -191,21 +191,21 @@ Jetty, WebSocket, server
 .Login-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Login Service
+*DISPLAY NAME (Отображаемое наименование):*:: Login Service (Логин Сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specify which Login Service to use for Basic Authentication.
+*DESCRIPTION (Описание):*:: Укажите, какой сервис входа использовать для Basic Authentication.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* HashLoginService: See http://www.eclipse.org/jetty/javadoc/current/org/eclipse/jetty/security/HashLoginService.html for detail. 
+* HashLoginService (ХэшЛогинСервис): Подробнее см. по адресу http://www.eclipse.org/jetty/javadoc/current/org/eclipse/jetty/security/HashLoginService.html. 
 
 
 [horizontal]
@@ -214,14 +214,14 @@ Jetty, WebSocket, server
 .Users-Properties-File
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Users Properties File
+*DISPLAY NAME (Отображаемое наименование):*:: Users Properties File (Пользователи Свойства Файл)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specify a property file containing users for Basic Authentication using HashLoginService. See http://www.eclipse.org/jetty/documentation/current/configuring-security.html for detail.
+*DESCRIPTION (Описание):*:: Укажите файл свойств, содержащий пользователей для базовой аутентификации с использованием HashLoginService. Подробнее см. по адресу http://www.eclipse.org/jetty/documentation/current/configuring-security.html
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -241,6 +241,17 @@ Jetty, WebSocket, server
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

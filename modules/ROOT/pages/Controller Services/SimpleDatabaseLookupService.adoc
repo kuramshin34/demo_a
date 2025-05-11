@@ -1,13 +1,13 @@
 = SimpleDatabaseLookupService 2.2.0
 
-A relational-database-based lookup service. When the lookup key is found in the database, the specified lookup value column is returned. Only one value will be returned for each lookup, duplicate database entries are ignored.
+Сервис поиска, основанный на реляционной базе данных. Когда ключ поиска найден в базе данных, возвращается указанный столбец значений для поиска. Возвращается только одно значение для каждого поиска, дубликаты записей в базе данных игнорируются.
 
 [horizontal]
 *Tags* (Ключевые слова):
-cache, database, enrich, join, key, lookup, rdbms, reloadable, value
+кэш, база данных, увеличение, объединение, ключ, поиск, rdbms, перезагружаемый, значение
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ cache, database, enrich, join, key, lookup, rdbms, reloadable, value
 .*Dbrecord-Lookup-Dbcp-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Database Connection Pooling Service
+*DISPLAY NAME (Отображаемое наименование):*:: Database Connection Pooling Service (База данных Сервис Подключения Пула)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Controller Service that is used to obtain connection to database
+*DESCRIPTION (Описание):*:: Контроллер Сервис, используемый для получения подключения к базе данных
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ cache, database, enrich, join, key, lookup, rdbms, reloadable, value
 .*Dbrecord-Lookup-Table-Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Table Name
+*DISPLAY NAME (Отображаемое наименование):*:: Table Name (Таблица)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the database table to be queried. Note that this may be case-sensitive depending on the database.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ cache, database, enrich, join, key, lookup, rdbms, reloadable, value
 .*Dbrecord-Lookup-Key-Column*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Lookup Key Column
+*DISPLAY NAME (Отображаемое наименование):*:: Lookup Key Column (Столбец ключа)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The column in the table that will serve as the lookup key. This is the column that will be matched against the property specified in the lookup processor. Note that this may be case-sensitive depending on the database.
+*DESCRIPTION (Описание):*:: Колонка в таблице, которая будет служить ключом поиска. Это столбец, который будет сопоставляться с указанным свойством в процессоре поиска. Обратите внимание, что это может быть чувствительно к регистру в зависимости от базы данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ cache, database, enrich, join, key, lookup, rdbms, reloadable, value
 .*Lookup-Value-Column*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Lookup Value Column
+*DISPLAY NAME (Отображаемое наименование):*:: Lookup Value Column (Значение столбца для поиска)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The column whose value will be returned when the Lookup value is matched
+*DESCRIPTION (Описание):*:: Столбец, значение которого будет возвращено при сопоставлении значения Lookup
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,14 +88,14 @@ cache, database, enrich, join, key, lookup, rdbms, reloadable, value
 .*Dbrecord-Lookup-Cache-Size*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Cache Size
+*DISPLAY NAME (Отображаемое наименование):*:: Cache Size (Размер кэша)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how many lookup values/records should be cached. The cache is shared for all tables and keeps a map of lookup values to records. Setting this property to zero means no caching will be done and the table will be queried for each lookup value in each record. If the lookup table changes often or the most recent data must be retrieved, do not use the cache.
+*DESCRIPTION (Описание):*:: Указывает, сколько значений поиска/записей следует кэшировать. Кэш общий для всех таблиц и хранит карту значений поиска в записи. Установка этого свойства в ноль означает отсутствие кэширования, и таблица будет запрашиваться для каждого значения поиска в каждой записи. Если таблица поиска часто меняется или необходимо получить наиболее актуальные данные, не используйте кэш.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -105,14 +105,14 @@ cache, database, enrich, join, key, lookup, rdbms, reloadable, value
 .*Dbrecord-Lookup-Clear-Cache-On-Enabled*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Clear Cache on Enabled
+*DISPLAY NAME (Отображаемое наименование):*:: Clear Cache on Enabled (Очистка кэша при включении)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Whether to clear the cache when this service is enabled. If the Cache Size is zero then this property is ignored. Clearing the cache when the service is enabled ensures that the service will first go to the database to get the most recent data.
+*DESCRIPTION (Описание):*:: Признак очистки кэша при активации этой службы. Если размер кэша равен нулю, то это свойство игнорируется. Очистка кэша при активации службы обеспечивает, что служба сначала получит последние данные из базы данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -130,14 +130,14 @@ cache, database, enrich, join, key, lookup, rdbms, reloadable, value
 .Cache Expiration
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Cache Expiration
+*DISPLAY NAME (Отображаемое наименование):*:: Cache Expiration (Время истечения кэша)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Time interval to clear all cache entries. If the Cache Size is zero then this property is ignored.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -157,6 +157,17 @@ cache, database, enrich, join, key, lookup, rdbms, reloadable, value
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

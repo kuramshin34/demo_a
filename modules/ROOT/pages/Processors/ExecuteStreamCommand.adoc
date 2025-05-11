@@ -7,7 +7,7 @@ The ExecuteStreamCommand processor provides a flexible way to integrate external
 command, command execution, execute, stream
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  True (Да) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .Working Directory
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Working Directory
+*DISPLAY NAME (Отображаемое наименование):*:: Working Directory (Рабочая директория)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The directory to use as the current working directory when executing the command
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Command Path*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Command Path
+*DISPLAY NAME (Отображаемое наименование):*:: Command Path (Путь команды)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the command to be executed; if just the name of an executable is provided, it must be in the user's environment PATH.
+*DESCRIPTION (Описание):*:: Указывает команду для выполнения; если указано только имя исполняемого файла, оно должно находиться в PATH пользователя.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,23 +54,23 @@ REQUIRED (Обязательно)
 .Argumentsstrategy
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Command Arguments Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Command Arguments Strategy (Стратегия аргументов команды)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Strategy for configuring arguments to be supplied to the command.
+*DESCRIPTION (Описание):*:: Стратегия для настройки аргументов, которые будут предоставлены команде.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Command Arguments Property: Arguments to be supplied to the executable are taken from the Command Arguments property 
+* Command Arguments Property (Свойство аргументов команды): Аргументы, которые будут предоставлены исполняемому файлу, берутся из свойства Command Arguments. 
 
-* Dynamic Property Arguments: Arguments to be supplied to the executable are taken from dynamic properties with pattern of 'command.argument.<commandIndex>' 
+* Dynamic Property Arguments (Динамические свойства аргументов): Аргументы, которые будут предоставлены исполняемому файлу, берутся из динамических свойств с шаблоном 'command.argument.<commandIndex>'. 
 
 
 [horizontal]
@@ -79,14 +79,14 @@ REQUIRED (Обязательно)
 .Command Arguments
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Command Arguments
+*DISPLAY NAME (Отображаемое наименование):*:: Command Arguments (Аргументы команды)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The arguments to supply to the executable delimited by the ';' character.
+*DESCRIPTION (Описание):*:: Аргументы, которые нужно предоставить исполняемому файлу, разделенные символом ';'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -96,14 +96,14 @@ REQUIRED (Обязательно)
 .*Argument Delimiter*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Argument Delimiter
+*DISPLAY NAME (Отображаемое наименование):*:: Argument Delimiter (Аргументный разделитель)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Delimiter to use to separate arguments for a command [default: ;]. Must be a single character
+*DESCRIPTION (Описание):*:: Разделитель для разделения аргументов команды [по умолчанию: ;]. Должен быть одиночным символом
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -113,14 +113,14 @@ REQUIRED (Обязательно)
 .Ignore Stdin
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Ignore STDIN
+*DISPLAY NAME (Отображаемое наименование):*:: Ignore STDIN (Игнорировать STDIN)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true, the contents of the incoming flowfile will not be passed to the executing command
+*DESCRIPTION (Описание):*:: Если true, содержимое входящего потока не будет передано выполняемой команде
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -138,14 +138,14 @@ REQUIRED (Обязательно)
 .Output Destination Attribute
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Output Destination Attribute
+*DISPLAY NAME (Отображаемое наименование):*:: Выходной атрибут назначения (Output Destination Attribute)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If set, the output of the stream command will be put into an attribute of the original FlowFile instead of a separate FlowFile. There will no longer be a relationship for 'output stream' or 'nonzero status'. The value of this property will be the key for the output attribute.
+*DESCRIPTION (Описание):*:: Если установлено, вывод команды stream будет помещен в атрибут исходного FlowFile вместо отдельного FlowFile. Не будет существовать отношения для 'выходного потока' или 'ненулевого статуса'. Значение этого свойства будет ключом для выходного атрибута.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -155,14 +155,14 @@ REQUIRED (Обязательно)
 .Max Attribute Length
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Max Attribute Length
+*DISPLAY NAME (Отображаемое наименование):*:: Max Attribute Length (Максимальная длина атрибута)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If routing the output of the stream command to an attribute, the number of characters put to the attribute value will be at most this amount. This is important because attributes are held in memory and large attributes will quickly cause out of memory issues. If the output goes longer than this value, it will truncated to fit. Consider making this smaller if able.
+*DESCRIPTION (Описание):*:: Если вывод команды stream направляется в атрибут, количество символов, помещаемых в значение атрибута, будет не более этого количества. Это важно, так как атрибуты хранятся в памяти и большие атрибуты быстро вызывают проблемы с исчерпанием памяти. Если вывод превышает это значение, он будет усечен для вписывания. Рассмотрите возможность уменьшения этого значения, если это возможно.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -172,14 +172,14 @@ REQUIRED (Обязательно)
 .Output Mime Type
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Output MIME Type
+*DISPLAY NAME (Отображаемое наименование):*:: Output MIME Type (Тип данных вывода)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the value to set for the "mime.type" attribute. This property is ignored if 'Output Destination Attribute' is set.
+*DESCRIPTION (Описание):*:: Указывает значение, которое нужно установить для атрибута "mime.type". Это свойство игнорируется, если установлен 'Выходной пункт назначения атрибута'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 

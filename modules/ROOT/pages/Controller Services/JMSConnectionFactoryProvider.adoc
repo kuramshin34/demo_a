@@ -1,13 +1,13 @@
 = JMSConnectionFactoryProvider 2.2.0
 
-Provides a generic service to create vendor specific javax.jms.ConnectionFactory implementations. The Connection Factory can be served once this service is configured successfully.
+Предоставляет универсальный сервис для создания поставщиков реализаций javax.jms.ConnectionFactory, специфичных для поставщика. Соединение может быть предоставлено при успешной настройке этого сервиса.
 
 [horizontal]
 *Tags* (Ключевые слова):
 integration, jms, messaging, publish, queue, subscribe, topic
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ integration, jms, messaging, publish, queue, subscribe, topic
 .*Cf*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: JMS Connection Factory Implementation Class
+*DISPLAY NAME (Отображаемое наименование):*:: JMS Connection Factory Implementation Class (JMS Соединение Фабрика Реализация Класса)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The fully qualified name of the JMS ConnectionFactory implementation class (eg. org.apache.activemq.ActiveMQConnectionFactory).
+*DESCRIPTION (Описание):*:: Полное имя класса реализации JMS ConnectionFactory (например, org.apache.activemq.ActiveMQConnectionFactory).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ integration, jms, messaging, publish, queue, subscribe, topic
 .Cflib
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: JMS Client Libraries
+*DISPLAY NAME (Отображаемое наименование):*:: JMS Client Libraries (Клиентские библиотеки JMS)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Path to the directory with additional resources (eg. JARs, configuration files etc.) to be added to the classpath (defined as a comma separated list of values). Such resources typically represent target JMS client libraries for the ConnectionFactory implementation.
+*DESCRIPTION (Описание):*:: Путь к директории с дополнительными ресурсами (например, JAR-файлы, конфигурационные файлы и т.д.), которые будут добавлены в classpath (определяется как список значений, разделенных запятыми). Такие ресурсы обычно представляют собой целевые клиентские библиотеки JMS для реализации ConnectionFactory.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ integration, jms, messaging, publish, queue, subscribe, topic
 .Broker
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: JMS Broker URI
+*DISPLAY NAME (Отображаемое наименование):*:: JMS Broker URI (URI к брокеру сообщений JMS)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: URI pointing to the network location of the JMS Message broker. Example for ActiveMQ: 'tcp://myhost:61616'. Examples for IBM MQ: 'myhost(1414)' and 'myhost01(1414),myhost02(1414)'.
+*DESCRIPTION (Описание):*:: URI, указывающий на сетевое расположение брокера сообщений JMS. Пример для ActiveMQ: 'tcp://myhost:61616'. Примеры для IBM MQ: 'myhost(1414)' и 'myhost01(1414),myhost02(1414)'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ integration, jms, messaging, publish, queue, subscribe, topic
 .Ssl Context Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: JMS SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: JMS SSL Context Service (Сервис контекста SSL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The SSL Context Service used to provide client certificate information for TLS/SSL connections.
+*DESCRIPTION (Описание):*:: Сервис контекста SSL, используемый для предоставления информации о клиентских сертификатах для подключений TLS/SSL.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -122,6 +122,17 @@ integration, jms, messaging, publish, queue, subscribe, topic
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

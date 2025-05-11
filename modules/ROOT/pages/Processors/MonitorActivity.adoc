@@ -7,7 +7,7 @@ Monitors the flow for activity and sends out an indicator when the flow has not 
 active, activity, detection, flow, inactive, monitor
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Threshold Duration*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Threshold Duration
+*DISPLAY NAME (Отображаемое наименование):*:: Threshold Duration (Период порога)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Determines how much time must elapse before considering the flow to be inactive
+*DESCRIPTION (Описание):*:: Определяет, сколько времени должно пройти, прежде чем считать поток неактивным
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Continually Send Messages*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Continually Send Messages
+*DISPLAY NAME (Отображаемое наименование):*:: Continually Send Messages (Непрерывно отправлять сообщения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true, will send inactivity indicator continually every Threshold Duration amount of time until activity is restored; if false, will send an indicator only when the flow first becomes inactive
+*DESCRIPTION (Описание):*:: Если true, будет непрерывно отправлять индикатор неактивности каждый пороговый период времени до восстановления активности; если false, будет отправлять индикатор только при первом превращении потока в неактивное состояние
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -62,14 +62,14 @@ REQUIRED (Обязательно)
 .*Inactivity Message*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Inactivity Message
+*DISPLAY NAME (Отображаемое наименование):*:: Inactivity Message (Сообщение об отсутствии активности)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The message that will be the content of FlowFiles that are sent to the 'inactive' relationship
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -79,14 +79,14 @@ REQUIRED (Обязательно)
 .*Activity Restored Message*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Activity Restored Message
+*DISPLAY NAME (Отображаемое наименование):*:: Activity Restored Message (Сообщение об восстановлении активности)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The message that will be the content of FlowFiles that are sent to 'activity.restored' relationship
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -96,23 +96,23 @@ REQUIRED (Обязательно)
 .*Wait For Activity*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Wait for Activity
+*DISPLAY NAME (Отображаемое наименование):*:: Wait for Activity (Ожидание активности)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When the processor gets started or restarted, if set to true, only send an inactive indicator if there had been activity beforehand. Otherwise send an inactive indicator even if there had not been activity beforehand.
+*DESCRIPTION (Описание):*:: Когда процессор запускается или перезапускается, если установлено значение true, отправлять индикатор неактивности только в том случае, если ранее была активность. В противном случае отправлять индикатор неактивности даже в том случае, если ранее активности не было.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -121,14 +121,14 @@ REQUIRED (Обязательно)
 .*Reset State On Restart*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Reset State on Restart
+*DISPLAY NAME (Отображаемое наименование):*:: Reset State on Restart (Сброс состояния при перезапуске)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: When the processor gets started or restarted, if set to true, the initial state will always be active. Otherwise, the last reported flow state will be preserved.
+*DESCRIPTION (Описание):*:: Когда процессор запускается или перезапускается, если установлено значение true, начальное состояние всегда будет активным. В противном случае будет сохраняться последнее сообщенное состояние потока.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -146,14 +146,14 @@ REQUIRED (Обязательно)
 .*Copy Attributes*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Copy Attributes
+*DISPLAY NAME (Отображаемое наименование):*:: Copy Attributes (Копировать атрибуты)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true, will copy all flow file attributes from the flow file that resumed activity to the newly created indicator flow file
+*DESCRIPTION (Описание):*:: Если true, будут скопированы все атрибуты файла потока из файла, который возобновил активность, в новый созданный индикаторный файл потока
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -171,23 +171,23 @@ REQUIRED (Обязательно)
 .*Monitoring Scope*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Monitoring Scope
+*DISPLAY NAME (Отображаемое наименование):*:: Monitoring Scope (Мониторинг области)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specify how to determine activeness of the flow. 'node' means that activeness is examined at individual node separately. It can be useful if DFM expects each node should receive flow files in a distributed manner. With 'cluster', it defines the flow is active while at least one node receives flow files actively. If NiFi is running as standalone mode, this should be set as 'node', if it's 'cluster', NiFi logs a warning message and act as 'node' scope.
+*DESCRIPTION (Описание):*:: Укажите, как определить активность потока. 'node' означает, что активность проверяется отдельно в каждом узле. Это может быть полезно, если DFM ожидает, что каждый узел должен получать файлы потока распределенным образом. С 'cluster', определяется, что поток активен, пока хотя бы один узел активно получает файлы потока. Если NiFi работает в режиме standalone, это должно быть установлено как 'node', если это 'cluster', NiFi выводит предупреждающее сообщение и действует как 'node' scope.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* node
+* node (узел)
 
-* cluster
+* cluster (кластер)
 
 
 [horizontal]
@@ -196,23 +196,23 @@ REQUIRED (Обязательно)
 .*Reporting Node*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Reporting Node
+*DISPLAY NAME (Отображаемое наименование):*:: Reporting Node (Узел отчетности)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specify which node should send notification flow-files to inactive and activity.restored relationships. With 'all', every node in this cluster send notification flow-files. 'primary' means flow-files will be sent only from a primary node. If NiFi is running as standalone mode, this should be set as 'all', even if it's 'primary', NiFi act as 'all'.
+*DESCRIPTION (Описание):*:: Укажите, какой узел должен отправлять потоковые файлы уведомлений в неактивные и восстановленные отношения. С 'all' каждый узел в этом кластере отправляет уведомления о потоковых файлах. 'primary' означает, что потоковые файлы будут отправляться только с основного узла. Если NiFi работает в режиме standalone, это должно быть установлено как 'all', даже если оно 'primary', поскольку NiFi действует как 'all'.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* all
+* all (все)
 
-* primary
+* primary (основной)
 
 
 [horizontal]

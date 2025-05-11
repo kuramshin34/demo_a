@@ -1,13 +1,13 @@
 = CEFReader 2.2.0
 
-Parses CEF (Common Event Format) events, returning each row as a record. This reader allows for inferring a schema based on the first event in the FlowFile or providing an explicit schema for interpreting the values.
+Парсит события в формате CEF (Common Event Format), возвращая каждую строку как запись. Этот читатель позволяет выводить схему на основе первого события в FlowFile или предоставлять явную схему для интерпретации значений.
 
 [horizontal]
 *Tags* (Ключевые слова):
 cef, parser, reader, record
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,27 +20,27 @@ cef, parser, reader, record
 .*Schema-Access-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Access Strategy (Стратегия доступа к схеме)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how to obtain the schema that is to be used for interpreting the data.
+*DESCRIPTION (Описание):*:: Определяет, как получить схему для интерпретации данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Use 'Schema Name' Property: The name of the Schema to use is specified by the 'Schema Name' Property. The value of this property is used to lookup the Schema in the configured Schema Registry service. 
+* Использовать 'Свойство Имя Схемы' (Use 'Schema Name' Property): Имя схемы, которое указывается свойством 'Имя Схемы'. Значение этого свойства используется для поиска схемы в настроенном сервисе реестра схем. 
 
-* Use 'Schema Text' Property: The text of the Schema itself is specified by the 'Schema Text' Property. The value of this property must be a valid Avro Schema. If Expression Language is used, the value of the 'Schema Text' property must be valid after substituting the expressions. 
+* Использовать 'Свойство Текст Схемы' (Use 'Schema Text' Property): Текст самой схемы указывается свойством 'Текст Схемы'. Значение этого свойства должно быть допустимой Avro схемой. Если используется язык выражений, значение свойства 'Текст Схемы' должно быть действительным после замены выражений. 
 
-* Schema Reference Reader: The schema reference information will be provided through a configured Schema Reference Reader service implementation. 
+* Схема ссылки на чтение (Schema Reference Reader): Информация о ссылке на схему будет предоставлена через реализованный конфигурируемый сервис чтения ссылок на схемы. 
 
-* Infer Schema: The Schema of the data will be inferred automatically when the data is read. See component Usage and Additional Details for information about how the schema is inferred. 
+* Вывести схему (Infer Schema): Схема данных будет автоматически выведена при чтении данных. См. раздел 'Использование и дополнительные сведения' для получения информации о том, как выводится схема. 
 
 
 [horizontal]
@@ -49,14 +49,14 @@ cef, parser, reader, record
 .Schema-Registry
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Registry (Реестър на схеми)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for the Schema Registry
+*DESCRIPTION (Описание):*:: Определя контролера за услуга, който да се използва за реестра на схемите
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -66,14 +66,14 @@ cef, parser, reader, record
 .Schema-Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Name
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Name (Схема имени)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the name of the schema to lookup in the Schema Registry property
+*DESCRIPTION (Описание):*:: Указывает имя схемы для поиска в свойстве Реестра схем
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -83,14 +83,14 @@ cef, parser, reader, record
 .Schema-Version
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Version
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Version (Схема версии)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the version of the schema to lookup in the Schema Registry. If not specified then the latest version of the schema will be retrieved.
+*DESCRIPTION (Описание):*:: Указывает версию схемы для поиска в Реестре схем. Если не указано, будет получена последняя версия схемы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -100,14 +100,14 @@ cef, parser, reader, record
 .Schema-Branch
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Branch
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Branch (Схема ветки)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the name of the branch to use when looking up the schema in the Schema Registry property. If the chosen Schema Registry does not support branching, this value will be ignored.
+*DESCRIPTION (Описание):*:: Указывает имя ветки, которую следует использовать при поиске схемы в свойстве Схемарегистр. Если выбранная Схемарегистр не поддерживает ветвление, это значение будет проигнорировано.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -117,14 +117,14 @@ cef, parser, reader, record
 .Schema-Text
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Text
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Text (Схема текста)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The text of an Avro-formatted Schema
+*DESCRIPTION (Описание):*:: Текст Avro-формамата схемы
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -134,14 +134,14 @@ cef, parser, reader, record
 .*Schema-Reference-Reader*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Reader
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Reference Reader (Ссылочный читатель схемы)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Service implementation responsible for reading FlowFile attributes or content to determine the Schema Reference Identifier
+*DESCRIPTION (Описание):*:: Сервис реализации, отвечающий за чтение атрибутов или содержимого FlowFile для определения идентификатора ссылки на схему
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -151,14 +151,14 @@ cef, parser, reader, record
 .Raw-Message-Field
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Raw Message Field
+*DISPLAY NAME (Отображаемое наименование):*:: Raw Message Field (Сырое сообщение)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If set the raw message will be added to the record using the property value as field name. This is not the same as the "rawEvent" extension field!
+*DESCRIPTION (Описание):*:: Если установлено, сырое сообщение будет добавлено в запись с именем свойства в качестве имени поля. Это не то же самое, что расширение поля "rawEvent"!
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -168,14 +168,14 @@ cef, parser, reader, record
 .Invalid-Message-Field
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Invalid Field
+*DISPLAY NAME (Отображаемое наименование):*:: Invalid Field (Недействительное поле)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Used when a line in the FlowFile cannot be parsed by the CEF parser. If set, instead of failing to process the FlowFile, a record is being added with one field. This record contains one field with the name specified by the property and the raw message as value.
+*DESCRIPTION (Описание):*:: Используется, когда строка в FlowFile не может быть расшифрована парсером CEF. Если установлено, вместо того чтобы потерпеть неудачу при обработке FlowFile, добавляется запись с одним полем. Эта запись содержит одно поле с именем, указанным свойством, и исходным сообщением в качестве значения.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -185,14 +185,14 @@ cef, parser, reader, record
 .*Datetime-Representation*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: DateTime Locale
+*DISPLAY NAME (Отображаемое наименование):*:: DateTime Locale (Дата и время Локаль)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The IETF BCP 47 representation of the Locale to be used when parsing date fields with long or short month names (e.g. may <en-US> vs. mai. <fr-FR>. The defaultvalue is generally safe. Only change if having issues parsing CEF messages
+*DESCRIPTION (Описание):*:: IETF BCP 47 представление локали, которое будет использоваться при разборе полей даты с длинными или короткими названиями месяцев (например, may <en-US> vs. mai. <fr-FR>. По умолчанию значение является безопасным. Измените только в случае наличия проблем при разборе сообщений CEF
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -202,27 +202,27 @@ cef, parser, reader, record
 .*Inference-Strategy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Inference Strategy
+*DISPLAY NAME (Отображаемое наименование):*:: Inference Strategy (Инференсная стратегия)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Defines the set of fields should be included in the schema and the way the fields are being interpreted.
+*DESCRIPTION (Описание):*:: Определяет набор полей, которые должны быть включены в схему и способ интерпретации этих полей.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Headers only: Includes only CEF header fields into the inferred schema. 
+* Headers only (Только заголовки): Включает только поля заголовков CEF в инферрированную схему. 
 
-* Headers and extensions: Includes the CEF header and extension fields to the schema, but not the custom extensions. 
+* Headers and extensions (Заголовки и расширения): Включает поля заголовков CEF и расширений в схему, но не включает пользовательские расширения. 
 
-* With custom extensions as strings: Includes all fields into the inferred schema, involving custom extension fields as string values. 
+* With custom extensions as strings (С расширениями как строки): Включает все поля в инферрированную схему, включая пользовательские расширения как строковые значения. 
 
-* With custom extensions inferred: Includes all fields into the inferred schema, involving custom extension fields with inferred data types. The inference works based on the values in the FlowFile. In some scenarios this might result unsatisfiable behaviour. In these cases it is suggested to use "With custom extensions as strings" Inference Strategy or predefined schema. 
+* With custom extensions inferred (С инферрированными пользовательскими расширениями): Включает все поля в инферрированную схему, включая пользовательские расширения с инферрированными типами данных. Инферринг работает на основе значений в FlowFile. В некоторых сценариях это может привести к несоответствию поведения. В таких случаях рекомендуется использовать "With custom extensions as strings" Inference Strategy или предопределенную схему. 
 
 
 [horizontal]
@@ -231,14 +231,14 @@ cef, parser, reader, record
 .Schema-Inference-Cache
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Inference Cache
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Inference Cache (Схема Инференс Кеш)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies a Schema Cache to use when inferring the schema. If not populated, the schema will be inferred each time. However, if a cache is specified, the cache will first be consulted and if the applicable schema can be found, it will be used instead of inferring the schema.
+*DESCRIPTION (Описание):*:: Указывает схему кэш для использования при выводе схемы. Если не заполнено, схема будет выводиться каждый раз. Однако, если указана схема, кэш будет сначала проверен, и если найдена соответствующая схема, она будет использоваться вместо вывода схемы.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -248,14 +248,14 @@ cef, parser, reader, record
 .*Accept-Empty-Extensions*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Accept empty extensions
+*DISPLAY NAME (Отображаемое наименование):*:: Accept empty extensions (Принимать пустые расширения)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If set to true, empty extensions will be accepted and will be associated to a null value.
+*DESCRIPTION (Описание):*:: Если установлено значение true, будут приниматься и связываться с нулевым значением пустые расширения.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -283,6 +283,17 @@ cef, parser, reader, record
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

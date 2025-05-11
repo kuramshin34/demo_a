@@ -1,13 +1,13 @@
 = VerifyContentPGP 2.2.0
 
-Verify signatures using OpenPGP Public Keys
+Проверять подписи с использованием открытых ключей OpenPGP
 
 [horizontal]
 *Tags* (Ключевые слова):
 Encryption, GPG, OpenPGP, PGP, RFC 4880, Signing
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Public-Key-Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Public Key Service
+*DISPLAY NAME (Отображаемое наименование):*:: Public Key Service (Общедоступный сервис ключей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: PGP Public Key Service for verifying signatures with Public Key Encryption
+*DESCRIPTION (Описание):*:: PGP Общедоступный сервис ключей для проверки подписей с помощью шифрования открытым ключом
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -51,10 +51,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|Signature Verification Succeeded
+|Успешная проверка подписи
 
 |`failure`
-|Signature Verification Failed
+|Проверка подписи не удалась
 
 |===
 
@@ -69,31 +69,31 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`pgp.literal.data.filename`
-|Filename from Literal Data
+|Имя файла из литеральных данных
 
 |`pgp.literal.data.modified`
-|Modified Date Time from Literal Data in milliseconds
+|Измененная дата и время в миллисекундах из литеральных данных
 
 |`pgp.signature.created`
-|Signature Creation Time in milliseconds
+|Время создания подписи в миллисекундах
 
 |`pgp.signature.algorithm`
-|Signature Algorithm including key and hash algorithm names
+|Алгоритм подписи, включая имена ключей и алгоритмов хеширования
 
 |`pgp.signature.hash.algorithm.id`
-|Signature Hash Algorithm Identifier
+|Идентификатор алгоритма хеша подписи
 
 |`pgp.signature.key.algorithm.id`
-|Signature Key Algorithm Identifier
+|Идентификатор алгоритма ключа подписи
 
 |`pgp.signature.key.id`
-|Signature Public Key Identifier
+|Идентификатор открытого ключа подписи
 
 |`pgp.signature.type.id`
-|Signature Type Identifier
+|Идентификатор типа подписи
 
 |`pgp.signature.version`
-|Signature Version Number
+|Номер версии подписи
 
 |===
 

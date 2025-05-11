@@ -1,13 +1,13 @@
 = PutWebSocket 2.2.0
 
-Sends messages to a WebSocket remote endpoint using a WebSocket session that is established by either ListenWebSocket or ConnectWebSocket.
+Отправляет сообщения в удаленную конечную точку WebSocket, используя сессию WebSocket, установленную ListenWebSocket или ConnectWebSocket.
 
 [horizontal]
 *Tags* (Ключевые слова):
 WebSocket, publish, send
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Websocket-Session-Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: WebSocket Session Id
+*DISPLAY NAME (Отображаемое наименование):*:: WebSocket Session Id (Сессия WebSocket)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A NiFi Expression to retrieve the session id. If not specified, a message will be sent to all connected WebSocket peers for the WebSocket controller service endpoint.
+*DESCRIPTION (Описание):*:: Выражение NiFi для получения идентификатора сессии. Если не указан, будет отправлено сообщение всем подключенным к WebSocket партнерам по конечной точке сервиса контроллера WebSocket.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ REQUIRED (Обязательно)
 .*Websocket-Controller-Service-Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: WebSocket ControllerService Id
+*DISPLAY NAME (Отображаемое наименование):*:: WebSocket ControllerService Id (WebSocket ControllerService Id)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: A NiFi Expression to retrieve the id of a WebSocket ControllerService.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ REQUIRED (Обязательно)
 .*Websocket-Endpoint-Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: WebSocket Endpoint Id
+*DISPLAY NAME (Отображаемое наименование):*:: WebSocket Endpoint Id (Идентификатор конечной точки WebSocket)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: A NiFi Expression to retrieve the endpoint id of a WebSocket ControllerService.
+*DESCRIPTION (Описание):*:: Выражение NiFi для получения идентификатора конечной точки контроллера службы WebSocket.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ REQUIRED (Обязательно)
 .*Websocket-Message-Type*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: WebSocket Message Type
+*DISPLAY NAME (Отображаемое наименование):*:: WebSocket Message Type (Тип сообщения)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The type of message content: TEXT or BINARY
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables and FlowFile Attributes (Переменные среды и атрибуты FlowFile)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -99,7 +99,7 @@ REQUIRED (Обязательно)
 
 
 |MEMORY
-|An instance of this component can cause high usage of this system resource.  Multiple instances or high concurrency settings may result a degradation of performance.
+|Экземпляр этого компонента может вызвать высокое использование системного ресурса. Множественные экземпляры или настройки высокой конкоррентности могут привести к снижению производительности.
 
 |===
 
@@ -114,10 +114,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`success`
-|FlowFiles that are sent successfully to the destination are transferred to this relationship.
+|FlowFiles, успешно отправленные в конечную точку, передаются по этому отношению.
 
 |`failure`
-|FlowFiles that failed to send to the destination are transferred to this relationship.
+|FlowFiles, не удалось отправить в конечную точку, передаются по этому отношению.
 
 |===
 
@@ -132,25 +132,25 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`websocket.controller.service.id`
-|WebSocket Controller Service id.
+|Идентификатор сервиса контроллера WebSocket.
 
 |`websocket.session.id`
-|Established WebSocket session id.
+|Идентификатор установленной сессии WebSocket.
 
 |`websocket.endpoint.id`
-|WebSocket endpoint id.
+|Идентификатор конечной точки WebSocket.
 
 |`websocket.message.type`
-|TEXT or BINARY.
+|TEXT или BINARY.
 
 |`websocket.local.address`
-|WebSocket server address.
+|Адрес сервера WebSocket.
 
 |`websocket.remote.address`
-|WebSocket client address.
+|Адрес клиента WebSocket.
 
 |`websocket.failure.detail`
-|Detail of the failure.
+|Детали неудачи.
 
 |===
 

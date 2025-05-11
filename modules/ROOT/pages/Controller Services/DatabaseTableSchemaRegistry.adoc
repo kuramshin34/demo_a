@@ -1,13 +1,13 @@
 = DatabaseTableSchemaRegistry 2.2.0
 
-Provides a service for generating a record schema from a database table definition. The service is configured to use a table name and a database connection fetches the table metadata (i.e. table definition) such as column names, data types, nullability, etc.
+Предоставляет сервис для генерации записи схемы на основе определения таблицы базы данных. Сервис настроен использовать имя таблицы и подключение к базе данных для получения метаданных таблицы (т.е. её определения), таких как имена столбцов, типы данных, допустимость значений NULL и т.д.
 
 [horizontal]
 *Tags* (Ключевые слова):
 database, registry, schema, table
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ database, registry, schema, table
 .*Database Connection Pooling Service*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Database Connection Pooling Service
+*DISPLAY NAME (Отображаемое наименование):*:: Database Connection Pooling Service (База данных Подключение Сервис)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Controller Service that is used to obtain a connection to the database for retrieving table information.
+*DESCRIPTION (Описание):*:: Контроллер Сервис, используемый для получения подключения к базе данных для извлечения информации о таблицах.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ database, registry, schema, table
 .Catalog Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Catalog Name
+*DISPLAY NAME (Отображаемое наименование):*:: Catalog Name (Каталог)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The name of the catalog used to locate the desired table. This may not apply for the database that you are querying. In this case, leave the field empty. Note that if the property is set and the database is case-sensitive, the catalog name must match the database's catalog name exactly.
+*DESCRIPTION (Описание):*:: Имя каталога, используемого для поиска нужной таблицы. Это может не относиться к базе данных, которую вы запрашиваете. В этом случае оставьте поле пустым. Обратите внимание, что если свойство установлено и база данных чувствительна к регистру, имя каталога должно точно соответствовать имени каталога базы данных.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ database, registry, schema, table
 .Schema Name
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Schema Name
+*DISPLAY NAME (Отображаемое наименование):*:: Schema Name (Схема имени)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the schema that the table belongs to. This may not apply for the database that you are updating. In this case, leave the field empty. Note that if the property is set and the database is case-sensitive, the schema name must match the database's schema name exactly. Also notice that if the same table name exists in multiple schemas and Schema Name is not specified, the service will find those tables and give an error if the different tables have the same column name(s).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -81,6 +81,17 @@ database, registry, schema, table
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 

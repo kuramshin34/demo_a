@@ -1,13 +1,13 @@
 = ParseSyslog5424 2.2.0
 
-Attempts to parse the contents of a well formed Syslog message in accordance to RFC5424 format and adds attributes to the FlowFile for each of the parts of the Syslog message, including Structured Data.Structured Data will be written to attributes as one attribute per item id + parameter see https://tools.ietf.org/html/rfc5424.Note: ParseSyslog5424 follows the specification more closely than ParseSyslog.  If your Syslog producer does not follow the spec closely, with regards to using '-' for missing header entries for example, those logs will fail with this parser, where they would not fail with ParseSyslog.
+Пытается разобрать содержимое корректно сформированного сообщения Syslog в соответствии с форматом RFC5424 и добавляет атрибуты к FlowFile для каждой части сообщения Syslog, включая Структурированные Данные.Структурированные Данные будут записаны в атрибуты как один атрибут на элемент id + параметр по адресу https://tools.ietf.org/html/rfc5424.Примечание: ParseSyslog5424 следует спецификации более строго, чем ParseSyslog. Если ваш производитель Syslog не соблюдает спецификацию точно, например используя '-' для отсутствующих записей заголовка, то такие логи будут неправильно обработаны этим парсером, в то время как они не вызвали бы ошибку при использовании ParseSyslog.
 
 [horizontal]
 *Tags* (Ключевые слова):
 attributes, event, logs, message, syslog, syslog5424, system
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
-REQUIRED (Обязательно)
+REQUIRED
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ REQUIRED (Обязательно)
 .*Character Set*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Character Set
+*DISPLAY NAME (Отображаемое наименование):*:: Character Set (Символьный набор)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies which character set of the Syslog messages
+*DESCRIPTION (Описание):*:: Указывает, какой символьный набор сообщений Syslog
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,25 +37,25 @@ REQUIRED (Обязательно)
 .*Nil_Policy*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: NIL Policy
+*DISPLAY NAME (Отображаемое наименование):*:: NIL Policy (Политика NIL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Defines how NIL values are handled for header fields.
+*DESCRIPTION (Описание):*:: Определяет, как обрабатываются отсутствующие значения для заголовков полей.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* OMIT: The missing field will not have an attribute added. 
+* OMIT (Не включать): Отсутствующее поле не будет иметь добавленного атрибута. 
 
-* NULL: The missing field will have an empty attribute added. 
+* NULL (Нуль): Отсутствующее поле будет иметь добавленный атрибут со значением '0'. 
 
-* DASH: The missing field will have an attribute added with the value of '-'. 
+* DASH (Тире): Отсутствующее поле будет иметь добавленный атрибут со значением '-'. 
 
 
 [horizontal]
@@ -64,14 +64,14 @@ REQUIRED (Обязательно)
 .Include_Policy
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Include Message Body in Attributes
+*DISPLAY NAME (Отображаемое наименование):*:: Include Message Body in Attributes (Включить тело сообщения в атрибуты)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: If true, then the Syslog Message body will be included in the attributes.
+*DESCRIPTION (Описание):*:: Если true, то тело Syslog сообщения будет включено в атрибуты.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -103,10 +103,10 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`failure`
-|Any FlowFile that could not be parsed as a Syslog message will be transferred to this Relationship without any attributes being added
+|Любой FlowFile, который не удалось распознать как сообщение Syslog, будет передан в это отношение без добавления атрибутов
 
 |`success`
-|Any FlowFile that is successfully parsed as a Syslog message will be to this Relationship.
+|Любой FlowFile, который успешно распознан как сообщение Syslog, будет передан в это отношение.
 
 |===
 
@@ -121,40 +121,40 @@ REQUIRED (Обязательно)
 |Наименование |Описание
 
 |`syslog.priority`
-|The priority of the Syslog message.
+|Приоритет сообщения Syslog.
 
 |`syslog.severity`
-|The severity of the Syslog message derived from the priority.
+|Степень важности сообщения Syslog, полученная из приоритета.
 
 |`syslog.facility`
-|The facility of the Syslog message derived from the priority.
+|Инфраструктура сообщения Syslog, полученная из приоритета.
 
 |`syslog.version`
-|The optional version from the Syslog message.
+|Необязательная версия из сообщения Syslog.
 
 |`syslog.timestamp`
-|The timestamp of the Syslog message.
+|Отметка времени сообщения Syslog.
 
 |`syslog.hostname`
-|The hostname or IP address of the Syslog message.
+|Хостнейм или IP-адрес сообщения Syslog.
 
 |`syslog.appname`
-|The appname of the Syslog message.
+|Приложение сообщения Syslog.
 
 |`syslog.procid`
-|The procid of the Syslog message.
+|Идентификатор процесса сообщения Syslog.
 
 |`syslog.messageid`
-|The messageid the Syslog message.
+|Идентификатор сообщения Syslog.
 
 |`syslog.structuredData`
-|Multiple entries per structuredData of the Syslog message.
+|Много записей для структурированных данных сообщения Syslog.
 
 |`syslog.sender`
-|The hostname of the Syslog server that sent the message.
+|Хостнейм сервера Syslog, который отправил сообщение.
 
 |`syslog.body`
-|The body of the Syslog message, everything after the hostname.
+|Тело сообщения Syslog, все что после хостнейма.
 
 |===
 

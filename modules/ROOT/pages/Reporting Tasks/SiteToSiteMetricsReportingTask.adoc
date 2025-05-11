@@ -1,13 +1,13 @@
 = SiteToSiteMetricsReportingTask 2.2.0
 
-Publishes same metrics as the Ambari Reporting task using the Site To Site protocol.
+Опубликовывает те же метрики, что и задача отчета Ambari, используя протокол Site To Site.
 
 [horizontal]
 *Tags* (Ключевые слова):
 metrics, site, site to site, status
 [horizontal]
 *Input Requirement* (Требования к вводу данных):
- (Обязательно)
+
 [horizontal]
 *Supports Sensitive Dynamic* (Поддержка динамически изменяемых параметров, которые могут содержать конфиденциальную информацию):
  False (Нет) 
@@ -20,14 +20,14 @@ metrics, site, site to site, status
 .*Destination Url*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Destination URL
+*DISPLAY NAME (Отображаемое наименование):*:: Destination URL (Адрес назначения NiFi экземпляра или, если кластеризовано, запятая-разделенный список адресов в формате http(s)://хост:порт/nifi. Этот адрес назначения будет использоваться только для инициации подключения Site-to-Site. Данные, отправляемые этим заданием отчетности, будут распределяться по всем узлам назначения (если кластеризовано).)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The URL of the destination NiFi instance or, if clustered, a comma-separated list of address in the format of http(s)://host:port/nifi. This destination URL will only be used to initiate the Site-to-Site connection. The data sent by this reporting task will be load-balanced on all the nodes of the destination (if clustered).
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -37,14 +37,14 @@ metrics, site, site to site, status
 .*Input Port Name*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Input Port Name
+*DISPLAY NAME (Отображаемое наименование):*:: Input Port Name (Входной порт для доставки данных)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The name of the Input Port to deliver data to.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -54,14 +54,14 @@ metrics, site, site to site, status
 .Ssl Context Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service
+*DISPLAY NAME (Отображаемое наименование):*:: SSL Context Service (Сервис контекста SSL)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The SSL Context Service to use when communicating with the destination. If not specified, communications will not be secure.
+*DESCRIPTION (Описание):*:: Сервис контекста SSL, который следует использовать при взаимодействии с назначением. Если не указан, коммуникации будут недоступны.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -71,14 +71,14 @@ metrics, site, site to site, status
 .*Instance Url*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Instance URL
+*DISPLAY NAME (Отображаемое наименование):*:: Instance URL (URL экземпляра)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The URL of this instance to use in the Content URI of each event.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -88,23 +88,23 @@ metrics, site, site to site, status
 .*Compress Events*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Compress Events
+*DISPLAY NAME (Отображаемое наименование):*:: Compress Events (События сжатия)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Indicates whether or not to compress the data being sent.
+*DESCRIPTION (Описание):*:: Указывает, следует ли сжимать данные, отправляемые.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* true
+* true (истина)
 
-* false
+* false (ложь)
 
 
 [horizontal]
@@ -113,14 +113,14 @@ metrics, site, site to site, status
 .*Communications Timeout*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout
+*DISPLAY NAME (Отображаемое наименование):*:: Communications Timeout (Коммуникационный таймаут)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies how long to wait to a response from the destination before deciding that an error has occurred and canceling the transaction
+*DESCRIPTION (Описание):*:: Указывает, сколько времени ждать ответа от пункта назначения, прежде чем решить, что произошла ошибка и аннулировать транзакцию
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: 
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -130,23 +130,23 @@ metrics, site, site to site, status
 .*S2s-Transport-Protocol*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Transport Protocol
+*DISPLAY NAME (Отображаемое наименование):*:: Transport Protocol (Протокол передачи)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies which transport protocol to use for Site-to-Site communication.
+*DESCRIPTION (Описание):*:: Specifies which transport protocol to use for Site-to-Site communication. (Указывает, какой протокол транспортировки использовать для взаимодействия между сайтами.)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* RAW
+* RAW (Необработанный)
 
-* HTTP
+* HTTP (HTTP)
 
 
 [horizontal]
@@ -155,14 +155,14 @@ metrics, site, site to site, status
 .Proxy-Configuration-Service
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service
+*DISPLAY NAME (Отображаемое наименование):*:: Proxy Configuration Service (Сервис конфигурации прокси)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Proxy Configuration Controller Service to proxy network requests. Supported proxies: HTTP + AuthN
+*DESCRIPTION (Описание):*:: Указывает сервис контроллера прокси-серверов для проксирования сетевых запросов. Поддерживаемые прокси: HTTP + AuthN
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -172,14 +172,14 @@ metrics, site, site to site, status
 .Record-Writer
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Record Writer
+*DISPLAY NAME (Отображаемое наименование):*:: Record Writer (Записыватель записей)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: Specifies the Controller Service to use for writing out the records.
+*DESCRIPTION (Описание):*:: Указывает контроллер сервиса для использования при записи записей.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -189,14 +189,14 @@ metrics, site, site to site, status
 .*Include-Null-Values*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Include Null Values
+*DISPLAY NAME (Отображаемое наименование):*:: Include Null Values (Включать ли значения null в записи)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: Indicate if null values should be included in records. Default will be false
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -214,14 +214,14 @@ metrics, site, site to site, status
 .*S2s-Metrics-Hostname*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Hostname
+*DISPLAY NAME (Отображаемое наименование):*:: Hostname (Хостнейм)
 
 [horizontal]
 *DESCRIPTION (Описание):*:: The Hostname of this NiFi instance to be included in the metrics
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -231,14 +231,14 @@ metrics, site, site to site, status
 .*S2s-Metrics-Application-Id*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Application ID
+*DISPLAY NAME (Отображаемое наименование):*:: Application ID (Приложение ID)
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The Application ID to be included in the metrics
+*DESCRIPTION (Описание):*:: The Application ID to be included in the metrics (Идентификатор приложения, включаемый в метрики)
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Environment variables defined at JVM level and system properties (Переменные окружения, определенные на уровне JVM и системных свойств)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
@@ -248,23 +248,23 @@ metrics, site, site to site, status
 .*S2s-Metrics-Format*
 ************************************************
 [horizontal]
-*DISPLAY NAME (Отображаемое наименование):*:: Output Format
+*DISPLAY NAME (Отображаемое наименование):*:: Формат вывода
 
 [horizontal]
-*DESCRIPTION (Описание):*:: The output format that will be used for the metrics. If Record Format is selected, a Record Writer must be provided. If Ambari Format is selected, the Record Writer property should be empty.
+*DESCRIPTION (Описание):*:: Формат, который будет использоваться для метрик. Если выбран Формат записи, должен быть предоставлен записывающий формат записи. Если выбран Формат Ambari, свойство Record Writer должно быть пустым.
 
 
 [horizontal]
-*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported
+*EXPRESSION LANGUAGE SCOPE (Область видимости языка выражений):*:: Not Supported (Не поддерживается)
 [horizontal]
 *SENSITIVE (Содержит конфиденциальные данные):*::  False (Нет) 
 
 [horizontal]
 *ALLOWABLE VALUES (Допустимые значения):*::
 
-* Ambari Format: Metrics will be formatted according to the Ambari Metrics API. See Additional Details in Usage documentation. 
+* Формат Ambari: Метрики будут отформатированы в соответствии с API метрик Ambari. См. Дополнительные сведения в документации по использованию. 
 
-* Record Format: Metrics will be formatted using the Record Writer property of this reporting task. See Additional Details in Usage documentation to have the description of the default schema. 
+* Формат записи: Метрики будут отформатированы с использованием свойства Record Writer этого задания формирования отчетов. См. Дополнительные сведения в документации по использованию для описания默认схемы. 
 
 
 [horizontal]
@@ -283,6 +283,17 @@ metrics, site, site to site, status
 
 
 
+
+=== Writes Attributes (Записываемые атрибуты)
+
+[cols="1a,2a",options="header",]
+|===
+|Наименование |Описание
+
+|`amqp$appId`
+|Поле идентификатора приложения из AMQP Message
+
+|===
 
 
 
